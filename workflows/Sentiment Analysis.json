@@ -1,0 +1,72 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-29T03:46:55.447Z",
+  "id": "kJHpYXHCuUnTuq2z",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sentiment Analysis",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "dd2a4908-3875-48cc-85f5-b9aeaca708e5",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        540,
+        220
+      ],
+      "webhookId": "b8a69936-2eac-4215-97e9-b10af4ebe4c2"
+    },
+    {
+      "parameters": {},
+      "id": "65701ae7-afe8-418f-aee7-9f60f7d2b28a",
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        760,
+        220
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Gmail Trigger": {
+      "Gmail Trigger": {
+        "lastTimeChecked": 1726721048,
+        "possibleDuplicates": [
+          "19208984528946ed"
+        ]
+      }
+    },
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-10-02T06:15:54.000Z",
+  "versionId": "4c0fc363-b23d-42b5-ad1f-592624bb284a"
+}
