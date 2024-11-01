@@ -1,0 +1,788 @@
+{
+  "active": false,
+  "connections": {
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "storeEmailValues",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "send CTA": {
+      "main": [
+        []
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "readHTMLemail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "storeEmailValues": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "readHTMLemail": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "send?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "send?": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "send CTA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-11T19:51:19.679Z",
+  "id": "nvaB1Zybdrpe5pzz",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SYC 04: Listings → send CTA emails",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.emailMessageMD }}",
+        "destinationKey": "=htmlMessage",
+        "options": {}
+      },
+      "id": "31155d7c-abae-4178-b73b-8479f43d4274",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        5220,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('send?').item.json.seller_email }}",
+        "subject": "={{$('storeEmailValues').item.json.CTA_Subject}}{{$json['make-model']}}",
+        "message": "={{ $('storeEmailValues').item.json.emailheader }}\n{{ $json['make-model'] }}\n{{ $('storeEmailValues').item.json.emailMessageMD }}\n\n{{ $('storeEmailValues').item.json.htmlSignature }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "d1aa0b65-2a51-4343-a8da-20275d9cd416",
+      "name": "send CTA",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        6520,
+        100
+      ],
+      "webhookId": "82f1f781-a6dd-4a24-b7d7-62a568e158fe",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gzaTpmgZNuVcPNVx",
+          "name": "Sergio Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "triggerAtMinute": 15
+            }
+          ]
+        }
+      },
+      "id": "8e0ce4a3-002b-452e-a325-90d2d233fc6b",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        4820,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.city }}",
+                    "rightValue": "={{ \"boston\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "boston"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2ff89338-c7f4-4c3e-ba7e-7ade9eb6ee85",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        6060,
+        300
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8968b547-184e-4e3a-a199-046b66479dde",
+              "name": "CTA_Subject",
+              "value": "={{ $json.emailTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "f1f65433-0b05-4717-87fb-7c2954800243",
+              "name": "emailPhoneNumber",
+              "value": "={{ $json.emailPhoneNumber }}",
+              "type": "string"
+            },
+            {
+              "id": "d94912d0-6aa5-43af-b7b8-3618fc745c1b",
+              "name": "emailMessageMD",
+              "value": "={{ $json.emailMessageMD }}",
+              "type": "string"
+            },
+            {
+              "id": "649b1199-9cd5-48f2-aab3-cc577d54767d",
+              "name": "signSergio",
+              "value": "={{ $json.signSergio }}",
+              "type": "string"
+            },
+            {
+              "id": "81d91235-446d-4fd1-9d7e-06539e21fb7c",
+              "name": "signQRcode",
+              "value": "={{ $json.signQRcode }}",
+              "type": "string"
+            },
+            {
+              "id": "59028a57-927f-4d90-9851-27e0e0935088",
+              "name": "MDbody",
+              "value": "={{ $json.emailMessageMD }}",
+              "type": "string"
+            },
+            {
+              "id": "f9cbd8e5-0963-4cb5-aa35-1b3e0fd5daf8",
+              "name": "htmlSignature",
+              "value": "={{ $json.emailBody }}",
+              "type": "string"
+            },
+            {
+              "id": "22180c21-0277-4b6d-8ec6-d363643acb6e",
+              "name": "emailheader",
+              "value": "={{ $json.emailheader }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4b3621bc-4a57-4b2d-9564-0f833e965476",
+      "name": "storeEmailValues",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5420,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 934981218,
+          "mode": "list",
+          "cachedResultName": "Email + SMS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=934981218"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically",
+              "readRowsUntil": "firstEmptyRow"
+            }
+          },
+          "returnFirstMatch": true
+        }
+      },
+      "id": "483099c3-4483-4e73-9575-cb89236e99c0",
+      "name": "readHTMLemail",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5020,
+        320
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "Listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "SEND",
+              "lookupValue": "={{ \"send\" }}"
+            }
+          ]
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          }
+        }
+      },
+      "id": "dba51a53-3808-426f-9296-d331619a377d",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5640,
+        320
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "17c3ad4f-d7a4-4136-9c2b-7822e863c407",
+              "leftValue": "={{ $json.seller_email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "5aadebd2-2a3a-445e-8379-dd2149d2aa38",
+              "leftValue": "={{ $json.SEND }}",
+              "rightValue": "={{\"send\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "12054404-58d4-43c6-bb46-329adb7c1c5b",
+      "name": "send?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5840,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "Listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "SEND": "={{\"done\"}}",
+            "listing_id": "={{ $('send?').item.json.listing_id }}"
+          },
+          "matchingColumns": [
+            "listing_id"
+          ],
+          "schema": [
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_id",
+              "displayName": "listing_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "listing_url",
+              "displayName": "listing_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_url_extracted_on",
+              "displayName": "listing_url_extracted_on",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "SEND",
+              "displayName": "SEND",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "seller_email",
+              "displayName": "seller_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "seller_phone",
+              "displayName": "seller_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "seller_name",
+              "displayName": "seller_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "year",
+              "displayName": "year",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "make-model",
+              "displayName": "make-model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_description",
+              "displayName": "listing_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_vin",
+              "displayName": "auto_vin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "price",
+              "displayName": "price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "mileage",
+              "displayName": "mileage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fuel_type",
+              "displayName": "fuel_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "cylinders",
+              "displayName": "cylinders",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "drivetrain",
+              "displayName": "drivetrain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "paint",
+              "displayName": "paint",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "transmission",
+              "displayName": "transmission",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "bodytype",
+              "displayName": "bodytype",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_images",
+              "displayName": "auto_images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "id_email",
+              "displayName": "id_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_received",
+              "displayName": "search_alert_received",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_email_subject",
+              "displayName": "search_alert_email_subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "643e9cb6-60a2-44e1-a94b-3e9b57d7a170",
+      "name": "mark SENT",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        6800,
+        100
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0ceccec-299f-4db5-9804-8854e507d906",
+              "name": "make-model",
+              "value": "={{ $json['make-model'].split(' ')[0] }}.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8d2ff5fc-8179-4ba6-bb29-e522939fb90d",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6280,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8b5900ff-416f-43ac-bbb6-62f1b15f5e30",
+      "name": "Email Trigger (IMAP)"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "rbozDLMgZawoZrGa"
+  },
+  "staticData": {
+    "node:Gmail Trigger": {
+      "Gmail Trigger": {
+        "lastTimeChecked": 1726721048,
+        "possibleDuplicates": [
+          "19208984528946ed"
+        ]
+      }
+    },
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        15
+      ]
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-14T19:40:09.151Z",
+      "updatedAt": "2024-10-14T19:40:09.151Z",
+      "id": "FPNqYMyeniG73XRK",
+      "name": "SYC-tool"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-11-01T22:03:41.000Z",
+  "versionId": "3a8af1cd-2533-4620-9e51-041c53a32b75"
+}
