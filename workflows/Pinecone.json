@@ -1,0 +1,213 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vector Store Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS Pinecone Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "SMS Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-04T04:02:44.246Z",
+  "id": "qUx4ZTsDeKjxJqrw",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Pinecone",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "86d244d8-588d-4420-9fd8-f0a1499bee8c",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1140,
+        380
+      ],
+      "webhookId": "c8bd12d5-b3fb-4b41-b7de-53421c0e5a72"
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "options": {}
+      },
+      "id": "09f0ae26-d07d-49f2-8284-b0ac4ff17133",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        1320,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "85eb8194-be07-4207-a6c8-1584ef226f3a",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        600
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "9YNbXAMELJ7HwivA",
+          "name": "OpenAi fr@SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "SMSdatabase"
+      },
+      "id": "541d3ef3-a92e-4091-9edb-6cffc83ebc9c",
+      "name": "Vector Store Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "options": {}
+      },
+      "id": "224dd5a0-f5b5-47af-81ba-d1b9f4ed4728",
+      "name": "SMS Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        740
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "jgEvQKSnssGlMFyC",
+          "name": "PineconeApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "993605ce-d07f-4d4f-8f5b-72bb47735265",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        880
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "9YNbXAMELJ7HwivA",
+          "name": "OpenAi fr@SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "1771e79d-fd00-4600-87c2-e99a1dcfa729",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        760
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "9YNbXAMELJ7HwivA",
+          "name": "OpenAi fr@SYC"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-05T21:11:59.000Z",
+  "versionId": "e42cce6d-05f6-40ad-9e65-3c6fd87c760d"
+}
