@@ -1,0 +1,67 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-02T05:36:15.837Z",
+  "id": "PSAxBP6NT6OqsEHz",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Error - Create it",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://jsonplaceholdsder.typicode.com/users",
+        "options": {}
+      },
+      "id": "65f8ccb8-9b39-4fa6-892e-482b2254cd90",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "4f455ed9-31b5-4749-9668-aa9c6f93b815",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        220
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "rbozDLMgZawoZrGa"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-02T06:14:59.000Z",
+  "versionId": "d727869a-0cd5-4518-94d2-70c1ca40db4c"
+}
