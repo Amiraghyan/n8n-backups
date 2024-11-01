@@ -1,0 +1,305 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inputs": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Cities Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Cities Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Cities Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-09T19:36:48.592Z",
+  "id": "FAkqfcS1582rDFWP",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Hfree: Agent w/ Tool",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### Useful URLs\n \n[Google Console](https://console.cloud.google.com/apis/credentials?authuser=1&project=syc-n8n-sergio)\n[Google Sheets](https://docs.google.com/spreadsheets/d/15ugJPKVJXAOcm8ZYLT0ucs5TJFBxj553hOT1QwAKjcE/edit?gid=2092462723#gid=2092462723)"
+      },
+      "id": "8d2f81dc-5b7c-4d18-a73c-76cb0394c61b",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e084319b-231a-41a0-b259-9b84f4bbfa65",
+              "name": "GSheet_clientID",
+              "value": "749432317801-jniqr7velj4t4f51nhhbpphmts25ak09.apps.googleusercontent.com",
+              "type": "string"
+            },
+            {
+              "id": "167d8d33-f752-4918-9ab6-342516e81944",
+              "name": "=GSheet_clientSecret",
+              "value": "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",
+              "type": "string"
+            },
+            {
+              "id": "6c34e736-adff-47f4-be52-c8200cc177bd",
+              "name": "=citiesPrompt",
+              "value": "Please provide me the name of the city, state, country population and Lat-Lon for all the cities in the Americas with more than 300000 people in JSON format.",
+              "type": "string"
+            },
+            {
+              "id": "b844608e-9e4f-4eaf-88aa-c17c9e8f396c",
+              "name": "citiesGenerate",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fdfc2d3c-6e46-4a54-92b6-2001ced81de6",
+      "name": "Inputs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5656a520-48a0-4d54-9a03-e680ca698888",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8a7a5dfe-0e5c-4730-bc74-1296abcecbc6",
+              "leftValue": "={{ $json.citiesGenerate }}",
+              "rightValue": "={{ true }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "ed302884-bada-401f-a9e1-1b22001e5c0f",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        960,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "eeea06c7-1cb6-4e15-bcc1-7676a238b98a",
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        100
+      ],
+      "credentials": {
+        "groqApi": {
+          "id": "bIj1JQdFAWxUkOtR",
+          "name": "Groq account 3"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "c415c05f-a227-4c70-b99f-94fd86d9a480",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "model": "llama3-70b-8192",
+        "options": {
+          "maxTokensToSample": 4096,
+          "temperature": 0.2
+        }
+      },
+      "id": "d9b51e1e-77f2-493f-9c15-709ef018624f",
+      "name": "Groq Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        220
+      ],
+      "credentials": {
+        "groqApi": {
+          "id": "bIj1JQdFAWxUkOtR",
+          "name": "Groq account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"output\": {\n    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n    \"required\": [\n      \"city\",\n      \"state\",\n      \"country\",\n      \"population\",\n      \"coordinates\"\n    ],\n    \"properties\": {\n      \"city\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"type\": \"string\",\n          \"description\": \"string\"\n        }\n      },\n      \"state\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"type\": \"string\",\n          \"description\": \"string\"\n        }\n      },\n      \"country\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"type\": \"string\",\n          \"description\": \"string\"\n        }\n      },\n      \"population\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"type\": \"string\",\n          \"minimum\": \"number\"\n        }\n      },\n      \"coordinates\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"latitude\": \"number\",\n          \"longitude\": \"number\"\n        },\n        \"required\": [\"latitude\", \"longitude\"]\n      }\n    }\n  }\n}"
+      },
+      "id": "1eeec40a-dbc6-42e3-910b-e02bc41c428e",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1700,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "={{ $('Inputs').item.json.citiesPrompt }}",
+        "hasOutputParser": true,
+        "options": {
+          "humanMessage": "=TOOLS\n------\nAssistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:\n\n{tools}\n\n{format_instructions}\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else):\n\n{{ $json.citiesPrompt }}",
+          "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist."
+        }
+      },
+      "id": "507accca-b24e-4b59-a287-868cddbeba35",
+      "name": "Cities Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        1340,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "model": "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",
+        "options": {}
+      },
+      "id": "5cb136c5-02e4-4390-9992-7f7ecbae1a92",
+      "name": "Hugging Face Inference Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        160
+      ],
+      "credentials": {
+        "huggingFaceApi": {
+          "id": "NOMenfUgnSBsFXYZ",
+          "name": "HuggingFaceApi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-27T02:25:05.000Z",
+  "versionId": "feb07f18-09cd-4d6e-a3ac-cd449aa8e874"
+}
