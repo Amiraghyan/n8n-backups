@@ -1,0 +1,908 @@
+{
+  "active": false,
+  "connections": {
+    "Remove Inbox": {
+      "main": [
+        [
+          {
+            "node": "Mark as Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "API Req",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API_Response": {
+      "main": [
+        [
+          {
+            "node": "Success vs Failed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "add Listing_urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aux": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add Listing_urls": {
+      "main": [
+        [
+          {
+            "node": "Remove Inbox",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "with NO email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Success vs Failed": {
+      "main": [
+        [
+          {
+            "node": "aux",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "with NO email": {
+      "main": [
+        [
+          {
+            "node": "& not \"Removed\"",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "& not \"Removed\"": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API Req": {
+      "main": [
+        [
+          {
+            "node": "API_Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-04T15:52:58.510Z",
+  "id": "0IizTBSeihjaanqo",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SYC tool: no E-mail (need?)",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "removeLabels",
+        "messageId": "={{ $json.id }}",
+        "labelIds": [
+          "INBOX"
+        ]
+      },
+      "id": "b4d4aa15-16e3-4c42-957e-93a3b7b7768c",
+      "name": "Remove Inbox",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        6520,
+        -80
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gzaTpmgZNuVcPNVx",
+          "name": "Sergio Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id }}"
+      },
+      "id": "e4e4fc55-cfa0-4719-9f34-6b1162a1dc01",
+      "name": "Mark as Read",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        6720,
+        -80
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gzaTpmgZNuVcPNVx",
+          "name": "Sergio Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "id": "bef240f2-7686-4cdb-9a99-177ec46a09f4",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        5080,
+        20
+      ],
+      "webhookId": "9edaa8c0-7ecd-431c-a2f0-0d739eb5b0f6"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "CL_listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "listing_id": "={{ $json.listing_id }}",
+            "seller_email": "={{ $json.data.email }}",
+            "year-make-model": "={{ $json.data.postingTitle }}",
+            "conditon": "={{ $json.data.auto_condition }}",
+            "cylinders": "={{ $json.data.auto_cylinders }}",
+            "drivetrain": "={{ $json.data.auto_drivetrain }}",
+            "mileage": "={{ $json.data.auto_miles }}",
+            "title": "={{ $json.data.auto_title_status }}",
+            "transmission": "={{ $json.data.auto_transmission }}",
+            "bodytype": "={{ $json.data.auto_bodytype }}",
+            "auto_images": "={{ $json.data.imageURLs }}",
+            "Status Code": "={{ $json.status }}",
+            "paint": "={{ $json.data.auto_paint }}",
+            "listing_description": "={{ $json.data.postingBody }}",
+            "listing_url_extracted_on": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
+            "fuel_type": "={{ $json.data.fuel_type }}",
+            "auto_vin": "={{ $json.data.auto_vin }}",
+            "asking_price": "={{ $json.data.price }}"
+          },
+          "matchingColumns": [
+            "listing_id"
+          ],
+          "schema": [
+            {
+              "id": "Status Code",
+              "displayName": "Status Code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "id_email",
+              "displayName": "id_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "pref_city",
+              "displayName": "pref_city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_received",
+              "displayName": "search_alert_received",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_email_subject",
+              "displayName": "search_alert_email_subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_id",
+              "displayName": "listing_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "listing_url",
+              "displayName": "listing_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "seller_email",
+              "displayName": "seller_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "listing_url_extracted_on",
+              "displayName": "listing_url_extracted_on",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "year-make-model",
+              "displayName": "year-make-model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "listing_description",
+              "displayName": "listing_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "auto_vin",
+              "displayName": "auto_vin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "conditon",
+              "displayName": "conditon",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "cylinders",
+              "displayName": "cylinders",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "drivetrain",
+              "displayName": "drivetrain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fuel_type",
+              "displayName": "fuel_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "mileage",
+              "displayName": "mileage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "paint",
+              "displayName": "paint",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transmission",
+              "displayName": "transmission",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "bodytype",
+              "displayName": "bodytype",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "asking_price",
+              "displayName": "asking_price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "auto_images",
+              "displayName": "auto_images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "seller_phone",
+              "displayName": "seller_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "seller_name",
+              "displayName": "seller_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "198b7b65-d898-43a1-b7d2-fe717fa31fbc",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5920,
+        140
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b77348e9-67c9-497e-af21-078037d982eb",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "3f44bae2-3197-42b2-97f1-ebb557010cd9",
+              "name": "data",
+              "value": "={{ $json.data }}",
+              "type": "object"
+            },
+            {
+              "id": "a42eb771-c02a-41ed-8497-a782b23be98d",
+              "name": "id_email",
+              "value": "={{ $('with NO email').item.json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "877e9a58-50b5-4238-971a-43404d2eb00f",
+              "name": "listing_id",
+              "value": "={{ $('with NO email').item.json.listing_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9ebca8e8-1ef3-4a32-9338-4e2544a1b524",
+              "name": "listing_url",
+              "value": "={{ $('with NO email').item.json.listing_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "e517f05a-0156-4d0e-98ab-26a32977e6cb",
+      "name": "API_Response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5460,
+        20
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "id_email",
+        "options": {
+          "removeOtherFields": true
+        }
+      },
+      "id": "07fee9cd-1c91-49d7-a5aa-7604f6287172",
+      "name": "Remove Duplicates",
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 1.1,
+      "position": [
+        6120,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "79415838-55e3-4b53-9f20-cc25e78ec5b1",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "7ed7521a-2f21-458c-87b4-e53b42f95aa2",
+              "name": "data",
+              "value": "={{ $json.data }}",
+              "type": "object"
+            },
+            {
+              "id": "7c1c6c76-6601-4683-a72d-6a454e44b7be",
+              "name": "id_email",
+              "value": "={{ $json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "cc5606da-9018-4358-ae7f-8f346d25e2f2",
+              "name": "listing_id",
+              "value": "={{ $json.listing_id }}",
+              "type": "string"
+            },
+            {
+              "id": "e5b9ff32-a3b3-414d-ad70-1f6b70aed12a",
+              "name": "listing_url",
+              "value": "={{ $json.listing_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "c054a464-6752-4de8-a1ab-b9b5053c4392",
+      "name": "aux",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5920,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 25,
+        "options": {}
+      },
+      "id": "f9666a71-7c2b-4b27-a67b-90455aeb9b15",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        4840,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $json.id_email }}",
+        "labelIds": [
+          "Label_6042366710233736031"
+        ]
+      },
+      "id": "abfe92db-ea31-43f2-b057-ce22c81265bc",
+      "name": "add Listing_urls",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        6320,
+        -80
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gzaTpmgZNuVcPNVx",
+          "name": "Sergio Gmail"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 12,
+              "triggerAtMinute": 15
+            }
+          ]
+        }
+      },
+      "id": "4ae1d205-3fa8-4b6e-9cd5-b7c3dfbd7d6a",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        4180,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.data.email }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=Success"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2a7c6f27-ec05-4fa7-b574-d213a0108c51",
+                    "leftValue": "={{ $json.data.email }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Failed"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "id": "af1c8333-881d-45db-96c6-39bfa58d3eb8",
+      "name": "Success vs Failed",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        5660,
+        20
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "CL_listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "seller_email",
+              "lookupValue": "={{\"\"}}"
+            }
+          ]
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          }
+        }
+      },
+      "id": "ec822ee9-2545-4d60-97f6-aa85b7286136",
+      "name": "with NO email",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        4380,
+        20
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ca70017d-26af-409b-9cce-f2e25d863ae4",
+              "leftValue": "={{ $json['Status Code'] }}",
+              "rightValue": "={{(\"Removed\")}}",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "2d43cf0d-2741-4ac5-a0ca-301b462c1235",
+      "name": "& not \"Removed\"",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4580,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "method": "=POST",
+        "url": "http://45.63.50.167:3003/cl_listing",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\" }",
+        "options": {}
+      },
+      "id": "4c8a1279-1ba5-422c-acb8-e724f5d5246e",
+      "name": "API Req",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5260,
+        20
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "waitBetweenTries": 3000,
+      "maxTries": 2,
+      "notesInFlow": false,
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "rbozDLMgZawoZrGa"
+  },
+  "staticData": {
+    "node:Gmail Trigger": {
+      "Gmail Trigger": {
+        "lastTimeChecked": 1726721048,
+        "possibleDuplicates": [
+          "19208984528946ed"
+        ]
+      }
+    },
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        12
+      ]
+    },
+    "node:Schedule Trigger1": {
+      "recurrenceRules": [
+        0
+      ]
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-14T19:40:09.151Z",
+      "updatedAt": "2024-10-14T19:40:09.151Z",
+      "id": "FPNqYMyeniG73XRK",
+      "name": "SYC-tool"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-10-14T19:54:50.000Z",
+  "versionId": "09d1a68a-0c53-4e56-8e06-8b0a46f67b35"
+}
