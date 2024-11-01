@@ -1,0 +1,193 @@
+{
+  "active": false,
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-28T18:35:55.554Z",
+  "id": "X71R2zhpYmeVFwBM",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "VAPI SMS Call Report",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "515a04c4-c6aa-418b-82aa-27a410f535e2",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "7027f19d-77fd-46bc-a994-2c46d3a5080a",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1080,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1779052525,
+          "mode": "list",
+          "cachedResultName": "Seller Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=1779052525"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "calling_number",
+              "displayName": "calling_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "call_id",
+              "displayName": "call_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "start_time",
+              "displayName": "start_time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sentiment",
+              "displayName": "sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SMS_consent",
+              "displayName": "SMS_consent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "90b4f984-dcbc-42e1-83ce-7fd5e82b3472",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [
+        1300,
+        500
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5E2KbPnPPLNsGeAm",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "76c7163a-724d-4266-be57-b5bc79cf5e1e",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "48d57d5d-7630-4e25-8b87-39641207e375",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        860,
+        500
+      ],
+      "webhookId": "76c7163a-724d-4266-be57-b5bc79cf5e1e",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "FUFun6sJ567GnQZA",
+          "name": "Header Auth account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-09-04T19:30:11.000Z",
+  "versionId": "65623d0a-011e-44cc-9a72-7e56f576e995"
+}
