@@ -1,0 +1,305 @@
+{
+  "active": false,
+  "connections": {
+    "read api_param": {
+      "main": [
+        [
+          {
+            "node": "api_param",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "read api_param1": {
+      "main": [
+        [
+          {
+            "node": "api_param1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "api_param1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "read api_param1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-13T03:14:47.841Z",
+  "id": "xFsb5RCsOryEI51P",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SYC hook: readParam",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syc.app.n8n.cloud/webhook-test/process_listing",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \n   \"listing_url\":\"{{ $json.listing_url }}\"\n   \"api_port\":\"3003\",\n   \"delay\":\"15000\",\n   \"get_images\":\"false\"\n}",
+        "options": {}
+      },
+      "id": "90b658bc-a61c-4173-9de4-0f594fbd0bdd",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3008b87c-ebf9-4362-a537-5fbf4fe1198a",
+              "name": "delay",
+              "value": "={{ $json['delay (ms)'] }}",
+              "type": "number"
+            },
+            {
+              "id": "92038037-3e41-49ab-b00a-d3af61894948",
+              "name": "get_images",
+              "value": "={{ $json.get_images }}",
+              "type": "boolean"
+            },
+            {
+              "id": "7e308d21-1cce-4631-bf50-ef7dfde981af",
+              "name": "api_port",
+              "value": "={{ $json.api_port }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "02769cd9-e688-4098-bfd4-38bcdb3d51fa",
+      "name": "api_param",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1155242503,
+          "mode": "list",
+          "cachedResultName": "Dashboard",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=1155242503"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "B1:D2"
+            }
+          },
+          "outputFormatting": {
+            "values": {
+              "general": "UNFORMATTED_VALUE",
+              "date": "FORMATTED_STRING"
+            }
+          },
+          "returnFirstMatch": true
+        }
+      },
+      "id": "652683cc-cace-4e40-8670-dd233e7af9ff",
+      "name": "read api_param",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        540,
+        540
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3008b87c-ebf9-4362-a537-5fbf4fe1198a",
+              "name": "delay",
+              "value": "={{ $json['delay (ms)'] }}",
+              "type": "number"
+            },
+            {
+              "id": "92038037-3e41-49ab-b00a-d3af61894948",
+              "name": "get_images",
+              "value": "={{ $json.get_images }}",
+              "type": "boolean"
+            },
+            {
+              "id": "7e308d21-1cce-4631-bf50-ef7dfde981af",
+              "name": "api_port",
+              "value": "={{ $json.api_port }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0a44618c-1ffc-49af-ab14-ab65e594455c",
+      "name": "api_param1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5140,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1155242503,
+          "mode": "list",
+          "cachedResultName": "Dashboard",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=1155242503"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "B1:D2"
+            }
+          },
+          "outputFormatting": {
+            "values": {
+              "general": "UNFORMATTED_VALUE",
+              "date": "FORMATTED_STRING"
+            }
+          },
+          "returnFirstMatch": true
+        }
+      },
+      "id": "369052a5-6acb-4999-80bf-db1cb6b7abf1",
+      "name": "read api_param1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        4920,
+        260
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \n   \"delay\": {{$json.delay }},\n   \"get_images\": {{ $json.get_images }},\n   \"api_port\": {{ $json.api_port }}\n}",
+        "options": {}
+      },
+      "id": "97b1a085-720a-4214-bfc0-e677c618d7b4",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        5360,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "read_param",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "7f249293-c22f-41b9-9376-cd6c0f463054",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        4700,
+        260
+      ],
+      "webhookId": "e3fd996d-74ee-4b7f-bbc2-867fa168c043"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "rbozDLMgZawoZrGa"
+  },
+  "staticData": {
+    "node:Gmail Trigger": {
+      "Gmail Trigger": {
+        "lastTimeChecked": 1726721048,
+        "possibleDuplicates": [
+          "19208984528946ed"
+        ]
+      }
+    },
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        6
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-10-14T19:35:23.000Z",
+  "versionId": "ce1a8055-5fa2-44ad-9172-a528725e69b0"
+}
