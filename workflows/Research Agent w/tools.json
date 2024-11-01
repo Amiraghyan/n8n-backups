@@ -1,0 +1,448 @@
+{
+  "active": false,
+  "connections": {
+    "Automotive Articles": {
+      "main": [
+        [
+          {
+            "node": "Read values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "codePlaces": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read values1": {
+      "main": [
+        [
+          {
+            "node": "AI Transform",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-27T02:47:47.586Z",
+  "id": "ReDhjkJVCSTweyt8",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Research Agent w/tools",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bb801493-3a74-488c-8908-2da072286022",
+              "name": "model",
+              "value": "={{ $json.model }}",
+              "type": "string"
+            },
+            {
+              "id": "cb1a8815-5892-4bc0-bff5-0fc14d5ae50d",
+              "name": "system",
+              "value": "={{ $json.system }}",
+              "type": "string"
+            },
+            {
+              "id": "5685eb18-456d-40a7-ac77-695d835b4786",
+              "name": "user",
+              "value": "={{ $json.user }}",
+              "type": "string"
+            },
+            {
+              "id": "11ff82e7-e92f-4b12-986d-78efd3335c00",
+              "name": "maxTokens",
+              "value": "={{ $json.maxTokens }}",
+              "type": "string"
+            },
+            {
+              "id": "82fcdcc1-342e-4907-8576-225106c0c929",
+              "name": "temp",
+              "value": "={{ $json.temp }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8c9f0f05-2347-46fa-ae35-188d9e12d5b9",
+      "name": "Read values",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1500,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1K4x_YgKnZ_IaBC_-cxQ807lOVZjkzk-4Uh6VbU1leMo",
+          "mode": "list",
+          "cachedResultName": "syc: Articles",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1K4x_YgKnZ_IaBC_-cxQ807lOVZjkzk-4Uh6VbU1leMo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "cox automotive",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1K4x_YgKnZ_IaBC_-cxQ807lOVZjkzk-4Uh6VbU1leMo/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "19c8a963-070e-4f5b-815c-ec9c3fc27e3f",
+      "name": "Automotive Articles",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1300,
+        -140
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5E2KbPnPPLNsGeAm",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "ea3973b0-e786-4f8a-a6da-6c58ae36c711",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        2060,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "9d48e73d-b94a-49a1-a2ee-255f18bcd78d",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        440
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e01c5e89-ee87-47ec-8d36-dc63d1218e50",
+      "name": "SerpAPI",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        440
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "9bf5ad38-8b63-44aa-957b-192961aa73c9",
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07N15ES9T8",
+          "mode": "list",
+          "cachedResultName": "syc-poc"
+        },
+        "text": "Ran Research",
+        "otherOptions": {
+          "mrkdwn": true
+        }
+      },
+      "id": "eb9adc49-fa09-4f1b-9c66-6c5c03078d70",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slackTool",
+      "typeVersion": 2.2,
+      "position": [
+        2340,
+        440
+      ],
+      "webhookId": "af1e83f6-4695-4a13-b09b-b49b662acd13",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "FGK5m4d08vx8alNh",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Access the output from the previous node\nconst llmOutput = $json.output;\n\n// Format the output as Markdown\nconst markdownOutput = `${llmOutput}`;\n\n// Return the formatted Markdown as a single object\nreturn { json: { markdown: markdownOutput } };"
+      },
+      "id": "0e42a49d-300a-4c74-9ff7-62b0de9bc4d3",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2120,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.markdown }}",
+        "options": {
+          "openLinksInNewWindow": true,
+          "simplifiedAutoLink": true,
+          "backslashEscapesHTMLTags": true,
+          "completeHTMLDocument": true,
+          "ghCodeBlocks": true
+        }
+      },
+      "id": "ad9cdb3d-3e1c-45d5-b96b-965f8b548544",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "fausto@sellyourcar.ai",
+        "subject": "={{ $('Read values').item.json.user }}",
+        "message": "={{ $json.markdown }}",
+        "options": {
+          "appendAttribution": false,
+          "bccList": "sergio@sellyourcar.ai"
+        }
+      },
+      "id": "535e30de-7dae-4773-9b1c-cc7d35946167",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2540,
+        -100
+      ],
+      "webhookId": "2ecd6457-a000-462c-89d4-92a85d1c791b",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "S8KywOjOdJbGBLq1",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e528fbc9-825b-4cbd-8fba-58388613bf81",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        240
+      ],
+      "webhookId": "89b6cc4f-7481-4957-86b7-f4c864151d09"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * @license\n * Copyright 2022 Google LLC. All Rights Reserved.\n * SPDX-License-Identifier: Apache-2.0\n */\nlet map;\nlet centerCoordinates = { lat: 37.4161493, lng: -122.0812166 };\n\nasync function initMap() {\n  const { Map } = await google.maps.importLibrary(\"maps\");\n  const { Place } = await google.maps.importLibrary(\"places\");\n\n  map = new Map(document.getElementById(\"map\"), {\n    center: centerCoordinates,\n    zoom: 14,\n    // [START_EXCLUDE]\n    mapId: \"4504f8b37365c3d0\",\n    // [END_EXCLUDE]\n  });\n  getPlaceDetails(Place);\n}\n\nasync function getPlaceDetails(Place) {\n  const { AdvancedMarkerElement } = await google.maps.importLibrary(\"marker\");\n  // Use place ID to create a new Place instance.\n  const place = new Place({\n    id: \"ChIJN5Nz71W3j4ARhx5bwpTQEGg\",\n    requestedLanguage: \"en\", // optional\n  });\n\n  // Call fetchFields, passing the desired data fields.\n  await place.fetchFields({\n    fields: [\"displayName\", \"formattedAddress\", \"location\"],\n  });\n  // Log the result\n  console.log(place.displayName);\n  console.log(place.formattedAddress);\n\n  // Add an Advanced Marker\n  const marker = new AdvancedMarkerElement({\n    map,\n    position: place.location,\n    title: place.displayName,\n  });\n}\n\ninitMap();\n"
+      },
+      "id": "8d5e02b5-ba60-4862-9c0b-14a895a694ec",
+      "name": "codeMap",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "name": "gPlaces",
+        "description": "Call this tool to find places in a location using Google Places API. The input should look like: name, businessType, lat, lon",
+        "jsCode": "const fetchPlaces = async (name, businessType, lat, lon) => {\n  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=1500&type=${businessType}&keyword=${name}&key=AIzaSyCEPWzjsD5gk4FiJc72Rw2r9pxBTPzREXQ`;\n  const response = await fetch(url);\n  const data = await response.json();\n  return JSON.stringify(data.results); // Convert the results to a string\n};",
+        "specifyInputSchema": true,
+        "jsonSchemaExample": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\": { \"type\": \"string\" },\n    \"businessType\": { \"type\": \"string\" },\n    \"lat\": { \"type\": \"number\" },\n    \"lon\": { \"type\": \"number\" }\n  },\n  \"required\": [\"name\", \"businessType\", \"lat\", \"lon\"]\n}"
+      },
+      "id": "3d5a7ffa-4576-4c14-b57d-901e2b202c15",
+      "name": "codePlaces",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        1780,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "instructions": "Would like to have the tool that uses google places API to find places close by that match that name and return the response with the details about each. The information I would provide as input would be: name of the place, coordinates, type of business, etc\n",
+        "jsCode": "const fetchPlaces = async (name, businessType, lat, lon) => {\n  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=1500&type=${businessType}&keyword=${name}&key=YOUR_API_KEY`;\n  const response = await fetch(url);\n  const data = await response.json();\n  return data.results;\n};\n"
+      },
+      "id": "5afdd2ef-e4db-4a47-9bb4-165ffc4b36de",
+      "name": "AI Transform",
+      "type": "n8n-nodes-base.aiTransform",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bb801493-3a74-488c-8908-2da072286022",
+              "name": "name",
+              "value": "=\"\"",
+              "type": "string"
+            },
+            {
+              "id": "cb1a8815-5892-4bc0-bff5-0fc14d5ae50d",
+              "name": "businessType",
+              "value": "=Groceries",
+              "type": "string"
+            },
+            {
+              "id": "5685eb18-456d-40a7-ac77-695d835b4786",
+              "name": "lat",
+              "value": "=-16.497984",
+              "type": "number"
+            },
+            {
+              "id": "11ff82e7-e92f-4b12-986d-78efd3335c00",
+              "name": "lon",
+              "value": "=-68.092838",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "75bfef95-750c-4c55-853a-a05325f92b6d",
+      "name": "Read values1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2140,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "options": {
+          "returnIntermediateSteps": true
+        }
+      },
+      "id": "1b4a6936-cc12-4593-a3b0-219f02f0e7b4",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        1760,
+        240
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-10-28T20:43:57.000Z",
+  "versionId": "b108dfa5-ea4a-46b4-8c8c-704f99710e35"
+}
