@@ -1,0 +1,673 @@
+{
+  "active": false,
+  "connections": {
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Email Listings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API Req #1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read 1 email at a time (n) URLs": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Email Listings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Email Listings": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Read 1 email at a time (n) URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "API Req #1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-20T17:48:32.924Z",
+  "id": "hgr7eNN1WUwqUR5b",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "WJ: test",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07N15ES9T8",
+          "mode": "list",
+          "cachedResultName": "syc-poc"
+        },
+        "text": "=# Inspect URL\n{{ $json.body.url }}",
+        "otherOptions": {}
+      },
+      "id": "b3525f10-1d70-4cec-80c8-1cd71871650f",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "FGK5m4d08vx8alNh",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1tOGU4lYf4Cddtf1m_2bIJgqdZKIyEImfByn_dV5Bccs",
+          "mode": "list",
+          "cachedResultName": "Wilson n8n API test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tOGU4lYf4Cddtf1m_2bIJgqdZKIyEImfByn_dV5Bccs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "CL_listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_email": "=",
+            "pref_city": "=",
+            "search_alert_email_subject": "=",
+            "listing_id": "=",
+            "listing_url_extracted_on": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
+            "listing_url": "=",
+            "seller_email": "=",
+            "listing_description": "=",
+            "auto_images": "=",
+            "bodytype": "=",
+            "transmission": "=",
+            "title": "=",
+            "paint": "=",
+            "mileage": "=",
+            "drivetrain": "=",
+            "conditon": "=",
+            "cylinders": "=",
+            "year-make-model": "="
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_email",
+              "displayName": "id_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "pref_city",
+              "displayName": "pref_city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "search_alert_email_subject",
+              "displayName": "search_alert_email_subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "listing_id",
+              "displayName": "listing_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "listing_url",
+              "displayName": "listing_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "seller_email",
+              "displayName": "seller_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "listing_url_extracted_on",
+              "displayName": "listing_url_extracted_on",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "year-make-model",
+              "displayName": "year-make-model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "listing_description",
+              "displayName": "listing_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "auto_vin",
+              "displayName": "auto_vin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "conditon",
+              "displayName": "conditon",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "cylinders",
+              "displayName": "cylinders",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "drivetrain",
+              "displayName": "drivetrain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fuel_type",
+              "displayName": "fuel_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "mileage",
+              "displayName": "mileage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "paint",
+              "displayName": "paint",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transmission",
+              "displayName": "transmission",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "bodytype",
+              "displayName": "bodytype",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "asking_price",
+              "displayName": "asking_price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status Code",
+              "displayName": "Status Code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "auto_images",
+              "displayName": "auto_images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "seller_phone",
+              "displayName": "seller_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "seller_name",
+              "displayName": "seller_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66a0b5ba-5bf5-4a15-97b1-d85233fce863",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1200,
+        520
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5E2KbPnPPLNsGeAm",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "88c65297-df94-4a89-9aa0-6e6fecb43ec9",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9e903430-0cd0-42fd-83be-c0d9be853d6a",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        540,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "=POST",
+        "url": "http://45.63.50.167:3000/cl_listing",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"url\": \"{{ $('Read 1 email at a time (n) URLs').item.json.listing_url }}\"}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "7ac912c9-99f0-4584-9e1c-7e9b9a489ff1",
+      "name": "API Req #1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        520
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "waitBetweenTries": 3000,
+      "maxTries": 2,
+      "notesInFlow": true,
+      "onError": "=continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1tOGU4lYf4Cddtf1m_2bIJgqdZKIyEImfByn_dV5Bccs",
+          "mode": "list",
+          "cachedResultName": "Wilson n8n API test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tOGU4lYf4Cddtf1m_2bIJgqdZKIyEImfByn_dV5Bccs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "CL_listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tOGU4lYf4Cddtf1m_2bIJgqdZKIyEImfByn_dV5Bccs/edit#gid=330378290"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "seller_email",
+              "lookupValue": "={{ \"\" }}"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": false
+        }
+      },
+      "id": "2ce45ff7-7595-4d94-b970-236b407afcd4",
+      "name": "Read 1 email at a time (n) URLs",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        0,
+        520
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5E2KbPnPPLNsGeAm",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "=stopWorkflow"
+    },
+    {
+      "parameters": {
+        "batchSize": "={{ 1 }}",
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "91491d2d-5f20-4a76-9a4c-3a0a14498456",
+      "name": "Loop Over Email Listings",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        260,
+        520
+      ],
+      "executeOnce": false,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "cbd031d3-3124-424f-b2d0-c14eb72b61d5",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 10); }}"
+      },
+      "id": "5054508d-9cf0-44ab-824a-2e95f5179bc7",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        740,
+        520
+      ],
+      "webhookId": "4ef4c811-f911-4aef-a032-9f70d3a97706"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac29759e-099f-4c74-ba92-a63645adf184",
+              "name": "ok",
+              "value": "={{ $json.ok }}",
+              "type": "boolean"
+            },
+            {
+              "id": "73ac77d7-fd3d-4529-b4cb-79e946ad5b0c",
+              "name": "data.email",
+              "value": "={{ $json.data.email }}",
+              "type": "string"
+            },
+            {
+              "id": "30707db3-b721-49c9-b5b1-a52a057196ab",
+              "name": "data.postingTitle",
+              "value": "={{ $json.data.postingTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "bc2ba9da-d19b-4966-94c8-a94c23f22e1e",
+              "name": "data.auto_condition",
+              "value": "={{ $json.data.auto_condition }}",
+              "type": "string"
+            },
+            {
+              "id": "37fe78ba-6bf1-4274-9a8d-75c5d5b00392",
+              "name": "data.auto_cylinders",
+              "value": "={{ $json.data.auto_cylinders }}",
+              "type": "string"
+            },
+            {
+              "id": "a8aa9ad1-2c23-4c34-ad29-74322f8e967b",
+              "name": "data.auto_drivetrain",
+              "value": "={{ $json.data.auto_drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "d074d826-5241-42e6-abc2-fb697b4e693c",
+              "name": "data.auto_miles",
+              "value": "={{ $json.data.auto_miles }}",
+              "type": "string"
+            },
+            {
+              "id": "0b27ac9e-2a53-40ae-a4bc-911657e0639e",
+              "name": "data.auto_paint",
+              "value": "={{ $json.data.auto_paint }}",
+              "type": "string"
+            },
+            {
+              "id": "7384eb2c-970b-498f-b584-1a48aa494d7a",
+              "name": "data.auto_title_status",
+              "value": "={{ $json.data.auto_title_status }}",
+              "type": "string"
+            },
+            {
+              "id": "b9a01cb5-f2c8-44c8-8def-09f99f68860b",
+              "name": "data.auto_transmission",
+              "value": "={{ $json.data.auto_transmission }}",
+              "type": "string"
+            },
+            {
+              "id": "4c740f1f-214b-427a-855d-8f47fb5ca808",
+              "name": "data.auto_bodytype",
+              "value": "={{ $json.data.auto_bodytype }}",
+              "type": "string"
+            },
+            {
+              "id": "b4798e64-d185-4be9-9bd8-5f86cfd5d4f2",
+              "name": "data.postingBody",
+              "value": "={{ $json.data.postingBody }}",
+              "type": "string"
+            },
+            {
+              "id": "7a630609-c0df-4de5-81d0-c64390931cb1",
+              "name": "data.imageURLs",
+              "value": "={{ $json.data.imageURLs }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "174e3094-96b6-49d9-93cf-f43c51df8e97",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1200,
+        380
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-30T15:58:03.000Z",
+  "versionId": "8e8ce4c0-dfd7-43d3-bba0-f1ca5556d0bd"
+}
