@@ -12,11 +12,6 @@
         ]
       ]
     },
-    "send CTA": {
-      "main": [
-        []
-      ]
-    },
     "Schedule Trigger": {
       "main": [
         [
@@ -76,7 +71,7 @@
       "main": [
         [
           {
-            "node": "Edit Fields",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -88,6 +83,51 @@
         [
           {
             "node": "send CTA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "send CTA": {
+      "main": [
+        [
+          {
+            "node": "mark SENT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "mark SENT": {
+      "main": [
+        [
+          {
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -114,7 +154,7 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        5220,
+        5000,
         320
       ]
     },
@@ -132,14 +172,14 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        6520,
-        100
+        6480,
+        320
       ],
       "webhookId": "82f1f781-a6dd-4a24-b7d7-62a568e158fe",
       "credentials": {
         "gmailOAuth2": {
-          "id": "gzaTpmgZNuVcPNVx",
-          "name": "Sergio Gmail"
+          "id": "71hNvUn8HywLoGyx",
+          "name": "Bella's account"
         }
       }
     },
@@ -159,7 +199,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        4820,
+        4600,
         320
       ]
     },
@@ -199,7 +239,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        6060,
+        5840,
         300
       ],
       "alwaysOutputData": true,
@@ -266,7 +306,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5420,
+        5200,
         320
       ]
     },
@@ -301,7 +341,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5020,
+        4800,
         320
       ],
       "executeOnce": false,
@@ -351,7 +391,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5640,
+        5420,
         320
       ],
       "alwaysOutputData": true,
@@ -406,7 +446,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        5840,
+        5620,
         320
       ]
     },
@@ -705,8 +745,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        6800,
-        100
+        6280,
+        520
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -735,21 +775,36 @@
       "typeVersion": 3.4,
       "position": [
         6280,
-        300
+        320
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "type": "n8n-nodes-base.emailReadImap",
-      "typeVersion": 2,
+      "id": "06efa277-7ce1-41d8-817f-7dc3de13f727",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
       "position": [
-        0,
-        0
+        6060,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "86c0085d-4995-459b-990c-ca7d72f1a249",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        6480,
+        520
       ],
-      "id": "8b5900ff-416f-43ac-bbb6-62f1b15f5e30",
-      "name": "Email Trigger (IMAP)"
+      "webhookId": "9fa7f27c-8b84-4a39-99bd-d962faf8997b"
     }
   ],
   "pinData": {},
@@ -783,6 +838,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-01T22:03:41.000Z",
-  "versionId": "3a8af1cd-2533-4620-9e51-041c53a32b75"
+  "updatedAt": "2024-11-07T16:21:50.000Z",
+  "versionId": "4a4baf12-a155-4cd0-a3cb-b01cf682a521"
 }
