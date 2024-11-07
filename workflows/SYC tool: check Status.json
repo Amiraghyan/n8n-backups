@@ -50,61 +50,11 @@
         ]
       ]
     },
-    "Status Check 1": {
-      "main": [
-        [
-          {
-            "node": "\"OK\"",
-            "type": "main",
-            "index": 1
-          }
-        ],
-        [
-          {
-            "node": "\"Removed\"",
-            "type": "main",
-            "index": 1
-          }
-        ],
-        [
-          {
-            "node": "API req2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "store_responses1": {
       "main": [
         [
           {
             "node": "Status Check 1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Status Check 3": {
-      "main": [
-        [
-          {
-            "node": "\"OK\"",
-            "type": "main",
-            "index": 3
-          }
-        ],
-        [
-          {
-            "node": "\"Removed\"",
-            "type": "main",
-            "index": 3
-          }
-        ],
-        [
-          {
-            "node": "API req4",
             "type": "main",
             "index": 0
           }
@@ -122,116 +72,11 @@
         ]
       ]
     },
-    "Status Check 4": {
-      "main": [
-        [
-          {
-            "node": "\"OK\"",
-            "type": "main",
-            "index": 4
-          }
-        ],
-        [
-          {
-            "node": "\"Removed\"",
-            "type": "main",
-            "index": 4
-          }
-        ]
-      ]
-    },
     "store_responses4": {
       "main": [
         [
           {
             "node": "Status Check 4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "API req3": {
-      "main": [
-        [
-          {
-            "node": "store_responses3",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "API req4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "API req2": {
-      "main": [
-        [
-          {
-            "node": "store_responses2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "API req3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "API req1": {
-      "main": [
-        [
-          {
-            "node": "store_responses1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "API req2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "API req4": {
-      "main": [
-        [
-          {
-            "node": "store_responses4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "\"Removed\"": {
-      "main": [
-        [
-          {
-            "node": "Status + Re-Work",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "\"OK\"": {
-      "main": [
-        [
-          {
-            "node": "Status + Re-Work",
             "type": "main",
             "index": 0
           }
@@ -271,54 +116,11 @@
         ]
       ]
     },
-    "Status Check ": {
-      "main": [
-        [
-          {
-            "node": "\"OK\"",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "\"Removed\"",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "API req1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "API req": {
-      "main": [
-        [
-          {
-            "node": "store_responses",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "API req1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Not in DB1": {
       "main": [
         [
           {
-            "node": "API req",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -327,20 +129,8 @@
     },
     "Status Check 2": {
       "main": [
-        [
-          {
-            "node": "\"OK\"",
-            "type": "main",
-            "index": 2
-          }
-        ],
-        [
-          {
-            "node": "\"Removed\"",
-            "type": "main",
-            "index": 2
-          }
-        ],
+        [],
+        [],
         [
           {
             "node": "API req3",
@@ -355,6 +145,161 @@
         [
           {
             "node": "Status Check 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "API req",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\"OK\"": {
+      "main": [
+        [
+          {
+            "node": "Status + Re-Work",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Check 1": {
+      "main": [
+        [],
+        [],
+        [
+          {
+            "node": "API req2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API req": {
+      "main": [
+        [
+          {
+            "node": "store_responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API req2": {
+      "main": [
+        [
+          {
+            "node": "store_responses2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API req3": {
+      "main": [
+        [
+          {
+            "node": "store_responses3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API req4": {
+      "main": [
+        [
+          {
+            "node": "store_responses4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\"Removed\"": {
+      "main": [
+        [
+          {
+            "node": "Status + Re-Work",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status + Re-Work": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API req1": {
+      "main": [
+        [
+          {
+            "node": "store_responses1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Check 3": {
+      "main": [
+        [],
+        [],
+        [
+          {
+            "node": "API req4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Check ": {
+      "main": [
+        [
+          {
+            "node": "\"OK\"",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "\"Removed\"",
             "type": "main",
             "index": 0
           }
@@ -550,7 +495,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -540,
+        -860,
         660
       ]
     },
@@ -569,7 +514,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -980,
+        -1300,
         500
       ]
     },
@@ -604,7 +549,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -540,
+        -860,
         460
       ]
     },
@@ -645,7 +590,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -760,
+        -1080,
         460
       ],
       "executeOnce": false,
@@ -841,106 +786,9 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        460,
-        460
+        440,
+        500
       ]
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"ok\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "oK"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"Removed\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Removed"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "a7d1cbd3-772a-44c3-b44b-7739ed1b0455",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"Error\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Error"
-            }
-          ]
-        },
-        "looseTypeValidation": true,
-        "options": {
-          "ignoreCase": true
-        }
-      },
-      "id": "7adaed88-9aba-4440-b72b-27fe3dee06ba",
-      "name": "Status Check 1",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        680,
-        700
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1125,106 +973,9 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        460,
-        700
+        440,
+        740
       ]
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"ok\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "oK"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"Removed\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Removed"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "a7d1cbd3-772a-44c3-b44b-7739ed1b0455",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"Error\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Error"
-            }
-          ]
-        },
-        "looseTypeValidation": true,
-        "options": {
-          "ignoreCase": true
-        }
-      },
-      "id": "47ba16e1-f705-4f68-9151-0d4539e996a8",
-      "name": "Status Check 3",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        680,
-        1200
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1409,8 +1160,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        460,
-        1200
+        440,
+        1240
       ]
     },
     {
@@ -1504,8 +1255,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        680,
-        1440
+        660,
+        1480
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1693,9 +1444,562 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        460,
-        1440
+        440,
+        1480
       ]
+    },
+    {
+      "parameters": {
+        "content": "# check Status (reprocess)\n\nThis process takes data from and old sheet and reprocesses it migrating it into a new sheet.\n\n### **Reads data from:** n8n Seller Leads > OLD\n### **Updates data in:** n8n Seller Leads > OLD\n\n## ONLY Reads data marked with *\"check\"* in the column *Re-work*",
+        "height": 326.8158379137924,
+        "width": 477.3014032294793
+      },
+      "id": "62dfbd68-45ee-4178-b5ff-60d32227f3cb",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1560,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c2b144fe-ad14-4220-8bd4-7de5f6b522ad",
+              "leftValue": "={{ $json['re-work'] }}",
+              "rightValue": "={{ \"check\" }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "342e5dab-ce63-4cd6-9f6b-24d12390ac94",
+      "name": "status_check",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -640,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1845461996,
+          "mode": "list",
+          "cachedResultName": "OLD",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=1845461996"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "re-work",
+              "lookupValue": "={{ \"check\" }}"
+            }
+          ]
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRange"
+            }
+          }
+        }
+      },
+      "id": "bb2c40f9-aa52-4d5e-ae44-7b002bbaedc6",
+      "name": "read OLD",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1080,
+        660
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "xCok8w0s2phO0cKJ",
+          "name": "GSheets S@SYC"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "id": "70bac061-2907-4ad1-b896-e2158f277036",
+      "name": "Not in DB1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -380,
+        480
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"ok\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "oK"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Removed\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Removed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a7d1cbd3-772a-44c3-b44b-7739ed1b0455",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Error\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Error"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "e54e2f31-a763-4a02-a865-d2fd76833008",
+      "name": "Status Check 2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        660,
+        1000
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b77348e9-67c9-497e-af21-078037d982eb",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "40c15a09-1c16-42f7-a89a-940304de2977",
+              "name": "id_email",
+              "value": "={{ $('working copy OLD').item.json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "dd43101d-8984-41de-b86c-5fc5d8a4cfde",
+              "name": "city",
+              "value": "={{ $('working copy OLD').item.json.city }}",
+              "type": "string"
+            },
+            {
+              "id": "92d1bfca-0437-4b7c-af5c-8fc8c554dedb",
+              "name": "search_alert_received",
+              "value": "={{ $('working copy OLD').item.json.search_alert_received }}",
+              "type": "string"
+            },
+            {
+              "id": "6f54d1dc-4684-46cb-9391-21f2d5e6712d",
+              "name": "subject",
+              "value": "={{ $('working copy OLD').item.json.search_alert_email_subject }}",
+              "type": "string"
+            },
+            {
+              "id": "49f8fcfe-0072-44df-b32c-f1134f4f236e",
+              "name": "Send",
+              "value": "={{ $('working copy OLD').item.json.SEND }}",
+              "type": "string"
+            },
+            {
+              "id": "7168437d-9967-41a0-a53a-91399dbc9e1e",
+              "name": "listing_url_extracted_on",
+              "value": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
+              "type": "string"
+            },
+            {
+              "id": "50a4455a-2cae-4a39-8343-639d7c356fd4",
+              "name": "listing_id",
+              "value": "={{ $('read OLD').item.json.listing_id }}",
+              "type": "number"
+            },
+            {
+              "id": "f04e326d-2909-4940-b0c3-fe3977a0350d",
+              "name": "listing_url",
+              "value": "={{ $('read OLD').item.json.listing_url }}",
+              "type": "string"
+            },
+            {
+              "id": "749f8a33-6e6d-4f8f-bef9-f7cd5c10bbcd",
+              "name": "=data.email",
+              "value": "={{ $json.data.email }}",
+              "type": "string"
+            },
+            {
+              "id": "57925ff9-85c9-4f61-8759-fdd9a0d0675b",
+              "name": "data.postingID",
+              "value": "={{ $json.data.postingID }}",
+              "type": "string"
+            },
+            {
+              "id": "9e636b82-c040-438f-8b4f-3e1be7c20dca",
+              "name": "data.postingTitle",
+              "value": "={{ $json.data.postingTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "9939ca37-4134-40ac-a96f-5f806fef5987",
+              "name": "data.auto_condition",
+              "value": "={{ $json.data.auto_condition }}",
+              "type": "string"
+            },
+            {
+              "id": "57dd05a7-4f60-4164-a1c3-782660a3f340",
+              "name": "data.auto_cylinders",
+              "value": "={{ $json.data.auto_cylinders }}",
+              "type": "string"
+            },
+            {
+              "id": "ac9a6bf5-cfd1-4f10-9be6-45f32c8989b1",
+              "name": "data.auto_drivetrain",
+              "value": "={{ $json.data.auto_drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "ebc913d8-23b0-41e1-a1a6-9bf2be910ba7",
+              "name": "data.auto_miles",
+              "value": "={{ $json.data.auto_miles }}",
+              "type": "string"
+            },
+            {
+              "id": "a877e22d-5b0c-44f3-a9b0-51a1d732dc12",
+              "name": "data.auto_paint",
+              "value": "={{ $json.data.auto_paint }}",
+              "type": "string"
+            },
+            {
+              "id": "9cb2f36f-42b3-4142-bdec-2622f7bcdf44",
+              "name": "data.auto_title_status",
+              "value": "={{ $json.data.auto_title_status }}",
+              "type": "string"
+            },
+            {
+              "id": "0b9723a7-a118-4147-957a-f1ab603666e8",
+              "name": "data.auto_transmission",
+              "value": "={{ $json.data.auto_transmission }}",
+              "type": "string"
+            },
+            {
+              "id": "ecc4a420-ed28-4648-ba51-8be1d2e05ba0",
+              "name": "data.auto_bodytype",
+              "value": "={{ $json.data.auto_bodytype }}",
+              "type": "string"
+            },
+            {
+              "id": "cba176ef-a755-4404-8f75-3a148e695669",
+              "name": "data.auto_price",
+              "value": "={{ $json.data.auto_price }}",
+              "type": "string"
+            },
+            {
+              "id": "4be36f39-a869-4874-996d-1e8e48ecf6a5",
+              "name": "data.auto_fuel_type",
+              "value": "={{ $json.data.auto_fuel_type }}",
+              "type": "string"
+            },
+            {
+              "id": "713e26c8-498a-4820-afe9-203974a94d6f",
+              "name": "data.auto_year",
+              "value": "={{ $json.data.auto_year }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec49e22-89f5-49d7-8d71-1c4b8eaa8ea3",
+              "name": "data.auto_make_model",
+              "value": "={{ $json.data.auto_make_model }}",
+              "type": "string"
+            },
+            {
+              "id": "a0f1c319-d0fb-4841-b8bf-ae54ba78d4ce",
+              "name": "data.auto_drive_train",
+              "value": "={{ $json.data.auto_drive_train }}",
+              "type": "string"
+            },
+            {
+              "id": "beecba6b-f3a9-4f0a-b3c5-b020f310f1c6",
+              "name": "data.auto_vin",
+              "value": "={{ $json.data.auto_vin }}",
+              "type": "string"
+            },
+            {
+              "id": "905b2386-9f86-46ee-b642-cd880c081087",
+              "name": "data.postingBody",
+              "value": "={{ $json.data.postingBody }}",
+              "type": "string"
+            },
+            {
+              "id": "f2504adf-b89e-4190-9488-7a2499cf7d46",
+              "name": "data.imageURLs",
+              "value": "={{ $json.data.imageURLs }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "7020b769-c015-4c78-ae2f-32eea432c3e0",
+      "name": "store_responses2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 75,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "1f3c4023-302d-4010-bdbf-59948e0745ba",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -80,
+        480
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d4f73364-756c-4692-9612-f5e53e3a7ae5",
+      "name": "Replace Me",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "087e4d1b-32eb-458b-a581-6393214739dc",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2020,
+        1520
+      ],
+      "webhookId": "de9544a5-88f9-478d-9fbc-4aaee746a146"
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "id": "635e9d4e-1170-47f8-b4d2-0008a38dcfdc",
+      "name": "\"OK\"",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1440,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"ok\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "oK"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Removed\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Removed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a7d1cbd3-772a-44c3-b44b-7739ed1b0455",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Error\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Error"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "7adaed88-9aba-4440-b72b-27fe3dee06ba",
+      "name": "Status Check 1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        660,
+        740
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1706,13 +2010,13 @@
         "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"10000\" }},\n  \"images\": {{ \"false\"}}\n}",
         "options": {}
       },
-      "id": "de4a637a-5a37-4b12-96de-0f2d8980240d",
-      "name": "API req3",
+      "id": "f88bf5ea-2cca-4336-b200-ca1979cff672",
+      "name": "API req",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        200,
-        1220
+        160,
+        500
       ],
       "executeOnce": false,
       "alwaysOutputData": true,
@@ -1720,7 +2024,7 @@
       "waitBetweenTries": 3000,
       "maxTries": 2,
       "notesInFlow": false,
-      "onError": "continueErrorOutput"
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1736,8 +2040,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        200,
-        980
+        180,
+        1000
       ],
       "executeOnce": false,
       "alwaysOutputData": true,
@@ -1745,7 +2049,7 @@
       "waitBetweenTries": 3000,
       "maxTries": 2,
       "notesInFlow": false,
-      "onError": "continueErrorOutput"
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1756,13 +2060,13 @@
         "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"10000\" }},\n  \"images\": {{ \"false\"}}\n}",
         "options": {}
       },
-      "id": "37b73c80-a403-4374-9b1d-6373ca7f4b57",
-      "name": "API req1",
+      "id": "de4a637a-5a37-4b12-96de-0f2d8980240d",
+      "name": "API req3",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
         180,
-        720
+        1240
       ],
       "executeOnce": false,
       "alwaysOutputData": true,
@@ -1770,7 +2074,7 @@
       "waitBetweenTries": 3000,
       "maxTries": 2,
       "notesInFlow": false,
-      "onError": "continueErrorOutput"
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1786,8 +2090,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        200,
-        1460
+        180,
+        1480
       ],
       "executeOnce": false,
       "alwaysOutputData": true,
@@ -1795,7 +2099,7 @@
       "waitBetweenTries": 3000,
       "maxTries": 2,
       "notesInFlow": false,
-      "onError": "continueErrorOutput"
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1806,36 +2110,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1240,
-        1180
-      ]
-    },
-    {
-      "parameters": {
-        "numberInputs": 5
-      },
-      "id": "635e9d4e-1170-47f8-b4d2-0008a38dcfdc",
-      "name": "\"OK\"",
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3,
-      "position": [
-        1240,
-        720
-      ]
-    },
-    {
-      "parameters": {
-        "content": "# Migration (reprocess)\n\nThis process takes data from and old sheet and reprocesses it migrating it into a new sheet.\n\n### **Reads data from:** n8n Seller Leads > OLD\n### **Updates data in:** n8n Seller Leads > OLD\n\n## ONLY Reads data marked with *\"check\"* in the column *Re-work*",
-        "height": 326.8158379137924,
-        "width": 477.3014032294793
-      },
-      "id": "62dfbd68-45ee-4178-b5ff-60d32227f3cb",
-      "name": "Sticky Note",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -1560,
-        -20
+        1220,
+        1200
       ]
     },
     {
@@ -2154,8 +2430,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1480,
-        960
+        1800,
+        1000
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -2166,88 +2442,124 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": false,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 2
-          },
-          "conditions": [
+        "method": "=POST",
+        "url": "={{ \"http://45.63.50.167:3001/cl_listing\" }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"10000\" }},\n  \"images\": {{ \"false\"}}\n}",
+        "options": {}
+      },
+      "id": "37b73c80-a403-4374-9b1d-6373ca7f4b57",
+      "name": "API req1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        160,
+        740
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "waitBetweenTries": 3000,
+      "maxTries": 2,
+      "notesInFlow": false,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
             {
-              "id": "c2b144fe-ad14-4220-8bd4-7de5f6b522ad",
-              "leftValue": "={{ $json['re-work'] }}",
-              "rightValue": "={{ \"check\" }}",
-              "operator": {
-                "type": "string",
-                "operation": "equals"
-              }
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"ok\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "oK"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Removed\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Removed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a7d1cbd3-772a-44c3-b44b-7739ed1b0455",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Error\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Error"
             }
-          ],
-          "combinator": "and"
+          ]
         },
         "looseTypeValidation": true,
         "options": {
           "ignoreCase": true
         }
       },
-      "id": "342e5dab-ce63-4cd6-9f6b-24d12390ac94",
-      "name": "status_check",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
+      "id": "47ba16e1-f705-4f68-9151-0d4539e996a8",
+      "name": "Status Check 3",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
       "position": [
-        -320,
-        660
-      ]
-    },
-    {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
-          "mode": "list",
-          "cachedResultName": "n8n Seller Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 1845461996,
-          "mode": "list",
-          "cachedResultName": "OLD",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=1845461996"
-        },
-        "filtersUI": {
-          "values": [
-            {
-              "lookupColumn": "re-work",
-              "lookupValue": "={{ \"check\" }}"
-            }
-          ]
-        },
-        "options": {
-          "dataLocationOnSheet": {
-            "values": {
-              "rangeDefinition": "specifyRange"
-            }
-          }
-        }
-      },
-      "id": "bb2c40f9-aa52-4d5e-ae44-7b002bbaedc6",
-      "name": "read OLD",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        -760,
-        660
+        660,
+        1240
       ],
-      "executeOnce": false,
       "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "xCok8w0s2phO0cKJ",
-          "name": "GSheets S@SYC"
-        }
-      },
       "onError": "continueRegularOutput"
     },
     {
@@ -2341,336 +2653,11 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        680,
-        460
+        660,
+        500
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "method": "=POST",
-        "url": "={{ \"http://45.63.50.167:3001/cl_listing\" }}",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"10000\" }},\n  \"images\": {{ \"false\"}}\n}",
-        "options": {}
-      },
-      "id": "f88bf5ea-2cca-4336-b200-ca1979cff672",
-      "name": "API req",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        180,
-        480
-      ],
-      "executeOnce": false,
-      "alwaysOutputData": true,
-      "retryOnFail": false,
-      "waitBetweenTries": 3000,
-      "maxTries": 2,
-      "notesInFlow": false,
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "mode": "chooseBranch",
-        "useDataOfInput": 2
-      },
-      "id": "70bac061-2907-4ad1-b896-e2158f277036",
-      "name": "Not in DB1",
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3,
-      "position": [
-        -60,
-        480
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"ok\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "oK"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"Removed\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Removed"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "a7d1cbd3-772a-44c3-b44b-7739ed1b0455",
-                    "leftValue": "={{ $json.status }}",
-                    "rightValue": "={{ \"Error\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Error"
-            }
-          ]
-        },
-        "looseTypeValidation": true,
-        "options": {
-          "ignoreCase": true
-        }
-      },
-      "id": "e54e2f31-a763-4a02-a865-d2fd76833008",
-      "name": "Status Check 2",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        680,
-        960
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b77348e9-67c9-497e-af21-078037d982eb",
-              "name": "status",
-              "value": "={{ $json.status }}",
-              "type": "string"
-            },
-            {
-              "id": "40c15a09-1c16-42f7-a89a-940304de2977",
-              "name": "id_email",
-              "value": "={{ $('working copy OLD').item.json.id_email }}",
-              "type": "string"
-            },
-            {
-              "id": "dd43101d-8984-41de-b86c-5fc5d8a4cfde",
-              "name": "city",
-              "value": "={{ $('working copy OLD').item.json.city }}",
-              "type": "string"
-            },
-            {
-              "id": "92d1bfca-0437-4b7c-af5c-8fc8c554dedb",
-              "name": "search_alert_received",
-              "value": "={{ $('working copy OLD').item.json.search_alert_received }}",
-              "type": "string"
-            },
-            {
-              "id": "6f54d1dc-4684-46cb-9391-21f2d5e6712d",
-              "name": "subject",
-              "value": "={{ $('working copy OLD').item.json.search_alert_email_subject }}",
-              "type": "string"
-            },
-            {
-              "id": "49f8fcfe-0072-44df-b32c-f1134f4f236e",
-              "name": "Send",
-              "value": "={{ $('working copy OLD').item.json.SEND }}",
-              "type": "string"
-            },
-            {
-              "id": "7168437d-9967-41a0-a53a-91399dbc9e1e",
-              "name": "listing_url_extracted_on",
-              "value": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
-              "type": "string"
-            },
-            {
-              "id": "50a4455a-2cae-4a39-8343-639d7c356fd4",
-              "name": "listing_id",
-              "value": "={{ $('read OLD').item.json.listing_id }}",
-              "type": "number"
-            },
-            {
-              "id": "f04e326d-2909-4940-b0c3-fe3977a0350d",
-              "name": "listing_url",
-              "value": "={{ $('read OLD').item.json.listing_url }}",
-              "type": "string"
-            },
-            {
-              "id": "749f8a33-6e6d-4f8f-bef9-f7cd5c10bbcd",
-              "name": "=data.email",
-              "value": "={{ $json.data.email }}",
-              "type": "string"
-            },
-            {
-              "id": "57925ff9-85c9-4f61-8759-fdd9a0d0675b",
-              "name": "data.postingID",
-              "value": "={{ $json.data.postingID }}",
-              "type": "string"
-            },
-            {
-              "id": "9e636b82-c040-438f-8b4f-3e1be7c20dca",
-              "name": "data.postingTitle",
-              "value": "={{ $json.data.postingTitle }}",
-              "type": "string"
-            },
-            {
-              "id": "9939ca37-4134-40ac-a96f-5f806fef5987",
-              "name": "data.auto_condition",
-              "value": "={{ $json.data.auto_condition }}",
-              "type": "string"
-            },
-            {
-              "id": "57dd05a7-4f60-4164-a1c3-782660a3f340",
-              "name": "data.auto_cylinders",
-              "value": "={{ $json.data.auto_cylinders }}",
-              "type": "string"
-            },
-            {
-              "id": "ac9a6bf5-cfd1-4f10-9be6-45f32c8989b1",
-              "name": "data.auto_drivetrain",
-              "value": "={{ $json.data.auto_drivetrain }}",
-              "type": "string"
-            },
-            {
-              "id": "ebc913d8-23b0-41e1-a1a6-9bf2be910ba7",
-              "name": "data.auto_miles",
-              "value": "={{ $json.data.auto_miles }}",
-              "type": "string"
-            },
-            {
-              "id": "a877e22d-5b0c-44f3-a9b0-51a1d732dc12",
-              "name": "data.auto_paint",
-              "value": "={{ $json.data.auto_paint }}",
-              "type": "string"
-            },
-            {
-              "id": "9cb2f36f-42b3-4142-bdec-2622f7bcdf44",
-              "name": "data.auto_title_status",
-              "value": "={{ $json.data.auto_title_status }}",
-              "type": "string"
-            },
-            {
-              "id": "0b9723a7-a118-4147-957a-f1ab603666e8",
-              "name": "data.auto_transmission",
-              "value": "={{ $json.data.auto_transmission }}",
-              "type": "string"
-            },
-            {
-              "id": "ecc4a420-ed28-4648-ba51-8be1d2e05ba0",
-              "name": "data.auto_bodytype",
-              "value": "={{ $json.data.auto_bodytype }}",
-              "type": "string"
-            },
-            {
-              "id": "cba176ef-a755-4404-8f75-3a148e695669",
-              "name": "data.auto_price",
-              "value": "={{ $json.data.auto_price }}",
-              "type": "string"
-            },
-            {
-              "id": "4be36f39-a869-4874-996d-1e8e48ecf6a5",
-              "name": "data.auto_fuel_type",
-              "value": "={{ $json.data.auto_fuel_type }}",
-              "type": "string"
-            },
-            {
-              "id": "713e26c8-498a-4820-afe9-203974a94d6f",
-              "name": "data.auto_year",
-              "value": "={{ $json.data.auto_year }}",
-              "type": "string"
-            },
-            {
-              "id": "5ec49e22-89f5-49d7-8d71-1c4b8eaa8ea3",
-              "name": "data.auto_make_model",
-              "value": "={{ $json.data.auto_make_model }}",
-              "type": "string"
-            },
-            {
-              "id": "a0f1c319-d0fb-4841-b8bf-ae54ba78d4ce",
-              "name": "data.auto_drive_train",
-              "value": "={{ $json.data.auto_drive_train }}",
-              "type": "string"
-            },
-            {
-              "id": "beecba6b-f3a9-4f0a-b3c5-b020f310f1c6",
-              "name": "data.auto_vin",
-              "value": "={{ $json.data.auto_vin }}",
-              "type": "string"
-            },
-            {
-              "id": "905b2386-9f86-46ee-b642-cd880c081087",
-              "name": "data.postingBody",
-              "value": "={{ $json.data.postingBody }}",
-              "type": "string"
-            },
-            {
-              "id": "f2504adf-b89e-4190-9488-7a2499cf7d46",
-              "name": "data.imageURLs",
-              "value": "={{ $json.data.imageURLs }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {
-          "ignoreConversionErrors": true
-        }
-      },
-      "id": "7020b769-c015-4c78-ae2f-32eea432c3e0",
-      "name": "store_responses2",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        460,
-        960
-      ]
     }
   ],
   "pinData": {},
@@ -2704,6 +2691,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-10-30T15:02:24.000Z",
-  "versionId": "92ffd075-daad-4a08-a382-cfdb7c553ab1"
+  "updatedAt": "2024-11-07T04:10:37.000Z",
+  "versionId": "a84850a7-3c95-42b7-937a-c15227f5f743"
 }
