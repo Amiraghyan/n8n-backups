@@ -1,0 +1,225 @@
+{
+  "active": false,
+  "connections": {
+    "Create URL string": {
+      "main": [
+        [
+          {
+            "node": "Get Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Article": {
+      "main": [
+        [
+          {
+            "node": "call Perplexity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "call Perplexity": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create URL string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-27T18:37:05.221Z",
+  "id": "BNfuKTiFv07ApzNq",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "templateId": "1750"
+  },
+  "name": "Tool: Perplexity API",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Create a simple API endpoint\n\nIn this workflow we show how to create a simple API endpoint with `Webhook` and `Respond to Webhook` nodes\n\n",
+        "height": 336.1200845582968,
+        "width": 1146.3766723034269
+      },
+      "id": "20ab53b4-c8bb-4516-8d05-98553b0357d1",
+      "name": "Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "=The URL of the Google search query for the term \"{{$node[\"Webhook\"].json[\"query\"][\"first_name\"]}} {{$node[\"Webhook\"].json[\"query\"][\"last_name\"]}}\" is: {{$json[\"product\"]}}",
+        "options": {}
+      },
+      "id": "637b4a8c-e682-4014-8dbd-517d66051779",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [
+        1280,
+        380
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "=model",
+              "value": "={{ $json.body.model }}"
+            },
+            {
+              "name": "system",
+              "value": "={{ $json.body.system }}"
+            },
+            {
+              "name": "user",
+              "value": "={{ $json.body.user }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "maxToken",
+              "value": "={{ $json.body.max_tokens }}"
+            },
+            {
+              "name": "=temp",
+              "value": "={{ $json.body.temperature }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "id": "03ee5037-7773-4b85-8a32-bed82d7f83fc",
+      "name": "Create URL string",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        620,
+        380
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### How to use it\n1. Make a POST api call to: https://syc.app.n8n.cloud/webhook/perplexity\n2. Setup the body of the call as follows:\n{\n\"model\": \n\"llama-3.1-sonar-small-128k-chat\",\n\"system\": \n\"Summarize the following article in detail.\",\n\"user\": \n\"https://www.coxautoinc.com/market-insights/used-retail-vehicle-sales-september/\",\n\"maxToken\": \n500,\n\"temp\": \n0.5}\n3. The api call will GET the content of the URL first\n4. Then the call to Perplexity will pass the rest of the parameters and the content of the URL to the LLM\n",
+        "height": 363.31678487740135,
+        "width": 1146.3766723034255
+      },
+      "id": "c4603567-aa53-4dd2-9f9f-88984cb2d87c",
+      "name": "Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        573.6467828801929
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Webhook').item.json.body.user }}",
+        "options": {}
+      },
+      "id": "29dfde32-9bd6-46fd-8584-504b5633060b",
+      "name": "Get Article",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": {{ $('Create URL string').item.json.model }},\n  \"messages\": [\n    {\n      \"content\": \"{{ $json.data }}\",\n      \"role\": \"system\"\n    },\n      \"content\": \"article:/n {{ $json.data }}\",\n      \"role\": \"user\"\n    }\n  ],\n  \"max_tokens\": {{ $('Create URL string').item.json.maxToken }},\n  \"temperature\": {{ $('Create URL string').item.json.temp }}\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "f725d8af-56bd-439d-bcde-2d453e27218b",
+      "name": "call Perplexity",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        380
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "perplexity",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "20d510f4-5653-4cca-97e1-8c168181a000",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        400,
+        380
+      ],
+      "webhookId": "093e981e-9016-40bf-b28f-58f73f3da248",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-27T18:37:00.202Z",
+      "updatedAt": "2024-10-27T18:37:00.202Z",
+      "id": "NBpM1Zip3YxyIXLc",
+      "name": "#hook"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-11-16T04:02:35.000Z",
+  "versionId": "981e1425-4a48-49f0-ac2b-83e2a015e42b"
+}
