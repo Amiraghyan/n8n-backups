@@ -5,4 +5,5 @@ This repository is intended to store backups of workflows from different hosted 
 
 ## n8n-workflows
 
-- **workflows** is a folder that contains a backup from SYC.n8n
+- **workflows** folder contains a backup from SYC.n8n
+- **blue&** folder contains a backup from n8n.blueampersand.com
