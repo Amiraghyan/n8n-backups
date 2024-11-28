@@ -1,0 +1,154 @@
+{
+  "active": false,
+  "connections": {
+    "Plotting": {
+      "main": [
+        [
+          {
+            "node": "Base64 encoded plot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Base64 encoded plot": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Plotting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Plotting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-16T04:09:27.990Z",
+  "id": "Repoex7C6iSh95eW",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Tool: QuickChart",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Quick Chart\n",
+        "height": 228.95319251855472,
+        "width": 1130.0275497638554,
+        "color": 5
+      },
+      "id": "a1ceb8a9-d4e2-470a-b394-1bdd02425017",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        880,
+        300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    type:'bar',\n    data: {\n      labels:['Q1','Q2','Q3','Q4'],\n      datasets:[\n        {\n          label:'Revenue',\n          data:[100,200,300,400]\n        }\n      ]\n    }\n  }\n];"
+      },
+      "id": "15458f0c-7cea-4fad-8a96-c75b17059c87",
+      "name": "Plotting",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1540,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://quickchart.io/chart?chart={{ $json[\"plot\"] }}&backgroundColor=white&width=500&height=300&devicePixelRatio=1.0&format=png&version=2.9.3&encoding=base64",
+        "options": {}
+      },
+      "id": "5bbd0e4b-baa3-4876-8774-4e4706b137fa",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1980,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const plot = JSON.stringify($input.first().json);\n\nreturn {\n  plot: Buffer.from(plot).toString('base64')\n};"
+      },
+      "id": "81d2cc0a-50cc-4530-a325-abe9438ba4bc",
+      "name": "Base64 encoded plot",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Repoex7C6iSh95eW",
+          "mode": "list",
+          "cachedResultName": "Tool: QuickChart"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "b43c1033-5f8b-42ca-a0c1-ecabfc507bb1",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "13a0c700-ada0-4563-bcf0-a94520a8f5b9",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        840
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-28T04:04:52.000Z",
+  "versionId": "8516561d-2fce-43ac-893d-9af4c5680517"
+}
