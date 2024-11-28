@@ -1,0 +1,2732 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Parameters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API req3": {
+      "main": [
+        [
+          {
+            "node": "store_responses3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Check 1": {
+      "main": [
+        [
+          {
+            "node": "\"OK\"",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "\"Removed\"",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "API req1": {
+      "main": [
+        [
+          {
+            "node": "store_responses1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "API req2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API req2": {
+      "main": [
+        [
+          {
+            "node": "store_responses2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "API req3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Check 2": {
+      "main": [
+        [
+          {
+            "node": "\"OK\"",
+            "type": "main",
+            "index": 2
+          }
+        ],
+        [
+          {
+            "node": "\"Removed\"",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Status Check 3": {
+      "main": [
+        [
+          {
+            "node": "\"OK\"",
+            "type": "main",
+            "index": 3
+          }
+        ],
+        [
+          {
+            "node": "\"Removed\"",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "API req": {
+      "main": [
+        [
+          {
+            "node": "store_responses",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "API req1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "store_responses2": {
+      "main": [
+        [
+          {
+            "node": "Status Check 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "store_responses3": {
+      "main": [
+        [
+          {
+            "node": "Status Check 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "store_responses1": {
+      "main": [
+        [
+          {
+            "node": "Status Check 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "URL Validation": {
+      "main": [
+        [],
+        [
+          {
+            "node": "API req",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\"Removed\"": {
+      "main": [
+        [
+          {
+            "node": "Status Removed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "store_responses": {
+      "main": [
+        [
+          {
+            "node": "Status Check ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Check ": {
+      "main": [
+        [
+          {
+            "node": "\"OK\"",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "\"Removed\"",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parameters": {
+      "main": [
+        [
+          {
+            "node": "parameters_var",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SendCTAemails": {
+      "main": [
+        [
+          {
+            "node": "CTAemailRecords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CTAemailRecords": {
+      "main": [
+        [
+          {
+            "node": "URL Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\"OK\"": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "BatchSendEmails": {
+      "main": [
+        [
+          {
+            "node": "Status + Send",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Random",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "parameters_var": {
+      "main": [
+        [
+          {
+            "node": "SendCTAemails",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CTAemail_listing": {
+      "main": [
+        [
+          {
+            "node": "CTAemail_prepare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "BatchSendEmails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "URL Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Random": {
+      "main": [
+        [
+          {
+            "node": "CTAemail_listing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CTAemail_prepare": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "BatchSendEmails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status + Send": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-15T19:14:12.698Z",
+  "id": "Yhu4iyZBQZe1coAh",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SYC: Active and Send",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "50bc2cc6-cf91-4fa2-a6a0-aebb7221d18b",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        440,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "=POST",
+        "url": "={{ \"http://45.63.50.167:3001/cl_listing\" }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"10000\" }},\n  \"images\": {{ \"false\"}}\n}",
+        "options": {}
+      },
+      "id": "51a6f110-68e5-4d52-ad61-346e23bae4fc",
+      "name": "API req3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        1220
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "waitBetweenTries": 3000,
+      "maxTries": 2,
+      "notesInFlow": false,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"ok\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "oK"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Removed\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Removed"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "e49d33ed-4b70-4ef1-8997-e084fcbbbac5",
+      "name": "Status Check 1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1640,
+        700
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "=POST",
+        "url": "={{ \"http://45.63.50.167:3001/cl_listing\" }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"10000\" }},\n  \"images\": {{ \"false\"}}\n}",
+        "options": {}
+      },
+      "id": "79f8994d-fd29-4ff6-830c-8ba8cadcafe7",
+      "name": "API req1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        720
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "waitBetweenTries": 3000,
+      "maxTries": 2,
+      "notesInFlow": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "=POST",
+        "url": "={{ \"http://45.63.50.167:3001/cl_listing\" }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"10000\" }},\n  \"images\": {{ \"false\"}}\n}",
+        "options": {}
+      },
+      "id": "0288b91b-eaa3-442f-aecd-37772d935e22",
+      "name": "API req2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        980
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "waitBetweenTries": 3000,
+      "maxTries": 2,
+      "notesInFlow": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"ok\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "oK"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Removed\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Removed"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "61f8fa0e-4e84-477e-8a16-2936319e84a4",
+      "name": "Status Check 2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1640,
+        960
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"ok\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "oK"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Removed\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Removed"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "480a0923-cbd0-4b96-b42a-68a519d166dc",
+      "name": "Status Check 3",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1640,
+        1220
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "=POST",
+        "url": "={{ \"http://45.63.50.167:3001/cl_listing\" }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"url\": \"{{ $json.listing_url }}\",\n  \"delay\": {{ \"1000\" }},\n  \"images\": {{ \"false\"}}\n}",
+        "options": {}
+      },
+      "id": "4bcd4bd3-60e8-4326-ac44-237ef2bea2d4",
+      "name": "API req",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        480
+      ],
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": false,
+      "waitBetweenTries": 3000,
+      "maxTries": 2,
+      "notesInFlow": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b77348e9-67c9-497e-af21-078037d982eb",
+              "name": "status",
+              "value": "={{ $('URL Validation').item.json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "40c15a09-1c16-42f7-a89a-940304de2977",
+              "name": "id_email",
+              "value": "={{ $('URL Validation').item.json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "dd43101d-8984-41de-b86c-5fc5d8a4cfde",
+              "name": "city",
+              "value": "={{ $('URL Validation').item.json.city }}",
+              "type": "string"
+            },
+            {
+              "id": "92d1bfca-0437-4b7c-af5c-8fc8c554dedb",
+              "name": "search_alert_received",
+              "value": "={{ $('URL Validation').item.json.search_alert_received }}",
+              "type": "string"
+            },
+            {
+              "id": "6f54d1dc-4684-46cb-9391-21f2d5e6712d",
+              "name": "subject",
+              "value": "={{ $('URL Validation').item.json.search_alert_email_subject }}",
+              "type": "string"
+            },
+            {
+              "id": "49f8fcfe-0072-44df-b32c-f1134f4f236e",
+              "name": "Send",
+              "value": "={{ $('URL Validation').item.json.SEND }}",
+              "type": "string"
+            },
+            {
+              "id": "7168437d-9967-41a0-a53a-91399dbc9e1e",
+              "name": "listing_url_extracted_on",
+              "value": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
+              "type": "string"
+            },
+            {
+              "id": "50a4455a-2cae-4a39-8343-639d7c356fd4",
+              "name": "listing_id",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "number"
+            },
+            {
+              "id": "f04e326d-2909-4940-b0c3-fe3977a0350d",
+              "name": "listing_url",
+              "value": "=}{{ $('URL Validation').item.json.listing_url }}",
+              "type": "string"
+            },
+            {
+              "id": "749f8a33-6e6d-4f8f-bef9-f7cd5c10bbcd",
+              "name": "=data.email",
+              "value": "={{ $('URL Validation').item.json.seller_email }}",
+              "type": "string"
+            },
+            {
+              "id": "57925ff9-85c9-4f61-8759-fdd9a0d0675b",
+              "name": "data.postingID",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e636b82-c040-438f-8b4f-3e1be7c20dca",
+              "name": "data.postingTitle",
+              "value": "={{ $('URL Validation').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "9939ca37-4134-40ac-a96f-5f806fef5987",
+              "name": "data.auto_condition",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "57dd05a7-4f60-4164-a1c3-782660a3f340",
+              "name": "data.auto_cylinders",
+              "value": "={{ $('URL Validation').item.json.cylinders }}",
+              "type": "string"
+            },
+            {
+              "id": "ac9a6bf5-cfd1-4f10-9be6-45f32c8989b1",
+              "name": "data.auto_drivetrain",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "ebc913d8-23b0-41e1-a1a6-9bf2be910ba7",
+              "name": "data.auto_miles",
+              "value": "={{ $('URL Validation').item.json.mileage }}",
+              "type": "string"
+            },
+            {
+              "id": "a877e22d-5b0c-44f3-a9b0-51a1d732dc12",
+              "name": "data.auto_paint",
+              "value": "={{ $('URL Validation').item.json.paint }}",
+              "type": "string"
+            },
+            {
+              "id": "9cb2f36f-42b3-4142-bdec-2622f7bcdf44",
+              "name": "data.auto_title_status",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "0b9723a7-a118-4147-957a-f1ab603666e8",
+              "name": "data.auto_transmission",
+              "value": "={{ $('URL Validation').item.json.transmission }}",
+              "type": "string"
+            },
+            {
+              "id": "ecc4a420-ed28-4648-ba51-8be1d2e05ba0",
+              "name": "bodytypedata.auto_bodytype",
+              "value": "={{ $('URL Validation').item.json.bodytype }}",
+              "type": "string"
+            },
+            {
+              "id": "cba176ef-a755-4404-8f75-3a148e695669",
+              "name": "data.auto_price",
+              "value": "={{ $('URL Validation').item.json.price }}",
+              "type": "string"
+            },
+            {
+              "id": "4be36f39-a869-4874-996d-1e8e48ecf6a5",
+              "name": "data.auto_fuel_type",
+              "value": "={{ $('URL Validation').item.json.fuel_type }}",
+              "type": "string"
+            },
+            {
+              "id": "713e26c8-498a-4820-afe9-203974a94d6f",
+              "name": "data.auto_year",
+              "value": "={{ $('URL Validation').item.json.year }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec49e22-89f5-49d7-8d71-1c4b8eaa8ea3",
+              "name": "data.auto_make_model",
+              "value": "={{ $('URL Validation').item.json['make-model'] }}",
+              "type": "string"
+            },
+            {
+              "id": "a0f1c319-d0fb-4841-b8bf-ae54ba78d4ce",
+              "name": "data.auto_drive_train",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "beecba6b-f3a9-4f0a-b3c5-b020f310f1c6",
+              "name": "data.auto_vin",
+              "value": "={{ $('URL Validation').item.json.auto_vin }}",
+              "type": "string"
+            },
+            {
+              "id": "905b2386-9f86-46ee-b642-cd880c081087",
+              "name": "data.postingBody",
+              "value": "={{ $('URL Validation').item.json.listing_description }}",
+              "type": "string"
+            },
+            {
+              "id": "f2504adf-b89e-4190-9488-7a2499cf7d46",
+              "name": "data.imageURLs",
+              "value": "={{ $('URL Validation').item.json.auto_images }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "7af498fa-0251-4471-af67-06e225984c8e",
+      "name": "store_responses2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1420,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b77348e9-67c9-497e-af21-078037d982eb",
+              "name": "status",
+              "value": "={{ $('URL Validation').item.json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "40c15a09-1c16-42f7-a89a-940304de2977",
+              "name": "id_email",
+              "value": "={{ $('URL Validation').item.json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "dd43101d-8984-41de-b86c-5fc5d8a4cfde",
+              "name": "city",
+              "value": "={{ $('URL Validation').item.json.city }}",
+              "type": "string"
+            },
+            {
+              "id": "92d1bfca-0437-4b7c-af5c-8fc8c554dedb",
+              "name": "search_alert_received",
+              "value": "={{ $('URL Validation').item.json.search_alert_received }}",
+              "type": "string"
+            },
+            {
+              "id": "6f54d1dc-4684-46cb-9391-21f2d5e6712d",
+              "name": "subject",
+              "value": "={{ $('URL Validation').item.json.search_alert_email_subject }}",
+              "type": "string"
+            },
+            {
+              "id": "49f8fcfe-0072-44df-b32c-f1134f4f236e",
+              "name": "Send",
+              "value": "={{ $('URL Validation').item.json.SEND }}",
+              "type": "string"
+            },
+            {
+              "id": "7168437d-9967-41a0-a53a-91399dbc9e1e",
+              "name": "listing_url_extracted_on",
+              "value": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
+              "type": "string"
+            },
+            {
+              "id": "50a4455a-2cae-4a39-8343-639d7c356fd4",
+              "name": "listing_id",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "number"
+            },
+            {
+              "id": "f04e326d-2909-4940-b0c3-fe3977a0350d",
+              "name": "listing_url",
+              "value": "=}{{ $('URL Validation').item.json.listing_url }}",
+              "type": "string"
+            },
+            {
+              "id": "749f8a33-6e6d-4f8f-bef9-f7cd5c10bbcd",
+              "name": "=data.email",
+              "value": "={{ $('URL Validation').item.json.seller_email }}",
+              "type": "string"
+            },
+            {
+              "id": "57925ff9-85c9-4f61-8759-fdd9a0d0675b",
+              "name": "data.postingID",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e636b82-c040-438f-8b4f-3e1be7c20dca",
+              "name": "data.postingTitle",
+              "value": "={{ $('URL Validation').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "9939ca37-4134-40ac-a96f-5f806fef5987",
+              "name": "data.auto_condition",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "57dd05a7-4f60-4164-a1c3-782660a3f340",
+              "name": "data.auto_cylinders",
+              "value": "={{ $('URL Validation').item.json.cylinders }}",
+              "type": "string"
+            },
+            {
+              "id": "ac9a6bf5-cfd1-4f10-9be6-45f32c8989b1",
+              "name": "data.auto_drivetrain",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "ebc913d8-23b0-41e1-a1a6-9bf2be910ba7",
+              "name": "data.auto_miles",
+              "value": "={{ $('URL Validation').item.json.mileage }}",
+              "type": "string"
+            },
+            {
+              "id": "a877e22d-5b0c-44f3-a9b0-51a1d732dc12",
+              "name": "data.auto_paint",
+              "value": "={{ $('URL Validation').item.json.paint }}",
+              "type": "string"
+            },
+            {
+              "id": "9cb2f36f-42b3-4142-bdec-2622f7bcdf44",
+              "name": "data.auto_title_status",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "0b9723a7-a118-4147-957a-f1ab603666e8",
+              "name": "data.auto_transmission",
+              "value": "={{ $('URL Validation').item.json.transmission }}",
+              "type": "string"
+            },
+            {
+              "id": "ecc4a420-ed28-4648-ba51-8be1d2e05ba0",
+              "name": "bodytypedata.auto_bodytype",
+              "value": "={{ $('URL Validation').item.json.bodytype }}",
+              "type": "string"
+            },
+            {
+              "id": "cba176ef-a755-4404-8f75-3a148e695669",
+              "name": "data.auto_price",
+              "value": "={{ $('URL Validation').item.json.price }}",
+              "type": "string"
+            },
+            {
+              "id": "4be36f39-a869-4874-996d-1e8e48ecf6a5",
+              "name": "data.auto_fuel_type",
+              "value": "={{ $('URL Validation').item.json.fuel_type }}",
+              "type": "string"
+            },
+            {
+              "id": "713e26c8-498a-4820-afe9-203974a94d6f",
+              "name": "data.auto_year",
+              "value": "={{ $('URL Validation').item.json.year }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec49e22-89f5-49d7-8d71-1c4b8eaa8ea3",
+              "name": "data.auto_make_model",
+              "value": "={{ $('URL Validation').item.json['make-model'] }}",
+              "type": "string"
+            },
+            {
+              "id": "a0f1c319-d0fb-4841-b8bf-ae54ba78d4ce",
+              "name": "data.auto_drive_train",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "beecba6b-f3a9-4f0a-b3c5-b020f310f1c6",
+              "name": "data.auto_vin",
+              "value": "={{ $('URL Validation').item.json.auto_vin }}",
+              "type": "string"
+            },
+            {
+              "id": "905b2386-9f86-46ee-b642-cd880c081087",
+              "name": "data.postingBody",
+              "value": "={{ $('URL Validation').item.json.listing_description }}",
+              "type": "string"
+            },
+            {
+              "id": "f2504adf-b89e-4190-9488-7a2499cf7d46",
+              "name": "data.imageURLs",
+              "value": "={{ $('URL Validation').item.json.auto_images }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "6419984b-6fcb-48ed-8166-5234cb2e922f",
+      "name": "store_responses3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1420,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b77348e9-67c9-497e-af21-078037d982eb",
+              "name": "status",
+              "value": "={{ $('URL Validation').item.json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "40c15a09-1c16-42f7-a89a-940304de2977",
+              "name": "id_email",
+              "value": "={{ $('URL Validation').item.json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "dd43101d-8984-41de-b86c-5fc5d8a4cfde",
+              "name": "city",
+              "value": "={{ $('URL Validation').item.json.city }}",
+              "type": "string"
+            },
+            {
+              "id": "92d1bfca-0437-4b7c-af5c-8fc8c554dedb",
+              "name": "search_alert_received",
+              "value": "={{ $('URL Validation').item.json.search_alert_received }}",
+              "type": "string"
+            },
+            {
+              "id": "6f54d1dc-4684-46cb-9391-21f2d5e6712d",
+              "name": "subject",
+              "value": "={{ $('URL Validation').item.json.search_alert_email_subject }}",
+              "type": "string"
+            },
+            {
+              "id": "49f8fcfe-0072-44df-b32c-f1134f4f236e",
+              "name": "Send",
+              "value": "={{ $('URL Validation').item.json.SEND }}",
+              "type": "string"
+            },
+            {
+              "id": "7168437d-9967-41a0-a53a-91399dbc9e1e",
+              "name": "listing_url_extracted_on",
+              "value": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
+              "type": "string"
+            },
+            {
+              "id": "50a4455a-2cae-4a39-8343-639d7c356fd4",
+              "name": "listing_id",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "number"
+            },
+            {
+              "id": "f04e326d-2909-4940-b0c3-fe3977a0350d",
+              "name": "listing_url",
+              "value": "=}{{ $('URL Validation').item.json.listing_url }}",
+              "type": "string"
+            },
+            {
+              "id": "749f8a33-6e6d-4f8f-bef9-f7cd5c10bbcd",
+              "name": "=data.email",
+              "value": "={{ $('URL Validation').item.json.seller_email }}",
+              "type": "string"
+            },
+            {
+              "id": "57925ff9-85c9-4f61-8759-fdd9a0d0675b",
+              "name": "data.postingID",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e636b82-c040-438f-8b4f-3e1be7c20dca",
+              "name": "data.postingTitle",
+              "value": "={{ $('URL Validation').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "9939ca37-4134-40ac-a96f-5f806fef5987",
+              "name": "data.auto_condition",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "57dd05a7-4f60-4164-a1c3-782660a3f340",
+              "name": "data.auto_cylinders",
+              "value": "={{ $('URL Validation').item.json.cylinders }}",
+              "type": "string"
+            },
+            {
+              "id": "ac9a6bf5-cfd1-4f10-9be6-45f32c8989b1",
+              "name": "data.auto_drivetrain",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "ebc913d8-23b0-41e1-a1a6-9bf2be910ba7",
+              "name": "data.auto_miles",
+              "value": "={{ $('URL Validation').item.json.mileage }}",
+              "type": "string"
+            },
+            {
+              "id": "a877e22d-5b0c-44f3-a9b0-51a1d732dc12",
+              "name": "data.auto_paint",
+              "value": "={{ $('URL Validation').item.json.paint }}",
+              "type": "string"
+            },
+            {
+              "id": "9cb2f36f-42b3-4142-bdec-2622f7bcdf44",
+              "name": "data.auto_title_status",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "0b9723a7-a118-4147-957a-f1ab603666e8",
+              "name": "data.auto_transmission",
+              "value": "={{ $('URL Validation').item.json.transmission }}",
+              "type": "string"
+            },
+            {
+              "id": "ecc4a420-ed28-4648-ba51-8be1d2e05ba0",
+              "name": "bodytypedata.auto_bodytype",
+              "value": "={{ $('URL Validation').item.json.bodytype }}",
+              "type": "string"
+            },
+            {
+              "id": "cba176ef-a755-4404-8f75-3a148e695669",
+              "name": "data.auto_price",
+              "value": "={{ $('URL Validation').item.json.price }}",
+              "type": "string"
+            },
+            {
+              "id": "4be36f39-a869-4874-996d-1e8e48ecf6a5",
+              "name": "data.auto_fuel_type",
+              "value": "={{ $('URL Validation').item.json.fuel_type }}",
+              "type": "string"
+            },
+            {
+              "id": "713e26c8-498a-4820-afe9-203974a94d6f",
+              "name": "data.auto_year",
+              "value": "={{ $('URL Validation').item.json.year }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec49e22-89f5-49d7-8d71-1c4b8eaa8ea3",
+              "name": "data.auto_make_model",
+              "value": "={{ $('URL Validation').item.json['make-model'] }}",
+              "type": "string"
+            },
+            {
+              "id": "a0f1c319-d0fb-4841-b8bf-ae54ba78d4ce",
+              "name": "data.auto_drive_train",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "beecba6b-f3a9-4f0a-b3c5-b020f310f1c6",
+              "name": "data.auto_vin",
+              "value": "={{ $('URL Validation').item.json.auto_vin }}",
+              "type": "string"
+            },
+            {
+              "id": "905b2386-9f86-46ee-b642-cd880c081087",
+              "name": "data.postingBody",
+              "value": "={{ $('URL Validation').item.json.listing_description }}",
+              "type": "string"
+            },
+            {
+              "id": "f2504adf-b89e-4190-9488-7a2499cf7d46",
+              "name": "data.imageURLs",
+              "value": "={{ $('URL Validation').item.json.auto_images }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "03493686-1671-4c2b-ab57-6e7881f90ec1",
+      "name": "store_responses1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1420,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 50,
+        "options": {}
+      },
+      "id": "a0e5a014-d103-4162-afb1-3fa16621fc7c",
+      "name": "URL Validation",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        940,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "Listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "listing_id": "={{ $json.listing_id }}",
+            "status": "={{ \"Removed\" }}"
+          },
+          "matchingColumns": [
+            "listing_id"
+          ],
+          "schema": [
+            {
+              "id": "re-work",
+              "displayName": "re-work",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_id",
+              "displayName": "listing_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "listing_url",
+              "displayName": "listing_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_url_extracted_on",
+              "displayName": "listing_url_extracted_on",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "SEND",
+              "displayName": "SEND",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "seller_email",
+              "displayName": "seller_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "seller_phone",
+              "displayName": "seller_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "seller_name",
+              "displayName": "seller_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "year",
+              "displayName": "year",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "make-model",
+              "displayName": "make-model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_description",
+              "displayName": "listing_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_vin",
+              "displayName": "auto_vin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "price",
+              "displayName": "price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "mileage",
+              "displayName": "mileage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fuel_type",
+              "displayName": "fuel_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "cylinders",
+              "displayName": "cylinders",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "drivetrain",
+              "displayName": "drivetrain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "paint",
+              "displayName": "paint",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "transmission",
+              "displayName": "transmission",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "bodytype",
+              "displayName": "bodytype",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_images",
+              "displayName": "auto_images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "id_email",
+              "displayName": "id_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_received",
+              "displayName": "search_alert_received",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_email_subject",
+              "displayName": "search_alert_email_subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED",
+          "locationDefine": {
+            "values": {
+              "headerRow": "={{ 1 }}",
+              "firstDataRow": "={{ 2 }}"
+            }
+          },
+          "useAppend": "={{ true }}"
+        }
+      },
+      "id": "081eeb86-d3da-41a4-8865-88de9554f613",
+      "name": "Status Removed",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2320,
+        1020
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "id": "681a1531-6c32-4493-aabf-76f8f73d149d",
+      "name": "\"Removed\"",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2080,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b77348e9-67c9-497e-af21-078037d982eb",
+              "name": "status",
+              "value": "={{ $('URL Validation').item.json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "40c15a09-1c16-42f7-a89a-940304de2977",
+              "name": "id_email",
+              "value": "={{ $('URL Validation').item.json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "dd43101d-8984-41de-b86c-5fc5d8a4cfde",
+              "name": "city",
+              "value": "={{ $('URL Validation').item.json.city }}",
+              "type": "string"
+            },
+            {
+              "id": "92d1bfca-0437-4b7c-af5c-8fc8c554dedb",
+              "name": "search_alert_received",
+              "value": "={{ $('URL Validation').item.json.search_alert_received }}",
+              "type": "string"
+            },
+            {
+              "id": "6f54d1dc-4684-46cb-9391-21f2d5e6712d",
+              "name": "subject",
+              "value": "={{ $('URL Validation').item.json.search_alert_email_subject }}",
+              "type": "string"
+            },
+            {
+              "id": "49f8fcfe-0072-44df-b32c-f1134f4f236e",
+              "name": "Send",
+              "value": "={{ $('URL Validation').item.json.SEND }}",
+              "type": "string"
+            },
+            {
+              "id": "7168437d-9967-41a0-a53a-91399dbc9e1e",
+              "name": "listing_url_extracted_on",
+              "value": "={{ $now.format('yyyy.LL.dd || hh:mm:ss a')}}",
+              "type": "string"
+            },
+            {
+              "id": "50a4455a-2cae-4a39-8343-639d7c356fd4",
+              "name": "listing_id",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "number"
+            },
+            {
+              "id": "f04e326d-2909-4940-b0c3-fe3977a0350d",
+              "name": "listing_url",
+              "value": "=}{{ $('URL Validation').item.json.listing_url }}",
+              "type": "string"
+            },
+            {
+              "id": "749f8a33-6e6d-4f8f-bef9-f7cd5c10bbcd",
+              "name": "=data.email",
+              "value": "={{ $('URL Validation').item.json.seller_email }}",
+              "type": "string"
+            },
+            {
+              "id": "57925ff9-85c9-4f61-8759-fdd9a0d0675b",
+              "name": "data.postingID",
+              "value": "={{ $('URL Validation').item.json.listing_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e636b82-c040-438f-8b4f-3e1be7c20dca",
+              "name": "data.postingTitle",
+              "value": "={{ $('URL Validation').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "9939ca37-4134-40ac-a96f-5f806fef5987",
+              "name": "data.auto_condition",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "57dd05a7-4f60-4164-a1c3-782660a3f340",
+              "name": "data.auto_cylinders",
+              "value": "={{ $('URL Validation').item.json.cylinders }}",
+              "type": "string"
+            },
+            {
+              "id": "ac9a6bf5-cfd1-4f10-9be6-45f32c8989b1",
+              "name": "data.auto_drivetrain",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "ebc913d8-23b0-41e1-a1a6-9bf2be910ba7",
+              "name": "data.auto_miles",
+              "value": "={{ $('URL Validation').item.json.mileage }}",
+              "type": "string"
+            },
+            {
+              "id": "a877e22d-5b0c-44f3-a9b0-51a1d732dc12",
+              "name": "data.auto_paint",
+              "value": "={{ $('URL Validation').item.json.paint }}",
+              "type": "string"
+            },
+            {
+              "id": "9cb2f36f-42b3-4142-bdec-2622f7bcdf44",
+              "name": "data.auto_title_status",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "0b9723a7-a118-4147-957a-f1ab603666e8",
+              "name": "data.auto_transmission",
+              "value": "={{ $('URL Validation').item.json.transmission }}",
+              "type": "string"
+            },
+            {
+              "id": "ecc4a420-ed28-4648-ba51-8be1d2e05ba0",
+              "name": "bodytypedata.auto_bodytype",
+              "value": "={{ $('URL Validation').item.json.bodytype }}",
+              "type": "string"
+            },
+            {
+              "id": "cba176ef-a755-4404-8f75-3a148e695669",
+              "name": "data.auto_price",
+              "value": "={{ $('URL Validation').item.json.price }}",
+              "type": "string"
+            },
+            {
+              "id": "4be36f39-a869-4874-996d-1e8e48ecf6a5",
+              "name": "data.auto_fuel_type",
+              "value": "={{ $('URL Validation').item.json.fuel_type }}",
+              "type": "string"
+            },
+            {
+              "id": "713e26c8-498a-4820-afe9-203974a94d6f",
+              "name": "data.auto_year",
+              "value": "={{ $('URL Validation').item.json.year }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec49e22-89f5-49d7-8d71-1c4b8eaa8ea3",
+              "name": "data.auto_make_model",
+              "value": "={{ $('URL Validation').item.json['make-model'] }}",
+              "type": "string"
+            },
+            {
+              "id": "a0f1c319-d0fb-4841-b8bf-ae54ba78d4ce",
+              "name": "data.auto_drive_train",
+              "value": "={{ $('URL Validation').item.json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "beecba6b-f3a9-4f0a-b3c5-b020f310f1c6",
+              "name": "data.auto_vin",
+              "value": "={{ $('URL Validation').item.json.auto_vin }}",
+              "type": "string"
+            },
+            {
+              "id": "905b2386-9f86-46ee-b642-cd880c081087",
+              "name": "data.postingBody",
+              "value": "={{ $('URL Validation').item.json.listing_description }}",
+              "type": "string"
+            },
+            {
+              "id": "f2504adf-b89e-4190-9488-7a2499cf7d46",
+              "name": "data.imageURLs",
+              "value": "={{ $('URL Validation').item.json.auto_images }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "7c899d2a-99c4-4c16-9971-101ae4fe690b",
+      "name": "store_responses",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1420,
+        460
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c4edc34f-181f-4bbc-ae89-d006c1ae2cb1",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Ok\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ok"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c08bbc6d-5a43-4c97-9bcc-5bb99a64f322",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "={{ \"Removed\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Removed"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "id": "13b1040b-ee53-45c1-a595-78fe93a31a77",
+      "name": "Status Check ",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1640,
+        460
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 934981218,
+          "mode": "list",
+          "cachedResultName": "Email + SMS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=934981218"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A1:L2"
+            }
+          },
+          "returnFirstMatch": true
+        }
+      },
+      "id": "139f2714-5e8b-4c70-bfd5-cf0595b50f3e",
+      "name": "Parameters",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        680,
+        140
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "94aef03b-3a54-424e-afd8-c0e0578dbc1d",
+      "name": "BatchSendEmails",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2600,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "Listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "SEND",
+              "lookupValue": "={{ \"send\" }}"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": false
+        }
+      },
+      "id": "e4290719-5364-4eb2-ba6d-13b423d1fb30",
+      "name": "SendCTAemails",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        440,
+        400
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ee80b839-4469-45ae-8121-b2683aee899e",
+              "name": "row_number",
+              "value": "={{ $json.row_number }}",
+              "type": "number"
+            },
+            {
+              "id": "2f538d28-f23f-4a22-a29c-22deedc3cf17",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "136a75ba-9c8f-43c7-813b-645bc2c699e7",
+              "name": "city",
+              "value": "={{ $json.city }}",
+              "type": "string"
+            },
+            {
+              "id": "7ae2fea8-b18c-4620-a14a-77e77b63f763",
+              "name": "listing_id",
+              "value": "={{ $json.listing_id }}",
+              "type": "number"
+            },
+            {
+              "id": "caa33a46-7310-490c-add6-23bb4265ad17",
+              "name": "listing_url",
+              "value": "={{ $json.listing_url }}",
+              "type": "string"
+            },
+            {
+              "id": "7e1b2091-8aec-4150-87b5-9ba28c526026",
+              "name": "listing_url_extracted_on",
+              "value": "={{ $json.listing_url_extracted_on }}",
+              "type": "string"
+            },
+            {
+              "id": "ee4b6958-7704-4406-94d3-26ce99792c7d",
+              "name": "SEND",
+              "value": "={{ $json.SEND }}",
+              "type": "string"
+            },
+            {
+              "id": "e4675210-f638-4fc5-b024-68494fc96451",
+              "name": "seller_email",
+              "value": "={{ $json.seller_email }}",
+              "type": "string"
+            },
+            {
+              "id": "054bca4f-7aca-4e78-910f-a6ba5e1048d9",
+              "name": "seller_phone",
+              "value": "={{ $json.seller_phone }}",
+              "type": "string"
+            },
+            {
+              "id": "8b7e34e9-a6fb-4c9f-9373-eba357fcea1f",
+              "name": "seller_name",
+              "value": "={{ $json.seller_name }}",
+              "type": "string"
+            },
+            {
+              "id": "bd9b0a4c-1bae-434b-a034-eb96ddc9e29c",
+              "name": "year",
+              "value": "={{ $json.year }}",
+              "type": "number"
+            },
+            {
+              "id": "b8d94ebb-65a3-473e-a0b3-79b588e9a9aa",
+              "name": "make-model",
+              "value": "={{ $json['make-model'] }}",
+              "type": "string"
+            },
+            {
+              "id": "34383a08-9d0e-4f0e-9526-f81fefc20ddc",
+              "name": "listing_description",
+              "value": "={{ $json.listing_description }}",
+              "type": "string"
+            },
+            {
+              "id": "7f4930b6-05a5-4823-ae38-81a6860fad48",
+              "name": "auto_vin",
+              "value": "={{ $json.auto_vin }}",
+              "type": "string"
+            },
+            {
+              "id": "8a9fac1e-7518-47a0-8e62-70e5ca6ba619",
+              "name": "price",
+              "value": "={{ $json.price }}",
+              "type": "number"
+            },
+            {
+              "id": "c6c328c1-31de-4395-9be3-8af9311ac4fc",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "6ccbc18b-a5a9-4378-b972-d752f6c9f3de",
+              "name": "mileage",
+              "value": "={{ $json.mileage }}",
+              "type": "number"
+            },
+            {
+              "id": "702cae6a-59e4-4875-a46a-be0dc8a158e8",
+              "name": "fuel_type",
+              "value": "={{ $json.fuel_type }}",
+              "type": "string"
+            },
+            {
+              "id": "0cfad64f-520f-4540-b08c-0231e755ab33",
+              "name": "cylinders",
+              "value": "={{ $json.cylinders }}",
+              "type": "string"
+            },
+            {
+              "id": "b09faf73-0684-4f46-a304-bcd5b0ad9ead",
+              "name": "drivetrain",
+              "value": "={{ $json.drivetrain }}",
+              "type": "string"
+            },
+            {
+              "id": "bfaba6c4-c89e-4cc7-a5da-431efa46cd17",
+              "name": "paint",
+              "value": "={{ $json.paint }}",
+              "type": "string"
+            },
+            {
+              "id": "3cff83b6-878f-415c-b6e4-77e5c376cc2b",
+              "name": "transmission",
+              "value": "={{ $json.transmission }}",
+              "type": "string"
+            },
+            {
+              "id": "acfe4ca4-bcd3-4450-a50f-e7a5b8d88ad3",
+              "name": "bodytype",
+              "value": "={{ $json.bodytype }}",
+              "type": "string"
+            },
+            {
+              "id": "4b1f9c70-b93e-4b07-9421-e022d074cc44",
+              "name": "auto_images",
+              "value": "={{ $json.auto_images }}",
+              "type": "string"
+            },
+            {
+              "id": "f8c82e07-6d05-450d-883c-fed1b8f04a53",
+              "name": "id_email",
+              "value": "={{ $json.id_email }}",
+              "type": "string"
+            },
+            {
+              "id": "d2ba8848-b05c-47b0-b5ab-9b502627b00e",
+              "name": "search_alert_received",
+              "value": "={{ $json.search_alert_received }}",
+              "type": "string"
+            },
+            {
+              "id": "add87751-46bd-4259-b6f3-bd3f2111f635",
+              "name": "search_alert_email_subject",
+              "value": "={{ $json.search_alert_email_subject }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3fc96561-f5f7-4b3c-bda5-e46e1d356b4f",
+      "name": "CTAemailRecords",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        680,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "id": "b552f909-e0e6-4c1c-ade9-b023192cf635",
+      "name": "\"OK\"",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2140,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f2752982-10ff-4f5a-92b7-2de6a4fdf89c",
+              "name": "emailTitle",
+              "value": "={{ $json.emailTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "c598d562-bb55-4fd4-a6e0-0a822b3bc254",
+              "name": "emailPhoneNumber",
+              "value": "={{ $json.emailPhoneNumber }}",
+              "type": "string"
+            },
+            {
+              "id": "fdc36aaa-bfa3-4fef-b9ae-011b259ed158",
+              "name": "emailMessageMD",
+              "value": "={{ $json.emailMessageMD }}",
+              "type": "string"
+            },
+            {
+              "id": "c26590da-fe9d-4692-afd0-e31b92451cc6",
+              "name": "emailBody",
+              "value": "={{ $json.emailBody }}",
+              "type": "string"
+            },
+            {
+              "id": "4af77662-b4f3-4cc4-9285-041bda4be686",
+              "name": "emailheader",
+              "value": "={{ $json.emailheader }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2110e414-3e61-4836-a747-0defc7f3a5e1",
+      "name": "parameters_var",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ee80b839-4469-45ae-8121-b2683aee899e",
+              "name": "email_index",
+              "value": "={{ $json.index }}",
+              "type": "number"
+            },
+            {
+              "id": "2f538d28-f23f-4a22-a29c-22deedc3cf17",
+              "name": "fromEmail",
+              "value": "={{ $json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "136a75ba-9c8f-43c7-813b-645bc2c699e7",
+              "name": "toEmail",
+              "value": "={{ $('BatchSendEmails').item.json.data.email }}",
+              "type": "string"
+            },
+            {
+              "id": "bd9b0a4c-1bae-434b-a034-eb96ddc9e29c",
+              "name": "year",
+              "value": "={{ $('BatchSendEmails').item.json.data.auto_year }}",
+              "type": "number"
+            },
+            {
+              "id": "b8d94ebb-65a3-473e-a0b3-79b588e9a9aa",
+              "name": "=make_model",
+              "value": "={{ $('BatchSendEmails').item.json.data.auto_make_model.split(' ')[0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e100d30c-8bdd-47a8-8b78-d5e27edac2b1",
+      "name": "CTAemail_listing",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3020,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "c02ea2e2-cf6c-4ea3-8947-6231f3ed6f02",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2320,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "id": "72b9a0b1-5aa0-4e25-8b14-6c5d7c50a76a",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3620,
+        1260
+      ],
+      "webhookId": "08e5b455-6d02-46fb-9bfd-75a66c50ecb1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Array of 10 email addresses\nconst emailAddresses = [\n    \"BellaPuno@pm.me\",\n    \"BellaPdos@pm.me\",\n    \"BellaPtres@pm.me\",\n    \"BellaPcuatro@proton.me\",\n    \"BellaPcinco@proton.me\",\n    \"BellaPseis@proton.me\",\n    \"BellaPsiete@proton.me\",\n    \"BellaPocho@proton.me\",\n    \"BellaPnueve@proton.me\",\n    \"BellaPdiez@proton.me\"\n];\n\n// Generate a random index between 1 and 10 (inclusive)\nconst randomIndex = Math.floor(Math.random() * 10) + 1;\n\n// Select the email address using the random index\nconst selectedEmail = emailAddresses[randomIndex - 1]; // Adjust for 0-based index\n\n// Return the index and the selected email address\nreturn {\n    index: randomIndex,\n    email: selectedEmail\n};\n"
+      },
+      "id": "754af167-5ce0-4be9-bcf5-9a2069ad7ac1",
+      "name": "Random",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f538d28-f23f-4a22-a29c-22deedc3cf17",
+              "name": "fromEmail",
+              "value": "={{ $json.fromEmail }}",
+              "type": "string"
+            },
+            {
+              "id": "136a75ba-9c8f-43c7-813b-645bc2c699e7",
+              "name": "toEmail",
+              "value": "={{ $('\"OK\"').item.json.data.email }}",
+              "type": "string"
+            },
+            {
+              "id": "bd9b0a4c-1bae-434b-a034-eb96ddc9e29c",
+              "name": "email_subject",
+              "value": "=Your {{ $json.year }} {{ $json.make_model }}",
+              "type": "number"
+            },
+            {
+              "id": "b8d94ebb-65a3-473e-a0b3-79b588e9a9aa",
+              "name": "=email_body",
+              "value": "={{ $('Parameters').item.json.emailheader }} {{ $json.year }} {{ $json.make_model }} {{ $('Parameters').item.json.emailBody }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "id": "1f9dbc41-b7c7-4b6a-8d9e-2f3baac190b4",
+      "name": "CTAemail_prepare",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3240,
+        400
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "amount": "={{ 1 + 2*($('Random').item.json.index/10) }}",
+        "unit": "minutes"
+      },
+      "id": "2648c9a5-9555-47b3-87d6-a2382d132756",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3240,
+        660
+      ],
+      "webhookId": "efa53afb-d71e-4fce-8eae-c09d9603be03"
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $json.fromEmail }}",
+        "toEmail": "faustoaramirez.fr@gmail.com",
+        "subject": "={{ $json.email_subject }}",
+        "html": "={{ $json.email_body }}",
+        "options": {
+          "appendAttribution": false,
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "47dc4020-81bb-4a29-9385-b84b5791a0bf",
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        3020,
+        660
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "Dl8B2JzKzTKkFx5i",
+          "name": "SMTP account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10",
+          "mode": "list",
+          "cachedResultName": "n8n Seller Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330378290,
+          "mode": "list",
+          "cachedResultName": "Listings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mIesbzTICgrQRr2qB68U--LrsgAvz50ejDJ09-P1a10/edit#gid=330378290"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "listing_id": "={{ $json.listing_id }}",
+            "status": "={{ \"Ok\" }}",
+            "SEND": "={{ \"DONE\" }}",
+            "seller_email": "={{ $('Merge').item.json.data.email }}"
+          },
+          "matchingColumns": [
+            "listing_id"
+          ],
+          "schema": [
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_id",
+              "displayName": "listing_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "listing_url",
+              "displayName": "listing_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_url_extracted_on",
+              "displayName": "listing_url_extracted_on",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "SEND",
+              "displayName": "SEND",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "seller_email",
+              "displayName": "seller_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "seller_phone",
+              "displayName": "seller_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "seller_name",
+              "displayName": "seller_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "year",
+              "displayName": "year",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "make-model",
+              "displayName": "make-model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "listing_description",
+              "displayName": "listing_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_vin",
+              "displayName": "auto_vin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "price",
+              "displayName": "price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "mileage",
+              "displayName": "mileage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fuel_type",
+              "displayName": "fuel_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "cylinders",
+              "displayName": "cylinders",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "drivetrain",
+              "displayName": "drivetrain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "paint",
+              "displayName": "paint",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "transmission",
+              "displayName": "transmission",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "bodytype",
+              "displayName": "bodytype",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_images",
+              "displayName": "auto_images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "id_email",
+              "displayName": "id_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_received",
+              "displayName": "search_alert_received",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "search_alert_email_subject",
+              "displayName": "search_alert_email_subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED",
+          "locationDefine": {
+            "values": {
+              "headerRow": "={{ 1 }}",
+              "firstDataRow": "={{ 2 }}"
+            }
+          },
+          "useAppend": "={{ true }}"
+        }
+      },
+      "id": "86a872c4-9ba2-4a40-aa12-a95b0290a8f6",
+      "name": "Status + Send",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3360,
+        140
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-16T02:44:20.000Z",
+  "versionId": "4c23ba36-b920-48d8-9502-38eb8b7cbbfc"
+}
