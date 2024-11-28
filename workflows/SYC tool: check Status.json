@@ -1886,7 +1886,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2020,
+        1920,
         1520
       ],
       "webhookId": "de9544a5-88f9-478d-9fbc-4aaee746a146"
@@ -1900,8 +1900,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1440,
-        660
+        1360,
+        500
       ]
     },
     {
@@ -2110,8 +2110,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1220,
-        1200
+        1260,
+        980
       ]
     },
     {
@@ -2430,7 +2430,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1800,
+        1720,
         1000
       ],
       "credentials": {
@@ -2691,6 +2691,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-11-07T04:10:37.000Z",
-  "versionId": "a84850a7-3c95-42b7-937a-c15227f5f743"
+  "updatedAt": "2024-11-08T01:20:25.000Z",
+  "versionId": "540e6ba4-47bc-4423-9187-dff2a2444a05"
 }
