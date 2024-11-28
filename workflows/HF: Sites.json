@@ -1,0 +1,1668 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Country",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia": {
+      "ai_tool": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI1": {
+      "ai_tool": [
+        [
+          {
+            "node": "City-State-Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "City-State-Country",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia1": {
+      "ai_tool": [
+        [
+          {
+            "node": "City-State-Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Country": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "City-State-Country",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "City-State-Country": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "City-State-Country",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        []
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML1": {
+      "main": [
+        [
+          {
+            "node": "Split Out2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out2": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information Extractor1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-12T02:23:34.481Z",
+  "id": "kw8B7DBYsgsiBXyf",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "HF: Sites",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "23437d53-981d-48a6-b856-c92e3da6ddab",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json['Area Website'] }}",
+        "options": {}
+      },
+      "id": "f14db942-0831-4dcb-b4c5-54b0d7e6b0e3",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.output }}",
+        "options": {}
+      },
+      "id": "107e2e4c-d901-47ed-ab8a-0ba062e0cbd4",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ",
+          "mode": "list",
+          "cachedResultName": "Humanifree Prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 277172399,
+          "mode": "list",
+          "cachedResultName": "AA Mtg Sites",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit#gid=277172399"
+        },
+        "options": {}
+      },
+      "id": "a9df6b2a-d3da-43e6-966b-1862407da03e",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        160,
+        540
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "Website, ['Area Website']",
+        "include": "allOtherFields",
+        "options": {
+          "destinationFieldName": "Groups"
+        }
+      },
+      "id": "87dba004-c6ef-4cf6-8710-524adee10f87",
+      "name": "Split Out1",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2060,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ",
+          "mode": "list",
+          "cachedResultName": "Humanifree Prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 277172399,
+          "mode": "list",
+          "cachedResultName": "AA Mtg Sites",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit#gid=277172399"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Country",
+              "displayName": "Country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "State",
+              "displayName": "State",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "County",
+              "displayName": "County",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "City",
+              "displayName": "City",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "89713b61-ebdb-4788-bbd2-82e70616cf56",
+      "name": "Google Sheets2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1400,
+        -280
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f280e136-751e-4133-aa83-960b360dd371",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        -220
+      ],
+      "webhookId": "feb8b9fa-8ed7-45ec-8394-24830e79b9c9"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "3f544b9d-95cc-4d50-8139-6cdd61370d3f",
+      "name": "SerpAPI",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        780,
+        120
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "1e26aa13-aba6-49e3-b8a3-3089ace4a761",
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        920,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "15462f95-97f3-415a-901a-13d6a62d80ad",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        620,
+        120
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d01794b1-c320-4ec5-9702-ef6cf37a50ac",
+      "name": "SerpAPI1",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        240
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "id": "7857e678-4daf-48e3-b336-cff4df8beca1",
+      "name": "OpenAI Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        240
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "options": {}
+      },
+      "id": "441cc8dc-0f2b-4d98-ad1e-fffeb23ab400",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1960,
+        -140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "e76b2424-1259-4872-b4a7-0d4c07ce41b9",
+      "name": "Wikipedia1",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"country\": \"usa\"\n}"
+      },
+      "id": "11f5e680-fc8c-4ca7-a557-f1c686a12b48",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1080,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Produce a list of the countries in the Americas. Exclusively provide the name of each of the countries without any additional description or commentary. Have each country be separated by a coma.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are a helpful assistant which has access to Search, Wikipedia and Google Sheet tools. Exclusively provide the name of each of the countries without any additional description or commentary."
+        }
+      },
+      "id": "b74dc5c5-8a33-4efb-8fc5-214d2f2e1777",
+      "name": "Country",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        740,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst parsedCountries = items.flatMap((item) => {\n  const countries = item?.json?.output?.countryList.split(\",\");\n  return countries.map((country) => ({\n    json: { country: country.trim() },\n  }));\n});\nreturn parsedCountries;\n"
+      },
+      "id": "c02030ea-92b8-4405-bc53-3236dc10af32",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "64674a3c-7347-4360-812d-bf359f3a52c1",
+      "name": "Loop Over Items1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Take the country provided and produce a list of state-city-population for cities with a population larger than 250000 inhabitants. \n\nDo not expand with any additional information or commentary. Only produce a JSON format containing fields for country, state, city and population.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "09b7d6d6-d2a7-435c-a9f1-ae374830e378",
+      "name": "City-State-Country",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1960,
+        20
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  {\"country\": \"United States\",\n  \"state\": \"California\",\n   \"city\": \"Los Angeles\", \"population\": \"3,898,747\"},\n  {\"country\": \"United States\",\n  \"state\": \"California\",\n   \"city\": \"San Diego\", \"population\": \"1,898,747\"}   \n}"
+      },
+      "id": "a30933ae-0a18-4d97-bf5e-05cd20bb4fd9",
+      "name": "Code1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        2300,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ",
+          "mode": "list",
+          "cachedResultName": "Humanifree Prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 617269623,
+          "mode": "list",
+          "cachedResultName": "AA Meetings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit#gid=617269623"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Country": "={{ $('Google Sheets1').item.json.Country }}",
+            "County": "={{ $('Google Sheets1').item.json.County }}",
+            "Time ": "={{ $json.formattedTime }}",
+            "Name": "={{ $json.name }}",
+            "Location": "={{ $json.location }}",
+            "Address": "={{ $json.address }}",
+            "Region": "={{ $json.region }}",
+            "Type": "={{ $json.type }}",
+            "Details_Url": "={{ $json.detailsUrl }}",
+            "State": "={{ $('Google Sheets1').item.json.State }}",
+            "City": "={{ $('Google Sheets1').item.json.City }}",
+            "AA Website": "={{ $('Google Sheets1').item.json['Area Website'] }}",
+            "Day": "={{ $json.dayName }}",
+            "Area": "={{ $('Google Sheets1').item.json.Area }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Country",
+              "displayName": "Country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "State",
+              "displayName": "State",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "County",
+              "displayName": "County",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "City",
+              "displayName": "City",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Area",
+              "displayName": "Area",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Day",
+              "displayName": "Day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Time ",
+              "displayName": "Time ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Region",
+              "displayName": "Region",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Details_Url",
+              "displayName": "Details_Url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AA Website",
+              "displayName": "AA Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8ed5402b-fb56-4fd3-b8a1-ddf644a7470c",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1420,
+        880
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "q6VF6y0ZbTwykyn7",
+          "name": "G Sheets fr@SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "= {{ $json.data }}",
+              "cssSelector": "=tr",
+              "returnValue": "html",
+              "returnArray": true
+            }
+          ]
+        },
+        "options": {
+          "trimValues": true,
+          "cleanUpText": true
+        }
+      },
+      "id": "6aab862a-bf13-4ed5-9cc4-5cb4196d4e61",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1180,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a1e41c0b-3d27-452b-9de2-e0af48d58f8b",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        720,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "include": "allOtherFields",
+        "options": {
+          "destinationFieldName": "split"
+        }
+      },
+      "id": "5ba0f749-034e-40ff-92aa-53b92e62f039",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        660
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {
+          "maxTokens": 16000,
+          "responseFormat": "json_object",
+          "temperature": 0,
+          "timeout": 100000
+        }
+      },
+      "id": "ffbd1e84-708c-40f4-a8dd-1c4588b21a47",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        780,
+        920
+      ],
+      "notesInFlow": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "WYs1nR5296TSQkXM",
+          "name": "OpenAi account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "={{ $('HTTP Request').item.json.data }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "Meeting Name",
+              "description": "name of the Group | Meeting"
+            },
+            {
+              "name": "Location",
+              "description": "Where does the meeting take place"
+            },
+            {
+              "name": "Address",
+              "description": "address of the group where the meeting takles place"
+            },
+            {
+              "name": "Region",
+              "description": "Neighborhood where the meeting is located"
+            },
+            {
+              "name": "Meeting type",
+              "description": "Attributes of the meeting"
+            },
+            {
+              "name": "Meeting details link",
+              "description": "url link to detailed information of the group meeting"
+            },
+            {
+              "name": "Day",
+              "description": "Day of the Week"
+            },
+            {
+              "name": "Time",
+              "description": "Meeting Time"
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "You are an expert extraction algorithm that can extract information given text. Discard the first record [0] as these are the column headers. Go through the data provided and extract the following values and attributes. If you do not know the value of an attribute asked to be extracted, you may omit the attribute's value. Do not hallucinate.\n\nFor example:\n\n<td class=\"time\" data-sort=\"5-08:30-rec-ctr\"> <span> 8:30 am </span> </td> <td class=\"distance\" data-sort=\"\"> </td> <td class=\"name\" data-sort=\"early-morning-recovery-group-5-08:30\"> <a href=\"https://aasandiego.org/meetings/early-morning-recovery-group-5/\">EARLY MORNING RECOVERY GROUP</a> </td> <td class=\"location\" data-sort=\"rec-ctr-5-08:30\"> <div class=\"location-name notranslate\"> Rec Ctr </div> <div class=\"attendance-in_person\"><small> </small></div> </td> <td class=\"address notranslate\" data-sort=\"3605-clairemont-dr-san-diego-ca-92117-usa-5-08:30\"> 3605 Clairemont Dr </td> <td class=\"region notranslate\" data-sort=\"clairemont-5-08:30\"> CLAIREMONT </td> <td class=\"district notranslate\" data-sort=\"-5-08:30\"> </td> <td class=\"types\" data-sort=\"discussion-open-outdoor-meeting-5-08:30\"> Discussion, Open, Outdoor Meeting </td>\n\nShould generate the following extraction fields:\n\nDay of the Week\nMeeting Time\nMeeting Name\nMeeting Details\nLocation\nAddress\nRegion\nMeeting Type\nMeeting Detail URL"
+        }
+      },
+      "id": "284d0e2b-3c9f-4a4a-962b-4de756c14566",
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        880
+      ],
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = [];\n\n// Assuming you have multiple items from the previous node\nfor (const item of $input.all()) {\n  // Extract the `split` field from the current item\n  const split = item.json.split;\n\n  if (typeof split !== 'string') {\n    output.push({\n      json: {\n        message: \"Split field is not a string or is undefined\",\n        original: item.json // Include the original object here\n      }\n    });\n    continue; // Skip to the next item\n  }\n\n  // Extract fields using regex\n  const timeMatch = split.match(/data-sort=\"(\\d+)-(\\d{2}:\\d{2})/);\n  const nameMatch = split.match(/<td class=\"name\"[^>]*>.*?<a[^>]*>(.*?)<\\/a>/);\n  const locationMatch = split.match(/<td class=\"location\"[^>]*>.*?<div class=\"location-name notranslate\">(.*?)<\\/div>/);\n  const addressMatch = split.match(/<td class=\"address[^\"]*\"[^>]*>(.*?)<\\/td>/);\n  const regionMatch = split.match(/<td class=\"region[^\"]*\"[^>]*>(.*?)<\\/td>/);\n  const typeMatch = split.match(/<td class=\"types[^\"]*\"[^>]*>(.*?)<\\/td>/);\n  const detailsUrlMatch = split.match(/<td class=\"name\"[^>]*>.*?<a href=\"(.*?)\"/);\n\n  if (timeMatch) {\n    const dayIndex = parseInt(timeMatch[1], 10); // Day index (e.g., 5)\n    const time24hr = timeMatch[2]; // Time in 24-hour format (e.g., 05:00)\n\n    // Map day index to day name\n    const daysOfWeek = [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"];\n    const dayName = daysOfWeek[dayIndex]; // Get the day name (e.g., Friday)\n\n    // Convert 24-hour time to 12-hour format with am/pm\n    const [hours, minutes] = time24hr.split(\":\").map(Number);\n    const period = hours >= 12 ? \"pm\" : \"am\";\n    const formattedTime = `${hours % 12 || 12}:${minutes.toString().padStart(2, \"0\")} ${period}`;\n\n    // Extract additional fields\n    const name = nameMatch ? nameMatch[1].trim() : null;\n    const location = locationMatch ? locationMatch[1].trim() : null;\n    const address = addressMatch ? addressMatch[1].trim() : null;\n    const region = regionMatch ? regionMatch[1].trim() : null;\n    const type = typeMatch ? typeMatch[1].trim() : null;\n    const detailsUrl = detailsUrlMatch ? detailsUrlMatch[1].trim() : null;\n\n    // Push the result to the output array, including the extracted fields\n    output.push({\n      json: {\n        dayName,\n        formattedTime,\n        name,\n        location,\n        address,\n        region,\n        type,\n        detailsUrl,\n        original: item.json // Include the original object here\n      }\n    });\n  } else {\n    // Handle cases where no match is found\n    output.push({\n      json: {\n        message: \"No match found for split\",\n        split,\n        original: item.json // Include the original object here\n      }\n    });\n  }\n}\n\nreturn output;"
+      },
+      "id": "1a914b49-e0e5-4543-bd8e-6dcbb934a825",
+      "name": "Code2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "dc5aab99-0eaf-4664-ba18-50101f929ded",
+              "leftValue": "={{ $json.Processed }}",
+              "rightValue": "={{\"Next\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fd6c92f2-8745-48bf-b6d9-118ca62fa6b8",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        380,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json['Area Website'] }}",
+        "options": {}
+      },
+      "id": "5330090a-8568-4f7d-a838-2ae56ee5686c",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -360,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ",
+          "mode": "list",
+          "cachedResultName": "Humanifree Prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 617269623,
+          "mode": "list",
+          "cachedResultName": "AA Meetings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SARnYGyv9xut0bnvz692pTONs_hnHem37Y09WBTeENQ/edit#gid=617269623"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Country": "={{ $('Google Sheets1').item.json.Country }}",
+            "County": "={{ $('Google Sheets1').item.json.County }}",
+            "Time ": "={{ $json.formattedTime }}",
+            "Name": "={{ $json.name }}",
+            "Location": "={{ $json.location }}",
+            "Address": "={{ $json.address }}",
+            "Region": "={{ $json.region }}",
+            "Type": "={{ $json.type }}",
+            "Details_Url": "={{ $json.detailsUrl }}",
+            "State": "={{ $('Google Sheets1').item.json.State }}",
+            "City": "={{ $('Google Sheets1').item.json.City }}",
+            "AA Website": "={{ $('Google Sheets1').item.json['Area Website'] }}",
+            "Day": "={{ $json.dayName }}",
+            "Area": "={{ $('Google Sheets1').item.json.Area }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Country",
+              "displayName": "Country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "State",
+              "displayName": "State",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "County",
+              "displayName": "County",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "City",
+              "displayName": "City",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Area",
+              "displayName": "Area",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Day",
+              "displayName": "Day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Time ",
+              "displayName": "Time ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Region",
+              "displayName": "Region",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Details_Url",
+              "displayName": "Details_Url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AA Website",
+              "displayName": "AA Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fd8be7c3-c4d1-4d64-a3dc-867c019d99d6",
+      "name": "Google Sheets3",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        100,
+        200
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "q6VF6y0ZbTwykyn7",
+          "name": "G Sheets fr@SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "output",
+              "cssSelector": "tr",
+              "returnValue": "html",
+              "returnArray": true
+            }
+          ]
+        },
+        "options": {
+          "trimValues": true,
+          "cleanUpText": true
+        }
+      },
+      "id": "4e72d435-8ff0-4203-bd0c-0463330d045f",
+      "name": "HTML1",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        -140,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "2e0ed8ad-c674-4eba-b22e-ddd5c2868987",
+      "name": "Loop Over Items2",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -600,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "include": "allOtherFields",
+        "options": {
+          "destinationFieldName": "split"
+        }
+      },
+      "id": "ab7082a1-9c66-4d6a-a038-305961e7dfcf",
+      "name": "Split Out2",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        100,
+        -20
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {
+          "maxTokens": 16000,
+          "responseFormat": "json_object",
+          "temperature": 0,
+          "timeout": 100000
+        }
+      },
+      "id": "00adcc74-7fe1-4094-bdc3-73295a62e019",
+      "name": "OpenAI Chat Model3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        240
+      ],
+      "notesInFlow": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "WYs1nR5296TSQkXM",
+          "name": "OpenAi account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.original }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "Meeting Name",
+              "description": "name of the Group | Meeting"
+            },
+            {
+              "name": "Location",
+              "description": "Where does the meeting take place"
+            },
+            {
+              "name": "Address",
+              "description": "address of the group where the meeting takles place"
+            },
+            {
+              "name": "Region",
+              "description": "Neighborhood where the meeting is located"
+            },
+            {
+              "name": "Meeting type",
+              "description": "Attributes of the meeting"
+            },
+            {
+              "name": "Meeting details link",
+              "description": "url link to detailed information of the group meeting"
+            },
+            {
+              "name": "Day",
+              "description": "Day of the Week"
+            },
+            {
+              "name": "Time",
+              "description": "Meeting Time"
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "You are an expert extraction algorithm that can extract information given text. Discard the first record [0] as these are the column headers. Go through the data provided and extract the following values and attributes. If you do not know the value of an attribute asked to be extracted, you may omit the attribute's value. Do not hallucinate.\n\nFor example:\n\n<td class=\"time\" data-sort=\"5-08:30-rec-ctr\"> <span> 8:30 am </span> </td> <td class=\"distance\" data-sort=\"\"> </td> <td class=\"name\" data-sort=\"early-morning-recovery-group-5-08:30\"> <a href=\"https://aasandiego.org/meetings/early-morning-recovery-group-5/\">EARLY MORNING RECOVERY GROUP</a> </td> <td class=\"location\" data-sort=\"rec-ctr-5-08:30\"> <div class=\"location-name notranslate\"> Rec Ctr </div> <div class=\"attendance-in_person\"><small> </small></div> </td> <td class=\"address notranslate\" data-sort=\"3605-clairemont-dr-san-diego-ca-92117-usa-5-08:30\"> 3605 Clairemont Dr </td> <td class=\"region notranslate\" data-sort=\"clairemont-5-08:30\"> CLAIREMONT </td> <td class=\"district notranslate\" data-sort=\"-5-08:30\"> </td> <td class=\"types\" data-sort=\"discussion-open-outdoor-meeting-5-08:30\"> Discussion, Open, Outdoor Meeting </td>\n\nShould generate the following extraction fields:\n\nDay of the Week\nMeeting Time\nMeeting Name\nMeeting Details\nLocation\nAddress\nRegion\nMeeting Type\nMeeting Detail URL"
+        }
+      },
+      "id": "89fb6c5c-4845-4409-9acb-0c2ef4515c7a",
+      "name": "Information Extractor1",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        -260,
+        200
+      ],
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = [];\n\n// Assuming you have multiple items from the previous node\nfor (const item of $input.all()) {\n  // Extract the `split` field from the current item\n  const split = item.json.split;\n\n  if (typeof split !== 'string') {\n    output.push({\n      json: {\n        message: \"Split field is not a string or is undefined\",\n        original: item.json // Include the original object here\n      }\n    });\n    continue; // Skip to the next item\n  }\n\n  // Extract fields using regex\n  const timeMatch = split.match(/data-sort=\"(\\d+)-(\\d{2}:\\d{2})/);\n  const nameMatch = split.match(/<td class=\"name\"[^>]*>.*?<a[^>]*>(.*?)<\\/a>/);\n  const locationMatch = split.match(/<td class=\"location\"[^>]*>.*?<div class=\"location-name notranslate\">(.*?)<\\/div>/);\n  const addressMatch = split.match(/<td class=\"address[^\"]*\"[^>]*>(.*?)<\\/td>/);\n  const regionMatch = split.match(/<td class=\"region[^\"]*\"[^>]*>(.*?)<\\/td>/);\n  const typeMatch = split.match(/<td class=\"types[^\"]*\"[^>]*>(.*?)<\\/td>/);\n  const detailsUrlMatch = split.match(/<td class=\"name\"[^>]*>.*?<a href=\"(.*?)\"/);\n\n  if (timeMatch) {\n    const dayIndex = parseInt(timeMatch[1], 10); // Day index (e.g., 5)\n    const time24hr = timeMatch[2]; // Time in 24-hour format (e.g., 05:00)\n\n    // Map day index to day name\n    const daysOfWeek = [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"];\n    const dayName = daysOfWeek[dayIndex]; // Get the day name (e.g., Friday)\n\n    // Convert 24-hour time to 12-hour format with am/pm\n    const [hours, minutes] = time24hr.split(\":\").map(Number);\n    const period = hours >= 12 ? \"pm\" : \"am\";\n    const formattedTime = `${hours % 12 || 12}:${minutes.toString().padStart(2, \"0\")} ${period}`;\n\n    // Extract additional fields\n    const name = nameMatch ? nameMatch[1].trim() : null;\n    const location = locationMatch ? locationMatch[1].trim() : null;\n    const address = addressMatch ? addressMatch[1].trim() : null;\n    const region = regionMatch ? regionMatch[1].trim() : null;\n    const type = typeMatch ? typeMatch[1].trim() : null;\n    const detailsUrl = detailsUrlMatch ? detailsUrlMatch[1].trim() : null;\n\n    // Push the result to the output array, including the extracted fields\n    output.push({\n      json: {\n        dayName,\n        formattedTime,\n        name,\n        location,\n        address,\n        region,\n        type,\n        detailsUrl,\n        original: item.json // Include the original object here\n      }\n    });\n  } else {\n    // Handle cases where no match is found\n    output.push({\n      json: {\n        message: \"No match found for split\",\n        split,\n        original: item.json // Include the original object here\n      }\n    });\n  }\n}\n\nreturn output;"
+      },
+      "id": "a280cb3d-8ebb-4078-9308-9921b0369eb3",
+      "name": "Code3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -600,
+        20
+      ]
+    }
+  ],
+  "pinData": {
+    "Code": [
+      {
+        "json": {
+          "country": "Antigua and Barbuda"
+        }
+      },
+      {
+        "json": {
+          "country": "Bahamas"
+        }
+      },
+      {
+        "json": {
+          "country": "Barbados"
+        }
+      },
+      {
+        "json": {
+          "country": "Belize"
+        }
+      },
+      {
+        "json": {
+          "country": "Canada"
+        }
+      },
+      {
+        "json": {
+          "country": "Costa Rica"
+        }
+      },
+      {
+        "json": {
+          "country": "Cuba"
+        }
+      },
+      {
+        "json": {
+          "country": "Dominica"
+        }
+      },
+      {
+        "json": {
+          "country": "Dominican Republic"
+        }
+      },
+      {
+        "json": {
+          "country": "El Salvador"
+        }
+      },
+      {
+        "json": {
+          "country": "Grenada"
+        }
+      },
+      {
+        "json": {
+          "country": "Guatemala"
+        }
+      },
+      {
+        "json": {
+          "country": "Haiti"
+        }
+      },
+      {
+        "json": {
+          "country": "Honduras"
+        }
+      },
+      {
+        "json": {
+          "country": "Jamaica"
+        }
+      },
+      {
+        "json": {
+          "country": "Mexico"
+        }
+      },
+      {
+        "json": {
+          "country": "Nicaragua"
+        }
+      },
+      {
+        "json": {
+          "country": "Panama"
+        }
+      },
+      {
+        "json": {
+          "country": "Saint Kitts and Nevis"
+        }
+      },
+      {
+        "json": {
+          "country": "Saint Lucia"
+        }
+      },
+      {
+        "json": {
+          "country": "Saint Vincent and the Grenadines"
+        }
+      },
+      {
+        "json": {
+          "country": "Trinidad and Tobago"
+        }
+      },
+      {
+        "json": {
+          "country": "United States"
+        }
+      },
+      {
+        "json": {
+          "country": "Argentina"
+        }
+      },
+      {
+        "json": {
+          "country": "Bolivia"
+        }
+      },
+      {
+        "json": {
+          "country": "Brazil"
+        }
+      },
+      {
+        "json": {
+          "country": "Chile"
+        }
+      },
+      {
+        "json": {
+          "country": "Colombia"
+        }
+      },
+      {
+        "json": {
+          "country": "Ecuador"
+        }
+      },
+      {
+        "json": {
+          "country": "Guyana"
+        }
+      },
+      {
+        "json": {
+          "country": "Paraguay"
+        }
+      },
+      {
+        "json": {
+          "country": "Peru"
+        }
+      },
+      {
+        "json": {
+          "country": "Suriname"
+        }
+      },
+      {
+        "json": {
+          "country": "Uruguay"
+        }
+      },
+      {
+        "json": {
+          "country": "Venezuela"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-19T18:11:13.366Z",
+      "updatedAt": "2024-11-19T18:11:13.366Z",
+      "id": "Zzg7SycAT5dkS3hO",
+      "name": "Hfree"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-25T22:05:20.000Z",
+  "versionId": "84f44ccf-8048-4ee7-acff-372d8be04c5e"
+}
