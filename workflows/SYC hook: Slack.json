@@ -1,0 +1,103 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-30T18:52:50.378Z",
+  "id": "QTQERLdzivmwX7p6",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SYC hook: Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07R0EPQ52N",
+          "mode": "list",
+          "cachedResultName": "syc-inspect_url"
+        },
+        "text": "=Inspect URL:\n{{ $json.body.InspectURL }}",
+        "otherOptions": {}
+      },
+      "id": "d8749ab7-4d2e-42c1-b8fc-8aaf748fcd91",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        940,
+        220
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "8XePmURVh6AiIrQK",
+          "name": "syc-n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "=93275d93-78ed-4bc8-9d4d-6ead3969dab6",
+        "options": {
+          "rawBody": "={\n\"inspectUrl\":\" UPDATE ME \"\n}"
+        }
+      },
+      "id": "849b1f79-b766-4bb4-8ff3-504c64ececc7",
+      "name": "Webhook1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        660,
+        20
+      ],
+      "webhookId": "93275d93-78ed-4bc8-9d4d-6ead3969dab6",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "=93275d93-78ed-4bc8-9d4d-6ead3969dab6",
+        "options": {}
+      },
+      "id": "f88cd1a3-4da9-4abe-b119-df1966a11c7b",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        660,
+        220
+      ],
+      "webhookId": "93275d93-78ed-4bc8-9d4d-6ead3969dab6"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-22T17:13:33.296Z",
+      "updatedAt": "2024-08-22T17:13:33.296Z",
+      "id": "VG2ofxpeNBDUJ627",
+      "name": "SYC"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-08T08:42:15.000Z",
+  "versionId": "08b74d2b-bc0f-4e1c-8ed5-a7102df4a426"
+}
