@@ -23,17 +23,6 @@
         ]
       ]
     },
-    "Execute Workflow": {
-      "main": [
-        [
-          {
-            "node": "Plotting",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When clicking ‘Test workflow’": {
       "main": [
         [
@@ -78,8 +67,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1540,
-        640
+        1240,
+        360
       ]
     },
     {
@@ -92,8 +81,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1980,
-        640
+        1680,
+        360
       ]
     },
     {
@@ -105,29 +94,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1760,
-        640
-      ]
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "Repoex7C6iSh95eW",
-          "mode": "list",
-          "cachedResultName": "Tool: QuickChart"
-        },
-        "options": {
-          "waitForSubWorkflow": true
-        }
-      },
-      "id": "b43c1033-5f8b-42ca-a0c1-ecabfc507bb1",
-      "name": "Execute Workflow",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.1,
-      "position": [
-        1340,
-        640
+        1460,
+        360
       ]
     },
     {
@@ -137,8 +105,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1340,
-        840
+        1040,
+        360
       ]
     }
   ],
@@ -149,6 +117,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-11-28T04:04:52.000Z",
-  "versionId": "8516561d-2fce-43ac-893d-9af4c5680517"
+  "updatedAt": "2024-12-08T08:43:27.000Z",
+  "versionId": "48084928-f613-4a54-86a8-5706f7df59f5"
 }
