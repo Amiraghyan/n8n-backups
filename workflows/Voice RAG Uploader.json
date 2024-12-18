@@ -1,0 +1,221 @@
+{
+  "active": false,
+  "connections": {
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-18T10:52:35.955Z",
+  "id": "ms1wDbiEBIDbNvVi",
+  "meta": null,
+  "name": "Voice RAG Uploader",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1Ivt0QUPzNzXupSrg7OLjU-tiKywCvzLa",
+          "mode": "list",
+          "cachedResultName": "Test docs",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1Ivt0QUPzNzXupSrg7OLjU-tiKywCvzLa"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "id": "bc6eb516-1791-4670-b5ea-7c77233d07de",
+      "name": "Google Drive Trigger",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        -200
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "mxnJ7cDmvt2V0Z0J",
+          "name": "Google Drive"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "1fef3935-fac5-4647-93e4-710e441a68df",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -200,
+        -200
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "mxnJ7cDmvt2V0Z0J",
+          "name": "Google Drive"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-large",
+        "options": {
+          "dimensions": 3072
+        }
+      },
+      "id": "2fdab3aa-ee2f-4c11-b3d9-526c1b7486e9",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        20,
+        20
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "file_name",
+                "value": "={{ $('Google Drive').item.json.name }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "e99b32b1-6ba6-46ff-b26c-01234db72db9",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        220,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "41df4ac6-e588-4835-82eb-0a3e23d354cc",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "sycpoc",
+          "mode": "list",
+          "cachedResultName": "sycpoc"
+        },
+        "options": {
+          "pineconeNamespace": "PDF_KB"
+        }
+      },
+      "id": "69421137-2109-4383-b78f-8d7f6095d8f0",
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        20,
+        -200
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "jgEvQKSnssGlMFyC",
+          "name": "PineconeApi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-18T20:14:51.000Z",
+  "versionId": "a49cc0e9-669e-4632-b10c-c2ba3a06086e"
+}
