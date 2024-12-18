@@ -1,0 +1,443 @@
+{
+  "active": false,
+  "connections": {
+    "youtube": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "youtube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sentiment Analysis",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarization Chain": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Sentiment Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-17T19:53:45.997Z",
+  "id": "8T2K993qucXIHazm",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SYC: Content Gen",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f65549c2-c23d-4885-8b98-c7dd99770b01",
+              "name": "URL",
+              "value": "={{ $json['Youtube URL:'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ccf51c9d-b520-4ca0-9bde-07afa6ac2a46",
+      "name": "youtube",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -380,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"startUrls\": [\n        \"{{ $json.URL }}\"\n    ]\n}",
+        "options": {}
+      },
+      "id": "8d27be0f-2286-4ea3-b705-881611f1be5c",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        60,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "formTitle": "Youtube Video: Summary",
+        "formDescription": "Enter the URL for a YouTube video and you will receive a Summary of its content.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Youtube URL:",
+              "placeholder": "https://www.youtube.com/watch?v=asldfalsdjfasl",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "7ed42d82-4e23-4d51-b3e4-14c7b67d7fbb",
+      "name": "On form submission",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -600,
+        900
+      ],
+      "webhookId": "f684c0e3-8782-4e74-b065-7b3cb6df70aa"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "b2f7d756-f727-4d54-8724-9594a1124b1d",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        600,
+        720
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "90acce9e-519d-4d1e-898b-24eea67527af",
+      "name": "OpenAI Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        620,
+        1060
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.transcript }}",
+        "options": {}
+      },
+      "id": "426901ad-621b-43c6-836e-973bdc2e4ddc",
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1,
+      "position": [
+        480,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "options": {
+          "summarizationMethodAndPrompts": {
+            "values": {
+              "combineMapPrompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY: ",
+              "prompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY:"
+            }
+          }
+        }
+      },
+      "id": "a020243d-7ce7-469f-9b29-48d960363e12",
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        480,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.URL }}",
+        "options": {}
+      },
+      "id": "7245853a-16ba-4a45-8131-82bebe5bb3cf",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        0
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// This function will be executed for each item in the input\nreturn items.map(item => {\n    // Access the 'data' field in the current item\n    const data = item.json.data;\n\n    // Regular expression to match YouTube API timed text URLs\n    const regex = /(https:\\/\\/www\\.youtube\\.com\\/api\\/timedtext[\\S][^\"]*)/g;\n\n    // Find all matches in the data string\n    const matches = data.match(regex);\n\n    // Return the original item with additional matches field\n    return {\n        json: {\n            ...item.json,\n            matches: matches || [] // Add matches to the item or an empty array if no matches found\n        }\n    };\n});\n"
+      },
+      "id": "636d65f7-f536-46a1-b675-54797bd3416d",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        0
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "1f5b7094-444f-47cc-a782-d5ce019ae19c",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        560
+      ],
+      "webhookId": "9e8186f7-9628-4224-8cf4-59c26344616c"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "a0bde815-b8dc-4466-874d-8c8aab3be0b7",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        900
+      ],
+      "webhookId": "a89a7147-a4d3-4788-ae54-8307e9f11a89"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "70dba9eb-689e-4e97-8458-ef1edee753b6",
+      "name": "Wait2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        860,
+        900
+      ],
+      "webhookId": "f9d26194-3289-4d6c-82e2-cfff93e9b945"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "={{ $json.response.text }}",
+        "voice": "onyx",
+        "options": {
+          "response_format": "aac",
+          "binaryPropertyOutput": "Summary Audio"
+        }
+      },
+      "id": "3b9bb79e-d3dc-45a8-843f-c47836e0968a",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        1100,
+        900
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "80323419-7cbb-47cc-89a2-4d916b40a41e",
+              "name": "Audio",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ef79af82-040b-4f51-99e0-9f496e42a1a4",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "binaryPropertyName": "={{ $json.Audio }}",
+        "options": {
+          "channelId": "C085C7Q7FPY"
+        }
+      },
+      "id": "42a0e9da-7e5e-4d3a-a514-1681f64fa16b",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        900
+      ],
+      "webhookId": "61fa3c28-3062-4009-8739-f5799d2484d6",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "7VOxhQHkBloxHtkn",
+          "name": "syc-n8n"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-18T06:27:10.000Z",
+  "versionId": "d916cc91-f31d-4e78-a135-cfd1c48d60ca"
+}
