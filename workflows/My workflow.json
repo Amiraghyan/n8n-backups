@@ -1,87 +1,205 @@
 {
   "active": false,
   "connections": {
-    "youtube": {
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Extract main content",
             "type": "main",
             "index": 0
-          },
+          }
+        ],
+        [
           {
-            "node": "HTTP Request1",
+            "node": "Get pages listed in the sitemap",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTTP Request": {
+    "Get sitemap": {
       "main": [
         [
           {
-            "node": "Sentiment Analysis",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Summarization Chain",
+            "node": "Extract from File",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "On form submission": {
+    "Turn XML sitemap into JSON": {
       "main": [
         [
           {
-            "node": "youtube",
+            "node": "Turn the URL array into multiple items",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "OpenAI Chat Model1": {
+    "Turn the URL array into multiple items": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 5 seconds": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get pages listed in the sitemap": {
+      "main": [
+        [
+          {
+            "node": "Wait 5 seconds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "Question and Answer Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
       "ai_languageModel": [
         [
           {
-            "node": "Sentiment Analysis",
+            "node": "Question and Answer Chain",
             "type": "ai_languageModel",
             "index": 0
           }
         ]
       ]
     },
-    "OpenAI Chat Model2": {
-      "ai_languageModel": [
+    "Vector Store Retriever": {
+      "ai_retriever": [
         [
           {
-            "node": "Summarization Chain",
-            "type": "ai_languageModel",
+            "node": "Question and Answer Chain",
+            "type": "ai_retriever",
             "index": 0
           }
         ]
       ]
     },
-    "Summarization Chain": {
+    "Embeddings OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
       "main": [
         [
           {
-            "node": "OpenAI",
+            "node": "Pinecone Vector Store",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTTP Request1": {
+    "Pinecone Vector Store2": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector Store Retriever",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start the workflow by clicking \"Test workflow\"": {
       "main": [
         [
           {
-            "node": "Code",
+            "node": "Get sitemap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract main content": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Turn XML sitemap into JSON",
             "type": "main",
             "index": 0
           }
@@ -89,197 +207,394 @@
       ]
     }
   },
-  "createdAt": "2024-12-17T19:53:45.997Z",
-  "id": "8T2K993qucXIHazm",
+  "createdAt": "2024-12-18T19:34:04.720Z",
+  "id": "h2caRepzzfzRp2GA",
   "meta": null,
   "name": "My workflow",
   "nodes": [
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "f65549c2-c23d-4885-8b98-c7dd99770b01",
-              "name": "URL",
-              "value": "={{ $json['Youtube URL:'] }}",
-              "type": "string"
-            }
-          ]
-        },
+        "model": "text-embedding-3-large",
         "options": {}
       },
-      "id": "ccf51c9d-b520-4ca0-9bde-07afa6ac2a46",
-      "name": "youtube",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
+      "id": "810c4681-3ca0-4328-a646-6047fe8f167a",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
       "position": [
-        -380,
-        900
+        1940,
+        560
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "94d14ae2-b041-4194-a0d0-bc759c5ee501",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        480
       ]
     },
     {
       "parameters": {
-        "url": "https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\": [\n        \"{{ $json.URL }}\"\n    ]\n}",
-        "options": {}
-      },
-      "id": "8d27be0f-2286-4ea3-b705-881611f1be5c",
-      "name": "HTTP Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        60,
-        900
-      ]
-    },
-    {
-      "parameters": {
-        "formTitle": "Youtube Video: Summary",
-        "formDescription": "Enter the URL for a YouTube video and you will receive a Summary of its content.",
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "Youtube URL:",
-              "placeholder": "https://www.youtube.com/watch?v=asldfalsdjfasl",
-              "requiredField": true
-            }
-          ]
-        },
+        "chunkOverlap": 40,
         "options": {
-          "appendAttribution": false
+          "splitCode": "markdown"
         }
       },
-      "id": "7ed42d82-4e23-4d51-b3e4-14c7b67d7fbb",
-      "name": "On form submission",
-      "type": "n8n-nodes-base.formTrigger",
-      "typeVersion": 2.2,
-      "position": [
-        -600,
-        900
-      ],
-      "webhookId": "f684c0e3-8782-4e74-b065-7b3cb6df70aa"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "b2f7d756-f727-4d54-8724-9594a1124b1d",
-      "name": "OpenAI Chat Model1",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "id": "02a970dc-06d5-4d88-8dc9-48772fcd5224",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
       "typeVersion": 1,
       "position": [
-        600,
-        720
+        2160,
+        680
       ]
     },
     {
       "parameters": {
+        "batchSize": 10,
         "options": {}
       },
-      "id": "90acce9e-519d-4d1e-898b-24eea67527af",
-      "name": "OpenAI Chat Model2",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
+      "id": "db34e8f1-e29e-439e-9df4-44832694e1e6",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
       "position": [
-        620,
-        1060
-      ]
-    },
-    {
-      "parameters": {
-        "inputText": "={{ $json.transcript }}",
-        "options": {}
-      },
-      "id": "426901ad-621b-43c6-836e-973bdc2e4ddc",
-      "name": "Sentiment Analysis",
-      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
-      "typeVersion": 1,
-      "position": [
-        480,
+        1020,
         560
       ]
     },
     {
       "parameters": {
-        "options": {
-          "summarizationMethodAndPrompts": {
-            "values": {
-              "combineMapPrompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY: ",
-              "prompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY:"
-            }
-          }
-        }
-      },
-      "id": "a020243d-7ce7-469f-9b29-48d960363e12",
-      "name": "Summarization Chain",
-      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
-      "typeVersion": 2,
-      "position": [
-        480,
-        900
-      ]
-    },
-    {
-      "parameters": {
-        "resource": "audio",
-        "input": "={{ $json.response.text }}",
-        "voice": "nova",
-        "options": {
-          "binaryPropertyOutput": "Summary Audio"
-        }
-      },
-      "id": "3b9bb79e-d3dc-45a8-843f-c47836e0968a",
-      "name": "OpenAI",
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.6,
-      "position": [
-        840,
-        900
-      ]
-    },
-    {
-      "parameters": {
-        "resource": "audio",
-        "operation": "transcribe",
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
         "options": {}
       },
-      "id": "35ac21aa-9f8b-4964-a27d-7c4e69d76178",
-      "name": "OpenAI1",
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.6,
+      "id": "c625beba-de2f-4efc-b9fc-0634ab4cb1e6",
+      "name": "OpenAI Model",
+      "type": "@n8n/n8n-nodes-langchain.lmOpenAi",
+      "typeVersion": 1,
       "position": [
-        240,
-        440
-      ]
+        540,
+        1160
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
     },
     {
       "parameters": {
-        "url": "={{ $json.URL }}",
+        "url": "https://www.uspto.gov/",
         "options": {}
       },
-      "id": "7245853a-16ba-4a45-8131-82bebe5bb3cf",
-      "name": "HTTP Request1",
+      "id": "822da359-842c-4dee-b587-f91e6358dde0",
+      "name": "Get sitemap",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -120,
-        440
+        160,
+        260
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+        "options": {
+          "explicitRoot": false,
+          "ignoreAttrs": true
+        }
       },
-      "id": "636d65f7-f536-46a1-b675-54797bd3416d",
-      "name": "Code",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "39b55448-3265-46b1-8e85-eb02965e1870",
+      "name": "Turn XML sitemap into JSON",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
       "position": [
-        100,
-        440
+        600,
+        260
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "cbed6346-9fad-4704-b479-e8e5643a8878",
+      "name": "Turn the URL array into multiple items",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        820,
+        260
       ]
+    },
+    {
+      "parameters": {},
+      "id": "9d43fd2c-3373-459d-9be9-f3b20ef3844e",
+      "name": "Wait 5 seconds",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1540,
+        580
+      ],
+      "webhookId": "f4e7dead-77ad-4216-a5a0-ef95914bf3ab"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.loc }}",
+        "options": {}
+      },
+      "id": "73d00dc1-0798-4597-8e24-fcfcf34bfb06",
+      "name": "Get pages listed in the sitemap",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1280,
+        580
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "6637c527-a4b0-4727-97a1-9fd2012d4596",
+      "name": "Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        940
+      ],
+      "webhookId": "4b338d3c-b03f-42f2-94c1-9353d0f1fbc2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Chat Trigger').item.json.chatInput }}",
+        "options": {}
+      },
+      "id": "7f13e377-75c7-4ab8-af6b-1fe1af716d36",
+      "name": "Question and Answer Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "typeVersion": 1.3,
+      "position": [
+        580,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "topK": 10
+      },
+      "id": "6e5d8de3-c18e-4296-990e-b591952941af",
+      "name": "Vector Store Retriever",
+      "type": "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+      "typeVersion": 1,
+      "position": [
+        780,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-large",
+        "options": {}
+      },
+      "id": "5d19c787-3340-4af4-ac6f-881997bded7c",
+      "name": "Embeddings OpenAI2",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        1560
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "content"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fcd393fd-8398-4274-9571-5de641271a09",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "**Setup**\n\n1. In Pinecone, create a vector database. Set **Dimensions** to `3072` and **Metric** to `cosine`. You can use the free starter plan.\n2. In the Pinecone node, set your credentials.\n3. Select your Pinecone index.",
+        "height": 381.3701016273242,
+        "width": 304.1011298750183,
+        "color": 2
+      },
+      "id": "0c928a02-425c-452a-bf55-056f96119978",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "uspto",
+          "mode": "list",
+          "cachedResultName": "uspto"
+        },
+        "options": {
+          "clearNamespace": true,
+          "pineconeNamespace": "biolaw-web-scraper"
+        }
+      },
+      "id": "965eb017-bc26-4a30-b97c-f60fd8831dcf",
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        260
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "FgvPIsHXK2jOoN6r",
+          "name": "PineconeApi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "uspto",
+          "mode": "list",
+          "cachedResultName": "uspto"
+        },
+        "options": {
+          "pineconeNamespace": "test-web-scraper"
+        }
+      },
+      "id": "a83ff201-128b-4eef-9193-1e661fb700a2",
+      "name": "Pinecone Vector Store2",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        880,
+        1360
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "FgvPIsHXK2jOoN6r",
+          "name": "PineconeApi"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "2f534bff-8ab9-4081-ac30-f5f13b0ba78e",
+      "name": "Start the workflow by clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "content",
+              "cssSelector": ".md-content",
+              "returnValue": "html"
+            }
+          ]
+        },
+        "options": {
+          "trimValues": true,
+          "cleanUpText": true
+        }
+      },
+      "id": "06f89741-d2a8-4453-8e07-e485b9b04c67",
+      "name": "Extract main content",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1480,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "**Batch the calls to the website**\n\nFor the small demo website in this example, this is not essential. If you want to use this example with a larger website, batching like this helps avoid timeouts. Using the Wait node between batches avoids hitting the website with too many requests too fast.",
+        "height": 198,
+        "width": 316,
+        "color": 5
+      },
+      "id": "9e59dfbc-49b0-4bfe-8890-b5a062042186",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "xml",
+        "destinationKey": "conv_text",
+        "options": {
+          "keepSource": "json"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        380,
+        260
+      ],
+      "id": "18b81171-c068-4654-a893-9c382e879150",
+      "name": "Extract from File",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -289,6 +604,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-17T19:53:45.997Z",
-  "versionId": "e710a92d-61ea-4c97-ade4-c43123bfa0e5"
+  "updatedAt": "2024-12-18T20:06:59.000Z",
+  "versionId": "f8b2faee-caaa-493e-91dd-88b7484306ad"
 }
