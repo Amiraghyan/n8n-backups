@@ -1,0 +1,698 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set-API-Keys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GoAPI MidJourneyV2 SEED": {
+      "main": [
+        [
+          {
+            "node": "GOAPI MidJourneyV2 Fetch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GOAPI MidJourneyV2 Fetch": {
+      "main": [
+        [
+          {
+            "node": "Wait-60s1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GOAPI MidJourneyV2 Upscale": {
+      "main": [
+        [
+          {
+            "node": "Wait-90s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Media Container": {
+      "main": [
+        [
+          {
+            "node": "Wait-30s2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GoAPI MidJourneyV2 SEED (Upscaled image)": {
+      "main": [
+        [
+          {
+            "node": "GOAPI MidJourneyV2 Fetch (Upscaled Image)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GOAPI MidJourneyV2 Fetch (Upscaled Image)": {
+      "main": [
+        []
+      ]
+    },
+    "Set-API-Keys": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GoAPI MidJourneyV2 Imagine": {
+      "main": [
+        [
+          {
+            "node": "Wait-120s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait-30s2": {
+      "main": [
+        [
+          {
+            "node": "Instagram Media Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait-60s1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait-120s": {
+      "main": [
+        [
+          {
+            "node": "GoAPI MidJourneyV2 SEED",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "GOAPI MidJourneyV2 Upscale",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "GoAPI MidJourneyV2 Imagine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Set-API-Keys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait-90s": {
+      "main": [
+        [
+          {
+            "node": "GoAPI MidJourneyV2 SEED (Upscaled image)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-19T02:23:48.898Z",
+  "id": "AIaJ34W68VsE0UPp",
+  "meta": null,
+  "name": "Blog Post + Image",
+  "nodes": [
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {
+          "temperature": 0.5
+        }
+      },
+      "id": "ceb3257b-2406-4b2c-a401-68b133fece53",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -980,
+        600
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "1d5bb9f4-e82c-4e97-b319-cf55092a135f",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        -740,
+        600
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "8679dbd6-8dc4-4485-a74e-63b1ebf374e8",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1620,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"post_description\": \"\",\n\t\"midjourney_prompt\": \"\"\n}"
+      },
+      "id": "e85aaf6a-d8ab-4708-ab5e-dd8221ccc1f3",
+      "name": "Structured Output Parser1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -620,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.midjourneyapi.xyz/mj/v2/seed",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "={{ $('Set-API-Keys').item.json['goapi-midjourney-v2'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"task_id\": \"{{ $json.task_id }}\"\n} ",
+        "options": {}
+      },
+      "id": "d0c7ff12-0358-4cc7-b7da-2a0f242fcab3",
+      "name": "GoAPI MidJourneyV2 SEED",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.midjourneyapi.xyz/mj/v2/fetch",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "={{ $('Set-API-Keys').item.json['goapi-midjourney-v2'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"task_id\": \"{{ $json.task_id }}\"\n}  ",
+        "options": {}
+      },
+      "id": "21f46f4c-12e7-41d6-92c1-333fda886b13",
+      "name": "GOAPI MidJourneyV2 Fetch",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https:///api.midjourneyapi.xyz/mj/v2/upscale",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "=application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "={{ $('Set-API-Keys').item.json['goapi-midjourney-v2'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "origin_task_id",
+              "value": "={{ $('GOAPI MidJourneyV2 Fetch').item.json.meta.origin_task_id }}"
+            },
+            {
+              "name": "index",
+              "value": "={{ $json.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66723625-f185-480d-8a0a-3cb4280927e1",
+      "name": "GOAPI MidJourneyV2 Upscale",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        820,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v20.0/17841458266465743/media",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set-API-Keys').item.json['instagram-token'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "={{ $json.task_result.image_url }}"
+            },
+            {
+              "name": "caption",
+              "value": "={{ $('AI Agent1').item.json[\"output\"][\"output\"][\"post_description\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "72f896be-d6c3-4ad8-a594-dae456db0ea3",
+      "name": "Instagram Media Container",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.midjourneyapi.xyz/mj/v2/seed",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "={{ $('Set-API-Keys').item.json['goapi-midjourney-v2'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"task_id\": \"{{ $json.task_id }}\"\n}   ",
+        "options": {}
+      },
+      "id": "1e4afb61-35b1-48a8-bd06-d98a93262347",
+      "name": "GoAPI MidJourneyV2 SEED (Upscaled image)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1300,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.midjourneyapi.xyz/mj/v2/fetch",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "={{ $('Set-API-Keys').item.json['goapi-midjourney-v2'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"task_id\": \"{{ $json.task_id }}\"\n}   ",
+        "options": {}
+      },
+      "id": "a20f4f90-dc4f-43f8-add2-7f281bc34b28",
+      "name": "GOAPI MidJourneyV2 Fetch (Upscaled Image)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1540,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v20.0/17841458266465743/media_publish",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set-API-Keys').item.json['instagram-token'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "creation_id",
+              "value": "={{ $('Instagram Media Container').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9da5b151-2250-4740-86e7-b9f789b74543",
+      "name": "Instagram Media Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1500,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d3c7ee87-e18f-4e9a-9f2f-6c010a402b98",
+              "name": "goapi-midjourney-v2",
+              "value": "a7a67c1f833ceb161ac06c6762ac1b907bc2d62018e2359f633adcf3ef4d43ec",
+              "type": "string"
+            },
+            {
+              "id": "19dce022-4925-44a9-b3b1-09a5b1b19e19",
+              "name": "instagram-token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "574864c4-6629-4e13-b71f-b0825e42a281",
+      "name": "Set-API-Keys",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1180,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.midjourneyapi.xyz/mj/v2/imagine",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-API-KEY",
+              "value": "={{ $('Set-API-Keys').item.json['goapi-midjourney-v2'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"prompt\": \"{{ $json.output.output.midjourney_prompt }}\",\n  \"process_mode\":\"fast\", \n  \"aspect_ratio\": \"9:16\",\n  \"webhook_endpoint\": \"\",\n  \"webhook_secret\": \"\"\n}",
+        "options": {}
+      },
+      "id": "e597ed4e-aff1-4321-87a2-559681416661",
+      "name": "GoAPI MidJourneyV2 Imagine",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -420,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "id": "399946da-5062-44c3-8163-70dd4be7b66b",
+      "name": "Wait-30s2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1300,
+        20
+      ],
+      "webhookId": "58bd81e9-d956-42cb-8d7d-62ed066b9b2d"
+    },
+    {
+      "parameters": {
+        "amount": 60
+      },
+      "id": "30c6a19a-febe-4f91-bb91-28f751935583",
+      "name": "Wait-60s1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        420,
+        280
+      ],
+      "webhookId": "58bd81e9-d956-42cb-8d7d-62ed066b9b2d"
+    },
+    {
+      "parameters": {
+        "amount": 120
+      },
+      "id": "db95eda8-bcc8-4c75-b561-9b8682991cb3",
+      "name": "Wait-120s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -220,
+        280
+      ],
+      "webhookId": "58bd81e9-d956-42cb-8d7d-62ed066b9b2d"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "text": "=This image was generated for this prompt:\n \"{{ $('AI Agent1').item.json.output.output.post_description }}\".\nActually this image is a combined image of 4 different images, 2 at the top half and 2 at the below half. \nUpper left image is indexed as 1.\nUpper right image is indexed as 2.\nLower left image is indexed as 3.\nLower right image is indexed as 4.\n\nWithout any explanation just return the index of the image that is best as per the image description, is most eye catching and engaging.",
+        "imageUrls": "={{ $json.task_result.image_url }}",
+        "options": {
+          "maxTokens": 400
+        }
+      },
+      "id": "90357bad-003e-4e8a-ba92-b518c8bed94a",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        620,
+        280
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Say \"Post\" to create a post on your instagram profile",
+        "options": {}
+      },
+      "id": "fca9b02c-3898-4b50-a8d3-b9734c5c70e5",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1620,
+        180
+      ],
+      "webhookId": "30c39754-c107-4e08-a95d-36f892e56bed"
+    },
+    {
+      "parameters": {
+        "agent": "openAiFunctionsAgent",
+        "promptType": "define",
+        "text": "I want to create a Instagram post for the mindfulness and deep thoughts niche. Post should include a captivating and thought-provoking description along with a detailed MidJourney prompt for creating an intriguing and beautiful image. The image can feature scenery, people in deep thoughts or with deep facial expressions, or any other suitable visuals. Description should be engaging and useful, encouraging people to reflect deeply. You can use some of the best quotes on the internet. The post can be related to truth about world, relationships, society, aspirations, illusion etc. Include appropriate hashtags for the post. Let's call instagram post description as \"post_description\" and midjourney prompt as \"midjourney_prompt\".\nRandomize the overall post so that you don't create same post every time.\nImportant: Don't include the model, aspect ratio flags in the midjourney prompt.",
+        "hasOutputParser": true,
+        "options": {
+          "maxIterations": 5
+        }
+      },
+      "id": "dcac02f2-30f2-4003-b6b5-1a7f0f370bb9",
+      "name": "AI Agent1",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        -880,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 90
+      },
+      "id": "1532fbb1-3f6c-44ef-940c-d6c004670583",
+      "name": "Wait-90s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1060,
+        400
+      ],
+      "webhookId": "58bd81e9-d956-42cb-8d7d-62ed066b9b2d"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-19T07:47:43.000Z",
+  "versionId": "81ec5c6f-ca49-4c6a-a8e9-7e0e5268f1eb"
+}
