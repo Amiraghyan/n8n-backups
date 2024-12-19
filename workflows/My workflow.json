@@ -295,8 +295,8 @@
       ],
       "credentials": {
         "openAiApi": {
-          "id": "pZ4IJBXWzhYzZfRs",
-          "name": "OpenAi _Blue&"
+          "id": "5kwsndHiYkIfcdvj",
+          "name": "Fausto's OpenAi"
         }
       }
     },
@@ -317,6 +317,7 @@
     {
       "parameters": {
         "options": {
+          "attrkey": "$",
           "explicitRoot": false,
           "ignoreAttrs": true
         }
@@ -335,7 +336,9 @@
     {
       "parameters": {
         "fieldToSplitOut": "data",
-        "options": {}
+        "options": {
+          "destinationFieldName": "split"
+        }
       },
       "id": "cbed6346-9fad-4704-b479-e8e5643a8878",
       "name": "Turn the URL array into multiple items",
@@ -344,7 +347,9 @@
       "position": [
         820,
         260
-      ]
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {},
@@ -427,8 +432,8 @@
       ],
       "credentials": {
         "openAiApi": {
-          "id": "pZ4IJBXWzhYzZfRs",
-          "name": "OpenAi _Blue&"
+          "id": "5kwsndHiYkIfcdvj",
+          "name": "Fausto's OpenAi"
         }
       }
     },
@@ -604,6 +609,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-18T20:06:59.000Z",
-  "versionId": "f8b2faee-caaa-493e-91dd-88b7484306ad"
+  "updatedAt": "2024-12-19T01:45:14.000Z",
+  "versionId": "c44f2479-964c-4f45-a44f-1ca21616028f"
 }
