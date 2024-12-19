@@ -126,7 +126,7 @@
       "parameters": {
         "model": "text-embedding-3-large",
         "options": {
-          "dimensions": 3072
+          "dimensions": 1536
         }
       },
       "id": "2fdab3aa-ee2f-4c11-b3d9-526c1b7486e9",
@@ -213,9 +213,13 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Google Drive Trigger": {
+      "lastTimeChecked": "2024-12-18T20:52:15Z"
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-12-18T20:14:51.000Z",
-  "versionId": "a49cc0e9-669e-4632-b10c-c2ba3a06086e"
+  "triggerCount": 1,
+  "updatedAt": "2024-12-19T02:22:41.000Z",
+  "versionId": "bfe9f179-b088-4fca-b5ea-ae951439aafa"
 }
