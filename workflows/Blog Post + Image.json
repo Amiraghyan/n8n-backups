@@ -5,7 +5,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "AI Agent1",
+            "node": "Prompt Agent",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -16,7 +16,7 @@
       "ai_tool": [
         [
           {
-            "node": "AI Agent1",
+            "node": "Prompt Agent",
             "type": "ai_tool",
             "index": 0
           }
@@ -38,7 +38,7 @@
       "ai_outputParser": [
         [
           {
-            "node": "AI Agent1",
+            "node": "Prompt Agent",
             "type": "ai_outputParser",
             "index": 0
           }
@@ -109,7 +109,7 @@
       "main": [
         [
           {
-            "node": "AI Agent1",
+            "node": "Prompt Agent",
             "type": "main",
             "index": 0
           }
@@ -171,17 +171,6 @@
         ]
       ]
     },
-    "AI Agent1": {
-      "main": [
-        [
-          {
-            "node": "GoAPI MidJourneyV2 Imagine",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When chat message received": {
       "main": [
         [
@@ -198,6 +187,17 @@
         [
           {
             "node": "GoAPI MidJourneyV2 SEED (Upscaled image)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Agent": {
+      "main": [
+        [
+          {
+            "node": "GoAPI MidJourneyV2 Imagine",
             "type": "main",
             "index": 0
           }
@@ -392,7 +392,7 @@
             },
             {
               "name": "caption",
-              "value": "={{ $('AI Agent1').item.json[\"output\"][\"output\"][\"post_description\"] }}"
+              "value": "={{ $('Prompt Agent').item.json[\"output\"][\"output\"][\"post_description\"] }}"
             }
           ]
         },
@@ -404,7 +404,7 @@
       "typeVersion": 4.2,
       "position": [
         1100,
-        20
+        -200
       ]
     },
     {
@@ -499,7 +499,7 @@
       "typeVersion": 4.2,
       "position": [
         1500,
-        20
+        -200
       ]
     },
     {
@@ -572,7 +572,7 @@
       "typeVersion": 1.1,
       "position": [
         1300,
-        20
+        -200
       ],
       "webhookId": "58bd81e9-d956-42cb-8d7d-62ed066b9b2d"
     },
@@ -614,7 +614,7 @@
           "mode": "list",
           "cachedResultName": "GPT-4O"
         },
-        "text": "=This image was generated for this prompt:\n \"{{ $('AI Agent1').item.json.output.output.post_description }}\".\nActually this image is a combined image of 4 different images, 2 at the top half and 2 at the below half. \nUpper left image is indexed as 1.\nUpper right image is indexed as 2.\nLower left image is indexed as 3.\nLower right image is indexed as 4.\n\nWithout any explanation just return the index of the image that is best as per the image description, is most eye catching and engaging.",
+        "text": "=This image was generated for this prompt:\n \"{{ $('Prompt Agent').item.json.output.output.post_description }}\".\nActually this image is a combined image of 4 different images, 2 at the top half and 2 at the below half. \nUpper left image is indexed as 1.\nUpper right image is indexed as 2.\nLower left image is indexed as 3.\nLower right image is indexed as 4.\n\nWithout any explanation just return the index of the image that is best as per the image description, is most eye catching and engaging.",
         "imageUrls": "={{ $json.task_result.image_url }}",
         "options": {
           "maxTokens": 400
@@ -654,25 +654,6 @@
     },
     {
       "parameters": {
-        "agent": "openAiFunctionsAgent",
-        "promptType": "define",
-        "text": "I want to create a Instagram post for the mindfulness and deep thoughts niche. Post should include a captivating and thought-provoking description along with a detailed MidJourney prompt for creating an intriguing and beautiful image. The image can feature scenery, people in deep thoughts or with deep facial expressions, or any other suitable visuals. Description should be engaging and useful, encouraging people to reflect deeply. You can use some of the best quotes on the internet. The post can be related to truth about world, relationships, society, aspirations, illusion etc. Include appropriate hashtags for the post. Let's call instagram post description as \"post_description\" and midjourney prompt as \"midjourney_prompt\".\nRandomize the overall post so that you don't create same post every time.\nImportant: Don't include the model, aspect ratio flags in the midjourney prompt.",
-        "hasOutputParser": true,
-        "options": {
-          "maxIterations": 5
-        }
-      },
-      "id": "dcac02f2-30f2-4003-b6b5-1a7f0f370bb9",
-      "name": "AI Agent1",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.6,
-      "position": [
-        -880,
-        280
-      ]
-    },
-    {
-      "parameters": {
         "amount": 90
       },
       "id": "1532fbb1-3f6c-44ef-940c-d6c004670583",
@@ -684,6 +665,25 @@
         400
       ],
       "webhookId": "58bd81e9-d956-42cb-8d7d-62ed066b9b2d"
+    },
+    {
+      "parameters": {
+        "agent": "openAiFunctionsAgent",
+        "promptType": "define",
+        "text": "I want to create a Instagram post for the mindfulness and deep thoughts niche. Post should include a captivating and thought-provoking description along with a detailed MidJourney prompt for creating an intriguing and beautiful image. The image can feature scenery, people in deep thoughts or with deep facial expressions, or any other suitable visuals. Description should be engaging and useful, encouraging people to reflect deeply. You can use some of the best quotes on the internet. The post can be related to truth about world, relationships, society, aspirations, illusion etc. Include appropriate hashtags for the post. Let's call instagram post description as \"post_description\" and midjourney prompt as \"midjourney_prompt\".\nRandomize the overall post so that you don't create same post every time.\nImportant: Don't include the model, aspect ratio flags in the midjourney prompt.",
+        "hasOutputParser": true,
+        "options": {
+          "maxIterations": 5
+        }
+      },
+      "id": "dcac02f2-30f2-4003-b6b5-1a7f0f370bb9",
+      "name": "Prompt Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        -880,
+        280
+      ]
     }
   ],
   "pinData": {},
@@ -693,6 +693,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-19T07:47:43.000Z",
-  "versionId": "81ec5c6f-ca49-4c6a-a8e9-7e0e5268f1eb"
+  "updatedAt": "2024-12-19T11:25:41.000Z",
+  "versionId": "8f63fcb6-0d31-4110-9517-0021d5d80cc1"
 }
