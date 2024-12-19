@@ -1491,7 +1491,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "position": [
         3080,
-        1200
+        1280
       ],
       "executeOnce": true,
       "typeVersion": 4.2,
@@ -1816,6 +1816,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-18T06:30:08.000Z",
-  "versionId": "2b8f7587-867b-421b-a83b-5cf1175571bc"
+  "updatedAt": "2024-12-19T07:46:54.000Z",
+  "versionId": "358f7583-7b93-4fae-b125-45ac4dad9e77"
 }
