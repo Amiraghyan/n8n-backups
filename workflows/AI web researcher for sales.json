@@ -149,6 +149,28 @@
           }
         ]
       ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Visit Website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Visit Website": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-18T07:14:46.253Z",
@@ -215,8 +237,8 @@
       "typeVersion": 1,
       "credentials": {
         "openAiApi": {
-          "id": "pZ4IJBXWzhYzZfRs",
-          "name": "OpenAi _Blue&"
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
         }
       }
     },
@@ -225,10 +247,10 @@
         "name": "get_website_content",
         "description": "This tool will return the text from the given URL. ",
         "source": "parameter",
-        "workflowJson": "{\n  \"meta\": {\n    \"templateCredsSetupCompleted\": true,\n    \"instanceId\": \"2b1cc1a8b0a2fb9caab11ab2d5eb3712f9973066051b2e898cf4041a1f2a7757\"\n  },\n  \"nodes\": [\n    {\n      \"parameters\": {},\n      \"id\": \"475eaf3c-7e11-457e-8b72-4d3e683e2f80\",\n      \"name\": \"Execute Workflow Trigger\",\n      \"type\": \"n8n-nodes-base.executeWorkflowTrigger\",\n      \"typeVersion\": 1,\n      \"position\": [\n        260,\n        340\n      ]\n    },\n    {\n      \"parameters\": {\n        \"url\": \"={{ $json.query.url }}\",\n        \"options\": {}\n      },\n      \"id\": \"321fbc74-d749-4f9b-954e-7cad37601ddf\",\n      \"name\": \"Visit Website\",\n      \"type\": \"n8n-nodes-base.httpRequest\",\n      \"typeVersion\": 4.2,\n      \"position\": [\n        440,\n        340\n      ]\n    },\n    {\n      \"parameters\": {\n        \"operation\": \"extractHtmlContent\",\n        \"extractionValues\": {\n          \"values\": [\n            {\n              \"key\": \"body\",\n              \"cssSelector\": \"html\",\n              \"skipSelectors\": \"head\"\n            }\n          ]\n        },\n        \"options\": {\n          \"cleanUpText\": true\n        }\n      },\n      \"id\": \"6e51732a-4999-4805-838b-f692e9965197\",\n      \"name\": \"HTML\",\n      \"type\": \"n8n-nodes-base.html\",\n      \"typeVersion\": 1.2,\n      \"position\": [\n        620,\n        340\n      ]\n    }\n  ],\n  \"connections\": {\n    \"Execute Workflow Trigger\": {\n      \"main\": [\n        [\n          {\n            \"node\": \"Visit Website\",\n            \"type\": \"main\",\n            \"index\": 0\n          }\n        ]\n      ]\n    },\n    \"Visit Website\": {\n      \"main\": [\n        [\n          {\n            \"node\": \"HTML\",\n            \"type\": \"main\",\n            \"index\": 0\n          }\n        ]\n      ]\n    }\n  },\n  \"pinData\": {\n    \"Execute Workflow Trigger\": [\n      {\n        \"query\": {\n          \"url\": \"https://www.lemlist.com\"\n        }\n      }\n    ]\n  }\n}",
+        "workflowJson": "{\n  \"nodes\": [\n    {\n      \"parameters\": {},\n      \"id\": \"c8aedb22-a431-4f89-a114-aa49597c653f\",\n      \"name\": \"Execute Workflow Trigger\",\n      \"type\": \"n8n-nodes-base.executeWorkflowTrigger\",\n      \"typeVersion\": 1,\n      \"position\": [\n        1640,\n        1620\n      ]\n    },\n    {\n      \"parameters\": {\n        \"url\": \"={{ $json.query.url }}\",\n        \"options\": {}\n      },\n      \"id\": \"d4c6f04d-57b9-44cd-a60a-06bf6c23ea0a\",\n      \"name\": \"Visit Website\",\n      \"type\": \"n8n-nodes-base.httpRequest\",\n      \"typeVersion\": 4.2,\n      \"position\": [\n        1820,\n        1620\n      ]\n    },\n    {\n      \"parameters\": {\n        \"operation\": \"extractHtmlContent\",\n        \"extractionValues\": {\n          \"values\": [\n            {\n              \"key\": \"body\",\n              \"cssSelector\": \"html\",\n              \"skipSelectors\": \"head\"\n            }\n          ]\n        },\n        \"options\": {\n          \"cleanUpText\": true\n        }\n      },\n      \"id\": \"22fe8d67-b857-4a70-a7f4-e850cd6fbb1e\",\n      \"name\": \"HTML\",\n      \"type\": \"n8n-nodes-base.html\",\n      \"typeVersion\": 1.2,\n      \"position\": [\n        2000,\n        1620\n      ]\n    }\n  ],\n  \"connections\": {\n    \"Execute Workflow Trigger\": {\n      \"main\": [\n        [\n          {\n            \"node\": \"Visit Website\",\n            \"type\": \"main\",\n            \"index\": 0\n          }\n        ]\n      ]\n    },\n    \"Visit Website\": {\n      \"main\": [\n        [\n          {\n            \"node\": \"HTML\",\n            \"type\": \"main\",\n            \"index\": 0\n          }\n        ]\n      ]\n    }\n  },\n  \"pinData\": {\n    \"Execute Workflow Trigger\": [\n      {\n        \"query\": {\n          \"url\": \"https://www.lemlist.com\"\n        }\n      }\n    ]\n  }\n}\n\n\n\n\n\n\n\n\n",
         "responsePropertyName": "body",
         "specifyInputSchema": true,
-        "jsonSchemaExample": "{\n\t\"url\": \"https://www.lemlist.com\"\n}"
+        "jsonSchemaExample": "{\n\t\"url\": \"https://www.mongodb.com/case-studies/openclass\"\n}"
       },
       "id": "24e2f3b0-8b90-49a9-bde6-0fb0c2baf52a",
       "name": "Get website content",
@@ -577,36 +599,6 @@
     },
     {
       "parameters": {
-        "content": "### Process rows 1 by 1\nThis module will allow us to process rows 1 by 1",
-        "height": 333.8263184006576,
-        "width": 300.49399096535876
-      },
-      "id": "eb0c95e7-2211-48d1-abaf-07cd0c76d3a6",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        1540,
-        227.25301102878547
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "content": "Precise here the format in which you need the data to be ",
-        "height": 236.01118609685022,
-        "width": 300.49399096535876
-      },
-      "id": "8bf0deae-dda7-4e27-9ac7-978db14cca19",
-      "name": "Sticky Note2",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        2740,
-        560
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "content": "### Ask AI what are the information you are looking for about the company",
         "height": 279.8787004666023,
         "width": 300.49399096535876
@@ -615,22 +607,8 @@
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2180,
-        200.2582716310755
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "content": "Get your free API key here https://serpapi.com/",
-        "height": 248.91749449109562
-      },
-      "id": "70fc73a0-303b-46e1-822d-cebdbccf8e32",
-      "name": "Sticky Note4",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        2220,
-        580
+        2080,
+        -20
       ],
       "typeVersion": 1
     },
@@ -653,21 +631,6 @@
         580
       ],
       "typeVersion": 1.2
-    },
-    {
-      "parameters": {
-        "content": "Run the workflow manually or activate it to run it every 2 hours",
-        "height": 627.5654650079845,
-        "width": 266.12865147126786
-      },
-      "id": "8b5ebee9-f519-4621-bf2a-12891794f2c5",
-      "name": "Sticky Note5",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        820,
-        240
-      ],
-      "typeVersion": 1
     },
     {
       "parameters": {
@@ -700,8 +663,8 @@
       "name": "Search Google with ScrapingBee",
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "position": [
-        2300,
-        1140
+        480,
+        1120
       ],
       "typeVersion": 1.1
     },
@@ -714,16 +677,16 @@
       "name": "Sticky Note6",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2220,
+        400,
         940
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "In this workflow, I use Google Sheets to store the results. \n\nYou can use my template to get started faster:\n\n1. [Click on this link to get the template](https://docs.google.com/spreadsheets/d/1vR6s2nlTwu01v3GP7wvSRWS5W49FJIh20ZF7AUkmMDo/edit?usp=sharing)\n2. Make a copy of the Sheets\n3. Add the URL to this node and the node **\"Google Sheets - Update Row with data\"**\n\n\n",
-        "height": 525.6560478822986,
-        "width": 194.6864335083109
+        "content": "In this workflow, I use Google Sheets to store the results. \n\nYou can use my template to get started faster:\n\n[Click on this link to get the template](https://docs.google.com/spreadsheets/d/1vR6s2nlTwu01v3GP7wvSRWS5W49FJIh20ZF7AUkmMDo/edit?usp=sharing)\n",
+        "height": 206,
+        "width": 195
       },
       "id": "79eff129-790b-46da-bef3-899eb6db3ced",
       "name": "Sticky Note7",
@@ -733,6 +696,56 @@
         -20
       ],
       "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "33ee375e-eff1-4cc0-8b10-e9891d90e896",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.query.url }}",
+        "options": {}
+      },
+      "id": "9ae80192-20e5-4805-9c2c-5f70e703921b",
+      "name": "Visit Website",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2260,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "body",
+              "cssSelector": "html",
+              "skipSelectors": "head"
+            }
+          ]
+        },
+        "options": {
+          "cleanUpText": true
+        }
+      },
+      "id": "a7e71cee-3d84-47f1-8bfb-747d3450a60b",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        2540,
+        1000
+      ]
     }
   ],
   "pinData": {},
@@ -740,6 +753,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-18T07:29:51.000Z",
-  "versionId": "508bd4cb-3650-48c4-b885-4ffa35d62ed8"
+  "updatedAt": "2024-12-19T05:33:18.000Z",
+  "versionId": "20774b40-05e3-4b26-aa58-16f612a52ac6"
 }
