@@ -131,6 +131,11 @@
             "node": "Outputs",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -161,11 +166,27 @@
       "main": [
         [
           {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
             "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
         ]
+      ]
+    },
+    "Outputs": {
+      "main": [
+        []
       ]
     }
   },
@@ -179,7 +200,7 @@
         "url": "https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\": [\n        \"{{ $json.records[0].fields.Link }}\"\n    ]\n}",
+        "jsonBody": "={\n    \"startUrls\": [\n        \"{{ $json.records.fields.Link }}\"\n    ]\n}",
         "options": {}
       },
       "id": "c4cdde10-ac16-44fb-b05a-673fa93e4515",
@@ -187,7 +208,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1800,
+        2020,
         60
       ]
     },
@@ -198,7 +219,7 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        920,
+        1100,
         60
       ]
     },
@@ -207,7 +228,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2060,
+        2300,
         60
       ],
       "id": "b5583926-e533-47a2-adc7-c78e05be97a0",
@@ -224,8 +245,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2360,
-        -100
+        2300,
+        -120
       ],
       "credentials": {
         "openAiApi": {
@@ -244,7 +265,7 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2320,
+        2300,
         -260
       ]
     },
@@ -255,7 +276,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2700,
+        2840,
         60
       ],
       "id": "f0a8fec0-f5b4-4aca-ac76-cfde130187e2",
@@ -270,8 +291,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2360,
-        240
+        2520,
+        200
       ],
       "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
       "name": "OpenAI Chat Model2",
@@ -290,7 +311,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        2320,
+        2500,
         60
       ],
       "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
@@ -308,8 +329,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2920,
-        240
+        3040,
+        200
       ],
       "id": "5ae57c35-58f9-4408-be16-d23b3c11fa4d",
       "name": "OpenAI Chat Model4",
@@ -328,7 +349,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        2920,
+        3040,
         60
       ],
       "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
@@ -342,8 +363,9 @@
       "parameters": {
         "resource": "audio",
         "input": "={{ $json.text }}",
-        "voice": "onyx",
+        "voice": "shimmer",
         "options": {
+          "response_format": "mp3",
           "binaryPropertyOutput": "=Audio-{{ $('HTTP Request').item.json.videoTitle }}"
         }
       },
@@ -352,7 +374,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3300,
+        3380,
         60
       ],
       "credentials": {
@@ -360,38 +382,8 @@
           "id": "dbsbEP9NpcetZP6N",
           "name": "Research Assistant"
         }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "oAuth2",
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "value": "C085C7Q7FPY",
-          "mode": "list",
-          "cachedResultName": "content-generation"
-        },
-        "messageType": "block",
-        "otherOptions": {
-          "unfurl_media": "={{ true }}"
-        }
       },
-      "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.3,
-      "position": [
-        3960,
-        60
-      ],
-      "id": "5c3c0a56-46f3-426f-ac38-e23bbc7ab1c4",
-      "name": "Slack",
-      "webhookId": "cdfdb836-1c60-47aa-bd30-e29385a0f990",
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "qOdQUZtzpSolQMoG",
-          "name": "Slack account 2"
-        }
-      }
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -416,7 +408,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1140,
+        1280,
         60
       ],
       "id": "131b8ee5-5e40-425c-b35f-ff810444c9a1",
@@ -451,7 +443,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1360,
+        1460,
         60
       ],
       "id": "51d7de1b-1b3f-4859-a9dc-cb48adb220b6",
@@ -486,7 +478,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1580,
+        1640,
         60
       ],
       "id": "ea2da3ae-5121-4b5a-8702-240e0db1ddf4",
@@ -725,7 +717,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2740,
+        2760,
         -260
       ],
       "id": "9e6c4f51-a02a-456a-ade6-ced1ea77b763",
@@ -758,11 +750,16 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Link": "={{ $json.url }}",
-            "Duration": 0
+            "id": "={{ $json.id }}",
+            "Audio_File": "=",
+            "Highlights": "={{ $('Highlights').item.json.text }}",
+            "Summary": "={{ $('Summary').item.json.text }}",
+            "Transcript": "={{ $('HTTP Request').item.json.transcript }}",
+            "Title": "={{ $('HTTP Request').item.json.videoTitle }}",
+            "Sentiment": "={{ $('Split Out').item.json.records.fields.Sentiment }}"
           },
           "matchingColumns": [
-            "Link"
+            "id"
           ],
           "schema": [
             {
@@ -773,7 +770,7 @@
               "display": true,
               "type": "string",
               "readOnly": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Link",
@@ -784,7 +781,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Type",
@@ -817,7 +814,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Duration",
@@ -839,7 +836,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Transcript",
@@ -850,7 +847,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Summary",
@@ -861,7 +858,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Highlights",
@@ -872,7 +869,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Sentiment",
@@ -889,7 +886,7 @@
                 }
               ],
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Channel",
@@ -909,7 +906,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": true
             },
@@ -920,7 +917,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": true
             },
@@ -931,7 +928,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": true
             },
@@ -942,7 +939,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": true
             },
@@ -954,6 +951,17 @@
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Audio_File",
+              "displayName": "Audio_File",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
               "readOnly": false,
               "removed": false
             },
@@ -975,8 +983,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3520,
-        60
+        3560,
+        -40
       ],
       "id": "13cb8b1b-36de-49c2-a898-d4fa99bff235",
       "name": "Outputs",
@@ -984,6 +992,48 @@
         "airtableOAuth2Api": {
           "id": "mzzMlUms6jLmJPtw",
           "name": "Airtable OAuth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "records",
+        "include": "=allOtherFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        60
+      ],
+      "id": "5eb10f32-ac11-4ddc-84bf-230711a9c068",
+      "name": "Split Out",
+      "alwaysOutputData": true,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "options": {
+          "fileName": "",
+          "title": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        3560,
+        160
+      ],
+      "id": "712cd3a6-b0dd-41a6-8a2d-c096e3822bd2",
+      "name": "Slack",
+      "webhookId": "e94addf9-2530-4f3c-91cf-77c8bfb30762",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "7VOxhQHkBloxHtkn",
+          "name": "syc-n8n"
         }
       }
     }
@@ -995,6 +1045,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T00:08:17.000Z",
-  "versionId": "3685f7de-5016-4897-8a7b-1d5355200fc6"
+  "updatedAt": "2024-12-27T17:59:23.000Z",
+  "versionId": "38f9a26f-55c4-4778-8aa2-dc6c427fa4c5"
 }
