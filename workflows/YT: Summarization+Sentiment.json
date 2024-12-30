@@ -8,11 +8,6 @@
             "node": "Wait",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Sentiment Analysis",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -413,6 +408,7 @@
       ],
       "id": "131b8ee5-5e40-425c-b35f-ff810444c9a1",
       "name": "Source",
+      "executeOnce": true,
       "credentials": {
         "airtableOAuth2Api": {
           "id": "mzzMlUms6jLmJPtw",
@@ -1045,6 +1041,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-27T17:59:23.000Z",
-  "versionId": "38f9a26f-55c4-4778-8aa2-dc6c427fa4c5"
+  "updatedAt": "2024-12-30T19:55:50.000Z",
+  "versionId": "1f8f41e3-363a-4879-aca6-de85c4137f93"
 }
