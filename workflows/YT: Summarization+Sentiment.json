@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Source",
+            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
@@ -183,6 +183,116 @@
       "main": [
         []
       ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "SEO Writer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SEO Writer": {
+      "main": [
+        [
+          {
+            "node": "Editor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Editor": {
+      "main": [
+        [
+          {
+            "node": "Formatter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatter": {
+      "main": [
+        [
+          {
+            "node": "article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text → Audio1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "article": {
+      "main": [
+        [
+          {
+            "node": "Text → Audio1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -214,8 +324,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1100,
-        60
+        1260,
+        620
       ]
     },
     {
@@ -1032,6 +1142,260 @@
           "name": "syc-n8n"
         }
       }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1480,
+        620
+      ],
+      "id": "e06c9784-9e9b-47f9-91a9-7e08e8a0b1db",
+      "name": "When chat message received",
+      "webhookId": "321d6759-49b5-4082-b810-a65b232ad1e9"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a web searcher agent assistant. You will be provided a topic or headline for an SEO blog article. Your task is to search the web for reliable factual information on this topic and summarize key points to provide helpful content. Be concise and clear, focusing on details that would enhance the article's SEO value and informative quality. "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1700,
+        620
+      ],
+      "id": "6204594e-a241-4aa0-acb9-418d3744c397",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        840
+      ],
+      "id": "25b8fe22-75ce-46c3-97b7-a9c484f843cb",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        840
+      ],
+      "id": "ef9822f5-6bc4-405a-912d-a84201df4bc4",
+      "name": "SerpAPI",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1780,
+        840
+      ],
+      "id": "eaad669b-e18a-4c3e-b15a-00905a356c4c",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2100,
+        620
+      ],
+      "id": "5e2b1539-dae8-4cda-90eb-c320be36bfb2",
+      "name": "SEO Writer",
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o1-mini",
+          "mode": "list",
+          "cachedResultName": "O1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an Editor. You'll receive a draft:\n{{ $json.message.content }} of a blog article. Your task is to thoroughly check for grammar, punctuation, and readability. Ensure that the text flows smoothly, is free from errors, and maintains a clear, engaging tone. Make any necessary adjustments to improve clarity, structure, and accessibility for a broad audience."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2500,
+        620
+      ],
+      "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
+      "name": "Editor",
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o1-mini",
+          "mode": "list",
+          "cachedResultName": "O1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a Formatter. You'll receive a refined article draft: {{ $json.message.content }}. \nYour task is to format it for optimal readability and SEO impact. Use headings (H1, H2, H3) where appropriate, create short paragraphs, and add bullet points or numbered lists for clarity. Ensure each section flows logically, and highlight important information for better reader engagement. Check that keywords are strategically placed without disrupting the flow. "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2880,
+        620
+      ],
+      "id": "026a61a5-f779-42c4-96dd-bf66c9f92a61",
+      "name": "Formatter",
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $('Formatter').item.json.message.content }}",
+        "name": "blog_post_{{now}}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/u/3/folders/1gSu4CuUtNEuoqfguuBZw5YCloEjKf9VH",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3760,
+        620
+      ],
+      "id": "d53ff90f-de2f-4200-8e2b-178e3308ee96",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "={{ $json.content }}",
+        "options": {}
+      },
+      "id": "64448d70-af73-4429-9651-8ecd247b0dd3",
+      "name": "Text → Audio1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        3500,
+        620
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9a0297ea-5830-47b6-888b-e832a65b594a",
+              "name": "content",
+              "value": "={{ $json.message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3240,
+        620
+      ],
+      "id": "45f9a1c3-95ba-415d-bfa1-e96853a443e7",
+      "name": "article"
     }
   ],
   "pinData": {},
@@ -1041,6 +1405,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-30T19:55:50.000Z",
-  "versionId": "1f8f41e3-363a-4879-aca6-de85c4137f93"
+  "updatedAt": "2024-12-31T19:52:40.000Z",
+  "versionId": "70302706-c503-4a09-bac8-ce7b65894d0f"
 }
