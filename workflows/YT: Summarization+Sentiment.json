@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "Google Sheets",
             "type": "main",
             "index": 0
           }
@@ -170,13 +170,7 @@
     },
     "Split Out": {
       "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Outputs": {
@@ -188,7 +182,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "Researcher",
             "type": "main",
             "index": 0
           }
@@ -199,7 +193,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "AI Agent",
+            "node": "Researcher",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -210,7 +204,7 @@
       "ai_tool": [
         [
           {
-            "node": "AI Agent",
+            "node": "Researcher",
             "type": "ai_tool",
             "index": 0
           }
@@ -221,19 +215,8 @@
       "ai_memory": [
         [
           {
-            "node": "AI Agent",
+            "node": "Researcher",
             "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent": {
-      "main": [
-        [
-          {
-            "node": "SEO Writer",
-            "type": "main",
             "index": 0
           }
         ]
@@ -298,6 +281,28 @@
           }
         ]
       ]
+    },
+    "Researcher": {
+      "main": [
+        [
+          {
+            "node": "SEO Writer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -329,8 +334,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1260,
-        620
+        1620,
+        60
       ]
     },
     {
@@ -516,8 +521,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1280,
-        60
+        2300,
+        -560
       ],
       "id": "131b8ee5-5e40-425c-b35f-ff810444c9a1",
       "name": "Source",
@@ -552,8 +557,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1460,
-        60
+        2480,
+        -560
       ],
       "id": "51d7de1b-1b3f-4859-a9dc-cb48adb220b6",
       "name": "Prompt",
@@ -587,8 +592,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1640,
-        60
+        2660,
+        -560
       ],
       "id": "ea2da3ae-5121-4b5a-8702-240e0db1ddf4",
       "name": "Input",
@@ -1113,8 +1118,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1820,
-        60
+        2840,
+        -560
       ],
       "id": "5eb10f32-ac11-4ddc-84bf-230711a9c068",
       "name": "Split Out",
@@ -1153,27 +1158,12 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        1480,
-        620
+        1460,
+        440
       ],
       "id": "e06c9784-9e9b-47f9-91a9-7e08e8a0b1db",
       "name": "When chat message received",
       "webhookId": "321d6759-49b5-4082-b810-a65b232ad1e9"
-    },
-    {
-      "parameters": {
-        "options": {
-          "systemMessage": "You are a web searcher agent assistant. You will be provided a topic or headline for an SEO blog article. Your task is to search the web for reliable factual information on this topic and summarize key points to provide helpful content. Be concise and clear, focusing on details that would enhance the article's SEO value and informative quality. "
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        1700,
-        620
-      ],
-      "id": "6204594e-a241-4aa0-acb9-418d3744c397",
-      "name": "AI Agent"
     },
     {
       "parameters": {
@@ -1327,7 +1317,7 @@
       "parameters": {
         "operation": "createFromText",
         "content": "={{ $('Formatter').item.json.message.content }}",
-        "name": "blog_post_{{now}}",
+        "name": "=article_{{ $now }}",
         "driveId": {
           "__rl": true,
           "mode": "list",
@@ -1343,7 +1333,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3660,
+        3500,
         620
       ],
       "id": "d53ff90f-de2f-4200-8e2b-178e3308ee96",
@@ -1364,6 +1354,30 @@
               "name": "content",
               "value": "={{ $json.message.content }}",
               "type": "string"
+            },
+            {
+              "id": "54356597-da80-45e4-a073-91d293cb0796",
+              "name": "Research",
+              "value": "={{ $('Researcher').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "328a4bbb-ee0c-4754-b731-249c7d6578f3",
+              "name": "SEOwriteup",
+              "value": "={{ $('SEO Writer').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "dec9bb57-2935-46bb-ba87-71d99db09848",
+              "name": "Edited",
+              "value": "={{ $('Editor').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "03fcc827-01c0-45a7-ab68-e4ca64a01791",
+              "name": "Formatted",
+              "value": "={{ $json.message.content }}",
+              "type": "string"
             }
           ]
         },
@@ -1372,7 +1386,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3240,
+        3260,
         620
       ],
       "id": "45f9a1c3-95ba-415d-bfa1-e96853a443e7",
@@ -1389,7 +1403,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3940,
+        3740,
         620
       ],
       "credentials": {
@@ -1399,6 +1413,54 @@
         }
       },
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a web searcher agent assistant. You will be provided a topic or headline for an SEO blog article. Your task is to search the web for reliable factual information on this topic and summarize key points to provide helpful content. Be concise and clear, focusing on details that would enhance the article's SEO value and informative quality. "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1700,
+        620
+      ],
+      "id": "6204594e-a241-4aa0-acb9-418d3744c397",
+      "name": "Researcher"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1820,
+        60
+      ],
+      "id": "ec9a2a89-db73-462a-875f-3608814073a6",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1416,6 +1478,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-01T00:13:02.000Z",
-  "versionId": "ad8183d3-a556-4fdb-812f-1900aea32023"
+  "updatedAt": "2025-01-02T15:55:49.000Z",
+  "versionId": "bbd1f331-bb6c-419d-a1c8-ede98c59ad0c"
 }
