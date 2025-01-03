@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Wait",
+            "node": "Summary",
             "type": "main",
             "index": 0
           }
@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Google Sheets",
+            "node": "Ptompts",
             "type": "main",
             "index": 0
           }
@@ -25,13 +25,7 @@
     },
     "Wait": {
       "main": [
-        [
-          {
-            "node": "Summary",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenAI Chat Model1": {
@@ -123,12 +117,7 @@
       "main": [
         [
           {
-            "node": "Outputs",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Slack",
+            "node": "Knowledge Base",
             "type": "main",
             "index": 0
           }
@@ -293,11 +282,22 @@
         ]
       ]
     },
-    "Google Sheets": {
+    "Inputs": {
       "main": [
         [
           {
             "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ptompts": {
+      "main": [
+        [
+          {
+            "node": "Inputs",
             "type": "main",
             "index": 0
           }
@@ -315,7 +315,7 @@
         "url": "https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\": [\n        \"{{ $json.records.fields.Link }}\"\n    ]\n}",
+        "jsonBody": "={\n    \"startUrls\": [\n        \"{{ $json['Link to Source'] }}\"\n    ]\n}",
         "options": {}
       },
       "id": "c4cdde10-ac16-44fb-b05a-673fa93e4515",
@@ -323,7 +323,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2020,
+        2500,
         60
       ]
     },
@@ -334,7 +334,7 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1620,
+        1840,
         60
       ]
     },
@@ -343,8 +343,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2300,
-        60
+        5220,
+        -160
       ],
       "id": "b5583926-e533-47a2-adc7-c78e05be97a0",
       "name": "Wait",
@@ -359,8 +359,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2300,
-        -120
+        3320,
+        -440
       ],
       "credentials": {
         "openAiApi": {
@@ -379,8 +379,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2300,
-        -260
+        3320,
+        -580
       ]
     },
     {
@@ -390,7 +390,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2840,
+        3100,
         60
       ],
       "id": "f0a8fec0-f5b4-4aca-ac76-cfde130187e2",
@@ -405,7 +405,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2520,
+        2740,
         200
       ],
       "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
@@ -420,12 +420,12 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $json.transcript }}\n{{ $('Prompt').item.json.records[0].fields.Summary }}"
+        "text": "={{ $json.transcript }}"
       },
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        2500,
+        2720,
         60
       ],
       "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
@@ -442,7 +442,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3040,
+        3340,
         200
       ],
       "id": "5ae57c35-58f9-4408-be16-d23b3c11fa4d",
@@ -457,12 +457,12 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $('HTTP Request').item.json.transcript }}\n{{ $('Prompt').item.json.records[0].fields.Highlights }}"
+        "text": "={{ $('HTTP Request').item.json.transcript }}"
       },
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        3040,
+        3320,
         60
       ],
       "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
@@ -487,7 +487,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3380,
+        3680,
         60
       ],
       "credentials": {
@@ -831,8 +831,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2760,
-        -260
+        3780,
+        -580
       ],
       "id": "9e6c4f51-a02a-456a-ade6-ced1ea77b763",
       "name": "Log Sentiment",
@@ -1097,8 +1097,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3560,
-        -40
+        4680,
+        -160
       ],
       "id": "13cb8b1b-36de-49c2-a898-d4fa99bff235",
       "name": "Outputs",
@@ -1138,8 +1138,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        3560,
-        160
+        4920,
+        -160
       ],
       "id": "712cd3a6-b0dd-41a6-8a2d-c096e3822bd2",
       "name": "Slack",
@@ -1450,15 +1450,81 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1820,
+        2280,
         60
       ],
       "id": "ec9a2a89-db73-462a-875f-3608814073a6",
-      "name": "Google Sheets",
+      "name": "Inputs",
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "rSTr7Ltjwpw9Xvz2",
           "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1471096355,
+          "mode": "list",
+          "cachedResultName": "prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=1471096355"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2060,
+        60
+      ],
+      "id": "9ff51c50-3e48-49b3-88d5-5932d6952513",
+      "name": "Ptompts",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "\"data\"",
+        "name": "=YT_audio_{{ $('HTTP Request').item.json.videoTitle }}.mp3",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/u/3/folders/1dFgXwWbG6-uj8iRKqUHKerkq0RW1bso_",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3900,
+        60
+      ],
+      "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
+      "name": "Knowledge Base",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
         }
       }
     }
@@ -1478,6 +1544,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-02T15:55:49.000Z",
-  "versionId": "bbd1f331-bb6c-419d-a1c8-ede98c59ad0c"
+  "updatedAt": "2025-01-03T06:13:18.000Z",
+  "versionId": "ebfc7d37-061f-4422-b0f6-fed18d0c09f4"
 }
