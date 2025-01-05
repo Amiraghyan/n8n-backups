@@ -265,7 +265,7 @@
       "main": [
         [
           {
-            "node": "Video Stats",
+            "node": "Merge",
             "type": "main",
             "index": 0
           }
@@ -276,9 +276,9 @@
       "main": [
         [
           {
-            "node": "Video Stats",
+            "node": "Merge",
             "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -287,16 +287,11 @@
       "main": [
         [
           {
-            "node": "Video Stats",
+            "node": "Merge",
             "type": "main",
-            "index": 0
+            "index": 2
           }
         ]
-      ]
-    },
-    "YouTube Video": {
-      "main": [
-        []
       ]
     },
     "Code": {
@@ -350,7 +345,24 @@
     },
     "Text → Audio": {
       "main": [
-        []
+        [
+          {
+            "node": "Knowledge Base",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Video Stats",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -379,8 +391,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2640,
-        40
+        2740,
+        80
       ],
       "credentials": {
         "openAiApi": {
@@ -399,8 +411,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2640,
-        -100
+        2740,
+        -60
       ]
     },
     {
@@ -426,7 +438,15 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $json.transcript }}"
+        "text": "={{ $json.transcript }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "={{ $('Ptompts').item.json.Summary }}"
+            }
+          ]
+        }
       },
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
@@ -463,7 +483,15 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $('Youtube Metadata').item.json.transcript }}"
+        "text": "={{ $('Ptompts').item.json.Transcript }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "={{ $('Ptompts').item.json.Highlights }}"
+            }
+          ]
+        }
       },
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
@@ -843,7 +871,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4220,
+        4080,
         -660
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
@@ -1001,7 +1029,7 @@
     },
     {
       "parameters": {
-        "url": "={{ \"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=\" + $json.videoId + \"&maxResults=100&key=AIzaSyCz1ERhB6y9kkfp42Hr5KjEI-k8rut9lrQ\" }}",
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=\" + $json.videoId + \"&maxResults=100&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
         "options": {}
       },
       "id": "1b57f7ec-f7f8-4080-b5a4-512c9fd9e52d",
@@ -1021,7 +1049,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2460,
+        2500,
         -60
       ],
       "id": "829ff6f0-b4c0-4e1e-a0f1-95c403de1e1b",
@@ -1041,8 +1069,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3060,
-        -240
+        3160,
+        -200
       ],
       "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
       "name": "Positive"
@@ -1061,8 +1089,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3060,
-        -100
+        3160,
+        -60
       ],
       "id": "a36731c9-a7a9-4bc6-b4c1-efb02b65eedf",
       "name": "Neutral"
@@ -1081,8 +1109,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3060,
-        40
+        3160,
+        80
       ],
       "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
       "name": "Negative"
@@ -1194,35 +1222,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3340,
-        -100
+        3660,
+        -60
       ],
       "id": "a8e02217-ce58-442b-9bc7-465804ab7fe7",
       "name": "Video Stats"
-    },
-    {
-      "parameters": {
-        "resource": "video",
-        "filters": {},
-        "options": {}
-      },
-      "type": "n8n-nodes-base.youTube",
-      "typeVersion": 1,
-      "position": [
-        2880,
-        -1140
-      ],
-      "id": "33fb33bf-ab6b-4619-a5f3-ce024dac3782",
-      "name": "YouTube Video",
-      "alwaysOutputData": true,
-      "executeOnce": true,
-      "credentials": {
-        "youTubeOAuth2Api": {
-          "id": "UB2CM41oTDtiQtaf",
-          "name": "YouTube OAuth"
-        }
-      },
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1379,6 +1383,19 @@
         }
       },
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3460,
+        -60
+      ],
+      "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
+      "name": "Merge"
     }
   ],
   "pinData": {
@@ -1396,6 +1413,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-05T08:12:51.000Z",
-  "versionId": "25f67524-2693-429b-85e9-e579aa12cb77"
+  "updatedAt": "2025-01-05T08:55:20.000Z",
+  "versionId": "ce2f2715-9c7f-4097-8370-db5ea80e5154"
 }
