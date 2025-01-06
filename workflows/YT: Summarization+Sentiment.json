@@ -364,6 +364,55 @@
           }
         ]
       ]
+    },
+    "Video Stats": {
+      "main": [
+        []
+      ]
+    },
+    "Video": {
+      "main": [
+        [
+          {
+            "node": "Split Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Audio": {
+      "main": [
+        [
+          {
+            "node": "Whisper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Whisper": {
+      "main": [
+        [
+          {
+            "node": "Group Chunks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -423,7 +472,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3100,
+        3020,
         -500
       ],
       "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
@@ -451,7 +500,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        3040,
+        2960,
         -660
       ],
       "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
@@ -468,7 +517,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3500,
+        3400,
         -500
       ],
       "id": "5ae57c35-58f9-4408-be16-d23b3c11fa4d",
@@ -496,7 +545,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        3460,
+        3360,
         -660
       ],
       "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
@@ -853,7 +902,7 @@
     {
       "parameters": {
         "inputDataFieldName": "={{\"data\"}}",
-        "name": "=yt_audio-{{ $('Youtube Metadata').item.json.videoTitle }}.mp3",
+        "name": "=yt_audiosumm-{{ $('Youtube Transcript').item.json.videoTitle }}.mp3",
         "driveId": {
           "__rl": true,
           "mode": "list",
@@ -871,7 +920,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4080,
+        3980,
         -660
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
@@ -1015,8 +1064,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3140,
-        -1140
+        1140,
+        -1160
       ],
       "id": "b87d1808-1529-4ae1-89d0-068102052ddb",
       "name": "Google Sheets",
@@ -1119,84 +1168,6 @@
       "parameters": {
         "assignments": {
           "assignments": [
-            {
-              "id": "c39c6d96-7153-47ee-97c5-ee3bec749043",
-              "name": "id",
-              "value": "={{ $('YouTube').item.json.id }}",
-              "type": "string"
-            },
-            {
-              "id": "39c63e4c-c4d3-4186-99dd-78dc2e0f65b7",
-              "name": "snippet.publishedAt",
-              "value": "={{ $('YouTube').item.json.snippet.publishedAt }}",
-              "type": "string"
-            },
-            {
-              "id": "8e6c189e-ef4b-4bed-a698-c3438ffdd493",
-              "name": "snippet.title",
-              "value": "={{ $('YouTube').item.json.snippet.title }}",
-              "type": "string"
-            },
-            {
-              "id": "ed9bd6e8-0907-4035-af5c-4f9481d94e5f",
-              "name": "snippet.description",
-              "value": "={{ $('YouTube').item.json.snippet.description }}",
-              "type": "string"
-            },
-            {
-              "id": "dbbdad4d-c8c2-405f-8e84-12795dff5c62",
-              "name": "snippet.channelTitle",
-              "value": "={{ $('YouTube').item.json.snippet.channelTitle }}",
-              "type": "string"
-            },
-            {
-              "id": "82265908-2c5f-4307-88cc-abee6f01c75f",
-              "name": "contentDetails.duration",
-              "value": "={{ $('YouTube').item.json.contentDetails.duration }}",
-              "type": "string"
-            },
-            {
-              "id": "036d182b-da1b-438b-89c1-3ec38b8cb17b",
-              "name": "statistics.viewCount",
-              "value": "={{ $('YouTube').item.json.statistics.viewCount }}",
-              "type": "string"
-            },
-            {
-              "id": "7cef4822-e705-497e-9597-31f1ec5a18cb",
-              "name": "statistics.likeCount",
-              "value": "={{ $('YouTube').item.json.statistics.likeCount }}",
-              "type": "string"
-            },
-            {
-              "id": "6010b15f-81c1-4871-8ca8-0bd905bf01ab",
-              "name": "statistics.favoriteCount",
-              "value": "={{ $('YouTube').item.json.statistics.favoriteCount }}",
-              "type": "string"
-            },
-            {
-              "id": "83112baa-2f4a-42de-b7c1-d1e1c359a391",
-              "name": "statistics.commentCount",
-              "value": "={{ $('YouTube').item.json.statistics.commentCount }}",
-              "type": "string"
-            },
-            {
-              "id": "2eb97ff2-7fea-4dbd-af7c-e2cc0302799a",
-              "name": "snippet.categoryId",
-              "value": "={{ $('YouTube').item.json.snippet.categoryId }}",
-              "type": "string"
-            },
-            {
-              "id": "f5ae61f2-c293-4089-b6bc-60b426e05cd5",
-              "name": "pageInfo.totalResults",
-              "value": "={{ $('Comments').item.json.pageInfo.totalResults }}",
-              "type": "number"
-            },
-            {
-              "id": "de23e2eb-fe14-4f83-9008-aaddb6fc022e",
-              "name": "items[0].snippet.topLevelComment.snippet.likeCount",
-              "value": "={{ $('Comments').item.json.items[0].snippet.topLevelComment.snippet.likeCount }}",
-              "type": "number"
-            },
             {
               "id": "70208a9e-cf61-4774-9815-85db1bc4160d",
               "name": "count_snippet_topLevelComment_snippet",
@@ -1353,7 +1324,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2740,
+        2720,
         -660
       ],
       "alwaysOutputData": true,
@@ -1372,7 +1343,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3820,
+        3720,
         -660
       ],
       "alwaysOutputData": true,
@@ -1396,6 +1367,91 @@
       ],
       "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
       "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Function to split audio into chunks using ffmpeg\nconst splitAudio = async (audioBuffer) => {\n  // Set chunk size to 24MB to stay under Whisper's 25MB limit\n  const chunkSizeInSeconds = 600; // 10 minutes per chunk\n  const outputChunks = [];\n  \n  // Create FFmpeg command to split audio\n  const command = `ffmpeg -i input.mp3 -f segment -segment_time ${chunkSizeInSeconds} -c copy chunk_%03d.mp3`;\n  \n  // Execute ffmpeg command\n  try {\n    // Process and store chunks\n    const chunks = await executeFFmpeg(command, audioBuffer);\n    return chunks;\n  } catch (error) {\n    throw new Error('Error splitting audio: ' + error);\n  }\n};\n\n// Process input audio\nif (!items.length || !items[0].binary || !items[0].binary.audio) {\n  throw new Error('Input data is missing or incorrect');\n}\nconst audioData = items[0].binary.audio;\nconst chunks = await splitAudio(audioData);\n\n// Return chunks for processing\nreturn chunks.map((chunk, index) => ({\n  json: {\n    chunkIndex: index,\n    totalChunks: chunks.length,\n    videoId: $json.videoId\n  },\n  binary: {\n    audio: chunk\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        -1140
+      ],
+      "id": "28fb8ef9-0d14-45f0-9243-d0cdb62e099c",
+      "name": "Split Audio"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        -1140
+      ],
+      "id": "3c9901d8-2251-4274-a48a-b35401590133",
+      "name": "Video"
+    },
+    {
+      "parameters": {
+        "jsCode": "{\n  \"method\": \"POST\",\n  \"url\": \"https://api.openai.com/v1/audio/transcriptions\",\n  \"headers\": {\n    \"Authorization\": \"Bearer YOUR_OPENAI_API_KEY\"\n  },\n  \"formData\": {\n    \"file\": \"={{ $binary.audio.data }}\",\n    \"model\": \"whisper-1\",\n    \"response_format\": \"json\"\n  }\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        -1140
+      ],
+      "id": "0e4cb942-c34a-4361-97b0-5701b0346609",
+      "name": "Whisper"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Group chunks by videoId\nconst transcriptChunks = {};\nitems.forEach(item => {\n  const { videoId, chunkIndex, transcript } = item.json;\n  if (!transcriptChunks[videoId]) {\n    transcriptChunks[videoId] = [];\n  }\n  transcriptChunks[videoId][chunkIndex] = transcript;\n});\n\n// Combine chunks in order\nconst combinedTranscripts = {};\nObject.entries(transcriptChunks).forEach(([videoId, chunks]) => {\n  combinedTranscripts[videoId] = chunks.join(' ');\n});\n\nreturn {\n  json: {\n    transcripts: combinedTranscripts,\n    originalVideoId: $json.videoId\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2940,
+        -1140
+      ],
+      "id": "9c1692f1-0207-4147-ab90-e9df92131456",
+      "name": "Group Chunks"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        -1380
+      ],
+      "id": "67a1456f-6692-4330-bb37-2af3a2dd94e5",
+      "name": "LinkedIn"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/bruno.horbacek/linkedin-posts-scraper/run-sync?token=YOUR_APIFY_TOKEN",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"profileUrls\": [\"https://www.linkedin.com/search/results/content/?keywords=caroffer&origin=GLOBAL_SEARCH_HEADER&sid=Y4%3A\"],\n  \"postsType\": [\"articles\"]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2500,
+        -1380
+      ],
+      "id": "9fbf1e9c-f371-4a8e-b887-574cb2f703a8",
+      "name": "HTTP Request"
     }
   ],
   "pinData": {
@@ -1413,6 +1469,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-05T08:55:20.000Z",
-  "versionId": "ce2f2715-9c7f-4097-8370-db5ea80e5154"
+  "updatedAt": "2025-01-06T18:28:59.000Z",
+  "versionId": "155ef9c1-5a55-47b3-82c8-c954ea50b43c"
 }
