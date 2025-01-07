@@ -16,7 +16,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "Sentiment Analysis",
+            "node": "Comments Sentiment Analysis Agent",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -27,44 +27,8 @@
       "ai_languageModel": [
         [
           {
-            "node": "Summary",
+            "node": "Summary Agent",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Sentiment Analysis": {
-      "main": [
-        [
-          {
-            "node": "Positive",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Neutral",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Negative",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Summary": {
-      "main": [
-        [
-          {
-            "node": "Highlights",
-            "type": "main",
             "index": 0
           }
         ]
@@ -74,19 +38,8 @@
       "ai_languageModel": [
         [
           {
-            "node": "Highlights",
+            "node": "Key Points Agent",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Highlights": {
-      "main": [
-        [
-          {
-            "node": "Text → Audio",
-            "type": "main",
             "index": 0
           }
         ]
@@ -136,28 +89,6 @@
         ]
       ]
     },
-    "SEO Writer": {
-      "main": [
-        [
-          {
-            "node": "Editor",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Editor": {
-      "main": [
-        [
-          {
-            "node": "Formatter",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Formatter": {
       "main": [
         [
@@ -200,7 +131,7 @@
       "main": [
         [
           {
-            "node": "SEO Writer",
+            "node": "SEO Writer Agent",
             "type": "main",
             "index": 0
           }
@@ -245,16 +176,11 @@
         ]
       ]
     },
-    "Google Sheets": {
-      "main": [
-        []
-      ]
-    },
     "Split Out": {
       "main": [
         [
           {
-            "node": "Sentiment Analysis",
+            "node": "Comments Sentiment Analysis Agent",
             "type": "main",
             "index": 0
           }
@@ -336,7 +262,7 @@
       "main": [
         [
           {
-            "node": "Summary",
+            "node": "Summary Agent",
             "type": "main",
             "index": 0
           }
@@ -367,47 +293,89 @@
     },
     "Video Stats": {
       "main": [
-        []
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
       ]
     },
-    "Video": {
+    "SEO Writer Agent": {
       "main": [
         [
           {
-            "node": "Split Audio",
+            "node": "Editor Agent",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Split Audio": {
+    "Editor Agent": {
       "main": [
         [
           {
-            "node": "Whisper",
+            "node": "Formatter",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Whisper": {
+    "Merge1": {
       "main": [
         [
           {
-            "node": "Group Chunks",
+            "node": "Text → Audio",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "LinkedIn": {
+    "Summary Agent": {
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Key Points Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Key Points Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comments Sentiment Analysis Agent": {
+      "main": [
+        [
+          {
+            "node": "Positive",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Neutral",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Negative",
             "type": "main",
             "index": 0
           }
@@ -452,20 +420,6 @@
     },
     {
       "parameters": {
-        "inputText": "={{ $json.snippet.topLevelComment.snippet.textOriginal }}",
-        "options": {}
-      },
-      "id": "f986598c-2039-443a-8e24-2de976d82f7d",
-      "name": "Sentiment Analysis",
-      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
-      "typeVersion": 1,
-      "position": [
-        2740,
-        -60
-      ]
-    },
-    {
-      "parameters": {
         "model": "o1-mini",
         "options": {}
       },
@@ -486,32 +440,6 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "={{ $json.transcript }}",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "HumanMessagePromptTemplate",
-              "message": "={{ $('Ptompts').item.json.Summary }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.5,
-      "position": [
-        2960,
-        -660
-      ],
-      "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
-      "name": "Summary",
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "maxTries": 5,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
@@ -528,32 +456,6 @@
           "name": "OpenAi account 6"
         }
       }
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Ptompts').item.json.Transcript }}",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "HumanMessagePromptTemplate",
-              "message": "={{ $('Ptompts').item.json.Highlights }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.5,
-      "position": [
-        3360,
-        -660
-      ],
-      "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
-      "name": "Highlights",
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "maxTries": 5,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -620,70 +522,6 @@
       ],
       "id": "eaad669b-e18a-4c3e-b15a-00905a356c4c",
       "name": "Window Buffer Memory"
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "gpt-4o-mini",
-          "mode": "list",
-          "cachedResultName": "GPT-4O-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.7,
-      "position": [
-        2300,
-        580
-      ],
-      "id": "5e2b1539-dae8-4cda-90eb-c320be36bfb2",
-      "name": "SEO Writer",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "o1-mini",
-          "mode": "list",
-          "cachedResultName": "O1-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=You are an Editor. You'll receive a draft:\n{{ $json.message.content }} of a blog article. Your task is to thoroughly check for grammar, punctuation, and readability. Ensure that the text flows smoothly, is free from errors, and maintains a clear, engaging tone. Make any necessary adjustments to improve clarity, structure, and accessibility for a broad audience."
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.7,
-      "position": [
-        2660,
-        580
-      ],
-      "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
-      "name": "Editor",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
     },
     {
       "parameters": {
@@ -768,13 +606,13 @@
             {
               "id": "328a4bbb-ee0c-4754-b731-249c7d6578f3",
               "name": "SEOwriteup",
-              "value": "={{ $('SEO Writer').item.json.message.content }}",
+              "value": "={{ $('SEO Writer Agent').item.json.message.content }}",
               "type": "string"
             },
             {
               "id": "dec9bb57-2935-46bb-ba87-71d99db09848",
               "name": "Edited",
-              "value": "={{ $('Editor').item.json.message.content }}",
+              "value": "={{ $('Editor Agent').item.json.message.content }}",
               "type": "string"
             },
             {
@@ -920,8 +758,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3980,
-        -660
+        4380,
+        -420
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
       "name": "Knowledge Base",
@@ -929,150 +767,6 @@
         "googleDriveOAuth2Api": {
           "id": "HR5Tk4YDcaNJda9N",
           "name": "Google Drive Sergio"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
-          "mode": "list",
-          "cachedResultName": "Blue&: Content Generation Platform",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 221143269,
-          "mode": "list",
-          "cachedResultName": "Content Input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Type": "Youtube_Audio",
-            "Date": "={{$now}}",
-            "Summary": "={{ $('Summary').item.json.text }}",
-            "Highlights": "={{ $('Highlights').item.json.text }}",
-            "Link to Source": "={{ $('Youtube Metadata').item.json.url }}"
-          },
-          "matchingColumns": [
-            "Link to Source"
-          ],
-          "schema": [
-            {
-              "id": "Type",
-              "displayName": "Type",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Date",
-              "displayName": "Date",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Title",
-              "displayName": "Title",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Link to Source",
-              "displayName": "Link to Source",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Transcript",
-              "displayName": "Transcript",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Summary",
-              "displayName": "Summary",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Highlights",
-              "displayName": "Highlights",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Sentiment",
-              "displayName": "Sentiment",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Notes",
-              "displayName": "Notes",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        1140,
-        -1160
-      ],
-      "id": "b87d1808-1529-4ae1-89d0-068102052ddb",
-      "name": "Google Sheets",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "rSTr7Ltjwpw9Xvz2",
-          "name": "Google Sheets account 5"
         }
       }
     },
@@ -1169,22 +863,22 @@
         "assignments": {
           "assignments": [
             {
-              "id": "70208a9e-cf61-4774-9815-85db1bc4160d",
-              "name": "count_snippet_topLevelComment_snippet",
+              "id": "2784ea3c-15e0-41ab-8b2c-a8e706a08135",
+              "name": "=Positive",
               "value": "={{ $json.count_snippet_topLevelComment_snippet }}",
               "type": "number"
             },
             {
-              "id": "160b5285-1202-4da6-b73a-b5699ce516ba",
-              "name": "count_snippet_topLevelComment_snippet",
-              "value": "={{ $json.count_snippet_topLevelComment_snippet }}",
-              "type": "number"
+              "id": "6eeb2c38-0911-46eb-9967-6024110e7813",
+              "name": "Neutral",
+              "value": "={{ $('Neutral').all()[0].json.count_snippet_topLevelComment_snippet }}",
+              "type": "string"
             },
             {
-              "id": "77b323a4-6400-4146-9652-f4fa148ad85c",
-              "name": "count_snippet_topLevelComment_snippet",
-              "value": "={{ $json.count_snippet_topLevelComment_snippet }}",
-              "type": "number"
+              "id": "8e4b9e08-4105-406f-819f-aff327ed1a82",
+              "name": "Negative",
+              "value": "={{ $('Negative').all()[0].json.count_snippet_topLevelComment_snippet }}",
+              "type": "string"
             }
           ]
         },
@@ -1197,7 +891,9 @@
         -60
       ],
       "id": "a8e02217-ce58-442b-9bc7-465804ab7fe7",
-      "name": "Video Stats"
+      "name": "Video Stats",
+      "alwaysOutputData": true,
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -1333,7 +1029,7 @@
     {
       "parameters": {
         "resource": "audio",
-        "input": "={{ $json.text }}",
+        "input": "=Summary\n{{ $('Summary Agent').item.json.text }}\nKey Points\n{{ $('Key Points Agent').item.json.text }}\n\nStatistics\nViews: {{ $('Youtube Metadata').item.json.items[0].statistics.viewCount }}\nLikes: {{ $('Youtube Metadata').item.json.items[0].statistics.likeCount }}\n\nCommnents: \n{{ $json.Positive }} Positive\n{{ $json.Neutral }} Neutral\n{{ $json.Negative }} Negative",
         "options": {
           "response_format": "mp3"
         }
@@ -1343,8 +1039,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3720,
-        -660
+        4120,
+        -420
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1370,88 +1066,180 @@
     },
     {
       "parameters": {
-        "jsCode": "// Function to split audio into chunks using ffmpeg\nconst splitAudio = async (audioBuffer) => {\n  // Set chunk size to 24MB to stay under Whisper's 25MB limit\n  const chunkSizeInSeconds = 600; // 10 minutes per chunk\n  const outputChunks = [];\n  \n  // Create FFmpeg command to split audio\n  const command = `ffmpeg -i input.mp3 -f segment -segment_time ${chunkSizeInSeconds} -c copy chunk_%03d.mp3`;\n  \n  // Execute ffmpeg command\n  try {\n    // Process and store chunks\n    const chunks = await executeFFmpeg(command, audioBuffer);\n    return chunks;\n  } catch (error) {\n    throw new Error('Error splitting audio: ' + error);\n  }\n};\n\n// Process input audio\nif (!items.length || !items[0].binary || !items[0].binary.audio) {\n  throw new Error('Input data is missing or incorrect');\n}\nconst audioData = items[0].binary.audio;\nconst chunks = await splitAudio(audioData);\n\n// Return chunks for processing\nreturn chunks.map((chunk, index) => ({\n  json: {\n    chunkIndex: index,\n    totalChunks: chunks.length,\n    videoId: $json.videoId\n  },\n  binary: {\n    audio: chunk\n  }\n}));"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2500,
-        -1140
-      ],
-      "id": "28fb8ef9-0d14-45f0-9243-d0cdb62e099c",
-      "name": "Split Audio"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": []
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
         },
         "options": {}
       },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
       "position": [
-        2280,
-        -1140
+        2300,
+        360
       ],
-      "id": "3c9901d8-2251-4274-a48a-b35401590133",
-      "name": "Video"
+      "id": "d706d70d-579e-48a7-86f5-44f8e303bda7",
+      "name": "Market Trend / Current News",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
     },
     {
       "parameters": {
-        "jsCode": "{\n  \"method\": \"POST\",\n  \"url\": \"https://api.openai.com/v1/audio/transcriptions\",\n  \"headers\": {\n    \"Authorization\": \"Bearer YOUR_OPENAI_API_KEY\"\n  },\n  \"formData\": {\n    \"file\": \"={{ $binary.audio.data }}\",\n    \"model\": \"whisper-1\",\n    \"response_format\": \"json\"\n  }\n}"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        -1140
-      ],
-      "id": "0e4cb942-c34a-4361-97b0-5701b0346609",
-      "name": "Whisper"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Group chunks by videoId\nconst transcriptChunks = {};\nitems.forEach(item => {\n  const { videoId, chunkIndex, transcript } = item.json;\n  if (!transcriptChunks[videoId]) {\n    transcriptChunks[videoId] = [];\n  }\n  transcriptChunks[videoId][chunkIndex] = transcript;\n});\n\n// Combine chunks in order\nconst combinedTranscripts = {};\nObject.entries(transcriptChunks).forEach(([videoId, chunks]) => {\n  combinedTranscripts[videoId] = chunks.join(' ');\n});\n\nreturn {\n  json: {\n    transcripts: combinedTranscripts,\n    originalVideoId: $json.videoId\n  }\n};"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2940,
-        -1140
-      ],
-      "id": "9c1692f1-0207-4147-ab90-e9df92131456",
-      "name": "Group Chunks"
-    },
-    {
-      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
         "options": {}
       },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
       "position": [
-        2280,
-        -1380
+        2300,
+        580
       ],
-      "id": "67a1456f-6692-4330-bb37-2af3a2dd94e5",
-      "name": "LinkedIn"
+      "id": "5e2b1539-dae8-4cda-90eb-c320be36bfb2",
+      "name": "SEO Writer Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
     },
     {
       "parameters": {
-        "url": "https://api.apify.com/v2/acts/bruno.horbacek/linkedin-posts-scraper/run-sync?token=YOUR_APIFY_TOKEN",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"profileUrls\": [\"https://www.linkedin.com/search/results/content/?keywords=caroffer&origin=GLOBAL_SEARCH_HEADER&sid=Y4%3A\"],\n  \"postsType\": [\"articles\"]\n}",
+        "modelId": {
+          "__rl": true,
+          "value": "o1-mini",
+          "mode": "list",
+          "cachedResultName": "O1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an Editor. You'll receive a draft:\n{{ $json.message.content }} of a blog article. Your task is to thoroughly check for grammar, punctuation, and readability. Ensure that the text flows smoothly, is free from errors, and maintains a clear, engaging tone. Make any necessary adjustments to improve clarity, structure, and accessibility for a broad audience."
+            }
+          ]
+        },
         "options": {}
       },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
       "position": [
-        2500,
-        -1380
+        2660,
+        580
       ],
-      "id": "9fbf1e9c-f371-4a8e-b887-574cb2f703a8",
-      "name": "HTTP Request"
+      "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
+      "name": "Editor Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3860,
+        -420
+      ],
+      "id": "eb59a3ec-744b-489c-b7e9-6ceec95eeb4d",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.transcript }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "={{ $('Ptompts').item.json.Summary }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        2960,
+        -660
+      ],
+      "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
+      "name": "Summary Agent",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Ptompts').item.json.Highlights }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "={{ $('Ptompts').item.json.Highlights }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        3360,
+        -660
+      ],
+      "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
+      "name": "Key Points Agent",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.snippet.topLevelComment.snippet.textOriginal }}",
+        "options": {}
+      },
+      "id": "f986598c-2039-443a-8e24-2de976d82f7d",
+      "name": "Comments Sentiment Analysis Agent",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        -60
+      ]
     }
   ],
   "pinData": {
@@ -1469,6 +1257,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-06T18:28:59.000Z",
-  "versionId": "155ef9c1-5a55-47b3-82c8-c954ea50b43c"
+  "updatedAt": "2025-01-07T08:10:39.000Z",
+  "versionId": "a7ae0f4b-0e1f-4a42-8d36-0bb2e469f00a"
 }
