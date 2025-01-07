@@ -56,45 +56,12 @@
         ]
       ]
     },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Researcher",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "SerpAPI": {
-      "ai_tool": [
-        [
-          {
-            "node": "Researcher",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Window Buffer Memory": {
       "ai_memory": [
         [
           {
             "node": "Researcher",
             "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Formatter": {
-      "main": [
-        [
-          {
-            "node": "article",
-            "type": "main",
             "index": 0
           }
         ]
@@ -118,20 +85,14 @@
     },
     "Google Drive": {
       "main": [
-        [
-          {
-            "node": "Text → Audio1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Researcher": {
       "main": [
         [
           {
-            "node": "SEO Writer Agent",
+            "node": "Title Generator Agent",
             "type": "main",
             "index": 0
           }
@@ -293,13 +254,7 @@
     },
     "Video Stats": {
       "main": [
-        [
-          {
-            "node": "Merge1",
-            "type": "main",
-            "index": 1
-          }
-        ]
+        []
       ]
     },
     "SEO Writer Agent": {
@@ -317,18 +272,7 @@
       "main": [
         [
           {
-            "node": "Formatter",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge1": {
-      "main": [
-        [
-          {
-            "node": "Text → Audio",
+            "node": "Formatter Agent",
             "type": "main",
             "index": 0
           }
@@ -350,7 +294,7 @@
       "main": [
         [
           {
-            "node": "Merge1",
+            "node": "Text → Audio",
             "type": "main",
             "index": 0
           }
@@ -381,6 +325,166 @@
           }
         ]
       ]
+    },
+    "Title Generator Agent": {
+      "main": [
+        [
+          {
+            "node": "SEO Writer Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatter Agent": {
+      "main": [
+        [
+          {
+            "node": "article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI1": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "SerpAPI2": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Sources": {
+      "main": [
+        [
+          {
+            "node": "Channels / Profiles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channels / Profiles": {
+      "main": [
+        [
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare Datasets": {
+      "main": [
+        [],
+        [],
+        [
+          {
+            "node": "New Inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Processed Inputs": {
+      "main": [
+        [
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Ptompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI3": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Schedule Trigger + 1 hr": {
+      "main": [
+        [
+          {
+            "node": "Researcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    ".": {
+      "ai_tool": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Now": {
+      "ai_tool": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -395,8 +499,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1440,
-        -340
+        1660,
+        -120
       ]
     },
     {
@@ -408,7 +512,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2740,
+        2960,
         80
       ],
       "credentials": {
@@ -426,8 +530,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3020,
-        -500
+        3240,
+        -440
       ],
       "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
       "name": "OpenAI Chat Model2",
@@ -445,8 +549,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3400,
-        -500
+        3620,
+        -440
       ],
       "id": "5ae57c35-58f9-4408-be16-d23b3c11fa4d",
       "name": "OpenAI Chat Model4",
@@ -464,102 +568,29 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        1700,
-        460
+        1880,
+        940
       ],
       "id": "e06c9784-9e9b-47f9-91a9-7e08e8a0b1db",
       "name": "When chat message received",
       "webhookId": "321d6759-49b5-4082-b810-a65b232ad1e9"
     },
     {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        1840,
-        800
-      ],
-      "id": "25b8fe22-75ce-46c3-97b7-a9c484f843cb",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {
-          "gl": "us",
-          "hl": "en"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
-      "typeVersion": 1,
-      "position": [
-        2120,
-        800
-      ],
-      "id": "ef9822f5-6bc4-405a-912d-a84201df4bc4",
-      "name": "SerpAPI",
-      "credentials": {
-        "serpApi": {
-          "id": "1Tzl11P6LGX6jXlo",
-          "name": "SerpAPI account"
-        }
-      }
-    },
-    {
       "parameters": {},
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        2000,
-        800
+        2120,
+        1380
       ],
       "id": "eaad669b-e18a-4c3e-b15a-00905a356c4c",
       "name": "Window Buffer Memory"
     },
     {
       "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "o1-mini",
-          "mode": "list",
-          "cachedResultName": "O1-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=You are a Formatter. You'll receive a refined article draft: {{ $json.message.content }}. \nYour task is to format it for optimal readability and SEO impact. Use headings (H1, H2, H3) where appropriate, create short paragraphs, and add bullet points or numbered lists for clarity. Ensure each section flows logically, and highlight important information for better reader engagement. Check that keywords are strategically placed without disrupting the flow. "
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.7,
-      "position": [
-        3020,
-        580
-      ],
-      "id": "026a61a5-f779-42c4-96dd-bf66c9f92a61",
-      "name": "Formatter",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
         "operation": "createFromText",
-        "content": "={{ $('Formatter').item.json.message.content }}",
-        "name": "=article_{{ $now }}",
+        "content": "={{ $('Formatter Agent').item.json.message.content }}",
+        "name": "=Article_{{ $now }}-{{ $json.Title }}",
         "driveId": {
           "__rl": true,
           "mode": "list",
@@ -575,8 +606,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3580,
-        580
+        4240,
+        1100
       ],
       "id": "d53ff90f-de2f-4200-8e2b-178e3308ee96",
       "name": "Google Drive",
@@ -620,6 +651,12 @@
               "name": "Formatted",
               "value": "={{ $json.message.content }}",
               "type": "string"
+            },
+            {
+              "id": "11e7f038-ccb9-4e56-93cd-cd6b5ddc2ec8",
+              "name": "Title",
+              "value": "={{ $('Title Generator Agent').item.json.message.content }}",
+              "type": "string"
             }
           ]
         },
@@ -628,8 +665,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3380,
-        580
+        4040,
+        1100
       ],
       "id": "45f9a1c3-95ba-415d-bfa1-e96853a443e7",
       "name": "article"
@@ -637,17 +674,21 @@
     {
       "parameters": {
         "resource": "audio",
-        "input": "={{ $('article').item.json.content }}",
-        "options": {}
+        "input": "={{ $('Formatter Agent').item.json.message.content }}",
+        "options": {
+          "response_format": "mp3",
+          "binaryPropertyOutput": "audio"
+        }
       },
       "id": "64448d70-af73-4429-9651-8ecd247b0dd3",
       "name": "Text → Audio1",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3760,
-        580
+        4260,
+        1340
       ],
+      "alwaysOutputData": true,
       "credentials": {
         "openAiApi": {
           "id": "n6jJpStEewoZQA9T",
@@ -658,15 +699,17 @@
     },
     {
       "parameters": {
+        "promptType": "define",
+        "text": "={{ $('When chat message received').item.json.chatInput }}",
         "options": {
-          "systemMessage": "You are a web searcher agent assistant. You will be provided a topic or headline for an SEO blog article. Your task is to search the web for reliable factual information on this topic and summarize key points to provide helpful content. Be concise and clear, focusing on details that would enhance the article's SEO value and informative quality. "
+          "systemMessage": "=Today is: {{ $now }}\nYou are a web searcher agent assistant. You will be provided a topic or headline for an SEO blog article. Your task is to search the web for up to date and reliable factual information on this topic and summarize key points to provide helpful content. Be concise and clear, focusing on details that would enhance the article's SEO value and informative quality. \nPost should include a captivating and thought-provoking description. Description should be engaging and useful. \nRandomize the overall post so that you don't create same post every time. "
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1920,
-        580
+        2160,
+        1100
       ],
       "id": "6204594e-a241-4aa0-acb9-418d3744c397",
       "name": "Researcher"
@@ -692,7 +735,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1840,
+        2060,
         -340
       ],
       "id": "ec9a2a89-db73-462a-875f-3608814073a6",
@@ -725,7 +768,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1640,
+        1860,
         -340
       ],
       "id": "9ff51c50-3e48-49b3-88d5-5932d6952513",
@@ -758,8 +801,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4380,
-        -420
+        4200,
+        -600
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
       "name": "Knowledge Base",
@@ -780,7 +823,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2300,
+        2520,
         -60
       ]
     },
@@ -792,7 +835,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2500,
+        2720,
         -60
       ],
       "id": "829ff6f0-b4c0-4e1e-a0f1-95c403de1e1b",
@@ -812,7 +855,7 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3160,
+        3380,
         -200
       ],
       "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
@@ -832,7 +875,7 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3160,
+        3380,
         -60
       ],
       "id": "a36731c9-a7a9-4bc6-b4c1-efb02b65eedf",
@@ -852,7 +895,7 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3160,
+        3380,
         80
       ],
       "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
@@ -887,7 +930,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3660,
+        3880,
         -60
       ],
       "id": "a8e02217-ce58-442b-9bc7-465804ab7fe7",
@@ -903,7 +946,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2040,
+        2260,
         -340
       ],
       "id": "49bd6dfb-3e71-4841-8142-d937f52cbd5e",
@@ -919,8 +962,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2280,
-        -660
+        2500,
+        -600
       ]
     },
     {
@@ -1000,8 +1043,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2500,
-        -660
+        2720,
+        -600
       ],
       "id": "9fd98246-5d3d-4616-b188-41bf8a093eaf",
       "name": "Metadata"
@@ -1020,8 +1063,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2720,
-        -660
+        2940,
+        -600
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1029,7 +1072,7 @@
     {
       "parameters": {
         "resource": "audio",
-        "input": "=Summary\n{{ $('Summary Agent').item.json.text }}\nKey Points\n{{ $('Key Points Agent').item.json.text }}\n\nStatistics\nViews: {{ $('Youtube Metadata').item.json.items[0].statistics.viewCount }}\nLikes: {{ $('Youtube Metadata').item.json.items[0].statistics.likeCount }}\n\nCommnents: \n{{ $json.Positive }} Positive\n{{ $json.Neutral }} Neutral\n{{ $json.Negative }} Negative",
+        "input": "=Summary\n{{ $('Summary Agent').item.json.text }}\n\nKey Points\n{{ $('Key Points Agent').item.json.text }}\n\nStatistics\nViews: {{ $('Youtube Metadata').item.json.items[0].statistics.viewCount }}\nLikes: {{ $('Youtube Metadata').item.json.items[0].statistics.likeCount }}\n\nSentiment Analysis of Commnents: \nNumber of Positive comments: {{ 5 }}\nNumber of Neutral comments: {{ 4 }} \nNumber of Negative comments: {{ 2 }} ",
         "options": {
           "response_format": "mp3"
         }
@@ -1039,8 +1082,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        4120,
-        -420
+        3980,
+        -600
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1058,7 +1101,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3460,
+        3680,
         -60
       ],
       "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
@@ -1075,7 +1118,7 @@
         "messages": {
           "values": [
             {
-              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+              "content": "=You are an SEO Content Writer. You'll receive a title: {{ $json.message.content }} and a summary: {{ $('Researcher').item.json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
             }
           ]
         },
@@ -1084,40 +1127,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        2300,
-        360
-      ],
-      "id": "d706d70d-579e-48a7-86f5-44f8e303bda7",
-      "name": "Market Trend / Current News",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "gpt-4o-mini",
-          "mode": "list",
-          "cachedResultName": "GPT-4O-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.7,
-      "position": [
-        2300,
-        580
+        2920,
+        1100
       ],
       "id": "5e2b1539-dae8-4cda-90eb-c320be36bfb2",
       "name": "SEO Writer Agent",
@@ -1148,8 +1159,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        2660,
-        580
+        3280,
+        1100
       ],
       "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
       "name": "Editor Agent",
@@ -1159,21 +1170,6 @@
           "name": "OpenAi account 6"
         }
       }
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "combineBy": "combineAll",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3,
-      "position": [
-        3860,
-        -420
-      ],
-      "id": "eb59a3ec-744b-489c-b7e9-6ceec95eeb4d",
-      "name": "Merge1"
     },
     {
       "parameters": {
@@ -1191,8 +1187,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        2960,
-        -660
+        3180,
+        -600
       ],
       "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
       "name": "Summary Agent",
@@ -1217,8 +1213,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        3360,
-        -660
+        3580,
+        -600
       ],
       "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
       "name": "Key Points Agent",
@@ -1237,26 +1233,673 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2740,
+        2960,
         -60
       ]
-    }
-  ],
-  "pinData": {
-    "article": [
-      {
-        "json": {
-          "content": "# The Evolution of Chinese Cars in 2023: A Deep Dive into Market Trends and Insights\n\nThe automotive industry in China is undergoing a dramatic transformation in 2023, driven primarily by a robust increase in electric vehicle (EV) adoption and shifting consumer preferences. With a focus on sustainability and innovation, Chinese car manufacturers are not only reshaping the domestic landscape but also making significant strides in the global market. In this article, we explore the key trends and insights that define the booming Chinese automotive sector in 2023.\n\n## 1. Booming Sales of Electric Vehicles\n\nOne cannot discuss the Chinese automotive market in 2023 without highlighting the surge in electrification. The sales figures tell a compelling story:\n\n- **Remarkable Growth**:\n  - Combined sales of plug-in hybrid electric vehicles (PHEVs) and range-extended electric vehicles (REEVs) soared by **83%** year-over-year, translating to **2.75 million units** sold.\n  - Battery electric vehicles (BEVs) saw a **20%** increase, totaling **5.2 million units**.\n  \n- **Market Leadership**:\n  - This jump in sales underscores a significant transition toward electric mobility, largely fueled by stringent environmental policies and enticing consumer incentives.\n\n## 2. Government Support and Policy Initiatives\n\nThe Chinese government plays a vital role in accelerating EV adoption:\n\n- **Subsidies and Incentives**:\n  - Various financial incentives aimed at both manufacturers and consumers are making electric vehicles more accessible.\n  - These programs lower purchase costs and support the extensive development of charging infrastructure nationwide.\n\n## 3. Leading Manufacturers: The Chinese Electric Giants\n\nChina’s electric vehicle market is dominated by several key players:\n\n- **BYD**:\n  - With its innovative portfolio, BYD has solidified its reputation as a market leader.\n  - Its commitment to expanding both electric and hybrid model offerings is setting benchmarks within the industry.\n  \n- **Nio and Geely**:\n  - These manufacturers are making waves by integrating state-of-the-art technology and appealing designs that resonate with modern consumers.\n\n## 4. Technological Innovations Driving the Market\n\nAs Chinese car manufacturers ramp up production, technology plays a pivotal role in their appeal:\n\n- **Autonomous Driving Capabilities**:\n  - Advancements in AI and machine learning are bringing autonomous driving features to the forefront, enhancing safety and convenience for drivers.\n  \n- **Enhanced Connectivity**:\n  - Smart features are becoming standard, allowing consumers to enjoy integrated apps and infotainment systems that elevate their driving experience.\n  \n- **Battery Technology**:\n  - The race for better battery technology is intense, with companies investing heavily in R&D to improve range and reduce charging times.\n  - These advancements satisfy current consumer demand and prepare manufacturers for future challenges.\n\n## 5. International Expansion: Aiming for Global Leadership\n\nChinese automakers are no longer confined to domestic sales. In 2023, many brands have actively expanded into international markets:\n\n- **Export Strategies**:\n  - Through strategic exports, Chinese manufacturers are now competing head-to-head with established global brands.\n  - This international outreach highlights China’s ambition to dominate the global automotive landscape.\n  \n- **Collaborations and Joint Ventures**:\n  - Partnerships with local firms abroad enhance market entry strategies, improve brand awareness, and foster innovation.\n\n## Conclusion: A Pivotal Year for China's Automotive Industry\n\nThe year 2023 is shaping up to be a landmark period for the Chinese automotive sector. With unprecedented sales growth in electric vehicles and a strong emphasis on technology and innovation, Chinese manufacturers are poised to set trends that will influence the global market.\n\n### **Actionable Insights for Consumers and Investors**\n\n- **Stay Informed**:\n  - Potential buyers should keep up-to-date with new models and government incentives to make informed purchasing decisions.\n  \n- **Consider EVs**:\n  - If you're in the market for a new vehicle, consider the long-term benefits of electric vehicles—not just for the environment but also for potential savings in fuel and maintenance costs.\n  \n- **Explore International Options**:\n  - For investors, observing the international expansion strategies of Chinese brands could reveal lucrative opportunities in a rapidly evolving market.\n\nAs the world gears up for a sustainable automotive future, Chinese car manufacturers are undeniably at the helm, leading the charge with innovation and ambition. Stay tuned, as this dynamic market continues to evolve and shape the future of transportation globally.\n\n# Key Takeaways\n\n- **Electric Vehicle Sales Surge**: Significant growth in PHEVs, REEVs, and BEVs highlights China's shift towards electric mobility.\n- **Government Support Crucial**: Subsidies and infrastructure development are accelerating EV adoption.\n- **Leading Brands Drive Innovation**: BYD, Nio, and Geely are setting industry standards with advanced technologies and appealing designs.\n- **Technological Advancements**: Autonomous driving, enhanced connectivity, and improved battery technology are key drivers.\n- **Global Ambitions**: Chinese automakers are expanding internationally, aiming for global leadership through strategic exports and partnerships.\n\n# Keywords\n\n- Chinese automotive industry\n- Electric vehicles (EV)\n- PHEVs\n- REEVs\n- BEVs\n- BYD\n- Nio\n- Geely\n- Autonomous driving\n- Battery technology\n- Government subsidies\n- International expansion\n- Automotive innovation\n\n# Meta Description\n\nExplore the evolution of Chinese cars in 2023 with insights into booming EV sales, government support, leading manufacturers, technological innovations, and international expansion. Discover key trends shaping China's automotive market.\n\n# Suggested URL\n\n/chinese-automotive-industry-evolution-2023\n\n# Suggested Title Tag\n\nThe Evolution of Chinese Cars in 2023: Market Trends & Insights\n\n# Image Recommendations\n\n- **Electric Vehicle Sales Graph**: Visual representation of the 83% increase in PHEVs/REEVs and 20% increase in BEVs.\n- **Leading Manufacturers Logos**: BYD, Nio, and Geely logos showcasing key players.\n- **Charging Infrastructure**: Images depicting widespread charging stations across China.\n- **Autonomous Driving Technology**: Visuals of cars with autonomous features.\n- **Global Expansion Map**: Highlighting Chinese EV exports and international markets.\n\n# Internal Links\n\n- [History of Electric Vehicles in China](#)\n- [Top Chinese EV Models of 2023](#)\n- [Government Policies Impacting the Automotive Industry](#)\n- [Future of Autonomous Driving in China](#)\n- [Investment Opportunities in Chinese Automakers](#)\n\n# External Links\n\n- [China Association of Automobile Manufacturers (CAAM)](http://www.caam.org.cn)\n- [International Energy Agency (IEA) on EV Trends](https://www.iea.org/topics/electric-vehicles)\n- [BYD Official Website](https://www.byd.com)\n- [Nio Official Website](https://www.nio.com)\n- [Geely Official Website](https://www.geely.com)\n\n# Structured Data (JSON-LD)\n\n```json\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Article\",\n  \"headline\": \"The Evolution of Chinese Cars in 2023: A Deep Dive into Market Trends and Insights\",\n  \"description\": \"Explore the evolution of Chinese cars in 2023 with insights into booming EV sales, government support, leading manufacturers, technological innovations, and international expansion. Discover key trends shaping China's automotive market.\",\n  \"author\": {\n    \"@type\": \"Person\",\n    \"name\": \"Your Name\"\n  },\n  \"datePublished\": \"2023-10-01\",\n  \"image\": \"URL_to_image\",\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Your Company\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"URL_to_logo\"\n    }\n  },\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.yourwebsite.com/chinese-automotive-industry-evolution-2023\"\n  }\n}\n```\n\n# Final Notes\n\nBy structuring the article with clear headings, short paragraphs, and bullet points, readability is enhanced, making it more engaging for readers. Strategic placement of keywords ensures SEO optimization without disrupting the natural flow of the content. Highlighting key statistics and actionable insights draws attention to the most important information, encouraging reader interaction and retention."
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a Title Generator for articles and blogposts. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article title that is informative, engaging, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and keep the length under 12 words."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2540,
+        1100
+      ],
+      "id": "51469ce9-1135-42a7-b624-1c8cc399e46b",
+      "name": "Title Generator Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
         }
       }
-    ]
-  },
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o1-mini",
+          "mode": "list",
+          "cachedResultName": "O1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a Formatter. You'll receive a refined article draft: {{ $json.message.content }}. \nYour task is to format it for optimal readability and SEO impact. Use headings (H1, H2, H3) where appropriate, create short paragraphs, and add bullet points or numbered lists for clarity. Ensure each section flows logically, and highlight important information for better reader engagement. Check that keywords are strategically placed without disrupting the flow. "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3660,
+        1100
+      ],
+      "id": "026a61a5-f779-42c4-96dd-bf66c9f92a61",
+      "name": "Formatter Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        1500
+      ],
+      "id": "32054070-9efa-4cb2-829c-0ff40243ef14",
+      "name": "SerpAPI1",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        3140,
+        1500
+      ],
+      "id": "e6628d51-569c-4877-9f98-e3e6fb883925",
+      "name": "SerpAPI2",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3140,
+        1520
+      ],
+      "id": "bbfb4957-07c7-47e0-9067-593cde349cd7",
+      "name": "Cover Picture & Charts Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2240,
+        -1520
+      ],
+      "id": "9fe7e705-615e-4532-9422-69358f05f7af",
+      "name": "Sources",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "f7d11957-e0a5-4b97-bfd9-eadf405a9e14",
+      "name": "Channels / Profiles",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2480,
+        -1520
+      ]
+    },
+    {
+      "parameters": {
+        "mergeByFields": {
+          "values": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.compareDatasets",
+      "typeVersion": 2.3,
+      "position": [
+        2700,
+        -1520
+      ],
+      "id": "e3aa3ad0-4cba-4ea6-94fe-14e1fa8239e1",
+      "name": "Compare Datasets"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2480,
+        -1320
+      ],
+      "id": "0e1e21ed-094b-4d7a-95fb-6d5e0e00b697",
+      "name": "Processed Inputs",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3060,
+        -1500
+      ],
+      "id": "587fa1a9-a5e5-4013-a193-06afc7a2ba0b",
+      "name": "New Inputs",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1660,
+        -340
+      ],
+      "id": "2a8d0e2d-6fdf-4a6d-9cb8-aefddf243b3f",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2740,
+        1520
+      ],
+      "id": "982ca386-2f0c-498b-b3a1-58a60f7f6320",
+      "name": "Market Trend / Current News",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        3560,
+        1500
+      ],
+      "id": "94b51b5e-a31c-40d4-9165-42526d40f336",
+      "name": "SerpAPI3",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3560,
+        1520
+      ],
+      "id": "323a5b34-85a3-4ae9-b9d4-9dcfc4707e83",
+      "name": "Knowledge Base RAG",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Roadmap",
+        "height": 80,
+        "width": 280
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        1820
+      ],
+      "id": "255a31fe-3495-4700-a190-cad807724301",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 460,
+        "width": 1200
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        1460
+      ],
+      "id": "01bc5baf-bbca-45e8-b3ae-8784b80acfb0",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1880,
+        1100
+      ],
+      "id": "7326582c-113f-43c4-a97b-1d66db3d6b82",
+      "name": "Schedule Trigger + 1 hr"
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "a436018c-ea67-4cf9-a6c4-5ca32a08243a",
+      "name": "Podcasts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2520,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "042b9751-ff00-49e6-947b-510da34cfd54",
+      "name": "RSS Feeds",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2740,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "9ce6fbaf-0701-48ab-8270-0344a041bf6b",
+      "name": "News Letters",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2960,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Roadmap\n",
+        "height": 320,
+        "width": 1520
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        300
+      ],
+      "id": "070db2e7-d649-492b-9b34-9c1f16b25315",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        340
+      ],
+      "id": "df68332c-2186-4d7d-9992-1e96c16ee782",
+      "name": "Blog"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        3480,
+        400
+      ],
+      "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
+      "name": "Email",
+      "credentials": {
+        "smtp": {
+          "id": "Dl8B2JzKzTKkFx5i",
+          "name": "SMTP account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C085C7Q7FPY",
+          "mode": "list",
+          "cachedResultName": "content-generation"
+        },
+        "text": "awefr",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        3560,
+        460
+      ],
+      "id": "8e1ef7b8-f92c-4bed-8ece-dcb2f93c9a9c",
+      "name": "Slack",
+      "webhookId": "6dbc009e-41d1-4363-8b00-12037130eb37",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "7VOxhQHkBloxHtkn",
+          "name": "syc-n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        1360
+      ],
+      "id": "ef9822f5-6bc4-405a-912d-a84201df4bc4",
+      "name": ".",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3140,
+        1740
+      ],
+      "id": "bfd9ab4a-e49a-482b-b1f6-ef29fb52d6f8",
+      "name": "Industry Voices",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1980,
+        -1520
+      ],
+      "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {},
+      "id": "837ef9b8-4e4a-413e-bd83-e5bcfb87d835",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "name": "Now",
+        "description": "Call this tool to get the context of the time now - the date and time we are in and references to the past and the future. For example, today, up to date, last month, this week, tomorrow, and other.",
+        "jsCode": "function createDateReferences() {\n    try {\n        // Utility function to safely create dates and handle invalid dates\n        function createSafeDate(...args) {\n            const date = new Date(...args);\n            if (isNaN(date.getTime())) {\n                throw new Error(`Invalid date created with args: ${JSON.stringify(args)}`);\n            }\n            return date;\n        }\n\n        const now = createSafeDate();\n        const pstOptions = { timeZone: 'America/Los_Angeles' };\n\n        // Enhanced format function with error handling\n        function formatDate(date) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid date provided to formatDate');\n                }\n                return date.toLocaleDateString('en-US', {\n                    weekday: 'long',\n                    year: 'numeric',\n                    month: 'long',\n                    day: 'numeric',\n                    ...pstOptions\n                });\n            } catch (error) {\n                console.error(`Error formatting date: ${error.message}`);\n                return 'Invalid Date';\n            }\n        }\n\n        // Safe date manipulation with error handling\n        function manipulateDate(date, manipulation) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid base date for manipulation');\n                }\n                const newDate = createSafeDate(date);\n                manipulation(newDate);\n                if (isNaN(newDate.getTime())) {\n                    throw new Error('Date manipulation resulted in invalid date');\n                }\n                return newDate;\n            } catch (error) {\n                console.error(`Date manipulation error: ${error.message}`);\n                return createSafeDate(); // Return current date as fallback\n            }\n        }\n\n        // Handle month transitions safely\n        function getMonthBoundaries(yearOffset = 0, monthOffset = 0) {\n            try {\n                const year = now.getFullYear() + yearOffset;\n                const month = now.getMonth() + monthOffset;\n                \n                // Normalize month and year if we overflow\n                const normalizedYear = year + Math.floor(month / 12);\n                const normalizedMonth = ((month % 12) + 12) % 12; // Handle negative months\n\n                const start = createSafeDate(normalizedYear, normalizedMonth, 1);\n                const end = createSafeDate(normalizedYear, normalizedMonth + 1, 0);\n                \n                return { start, end };\n            } catch (error) {\n                console.error(`Error calculating month boundaries: ${error.message}`);\n                return {\n                    start: createSafeDate(),\n                    end: createSafeDate()\n                };\n            }\n        }\n\n        // Get week boundaries with error handling for DST transitions\n        function getWeekBoundaries(weekOffset = 0) {\n            try {\n                const startOfWeek = manipulateDate(now, d => {\n                    d.setDate(d.getDate() - d.getDay() + (weekOffset * 7));\n                    d.setHours(0, 0, 0, 0);\n                });\n\n                const endOfWeek = manipulateDate(startOfWeek, d => {\n                    d.setDate(d.getDate() + 6);\n                    d.setHours(23, 59, 59, 999);\n                });\n\n                return { start: startOfWeek, end: endOfWeek };\n            } catch (error) {\n                console.error(`Error calculating week boundaries: ${error.message}`);\n                return {\n                    start: createSafeDate(),\n                    end: createSafeDate()\n                };\n            }\n        }\n\n        // Safe time formatting with DST handling\n        function formatTime(date) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid date provided to formatTime');\n                }\n                return date.toLocaleTimeString('en-US', {\n                    hour: '2-digit',\n                    minute: '2-digit',\n                    second: '2-digit',\n                    hour12: true,\n                    ...pstOptions\n                });\n            } catch (error) {\n                console.error(`Error formatting time: ${error.message}`);\n                return 'Invalid Time';\n            }\n        }\n\n        // Determine timezone with error handling\n        function getTimezoneIndicator() {\n            try {\n                const pstDate = new Date().toLocaleString('en-US', pstOptions);\n                return pstDate.includes('PDT') ? 'PDT' : 'PST';\n            } catch (error) {\n                console.error(`Error determining timezone: ${error.message}`);\n                return 'PST'; // Default to PST if there's an error\n            }\n        }\n\n        const thisWeek = getWeekBoundaries(0);\n        const lastWeek = getWeekBoundaries(-1);\n        const nextWeek = getWeekBoundaries(1);\n\n        const thisMonth = getMonthBoundaries(0, 0);\n        const lastMonth = getMonthBoundaries(0, -1);\n        const nextMonth = getMonthBoundaries(0, 1);\n\n        const thisYear = {\n            start: createSafeDate(now.getFullYear(), 0, 1),\n            end: createSafeDate(now.getFullYear(), 11, 31)\n        };\n        const lastYear = {\n            start: createSafeDate(now.getFullYear() - 1, 0, 1),\n            end: createSafeDate(now.getFullYear() - 1, 11, 31)\n        };\n        const nextYear = {\n            start: createSafeDate(now.getFullYear() + 1, 0, 1),\n            end: createSafeDate(now.getFullYear() + 1, 11, 31)\n        };\n\n        const formattedTime = formatTime(now);\n        const timezoneIndicator = getTimezoneIndicator();\n\n        return {\n            json: {\n                current: {\n                    dateTime: `${formatDate(now)} at ${formattedTime} ${timezoneIndicator}`,\n                    date: formatDate(now),\n                    time: `${formattedTime} ${timezoneIndicator}`,\n                    timezone: timezoneIndicator,\n                    timestamp: now.getTime() // Include timestamp for additional reference\n                },\n                relative: {\n                    yesterday: formatDate(manipulateDate(now, d => d.setDate(d.getDate() - 1))),\n                    today: formatDate(now),\n                    tomorrow: formatDate(manipulateDate(now, d => d.setDate(d.getDate() + 1)))\n                },\n                weeks: {\n                    thisWeek: {\n                        start: formatDate(thisWeek.start),\n                        end: formatDate(thisWeek.end)\n                    },\n                    lastWeek: {\n                        start: formatDate(lastWeek.start),\n                        end: formatDate(lastWeek.end)\n                    },\n                    nextWeek: {\n                        start: formatDate(nextWeek.start),\n                        end: formatDate(nextWeek.end)\n                    }\n                },\n                months: {\n                    thisMonth: {\n                        start: formatDate(thisMonth.start),\n                        end: formatDate(thisMonth.end)\n                    },\n                    lastMonth: {\n                        start: formatDate(lastMonth.start),\n                        end: formatDate(lastMonth.end)\n                    },\n                    nextMonth: {\n                        start: formatDate(nextMonth.start),\n                        end: formatDate(nextMonth.end)\n                    }\n                },\n                years: {\n                    thisYear: {\n                        start: formatDate(thisYear.start),\n                        end: formatDate(thisYear.end)\n                    },\n                    lastYear: {\n                        start: formatDate(lastYear.start),\n                        end: formatDate(lastYear.end)\n                    },\n                    nextYear: {\n                        start: formatDate(nextYear.start),\n                        end: formatDate(nextYear.end)\n                    }\n                }\n            }\n        };\n    } catch (error) {\n        // Global error handler\n        console.error('Critical error in date reference creation:', error);\n        // Return a minimal valid response with current date/time\n        const fallbackDate = new Date();\n        return {\n            json: {\n                error: true,\n                errorMessage: error.message,\n                current: {\n                    dateTime: fallbackDate.toISOString(),\n                    date: fallbackDate.toDateString(),\n                    time: fallbackDate.toTimeString(),\n                    timezone: 'PST'\n                }\n            }\n        };\n    }\n}\n\nreturn JSON.stringify(createDateReferences());"
+      },
+      "id": "5d42936d-8445-4c95-b7dd-4a4b882f0797",
+      "name": "Now",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        2240,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        1320
+      ],
+      "id": "25b8fe22-75ce-46c3-97b7-a9c484f843cb",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    }
+  ],
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-07T08:10:39.000Z",
-  "versionId": "a7ae0f4b-0e1f-4a42-8d36-0bb2e469f00a"
+  "updatedAt": "2025-01-07T19:32:18.000Z",
+  "versionId": "0796c8a5-4ffd-4a3f-8917-f8ab6864b893"
 }
