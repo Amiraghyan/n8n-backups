@@ -1,0 +1,119 @@
+{
+  "active": false,
+  "connections": {
+    "FireCrawl": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "FireCrawl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-10T19:19:20.442Z",
+  "id": "pnWFhM7su2rpk3Lw",
+  "meta": {
+    "templateId": "2713"
+  },
+  "name": "External flows: FireCrawl",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "290cc9b8-e4b1-4124-ab0e-afbb02a9072b",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        400,
+        480
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"url\": \"{{ $json.query.url }}\",\n  \"formats\": [\n    \"markdown\"\n  ]\n} ",
+        "options": {}
+      },
+      "id": "f256ed59-ba61-4912-9a75-4e7703547de5",
+      "name": "FireCrawl",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        640,
+        480
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DiEiViWIotkDA3If",
+          "name": "FireCrawl Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1af62ef9-7385-411a-8aba-e4087f09c3a9",
+              "name": "response",
+              "type": "string",
+              "value": "={{ $json.data.markdown }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a28bdbe6-fa59-4bf1-b0ab-c34ebb10cf0f",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        840,
+        480
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "content": "## Send URL got Crawl\nThis can be reused by Ai Agents and any Workspace to crawl a site. All that Workspace has to do is send a request:\n\n```json\n {\n    \"url\": \"Some URL to Get\"\n  }\n```",
+        "height": 200,
+        "width": 620
+      },
+      "id": "fcd26213-038a-453f-80e5-a3936e4c2d06",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-10T20:05:44.000Z",
+  "versionId": "2487f958-c3e9-44bd-9ae1-2f20eb1bef59"
+}
