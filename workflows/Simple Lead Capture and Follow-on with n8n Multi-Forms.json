@@ -25,13 +25,7 @@
     },
     "Capture Email": {
       "main": [
-        [
-          {
-            "node": "Notify New Signup!",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Your Interests": {
@@ -459,7 +453,13 @@
         2260,
         740
       ],
-      "typeVersion": 4.5
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
     },
     {
       "parameters": {
@@ -605,7 +605,13 @@
         1180,
         700
       ],
-      "typeVersion": 4.5
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
     },
     {
       "parameters": {
@@ -706,8 +712,8 @@
       "name": "Notify New Signup!",
       "type": "n8n-nodes-base.slack",
       "position": [
-        1360,
-        700
+        1400,
+        240
       ],
       "webhookId": "1a9cb618-a2fd-4ee8-b3cf-4140b65d55c1",
       "typeVersion": 2.2
@@ -720,6 +726,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-09T23:40:34.103Z",
-  "versionId": "a598b4bd-4e16-4769-8e8c-52424537aef2"
+  "updatedAt": "2025-01-10T17:54:55.000Z",
+  "versionId": "7ee5efe3-7891-40c1-9f07-fca4395db267"
 }
