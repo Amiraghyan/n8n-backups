@@ -1,0 +1,60 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-10T20:03:22.136Z",
+  "id": "1HYdvVhfmVpufg1l",
+  "meta": null,
+  "name": "Fire Crawl TEST",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d19766ce-0fb5-421e-b24b-211bdbd1804d",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "mode": "list",
+          "cachedResultName": ""
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "b86828c9-cea4-41c6-9766-b7522f40c829",
+      "name": "Execute Workflow"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-10T20:03:22.136Z",
+  "versionId": "babded6b-7689-4941-a342-16e4c55432ea"
+}
