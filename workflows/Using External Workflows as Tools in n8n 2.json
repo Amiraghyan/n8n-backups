@@ -45,18 +45,19 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.firecrawl.dev/v1/scrape",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
+        "url": "https://api.firecrawl.dev/v1/crawl",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            {}
+            {
+              "name": "Authorization",
+              "value": "Bearer fc-07068f535c7b4026b5620d9f0ba87dc4"
+            }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"url\": \"{{ $json.query.url }}\",\n  \"formats\": [\n    \"markdown\"\n  ]\n} ",
+        "jsonBody": "{\n\"URL\": \"https://www.uspto.gov/\",\n  \"limit\": 100,\n  \"scrapeOptions\": {\n    \"formats\": [\n      \"markdown\",\n      \"html\"\n    ]\n  }\n}",
         "options": {}
       },
       "id": "f256ed59-ba61-4912-9a75-4e7703547de5",
@@ -66,13 +67,7 @@
         640,
         480
       ],
-      "typeVersion": 4.2,
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "DWcfnb8XeK6a6Z1c",
-          "name": "Header Auth account 2"
-        }
-      }
+      "typeVersion": 4.2
     },
     {
       "parameters": {
@@ -120,6 +115,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-10T19:34:40.514Z",
-  "versionId": "42ad1b12-c643-4364-b751-dfbe29d489d5"
+  "updatedAt": "2025-01-10T21:41:06.000Z",
+  "versionId": "abbb8ace-31a2-46b8-babf-bb31c321107b"
 }
