@@ -5,6 +5,17 @@
       "main": [
         [
           {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
             "node": "Execute Workflow",
             "type": "main",
             "index": 0
@@ -33,19 +44,47 @@
       "parameters": {
         "workflowId": {
           "__rl": true,
+          "value": "pnWFhM7su2rpk3Lw",
           "mode": "list",
-          "cachedResultName": ""
+          "cachedResultName": "External flows: FireCrawl"
         },
-        "options": {}
+        "options": {
+          "waitForSubWorkflow": false
+        }
       },
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.1,
       "position": [
-        220,
+        440,
         0
       ],
       "id": "b86828c9-cea4-41c6-9766-b7522f40c829",
-      "name": "Execute Workflow"
+      "name": "Execute Workflow",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6042c27d-516c-4d2a-b82b-484d8b443d6b",
+              "name": "URL",
+              "value": "https://www.uspto.gov/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "ad026c6e-9bc0-415c-b9ea-beadb03e2b07",
+      "name": "Edit Fields"
     }
   ],
   "pinData": {},
@@ -55,6 +94,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-10T20:03:22.136Z",
-  "versionId": "babded6b-7689-4941-a342-16e4c55432ea"
+  "updatedAt": "2025-01-10T21:41:12.000Z",
+  "versionId": "c69d1d3e-a194-4cde-b8d3-d7c34f9c0c20"
 }
