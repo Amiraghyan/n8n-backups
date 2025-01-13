@@ -1,0 +1,1905 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Ptompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Comments Sentiment Analysis Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summary Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Key Points Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Researcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "article": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text → Audio1": {
+      "main": [
+        []
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        []
+      ]
+    },
+    "Researcher": {
+      "main": [
+        [
+          {
+            "node": "Title Generator Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inputs": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ptompts": {
+      "main": [
+        [
+          {
+            "node": "Inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Knowledge Base": {
+      "main": [
+        []
+      ]
+    },
+    "Comments": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Comments Sentiment Analysis Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Positive": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Neutral": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Negative": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Youtube Metadata",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Youtube Metadata": {
+      "main": [
+        [
+          {
+            "node": "Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Metadata": {
+      "main": [
+        [
+          {
+            "node": "Youtube Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Youtube Transcript": {
+      "main": [
+        [
+          {
+            "node": "Summary Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text → Audio": {
+      "main": [
+        [
+          {
+            "node": "Knowledge Base",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Video Stats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Stats": {
+      "main": [
+        []
+      ]
+    },
+    "SEO Writer Agent": {
+      "main": [
+        [
+          {
+            "node": "Editor Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Editor Agent": {
+      "main": [
+        [
+          {
+            "node": "Formatter Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summary Agent": {
+      "main": [
+        [
+          {
+            "node": "Key Points Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Key Points Agent": {
+      "main": [
+        [
+          {
+            "node": "Text → Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comments Sentiment Analysis Agent": {
+      "main": [
+        [
+          {
+            "node": "Positive",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Neutral",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Negative",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Title Generator Agent": {
+      "main": [
+        [
+          {
+            "node": "SEO Writer Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatter Agent": {
+      "main": [
+        [
+          {
+            "node": "article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI1": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "SerpAPI2": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Sources": {
+      "main": [
+        [
+          {
+            "node": "Channels / Profiles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channels / Profiles": {
+      "main": [
+        [
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare Datasets": {
+      "main": [
+        [],
+        [],
+        [
+          {
+            "node": "New Inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Processed Inputs": {
+      "main": [
+        [
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Ptompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI3": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Schedule Trigger + 1 hr": {
+      "main": [
+        [
+          {
+            "node": "Researcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    ".": {
+      "ai_tool": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Now": {
+      "ai_tool": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Researcher",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-19T09:12:19.494Z",
+  "id": "asWSVRBH37s7ulez",
+  "meta": null,
+  "name": "AAA YT: Content Gen",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "0dece2d8-8301-499e-8d84-7005f0f89454",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "cd072210-83ac-44dc-8057-1ea6c0296768",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        80
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "o1-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3240,
+        -440
+      ],
+      "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3620,
+        -440
+      ],
+      "id": "5ae57c35-58f9-4408-be16-d23b3c11fa4d",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1880,
+        940
+      ],
+      "id": "e06c9784-9e9b-47f9-91a9-7e08e8a0b1db",
+      "name": "When chat message received",
+      "webhookId": "321d6759-49b5-4082-b810-a65b232ad1e9"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2120,
+        1380
+      ],
+      "id": "eaad669b-e18a-4c3e-b15a-00905a356c4c",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $('Formatter Agent').item.json.message.content }}",
+        "name": "=Article_{{ $now }}-{{ $json.Title }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/u/3/folders/13UmSvnHS93koswjnxKh0FhomXy49q3aO",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4240,
+        1100
+      ],
+      "id": "d53ff90f-de2f-4200-8e2b-178e3308ee96",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9a0297ea-5830-47b6-888b-e832a65b594a",
+              "name": "content",
+              "value": "={{ $json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "54356597-da80-45e4-a073-91d293cb0796",
+              "name": "Research",
+              "value": "={{ $('Researcher').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "328a4bbb-ee0c-4754-b731-249c7d6578f3",
+              "name": "SEOwriteup",
+              "value": "={{ $('SEO Writer Agent').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "dec9bb57-2935-46bb-ba87-71d99db09848",
+              "name": "Edited",
+              "value": "={{ $('Editor Agent').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "03fcc827-01c0-45a7-ab68-e4ca64a01791",
+              "name": "Formatted",
+              "value": "={{ $json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "11e7f038-ccb9-4e56-93cd-cd6b5ddc2ec8",
+              "name": "Title",
+              "value": "={{ $('Title Generator Agent').item.json.message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4040,
+        1100
+      ],
+      "id": "45f9a1c3-95ba-415d-bfa1-e96853a443e7",
+      "name": "article"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "={{ $('Formatter Agent').item.json.message.content }}",
+        "options": {
+          "response_format": "mp3",
+          "binaryPropertyOutput": "audio"
+        }
+      },
+      "id": "64448d70-af73-4429-9651-8ecd247b0dd3",
+      "name": "Text → Audio1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        4260,
+        1340
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('When chat message received').item.json.chatInput }}",
+        "options": {
+          "systemMessage": "=Today is: {{ $now }}\nYou are a web searcher agent assistant. You will be provided a topic or headline for an SEO blog article. Your task is to search the web for up to date and reliable factual information on this topic and summarize key points to provide helpful content. Be concise and clear, focusing on details that would enhance the article's SEO value and informative quality. \nPost should include a captivating and thought-provoking description. Description should be engaging and useful. \nRandomize the overall post so that you don't create same post every time. "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        2160,
+        1100
+      ],
+      "id": "6204594e-a241-4aa0-acb9-418d3744c397",
+      "name": "Researcher"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2060,
+        -340
+      ],
+      "id": "ec9a2a89-db73-462a-875f-3608814073a6",
+      "name": "Inputs",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1471096355,
+          "mode": "list",
+          "cachedResultName": "prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=1471096355"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1860,
+        -340
+      ],
+      "id": "9ff51c50-3e48-49b3-88d5-5932d6952513",
+      "name": "Ptompts",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "={{\"data\"}}",
+        "name": "=yt_audiosumm-{{ $('Youtube Transcript').item.json.videoTitle }}.mp3",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1dFgXwWbG6-uj8iRKqUHKerkq0RW1bso_",
+          "mode": "list",
+          "cachedResultName": "KB",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1dFgXwWbG6-uj8iRKqUHKerkq0RW1bso_"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4200,
+        -600
+      ],
+      "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
+      "name": "Knowledge Base",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=\" + $json.videoId + \"&maxResults=100&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "1b57f7ec-f7f8-4080-b5a4-512c9fd9e52d",
+      "name": "Comments",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2520,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        -60
+      ],
+      "id": "829ff6f0-b4c0-4e1e-a0f1-95c403de1e1b",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "field": "snippet.topLevelComment.snippet"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1,
+      "position": [
+        3380,
+        -200
+      ],
+      "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
+      "name": "Positive"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "field": "snippet.topLevelComment.snippet"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1,
+      "position": [
+        3380,
+        -60
+      ],
+      "id": "a36731c9-a7a9-4bc6-b4c1-efb02b65eedf",
+      "name": "Neutral"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "field": "snippet.topLevelComment.snippet"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1,
+      "position": [
+        3380,
+        80
+      ],
+      "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
+      "name": "Negative"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2784ea3c-15e0-41ab-8b2c-a8e706a08135",
+              "name": "=Positive",
+              "value": "={{ $json.count_snippet_topLevelComment_snippet }}",
+              "type": "number"
+            },
+            {
+              "id": "6eeb2c38-0911-46eb-9967-6024110e7813",
+              "name": "Neutral",
+              "value": "={{ $('Neutral').all()[0].json.count_snippet_topLevelComment_snippet }}",
+              "type": "string"
+            },
+            {
+              "id": "8e4b9e08-4105-406f-819f-aff327ed1a82",
+              "name": "Negative",
+              "value": "={{ $('Negative').all()[0].json.count_snippet_topLevelComment_snippet }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3880,
+        -60
+      ],
+      "id": "a8e02217-ce58-442b-9bc7-465804ab7fe7",
+      "name": "Video Stats",
+      "alwaysOutputData": true,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const url = $json['Link to Source']; // Your YouTube URL\nconst videoIdRegex = /(?:\\?v=|\\/embed\\/|\\/watch\\?v=|youtu\\.be\\/)([^&\\n?#]+)/;\nconst match = url.match(videoIdRegex);\nconst videoId = match ? match[1] : null;\n\nreturn {\n  json: {\n    videoId: videoId,\n    originalUrl: url\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2260,
+        -340
+      ],
+      "id": "49bd6dfb-3e71-4841-8142-d937f52cbd5e",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "c4cdde10-ac16-44fb-b05a-673fa93e4515",
+      "name": "Youtube Metadata",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2500,
+        -600
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "febfd458-f945-465e-a2b7-e46d74e6849b",
+              "name": "items[0].kind",
+              "value": "={{ $json.items[0].kind }}",
+              "type": "string"
+            },
+            {
+              "id": "5e765835-d80e-4dee-9aaa-44ea0faa0744",
+              "name": "items[0].snippet.publishedAt",
+              "value": "={{ $json.items[0].snippet.publishedAt }}",
+              "type": "string"
+            },
+            {
+              "id": "0c8bac8e-fde7-4911-8936-1ce164521644",
+              "name": "items[0].snippet.channelId",
+              "value": "={{ $json.items[0].snippet.channelId }}",
+              "type": "string"
+            },
+            {
+              "id": "4cec6b39-d436-4222-bd9f-af6360c6741b",
+              "name": "items[0].snippet.channelTitle",
+              "value": "={{ $json.items[0].snippet.channelTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "cf702f06-e545-41a6-b918-436253fda505",
+              "name": "items[0].snippet.categoryId",
+              "value": "={{ $json.items[0].snippet.categoryId }}",
+              "type": "string"
+            },
+            {
+              "id": "d48ae9a2-2529-45e8-9d59-0de30ee6bb52",
+              "name": "items[0].snippet.title",
+              "value": "={{ $json.items[0].snippet.title }}",
+              "type": "string"
+            },
+            {
+              "id": "b3d70e35-e32b-4586-bf03-d986a19872b1",
+              "name": "items[0].snippet.description",
+              "value": "={{ $json.items[0].snippet.description }}",
+              "type": "string"
+            },
+            {
+              "id": "22d8d4e3-70ae-4176-8341-f183377320a9",
+              "name": "items[0].contentDetails.duration",
+              "value": "={{ $json.items[0].contentDetails.duration }}",
+              "type": "string"
+            },
+            {
+              "id": "fbf58e3b-7e98-4097-88a5-d9baf6cc7070",
+              "name": "items[0].contentDetails.definition",
+              "value": "={{ $json.items[0].contentDetails.definition }}",
+              "type": "string"
+            },
+            {
+              "id": "976eefbc-ba4d-48f9-8120-3f1c81e60596",
+              "name": "items[0].contentDetails.contentRating",
+              "value": "={{ $json.items[0].contentDetails.contentRating }}",
+              "type": "object"
+            },
+            {
+              "id": "19242081-4bfc-423b-a6fa-99a7dfb23a73",
+              "name": "items[0].statistics",
+              "value": "={{ $json.items[0].statistics }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2720,
+        -600
+      ],
+      "id": "9fd98246-5d3d-4616-b188-41bf8a093eaf",
+      "name": "Metadata"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"startUrls\": [\"{{ $('Code').item.json.originalUrl }}\"]\n}\n\n",
+        "options": {}
+      },
+      "id": "09cfe0ab-44fc-4440-9fb0-c5c1a13d0a9b",
+      "name": "Youtube Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2940,
+        -600
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "=Summary\n{{ $('Summary Agent').item.json.text }}\n\nKey Points\n{{ $('Key Points Agent').item.json.text }}\n\nStatistics\nViews: {{ $('Youtube Metadata').item.json.items[0].statistics.viewCount }}\nLikes: {{ $('Youtube Metadata').item.json.items[0].statistics.likeCount }}\n\nSentiment Analysis of Commnents: \nNumber of Positive comments: {{ 5 }}\nNumber of Neutral comments: {{ 4 }} \nNumber of Negative comments: {{ 2 }} ",
+        "options": {
+          "response_format": "mp3"
+        }
+      },
+      "id": "057cc906-959c-43fc-b33d-5a1caf1dd4eb",
+      "name": "Text → Audio",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        3980,
+        -600
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3680,
+        -60
+      ],
+      "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a title: {{ $json.message.content }} and a summary: {{ $('Researcher').item.json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2920,
+        1100
+      ],
+      "id": "5e2b1539-dae8-4cda-90eb-c320be36bfb2",
+      "name": "SEO Writer Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o1-mini",
+          "mode": "list",
+          "cachedResultName": "O1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an Editor. You'll receive a draft:\n{{ $json.message.content }} of a blog article. Your task is to thoroughly check for grammar, punctuation, and readability. Ensure that the text flows smoothly, is free from errors, and maintains a clear, engaging tone. Make any necessary adjustments to improve clarity, structure, and accessibility for a broad audience."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3280,
+        1100
+      ],
+      "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
+      "name": "Editor Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.transcript }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "={{ $('Ptompts').item.json.Summary }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        3180,
+        -600
+      ],
+      "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
+      "name": "Summary Agent",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Ptompts').item.json.Highlights }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "={{ $('Ptompts').item.json.Highlights }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        3580,
+        -600
+      ],
+      "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
+      "name": "Key Points Agent",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.snippet.topLevelComment.snippet.textOriginal }}",
+        "options": {}
+      },
+      "id": "f986598c-2039-443a-8e24-2de976d82f7d",
+      "name": "Comments Sentiment Analysis Agent",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a Title Generator for articles and blogposts. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article title that is informative, engaging, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and keep the length under 12 words."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2540,
+        1100
+      ],
+      "id": "51469ce9-1135-42a7-b624-1c8cc399e46b",
+      "name": "Title Generator Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o1-mini",
+          "mode": "list",
+          "cachedResultName": "O1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a Formatter. You'll receive a refined article draft: {{ $json.message.content }}. \nYour task is to format it for optimal readability and SEO impact. Use headings (H1, H2, H3) where appropriate, create short paragraphs, and add bullet points or numbered lists for clarity. Ensure each section flows logically, and highlight important information for better reader engagement. Check that keywords are strategically placed without disrupting the flow. "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3660,
+        1100
+      ],
+      "id": "026a61a5-f779-42c4-96dd-bf66c9f92a61",
+      "name": "Formatter Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        1500
+      ],
+      "id": "32054070-9efa-4cb2-829c-0ff40243ef14",
+      "name": "SerpAPI1",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        3140,
+        1500
+      ],
+      "id": "e6628d51-569c-4877-9f98-e3e6fb883925",
+      "name": "SerpAPI2",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3140,
+        1520
+      ],
+      "id": "bbfb4957-07c7-47e0-9067-593cde349cd7",
+      "name": "Cover Picture & Charts Agent",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2240,
+        -1520
+      ],
+      "id": "9fe7e705-615e-4532-9422-69358f05f7af",
+      "name": "Sources",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "f7d11957-e0a5-4b97-bfd9-eadf405a9e14",
+      "name": "Channels / Profiles",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2480,
+        -1520
+      ]
+    },
+    {
+      "parameters": {
+        "mergeByFields": {
+          "values": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.compareDatasets",
+      "typeVersion": 2.3,
+      "position": [
+        2700,
+        -1520
+      ],
+      "id": "e3aa3ad0-4cba-4ea6-94fe-14e1fa8239e1",
+      "name": "Compare Datasets"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2480,
+        -1320
+      ],
+      "id": "0e1e21ed-094b-4d7a-95fb-6d5e0e00b697",
+      "name": "Processed Inputs",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3060,
+        -1500
+      ],
+      "id": "587fa1a9-a5e5-4013-a193-06afc7a2ba0b",
+      "name": "New Inputs",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1660,
+        -340
+      ],
+      "id": "2a8d0e2d-6fdf-4a6d-9cb8-aefddf243b3f",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2740,
+        1520
+      ],
+      "id": "982ca386-2f0c-498b-b3a1-58a60f7f6320",
+      "name": "Market Trend / Current News",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        3560,
+        1500
+      ],
+      "id": "94b51b5e-a31c-40d4-9165-42526d40f336",
+      "name": "SerpAPI3",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3560,
+        1520
+      ],
+      "id": "323a5b34-85a3-4ae9-b9d4-9dcfc4707e83",
+      "name": "Knowledge Base RAG",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Roadmap",
+        "height": 80,
+        "width": 280
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        1820
+      ],
+      "id": "255a31fe-3495-4700-a190-cad807724301",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 460,
+        "width": 1200
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        1460
+      ],
+      "id": "01bc5baf-bbca-45e8-b3ae-8784b80acfb0",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1880,
+        1100
+      ],
+      "id": "7326582c-113f-43c4-a97b-1d66db3d6b82",
+      "name": "Schedule Trigger + 1 hr"
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "a436018c-ea67-4cf9-a6c4-5ca32a08243a",
+      "name": "Podcasts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2520,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "042b9751-ff00-49e6-947b-510da34cfd54",
+      "name": "RSS Feeds",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2740,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "options": {}
+      },
+      "id": "9ce6fbaf-0701-48ab-8270-0344a041bf6b",
+      "name": "News Letters",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2960,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Roadmap\n",
+        "height": 320,
+        "width": 1520
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        300
+      ],
+      "id": "070db2e7-d649-492b-9b34-9c1f16b25315",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        340
+      ],
+      "id": "df68332c-2186-4d7d-9992-1e96c16ee782",
+      "name": "Blog"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        3480,
+        400
+      ],
+      "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
+      "name": "Email",
+      "credentials": {
+        "smtp": {
+          "id": "Dl8B2JzKzTKkFx5i",
+          "name": "SMTP account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C085C7Q7FPY",
+          "mode": "list",
+          "cachedResultName": "content-generation"
+        },
+        "text": "awefr",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        3560,
+        460
+      ],
+      "id": "8e1ef7b8-f92c-4bed-8ece-dcb2f93c9a9c",
+      "name": "Slack",
+      "webhookId": "6dbc009e-41d1-4363-8b00-12037130eb37",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "7VOxhQHkBloxHtkn",
+          "name": "syc-n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "us",
+          "hl": "en"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        1360
+      ],
+      "id": "ef9822f5-6bc4-405a-912d-a84201df4bc4",
+      "name": ".",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an SEO Content Writer. You'll receive a summary: {{ $json.output }} with factual information on a topic. Your task is to craft a highly engaging, SEO-optimized blog article that is informative, well-structured, and aimed at outranking competitors. Prioritize readability, integrate relevant keywords naturally, and include actionable insights, examples, or tips that add unique value to the reader."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        3140,
+        1740
+      ],
+      "id": "bfd9ab4a-e49a-482b-b1f6-ef29fb52d6f8",
+      "name": "Industry Voices",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1980,
+        -1520
+      ],
+      "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {},
+      "id": "837ef9b8-4e4a-413e-bd83-e5bcfb87d835",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "name": "Now",
+        "description": "Call this tool to get the context of the time now - the date and time we are in and references to the past and the future. For example, today, up to date, last month, this week, tomorrow, and other.",
+        "jsCode": "function createDateReferences() {\n    try {\n        // Utility function to safely create dates and handle invalid dates\n        function createSafeDate(...args) {\n            const date = new Date(...args);\n            if (isNaN(date.getTime())) {\n                throw new Error(`Invalid date created with args: ${JSON.stringify(args)}`);\n            }\n            return date;\n        }\n\n        const now = createSafeDate();\n        const pstOptions = { timeZone: 'America/Los_Angeles' };\n\n        // Enhanced format function with error handling\n        function formatDate(date) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid date provided to formatDate');\n                }\n                return date.toLocaleDateString('en-US', {\n                    weekday: 'long',\n                    year: 'numeric',\n                    month: 'long',\n                    day: 'numeric',\n                    ...pstOptions\n                });\n            } catch (error) {\n                console.error(`Error formatting date: ${error.message}`);\n                return 'Invalid Date';\n            }\n        }\n\n        // Safe date manipulation with error handling\n        function manipulateDate(date, manipulation) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid base date for manipulation');\n                }\n                const newDate = createSafeDate(date);\n                manipulation(newDate);\n                if (isNaN(newDate.getTime())) {\n                    throw new Error('Date manipulation resulted in invalid date');\n                }\n                return newDate;\n            } catch (error) {\n                console.error(`Date manipulation error: ${error.message}`);\n                return createSafeDate(); // Return current date as fallback\n            }\n        }\n\n        // Handle month transitions safely\n        function getMonthBoundaries(yearOffset = 0, monthOffset = 0) {\n            try {\n                const year = now.getFullYear() + yearOffset;\n                const month = now.getMonth() + monthOffset;\n                \n                // Normalize month and year if we overflow\n                const normalizedYear = year + Math.floor(month / 12);\n                const normalizedMonth = ((month % 12) + 12) % 12; // Handle negative months\n\n                const start = createSafeDate(normalizedYear, normalizedMonth, 1);\n                const end = createSafeDate(normalizedYear, normalizedMonth + 1, 0);\n                \n                return { start, end };\n            } catch (error) {\n                console.error(`Error calculating month boundaries: ${error.message}`);\n                return {\n                    start: createSafeDate(),\n                    end: createSafeDate()\n                };\n            }\n        }\n\n        // Get week boundaries with error handling for DST transitions\n        function getWeekBoundaries(weekOffset = 0) {\n            try {\n                const startOfWeek = manipulateDate(now, d => {\n                    d.setDate(d.getDate() - d.getDay() + (weekOffset * 7));\n                    d.setHours(0, 0, 0, 0);\n                });\n\n                const endOfWeek = manipulateDate(startOfWeek, d => {\n                    d.setDate(d.getDate() + 6);\n                    d.setHours(23, 59, 59, 999);\n                });\n\n                return { start: startOfWeek, end: endOfWeek };\n            } catch (error) {\n                console.error(`Error calculating week boundaries: ${error.message}`);\n                return {\n                    start: createSafeDate(),\n                    end: createSafeDate()\n                };\n            }\n        }\n\n        // Safe time formatting with DST handling\n        function formatTime(date) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid date provided to formatTime');\n                }\n                return date.toLocaleTimeString('en-US', {\n                    hour: '2-digit',\n                    minute: '2-digit',\n                    second: '2-digit',\n                    hour12: true,\n                    ...pstOptions\n                });\n            } catch (error) {\n                console.error(`Error formatting time: ${error.message}`);\n                return 'Invalid Time';\n            }\n        }\n\n        // Determine timezone with error handling\n        function getTimezoneIndicator() {\n            try {\n                const pstDate = new Date().toLocaleString('en-US', pstOptions);\n                return pstDate.includes('PDT') ? 'PDT' : 'PST';\n            } catch (error) {\n                console.error(`Error determining timezone: ${error.message}`);\n                return 'PST'; // Default to PST if there's an error\n            }\n        }\n\n        const thisWeek = getWeekBoundaries(0);\n        const lastWeek = getWeekBoundaries(-1);\n        const nextWeek = getWeekBoundaries(1);\n\n        const thisMonth = getMonthBoundaries(0, 0);\n        const lastMonth = getMonthBoundaries(0, -1);\n        const nextMonth = getMonthBoundaries(0, 1);\n\n        const thisYear = {\n            start: createSafeDate(now.getFullYear(), 0, 1),\n            end: createSafeDate(now.getFullYear(), 11, 31)\n        };\n        const lastYear = {\n            start: createSafeDate(now.getFullYear() - 1, 0, 1),\n            end: createSafeDate(now.getFullYear() - 1, 11, 31)\n        };\n        const nextYear = {\n            start: createSafeDate(now.getFullYear() + 1, 0, 1),\n            end: createSafeDate(now.getFullYear() + 1, 11, 31)\n        };\n\n        const formattedTime = formatTime(now);\n        const timezoneIndicator = getTimezoneIndicator();\n\n        return {\n            json: {\n                current: {\n                    dateTime: `${formatDate(now)} at ${formattedTime} ${timezoneIndicator}`,\n                    date: formatDate(now),\n                    time: `${formattedTime} ${timezoneIndicator}`,\n                    timezone: timezoneIndicator,\n                    timestamp: now.getTime() // Include timestamp for additional reference\n                },\n                relative: {\n                    yesterday: formatDate(manipulateDate(now, d => d.setDate(d.getDate() - 1))),\n                    today: formatDate(now),\n                    tomorrow: formatDate(manipulateDate(now, d => d.setDate(d.getDate() + 1)))\n                },\n                weeks: {\n                    thisWeek: {\n                        start: formatDate(thisWeek.start),\n                        end: formatDate(thisWeek.end)\n                    },\n                    lastWeek: {\n                        start: formatDate(lastWeek.start),\n                        end: formatDate(lastWeek.end)\n                    },\n                    nextWeek: {\n                        start: formatDate(nextWeek.start),\n                        end: formatDate(nextWeek.end)\n                    }\n                },\n                months: {\n                    thisMonth: {\n                        start: formatDate(thisMonth.start),\n                        end: formatDate(thisMonth.end)\n                    },\n                    lastMonth: {\n                        start: formatDate(lastMonth.start),\n                        end: formatDate(lastMonth.end)\n                    },\n                    nextMonth: {\n                        start: formatDate(nextMonth.start),\n                        end: formatDate(nextMonth.end)\n                    }\n                },\n                years: {\n                    thisYear: {\n                        start: formatDate(thisYear.start),\n                        end: formatDate(thisYear.end)\n                    },\n                    lastYear: {\n                        start: formatDate(lastYear.start),\n                        end: formatDate(lastYear.end)\n                    },\n                    nextYear: {\n                        start: formatDate(nextYear.start),\n                        end: formatDate(nextYear.end)\n                    }\n                }\n            }\n        };\n    } catch (error) {\n        // Global error handler\n        console.error('Critical error in date reference creation:', error);\n        // Return a minimal valid response with current date/time\n        const fallbackDate = new Date();\n        return {\n            json: {\n                error: true,\n                errorMessage: error.message,\n                current: {\n                    dateTime: fallbackDate.toISOString(),\n                    date: fallbackDate.toDateString(),\n                    time: fallbackDate.toTimeString(),\n                    timezone: 'PST'\n                }\n            }\n        };\n    }\n}\n\nreturn JSON.stringify(createDateReferences());"
+      },
+      "id": "5d42936d-8445-4c95-b7dd-4a4b882f0797",
+      "name": "Now",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        2240,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        1320
+      ],
+      "id": "25b8fe22-75ce-46c3-97b7-a9c484f843cb",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-13T15:41:43.000Z",
+  "versionId": "c0c0fd96-6207-4c9d-8fc6-f19f75c0672c"
+}
