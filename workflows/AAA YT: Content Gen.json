@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Ptompts",
+            "node": "Sources",
             "type": "main",
             "index": 0
           }
@@ -499,8 +499,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1660,
-        -120
+        1960,
+        -1340
       ]
     },
     {
@@ -1900,6 +1900,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-13T15:41:43.000Z",
-  "versionId": "c0c0fd96-6207-4c9d-8fc6-f19f75c0672c"
+  "updatedAt": "2025-01-13T23:12:51.000Z",
+  "versionId": "f0b0a69f-9ba0-4a9f-9d8d-98d0e510296c"
 }
