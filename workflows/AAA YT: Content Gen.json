@@ -465,7 +465,7 @@
       "main": [
         [
           {
-            "node": "Edit Fields1",
+            "node": "To Process",
             "type": "main",
             "index": 0
           }
@@ -479,13 +479,7 @@
     },
     "YTB Channel SerpAPI": {
       "main": [
-        [
-          {
-            "node": "Edit Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "YouTube": {
@@ -515,12 +509,56 @@
         ]
       ]
     },
-    "Edit Fields1": {
+    "To Process": {
       "main": [
         [
           {
-            "node": "YTB Channel SerpAPI",
+            "node": "AI Agent",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI YT Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Item List Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
             "index": 0
           }
         ]
@@ -1942,17 +1980,17 @@
     },
     {
       "parameters": {
-        "url": "={{ \"https://serpapi.com/search.json\" }}\n\n",
+        "url": "={{ \"https://serpapi.com/search.json\" }}\n",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"engine\": \"youtube\",\n    \"search_query\": \"{{ $json.Handle }} videos\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}",
+        "jsonBody": "={\n    \"engine\": \"youtube\",\n    \"search_query\": \"{{ $json.Handle }}\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3160,
-        -1640
+        3260,
+        -1160
       ],
       "id": "1eca8530-9592-4793-aaac-77596181008f",
       "name": "YTB Channel SerpAPI",
@@ -2009,8 +2047,7 @@
           "value": {
             "Subscribers": "={{ $json.channel_results[0].subscribers }}",
             "Description": "={{ $json.channel_results[0].description }}",
-            "Handle": "={{ $json.channel_results.handle }}",
-            "Title": "={{ $json.channel_results[0].title }}"
+            "Handle": "={{ $json.channel_results.handle }}"
           },
           "matchingColumns": [
             "Handle"
@@ -2063,24 +2100,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Published On",
-              "displayName": "Published On",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Title",
-              "displayName": "Title",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
               "id": "Description",
               "displayName": "Description",
               "required": false,
@@ -2125,7 +2144,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3640,
+        3580,
         -1640
       ],
       "id": "c144a4da-f69d-443a-b642-94dd95bb62cc",
@@ -2276,7 +2295,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4140,
+        4580,
         -1640
       ],
       "id": "37f24522-91ec-4c7d-a1ee-733f1ab7b095",
@@ -2296,60 +2315,13 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3860,
+        4300,
         -1640
       ],
       "id": "bd2ff8db-d136-4e65-9682-d178541e3199",
       "name": "Split Out1",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "01793174-65e4-4893-9df4-04a2e1108fd0",
-              "name": "search_metadata.youtube_url",
-              "value": "={{ $json.search_metadata.youtube_url }}",
-              "type": "string"
-            },
-            {
-              "id": "cee625ed-93c1-4fca-910b-be5b8f17cad2",
-              "name": "search_parameters.search_query",
-              "value": "={{ $json.search_parameters.search_query }}",
-              "type": "string"
-            },
-            {
-              "id": "910c5216-5624-48dd-9b8a-fb329b5018a4",
-              "name": "search_information.total_results",
-              "value": "={{ $json.search_information.total_results }}",
-              "type": "number"
-            },
-            {
-              "id": "9fe8f0a2-f48a-4ac8-b909-33e415dce3f8",
-              "name": "channel_results[0].handle",
-              "value": "={{ $json.channel_results[0].handle }}",
-              "type": "string"
-            },
-            {
-              "id": "b0e04804-2296-4714-b57a-df97dab2a315",
-              "name": "channel_results[0].subscribers",
-              "value": "={{ $json.channel_results[0].subscribers }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        3380,
-        -1640
-      ],
-      "id": "44562216-8516-4948-a9a3-6250812d12bb",
-      "name": "Edit Fields"
     },
     {
       "parameters": {
@@ -2384,7 +2356,75 @@
         -1640
       ],
       "id": "b11a639e-1b15-49e3-bb1a-9b38aeb4c35b",
-      "name": "Edit Fields1"
+      "name": "To Process"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Youtube {{ $json.Handle }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a helpful assistant that retrieves youtube video information exclusively from the following channel:{{ $json.Handle }}\n\n",
+          "returnIntermediateSteps": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        3180,
+        -1640
+      ],
+      "id": "16524810-b215-4b81-a80b-a6fa091b3d4e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3080,
+        -1400
+      ],
+      "id": "ed172f7c-27cd-4640-adaa-e135476cf320",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Call this tool to fetch all available videos in a given youtube channel: \n{{ $('To Process').item.json.Handle }} \n",
+        "url": "={{ \"https://serpapi.com/search.json\" }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n    \"engine\": \"youtube\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        3260,
+        -1400
+      ],
+      "id": "c2dcad57-17ec-4160-90e1-5419c131ddcc",
+      "name": "SerpAPI YT Search"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserItemList",
+      "typeVersion": 1,
+      "position": [
+        3460,
+        -1400
+      ],
+      "id": "25a5ce09-bccd-4ed4-a537-b76b564627be",
+      "name": "Item List Output Parser"
     }
   ],
   "pinData": {},
@@ -2394,6 +2434,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-16T08:12:47.000Z",
-  "versionId": "55650e91-de02-4917-a210-3a110a43f601"
+  "updatedAt": "2025-01-16T09:28:03.000Z",
+  "versionId": "791d472d-2351-49c7-91ed-6b655d2d1d32"
 }
