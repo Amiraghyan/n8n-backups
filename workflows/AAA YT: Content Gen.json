@@ -362,7 +362,7 @@
       "main": [
         [
           {
-            "node": "Channels / Profiles",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -371,37 +371,12 @@
     },
     "Channels / Profiles": {
       "main": [
-        [
-          {
-            "node": "Compare Datasets",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Compare Datasets": {
-      "main": [
-        [],
-        [],
-        [
-          {
-            "node": "New Inputs",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Processed Inputs": {
       "main": [
-        [
-          {
-            "node": "Compare Datasets",
-            "type": "main",
-            "index": 1
-          }
-        ]
+        []
       ]
     },
     "Schedule Trigger": {
@@ -485,6 +460,71 @@
           }
         ]
       ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        []
+      ]
+    },
+    "YTB Channel SerpAPI": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube": {
+      "main": [
+        []
+      ]
+    },
+    "Channel": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Channel1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "YTB Channel SerpAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -499,8 +539,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1960,
-        -1340
+        2200,
+        -1520
       ]
     },
     {
@@ -1388,17 +1428,17 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": 221143269,
+          "value": 194808887,
           "mode": "list",
-          "cachedResultName": "Content Input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+          "cachedResultName": "Source",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=194808887"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2240,
+        2440,
         -1520
       ],
       "id": "9fe7e705-615e-4532-9422-69358f05f7af",
@@ -1420,30 +1460,12 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2480,
-        -1520
+        3020,
+        -1960
       ]
     },
     {
       "parameters": {
-        "mergeByFields": {
-          "values": [
-            {}
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.compareDatasets",
-      "typeVersion": 2.3,
-      "position": [
-        2700,
-        -1520
-      ],
-      "id": "e3aa3ad0-4cba-4ea6-94fe-14e1fa8239e1",
-      "name": "Compare Datasets"
-    },
-    {
-      "parameters": {
         "documentId": {
           "__rl": true,
           "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
@@ -1463,44 +1485,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2480,
-        -1320
+        3420,
+        -1940
       ],
       "id": "0e1e21ed-094b-4d7a-95fb-6d5e0e00b697",
       "name": "Processed Inputs",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "rSTr7Ltjwpw9Xvz2",
-          "name": "Google Sheets account 5"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
-          "mode": "list",
-          "cachedResultName": "Blue&: Content Generation Platform",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 221143269,
-          "mode": "list",
-          "cachedResultName": "Content Input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        3060,
-        -1500
-      ],
-      "id": "587fa1a9-a5e5-4013-a193-06afc7a2ba0b",
-      "name": "New Inputs",
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "rSTr7Ltjwpw9Xvz2",
@@ -1841,8 +1830,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1980,
-        -1520
+        2200,
+        -1720
       ],
       "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
       "name": "Schedule Trigger1"
@@ -1891,6 +1880,511 @@
           "name": "OpenAi account 6"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
+              "leftValue": "={{ $json.Process }}",
+              "rightValue": "TRUE",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2640,
+        -1520
+      ],
+      "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
+      "name": "If",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": "={{ $('Sources').item.json.Title }}",
+        "mergeByFields": {
+          "values": [
+            {}
+          ]
+        },
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3760,
+        -1940
+      ],
+      "id": "1efd6c1c-301d-4bd4-b1f4-cb83c8c2af86",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://serpapi.com/search.json\" }}\n\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"engine\": \"youtube\",\n    \"search_query\": \"{{ $json.Handle }} videos\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3160,
+        -1640
+      ],
+      "id": "1eca8530-9592-4793-aaac-77596181008f",
+      "name": "YTB Channel SerpAPI",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "returnAll": true,
+        "filters": {
+          "channelId": "={{ $json.Channel_ID }}",
+          "publishedAfter": "2024-12-01T00:00:00"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        -1940
+      ],
+      "id": "9dc6aaca-3e0a-4557-9a75-f40bf0297eb2",
+      "name": "YouTube",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "UB2CM41oTDtiQtaf",
+          "name": "YouTube OAuth"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 194808887,
+          "mode": "list",
+          "cachedResultName": "Source",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=194808887"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribers": "={{ $json.channel_results[0].subscribers }}",
+            "Description": "={{ $json.channel_results[0].description }}",
+            "Handle": "={{ $json.channel_results.handle }}",
+            "Title": "={{ $json.channel_results[0].title }}"
+          },
+          "matchingColumns": [
+            "Handle"
+          ],
+          "schema": [
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Handle",
+              "displayName": "Handle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Channel_ID",
+              "displayName": "Channel_ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Published On",
+              "displayName": "Published On",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Subscribers",
+              "displayName": "Subscribers",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Note",
+              "displayName": "Note",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3640,
+        -1640
+      ],
+      "id": "c144a4da-f69d-443a-b642-94dd95bb62cc",
+      "name": "Channel",
+      "executeOnce": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "psz4VI4aPHfgtBvc",
+          "name": "Google Sheets account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 194808887,
+          "mode": "list",
+          "cachedResultName": "Source",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=194808887"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subscribers": "={{ $json.channel_results[0].subscribers }}",
+            "Description": "={{ $json.channel_results[0].description }}",
+            "Handle": "={{ $json.channel_results[0].handle }}",
+            "Title": "={{ $json.channel_results[0].title }}"
+          },
+          "matchingColumns": [
+            "Handle"
+          ],
+          "schema": [
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Handle",
+              "displayName": "Handle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Channel_ID",
+              "displayName": "Channel_ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Published On",
+              "displayName": "Published On",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Subscribers",
+              "displayName": "Subscribers",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Note",
+              "displayName": "Note",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        4140,
+        -1640
+      ],
+      "id": "37f24522-91ec-4c7d-a1ee-733f1ab7b095",
+      "name": "Channel1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "psz4VI4aPHfgtBvc",
+          "name": "Google Sheets account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ $('YTB Channel SerpAPI').item.json.video_results[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3860,
+        -1640
+      ],
+      "id": "bd2ff8db-d136-4e65-9682-d178541e3199",
+      "name": "Split Out1",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01793174-65e4-4893-9df4-04a2e1108fd0",
+              "name": "search_metadata.youtube_url",
+              "value": "={{ $json.search_metadata.youtube_url }}",
+              "type": "string"
+            },
+            {
+              "id": "cee625ed-93c1-4fca-910b-be5b8f17cad2",
+              "name": "search_parameters.search_query",
+              "value": "={{ $json.search_parameters.search_query }}",
+              "type": "string"
+            },
+            {
+              "id": "910c5216-5624-48dd-9b8a-fb329b5018a4",
+              "name": "search_information.total_results",
+              "value": "={{ $json.search_information.total_results }}",
+              "type": "number"
+            },
+            {
+              "id": "9fe8f0a2-f48a-4ac8-b909-33e415dce3f8",
+              "name": "channel_results[0].handle",
+              "value": "={{ $json.channel_results[0].handle }}",
+              "type": "string"
+            },
+            {
+              "id": "b0e04804-2296-4714-b57a-df97dab2a315",
+              "name": "channel_results[0].subscribers",
+              "value": "={{ $json.channel_results[0].subscribers }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3380,
+        -1640
+      ],
+      "id": "44562216-8516-4948-a9a3-6250812d12bb",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6de5eab2-bc17-4a24-aa4a-704058cb46db",
+              "name": "Source",
+              "value": "={{ $json.Source }}",
+              "type": "string"
+            },
+            {
+              "id": "c7e16f00-1bca-4536-b33b-5efaa5326505",
+              "name": "Type",
+              "value": "={{ $json.Type }}",
+              "type": "string"
+            },
+            {
+              "id": "54b8e27c-5a91-4060-860f-7d5b1bc32c04",
+              "name": "Handle",
+              "value": "={{ $json.Handle }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2940,
+        -1640
+      ],
+      "id": "b11a639e-1b15-49e3-bb1a-9b38aeb4c35b",
+      "name": "Edit Fields1"
     }
   ],
   "pinData": {},
@@ -1900,6 +2394,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-13T23:12:51.000Z",
-  "versionId": "f0b0a69f-9ba0-4a9f-9d8d-98d0e510296c"
+  "updatedAt": "2025-01-16T08:12:47.000Z",
+  "versionId": "55650e91-de02-4917-a210-3a110a43f601"
 }
