@@ -479,7 +479,13 @@
     },
     "YTB Channel SerpAPI": {
       "main": [
-        []
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "YouTube": {
@@ -513,7 +519,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "YTB Channel SerpAPI",
             "type": "main",
             "index": 0
           }
@@ -542,23 +548,23 @@
         ]
       ]
     },
-    "SerpAPI YT Search": {
-      "ai_tool": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Item List Output Parser": {
+    "Output": {
       "ai_outputParser": [
         [
           {
             "node": "AI Agent",
             "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI YT": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -1989,8 +1995,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3260,
-        -1160
+        3160,
+        -1640
       ],
       "id": "1eca8530-9592-4793-aaac-77596181008f",
       "name": "YTB Channel SerpAPI",
@@ -2144,7 +2150,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3580,
+        4060,
         -1640
       ],
       "id": "c144a4da-f69d-443a-b642-94dd95bb62cc",
@@ -2361,17 +2367,17 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Youtube {{ $json.Handle }}",
+        "text": "=Youtube Channel {{ $json.Handle }}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=You are a helpful assistant that retrieves youtube video information exclusively from the following channel:{{ $json.Handle }}\n\n",
-          "returnIntermediateSteps": true
+          "systemMessage": "=You are a helpful assistant that retrieves youtube videos {{ $json.video_results }} exclusively the videos whose {{ $json.video_results[0].channel.name }} is the same as {{ $json.search_parameters.search_query }}",
+          "returnIntermediateSteps": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        3180,
+        3420,
         -1640
       ],
       "id": "16524810-b215-4b81-a80b-a6fa091b3d4e",
@@ -2384,8 +2390,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3080,
-        -1400
+        3360,
+        -1420
       ],
       "id": "ed172f7c-27cd-4640-adaa-e135476cf320",
       "name": "OpenAI1",
@@ -2397,34 +2403,32 @@
       }
     },
     {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        3700,
+        -1420
+      ],
+      "id": "d48580ef-0774-454c-bb20-69d50576b186",
+      "name": "Output"
+    },
+    {
       "parameters": {
-        "toolDescription": "Call this tool to fetch all available videos in a given youtube channel: \n{{ $('To Process').item.json.Handle }} \n",
+        "toolDescription": "You are a helpful assistant that can receive Youtube channel information and use the Serp tool to search Youtube videos in it.\n",
         "url": "={{ \"https://serpapi.com/search.json\" }}",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n    \"engine\": \"youtube\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}"
+        "jsonBody": "{    \"engine\": \"youtube\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}"
       },
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "typeVersion": 1.1,
       "position": [
-        3260,
-        -1400
+        3540,
+        -1420
       ],
       "id": "c2dcad57-17ec-4160-90e1-5419c131ddcc",
-      "name": "SerpAPI YT Search"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.outputParserItemList",
-      "typeVersion": 1,
-      "position": [
-        3460,
-        -1400
-      ],
-      "id": "25a5ce09-bccd-4ed4-a537-b76b564627be",
-      "name": "Item List Output Parser"
+      "name": "SerpAPI YT"
     }
   ],
   "pinData": {},
@@ -2434,6 +2438,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-16T09:28:03.000Z",
-  "versionId": "791d472d-2351-49c7-91ed-6b655d2d1d32"
+  "updatedAt": "2025-01-17T00:49:29.000Z",
+  "versionId": "2aedbe4d-676c-4ea1-818f-bd8180b749fb"
 }
