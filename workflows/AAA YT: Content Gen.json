@@ -362,7 +362,7 @@
       "main": [
         [
           {
-            "node": "If",
+            "node": "to Process",
             "type": "main",
             "index": 0
           }
@@ -370,11 +370,6 @@
       ]
     },
     "Channels / Profiles": {
-      "main": [
-        []
-      ]
-    },
-    "Processed Inputs": {
       "main": [
         []
       ]
@@ -461,34 +456,7 @@
         ]
       ]
     },
-    "If": {
-      "main": [
-        [
-          {
-            "node": "To Process",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Merge1": {
-      "main": [
-        []
-      ]
-    },
-    "YTB Channel SerpAPI": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "YouTube": {
       "main": [
         []
       ]
@@ -497,18 +465,7 @@
       "main": [
         [
           {
-            "node": "Split Out1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out1": {
-      "main": [
-        [
-          {
-            "node": "Channel1",
+            "node": "Merge1",
             "type": "main",
             "index": 0
           }
@@ -519,7 +476,7 @@
       "main": [
         [
           {
-            "node": "YTB Channel SerpAPI",
+            "node": "APIfy_YT_Scrap",
             "type": "main",
             "index": 0
           }
@@ -528,13 +485,7 @@
     },
     "AI Agent": {
       "main": [
-        [
-          {
-            "node": "Channel",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenAI1": {
@@ -548,7 +499,18 @@
         ]
       ]
     },
-    "Output": {
+    "SerpAPI YT Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Item List Output Parser": {
       "ai_outputParser": [
         [
           {
@@ -559,12 +521,94 @@
         ]
       ]
     },
-    "SerpAPI YT": {
-      "ai_tool": [
+    "Split Channel": {
+      "main": [
         [
           {
-            "node": "AI Agent",
-            "type": "ai_tool",
+            "node": "Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SplitVideos": {
+      "main": [
+        [
+          {
+            "node": "Split each",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Videos": {
+      "main": [
+        [
+          {
+            "node": "Video from Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video from Channel": {
+      "main": [
+        [
+          {
+            "node": "Videos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "to Process": {
+      "main": [
+        [
+          {
+            "node": "To Process",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Serp YT Search": {
+      "main": [
+        [
+          {
+            "node": "Split Channel",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SplitVideos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Videos1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Split each": {
+      "main": [
+        [
+          {
+            "node": "Videos",
+            "type": "main",
             "index": 0
           }
         ]
@@ -1504,42 +1548,9 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3020,
-        -1960
+        2920,
+        -2220
       ]
-    },
-    {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
-          "mode": "list",
-          "cachedResultName": "Blue&: Content Generation Platform",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 221143269,
-          "mode": "list",
-          "cachedResultName": "Content Input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        3420,
-        -1940
-      ],
-      "id": "0e1e21ed-094b-4d7a-95fb-6d5e0e00b697",
-      "name": "Processed Inputs",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "rSTr7Ltjwpw9Xvz2",
-          "name": "Google Sheets account 5"
-        }
-      }
     },
     {
       "parameters": {
@@ -1927,109 +1938,17 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": false,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
-              "leftValue": "={{ $json.Process }}",
-              "rightValue": "TRUE",
-              "operator": {
-                "type": "boolean",
-                "operation": "true",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {
-          "ignoreCase": true
-        }
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        2640,
-        -1520
-      ],
-      "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
-      "name": "If",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "advanced": "={{ $('Sources').item.json.Title }}",
-        "mergeByFields": {
-          "values": [
-            {}
-          ]
-        },
-        "outputDataFrom": "input1",
-        "options": {}
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3760,
-        -1940
+        4620,
+        -1620
       ],
       "id": "1efd6c1c-301d-4bd4-b1f4-cb83c8c2af86",
       "name": "Merge1"
-    },
-    {
-      "parameters": {
-        "url": "={{ \"https://serpapi.com/search.json\" }}\n",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n    \"engine\": \"youtube\",\n    \"search_query\": \"{{ $json.Handle }}\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        3160,
-        -1640
-      ],
-      "id": "1eca8530-9592-4793-aaac-77596181008f",
-      "name": "YTB Channel SerpAPI",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "resource": "video",
-        "returnAll": true,
-        "filters": {
-          "channelId": "={{ $json.Channel_ID }}",
-          "publishedAfter": "2024-12-01T00:00:00"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.youTube",
-      "typeVersion": 1,
-      "position": [
-        2740,
-        -1940
-      ],
-      "id": "9dc6aaca-3e0a-4557-9a75-f40bf0297eb2",
-      "name": "YouTube",
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "credentials": {
-        "youTubeOAuth2Api": {
-          "id": "UB2CM41oTDtiQtaf",
-          "name": "YouTube OAuth"
-        }
-      },
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2051,9 +1970,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Subscribers": "={{ $json.channel_results[0].subscribers }}",
-            "Description": "={{ $json.channel_results[0].description }}",
-            "Handle": "={{ $json.channel_results.handle }}"
+            "Subscribers": "={{ $json.subscribers }}",
+            "Description": "={{ $json.description }}",
+            "Handle": "={{ $json.handle }}",
+            "Channel_ID": "={{ $json.link }}",
+            "Type": "youtube#video"
           },
           "matchingColumns": [
             "Handle"
@@ -2150,7 +2071,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4060,
+        3720,
         -1640
       ],
       "id": "c144a4da-f69d-443a-b642-94dd95bb62cc",
@@ -2162,172 +2083,6 @@
           "name": "Google Sheets account 6"
         }
       }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
-          "mode": "list",
-          "cachedResultName": "Blue&: Content Generation Platform",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 194808887,
-          "mode": "list",
-          "cachedResultName": "Source",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=194808887"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Subscribers": "={{ $json.channel_results[0].subscribers }}",
-            "Description": "={{ $json.channel_results[0].description }}",
-            "Handle": "={{ $json.channel_results[0].handle }}",
-            "Title": "={{ $json.channel_results[0].title }}"
-          },
-          "matchingColumns": [
-            "Handle"
-          ],
-          "schema": [
-            {
-              "id": "Process",
-              "displayName": "Process",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Source",
-              "displayName": "Source",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Type",
-              "displayName": "Type",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Handle",
-              "displayName": "Handle",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Channel_ID",
-              "displayName": "Channel_ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Published On",
-              "displayName": "Published On",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Title",
-              "displayName": "Title",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Description",
-              "displayName": "Description",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Subscribers",
-              "displayName": "Subscribers",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Note",
-              "displayName": "Note",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        4580,
-        -1640
-      ],
-      "id": "37f24522-91ec-4c7d-a1ee-733f1ab7b095",
-      "name": "Channel1",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "psz4VI4aPHfgtBvc",
-          "name": "Google Sheets account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "fieldToSplitOut": "={{ $('YTB Channel SerpAPI').item.json.video_results[0] }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
-      "position": [
-        4300,
-        -1640
-      ],
-      "id": "bd2ff8db-d136-4e65-9682-d178541e3199",
-      "name": "Split Out1",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2367,18 +2122,18 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Youtube Channel {{ $json.Handle }}",
+        "text": "=Youtube {{ $json.Handle }}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=You are a helpful assistant that retrieves youtube videos {{ $json.video_results }} exclusively the videos whose {{ $json.video_results[0].channel.name }} is the same as {{ $json.search_parameters.search_query }}",
+          "systemMessage": "=You are a helpful assistant that retrieves youtube video information exclusively from the following channel:{{ $json.Handle }}\n\n",
           "returnIntermediateSteps": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        3420,
-        -1640
+        3940,
+        -2240
       ],
       "id": "16524810-b215-4b81-a80b-a6fa091b3d4e",
       "name": "AI Agent"
@@ -2390,8 +2145,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3360,
-        -1420
+        3800,
+        -2000
       ],
       "id": "ed172f7c-27cd-4640-adaa-e135476cf320",
       "name": "OpenAI1",
@@ -2403,32 +2158,644 @@
       }
     },
     {
-      "parameters": {},
-      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-      "typeVersion": 1.2,
-      "position": [
-        3700,
-        -1420
-      ],
-      "id": "d48580ef-0774-454c-bb20-69d50576b186",
-      "name": "Output"
-    },
-    {
       "parameters": {
-        "toolDescription": "You are a helpful assistant that can receive Youtube channel information and use the Serp tool to search Youtube videos in it.\n",
+        "toolDescription": "Call this tool to fetch all available videos in a given youtube channel: \n{{ $('To Process').item.json.Handle }} \n",
         "url": "={{ \"https://serpapi.com/search.json\" }}",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{    \"engine\": \"youtube\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}"
+        "jsonBody": "{\n    \"engine\": \"youtube\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}"
       },
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "typeVersion": 1.1,
       "position": [
-        3540,
-        -1420
+        4020,
+        -2000
       ],
       "id": "c2dcad57-17ec-4160-90e1-5419c131ddcc",
-      "name": "SerpAPI YT"
+      "name": "SerpAPI YT Search"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserItemList",
+      "typeVersion": 1,
+      "position": [
+        4220,
+        -2000
+      ],
+      "id": "25a5ce09-bccd-4ed4-a537-b76b564627be",
+      "name": "Item List Output Parser"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "channel_results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3480,
+        -1640
+      ],
+      "id": "67288813-3952-4676-9922-c729accde1d6",
+      "name": "Split Channel"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "=video_results",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "video_results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3480,
+        -1460
+      ],
+      "id": "55173065-4c30-44f0-8284-67e9a3acfb60",
+      "name": "SplitVideos"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "87800aa6-3d16-4d92-81bd-d59b0653ab09",
+              "name": "position_on_page",
+              "value": "={{ $json.video_results.position_on_page }}",
+              "type": "number"
+            },
+            {
+              "id": "3e7d19d7-98e3-4a0a-88d1-1952f770e425",
+              "name": "channel.name",
+              "value": "={{ $json.video_results.channel.name }}",
+              "type": "string"
+            },
+            {
+              "id": "e8f18b66-f71b-410a-a2d7-f2341b471a3b",
+              "name": "title",
+              "value": "={{ $json.video_results.title }}",
+              "type": "string"
+            },
+            {
+              "id": "a3ee45c5-05b5-48e6-a137-368f323f9294",
+              "name": "link",
+              "value": "={{ $json.video_results.link }}",
+              "type": "string"
+            },
+            {
+              "id": "fc8c7654-cd78-441b-befe-055cb68ef2b8",
+              "name": "published_date",
+              "value": "={{ $json.video_results.published_date }}",
+              "type": "string"
+            },
+            {
+              "id": "c7925e03-6b84-4396-a000-c12941e1dfeb",
+              "name": "views",
+              "value": "={{ $json.video_results.views }}",
+              "type": "number"
+            },
+            {
+              "id": "537b67b1-b51b-4df7-b547-4bbf27ef6d78",
+              "name": "length",
+              "value": "={{ $json.video_results.length }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3960,
+        -1460
+      ],
+      "id": "caf384e3-7201-4169-be2d-23b1f496bf6d",
+      "name": "Videos"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7e574e45-5a6a-4f14-a613-b8d591f49320",
+              "leftValue": "={{ $json.channel.name }}",
+              "rightValue": "={{ $('To Process').item.json.Handle }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4180,
+        -1460
+      ],
+      "id": "c1153d81-3bf8-4b00-a9bb-db68e3a3e067",
+      "name": "Video from Channel",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
+              "leftValue": "={{ $json.Process }}",
+              "rightValue": "TRUE",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2640,
+        -1520
+      ],
+      "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
+      "name": "to Process",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ \"https://serpapi.com/search.json\" }}\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"engine\": \"youtube\",\n    \"search_query\": \"{{ $json.Handle }}\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\",\n    \"gl\": \"US\",\n    \"hl\": \"en\"\n}\n\n",
+        "options": {
+          "lowercaseHeaders": true,
+          "response": {
+            "response": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3200,
+        -1640
+      ],
+      "id": "1eca8530-9592-4793-aaac-77596181008f",
+      "name": "Serp YT Search",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 221143269,
+          "mode": "list",
+          "cachedResultName": "Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=221143269"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Description": "=",
+            "Date_Processed": "={{ $now }}",
+            "Date_Published": "={{ $('Videos').item.json.published_date }}",
+            "Link to Source": "={{ $('Videos').item.json.link }}",
+            "Title": "={{ $('Videos').item.json.title }}",
+            "Views": "={{ $('Videos').item.json.views }}",
+            "Length": "={{ $('Videos').item.json.length }}"
+          },
+          "matchingColumns": [
+            "Link to Source"
+          ],
+          "schema": [
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date_Processed",
+              "displayName": "Date_Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Date_Published",
+              "displayName": "Date_Published",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Link to Source",
+              "displayName": "Link to Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Views",
+              "displayName": "Views",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Length",
+              "displayName": "Length",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Transcript",
+              "displayName": "Transcript",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Highlights",
+              "displayName": "Highlights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        4460,
+        -1480
+      ],
+      "id": "37f24522-91ec-4c7d-a1ee-733f1ab7b095",
+      "name": "Videos1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "psz4VI4aPHfgtBvc",
+          "name": "Google Sheets account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1867657557,
+          "mode": "list",
+          "cachedResultName": "Copy of Content Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=1867657557"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Description": "={{ $json.snippet.description }}",
+            "Date_Processed": "={{ $now }}",
+            "Date_Published": "={{ $json.snippet.publishedAt }}",
+            "Title": "={{ $json.snippet.title }}",
+            "Link to Source": "={{ $json.snippet.title }}"
+          },
+          "matchingColumns": [
+            "Link to Source"
+          ],
+          "schema": [
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Date_Processed",
+              "displayName": "Date_Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Date_Published",
+              "displayName": "Date_Published",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Link to Source",
+              "displayName": "Link to Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Views",
+              "displayName": "Views",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Length",
+              "displayName": "Length",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Transcript",
+              "displayName": "Transcript",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Highlights",
+              "displayName": "Highlights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3480,
+        -2220
+      ],
+      "id": "d31e9098-8032-4391-a2c1-05cf611aaa11",
+      "name": "Channel1",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "psz4VI4aPHfgtBvc",
+          "name": "Google Sheets account 6"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "video_results",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3720,
+        -1460
+      ],
+      "id": "04dd0400-64d0-44c3-90da-229e1a37cd47",
+      "name": "Split each"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendQuery": true,
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"dateFilter\": \"year\",\n    \"downloadSubtitles\": false,\n    \"hasCC\": false,\n    \"hasLocation\": false,\n    \"hasSubtitles\": false,\n    \"is360\": false,\n    \"is3D\": false,\n    \"is4K\": false,\n    \"isBought\": false,\n    \"isHD\": false,\n    \"isHDR\": false,\n    \"isLive\": false,\n    \"isVR180\": false,\n    \"maxResultStreams\": 0,\n    \"maxResults\": 100,\n    \"maxResultsShorts\": 0,\n    \"oldestPostDate\": \"2024-01-01\",\n    \"preferAutoGeneratedSubtitles\": false,\n    \"saveSubsToKVS\": false,\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.Handle }}\",\n            \"method\": \"POST\"\n        }\n    ],\n    \"subtitlesLanguage\": \"en\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3220,
+        -1220
+      ],
+      "id": "1b8801ff-5dc4-483f-b568-a9f03f965900",
+      "name": "APIfy_YT_Scrap",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -2438,6 +2805,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-17T00:49:29.000Z",
-  "versionId": "2aedbe4d-676c-4ea1-818f-bd8180b749fb"
+  "updatedAt": "2025-01-18T07:25:13.000Z",
+  "versionId": "f0ce0ad3-fdfa-4daa-8f9b-8fe83ba68365"
 }
