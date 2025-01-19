@@ -369,11 +369,6 @@
         ]
       ]
     },
-    "Channels / Profiles": {
-      "main": [
-        []
-      ]
-    },
     "Schedule Trigger": {
       "main": [
         [
@@ -483,44 +478,6 @@
         ]
       ]
     },
-    "AI Agent": {
-      "main": [
-        []
-      ]
-    },
-    "OpenAI1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "SerpAPI YT Search": {
-      "ai_tool": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Item List Output Parser": {
-      "ai_outputParser": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Split Channel": {
       "main": [
         [
@@ -613,6 +570,44 @@
           }
         ]
       ]
+    },
+    "APIfy_YT_Scrap": {
+      "main": [
+        [
+          {
+            "node": "Channel Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channel Videos": {
+      "main": [
+        [
+          {
+            "node": "Airtable Content_Gen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Set Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Update": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -627,8 +622,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        2200,
-        -1520
+        2280,
+        -1280
       ]
     },
     {
@@ -1526,8 +1521,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2440,
-        -1520
+        2520,
+        -1280
       ],
       "id": "9fe7e705-615e-4532-9422-69358f05f7af",
       "name": "Sources",
@@ -1537,20 +1532,6 @@
           "name": "Google Sheets account 5"
         }
       }
-    },
-    {
-      "parameters": {
-        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
-        "options": {}
-      },
-      "id": "f7d11957-e0a5-4b97-bfd9-eadf405a9e14",
-      "name": "Channels / Profiles",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2920,
-        -2220
-      ]
     },
     {
       "parameters": {
@@ -1885,8 +1866,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        2200,
-        -1720
+        2280,
+        -1480
       ],
       "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
       "name": "Schedule Trigger1"
@@ -1944,8 +1925,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        4620,
-        -1620
+        4840,
+        -2180
       ],
       "id": "1efd6c1c-301d-4bd4-b1f4-cb83c8c2af86",
       "name": "Merge1"
@@ -2071,8 +2052,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3720,
-        -1640
+        3940,
+        -2200
       ],
       "id": "c144a4da-f69d-443a-b642-94dd95bb62cc",
       "name": "Channel",
@@ -2113,79 +2094,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2940,
-        -1640
+        2980,
+        -1400
       ],
       "id": "b11a639e-1b15-49e3-bb1a-9b38aeb4c35b",
       "name": "To Process"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "=Youtube {{ $json.Handle }}",
-        "hasOutputParser": true,
-        "options": {
-          "systemMessage": "=You are a helpful assistant that retrieves youtube video information exclusively from the following channel:{{ $json.Handle }}\n\n",
-          "returnIntermediateSteps": false
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        3940,
-        -2240
-      ],
-      "id": "16524810-b215-4b81-a80b-a6fa091b3d4e",
-      "name": "AI Agent"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        3800,
-        -2000
-      ],
-      "id": "ed172f7c-27cd-4640-adaa-e135476cf320",
-      "name": "OpenAI1",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "toolDescription": "Call this tool to fetch all available videos in a given youtube channel: \n{{ $('To Process').item.json.Handle }} \n",
-        "url": "={{ \"https://serpapi.com/search.json\" }}",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n    \"engine\": \"youtube\",\n    \"api_key\": \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\",\n    \"type\": \"channel\"\n}"
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
-      "typeVersion": 1.1,
-      "position": [
-        4020,
-        -2000
-      ],
-      "id": "c2dcad57-17ec-4160-90e1-5419c131ddcc",
-      "name": "SerpAPI YT Search"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.outputParserItemList",
-      "typeVersion": 1,
-      "position": [
-        4220,
-        -2000
-      ],
-      "id": "25a5ce09-bccd-4ed4-a537-b76b564627be",
-      "name": "Item List Output Parser"
     },
     {
       "parameters": {
@@ -2195,8 +2108,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3480,
-        -1640
+        3700,
+        -2200
       ],
       "id": "67288813-3952-4676-9922-c729accde1d6",
       "name": "Split Channel"
@@ -2211,8 +2124,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3480,
-        -1460
+        3700,
+        -2020
       ],
       "id": "55173065-4c30-44f0-8284-67e9a3acfb60",
       "name": "SplitVideos"
@@ -2270,8 +2183,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3960,
-        -1460
+        4180,
+        -2020
       ],
       "id": "caf384e3-7201-4169-be2d-23b1f496bf6d",
       "name": "Videos"
@@ -2306,8 +2219,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        4180,
-        -1460
+        4400,
+        -2020
       ],
       "id": "c1153d81-3bf8-4b00-a9bb-db68e3a3e067",
       "name": "Video from Channel",
@@ -2345,8 +2258,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2640,
-        -1520
+        2720,
+        -1280
       ],
       "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
       "name": "to Process",
@@ -2369,8 +2282,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3200,
-        -1640
+        3420,
+        -2200
       ],
       "id": "1eca8530-9592-4793-aaac-77596181008f",
       "name": "Serp YT Search",
@@ -2557,8 +2470,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4460,
-        -1480
+        4680,
+        -2040
       ],
       "id": "37f24522-91ec-4c7d-a1ee-733f1ab7b095",
       "name": "Videos1",
@@ -2571,198 +2484,6 @@
     },
     {
       "parameters": {
-        "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
-          "mode": "list",
-          "cachedResultName": "Blue&: Content Generation Platform",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 1867657557,
-          "mode": "list",
-          "cachedResultName": "Copy of Content Input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=1867657557"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Description": "={{ $json.snippet.description }}",
-            "Date_Processed": "={{ $now }}",
-            "Date_Published": "={{ $json.snippet.publishedAt }}",
-            "Title": "={{ $json.snippet.title }}",
-            "Link to Source": "={{ $json.snippet.title }}"
-          },
-          "matchingColumns": [
-            "Link to Source"
-          ],
-          "schema": [
-            {
-              "id": "Process",
-              "displayName": "Process",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Date_Processed",
-              "displayName": "Date_Processed",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Date_Published",
-              "displayName": "Date_Published",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Title",
-              "displayName": "Title",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Link to Source",
-              "displayName": "Link to Source",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Views",
-              "displayName": "Views",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Length",
-              "displayName": "Length",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Description",
-              "displayName": "Description",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Transcript",
-              "displayName": "Transcript",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Summary",
-              "displayName": "Summary",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Highlights",
-              "displayName": "Highlights",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Sentiment",
-              "displayName": "Sentiment",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Notes",
-              "displayName": "Notes",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        3480,
-        -2220
-      ],
-      "id": "d31e9098-8032-4391-a2c1-05cf611aaa11",
-      "name": "Channel1",
-      "executeOnce": false,
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "psz4VI4aPHfgtBvc",
-          "name": "Google Sheets account 6"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "fieldToSplitOut": "video_results",
         "include": "allOtherFields",
         "options": {}
@@ -2770,8 +2491,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3720,
-        -1460
+        3940,
+        -2020
       ],
       "id": "04dd0400-64d0-44c3-90da-229e1a37cd47",
       "name": "Split each"
@@ -2789,13 +2510,873 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3220,
-        -1220
+        3200,
+        -1400
       ],
       "id": "1b8801ff-5dc4-483f-b568-a9f03f965900",
       "name": "APIfy_YT_Scrap",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6799b41f-d2bb-4d25-9bbc-31c12d4a98c5",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "cb34fb2b-832e-49a9-8106-ac413577bf11",
+              "name": "type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "436f9f3d-2ea7-42e3-959b-c060190b1d2f",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "7cb8734d-da11-4e56-92fe-53572828b8d9",
+              "name": "=url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "8f7141ae-4105-4bbb-8127-40cd6bcc4ea9",
+              "name": "thumbnailUrl",
+              "value": "={{ $json.thumbnailUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "9b3337c7-7ff7-4c2d-94ac-afdab1562ef6",
+              "name": "viewCount",
+              "value": "={{ $json.viewCount }}",
+              "type": "number"
+            },
+            {
+              "id": "19dc6ad5-4f0c-46e8-8475-6e30f67e2eba",
+              "name": "date",
+              "value": "={{ $json.date }}",
+              "type": "string"
+            },
+            {
+              "id": "0391af7a-f5d8-4544-bed8-02e9db60c7ec",
+              "name": "likes",
+              "value": "={{ $json.likes }}",
+              "type": "number"
+            },
+            {
+              "id": "b0fa1e9e-8e97-4e33-9484-085b233d9709",
+              "name": "location",
+              "value": "={{ $json.location }}",
+              "type": "string"
+            },
+            {
+              "id": "831916a2-cb0f-4274-8755-b76dc756b239",
+              "name": "channelName",
+              "value": "={{ $json.channelName }}",
+              "type": "string"
+            },
+            {
+              "id": "5000b872-f4e0-4f16-938b-eb717e95d46d",
+              "name": "channelUrl",
+              "value": "={{ $json.channelUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "7502a51a-67cc-4e7c-b542-0102918cc1eb",
+              "name": "channelId",
+              "value": "={{ $json.channelId }}",
+              "type": "string"
+            },
+            {
+              "id": "a473a7eb-1258-4f39-84f1-ab748d5154f4",
+              "name": "channelUsername",
+              "value": "={{ $json.channelUsername }}",
+              "type": "string"
+            },
+            {
+              "id": "180ccf1a-a8a9-4d4d-b75c-cabb1d74465b",
+              "name": "channelDescription",
+              "value": "={{ $json.channelDescription }}",
+              "type": "string"
+            },
+            {
+              "id": "f5a4e54f-26cf-4825-bb43-98b3fb505057",
+              "name": "channelJoinedDate",
+              "value": "={{ $json.channelJoinedDate }}",
+              "type": "string"
+            },
+            {
+              "id": "742389b7-0788-4fd3-94ec-f850ab2394df",
+              "name": "channelDescriptionLinks",
+              "value": "={{ $json.channelDescriptionLinks }}",
+              "type": "array"
+            },
+            {
+              "id": "83b1d6c5-fb32-496e-9359-42240a13b937",
+              "name": "channelLocation",
+              "value": "={{ $json.channelLocation }}",
+              "type": "string"
+            },
+            {
+              "id": "5d8679ad-cae5-4a88-98da-a49d3c7e553d",
+              "name": "channelAvatarUrl",
+              "value": "={{ $json.channelAvatarUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "f4476144-6df6-495b-b908-20184e5ad38d",
+              "name": "channelBannerUrl",
+              "value": "={{ $json.channelBannerUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "757c8e46-a2df-4fda-87e5-b1863cf57cd1",
+              "name": "channelTotalVideos",
+              "value": "={{ $json.channelTotalVideos }}",
+              "type": "number"
+            },
+            {
+              "id": "3a887ce7-2d88-40a1-be6d-c17ad0f8bbc0",
+              "name": "channelTotalViews",
+              "value": "={{ $json.channelTotalViews }}",
+              "type": "number"
+            },
+            {
+              "id": "51da0798-257b-47d2-9c56-90b9b39e5aa1",
+              "name": "numberOfSubscribers",
+              "value": "={{ $json.numberOfSubscribers }}",
+              "type": "number"
+            },
+            {
+              "id": "983ecae1-2a09-449b-9737-75395ca19ca7",
+              "name": "isChannelVerified",
+              "value": "={{ $json.isChannelVerified }}",
+              "type": "boolean"
+            },
+            {
+              "id": "fc45d784-d229-43c8-a776-8b7047e883b3",
+              "name": "inputChannelUrl",
+              "value": "={{ $json.inputChannelUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "a74e3948-e8c5-4191-a05d-5db2ed56b5f2",
+              "name": "isAgeRestricted",
+              "value": "={{ $json.isAgeRestricted }}",
+              "type": "boolean"
+            },
+            {
+              "id": "a231435c-0708-4e40-b524-ca8955e27fc5",
+              "name": "duration",
+              "value": "={{ $json.duration }}",
+              "type": "string"
+            },
+            {
+              "id": "7359db07-d2c7-4a45-af6f-ea79602385b1",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "fedecd0d-c5e9-4972-a742-2bd386272d96",
+              "name": "subtitles",
+              "value": "={{ $json.subtitles }}",
+              "type": "string"
+            },
+            {
+              "id": "216e03f9-81fe-4718-bbff-24c7908e054c",
+              "name": "commentsTurnedOff",
+              "value": "={{ $json.commentsTurnedOff }}",
+              "type": "boolean"
+            },
+            {
+              "id": "d83dc22f-dd37-49c6-9385-0261a2cff4f9",
+              "name": "comments",
+              "value": "={{ $json.comments }}",
+              "type": "string"
+            },
+            {
+              "id": "31fb8e19-5e22-49c9-9c1a-84556d12dd67",
+              "name": "fromYTUrl",
+              "value": "={{ $json.fromYTUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "89b9fcd6-ae6a-4916-9a4c-c591895e2c51",
+              "name": "isMonetized",
+              "value": "={{ $json.isMonetized }}",
+              "type": "string"
+            },
+            {
+              "id": "66cfd669-32ac-4904-815b-1c245ec20bbf",
+              "name": "hashtags",
+              "value": "={{ $json.hashtags }}",
+              "type": "array"
+            },
+            {
+              "id": "6c9ecb04-de97-435c-9456-9b26b688f37b",
+              "name": "formats",
+              "value": "={{ $json.formats }}",
+              "type": "array"
+            },
+            {
+              "id": "c3393fc4-d608-4a64-89fb-aff87c99a706",
+              "name": "input",
+              "value": "={{ $json.input }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3420,
+        -1400
+      ],
+      "id": "88de8156-0092-49bd-81be-d7cda55529a2",
+      "name": "Channel Videos"
+    },
+    {
+      "parameters": {
+        "operation": "findOneAndUpdate",
+        "collection": "Video",
+        "updateKey": "id{{ $json.id }}",
+        "fields": "{{ $json.title }},{{ $json.type }},{{ $json.id }},{{ $json.url }},{{ $json.thumbnailUrl }},{{ $json.viewCount }},{{ $json.date }},{{ $json.likes }},{{ $json.location }},{{ $json.channelName }},{{ $json.channelUrl }},{{ $json.channelId }},{{ $json.channelUsername }},{{ $json.channelDescription }},{{ $json.channelJoinedDate }},{{ $json.channelDescriptionLinks }},{{ $json.channelLocation }},{{ $json.channelAvatarUrl }},{{ $json.channelBannerUrl }},{{ $json.channelTotalVideos }},{{ $json.channelTotalViews }},{{ $json.numberOfSubscribers }},{{ $json.isChannelVerified }},{{ $json.inputChannelUrl }},{{ $json.isAgeRestricted }},{{ $json.duration }},{{ $json.text }},{{ $json.subtitles }},{{ $json.commentsTurnedOff }},{{ $json.comments }},{{ $json.fromYTUrl }},{{ $json.isMonetized }},{{ $json.hashtags }},{{ $json.formats }}",
+        "upsert": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1.1,
+      "position": [
+        3420,
+        -1740
+      ],
+      "id": "8eb15721-c2e2-452e-9f4b-e0a9abf5fd07",
+      "name": "MongoDB",
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "retryOnFail": true,
+      "credentials": {
+        "mongoDb": {
+          "id": "yKKghIrtwKRCmeS1",
+          "name": "MongoDB account 3"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Access the input data\nconst inputData = $json;\n\n// Create an update object using the $set operator\nconst updateObject = { $set: inputData };\n\n// Return the update object as a single item\nreturn { json: updateObject };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3700,
+        -1740
+      ],
+      "id": "f2e2ca91-15bb-4f10-9c73-52fd16b225be",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "927f6b80-54d7-4d7d-87e5-1077b364c48e",
+              "name": "$set",
+              "value": "={{ $json.$set }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3940,
+        -1740
+      ],
+      "id": "6b6a2fd1-0b15-441f-b170-ddc36a6f2e16",
+      "name": "Set Update"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblpRHrnM7h0Hvrjb",
+          "mode": "list",
+          "cachedResultName": "Imported table",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblpRHrnM7h0Hvrjb"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "Title": "={{ $json.title }}",
+            "Type": "={{ $json.type }}",
+            "Id": "={{ $json.id }}",
+            "Viewcount": "={{ $json.viewCount }}",
+            "Thumbnailurl": "={{ $json.thumbnailUrl }}",
+            "Url": "={{ $json.url }}",
+            "Channeljoineddate": "={{ $json.channelJoinedDate }}",
+            "Channeldescription": "={{ $json.channelDescription }}",
+            "Channelusername": "={{ $json.channelUsername }}",
+            "Channelid": "={{ $json.channelId }}",
+            "Channelurl": "={{ $json.channelUrl }}",
+            "Channelname": "={{ $json.channelName }}",
+            "Location": "={{ $json.location }}",
+            "Likes": "={{ $json.likes }}",
+            "Date": "={{ $json.date }}",
+            "Input": "={{ $json.input }}",
+            "Formats": "={{ $json.formats }}",
+            "Hashtags": "={{ $json.hashtags }}",
+            "Ismonetized": "={{ $json.isMonetized }}",
+            "Fromyturl": "={{ $json.fromYTUrl }}",
+            "Comments": "={{ $json.comments }}",
+            "Commentsturnedoff": "={{ $json.commentsTurnedOff }}",
+            "Subtitles": "={{ $json.subtitles }}",
+            "Text": "={{ $json.text }}",
+            "Duration": "={{ $json.duration }}",
+            "Isagerestricted": "={{ $json.isAgeRestricted }}",
+            "Inputchannelurl": "={{ $json.inputChannelUrl }}",
+            "Ischannelverified": "={{ $json.isChannelVerified }}",
+            "Numberofsubscribers": "={{ $json.numberOfSubscribers }}",
+            "Channeltotalviews": "={{ $json.channelTotalViews }}",
+            "Channeltotalvideos": "={{ $json.channelTotalVideos }}",
+            "Channelbannerurl": "={{ $json.channelBannerUrl }}",
+            "Channelavatarurl": "={{ $json.channelAvatarUrl }}",
+            "Channellocation": "={{ $json.channelLocation }}",
+            "Channeldescriptionlinks": "={{ $json.channelDescriptionLinks }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date_Processed",
+              "displayName": "Date_Processed",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date_Published",
+              "displayName": "Date_Published",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Transcript",
+              "displayName": "Transcript",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Highlights",
+              "displayName": "Highlights",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Id",
+              "displayName": "Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url",
+              "displayName": "Url",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Thumbnailurl",
+              "displayName": "Thumbnailurl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Viewcount",
+              "displayName": "Viewcount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Likes",
+              "displayName": "Likes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channelname",
+              "displayName": "Channelname",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channelurl",
+              "displayName": "Channelurl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channelid",
+              "displayName": "Channelid",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channelusername",
+              "displayName": "Channelusername",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channeldescription",
+              "displayName": "Channeldescription",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channeljoineddate",
+              "displayName": "Channeljoineddate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channeldescriptionlinks",
+              "displayName": "Channeldescriptionlinks",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channellocation",
+              "displayName": "Channellocation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channelavatarurl",
+              "displayName": "Channelavatarurl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channelbannerurl",
+              "displayName": "Channelbannerurl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channeltotalvideos",
+              "displayName": "Channeltotalvideos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channeltotalviews",
+              "displayName": "Channeltotalviews",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Numberofsubscribers",
+              "displayName": "Numberofsubscribers",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ischannelverified",
+              "displayName": "Ischannelverified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Inputchannelurl",
+              "displayName": "Inputchannelurl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Isagerestricted",
+              "displayName": "Isagerestricted",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Text",
+              "displayName": "Text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Subtitles",
+              "displayName": "Subtitles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Commentsturnedoff",
+              "displayName": "Commentsturnedoff",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Comments",
+              "displayName": "Comments",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fromyturl",
+              "displayName": "Fromyturl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ismonetized",
+              "displayName": "Ismonetized",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Hashtags",
+              "displayName": "Hashtags",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Formats",
+              "displayName": "Formats",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Input",
+              "displayName": "Input",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3640,
+        -1400
+      ],
+      "id": "ade3c49f-b44b-4dbf-9916-919acf9c895f",
+      "name": "Airtable Content_Gen",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mzzMlUms6jLmJPtw",
+          "name": "Airtable OAuth"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2805,6 +3386,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-18T07:25:13.000Z",
-  "versionId": "f0ce0ad3-fdfa-4daa-8f9b-8fe83ba68365"
+  "updatedAt": "2025-01-19T08:08:16.000Z",
+  "versionId": "e52f8f20-df47-442c-8670-8253add1d12f"
 }
