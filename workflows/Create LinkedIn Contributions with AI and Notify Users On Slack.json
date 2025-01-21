@@ -182,8 +182,8 @@
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1860,
-        880
+        1740,
+        780
       ],
       "typeVersion": 1
     },
@@ -295,10 +295,16 @@
       "name": "LinkedIn Contribution Writer",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "position": [
-        3120,
+        3140,
         640
       ],
-      "typeVersion": 1.4
+      "typeVersion": 1.4,
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     },
     {
       "parameters": {
@@ -383,7 +389,13 @@
         2000,
         520
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "w8LECz666RZWYnnN",
+          "name": "NocoDB"
+        }
+      }
     },
     {
       "parameters": {
@@ -447,22 +459,6 @@
     },
     {
       "parameters": {
-        "content": "### Get More Templates Like This 👇\n[![Video Thumbnail](https://onlinethinking.io/wp-content/uploads/2024/10/Lets-Automate-It-Community.png)](http://onlinethinking.io/community)\n",
-        "height": 282.5799404564392,
-        "width": 396.6384066163515,
-        "color": 6
-      },
-      "id": "6aff94a1-1a65-4d24-ab87-b8ff72ea33b5",
-      "name": "Sticky Note11",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        780,
-        420
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "content": "## Setup\n1. **`Google Search URL`**: Update the Google search URL with the relevant LinkedIn advice query for your field (e.g., \"site:linkedin.com/advice 'marketing automation'\").\n\n2. **`Slack Integration`**: Connect your Slack account and specify the Slack channel where you want the contributions to be posted.\n\n3. **`NocoDB Integration`**: Set up your NocoDB project to store the generated contributions along with the article titles and links.",
         "height": 329.9474713935157,
         "width": 366.36771813959956
@@ -479,8 +475,8 @@
     {
       "parameters": {
         "content": "## Become A LinkedIn Top Voice with AI\nBuilt for the [Let's Automate It Community](http://onlinethinking.io/community) by [Optimus Agency](https://optimus01.co.za/)\n\nThis workflow helps users maintain a consistent presence on LinkedIn by automating the discovery of new advice articles and generating unique contributions using AI. It is ideal for professionals who want to engage with LinkedIn content regularly without spending too much time manually searching and drafting responses.",
-        "height": 1198.0013690558965,
-        "width": 812.3060553462686,
+        "height": 1198,
+        "width": 832,
         "color": 7
       },
       "id": "11ca526c-2512-4c66-8dbf-0f9cdec13d9f",
@@ -495,8 +491,8 @@
     {
       "parameters": {
         "content": "## How to customize this workflow\n- **`Change Search Terms`**: Modify the Google search URL to focus on a different LinkedIn topic or expertise area.\n- **`Adjust Trigger Frequency`**: The workflow is set to run weekly, but you can adjust the frequency by changing the schedule trigger.\n- **`Enhance Contribution Quality`**: Customize the AI model's prompt to generate contributions that align with your brand voice or content strategy.",
-        "height": 169.84805961144036,
-        "width": 781.0904623817446,
+        "height": 170,
+        "width": 801,
         "color": 7
       },
       "id": "9536318f-46a5-4ef4-bffc-395d3d2d1af8",
@@ -551,8 +547,8 @@
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2780,
-        720
+        2660,
+        620
       ],
       "typeVersion": 1
     },
@@ -623,8 +619,8 @@
     {
       "parameters": {
         "content": "## LinkedIn Contribution Writer\nUses an AI model to generate unique contributions based on the extracted content from LinkedIn articles. The generated advice is tailored for each topic within the article.\n",
-        "height": 447.75689268844843,
-        "width": 309.45427591228105
+        "height": 448,
+        "width": 289
       },
       "id": "ed17e693-da43-49b9-bc4b-cae8a8503ee8",
       "name": "Sticky Note10",
@@ -675,7 +671,13 @@
         1020,
         1080
       ],
-      "typeVersion": 4.5
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "psz4VI4aPHfgtBvc",
+          "name": "Google Sheets account 6"
+        }
+      }
     },
     {
       "parameters": {
@@ -745,8 +747,8 @@
       "name": "Sticky Note13",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1620,
-        880
+        1500,
+        780
       ],
       "typeVersion": 1
     },
@@ -761,8 +763,8 @@
       "name": "Sticky Note16",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1500,
-        1180
+        1320,
+        940
       ],
       "typeVersion": 1
     }
@@ -774,6 +776,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-10T18:39:44.985Z",
-  "versionId": "cc507209-bd3d-44a3-96e1-7cfbc5842e41"
+  "updatedAt": "2025-01-21T08:17:00.000Z",
+  "versionId": "b4e1c129-1c2a-4a4c-9f61-f966256aa7c3"
 }
