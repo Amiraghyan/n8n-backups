@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Sources",
+            "node": "Airtable",
             "type": "main",
             "index": 0
           }
@@ -40,17 +40,6 @@
           {
             "node": "Key Points Agent",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "When chat message received": {
-      "main": [
-        [
-          {
-            "node": "Researcher",
-            "type": "main",
             "index": 0
           }
         ]
@@ -358,17 +347,6 @@
         []
       ]
     },
-    "Sources": {
-      "main": [
-        [
-          {
-            "node": "to Process",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Schedule Trigger": {
       "main": [
         [
@@ -383,17 +361,6 @@
     "SerpAPI3": {
       "ai_tool": [
         []
-      ]
-    },
-    "Schedule Trigger + 1 hr": {
-      "main": [
-        [
-          {
-            "node": "Researcher",
-            "type": "main",
-            "index": 0
-          }
-        ]
       ]
     },
     ".": {
@@ -411,7 +378,7 @@
       "main": [
         [
           {
-            "node": "Sources",
+            "node": "Airtable",
             "type": "main",
             "index": 0
           }
@@ -592,6 +559,17 @@
           }
         ]
       ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "to Process",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -606,8 +584,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1640,
-        -1200
+        1660,
+        -980
       ]
     },
     {
@@ -669,26 +647,12 @@
       }
     },
     {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        1880,
-        940
-      ],
-      "id": "e06c9784-9e9b-47f9-91a9-7e08e8a0b1db",
-      "name": "When chat message received",
-      "webhookId": "321d6759-49b5-4082-b810-a65b232ad1e9"
-    },
-    {
       "parameters": {},
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        2120,
-        1380
+        2140,
+        1360
       ],
       "id": "eaad669b-e18a-4c3e-b15a-00905a356c4c",
       "name": "Window Buffer Memory"
@@ -713,7 +677,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4240,
+        4280,
         1100
       ],
       "id": "d53ff90f-de2f-4200-8e2b-178e3308ee96",
@@ -772,7 +736,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4040,
+        4060,
         1100
       ],
       "id": "45f9a1c3-95ba-415d-bfa1-e96853a443e7",
@@ -792,8 +756,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        4260,
-        1340
+        4280,
+        1320
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1266,7 +1230,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        3280,
+        3300,
         1100
       ],
       "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
@@ -1396,7 +1360,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        3660,
+        3680,
         1100
       ],
       "id": "026a61a5-f779-42c4-96dd-bf66c9f92a61",
@@ -1481,39 +1445,6 @@
         "openAiApi": {
           "id": "n6jJpStEewoZQA9T",
           "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
-          "mode": "list",
-          "cachedResultName": "Blue&: Content Generation Platform",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 194808887,
-          "mode": "list",
-          "cachedResultName": "Source",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=194808887"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        1880,
-        -1200
-      ],
-      "id": "9fe7e705-615e-4532-9422-69358f05f7af",
-      "name": "Sources",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "rSTr7Ltjwpw9Xvz2",
-          "name": "Google Sheets account 5"
         }
       }
     },
@@ -1649,23 +1580,6 @@
       ],
       "id": "01bc5baf-bbca-45e8-b3ae-8784b80acfb0",
       "name": "Sticky Note1"
-    },
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {}
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        1880,
-        1100
-      ],
-      "id": "7326582c-113f-43c4-a97b-1d66db3d6b82",
-      "name": "Schedule Trigger + 1 hr"
     },
     {
       "parameters": {
@@ -1850,8 +1764,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1640,
-        -1400
+        1660,
+        -1180
       ],
       "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
       "name": "Schedule Trigger1"
@@ -1890,7 +1804,7 @@
       "typeVersion": 1,
       "position": [
         2020,
-        1320
+        1360
       ],
       "id": "25b8fe22-75ce-46c3-97b7-a9c484f843cb",
       "name": "OpenAI",
@@ -1909,8 +1823,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        6300,
-        -1380
+        5220,
+        -1800
       ],
       "id": "1efd6c1c-301d-4bd4-b1f4-cb83c8c2af86",
       "name": "Merge1"
@@ -2036,8 +1950,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5400,
-        -1400
+        4320,
+        -1820
       ],
       "id": "c144a4da-f69d-443a-b642-94dd95bb62cc",
       "name": "Channel",
@@ -2078,8 +1992,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2340,
-        -1320
+        2500,
+        -1100
       ],
       "id": "b11a639e-1b15-49e3-bb1a-9b38aeb4c35b",
       "name": "To Process"
@@ -2092,8 +2006,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        5160,
-        -1400
+        4080,
+        -1820
       ],
       "id": "67288813-3952-4676-9922-c729accde1d6",
       "name": "Split Channel"
@@ -2108,8 +2022,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        5160,
-        -1220
+        4080,
+        -1640
       ],
       "id": "55173065-4c30-44f0-8284-67e9a3acfb60",
       "name": "SplitVideos"
@@ -2167,8 +2081,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5640,
-        -1220
+        4560,
+        -1640
       ],
       "id": "caf384e3-7201-4169-be2d-23b1f496bf6d",
       "name": "Videos"
@@ -2203,8 +2117,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        5860,
-        -1220
+        4780,
+        -1640
       ],
       "id": "c1153d81-3bf8-4b00-a9bb-db68e3a3e067",
       "name": "Video from Channel",
@@ -2242,8 +2156,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2080,
-        -1200
+        2240,
+        -980
       ],
       "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
       "name": "to Process",
@@ -2266,8 +2180,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4880,
-        -1400
+        3800,
+        -1820
       ],
       "id": "1eca8530-9592-4793-aaac-77596181008f",
       "name": "Serp YT Search",
@@ -2454,8 +2368,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        6140,
-        -1240
+        5060,
+        -1660
       ],
       "id": "37f24522-91ec-4c7d-a1ee-733f1ab7b095",
       "name": "Videos1",
@@ -2475,8 +2389,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        5400,
-        -1220
+        4320,
+        -1640
       ],
       "id": "04dd0400-64d0-44c3-90da-229e1a37cd47",
       "name": "Split each"
@@ -2485,12 +2399,6 @@
       "parameters": {
         "method": "POST",
         "url": "=https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {}
-          ]
-        },
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n    \"dateFilter\": \"year\",\n    \"downloadSubtitles\": false,\n    \"hasCC\": false,\n    \"hasLocation\": false,\n    \"hasSubtitles\": false,\n    \"is360\": false,\n    \"is3D\": false,\n    \"is4K\": false,\n    \"isBought\": false,\n    \"isHD\": false,\n    \"isHDR\": false,\n    \"isLive\": false,\n    \"isVR180\": false,\n    \"maxResultStreams\": 0,\n    \"maxResults\": 100,\n    \"maxResultsShorts\": 0,\n    \"oldestPostDate\": \"2024-01-01\",\n    \"preferAutoGeneratedSubtitles\": false,\n    \"saveSubsToKVS\": false,\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.Handle }}\",\n            \"method\": \"POST\"\n        }\n    ],\n    \"subtitlesLanguage\": \"en\"\n}",
@@ -2499,12 +2407,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2560,
-        -1320
+        2720,
+        -1100
       ],
       "id": "1b8801ff-5dc4-483f-b568-a9f03f965900",
       "name": "APIfy_YT_Scrap",
       "alwaysOutputData": true,
+      "retryOnFail": false,
       "onError": "continueRegularOutput"
     },
     {
@@ -2728,8 +2637,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2780,
-        -1320
+        2940,
+        -1100
       ],
       "id": "88de8156-0092-49bd-81be-d7cda55529a2",
       "name": "Channel Videos"
@@ -2749,7 +2658,7 @@
           "__rl": true,
           "value": "tblpRHrnM7h0Hvrjb",
           "mode": "list",
-          "cachedResultName": "Imported table",
+          "cachedResultName": "Videos",
           "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblpRHrnM7h0Hvrjb"
         },
         "columns": {
@@ -2772,27 +2681,27 @@
             "Likes": "={{ $json.likes }}",
             "Date": "={{ $json.date }}",
             "Input": "={{ $json.input }}",
-            "Formats": "={{ $json.formats }}",
-            "Hashtags": "={{ $json.hashtags }}",
+            "Formats": "={{ JSON.stringify($json[\"formats\"][0]).replace(/[{}]/g, '') }}",
+            "Hashtags": "={{JSON.stringify($json[\"hashtags\"]).replace(/[{}]/g,'') }}",
             "Ismonetized": "={{ $json.isMonetized }}",
             "Fromyturl": "={{ $json.fromYTUrl }}",
             "Comments": "={{ $json.comments }}",
-            "Commentsturnedoff": "={{ $json.commentsTurnedOff }}",
+            "Commentsturnedoff": "={{ $json.commentsTurnedOff.toString() }}",
             "Subtitles": "={{ $json.subtitles }}",
             "Text": "={{ $json.text }}",
             "Duration": "={{ $json.duration }}",
-            "Isagerestricted": "={{ $json.isAgeRestricted }}",
+            "Isagerestricted": "={{ $json.isAgeRestricted.toString() }}",
             "Inputchannelurl": "={{ $json.inputChannelUrl }}",
-            "Ischannelverified": "={{ $json.isChannelVerified }}",
+            "Ischannelverified": "={{ $json.isChannelVerified.toString() }}",
             "Numberofsubscribers": "={{ $json.numberOfSubscribers }}",
             "Channeltotalviews": "={{ $json.channelTotalViews }}",
             "Channeltotalvideos": "={{ $json.channelTotalVideos }}",
             "Channelbannerurl": "={{ $json.channelBannerUrl }}",
             "Channelavatarurl": "={{ $json.channelAvatarUrl }}",
             "Channellocation": "={{ $json.channelLocation }}",
-            "Channeldescriptionlinks": "={{ $json.channelDescriptionLinks }}",
-            "Date_Processed": "={{\"$now\"}}",
-            "Description": "={{ \"$('APIfy_YT_Scrap').first().json.text\" }}"
+            "Channeldescriptionlinks": "={{ JSON.stringify($json[\"channelDescriptionLinks\"][0]) }}",
+            "Description": "={{ $('APIfy_YT_Scrap').item.json.text }}",
+            "Process": "="
           },
           "matchingColumns": [
             "id"
@@ -2820,8 +2729,8 @@
               "removed": false
             },
             {
-              "id": "Date_Processed",
-              "displayName": "Date_Processed",
+              "id": "Date_from_channel",
+              "displayName": "Date_from_channel",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2831,8 +2740,8 @@
               "removed": false
             },
             {
-              "id": "Date_Published",
-              "displayName": "Date_Published",
+              "id": "Date_processed",
+              "displayName": "Date_processed",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2958,7 +2867,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": false
             },
@@ -2980,7 +2889,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": false
             },
@@ -3057,7 +2966,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "dateTime",
               "readOnly": false,
               "removed": false
             },
@@ -3112,7 +3021,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": false
             },
@@ -3123,7 +3032,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": false
             },
@@ -3134,7 +3043,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": false
             },
@@ -3286,23 +3195,83 @@
           "convertFieldsToString": false
         },
         "options": {
-          "typecast": true
+          "typecast": false
         }
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3000,
-        -1320
+        3160,
+        -1100
       ],
       "id": "ade3c49f-b44b-4dbf-9916-919acf9c895f",
       "name": "Airtable Content_Gen",
       "credentials": {
         "airtableOAuth2Api": {
-          "id": "mzzMlUms6jLmJPtw",
-          "name": "Airtable OAuth"
+          "id": "LDzy6MU6xGIUvyoG",
+          "name": "Airtable OAuth ✔️️"
         }
       }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblyElksci8IIlakY",
+          "mode": "list",
+          "cachedResultName": "Channels",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblyElksci8IIlakY"
+        },
+        "filterByFormula": "{Process} = 'true'",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2040,
+        -980
+      ],
+      "id": "361d365f-6371-4343-b505-e9ee97e665db",
+      "name": "Airtable",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "LDzy6MU6xGIUvyoG",
+          "name": "Airtable OAuth ✔️️"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "formTitle": "Create an Article",
+        "formDescription": "Give me a topic to write an article on.",
+        "formFields": {
+          "values": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        4000,
+        1340
+      ],
+      "id": "71c2a1d2-d9ca-4d4f-86ac-1df3f5e405a6",
+      "name": "On form submission",
+      "webhookId": "09ee0189-f457-4993-b5f5-c35c64e14bd7"
     }
   ],
   "pinData": {},
@@ -3312,6 +3281,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-22T07:34:56.000Z",
-  "versionId": "4a7dacbe-3eb0-47ff-a58a-52cfcca65156"
+  "updatedAt": "2025-01-22T16:13:22.000Z",
+  "versionId": "16259a8d-9ca3-4f9c-a15c-378560f2ce41"
 }
