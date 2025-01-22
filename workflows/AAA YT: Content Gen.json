@@ -2790,7 +2790,9 @@
             "Channelbannerurl": "={{ $json.channelBannerUrl }}",
             "Channelavatarurl": "={{ $json.channelAvatarUrl }}",
             "Channellocation": "={{ $json.channelLocation }}",
-            "Channeldescriptionlinks": "={{ $json.channelDescriptionLinks }}"
+            "Channeldescriptionlinks": "={{ $json.channelDescriptionLinks }}",
+            "Date_Processed": "={{\"$now\"}}",
+            "Description": "={{ \"$('APIfy_YT_Scrap').first().json.text\" }}"
           },
           "matchingColumns": [
             "id"
@@ -3310,6 +3312,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-21T06:30:34.000Z",
-  "versionId": "5d4cfb37-5b13-4cd0-9190-d9730767eac4"
+  "updatedAt": "2025-01-22T07:34:56.000Z",
+  "versionId": "4a7dacbe-3eb0-47ff-a58a-52cfcca65156"
 }
