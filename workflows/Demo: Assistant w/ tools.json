@@ -1,0 +1,823 @@
+{
+  "active": false,
+  "connections": {
+    "Pinecone Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Knowledge Base",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Knowledge Base",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Knowledge Base": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Get Voice File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voice or Text": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listen for incoming events": {
+      "main": [
+        [
+          {
+            "node": "Voice or Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Now": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Voice File": {
+      "main": [
+        [
+          {
+            "node": "Speech to Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate a chart": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Plotting": {
+      "main": [
+        [
+          {
+            "node": "Base64 encoded plot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Base64 encoded plot": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Plotting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hacker News": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-31T04:29:24.892Z",
+  "id": "nSZCvYKYjOzd9H6y",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Demo: Assistant w/ tools",
+  "nodes": [
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "sycpoc",
+          "mode": "list",
+          "cachedResultName": "sycpoc"
+        },
+        "options": {
+          "pineconeNamespace": "sycpoc_campaigns"
+        }
+      },
+      "id": "e49ad8b7-7ede-4a0a-a078-4f8ce0039bd1",
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        900
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "jgEvQKSnssGlMFyC",
+          "name": "PineconeApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5bd3465d-c938-4bf7-962c-ad8f67be7b3a",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1811,
+        940
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "IzRdNelj3TDstbCZ",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "069da892-2b19-49ed-bd47-6122b6f0ae50",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        1040
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "Agile_Scrum_and_ISO_Process_info",
+        "description": "Returns documents related to Agile Scrum methodology and ISO process standards."
+      },
+      "id": "2005f06d-c223-4b8c-b140-0f6f4aa2a29c",
+      "name": "Knowledge Base",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "options": {
+          "google_domain": "google.com"
+        }
+      },
+      "id": "3e97d4cc-80c7-44e9-918f-ee03702614b2",
+      "name": "SerpAPI",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        800
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "9a648bfc-ed1e-445c-8372-0101a0784c1e",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        860,
+        800
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ee110604-0829-4fd4-ad2c-8c94e7db68d4",
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        980,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "sergio@sellyourcar.ai",
+          "mode": "list",
+          "cachedResultName": "sergio@sellyourcar.ai"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "id": "9abaf171-68a0-4f32-addd-91f6829179e9",
+      "name": "Calendar",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.1,
+      "position": [
+        620,
+        800
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "a0bf9719-4272-46f6-ab3b-eda6f7b44fd8",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.message.text }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4ca097b8-348f-4cc7-9d51-8b1cdf65d477",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        300,
+        280
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "text",
+              "stringValue": "={{ $json?.message?.text || \"\" }}"
+            }
+          ]
+        },
+        "options": {
+          "includeBinary": true
+        }
+      },
+      "id": "9bab677a-c493-47f0-acb9-fa15942bfd49",
+      "name": "Voice or Text",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        80,
+        280
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "content": "## Process Chat Request\n",
+        "height": 360.23568496963867,
+        "width": 1987.8907331942114,
+        "color": 4
+      },
+      "id": "a30bc527-28f1-4f1d-867b-b9561b39b371",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -180,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "975c33bb-6025-4a3a-8939-528225a97d8e",
+      "name": "Listen for incoming events",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "position": [
+        -100,
+        280
+      ],
+      "webhookId": "322dce18-f93e-4f86-b9b1-3305519b7834",
+      "typeVersion": 1,
+      "credentials": {
+        "telegramApi": {
+          "id": "yfNHScud9lGpnrZE",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "binaryPropertyName": "=data",
+        "options": {}
+      },
+      "id": "21beca7d-c633-4fa1-ab98-be5e46025c49",
+      "name": "Speech to Text",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        720,
+        180
+      ],
+      "typeVersion": 1.3,
+      "credentials": {
+        "openAiApi": {
+          "id": "WYs1nR5296TSQkXM",
+          "name": "OpenAi account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "=customKey",
+        "sessionKey": "SessionID"
+      },
+      "id": "280bfc9f-b218-45e3-b353-4af7b5f04093",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        500,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "name": "Now",
+        "description": "Call this tool to get the context of the time now - the date and time we are in and references to the past and the future. For example, Last month, this week, tomorrow, and other.",
+        "jsCode": "function createDateReferences() {\n    try {\n        // Utility function to safely create dates and handle invalid dates\n        function createSafeDate(...args) {\n            const date = new Date(...args);\n            if (isNaN(date.getTime())) {\n                throw new Error(`Invalid date created with args: ${JSON.stringify(args)}`);\n            }\n            return date;\n        }\n\n        const now = createSafeDate();\n        const pstOptions = { timeZone: 'America/Los_Angeles' };\n\n        // Enhanced format function with error handling\n        function formatDate(date) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid date provided to formatDate');\n                }\n                return date.toLocaleDateString('en-US', {\n                    weekday: 'long',\n                    year: 'numeric',\n                    month: 'long',\n                    day: 'numeric',\n                    ...pstOptions\n                });\n            } catch (error) {\n                console.error(`Error formatting date: ${error.message}`);\n                return 'Invalid Date';\n            }\n        }\n\n        // Safe date manipulation with error handling\n        function manipulateDate(date, manipulation) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid base date for manipulation');\n                }\n                const newDate = createSafeDate(date);\n                manipulation(newDate);\n                if (isNaN(newDate.getTime())) {\n                    throw new Error('Date manipulation resulted in invalid date');\n                }\n                return newDate;\n            } catch (error) {\n                console.error(`Date manipulation error: ${error.message}`);\n                return createSafeDate(); // Return current date as fallback\n            }\n        }\n\n        // Handle month transitions safely\n        function getMonthBoundaries(yearOffset = 0, monthOffset = 0) {\n            try {\n                const year = now.getFullYear() + yearOffset;\n                const month = now.getMonth() + monthOffset;\n                \n                // Normalize month and year if we overflow\n                const normalizedYear = year + Math.floor(month / 12);\n                const normalizedMonth = ((month % 12) + 12) % 12; // Handle negative months\n\n                const start = createSafeDate(normalizedYear, normalizedMonth, 1);\n                const end = createSafeDate(normalizedYear, normalizedMonth + 1, 0);\n                \n                return { start, end };\n            } catch (error) {\n                console.error(`Error calculating month boundaries: ${error.message}`);\n                return {\n                    start: createSafeDate(),\n                    end: createSafeDate()\n                };\n            }\n        }\n\n        // Get week boundaries with error handling for DST transitions\n        function getWeekBoundaries(weekOffset = 0) {\n            try {\n                const startOfWeek = manipulateDate(now, d => {\n                    d.setDate(d.getDate() - d.getDay() + (weekOffset * 7));\n                    d.setHours(0, 0, 0, 0);\n                });\n\n                const endOfWeek = manipulateDate(startOfWeek, d => {\n                    d.setDate(d.getDate() + 6);\n                    d.setHours(23, 59, 59, 999);\n                });\n\n                return { start: startOfWeek, end: endOfWeek };\n            } catch (error) {\n                console.error(`Error calculating week boundaries: ${error.message}`);\n                return {\n                    start: createSafeDate(),\n                    end: createSafeDate()\n                };\n            }\n        }\n\n        // Safe time formatting with DST handling\n        function formatTime(date) {\n            try {\n                if (!date || isNaN(date.getTime())) {\n                    throw new Error('Invalid date provided to formatTime');\n                }\n                return date.toLocaleTimeString('en-US', {\n                    hour: '2-digit',\n                    minute: '2-digit',\n                    second: '2-digit',\n                    hour12: true,\n                    ...pstOptions\n                });\n            } catch (error) {\n                console.error(`Error formatting time: ${error.message}`);\n                return 'Invalid Time';\n            }\n        }\n\n        // Determine timezone with error handling\n        function getTimezoneIndicator() {\n            try {\n                const pstDate = new Date().toLocaleString('en-US', pstOptions);\n                return pstDate.includes('PDT') ? 'PDT' : 'PST';\n            } catch (error) {\n                console.error(`Error determining timezone: ${error.message}`);\n                return 'PST'; // Default to PST if there's an error\n            }\n        }\n\n        const thisWeek = getWeekBoundaries(0);\n        const lastWeek = getWeekBoundaries(-1);\n        const nextWeek = getWeekBoundaries(1);\n\n        const thisMonth = getMonthBoundaries(0, 0);\n        const lastMonth = getMonthBoundaries(0, -1);\n        const nextMonth = getMonthBoundaries(0, 1);\n\n        const thisYear = {\n            start: createSafeDate(now.getFullYear(), 0, 1),\n            end: createSafeDate(now.getFullYear(), 11, 31)\n        };\n        const lastYear = {\n            start: createSafeDate(now.getFullYear() - 1, 0, 1),\n            end: createSafeDate(now.getFullYear() - 1, 11, 31)\n        };\n        const nextYear = {\n            start: createSafeDate(now.getFullYear() + 1, 0, 1),\n            end: createSafeDate(now.getFullYear() + 1, 11, 31)\n        };\n\n        const formattedTime = formatTime(now);\n        const timezoneIndicator = getTimezoneIndicator();\n\n        return {\n            json: {\n                current: {\n                    dateTime: `${formatDate(now)} at ${formattedTime} ${timezoneIndicator}`,\n                    date: formatDate(now),\n                    time: `${formattedTime} ${timezoneIndicator}`,\n                    timezone: timezoneIndicator,\n                    timestamp: now.getTime() // Include timestamp for additional reference\n                },\n                relative: {\n                    yesterday: formatDate(manipulateDate(now, d => d.setDate(d.getDate() - 1))),\n                    today: formatDate(now),\n                    tomorrow: formatDate(manipulateDate(now, d => d.setDate(d.getDate() + 1)))\n                },\n                weeks: {\n                    thisWeek: {\n                        start: formatDate(thisWeek.start),\n                        end: formatDate(thisWeek.end)\n                    },\n                    lastWeek: {\n                        start: formatDate(lastWeek.start),\n                        end: formatDate(lastWeek.end)\n                    },\n                    nextWeek: {\n                        start: formatDate(nextWeek.start),\n                        end: formatDate(nextWeek.end)\n                    }\n                },\n                months: {\n                    thisMonth: {\n                        start: formatDate(thisMonth.start),\n                        end: formatDate(thisMonth.end)\n                    },\n                    lastMonth: {\n                        start: formatDate(lastMonth.start),\n                        end: formatDate(lastMonth.end)\n                    },\n                    nextMonth: {\n                        start: formatDate(nextMonth.start),\n                        end: formatDate(nextMonth.end)\n                    }\n                },\n                years: {\n                    thisYear: {\n                        start: formatDate(thisYear.start),\n                        end: formatDate(thisYear.end)\n                    },\n                    lastYear: {\n                        start: formatDate(lastYear.start),\n                        end: formatDate(lastYear.end)\n                    },\n                    nextYear: {\n                        start: formatDate(nextYear.start),\n                        end: formatDate(nextYear.end)\n                    }\n                }\n            }\n        };\n    } catch (error) {\n        // Global error handler\n        console.error('Critical error in date reference creation:', error);\n        // Return a minimal valid response with current date/time\n        const fallbackDate = new Date();\n        return {\n            json: {\n                error: true,\n                errorMessage: error.message,\n                current: {\n                    dateTime: fallbackDate.toISOString(),\n                    date: fallbackDate.toDateString(),\n                    time: fallbackDate.toTimeString(),\n                    timezone: 'PST'\n                }\n            }\n        };\n    }\n}\n\nreturn JSON.stringify(createDateReferences());"
+      },
+      "id": "3c1790ec-c026-44a0-87d3-af1f2904ea4e",
+      "name": "Now",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        740,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Tools\n",
+        "height": 698.7806714703552,
+        "width": 1831.2206331217553
+      },
+      "id": "a0cd0d52-2126-48e8-a0bf-1e2a24dff47d",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        220,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e8c2a7e9-674e-44ea-9ead-204f08528e58",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        380,
+        600
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "WYs1nR5296TSQkXM",
+          "name": "OpenAi account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Listen for incoming events').first().json.message.from.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "84421f32-2c82-422f-962f-57024018d0d7",
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        1340,
+        300
+      ],
+      "typeVersion": 1.1,
+      "alwaysOutputData": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "yfNHScud9lGpnrZE",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $('Listen for incoming events').item.json.message.voice.file_id }}"
+      },
+      "id": "6103e015-0fd1-4d07-8673-bbceffab5cb9",
+      "name": "Get Voice File",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        520,
+        180
+      ],
+      "typeVersion": 1.1,
+      "credentials": {
+        "telegramApi": {
+          "id": "yfNHScud9lGpnrZE",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "=Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"model\": \"gpt-4o-2024-08-06\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Based on the user request, generate a valid Chart.js definition. Important: - Be careful with the data scale and beginatzero that all data are visible. Example if ploted data 2 and 3 on a bar chart, the baseline should be 0. - Charts colors should be different only if there are multiple datasets. - Output valid JSON. In scales, min and max are numbers. Example: `{scales:{yAxes:[{ticks:{min:0,max:3}`\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"{{ $json.query.query }}\"\n        }\n    ],\n    \"response_format\": {\n  \"type\": \"json_schema\",\n  \"json_schema\": {\n    \"name\": \"chart_configuration\",\n    \"description\": \"Configuration schema for Chart.js charts\",\n    \"strict\": true,\n    \"schema\": {\n  \"type\": \"object\",\n  \"properties\": {\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\"bar\", \"line\", \"radar\", \"pie\", \"doughnut\", \"polarArea\", \"bubble\", \"scatter\", \"area\"]\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"labels\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\"\n          }\n        },\n        \"datasets\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"label\": {\n                \"type\": [\"string\", \"null\"]\n              },\n              \"data\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"number\"\n                }\n              },\n              \"backgroundColor\": {\n                \"type\": [\"array\", \"null\"],\n                \"items\": {\n                  \"type\": \"string\"\n                }\n              },\n              \"borderColor\": {\n                \"type\": [\"array\", \"null\"],\n                \"items\": {\n                  \"type\": \"string\"\n                }\n              },\n              \"borderWidth\": {\n                \"type\": [\"number\", \"null\"]\n              }\n            },\n            \"required\": [\"data\", \"label\", \"backgroundColor\", \"borderColor\", \"borderWidth\"],\n            \"additionalProperties\": false\n          }\n        }\n      },\n      \"required\": [\"labels\", \"datasets\"],\n      \"additionalProperties\": false\n    },\n    \"options\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"scales\": {\n          \"type\": [\"object\", \"null\"],\n          \"properties\": {\n            \"yAxes\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": [\"object\", \"null\"],\n                \"properties\": {\n                  \"ticks\": {\n                    \"type\": [\"object\", \"null\"],\n                    \"properties\": {\n                      \"max\": {\n                        \"type\": [\"number\", \"null\"]\n                      },\n                      \"min\": {\n                        \"type\": [\"number\", \"null\"]\n                      },\n                      \"stepSize\": {\n                        \"type\": [\"number\", \"null\"]\n                      },\n                      \"beginAtZero\": {\n                        \"type\": [\"boolean\", \"null\"]\n                      }\n                    },\n                    \"required\": [\"max\", \"min\", \"stepSize\", \"beginAtZero\"],\n                    \"additionalProperties\": false\n                  },\n                  \"stacked\": {\n                    \"type\": [\"boolean\", \"null\"]\n                  }\n                },\n                \"required\": [\"ticks\", \"stacked\"],\n                \"additionalProperties\": false\n              }},\n              \"xAxes\": {\n                \"type\": [\"object\", \"null\"],\n                \"properties\": {\n                  \"stacked\": {\n                    \"type\": [\"boolean\", \"null\"]\n                  }\n                },\n                \"required\": [\"stacked\"],\n                \"additionalProperties\": false\n              }\n          },\n          \"required\": [\"yAxes\", \"xAxes\"],\n          \"additionalProperties\": false\n        },\n        \"plugins\": {\n          \"type\": [\"object\", \"null\"],\n          \"properties\": {\n            \"title\": {\n              \"type\": [\"object\", \"null\"],\n              \"properties\": {\n                \"display\": {\n                  \"type\": [\"boolean\", \"null\"]\n                },\n                \"text\": {\n                  \"type\": [\"string\", \"null\"]\n                }\n              },\n              \"required\": [\"display\", \"text\"],\n              \"additionalProperties\": false\n            },\n            \"legend\": {\n              \"type\": [\"object\", \"null\"],\n              \"properties\": {\n                \"display\": {\n                  \"type\": [\"boolean\", \"null\"]\n                },\n                \"position\": {\n                  \"type\": [\"string\", \"null\"],\n                  \"enum\": [\"top\", \"left\", \"bottom\", \"right\", null]\n                }\n              },\n              \"required\": [\"display\", \"position\"],\n              \"additionalProperties\": false\n            }\n          },\n          \"required\": [\"title\", \"legend\"],\n          \"additionalProperties\": false\n        }\n      },\n      \"required\": [\"scales\", \"plugins\"],\n      \"additionalProperties\": false\n    }\n  },\n  \"required\": [\"type\", \"data\", \"options\"],\n  \"additionalProperties\": false\n}\n}\n}\n}",
+        "options": {}
+      },
+      "id": "2c31113c-23a6-460a-babf-e97218fb928b",
+      "name": "OpenAI - Generate Chart definition with Structured Output1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        940,
+        -460
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "openAiApi": {
+          "id": "d6Yoq77F0fgKy8Ul",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "generate_a_chart",
+        "description": "Call this tool whenever you need to generate a chart.",
+        "workflowId": "Repoex7C6iSh95eW",
+        "responsePropertyName": "query",
+        "fields": {
+          "values": [
+            {}
+          ]
+        }
+      },
+      "id": "1a2dc400-eb4c-4665-aa55-36ee6cfe8060",
+      "name": "Generate a chart",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "position": [
+        1220,
+        800
+      ],
+      "typeVersion": 1.1,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "## Another Assistant Prompt\n\nYou are a helpful assistant.\n\nToday's date is {{ $now }}.\n\nGuidelines:\n- When fetching emails, filter out any promotional emails. \n- When summarizing emails, include Sender, Message date, subject, and brief summary of email.\n- if the user did not specify a date in the request assume they are asking for today\n- Use baserow tool to answer questions about tasks\n- When answering questions about calendar events, filter out events that don't apply to the question.  For example, the question is about events for today, only reply with events for today. Don't mention future events if it's more than 1 week away",
+        "height": 446.2483524375898,
+        "width": 487.196035003377,
+        "color": 3
+      },
+      "id": "65763462-7508-4c3a-b094-50570ac21ea4",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -940,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "public": true,
+        "authentication": "basicAuth",
+        "initialMessages": "Hi there! 👋\nMy name is Sergio. How can I help?",
+        "options": {
+          "showWelcomeScreen": true
+        }
+      },
+      "id": "bbe4a87d-655c-4876-93c9-23f4e0700963",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        940,
+        -40
+      ],
+      "webhookId": "c0611ce7-50de-43dd-859a-cdf17628204a",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "pG06yih1vOIWWadi",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are a helpful assistant whose name is Sergio. When asked questions, use the provided context to formulate your answers. When you do not know the answer, acknowledge it. \n\nBe aware that today is: \nToday's date is {{ $now }}."
+        }
+      },
+      "id": "c661b0ec-0370-4fe2-82b9-efa8d415eab5",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        940,
+        300
+      ],
+      "alwaysOutputData": true,
+      "notesInFlow": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    type:'bar',\n    data: {\n      labels:['Q1','Q2','Q3','Q4'],\n      datasets:[\n        {\n          label:'Revenue',\n          data:[100,200,300,400]\n        }\n      ]\n    }\n  }\n];"
+      },
+      "id": "f8ee411c-c30b-42a3-b3a1-84dce6f1d48f",
+      "name": "Plotting",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://quickchart.io/chart?chart={{ $json[\"plot\"] }}&backgroundColor=white&width=500&height=300&devicePixelRatio=1.0&format=png&version=2.9.3&encoding=base64",
+        "options": {}
+      },
+      "id": "023c2484-ad79-425c-9df0-1d214870005b",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1560,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const plot = JSON.stringify($input.first().json);\n\nreturn {\n  plot: Buffer.from(plot).toString('base64')\n};"
+      },
+      "id": "fc878751-7939-46f8-a9c4-573d981041d2",
+      "name": "Base64 encoded plot",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "nSZCvYKYjOzd9H6y"
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "6fcdd128-58b8-4526-8ad8-09d073142069",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        920,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "all",
+        "additionalFields": {}
+      },
+      "id": "20d4e9d4-3963-4ef5-b832-52d08425c01a",
+      "name": "Hacker News",
+      "type": "n8n-nodes-base.hackerNewsTool",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        800
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-01-21T23:52:43.000Z",
+  "versionId": "050e657d-6fc7-4584-bcb2-5e28957b54ae"
+}
