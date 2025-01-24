@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Airtable",
+            "node": "Videos2process",
             "type": "main",
             "index": 0
           }
@@ -90,13 +90,7 @@
     },
     "Inputs": {
       "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Ptompts": {
@@ -172,18 +166,7 @@
     },
     "Code": {
       "main": [
-        [
-          {
-            "node": "Youtube Metadata",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Youtube Metadata": {
@@ -351,7 +334,7 @@
       "main": [
         [
           {
-            "node": "Ptompts",
+            "node": "Videos2process",
             "type": "main",
             "index": 0
           }
@@ -565,6 +548,33 @@
           }
         ]
       ]
+    },
+    "Prompts": {
+      "main": [
+        [
+          {
+            "node": "Youtube Metadata",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Videos2process": {
+      "main": [
+        [
+          {
+            "node": "Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -580,7 +590,7 @@
       "typeVersion": 1,
       "position": [
         1660,
-        -980
+        -500
       ]
     },
     {
@@ -802,7 +812,7 @@
       "typeVersion": 4.5,
       "position": [
         2060,
-        -340
+        -640
       ],
       "id": "ec9a2a89-db73-462a-875f-3608814073a6",
       "name": "Inputs",
@@ -835,7 +845,7 @@
       "typeVersion": 4.5,
       "position": [
         1860,
-        -340
+        -640
       ],
       "id": "9ff51c50-3e48-49b3-88d5-5932d6952513",
       "name": "Ptompts",
@@ -881,7 +891,7 @@
     },
     {
       "parameters": {
-        "url": "={{ \"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=\" + $json.videoId + \"&maxResults=100&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=\" + $('Videos2process').item.json.Id + \"&maxResults=100&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
         "options": {}
       },
       "id": "1b57f7ec-f7f8-4080-b5a4-512c9fd9e52d",
@@ -1007,12 +1017,12 @@
     {
       "parameters": {
         "mode": "runOnceForEachItem",
-        "jsCode": "const url = $json['Link to Source']; // Your YouTube URL\nconst videoIdRegex = /(?:\\?v=|\\/embed\\/|\\/watch\\?v=|youtu\\.be\\/)([^&\\n?#]+)/;\nconst match = url.match(videoIdRegex);\nconst videoId = match ? match[1] : null;\n\nreturn {\n  json: {\n    videoId: videoId,\n    originalUrl: url\n  }\n};"
+        "jsCode": "const url = $('Videos2process').item.json.Id; // Your YouTube URL\nconst videoIdRegex = /(?:\\?v=|\\/embed\\/|\\/watch\\?v=|youtu\\.be\\/)([^&\\n?#]+)/;\nconst match = url.match(videoIdRegex);\nconst videoId = match ? match[1] : null;\n\nreturn {\n  json: {\n    videoId: videoId,\n    originalUrl: url\n  }\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2260,
+        2460,
         -340
       ],
       "id": "49bd6dfb-3e71-4841-8142-d937f52cbd5e",
@@ -1020,7 +1030,7 @@
     },
     {
       "parameters": {
-        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $json.videoId + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
+        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $('Videos2process').item.json.Id + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
         "options": {}
       },
       "id": "c4cdde10-ac16-44fb-b05a-673fa93e4515",
@@ -2760,7 +2770,8 @@
       ],
       "id": "71c2a1d2-d9ca-4d4f-86ac-1df3f5e405a6",
       "name": "On form submission",
-      "webhookId": "09ee0189-f457-4993-b5f5-c35c64e14bd7"
+      "webhookId": "09ee0189-f457-4993-b5f5-c35c64e14bd7",
+      "disabled": true
     },
     {
       "parameters": {
@@ -3276,6 +3287,81 @@
       "id": "1efd6c1c-301d-4bd4-b1f4-cb83c8c2af86",
       "name": "Merge1",
       "disabled": true
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblpRHrnM7h0Hvrjb",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblpRHrnM7h0Hvrjb"
+        },
+        "filterByFormula": "{Process}='true'",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1880,
+        -340
+      ],
+      "id": "d52ccc01-cee7-4b3d-a052-19e7f35dc6e2",
+      "name": "Videos2process",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "LDzy6MU6xGIUvyoG",
+          "name": "Airtable OAuth ✔️️"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblQVGiDUAOgPPOzp",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblQVGiDUAOgPPOzp"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2080,
+        -340
+      ],
+      "id": "99794728-b4a1-4666-aac7-34f835709da6",
+      "name": "Prompts",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "LDzy6MU6xGIUvyoG",
+          "name": "Airtable OAuth ✔️️"
+        }
+      },
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -3285,6 +3371,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-24T01:20:54.000Z",
-  "versionId": "e8f0d927-d129-4067-920d-33bfc69cc9fc"
+  "updatedAt": "2025-01-24T11:04:19.000Z",
+  "versionId": "fa0a6ba1-552a-4317-ab15-76e674f49ee8"
 }
