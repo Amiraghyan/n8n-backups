@@ -1,0 +1,1206 @@
+{
+  "active": false,
+  "connections": {
+    "Create title": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n Form Trigger": {
+      "main": [
+        [
+          {
+            "node": "Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final article text": {
+      "main": [
+        [
+          {
+            "node": "Editor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge chapters title and text": {
+      "main": [
+        [
+          {
+            "node": "Final article text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research Leader 🔬": {
+      "main": [
+        [
+          {
+            "node": "Project Planner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Project Planner",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delegate to Research Assistants": {
+      "main": [
+        [
+          {
+            "node": "Research Assistant",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge chapters title and text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research Assistant": {
+      "main": [
+        [
+          {
+            "node": "Merge chapters title and text",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Project Planner": {
+      "main": [
+        [
+          {
+            "node": "Delegate to Research Assistants",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Editor": {
+      "main": [
+        [
+          {
+            "node": "Create title",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research Leader 🔬",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Project Planner",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Project Planner",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research Assistant",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI 2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Perplexity 2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Perplexity 3": {
+      "ai_tool": [
+        [
+          {
+            "node": "Editor",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Editor",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Create title",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI 3": {
+      "ai_tool": [
+        [
+          {
+            "node": "Editor",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI ": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research Leader 🔬",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Perplexity": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research Leader 🔬",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Perplexity 1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Project Planner",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        []
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "11Labs Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "11Labs Settings": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request": {
+      "main": [
+        [
+          {
+            "node": "Research Leader 🔬",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-13T23:22:26.127Z",
+  "id": "VN6vayRI85qUAyXg",
+  "meta": {
+    "templateId": "2390"
+  },
+  "name": "AAA: Research and Write Article",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "74b113f5-2f51-44c0-a056-c92057c9bc2d",
+      "name": "Merge chapters title and text",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        2360,
+        920
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "jsCode": "let article = \"\";\n\n// Introduction\narticle += $('Project Planner').first().json.output.introduction;\n\nfor (const item of $input.all()) {\n  article += \"<strong>\" + item.json.title + \"</strong>\";\n  article += item.json.output;\n  article += \"<br>\";\n}\n\n// Conclusions\narticle += \"<strong> Conclusions </strong>\";\narticle += $('Project Planner').first().json.output.conclusions;\n\n\nreturn [\n  {\n    \"article\": article\n  }\n];"
+      },
+      "id": "78241f66-09ac-4d51-a7ea-20ba478195d8",
+      "name": "Final article text",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        2560,
+        920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "path": "b3c081e2-0f5c-4b59-9cd6-257d808d280f",
+        "formTitle": "Topic Researcher",
+        "formDescription": "Provides in depth report on topic",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Topic",
+              "placeholder": "Effective parenting methods",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Tone",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Professional"
+                  },
+                  {
+                    "option": "Causal"
+                  },
+                  {
+                    "option": "Witty"
+                  },
+                  {
+                    "option": "Ernie Garcia, Jr."
+                  },
+                  {
+                    "option": "Bruce Thompson"
+                  },
+                  {
+                    "option": "Robert Hollenshead"
+                  },
+                  {
+                    "option": "Steve Greenfield"
+                  },
+                  {
+                    "option": "Steve Lind"
+                  },
+                  {
+                    "option": "Brad Parker"
+                  },
+                  {
+                    "option": "Car Dealership Guy"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Number of words",
+              "placeholder": "1000",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Number of sections",
+              "placeholder": "6",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Deliver report to",
+              "fieldType": "email",
+              "placeholder": "fausto_ramirez@mac.com",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "Research and Write",
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Starting research..."
+            }
+          }
+        }
+      },
+      "id": "230ef7fa-53b8-451b-b052-523f5c4e0887",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "position": [
+        560,
+        900
+      ],
+      "webhookId": "b3c081e2-0f5c-4b59-9cd6-257d808d280f",
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "source": "adminApi",
+        "operation": "create",
+        "title": "={{ $json.text }}",
+        "content": "={{ $('Editor').item.json.output }}",
+        "additionalFields": {}
+      },
+      "id": "241b7cc8-2414-446e-998b-935994915d67",
+      "name": "Ghost",
+      "type": "n8n-nodes-base.ghost",
+      "position": [
+        3500,
+        340
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Suggest an engaging title based on the following article.  Please use plain text, no formating of any kind. Less than 10 words in the title.\n {{ $json.output }}"
+      },
+      "id": "88fa425b-17cd-41c2-bd67-ebe30bfd0803",
+      "name": "Create title",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "position": [
+        3180,
+        920
+      ],
+      "typeVersion": 1.4
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Topic to research: {{ $json.Topic }}",
+        "options": {
+          "systemMessage": "=You are a Research Leader specializing in comprehensive topic analysis, research, and content structuring. Your task is to create an enriched, research-backed table of contents for a given topic. \n\nMake your research relevant to writing articles in the context of the Auto Industry or Used Car Market.\n\nFollow these steps:\n1. Analyze the provided topic thoroughly.\n\n2. Conduct web research to gather current insights, trends, and expert perspectives on the topic.\n\n3. Synthesize the gathered information to identify:\n   - Core concepts and principles\n   - Current trends and developments\n   - Expert opinions and best practices\n   - Real-world applications and examples\n   - Potential challenges and solutions\n\n4. Create a comprehensive table of contents that:\n   - Reflects both foundational knowledge and current developments\n   - Incorporates relevant case studies and examples\n   - Addresses common questions and concerns\n   - Includes practical applications and future implications\n\n5. Structure the content hierarchically, ensuring:\n   - Logical flow and progression\n   - Clear relationships between sections\n   - Balanced coverage of theoretical and practical aspects\n   - Integration of research-backed insights\n\nPlease format your response as follows:\n\nTopic Analysis:\n[Brief overview of the topic and its significance based on current research]\n\nKey Research Insights:\n- [Insight 1 from web research]\n- [Insight 2 from web research]\n- [Insight 3 from web research]\n\nProposed Table of Contents:\n\nI. Introduction\n   A. Topic Overview and Current Relevance\n   B. Key Trends and Developments\n   C. Why This Matters Now\n\nII. Background and Context\n    A. Historical Development\n    B. Fundamental Concepts\n    C. Current State of the Field\n\nIII. [Main Theme 1 from Research]\n     A. [Key Finding/Aspect]\n     B. [Expert Perspectives]\n     C. [Real-world Applications]\n\nIV. [Main Theme 2 from Research]\n    A. [Key Finding/Aspect]\n    B. [Case Studies]\n    C. [Practical Implications]\n\n[Continue with additional research-based sections]\n\nIX. Future Perspectives\n    A. Emerging Trends\n    B. Potential Developments\n    C. Recommendations\n\nX. Conclusion\n   A. Summary of Key Insights\n   B. Actionable Takeaways\n   C. Final Thoughts\n\nResearch Sources:\n[List of key sources consulted]\n\nUsage Instructions:\n1. Provide a specific topic you want to analyze\n2. The AI will conduct web research using available tools including Perplexity_ai_search tool\n3. Based on the research, it will generate a comprehensive, current, and well-structured table of contents\n4. Each section will be enriched with recent findings and expert insights\n5. The final structure will be suitable for various content formats (blog posts, articles, whitepapers)\n\nToday's date is {{ $now }}",
+          "returnIntermediateSteps": true
+        }
+      },
+      "id": "c86dc981-08e9-4e27-bca0-1914a31f8586",
+      "name": "Research Leader 🔬",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        920,
+        900
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"subtitle\": {\n      \"type\": \"string\"\n    },\n    \"introduction\": {\n      \"type\": \"string\"\n    },\n    \"conclusions\": {\n      \"type\": \"string\"\n    },\n    \"imagePrompt\": {\n      \"type\": \"string\"\n    },\n    \"chapters\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"title\": {\n            \"type\": \"string\"\n          },\n          \"prompt\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"title\",\n          \"prompt\"\n        ]\n      }\n    }\n  },\n  \"required\": [\n    \"subtitle\",\n    \"introduction\",\n    \"conclusions\",\n    \"imagePrompt\",\n    \"chapters\"\n  ]\n}"
+      },
+      "id": "3bf86217-90c0-4b6c-aaa3-e9643ff05bf0",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1660,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.chapters",
+        "options": {}
+      },
+      "id": "ea044bf9-29ed-44fb-ae8d-d02a8e94b8ec",
+      "name": "Delegate to Research Assistants",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        1780,
+        900
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a chapter for the article: {{ $('Project Planner').item.json.output.subtitle }}\n\nWrite the chapter titled {{ $json.title }}that {{ $json.prompt }}.\n\nMake sure to include citations in the final output.  They are provided by the perplexity_ai_search tool\n\nAlso, make sure you write in the style of \"Ernie Garcia, Jr.\"\n\n\n",
+        "options": {
+          "systemMessage": "=You are a dedicated Research Assistant AI agent, working as part of a research team under the guidance of a Research Leader and Project Planner. Your task is to write a chapter as part of the overall research into a topic. \nMake your research relevant to writing articles in the context of the Auto Industry or Used Car Market.\n\nGuidelines:\n- Just return the plain text for each chapter (no JSON structure).\n- Use the perplexity_ai_search tool to research the topic in the chapter\n- Use html format for output\n- Don't add internal titles or headings.\n- The length of each chapter should be around {{ Math.round($('n8n Form Trigger').item.json['Number of words'] - 120)/ $('n8n Form Trigger').item.json['Number of sections']}} words long- Go deep in the topic you treat, don't just throw some superficial info\n{{ $itemIndex > 0 ? \"- The previous chapter talks about \" + $input.all()[$itemIndex-1].json.title : \"\" }}\n{{ $itemIndex > 0 ? \"- The promt for the previous chapter is \" + $input.all()[$itemIndex-1].json.prompt : \"\" }}\n{{ $itemIndex < $input.all().length ? \"- The following chapter will talk about \" + $input.all()[$itemIndex+1].json.title: \"\" }}\n{{ $itemIndex < $input.all().length ? \"- The prompt for the following chapter is \" + $input.all()[$itemIndex+1].json.prompt : \"\" }}\n- Consider the previous and following chapters when writing the text for this chapter. The text must be coherent with the previous and following chapters.\n- This chapter should not repeat the concepts already exposed in the previous chapter.\n- This chapter is a part of a larger article so don't include an introduction or conclusions. This chapter should merge with the rest of the article.\n- Please write in a style that is {{ $('n8n Form Trigger').item.json.Tone }}\n- Please use the perplexity online tool as a source of information to use to write the chapter\n- Make sure to include citations from the perplexity_ai_search tool in your writing\n\nCitation Guidelines:\n- Use the perplexity_ai_search tool to gather information and cite sources\n- For each major claim or piece of information, include a hyperlinked inline citation\n- Format citations as HTML links with descriptive text:\n  <a href=\"[URL]\">[Source: Publication Name]</a>\n  Examples of proper citation format:\n  - \"According to recent data <a href=\"https://www.mckinsey.com/article-url\">[Source: McKinsey & Company]</a>...\"\n- When directly quoting from a source, use quotation marks and include the citation\n- Integrate citations naturally into the flow of the text without disrupting readability\n- Ensure all cited information is relevant and supports the chapter's main points\n- Verify that citations are accurate and come directly from the perplexity_ai_search results\n- Balance cited content with original analysis and synthesis\n- When citing statistics or specific data points, include the year if available in the citation\n\n\nContent Integration:\n- Smoothly blend cited information with original analysis\n- Use transitions to connect cited material with your own insights\n- Maintain the specified tone while incorporating citations\n- Ensure citations support rather than dominate the narrative\n- Use a mix of paraphrasing and direct quotes when citing sources\n\nSources Section Requirements:\n- At the end of your chapter, include a \"Sources\" section\n- Format the sources section as follows:\n\n<hr>\n<h3>Sources</h3>\n<ul>\n<li><a href=\"[URL]\">[Publication Name] - [Article Title]</a></li>\n[Additional sources...]\n</ul>\n\nSource List Guidelines:\n- List each unique source used in your chapter\n- Include the full URL from the perplexity_ai_search results\n- Order sources alphabetically by publication name\n- Include article titles when available\n- Each source should only appear once in the list\n- Ensure all URLs are functional and properly formatted\n- Include all sources referenced in your in-text citations\n- Match source names exactly as used in in-text citations\n\nExample Source Entry:\n<li><a href=\"https://www.mckinsey.com/article-path\">McKinsey & Company - The Future of AI in Business</a></li>\n\nQuality Control:\n- Verify that every in-text citation has a corresponding entry in the Sources section\n- Check that all URLs are complete and accurate\n- Ensure consistency between in-text citation names and source list entries\n- Confirm all cited information is relevant and supports the chapter's main points\n- Balance cited content with original analysis and synthesis\n\n\nToday's date is : {{ $now }}\n"
+        }
+      },
+      "id": "06f72c6c-34ec-4060-8691-aeab8aca4fbd",
+      "name": "Research Assistant",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1980,
+        1000
+      ],
+      "retryOnFail": true,
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write the title, the subtitle, the chapter details, the introduction, the conclusions, and an image prompt for a SEO-friendly article.  \n\nPlease use this set of topics to create chapters:\n{{ $json.output }}\n\n\nInstructions:\n- Place the article title in a JSON field called `title`\n- Place the subtitle in a JSON field called `subtitle`\n- Place the introduction in a JSON field called `introduction`\n- In the introduction introduce the topic that is then explored in depth in the rest of the text\n- The introduction should be around 150 words\n- Place the conclusions in a JSON field called `conclusions`\n- The conclusions should be around 120 words\n- Use the conclusions to sum up all said in the article and offer a conclusion to the reader\n- The image prompt will be used to produce a photographic cover image for the article and should depict the topics discussed in the article\n- Place the image prompt in a JSON field called `imagePrompt`\n- There should be {{ $('n8n Form Trigger').item.json['Number of sections'].toString() }} chapters.\n- For each chapter provide a title and an exhaustive prompt that will be used to write the chapter text.\n- Place the chapters in an array field called `chapters`\n- For each chapter provide the fields `title` and `prompt`\n- The chapters should follow a logical flow and not repeat the same concepts.\n- The chapters should be related between them and not isolated blocks of text. The text should be fluent and follow a linear logic.\n- Don't start the chapters with \"Chapter 1\", \"Chapter 2\", \"Chapter 3\"... just write the title of the chapter\n- For the title and the chapters' titles don't use colons (`:`)\n- For the text, use html format\n- Please write in a style that is {{ $('n8n Form Trigger').item.json.Tone }}\n- Go deep into the topic you treat, don't just throw in some superficial info\n- Please use Perplexity tool as a source for the research on the topics needed to create the chapter:\n\nToday's date is : {{ $now }}",
+        "hasOutputParser": true,
+        "options": {
+          "maxIterations": 50
+        }
+      },
+      "id": "8b17bcc2-3b07-40f7-84f5-02d90177a758",
+      "name": "Project Planner",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        1320,
+        900
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "=Article to edit:\n {{ $json.article }}\n\nProvide polished output in html format. ",
+        "options": {
+          "systemMessage": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized article with proper citation management.\n\nContent Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief and project requirements.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\nCitation Management Instructions:\nPreserve all inline citations from the original writers in the format: [Source: Publication Name].\nEnsure all inline citations are hyperlinked by embedding the publication name in the citation with the corresponding URL. Example: [Source: [Publication Name](URL)].\nIdentify and remove any duplicate citations across different sections.\nStandardize citation formats if writers used different styles.\nVerify that all cited claims are properly attributed.\nEnsure citations don't disrupt the flow of reading.\nCross-reference all inline citations with their corresponding source links.\n\nUnified Source Documentation Format:\nCreate ONE \"Sources\" section at the very end of the article (after the conclusions section).\n\nFormat each source entry consistently using HTML list items:\n\nhtml\n\n<li><a href=\"[URL]\">[Publication Name] - [Article Title]</a></li>\nInclude for each source:\n\nPublication Name\nArticle Title (if available)\nComplete URL\nDate Accessed (if available)\nEnsure all source entries are hyperlinked properly.\n\nOrganize all sources alphabetically by publication name.\n\nRemove any duplicate entries.\n\nVerify all links are functional.\n\nSEO and Formatting Guidelines:\nMaintain proper HTML formatting throughout.\nEnsure citations and hyperlinks don't interfere with keyword optimization.\nFormat the \"Sources\" section with proper HTML tags.\nUse appropriate heading tags (<h1>, <h2>, <h3>) for structure.\nInclude proper meta descriptions and title tags if required.\nOutput Format:\nThe edited article should be structured as follows:\n\nMain content with inline citations (hyperlinked).\n\"Sources\" section at the end of the article with all reference links. There should only be one \"Sources\" section.\n\nAdditional Requirements:\nMaintain academic integrity while ensuring readability.\nBalance SEO optimization with proper citation practices.\nEnsure all writers' contributions are properly attributed.\nPreserve the original meaning and intent of cited material.\nCreate smooth transitions between sections from different writers.\n\nToday's date is: {{ $now }}"
+        }
+      },
+      "id": "6eb0597c-8629-413e-a69c-57d7457a8615",
+      "name": "Editor",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        2760,
+        920
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('n8n Form Trigger').first().json['Deliver report to'] }}",
+        "subject": "={{ $json.text }}",
+        "message": "={{ $('Editor').item.json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3540,
+        920
+      ],
+      "id": "0cb8453c-6f71-420a-adfc-d1bffb42b3e7",
+      "name": "Gmail",
+      "webhookId": "b1cefb1b-9072-470f-ae62-d4361a7555b7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "6K4gqOnfx5Bz59Tl",
+          "name": "Gmail_Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        1100
+      ],
+      "id": "6f0b00c6-2816-43fb-9aad-9c4e042be9df",
+      "name": "SerpAPI",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1100
+      ],
+      "id": "66c9dbeb-506a-4121-894c-195a3fd9b714",
+      "name": "SerpAPI1",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        1100
+      ],
+      "id": "36dd1f6b-b21d-41f4-a65c-083b6a801688",
+      "name": "OpenAI 1",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        1180
+      ],
+      "id": "203ea2ee-e0be-41dd-9154-81ad5c0162c5",
+      "name": "OpenAI 2",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        1180
+      ],
+      "id": "710034e5-20d4-4ae3-b5f7-fe54fafea8e2",
+      "name": "SerpAPI 2",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful when conducting research using Perplexity AI online model.",
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"perplexity/{{ $json.Model }}\",\n  \"messages\": [\n    { \"role\": \"system\", \"content\": \"{{ $json.System }}\" },\n    { \"role\": \"user\", \"content\": \"{{ $json.query }}\" }\n  ],\n  \"max_tokens\": \"{{ $json.Max_Token }}\",\n  \"temperature\":\"{{ $json.Temp }}\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        2240,
+        1180
+      ],
+      "id": "bcac5448-a43c-49e5-979d-0b48dbba24f4",
+      "name": "Perplexity 2"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful when conducting research using Perplexity AI online model.",
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"perplexity/{{ $json.Model }}\",\n  \"messages\": [\n    { \"role\": \"system\", \"content\": \"{{ $json.System }}\" },\n    { \"role\": \"user\", \"content\": \"{{ $json.query }}\" }\n  ],\n  \"max_tokens\": \"{{ $json.Max_Token }}\",\n  \"temperature\":\"{{ $json.Temp }}\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        2980,
+        1060
+      ],
+      "id": "0fb7671f-fc16-414e-b576-91f31232fe38",
+      "name": "Perplexity 3"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3000,
+        1380
+      ],
+      "id": "e3581fca-c1cf-415f-b5a3-1a9bf7d9b9fa",
+      "name": "OpenAI 3",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        3080,
+        1060
+      ],
+      "id": "b417f08e-43cb-45ef-8940-0987fd94ef50",
+      "name": "SerpAPI 3",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        860,
+        1100
+      ],
+      "id": "b4e8411f-61c5-49d2-bdad-1360e58b7b3c",
+      "name": "OpenAI ",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful when conducting research using Perplexity AI online model.",
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"perplexity/{{ $json.Model }}\",\n  \"messages\": [\n    { \"role\": \"system\", \"content\": \"{{ $json.System }}\" },\n    { \"role\": \"user\", \"content\": \"{{ $json.query }}\" }\n  ],\n  \"max_tokens\": \"{{ $json.Max_Token }}\",\n  \"temperature\":\"{{ $json.Temp }}\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        1020,
+        1100
+      ],
+      "id": "ea01ba04-a3ba-4c64-a098-1ae7811744b9",
+      "name": "Perplexity"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful when conducting research using Perplexity AI online model.",
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"perplexity/{{ $json.Model }}\",\n  \"messages\": [\n    { \"role\": \"system\", \"content\": \"{{ $json.System }}\" },\n    { \"role\": \"user\", \"content\": \"{{ $json.query }}\" }\n  ],\n  \"max_tokens\": \"{{ $json.Max_Token }}\",\n  \"temperature\":\"{{ $json.Temp }}\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        1100
+      ],
+      "id": "b595c58e-f15f-4fc4-856a-fd128fa7aaa9",
+      "name": "Perplexity 1"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C085C7Q7FPY",
+          "mode": "id"
+        },
+        "text": "=-----\n*Research:* {{ $json.Topic }}\n*Tone:* {{ $json.Tone }}\n*Words:* {{ $json['Number of words'] }}\n*Sections:* {{ $json['Number of sections'] }}\n",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": "={{ true }}"
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        740,
+        340
+      ],
+      "id": "854e53ae-106f-45a0-bc49-c71636c97970",
+      "name": "Slack",
+      "webhookId": "e2791889-1dba-4b8c-8bfa-5c5bbb15cfba",
+      "credentials": {
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "model": "tts-1-hd",
+        "input": "={{ $('Create title').item.json.text }}\n\n{{ $('Editor').item.json.output }}",
+        "options": {
+          "binaryPropertyOutput": "audio"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        4020,
+        340
+      ],
+      "id": "8dd6e558-84ba-4fdc-af56-93bcaadce3c8",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "7lpyAVssSQvwtkjO",
+          "name": "Content Generation"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "={{ $('Editor').item.json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        4040,
+        920
+      ],
+      "id": "80391232-f874-4459-8fbc-e0382b47d789",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C085C7Q7FPY",
+          "mode": "id"
+        },
+        "text": "=\"Audio file from 11labs\"\n{{ $binary.audio.data }}\n  ",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": "={{ true }}",
+          "unfurl_media": true
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        4920,
+        920
+      ],
+      "id": "5cbde74a-9cde-4a20-9a03-edcf89d0d557",
+      "name": "Slack1",
+      "webhookId": "e2791889-1dba-4b8c-8bfa-5c5bbb15cfba",
+      "credentials": {
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tts",
+        "options": {}
+      },
+      "id": "a9083480-c89a-4ef2-b6bf-ee34535105f1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        3040,
+        340
+      ],
+      "typeVersion": 2,
+      "webhookId": "25eec0d3-9fae-4b5a-bacf-dcac9793fe83",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.elevenlabs.io/v1/text-to-speech/{{$json.body.voice_id}}",
+        "authentication": "headerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{$json.body.text}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "10b226f9-f9f5-4fcc-ae68-557a09e8e949",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3260,
+        340
+      ],
+      "typeVersion": 4.2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.elevenlabs.io/v1/text-to-speech/{{ $json.voice_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_f53020a94b8f1e75d9eb2b72e39a8abd7efee7b4aa309ac1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "audio"
+            }
+          }
+        }
+      },
+      "id": "c06f78b6-fe7d-4845-9c5e-3d3b5b8de847",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        4740,
+        920
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Please take the following text and remove any elements that are not suitable to convert from text to audio. Do not make any comment or include any other text. Strictly provide the content ready to be converted.\nThe text is: {{ $json.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        4220,
+        920
+      ],
+      "id": "63439398-9ea8-4e93-bc28-5f45017d8071",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "7lpyAVssSQvwtkjO",
+          "name": "Content Generation"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b97588f7-f219-44af-8fa7-783a41267294",
+              "name": "=voice_id",
+              "value": "={{\"TX3LPaxmHKxFdv7VOQHJ\"}}",
+              "type": "string"
+            },
+            {
+              "id": "d3dbe6f6-83fc-4b5d-9233-c3c87781af20",
+              "name": "model_id",
+              "value": "={{\"eleven_multilingual_v2\"}}",
+              "type": "string"
+            },
+            {
+              "id": "c7ab43e8-c633-41dc-86ba-f18469fbce5b",
+              "name": "Content-Type",
+              "value": "={{\"application/json\"}}",
+              "type": "string"
+            },
+            {
+              "id": "9cc9a60d-99e5-424a-a733-3caf131e8c56",
+              "name": "text",
+              "value": "=The Rise of Used Pickup Trucks in the Auto Industry\\n\\nIn today's ever-evolving auto industry, used pickup trucks have emerged as a vital component of dealership profitability. With their increasing popularity among consumers who appreciate their versatility and utility, understanding the financial dynamics of this segment is crucial for dealerships aiming to optimize their operations. This article explores key trends in the used pickup truck market, including strong profit margins, consumer preferences driving demand, and strategic inventory management practices that enhance dealership performance. \\n\\nThe Financial Impact of Used Pickup Trucks\\n\\nThe financial landscape of used pickup trucks presents a unique picture differing significantly from other vehicle segments. Used pickup trucks typically enjoy higher profit margins compared to sedans and compacts. Industry insights show that gross margins can sometimes reach 10% or more, driven by robust consumer preferences and demand cycles. However, this varies based on the specific model, age, and condition of the vehicle sold.\\n\\nSales velocity is a critical metric for dealerships. The average turnover rate for used pickup trucks can be notably quicker than that for sedans, primarily due to their popularity in both personal and commercial uses. A high sales velocity often correlates with effective inventory management, enabling dealers to keep fresh stock and avoid depreciation.\\n\\nCurrent market conditions indicate that the used truck market is stabilizing after experiencing fluctuating prices. While average prices for used trucks were down approximately 4% in December 2024 compared to the previous year, average miles and model ages remained consistent. ",
+              "type": "string"
+            },
+            {
+              "id": "abe441bf-aaa5-4f31-b9de-03f13e379ad5",
+              "name": "guarda",
+              "value": "{{ $json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "49cb319f-50ea-4b1d-a164-6311d120aa7a",
+              "name": "output_format",
+              "value": "mp3_22050_32?output_format=mp3_22050_32",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4560,
+        920
+      ],
+      "id": "5d585893-1af9-45ca-ac5e-15b4eca3f3e2",
+      "name": "11Labs Settings"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c0c346b-e400-4723-82c6-d4ebc93956f9",
+              "name": "Topic",
+              "value": "={{ $json.Topic }}",
+              "type": "string"
+            },
+            {
+              "id": "730b6839-a38b-461e-bef0-0ab035e6e9aa",
+              "name": "Tone",
+              "value": "={{ $json.Tone }}",
+              "type": "string"
+            },
+            {
+              "id": "dea54bf2-c42b-476b-afbf-04091a04f4cd",
+              "name": "Number of words",
+              "value": "={{ $json['Number of words'] }}",
+              "type": "string"
+            },
+            {
+              "id": "d83b445c-fb05-4552-b5ca-89fc9f40faad",
+              "name": "Number of sections",
+              "value": "={{ $json['Number of sections'] }}",
+              "type": "string"
+            },
+            {
+              "id": "40c77b8d-eddd-49b0-8a9f-cba2674d62d2",
+              "name": "Deliver report to",
+              "value": "={{ $json['Deliver report to'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e1ad2318-38f5-4f4d-bcc8-df267accd43b",
+              "name": "submittedAt",
+              "value": "={{ $json.submittedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        900
+      ],
+      "id": "3c95c208-cb0e-4886-b49c-1e3765432cfe",
+      "name": "Request"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-24T16:17:05.000Z",
+  "versionId": "c0969dc0-7449-489a-a9d1-9fbaf93ab5fd"
+}
