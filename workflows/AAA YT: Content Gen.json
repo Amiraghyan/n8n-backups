@@ -164,11 +164,6 @@
         ]
       ]
     },
-    "Code": {
-      "main": [
-        []
-      ]
-    },
     "Youtube Metadata": {
       "main": [
         [
@@ -551,20 +546,14 @@
     },
     "Prompts": {
       "main": [
-        [
-          {
-            "node": "Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Videos2process": {
       "main": [
         [
           {
-            "node": "Prompts",
+            "node": "Ptompts1",
             "type": "main",
             "index": 0
           }
@@ -576,6 +565,17 @@
         [
           {
             "node": "Video Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ptompts1": {
+      "main": [
+        [
+          {
+            "node": "Comments",
             "type": "main",
             "index": 0
           }
@@ -595,8 +595,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1540,
-        -740
+        1660,
+        -680
       ]
     },
     {
@@ -817,8 +817,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2080,
-        -640
+        3880,
+        -1440
       ],
       "id": "ec9a2a89-db73-462a-875f-3608814073a6",
       "name": "Inputs",
@@ -850,8 +850,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1860,
-        -640
+        3660,
+        -1440
       ],
       "id": "9ff51c50-3e48-49b3-88d5-5932d6952513",
       "name": "Ptompts",
@@ -897,8 +897,16 @@
     },
     {
       "parameters": {
-        "url": "=https://api.apify.com/v2/acts/streamers~youtube-comments-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "options": {}
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Videos2process').item.json.Url }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 100\n} ",
+        "options": {
+          "batching": {
+            "batch": {}
+          }
+        }
       },
       "id": "1b57f7ec-f7f8-4080-b5a4-512c9fd9e52d",
       "name": "Comments",
@@ -911,7 +919,7 @@
     },
     {
       "parameters": {
-        "fieldToSplitOut": " data.items",
+        "fieldToSplitOut": " data.items, comment",
         "options": {}
       },
       "type": "n8n-nodes-base.splitOut",
@@ -928,7 +936,7 @@
         "fieldsToSummarize": {
           "values": [
             {
-              "field": "snippet.topLevelComment.snippet"
+              "field": "sentimentAnalysis"
             }
           ]
         },
@@ -948,7 +956,7 @@
         "fieldsToSummarize": {
           "values": [
             {
-              "field": "snippet.topLevelComment.snippet"
+              "field": "sentimentAnalysis"
             }
           ]
         },
@@ -968,7 +976,7 @@
         "fieldsToSummarize": {
           "values": [
             {
-              "field": "snippet.topLevelComment.snippet"
+              "field": "sentimentAnalysis"
             }
           ]
         },
@@ -1019,20 +1027,6 @@
       "name": "Video Stats",
       "alwaysOutputData": true,
       "executeOnce": true
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "const url = $('Videos2process').item.json.Id; // Your YouTube URL\nconst videoIdRegex = /(?:\\?v=|\\/embed\\/|\\/watch\\?v=|youtu\\.be\\/)([^&\\n?#]+)/;\nconst match = url.match(videoIdRegex);\nconst videoId = match ? match[1] : null;\n\nreturn {\n  json: {\n    videoId: videoId,\n    originalUrl: url\n  }\n};"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2460,
-        -340
-      ],
-      "id": "49bd6dfb-3e71-4841-8142-d937f52cbd5e",
-      "name": "Code"
     },
     {
       "parameters": {
@@ -1261,7 +1255,7 @@
           "messageValues": [
             {
               "type": "HumanMessagePromptTemplate",
-              "message": "={{ $('Ptompts').item.json.Summary }}"
+              "message": "={{ $('Prompts').item.json.Summary }}"
             }
           ]
         }
@@ -1307,7 +1301,7 @@
     },
     {
       "parameters": {
-        "inputText": "={{ $json.snippet.topLevelComment.snippet.textOriginal }}",
+        "inputText": "={{ $json.comment }}",
         "options": {}
       },
       "id": "f986598c-2039-443a-8e24-2de976d82f7d",
@@ -1892,7 +1886,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2260,
+        2100,
         -980
       ],
       "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
@@ -2172,7 +2166,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2080,
+        1880,
         -980
       ],
       "id": "361d365f-6371-4343-b505-e9ee97e665db",
@@ -2785,8 +2779,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2080,
-        -340
+        1880,
+        -80
       ],
       "id": "99794728-b4a1-4666-aac7-34f835709da6",
       "name": "Prompts",
@@ -4400,6 +4394,39 @@
           "name": "Airtable OAuth ✔️️"
         }
       }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8",
+          "mode": "list",
+          "cachedResultName": "Blue&: Content Generation Platform",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1471096355,
+          "mode": "list",
+          "cachedResultName": "prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/110Nw_L6hSvJHMAeNd9K1EK72tuUUfXoAaybOi2hmig8/edit#gid=1471096355"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2100,
+        -340
+      ],
+      "id": "95f21e14-cf03-4f61-9458-e45b1db84a80",
+      "name": "Ptompts1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rSTr7Ltjwpw9Xvz2",
+          "name": "Google Sheets account 5"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -4409,6 +4436,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-27T08:20:26.000Z",
-  "versionId": "647b9747-d48e-4a04-8d1e-1e51a7cab907"
+  "updatedAt": "2025-01-27T16:10:00.000Z",
+  "versionId": "d0a59da1-279a-4d9e-a2c5-07128b3e25ed"
 }
