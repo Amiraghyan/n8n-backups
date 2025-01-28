@@ -140,24 +140,12 @@
     },
     "OpenAI 1": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Project Planner",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenAI 2": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Research Assistant",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "SerpAPI 2": {
@@ -195,18 +183,7 @@
     },
     "OpenAI 3": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Editor",
-            "type": "ai_languageModel",
-            "index": 0
-          },
-          {
-            "node": "Create title",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "SerpAPI 3": {
@@ -222,13 +199,7 @@
     },
     "OpenAI ": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Research Leader 🔬",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Perplexity": {
@@ -319,6 +290,75 @@
           {
             "node": "Research Leader 🔬",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research Leader 🔬",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Anthropic Chat Model2": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Anthropic Chat Model3": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Anthropic n8n": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Project Planner",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research Assistant",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Editor",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Create title",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -656,7 +696,7 @@
       "typeVersion": 1,
       "position": [
         1300,
-        1100
+        1260
       ],
       "id": "36dd1f6b-b21d-41f4-a65c-083b6a801688",
       "name": "OpenAI 1",
@@ -675,7 +715,7 @@
       "typeVersion": 1,
       "position": [
         1940,
-        1180
+        1320
       ],
       "id": "203ea2ee-e0be-41dd-9154-81ad5c0162c5",
       "name": "OpenAI 2",
@@ -769,8 +809,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3000,
-        1380
+        2900,
+        1320
       ],
       "id": "e3581fca-c1cf-415f-b5a3-1a9bf7d9b9fa",
       "name": "OpenAI 3",
@@ -807,8 +847,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        860,
-        1100
+        880,
+        1400
       ],
       "id": "b4e8411f-61c5-49d2-bdad-1360e58b7b3c",
       "name": "OpenAI ",
@@ -1194,6 +1234,164 @@
       ],
       "id": "3c95c208-cb0e-4886-b49c-1e3765432cfe",
       "name": "Request"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        840,
+        1100
+      ],
+      "id": "34444f41-d66d-48d5-bb84-eb12d0766964",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "0PSKHqXxusBfS3qe",
+          "name": "Groq n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        1300,
+        1420
+      ],
+      "id": "1c42e198-8051-4695-b060-4e7881e33fe4",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "cOFFr7FB6SAc7Hl2",
+          "name": "Anthropic account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        1940,
+        1460
+      ],
+      "id": "2aea8c20-d729-4974-87f1-5d6bb74ec63c",
+      "name": "Anthropic Chat Model2",
+      "credentials": {
+        "anthropicApi": {
+          "id": "cOFFr7FB6SAc7Hl2",
+          "name": "Anthropic account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        3040,
+        1320
+      ],
+      "id": "46df119f-7cf2-4a04-8ab6-29af4adf9bff",
+      "name": "Anthropic Chat Model3",
+      "credentials": {
+        "anthropicApi": {
+          "id": "cOFFr7FB6SAc7Hl2",
+          "name": "Anthropic account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        760,
+        1400
+      ],
+      "id": "8bd1eccd-52f8-428e-9dda-245153b3f2eb",
+      "name": "Anthropic n8n",
+      "credentials": {
+        "anthropicApi": {
+          "id": "cOFFr7FB6SAc7Hl2",
+          "name": "Anthropic account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        1100
+      ],
+      "id": "7c5d3b1b-22ac-4bbc-bc0f-0d032c6e9a3b",
+      "name": "Groq Chat Model1",
+      "credentials": {
+        "groqApi": {
+          "id": "0PSKHqXxusBfS3qe",
+          "name": "Groq n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama3-70b-8192",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        1180
+      ],
+      "id": "a2dfdf08-1a5b-43df-adc2-3146262e3a68",
+      "name": "Groq Chat Model2",
+      "credentials": {
+        "groqApi": {
+          "id": "0PSKHqXxusBfS3qe",
+          "name": "Groq n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama3-70b-8192",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        3180,
+        1320
+      ],
+      "id": "259f16ba-b7a3-4d55-b011-68fb5a549d0d",
+      "name": "Groq Chat Model3",
+      "credentials": {
+        "groqApi": {
+          "id": "0PSKHqXxusBfS3qe",
+          "name": "Groq n8n"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -1201,6 +1399,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-24T16:17:05.000Z",
-  "versionId": "c0969dc0-7449-489a-a9d1-9fbaf93ab5fd"
+  "updatedAt": "2025-01-28T03:07:06.000Z",
+  "versionId": "ee9d880c-03c0-488f-9ad6-a5bc2e4732a8"
 }
