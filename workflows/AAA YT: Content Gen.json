@@ -212,7 +212,7 @@
       "main": [
         [
           {
-            "node": "Video Stats",
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -546,14 +546,20 @@
     },
     "Prompts": {
       "main": [
-        []
+        [
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Videos2process": {
       "main": [
         [
           {
-            "node": "Ptompts1",
+            "node": "Prompts",
             "type": "main",
             "index": 0
           }
@@ -573,9 +579,14 @@
     },
     "Ptompts1": {
       "main": [
+        []
+      ]
+    },
+    "Code": {
+      "main": [
         [
           {
-            "node": "Comments",
+            "node": "Video Stats",
             "type": "main",
             "index": 0
           }
@@ -817,8 +828,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3880,
-        -1440
+        1860,
+        -1520
       ],
       "id": "ec9a2a89-db73-462a-875f-3608814073a6",
       "name": "Inputs",
@@ -850,8 +861,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3660,
-        -1440
+        1640,
+        -1520
       ],
       "id": "9ff51c50-3e48-49b3-88d5-5932d6952513",
       "name": "Ptompts",
@@ -913,7 +924,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2520,
+        2480,
         -60
       ]
     },
@@ -946,7 +957,7 @@
       "typeVersion": 1,
       "position": [
         3380,
-        -200
+        -220
       ],
       "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
       "name": "Positive"
@@ -986,7 +997,7 @@
       "typeVersion": 1,
       "position": [
         3380,
-        80
+        100
       ],
       "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
       "name": "Negative"
@@ -997,20 +1008,20 @@
           "assignments": [
             {
               "id": "2784ea3c-15e0-41ab-8b2c-a8e706a08135",
-              "name": "=Positive",
-              "value": "={{ $json.count_snippet_topLevelComment_snippet }}",
+              "name": "Positive",
+              "value": "={{ $('Positive').item.json.count_sentimentAnalysis }}",
               "type": "number"
             },
             {
               "id": "6eeb2c38-0911-46eb-9967-6024110e7813",
               "name": "Neutral",
-              "value": "={{ $('Neutral').all()[0].json.count_snippet_topLevelComment_snippet }}",
+              "value": "={{ $('Neutral').item.json.count_sentimentAnalysis }}",
               "type": "string"
             },
             {
               "id": "8e4b9e08-4105-406f-819f-aff327ed1a82",
               "name": "Negative",
-              "value": "={{ $('Negative').all()[0].json.count_snippet_topLevelComment_snippet }}",
+              "value": "={{ $('Negative').item.json.count_sentimentAnalysis }}",
               "type": "string"
             }
           ]
@@ -1020,7 +1031,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3880,
+        4260,
         -60
       ],
       "id": "a8e02217-ce58-442b-9bc7-465804ab7fe7",
@@ -1632,7 +1643,7 @@
       "parameters": {
         "content": "## Roadmap\n",
         "height": 320,
-        "width": 1260
+        "width": 1320
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -1650,8 +1661,8 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        5640,
-        -420
+        5420,
+        -380
       ],
       "id": "df68332c-2186-4d7d-9992-1e96c16ee782",
       "name": "Blog"
@@ -1664,7 +1675,7 @@
       "typeVersion": 2.1,
       "position": [
         5720,
-        -360
+        -400
       ],
       "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
       "name": "Email",
@@ -1692,7 +1703,7 @@
       "typeVersion": 2.3,
       "position": [
         5800,
-        -300
+        -340
       ],
       "id": "8e1ef7b8-f92c-4bed-8ece-dcb2f93c9a9c",
       "name": "Slack",
@@ -2779,8 +2790,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1880,
-        -80
+        2100,
+        -340
       ],
       "id": "99794728-b4a1-4666-aac7-34f835709da6",
       "name": "Prompts",
@@ -3351,8 +3362,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3660,
-        -1260
+        1640,
+        -1340
       ],
       "id": "ade3c49f-b44b-4dbf-9916-919acf9c895f",
       "name": "Channel Content",
@@ -3899,8 +3910,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3880,
-        -1260
+        1860,
+        -1340
       ],
       "id": "7ec0d7c1-d084-4a5e-8911-32a20dbb030f",
       "name": "Video Content",
@@ -4417,7 +4428,7 @@
       "typeVersion": 4.5,
       "position": [
         2100,
-        -340
+        -1520
       ],
       "id": "95f21e14-cf03-4f61-9458-e45b1db84a80",
       "name": "Ptompts1",
@@ -4427,6 +4438,19 @@
           "name": "Google Sheets account 5"
         }
       }
+    },
+    {
+      "parameters": {
+        "jsCode": "const calculateSNPS = 0;\n  \n  // Calculate percentages\n  const positive = $('Positive').first().json.count_sentimentAnalysis;\n  const negative = $('Negative').first().json.count_sentimentAnalysis;\n  const total_comments = $('Positive').first().json.count_sentimentAnalysish + $('Neutral').first().json.count_sentimentAnalysis + $('Negative').first().json.count_sentimentAnalysis;\n  \n  // Calculate SNPS\n  const percentPositive = (positive / total) * 100;\n  const percentNegative = (negative / total) * 100;\n  const snps = percentPositive - percentNegative;\n  \n  return {\n    json: {\n      sNPS: snps,\n      details: {\n        positive_percent: percentPositive,\n        negative_percent: percentNegative,\n        total: total_comments\n      }\n    }\n  };\n};\n\nreturn calculateSNPS($input.all());"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3900,
+        -60
+      ],
+      "id": "49ae1488-128a-45e1-a8f9-917d8f0fd08b",
+      "name": "Code"
     }
   ],
   "pinData": {},
@@ -4436,6 +4460,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-27T16:10:00.000Z",
-  "versionId": "d0a59da1-279a-4d9e-a2c5-07128b3e25ed"
+  "updatedAt": "2025-01-28T06:58:09.000Z",
+  "versionId": "05e89f75-8416-42bc-95ad-b3c8f87c9894"
 }
