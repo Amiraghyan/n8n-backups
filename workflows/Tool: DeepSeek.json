@@ -30,6 +30,22 @@
     },
     "OpenAI Chat Model": {
       "ai_languageModel": [
+        []
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
         [
           {
             "node": "AI Agent",
@@ -39,12 +55,12 @@
         ]
       ]
     },
-    "Window Buffer Memory": {
-      "ai_memory": [
+    "Airtable": {
+      "ai_tool": [
         [
           {
             "node": "AI Agent",
-            "type": "ai_memory",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -123,7 +139,7 @@
       "typeVersion": 1.1,
       "position": [
         380,
-        220
+        -140
       ],
       "id": "c7031df2-ce12-4911-869a-d3673adacf31",
       "name": "OpenAI Chat Model",
@@ -144,6 +160,61 @@
       ],
       "id": "97cfb020-7f96-4e93-b7d9-6ab316119b3b",
       "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "model": "deepseek-r1-distill-llama-70b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        380,
+        200
+      ],
+      "id": "298053ca-081a-41a6-88ad-c2fe4e203684",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "0PSKHqXxusBfS3qe",
+          "name": "Groq n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblpRHrnM7h0Hvrjb",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblpRHrnM7h0Hvrjb"
+        },
+        "filterByFormula": "{{ $fromAI('placeholder_name') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtableTool",
+      "typeVersion": 2.1,
+      "position": [
+        700,
+        220
+      ],
+      "id": "1fe9549b-81c0-46b1-a5f3-85900230fff0",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -153,6 +224,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-28T16:17:23.000Z",
-  "versionId": "90d34049-37c2-476c-8fbf-f2b342eafdb4"
+  "updatedAt": "2025-01-28T22:14:01.000Z",
+  "versionId": "adaa5126-2bf1-4d9c-94d7-c82aad32ca01"
 }
