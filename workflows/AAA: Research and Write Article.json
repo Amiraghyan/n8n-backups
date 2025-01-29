@@ -1262,7 +1262,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1280,
+        1300,
         1100
       ],
       "id": "1c42e198-8051-4695-b060-4e7881e33fe4",
@@ -1336,6 +1336,7 @@
     },
     {
       "parameters": {
+        "model": "deepseek-r1-distill-llama-70b",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -1399,6 +1400,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-28T08:54:26.000Z",
-  "versionId": "8d516356-3c00-4223-b237-5086a281f685"
+  "updatedAt": "2025-01-28T22:49:21.000Z",
+  "versionId": "17db1df6-b496-445c-a9fc-72e58081d3f8"
 }
