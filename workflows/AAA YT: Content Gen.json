@@ -57,14 +57,25 @@
     },
     "Knowledge Base": {
       "main": [
-        []
+        [
+          {
+            "node": "SEO Writer Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Researcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Comments": {
       "main": [
         [
           {
-            "node": "Split Out",
+            "node": "If1",
             "type": "main",
             "index": 0
           }
@@ -184,7 +195,7 @@
       "main": [
         [
           {
-            "node": "Ad Detector",
+            "node": "Text Classifier",
             "type": "main",
             "index": 0
           }
@@ -482,9 +493,9 @@
       "main": [
         [
           {
-            "node": "Video Stats",
+            "node": "Merge2",
             "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -524,7 +535,13 @@
     },
     "Video Tab1": {
       "main": [
-        []
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "If": {
@@ -561,17 +578,6 @@
         ]
       ]
     },
-    "Ad Detector": {
-      "main": [
-        [
-          {
-            "node": "Video Tab1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI 2": {
       "ai_languageModel": [
         [
@@ -583,12 +589,71 @@
         ]
       ]
     },
-    "OpenAI 1": {
+    "Schedule Trigger3": {
+      "main": [
+        []
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI ": {
       "ai_languageModel": [
         [
           {
-            "node": "Ad Detector",
+            "node": "Text Classifier",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Video Tab1",
+            "type": "main",
             "index": 0
           }
         ]
@@ -607,8 +672,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1700,
-        -760
+        1920,
+        -820
       ]
     },
     {
@@ -617,7 +682,7 @@
       "typeVersion": 1.3,
       "position": [
         1840,
-        1320
+        1520
       ],
       "id": "eaad669b-e18a-4c3e-b15a-00905a356c4c",
       "name": "Window Buffer Memory"
@@ -643,7 +708,7 @@
       "typeVersion": 3,
       "position": [
         3980,
-        1060
+        1260
       ],
       "id": "d53ff90f-de2f-4200-8e2b-178e3308ee96",
       "name": "Google Drive",
@@ -702,7 +767,7 @@
       "typeVersion": 3.4,
       "position": [
         3760,
-        1060
+        1260
       ],
       "id": "45f9a1c3-95ba-415d-bfa1-e96853a443e7",
       "name": "article"
@@ -722,7 +787,7 @@
       "typeVersion": 1.6,
       "position": [
         3980,
-        1280
+        1480
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -745,7 +810,7 @@
       "typeVersion": 1.7,
       "position": [
         1860,
-        1060
+        1260
       ],
       "id": "6204594e-a241-4aa0-acb9-418d3744c397",
       "name": "Researcher"
@@ -771,8 +836,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3020,
-        380
+        2600,
+        880
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
       "name": "Knowledge Base",
@@ -789,7 +854,7 @@
         "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video Tab1').item.json.fields.Video_Id }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 240\n} ",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $json.Video_Url }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 240\n} ",
         "options": {
           "batching": {
             "batch": {}
@@ -801,20 +866,21 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3300,
-        -120
-      ]
+        2720,
+        -100
+      ],
+      "alwaysOutputData": true
     },
     {
       "parameters": {
-        "fieldToSplitOut": " data.items, comment",
+        "fieldToSplitOut": "pageUrl, comment",
         "options": {}
       },
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3480,
-        -120
+        2320,
+        120
       ],
       "id": "829ff6f0-b4c0-4e1e-a0f1-95c403de1e1b",
       "name": "Split Out"
@@ -828,13 +894,15 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "continueIfFieldNotFound": true
+        }
       },
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        4040,
-        -120
+        3000,
+        120
       ],
       "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
       "name": "Positive"
@@ -848,13 +916,15 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "continueIfFieldNotFound": true
+        }
       },
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        4040,
-        20
+        3000,
+        260
       ],
       "id": "a36731c9-a7a9-4bc6-b4c1-efb02b65eedf",
       "name": "Neutral"
@@ -868,13 +938,15 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "continueIfFieldNotFound": true
+        }
       },
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        4040,
-        160
+        3000,
+        400
       ],
       "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
       "name": "Negative"
@@ -908,8 +980,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4660,
-        -120
+        4580,
+        80
       ],
       "id": "a8e02217-ce58-442b-9bc7-465804ab7fe7",
       "name": "Video Stats",
@@ -949,8 +1021,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3460,
-        580
+        2820,
+        680
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -968,11 +1040,13 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        4260,
-        -120
+        3260,
+        120
       ],
       "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
-      "name": "Merge"
+      "name": "Merge",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -995,7 +1069,7 @@
       "typeVersion": 1.7,
       "position": [
         2620,
-        1060
+        1260
       ],
       "id": "5e2b1539-dae8-4cda-90eb-c320be36bfb2",
       "name": "SEO Writer Agent",
@@ -1027,7 +1101,7 @@
       "typeVersion": 1.7,
       "position": [
         3000,
-        1060
+        1260
       ],
       "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
       "name": "Editor Agent",
@@ -1066,7 +1140,7 @@
     },
     {
       "parameters": {
-        "inputText": "={{ $json.comment }}",
+        "inputText": "=",
         "options": {}
       },
       "id": "f986598c-2039-443a-8e24-2de976d82f7d",
@@ -1074,8 +1148,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        3680,
-        -120
+        2560,
+        120
       ]
     },
     {
@@ -1099,7 +1173,7 @@
       "typeVersion": 1.7,
       "position": [
         2240,
-        1060
+        1260
       ],
       "id": "51469ce9-1135-42a7-b624-1c8cc399e46b",
       "name": "Title Generator Agent",
@@ -1131,7 +1205,7 @@
       "typeVersion": 1.7,
       "position": [
         3380,
-        1060
+        1260
       ],
       "id": "026a61a5-f779-42c4-96dd-bf66c9f92a61",
       "name": "Formatter Agent",
@@ -1361,8 +1435,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1960,
-        -180
+        4220,
+        -780
       ]
     },
     {
@@ -1375,8 +1449,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2180,
-        -180
+        4440,
+        -780
       ]
     },
     {
@@ -1389,8 +1463,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2400,
-        -180
+        4660,
+        -780
       ]
     },
     {
@@ -1403,8 +1477,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
-        -280
+        4120,
+        -880
       ],
       "id": "070db2e7-d649-492b-9b34-9c1f16b25315",
       "name": "Sticky Note2"
@@ -1416,8 +1490,8 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        2620,
-        -180
+        4880,
+        -780
       ],
       "id": "df68332c-2186-4d7d-9992-1e96c16ee782",
       "name": "Blog"
@@ -1429,8 +1503,8 @@
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        1960,
-        60
+        4220,
+        -540
       ],
       "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
       "name": "Email",
@@ -1457,8 +1531,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        2400,
-        60
+        4660,
+        -540
       ],
       "id": "8e1ef7b8-f92c-4bed-8ece-dcb2f93c9a9c",
       "name": "Slack",
@@ -1481,7 +1555,7 @@
       "typeVersion": 1,
       "position": [
         2040,
-        1320
+        1520
       ],
       "id": "ef9822f5-6bc4-405a-912d-a84201df4bc4",
       "name": ".",
@@ -1535,8 +1609,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1920,
-        -960
+        1900,
+        -1040
       ],
       "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
       "name": "Schedule Trigger1"
@@ -1549,7 +1623,7 @@
       "typeVersion": 1,
       "position": [
         2140,
-        1320
+        1520
       ]
     },
     {
@@ -1564,7 +1638,7 @@
       "typeVersion": 1.1,
       "position": [
         1940,
-        1320
+        1520
       ]
     },
     {
@@ -1575,7 +1649,7 @@
       "typeVersion": 1,
       "position": [
         1720,
-        1320
+        1520
       ],
       "id": "25b8fe22-75ce-46c3-97b7-a9c484f843cb",
       "name": "OpenAI",
@@ -1616,7 +1690,7 @@
       "typeVersion": 3.4,
       "position": [
         2620,
-        -1020
+        -1100
       ],
       "id": "b11a639e-1b15-49e3-bb1a-9b38aeb4c35b",
       "name": "To Process"
@@ -1653,7 +1727,7 @@
       "typeVersion": 2.2,
       "position": [
         2360,
-        -960
+        -1040
       ],
       "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
       "name": "to Process",
@@ -1673,7 +1747,7 @@
       "typeVersion": 4.2,
       "position": [
         2840,
-        -1020
+        -1100
       ],
       "id": "1b8801ff-5dc4-483f-b568-a9f03f965900",
       "name": "APIfy_YT_Scrap",
@@ -1903,7 +1977,7 @@
       "typeVersion": 3.4,
       "position": [
         3060,
-        -1020
+        -1100
       ],
       "id": "88de8156-0092-49bd-81be-d7cda55529a2",
       "name": "Channel Videos"
@@ -1937,7 +2011,7 @@
       "typeVersion": 2.1,
       "position": [
         2140,
-        -960
+        -1040
       ],
       "id": "361d365f-6371-4343-b505-e9ee97e665db",
       "name": "Airtable",
@@ -1966,7 +2040,7 @@
       "typeVersion": 2.2,
       "position": [
         3700,
-        1300
+        1500
       ],
       "id": "71c2a1d2-d9ca-4d4f-86ac-1df3f5e405a6",
       "name": "On form submission",
@@ -2526,16 +2600,18 @@
     },
     {
       "parameters": {
-        "jsCode": "// Get the counts from input items\nconst positive = $('Positive').first().json.count_sentimentAnalysis;\nconst negative = $('Negative').first().json.count_sentimentAnalysis; \nconst neutral = $('Neutral').first().json.count_sentimentAnalysis;\n\n// Calculate total comments\nconst total_comments = positive + neutral + negative;\n  \nconst percentPositive = (positive / total_comments) * 100;\nconst percentNegative = (negative / total_comments) * 100;\nconst snps = (percentPositive - percentNegative).toFixed(2);\n\nreturn {\n  json: {\n    snps: snps,\n    details: {\n      positive_percent: percentPositive.toFixed(2) + '%',\n      negative_percent: percentNegative.toFixed(2) + '%',\n      total_comments: total_comments\n    }\n  }\n};"
+        "jsCode": "// Debugging to see if nodes have been executed and data is available\nconsole.log('Positive Node Data:', $('Positive').first());\nconsole.log('Negative Node Data:', $('Negative').first());\nconsole.log('Neutral Node Data:', $('Neutral').first());\n\n// Get the counts from input items\nconst positive = $('Positive').first()?.json.count_sentimentAnalysis || 0;\nconst negative = $('Negative').first()?.json.count_sentimentAnalysis || 0; \nconst neutral = $('Neutral').first()?.json.count_sentimentAnalysis || 0;\n\n// Calculate total comments\nconst total_comments = positive + neutral + negative;\nif (total_comments === 0) {\n  return { json: { snps: 0, details: { positive_percent: \"0%\", negative_percent: \"0%\", total_comments: total_comments } } };\n}\n\nconst percentPositive = (positive / total_comments) * 100;\nconst percentNegative = (negative / total_comments) * 100;\nconst snps = (percentPositive - percentNegative).toFixed(2);\n\nreturn {\n  json: {\n    snps: snps,\n    details: {\n      positive_percent: percentPositive.toFixed(2) + '%',\n      negative_percent: percentNegative.toFixed(2) + '%',\n      total_comments: total_comments\n    }\n  }\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4460,
-        -120
+        3440,
+        120
       ],
       "id": "49ae1488-128a-45e1-a8f9-917d8f0fd08b",
-      "name": "sNPS"
+      "name": "sNPS",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -3541,8 +3617,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3680,
-        580
+        3040,
+        680
       ],
       "id": "253f6463-2e69-4626-8c8d-6ea440b0f4b6",
       "name": "Channel Content1",
@@ -4010,7 +4086,7 @@
       "typeVersion": 2.1,
       "position": [
         3480,
-        -1020
+        -1100
       ],
       "id": "79d77654-83c9-4ac2-8d4b-0b002a26a0ac",
       "name": "Video Tab",
@@ -4042,7 +4118,6 @@
           "mappingMode": "defineBelow",
           "value": {
             "viewCount": "={{ $json.channelTotalViews }}",
-            "likes": 0,
             "channelTotalVideos": "={{ $json.channelTotalVideos }}",
             "numberOfSubscribers": "={{ $json.numberOfSubscribers }}",
             "commentsCount": "={{ $json.commentsCount }}",
@@ -4233,8 +4308,52 @@
               "removed": false
             },
             {
-              "id": "channelId",
-              "displayName": "channelId",
+              "id": "numberOfSubscribers",
+              "displayName": "numberOfSubscribers",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "channelTotalVideos",
+              "displayName": "channelTotalVideos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "viewCount",
+              "displayName": "viewCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "channelJoinedDate",
+              "displayName": "channelJoinedDate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "channelDescription",
+              "displayName": "channelDescription",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4255,24 +4374,13 @@
               "removed": false
             },
             {
-              "id": "channelDescription",
-              "displayName": "channelDescription",
+              "id": "channelId",
+              "displayName": "channelId",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "channelJoinedDate",
-              "displayName": "channelJoinedDate",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "dateTime",
               "readOnly": false,
               "removed": false
             },
@@ -4306,6 +4414,61 @@
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "inputChannelUrl",
+              "displayName": "inputChannelUrl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "isChannelVerified",
+              "displayName": "isChannelVerified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "isAgeRestricted",
+              "displayName": "isAgeRestricted",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "fromYTUrl",
+              "displayName": "fromYTUrl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "commentsCount",
+              "displayName": "commentsCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
               "readOnly": false,
               "removed": false
             },
@@ -4353,17 +4516,6 @@
               "removed": false
             },
             {
-              "id": "viewCount",
-              "displayName": "viewCount",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
               "id": "date",
               "displayName": "date",
               "required": false,
@@ -4375,74 +4527,8 @@
               "removed": false
             },
             {
-              "id": "likes",
-              "displayName": "likes",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
               "id": "location",
               "displayName": "location",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "channelTotalVideos",
-              "displayName": "channelTotalVideos",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "numberOfSubscribers",
-              "displayName": "numberOfSubscribers",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "isChannelVerified",
-              "displayName": "isChannelVerified",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "inputChannelUrl",
-              "displayName": "inputChannelUrl",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "isAgeRestricted",
-              "displayName": "isAgeRestricted",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4459,17 +4545,6 @@
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "commentsCount",
-              "displayName": "commentsCount",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
               "readOnly": false,
               "removed": false
             },
@@ -4509,17 +4584,6 @@
             {
               "id": "comments",
               "displayName": "comments",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "fromYTUrl",
-              "displayName": "fromYTUrl",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4606,7 +4670,7 @@
       "typeVersion": 2.1,
       "position": [
         3280,
-        -1020
+        -1100
       ],
       "id": "321633e3-ec08-48a2-a3de-c67f5115960b",
       "name": "Channel Tab",
@@ -4624,8 +4688,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        3020,
-        580
+        2380,
+        680
       ],
       "id": "fb3af9bb-04ba-424e-9238-155ca95a26c5",
       "name": "HTML"
@@ -5095,7 +5159,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3540,
+        3820,
         -600
       ],
       "id": "6e275a4c-40f7-4c78-98d4-91c20882b8cd",
@@ -5119,7 +5183,7 @@
           "conditions": [
             {
               "id": "5fdd0ce5-abb8-4fcd-b999-1f71f1efbb32",
-              "leftValue": "={{ $('Youtube Transcript').item.json.transcript }}",
+              "leftValue": "={{ $json.Transcript }}",
               "rightValue": "",
               "operator": {
                 "type": "string",
@@ -5135,11 +5199,13 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2940,
-        -180
+        2320,
+        -80
       ],
       "id": "4a38d8f6-e078-4cc4-921e-867b94b8aa80",
-      "name": "If"
+      "name": "If",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -5150,8 +5216,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        3240,
-        580
+        2600,
+        680
       ],
       "id": "f9cd07b2-1bf0-49cc-88b3-5ad6f8f87d25",
       "name": "Markdown"
@@ -5159,15 +5225,15 @@
     {
       "parameters": {
         "content": "## Comments Sentiment Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Score Ranges:\n-100 to +100 possible range\nAbove 0: Generally positive sentiment\nAbove 30: Considered good\nAbove 50: Excellent\nAbove 70: Exceptional/Industry leading\n\n## Interpretation Guidelines:\nBelow -20: Critical issues need addressing\n-20 to 0: Room for significant improvement\n0 to 30: Average/Acceptable\n30 to 50: Strong positive sentiment\n50+: Outstanding sentiment\n\n\n\n",
-        "height": 600,
-        "width": 1940,
+        "height": 720,
+        "width": 2240,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2920,
-        -280
+        1860,
+        -160
       ],
       "id": "44b6f604-2be7-41c6-a23f-3e65042805b4",
       "name": "Sticky Note3"
@@ -5180,8 +5246,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2980,
-        -440
+        2900,
+        -460
       ],
       "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
       "name": "OpenAI 0",
@@ -5417,8 +5483,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3480,
-        100
+        2320,
+        340
       ],
       "id": "0e81ef80-5f01-4590-9778-daa1d5fa6b24",
       "name": "Comments Tab",
@@ -5440,7 +5506,7 @@
       "typeVersion": 1,
       "position": [
         1860,
-        -1080
+        -1160
       ],
       "id": "2071c9fe-483f-47e3-944a-60224586f862",
       "name": "Sticky Note4"
@@ -5449,43 +5515,17 @@
       "parameters": {
         "content": "## Videos\n",
         "height": 340,
-        "width": 1940,
+        "width": 2140,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
+        1940,
         -660
       ],
       "id": "80b2cd05-d3bc-43f0-881b-3384ad2e80c1",
       "name": "Sticky Note5"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Prompts2').item.json.Advertising }}",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "HumanMessagePromptTemplate",
-              "message": "={{ $('Youtube Transcript').item.json.transcript }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.5,
-      "position": [
-        3160,
-        -600
-      ],
-      "id": "e0c0894c-3475-454a-814b-428c44a3f7c7",
-      "name": "Ad Detector",
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "maxTries": 5,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -5496,8 +5536,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3780,
-        20
+        2640,
+        280
       ],
       "credentials": {
         "openAiApi": {
@@ -5508,50 +5548,174 @@
     },
     {
       "parameters": {
-        "model": "o1-mini",
+        "content": "# Roadmap\n\n## Knowledge Base (KB)\n- Refine KB template\n- Refine prompts\n- Expand KB to include Podcasts, RSS feeds, Newsletters, Blogs\n- Define Process and Human participation: input, approvals, output\n- RAG: Update Vector Store - Linear, Graph, Industry Voices\n\n## Process Definition\n- Channel selection for KB\n- Who, When, How reviews/approves input to KB\n- Form, Slack, Email, Trello, Google Drive, Airtable\n\n## Article generation\n- Refine Article template\n- Topic Selection Agent\n- Refine prompts\n- Faceless videos\n- RAG: Reference Vector Store - Linear, Graph, Industry Voices\n\n## Agents\n- Images \n- Stats & Charts\n- Enhanced Audio generation\n- KB Virality Assessment (sNPS & Sentiment Analysis)\n",
+        "height": 720,
+        "width": 600
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        -660
+      ],
+      "id": "48099515-02cb-468e-91c4-afbdf9649973",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        3360,
+        700
+      ],
+      "id": "e3bfefdf-839a-443d-b4c9-06b6cdc70386",
+      "name": "Schedule Trigger2"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1620,
+        140
+      ],
+      "id": "ad0e2e00-7efd-4bee-b6f5-a1e0db3a7c6d",
+      "name": "Schedule Trigger3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "adad4ab3-6a87-493b-8a65-98afd8ff7ca7",
+              "leftValue": "={{ $json.commentsCount }}",
+              "rightValue": "={{0}}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3000,
+        -100
+      ],
+      "id": "06ed91f3-1c60-4503-9559-a2a3487fe097",
+      "name": "If1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3620,
+        -100
+      ],
+      "id": "f60ea077-0e26-468a-94a7-68402eba2213",
+      "name": "Merge2",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4-turbo",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3340,
-        -440
+        3140,
+        -460
       ],
-      "id": "b44b4cd5-a762-414b-96b9-1f7dd216748c",
-      "name": "OpenAI 1",
+      "id": "57d338b6-aa1b-4386-8171-ca00b0418b4a",
+      "name": "OpenAI ",
       "credentials": {
         "openAiApi": {
           "id": "n6jJpStEewoZQA9T",
           "name": "OpenAi account 6"
         }
       }
+    },
+    {
+      "parameters": {
+        "inputText": "{{ $('Youtube Transcript').item.json.transcript }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Empty",
+              "description": "When there is no transcript"
+            },
+            {
+              "category": "Ad",
+              "description": "When the transcript is an advertisement"
+            },
+            {
+              "category": "Content",
+              "description": "When transcript is not and ad and has content"
+            }
+          ]
+        },
+        "options": {
+          "enableAutoFixing": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        3160,
+        -600
+      ],
+      "id": "b11db0d8-e6fd-436e-b6c1-84978e586ce1",
+      "name": "Text Classifier"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3600,
+        -600
+      ],
+      "id": "b6fa2b0c-969c-4d12-a8d8-d48493808378",
+      "name": "Merge3",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
-  "pinData": {
-    "Merge": [
-      {
-        "json": {
-          "count_sentimentAnalysis": 182
-        }
-      },
-      {
-        "json": {
-          "count_sentimentAnalysis": 132
-        }
-      },
-      {
-        "json": {
-          "count_sentimentAnalysis": 38
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-30T08:04:35.000Z",
-  "versionId": "d56c45a7-32fb-46aa-8852-c9508181bb15"
+  "updatedAt": "2025-01-30T19:46:40.000Z",
+  "versionId": "ff7e86d7-b268-427f-b974-b9b5e4aea169"
 }
