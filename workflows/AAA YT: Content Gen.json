@@ -5,41 +5,8 @@
       "main": [
         [
           {
-            "node": "Airtable",
+            "node": "Prompts2",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Comments Sentiment Analysis Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model2": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Summary Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model4": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Key Points Agent",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -90,13 +57,7 @@
     },
     "Knowledge Base": {
       "main": [
-        [
-          {
-            "node": "Channel Content1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Comments": {
@@ -115,6 +76,11 @@
         [
           {
             "node": "Comments Sentiment Analysis Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Comments Tab",
             "type": "main",
             "index": 0
           }
@@ -154,16 +120,6 @@
         ]
       ]
     },
-    "Youtube Metadata": {
-      "main": [
-        []
-      ]
-    },
-    "Metadata": {
-      "main": [
-        []
-      ]
-    },
     "Youtube Transcript": {
       "main": [
         [
@@ -179,7 +135,7 @@
       "main": [
         [
           {
-            "node": "Knowledge Base",
+            "node": "Channel Content1",
             "type": "main",
             "index": 0
           }
@@ -228,18 +184,7 @@
       "main": [
         [
           {
-            "node": "Key Points Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Key Points Agent": {
-      "main": [
-        [
-          {
-            "node": "Text → Audio",
+            "node": "Ad Detector",
             "type": "main",
             "index": 0
           }
@@ -307,7 +252,7 @@
       "main": [
         [
           {
-            "node": "Videos2process",
+            "node": "Prompts2",
             "type": "main",
             "index": 0
           }
@@ -526,7 +471,7 @@
       "main": [
         [
           {
-            "node": "Prompts2",
+            "node": "Youtube Transcript",
             "type": "main",
             "index": 0
           }
@@ -548,7 +493,7 @@
       "main": [
         [
           {
-            "node": "Youtube Transcript",
+            "node": "Videos2process",
             "type": "main",
             "index": 0
           }
@@ -561,6 +506,89 @@
           {
             "node": "Video Tab",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Tab1": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Text → Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 0": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summary Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ad Detector": {
+      "main": [
+        [
+          {
+            "node": "Video Tab1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Comments Sentiment Analysis Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Ad Detector",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -579,67 +607,9 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1660,
-        -680
+        1700,
+        -760
       ]
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "cd072210-83ac-44dc-8057-1ea6c0296768",
-      "name": "OpenAI Chat Model1",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        2960,
-        80
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "model": "o1-mini",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        2720,
-        -440
-      ],
-      "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
-      "name": "OpenAI Chat Model2",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        3060,
-        -440
-      ],
-      "id": "5ae57c35-58f9-4408-be16-d23b3c11fa4d",
-      "name": "OpenAI Chat Model4",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
     },
     {
       "parameters": {},
@@ -801,8 +771,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3680,
-        -600
+        3020,
+        380
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
       "name": "Knowledge Base",
@@ -819,7 +789,7 @@
         "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Videos2process').item.json.Url }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 100\n} ",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video Tab1').item.json.fields.Video_Id }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 240\n} ",
         "options": {
           "batching": {
             "batch": {}
@@ -831,8 +801,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2480,
-        -60
+        3300,
+        -120
       ]
     },
     {
@@ -843,8 +813,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2720,
-        -60
+        3480,
+        -120
       ],
       "id": "829ff6f0-b4c0-4e1e-a0f1-95c403de1e1b",
       "name": "Split Out"
@@ -863,8 +833,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3380,
-        -220
+        4040,
+        -120
       ],
       "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
       "name": "Positive"
@@ -883,8 +853,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3380,
-        -60
+        4040,
+        20
       ],
       "id": "a36731c9-a7a9-4bc6-b4c1-efb02b65eedf",
       "name": "Neutral"
@@ -903,8 +873,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        3380,
-        100
+        4040,
+        160
       ],
       "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
       "name": "Negative"
@@ -938,8 +908,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4260,
-        -60
+        4660,
+        -120
       ],
       "id": "a8e02217-ce58-442b-9bc7-465804ab7fe7",
       "name": "Video Stats",
@@ -948,110 +918,11 @@
     },
     {
       "parameters": {
-        "url": "={{ \"https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics,status,topicDetails&id=\" + $('Videos2process').item.json.Id + \"&key=AIzaSyCMWeQ5AXVGjzjzghkjpDRS0ULqBRkTNl4\" }}",
-        "sendHeaders": true,
-        "specifyHeaders": "json",
-        "options": {}
-      },
-      "id": "c4cdde10-ac16-44fb-b05a-673fa93e4515",
-      "name": "Youtube Metadata",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2100,
-        -720
-      ]
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "febfd458-f945-465e-a2b7-e46d74e6849b",
-              "name": "items[0].kind",
-              "value": "={{ $json.items[0].kind }}",
-              "type": "string"
-            },
-            {
-              "id": "5e765835-d80e-4dee-9aaa-44ea0faa0744",
-              "name": "items[0].snippet.publishedAt",
-              "value": "={{ $json.items[0].snippet.publishedAt }}",
-              "type": "string"
-            },
-            {
-              "id": "0c8bac8e-fde7-4911-8936-1ce164521644",
-              "name": "items[0].snippet.channelId",
-              "value": "={{ $json.items[0].snippet.channelId }}",
-              "type": "string"
-            },
-            {
-              "id": "4cec6b39-d436-4222-bd9f-af6360c6741b",
-              "name": "items[0].snippet.channelTitle",
-              "value": "={{ $json.items[0].snippet.channelTitle }}",
-              "type": "string"
-            },
-            {
-              "id": "cf702f06-e545-41a6-b918-436253fda505",
-              "name": "items[0].snippet.categoryId",
-              "value": "={{ $json.items[0].snippet.categoryId }}",
-              "type": "string"
-            },
-            {
-              "id": "d48ae9a2-2529-45e8-9d59-0de30ee6bb52",
-              "name": "items[0].snippet.title",
-              "value": "={{ $json.items[0].snippet.title }}",
-              "type": "string"
-            },
-            {
-              "id": "b3d70e35-e32b-4586-bf03-d986a19872b1",
-              "name": "items[0].snippet.description",
-              "value": "={{ $json.items[0].snippet.description }}",
-              "type": "string"
-            },
-            {
-              "id": "22d8d4e3-70ae-4176-8341-f183377320a9",
-              "name": "items[0].contentDetails.duration",
-              "value": "={{ $json.items[0].contentDetails.duration }}",
-              "type": "string"
-            },
-            {
-              "id": "fbf58e3b-7e98-4097-88a5-d9baf6cc7070",
-              "name": "items[0].contentDetails.definition",
-              "value": "={{ $json.items[0].contentDetails.definition }}",
-              "type": "string"
-            },
-            {
-              "id": "976eefbc-ba4d-48f9-8120-3f1c81e60596",
-              "name": "items[0].contentDetails.contentRating",
-              "value": "={{ $json.items[0].contentDetails.contentRating }}",
-              "type": "object"
-            },
-            {
-              "id": "19242081-4bfc-423b-a6fa-99a7dfb23a73",
-              "name": "items[0].statistics",
-              "value": "={{ $json.items[0].statistics }}",
-              "type": "object"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2100,
-        -660
-      ],
-      "id": "9fd98246-5d3d-4616-b188-41bf8a093eaf",
-      "name": "Metadata"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "={{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\": [\"\"]\n}\n\n",
+        "jsonBody": "={\n    \"startUrls\": [\"{{ $('Videos2process').item.json.Video_Id }}\"]\n}\n\n",
         "options": {}
       },
       "id": "09cfe0ab-44fc-4440-9fb0-c5c1a13d0a9b",
@@ -1059,7 +930,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2460,
+        2600,
         -600
       ],
       "alwaysOutputData": true,
@@ -1068,7 +939,7 @@
     {
       "parameters": {
         "resource": "audio",
-        "input": "=Summary\n{{ $('Summary Agent').item.json.text }}\n\nKey Points\n{{ $('Key Points Agent').item.json.text }}\n\nStatistics\nViews: {{ $('Youtube Metadata').item.json.items[0].statistics.viewCount }}\nLikes: {{ $('Youtube Metadata').item.json.items[0].statistics.likeCount }}\n\nSentiment Analysis of Commnents: \nNumber of Positive comments: {{ 5 }}\nNumber of Neutral comments: {{ 4 }} \nNumber of Negative comments: {{ 2 }} ",
+        "input": "=Summary\n{{ $('Summary Agent').item.json.text }}\n",
         "options": {
           "response_format": "mp3"
         }
@@ -1078,8 +949,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3380,
-        -600
+        3460,
+        580
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1097,8 +968,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3680,
-        -60
+        4260,
+        -120
       ],
       "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
       "name": "Merge"
@@ -1170,12 +1041,12 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $json.transcript }}",
+        "text": "={{ $('Prompts2').item.json.Summary }}",
         "messages": {
           "messageValues": [
             {
               "type": "HumanMessagePromptTemplate",
-              "message": "={{ $('Prompts').item.json.Summary }}"
+              "message": "={{ $json.transcript }}"
             }
           ]
         }
@@ -1183,37 +1054,11 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        2660,
+        2800,
         -600
       ],
       "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
       "name": "Summary Agent",
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "maxTries": 5,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Ptompts').item.json.Highlights }}",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "HumanMessagePromptTemplate",
-              "message": "={{ $('Ptompts').item.json.Highlights }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.5,
-      "position": [
-        3020,
-        -600
-      ],
-      "id": "7771de5f-48de-407b-972e-11bcc7c18b4d",
-      "name": "Key Points Agent",
       "alwaysOutputData": true,
       "retryOnFail": true,
       "maxTries": 5,
@@ -1229,8 +1074,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2960,
-        -60
+        3680,
+        -120
       ]
     },
     {
@@ -1384,8 +1229,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1660,
-        -340
+        1920,
+        -600
       ],
       "id": "2a8d0e2d-6fdf-4a6d-9cb8-aefddf243b3f",
       "name": "Schedule Trigger"
@@ -1516,8 +1361,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4760,
-        -380
+        1960,
+        -180
       ]
     },
     {
@@ -1530,8 +1375,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4980,
-        -380
+        2180,
+        -180
       ]
     },
     {
@@ -1544,21 +1389,22 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5200,
-        -380
+        2400,
+        -180
       ]
     },
     {
       "parameters": {
         "content": "## Roadmap\n",
-        "height": 320,
-        "width": 1320
+        "height": 600,
+        "width": 1000,
+        "color": 6
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        4700,
-        -460
+        1860,
+        -280
       ],
       "id": "070db2e7-d649-492b-9b34-9c1f16b25315",
       "name": "Sticky Note2"
@@ -1570,8 +1416,8 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        5420,
-        -380
+        2620,
+        -180
       ],
       "id": "df68332c-2186-4d7d-9992-1e96c16ee782",
       "name": "Blog"
@@ -1583,8 +1429,8 @@
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        5720,
-        -400
+        1960,
+        60
       ],
       "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
       "name": "Email",
@@ -1611,8 +1457,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        5800,
-        -340
+        2400,
+        60
       ],
       "id": "8e1ef7b8-f92c-4bed-8ece-dcb2f93c9a9c",
       "name": "Slack",
@@ -1689,8 +1535,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1660,
-        -980
+        1920,
+        -960
       ],
       "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
       "name": "Schedule Trigger1"
@@ -1769,8 +1615,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2500,
-        -1100
+        2620,
+        -1020
       ],
       "id": "b11a639e-1b15-49e3-bb1a-9b38aeb4c35b",
       "name": "To Process"
@@ -1806,8 +1652,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2100,
-        -980
+        2360,
+        -960
       ],
       "id": "844bee5c-766a-4edc-9f3e-1828df25db79",
       "name": "to Process",
@@ -1826,8 +1672,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2720,
-        -1100
+        2840,
+        -1020
       ],
       "id": "1b8801ff-5dc4-483f-b568-a9f03f965900",
       "name": "APIfy_YT_Scrap",
@@ -2056,8 +1902,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2940,
-        -1100
+        3060,
+        -1020
       ],
       "id": "88de8156-0092-49bd-81be-d7cda55529a2",
       "name": "Channel Videos"
@@ -2090,8 +1936,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1880,
-        -980
+        2140,
+        -960
       ],
       "id": "361d365f-6371-4343-b505-e9ee97e665db",
       "name": "Airtable",
@@ -2664,8 +2510,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1880,
-        -340
+        2360,
+        -600
       ],
       "id": "d52ccc01-cee7-4b3d-a052-19e7f35dc6e2",
       "name": "Videos2process",
@@ -2685,8 +2531,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3900,
-        -60
+        4460,
+        -120
       ],
       "id": "49ae1488-128a-45e1-a8f9-917d8f0fd08b",
       "name": "sNPS"
@@ -2712,17 +2558,19 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2100,
-        -340
+        2140,
+        -600
       ],
       "id": "95f21e14-cf03-4f61-9458-e45b1db84a80",
       "name": "Prompts2",
+      "executeOnce": false,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "rSTr7Ltjwpw9Xvz2",
           "name": "Google Sheets account 5"
         }
-      }
+      },
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -3199,8 +3047,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3720,
-        -1340
+        3240,
+        -1360
       ],
       "id": "37955fea-309a-438e-8d4e-772b4c90b3ad",
       "name": "Channel Content tmp",
@@ -3693,8 +3541,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3880,
-        -600
+        3680,
+        580
       ],
       "id": "253f6463-2e69-4626-8c8d-6ea440b0f4b6",
       "name": "Channel Content1",
@@ -3734,10 +3582,11 @@
             "Date": "={{ $('Channel Videos').item.json.date }}",
             "Viewcount": "={{ $('Channel Videos').item.json.viewCount }}",
             "Thumbnailurl": "={{ $('Channel Videos').item.json.thumbnailUrl }}",
-            "Video_Id": "={{ $json.id }}",
+            "Video_Id": "={{ $('Channel Videos').item.json.url }}",
             "Transcript": "=",
             "Date_processed": "={{$now}}",
-            "Description": "={{ $('APIfy_YT_Scrap').item.json.text }}"
+            "Description": "={{ $('Channel Videos').item.json.text }}",
+            "Title": "={{ $('Channel Videos').item.json.title }}"
           },
           "matchingColumns": [
             "Video_Id"
@@ -4160,8 +4009,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3360,
-        -1100
+        3480,
+        -1020
       ],
       "id": "79d77654-83c9-4ac2-8d4b-0b002a26a0ac",
       "name": "Video Tab",
@@ -4756,8 +4605,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3160,
-        -1100
+        3280,
+        -1020
       ],
       "id": "321633e3-ec08-48a2-a3de-c67f5115960b",
       "name": "Channel Tab",
@@ -4770,7 +4619,20 @@
     },
     {
       "parameters": {
-        "operation": "upsert",
+        "html": "<html>\n        <head>\n          <style>\n            body { font-family: Arial, sans-serif; padding: 20px; }\n            img { max-width: 100%; height: auto; }\n            .key-points { margin: 20px 0; }\n            .metadata { color: #888; }\n          </style>\n        </head>\n        <body>\n          <h1>{{ $('Youtube Transcript').item.json.videoTitle }}</h1>\n          <h2>Summary</h2>\n          <p>{{ $('Summary Agent').item.json.text }}</p>\n        \n          <div class=\"metadata\">\n            <h2>Video Information</h2>\n            <ul>\n              <li>Channel: {{ $('Videos2process').item.json.Channelname }}</li>\n              <li>Hyperlink: <a href=\"{{ $('Videos2process').item.json.Video_Url }}\" target=\"_blank\">{{ $('Videos2process').item.json.Video_Url }}</a></li>\n              <li>Published: {{ $now }} </li>\n              <li>Duration: {{ $('Videos2process').item.json.Duration }}</li>\n            </ul>\n          </div>\n        </body>\n      </html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        3020,
+        580
+      ],
+      "id": "fb3af9bb-04ba-424e-9238-155ca95a26c5",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "operation": "update",
         "base": {
           "__rl": true,
           "value": "appXgzD7mFshr94K3",
@@ -4788,35 +4650,16 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Video_Url": "={{ $json.url }}",
-            "Channel_Id": "={{ $json.channelId }}",
-            "Description": "=",
-            "Channelname": "={{ $json.channelName }}",
-            "Channeltotalvideos": "={{ $json.channelTotalVideos }}",
-            "Channeltotalviews": "={{ $json.channelTotalViews }}",
-            "Numberofsubscribers": "={{ $json.numberOfSubscribers }}",
-            "Ischannelverified": "={{ $json.isChannelVerified }}",
-            "Inputchannelurl": "={{ $json.inputChannelUrl }}",
-            "Duration": "={{ $json.duration }}",
-            "Formats": "={{ $json.formats }}",
-            "Hashtags": "={{ $json.hashtags }}",
-            "Ismonetized": "={{ $json.isMonetized }}",
-            "Fromyturl": "={{ $json.fromYTUrl }}",
-            "Comments": "={{ $json.comments }}",
-            "Commentsturnedoff": "={{ $json.commentsTurnedOff }}",
-            "Subtitles": "={{ $json.subtitles }}",
-            "Location": "={{ $json.location }}",
-            "Likes": "={{ $json.likes }}",
-            "Date": "={{ $json.date }}",
-            "Viewcount": "={{ $json.viewCount }}",
-            "Thumbnailurl": "={{ $json.thumbnailUrl }}",
-            "Video_Id": "={{ $json.id }}",
-            "Type": "={{ $json.type }}",
-            "Title": "={{ $json.title }}",
-            "Transcript": "=",
-            "Date_processed": "={{$now}}"
+            "Video_Url": "={{ $('Videos2process').item.json.Video_Url }}",
+            "Video_Id": "={{ $('Youtube Transcript').item.json.url }}",
+            "Transcript": "={{ $('Youtube Transcript').item.json.transcript }}",
+            "Date_processed": "={{$now}}",
+            "Summary": "={{ $('Summary Agent').item.json.text }}",
+            "Highlights": "={{ $json.text }}"
           },
-          "matchingColumns": [],
+          "matchingColumns": [
+            "Video_Url"
+          ],
           "schema": [
             {
               "id": "id",
@@ -4829,8 +4672,8 @@
               "removed": false
             },
             {
-              "id": "Process",
-              "displayName": "Process",
+              "id": "Video_Id",
+              "displayName": "Video_Id",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4840,15 +4683,26 @@
               "removed": false
             },
             {
-              "id": "Date_from_channel",
-              "displayName": "Date_from_channel",
+              "id": "Process?",
+              "displayName": "Process?",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
+            },
+            {
+              "id": "Channel_Updated",
+              "displayName": "Channel_Updated",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
             },
             {
               "id": "Date_processed",
@@ -4862,35 +4716,13 @@
               "removed": false
             },
             {
-              "id": "Channel",
-              "displayName": "Channel",
+              "id": "Title",
+              "displayName": "Title",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Channel_Id",
-              "displayName": "Channel_Id",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Channel_Id (from Channels)",
-              "displayName": "Channel_Id (from Channels)",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "array",
               "readOnly": false,
               "removed": true
             },
@@ -4903,7 +4735,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Transcript",
@@ -4939,26 +4771,15 @@
               "removed": false
             },
             {
-              "id": "Notes",
-              "displayName": "Notes",
+              "id": "Duration",
+              "displayName": "Duration",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Title",
-              "displayName": "Title",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Type",
@@ -4969,11 +4790,33 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
-              "id": "Video_Id",
-              "displayName": "Video_Id",
+              "id": "Viewcount",
+              "displayName": "Viewcount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Likes",
+              "displayName": "Likes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -5002,18 +4845,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Viewcount",
-              "displayName": "Viewcount",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Date",
@@ -5024,29 +4856,18 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
-              "id": "Likes",
-              "displayName": "Likes",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Location",
-              "displayName": "Location",
+              "id": "Commentsturnedoff",
+              "displayName": "Commentsturnedoff",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Channelname",
@@ -5057,7 +4878,29 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Channel_Id",
+              "displayName": "Channel_Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
             },
             {
               "id": "Channeltotalvideos",
@@ -5068,7 +4911,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Channeltotalviews",
@@ -5079,7 +4922,18 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
             },
             {
               "id": "Numberofsubscribers",
@@ -5090,7 +4944,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Ischannelverified",
@@ -5101,7 +4955,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Inputchannelurl",
@@ -5112,7 +4966,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Isagerestricted",
@@ -5124,17 +4978,6 @@
               "type": "string",
               "readOnly": false,
               "removed": true
-            },
-            {
-              "id": "Duration",
-              "displayName": "Duration",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
             },
             {
               "id": "Text",
@@ -5156,18 +4999,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Commentsturnedoff",
-              "displayName": "Commentsturnedoff",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Comments",
@@ -5178,7 +5010,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Fromyturl",
@@ -5189,7 +5021,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Ismonetized",
@@ -5200,7 +5032,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Hashtags",
@@ -5211,7 +5043,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Formats",
@@ -5222,7 +5054,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Input",
@@ -5234,6 +5066,23 @@
               "type": "string",
               "readOnly": false,
               "removed": true
+            },
+            {
+              "id": "KB Approved",
+              "displayName": "KB Approved",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "",
+                  "value": ""
+                }
+              ],
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -5246,15 +5095,434 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3220,
-        -880
+        3540,
+        -600
       ],
-      "id": "477d384a-34c3-4165-8142-6f2180250548",
+      "id": "6e275a4c-40f7-4c78-98d4-91c20882b8cd",
       "name": "Video Tab1",
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
           "name": "n8nToken_20250128"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5fdd0ce5-abb8-4fcd-b999-1f71f1efbb32",
+              "leftValue": "={{ $('Youtube Transcript').item.json.transcript }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2940,
+        -180
+      ],
+      "id": "4a38d8f6-e078-4cc4-921e-867b94b8aa80",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "html": "<html>\n        <head>\n          <style>\n            body { font-family: Arial, sans-serif; padding: 20px; }\n            img { max-width: 100%; height: auto; }\n            .key-points { margin: 20px 0; }\n            .metadata { color: #888; }\n          </style>\n        </head>\n        <body>\n          <h1>{{ $('Youtube Transcript').item.json.videoTitle }}</h1>\n          <h2>Summary</h2>\n          <p>{{ $('Summary Agent').item.json.text }}</p>\n        \n          <div class=\"metadata\">\n            <h2>Video Information</h2>\n            <ul>\n              <li>Channel: {{ $('Videos2process').item.json.Channelname }}</li>\n              <li>Hyperlink: <a href=\"{{ $('Videos2process').item.json.Video_Url }}\" target=\"_blank\">{{ $('Videos2process').item.json.Video_Url }}</a></li>\n              <li>Published: {{ $now }} </li>\n              <li>Duration: {{ $('Videos2process').item.json.Duration }}</li>\n            </ul>\n          </div>\n        </body>\n      </html>",
+        "destinationKey": "Card",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        3240,
+        580
+      ],
+      "id": "f9cd07b2-1bf0-49cc-88b3-5ad6f8f87d25",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "content": "## Comments Sentiment Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Score Ranges:\n-100 to +100 possible range\nAbove 0: Generally positive sentiment\nAbove 30: Considered good\nAbove 50: Excellent\nAbove 70: Exceptional/Industry leading\n\n## Interpretation Guidelines:\nBelow -20: Critical issues need addressing\n-20 to 0: Room for significant improvement\n0 to 30: Average/Acceptable\n30 to 50: Strong positive sentiment\n50+: Outstanding sentiment\n\n\n\n",
+        "height": 600,
+        "width": 1940,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2920,
+        -280
+      ],
+      "id": "44b6f604-2be7-41c6-a23f-3e65042805b4",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "model": "o1-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2980,
+        -440
+      ],
+      "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
+      "name": "OpenAI 0",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltMGiskcvr9yejM",
+          "mode": "list",
+          "cachedResultName": "Comments",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tbltMGiskcvr9yejM"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Video_url": "={{ $('Comments').item.json.pageUrl }}",
+            "commentsCount": "={{ $('Comments').item.json.commentsCount }}",
+            "cid": "={{ $('Comments').item.json.cid }}",
+            "error": "={{ $('Comments').item.json.error }}",
+            "title": "={{ $('Comments').item.json.title }}",
+            "type": "={{ $('Comments').item.json.type }}",
+            "publishedTimeText": "={{ $('Comments').item.json.publishedTimeText }}",
+            "comment": "={{ $('Comments').item.json.comment }}",
+            "author": "={{ $('Comments').item.json.author }}",
+            "authorIsChannelOwner": "={{ $('Comments').item.json.authorIsChannelOwner }}",
+            "replyCount": "={{ $('Comments').item.json.replyCount }}",
+            "voteCount": "={{ $('Comments').item.json.voteCount }}",
+            "hasCreatorHeart": "={{ $('Comments').item.json.hasCreatorHeart }}",
+            "replyToCid": "={{ $('Comments').item.json.replyToCid }}"
+          },
+          "matchingColumns": [
+            "Video_url"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Video_url",
+              "displayName": "Video_url",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "commentsCount",
+              "displayName": "commentsCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "error",
+              "displayName": "error",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "cid",
+              "displayName": "cid",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "replyToCid",
+              "displayName": "replyToCid",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "publishedTimeText",
+              "displayName": "publishedTimeText",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "comment",
+              "displayName": "comment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "author",
+              "displayName": "author",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "authorIsChannelOwner",
+              "displayName": "authorIsChannelOwner",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "replyCount",
+              "displayName": "replyCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "voteCount",
+              "displayName": "voteCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "hasCreatorHeart",
+              "displayName": "hasCreatorHeart",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3480,
+        100
+      ],
+      "id": "0e81ef80-5f01-4590-9778-daa1d5fa6b24",
+      "name": "Comments Tab",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Channels\n",
+        "height": 300,
+        "width": 1880,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        -1080
+      ],
+      "id": "2071c9fe-483f-47e3-944a-60224586f862",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Videos\n",
+        "height": 340,
+        "width": 1940,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        -660
+      ],
+      "id": "80b2cd05-d3bc-43f0-881b-3384ad2e80c1",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Prompts2').item.json.Advertising }}",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "={{ $('Youtube Transcript').item.json.transcript }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        3160,
+        -600
+      ],
+      "id": "e0c0894c-3475-454a-814b-428c44a3f7c7",
+      "name": "Ad Detector",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "cd072210-83ac-44dc-8057-1ea6c0296768",
+      "name": "OpenAI 2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3780,
+        20
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "o1-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3340,
+        -440
+      ],
+      "id": "b44b4cd5-a762-414b-96b9-1f7dd216748c",
+      "name": "OpenAI 1",
+      "credentials": {
+        "openAiApi": {
+          "id": "n6jJpStEewoZQA9T",
+          "name": "OpenAi account 6"
         }
       }
     }
@@ -5284,6 +5552,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-29T19:52:58.000Z",
-  "versionId": "fb30ae23-6cb0-4f8e-b662-3705066938ac"
+  "updatedAt": "2025-01-30T08:04:35.000Z",
+  "versionId": "d56c45a7-32fb-46aa-8852-c9508181bb15"
 }
