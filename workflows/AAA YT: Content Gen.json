@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Prompts2",
+            "node": "Prompts",
             "type": "main",
             "index": 0
           }
@@ -263,7 +263,7 @@
       "main": [
         [
           {
-            "node": "Prompts2",
+            "node": "Prompts",
             "type": "main",
             "index": 0
           }
@@ -502,13 +502,7 @@
     },
     "Prompts2": {
       "main": [
-        [
-          {
-            "node": "Videos2process",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Channel Tab": {
@@ -653,6 +647,17 @@
         [
           {
             "node": "Video Tab1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompts": {
+      "main": [
+        [
+          {
+            "node": "Videos2process",
             "type": "main",
             "index": 0
           }
@@ -1115,11 +1120,11 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $('Prompts2').item.json.Summary }}",
+        "text": "={{ $('Prompts').item.json.Summary }}",
         "messages": {
           "messageValues": [
             {
-              "type": "HumanMessagePromptTemplate",
+              "type": "AIMessagePromptTemplate",
               "message": "={{ $json.transcript }}"
             }
           ]
@@ -1435,8 +1440,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4220,
-        -780
+        4400,
+        -840
       ]
     },
     {
@@ -1449,8 +1454,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4440,
-        -780
+        4620,
+        -840
       ]
     },
     {
@@ -1463,8 +1468,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4660,
-        -780
+        4840,
+        -840
       ]
     },
     {
@@ -1477,8 +1482,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        4120,
-        -880
+        4300,
+        -940
       ],
       "id": "070db2e7-d649-492b-9b34-9c1f16b25315",
       "name": "Sticky Note2"
@@ -1490,8 +1495,8 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        4880,
-        -780
+        5060,
+        -840
       ],
       "id": "df68332c-2186-4d7d-9992-1e96c16ee782",
       "name": "Blog"
@@ -1503,8 +1508,8 @@
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        4220,
-        -540
+        4400,
+        -600
       ],
       "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
       "name": "Email",
@@ -1531,8 +1536,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        4660,
-        -540
+        4840,
+        -600
       ],
       "id": "8e1ef7b8-f92c-4bed-8ece-dcb2f93c9a9c",
       "name": "Slack",
@@ -2024,28 +2029,6 @@
         }
       },
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "formTitle": "Create an Article",
-        "formDescription": "Give me a topic to write an article on.",
-        "formFields": {
-          "values": [
-            {}
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.formTrigger",
-      "typeVersion": 2.2,
-      "position": [
-        3700,
-        1500
-      ],
-      "id": "71c2a1d2-d9ca-4d4f-86ac-1df3f5e405a6",
-      "name": "On form submission",
-      "webhookId": "09ee0189-f457-4993-b5f5-c35c64e14bd7",
-      "disabled": true
     },
     {
       "parameters": {
@@ -2634,8 +2617,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2140,
-        -600
+        2600,
+        -820
       ],
       "id": "95f21e14-cf03-4f61-9458-e45b1db84a80",
       "name": "Prompts2",
@@ -4718,8 +4701,7 @@
             "Video_Id": "={{ $('Youtube Transcript').item.json.url }}",
             "Transcript": "={{ $('Youtube Transcript').item.json.transcript }}",
             "Date_processed": "={{$now}}",
-            "Summary": "={{ $('Summary Agent').item.json.text }}",
-            "Highlights": "={{ $json.text }}"
+            "Summary": "={{ $('Summary Agent').item.json.text }}"
           },
           "matchingColumns": [
             "Video_Url"
@@ -4815,17 +4797,6 @@
             {
               "id": "Summary",
               "displayName": "Summary",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Highlights",
-              "displayName": "Highlights",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -5183,7 +5154,7 @@
           "conditions": [
             {
               "id": "5fdd0ce5-abb8-4fcd-b999-1f71f1efbb32",
-              "leftValue": "={{ $json.Transcript }}",
+              "leftValue": "=",
               "rightValue": "",
               "operator": {
                 "type": "string",
@@ -5499,7 +5470,7 @@
       "parameters": {
         "content": "## Channels\n",
         "height": 300,
-        "width": 1880,
+        "width": 2220,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -5515,13 +5486,13 @@
       "parameters": {
         "content": "## Videos\n",
         "height": 340,
-        "width": 2140,
+        "width": 2220,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1940,
+        1860,
         -660
       ],
       "id": "80b2cd05-d3bc-43f0-881b-3384ad2e80c1",
@@ -5643,7 +5614,7 @@
     },
     {
       "parameters": {
-        "model": "gpt-4-turbo",
+        "model": "gpt-4-0125-preview",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
@@ -5663,25 +5634,26 @@
     },
     {
       "parameters": {
-        "inputText": "{{ $('Youtube Transcript').item.json.transcript }}",
+        "inputText": "={{ $('Youtube Transcript').item.json.transcript || '[null]' }}",
         "categories": {
           "categories": [
             {
               "category": "Empty",
-              "description": "When there is no transcript"
+              "description": "there is no transcript"
             },
             {
               "category": "Ad",
-              "description": "When the transcript is an advertisement"
+              "description": "transcript is an advertisement"
             },
             {
               "category": "Content",
-              "description": "When transcript is not and ad and has content"
+              "description": "When transcript is not an ad. It is real content."
             }
           ]
         },
         "options": {
-          "enableAutoFixing": true
+          "systemPromptTemplate": "={{ $('Prompts').item.json.Advertising }}",
+          "enableAutoFixing": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
@@ -5691,7 +5663,9 @@
         -600
       ],
       "id": "b11db0d8-e6fd-436e-b6c1-84978e586ce1",
-      "name": "Text Classifier"
+      "name": "Text Classifier",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -5707,6 +5681,52 @@
       "name": "Merge3",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblQVGiDUAOgPPOzp",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblQVGiDUAOgPPOzp"
+        },
+        "options": {
+          "fields": [],
+          "view": {
+            "__rl": true,
+            "value": "viww8jDFKC0kpniCm",
+            "mode": "list",
+            "cachedResultName": "Grid view",
+            "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblQVGiDUAOgPPOzp/viww8jDFKC0kpniCm"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2140,
+        -600
+      ],
+      "id": "4c42d43c-f939-4d58-a0c6-1159bfec510e",
+      "name": "Prompts",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      },
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -5716,6 +5736,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-30T19:46:40.000Z",
-  "versionId": "ff7e86d7-b268-427f-b974-b9b5e4aea169"
+  "updatedAt": "2025-01-31T07:12:40.000Z",
+  "versionId": "e4e6ffcf-db37-459c-bfcd-d05b12957b99"
 }
