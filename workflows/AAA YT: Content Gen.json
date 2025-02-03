@@ -379,17 +379,6 @@
         []
       ]
     },
-    "HTML": {
-      "main": [
-        [
-          {
-            "node": "Markdown",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "If": {
       "main": [
         [],
@@ -605,7 +594,29 @@
       "main": [
         [
           {
-            "node": "HTML",
+            "node": "html_document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "html_document": {
+      "main": [
+        [
+          {
+            "node": "html_summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "html_summary": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
             "type": "main",
             "index": 0
           }
@@ -934,9 +945,10 @@
     {
       "parameters": {
         "resource": "audio",
-        "input": "=Summary\n{{ $('Summary Agent').item.json.text }}\n",
+        "input": "=",
+        "voice": "nova",
         "options": {
-          "response_format": "mp3"
+          "response_format": "aac"
         }
       },
       "id": "057cc906-959c-43fc-b33d-5a1caf1dd4eb",
@@ -1358,8 +1370,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4400,
-        -840
+        1180,
+        -240
       ]
     },
     {
@@ -1372,8 +1384,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4620,
-        -840
+        1400,
+        -240
       ]
     },
     {
@@ -1386,22 +1398,22 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4840,
-        -840
+        1180,
+        -60
       ]
     },
     {
       "parameters": {
         "content": "## Roadmap\n",
-        "height": 600,
-        "width": 1000,
+        "height": 640,
+        "width": 600,
         "color": 6
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        4300,
-        -940
+        1040,
+        -340
       ],
       "id": "070db2e7-d649-492b-9b34-9c1f16b25315",
       "name": "Sticky Note2"
@@ -1413,8 +1425,8 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        5060,
-        -840
+        1400,
+        -60
       ],
       "id": "df68332c-2186-4d7d-9992-1e96c16ee782",
       "name": "Blog"
@@ -1426,8 +1438,8 @@
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
       "position": [
-        4400,
-        -600
+        1180,
+        120
       ],
       "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
       "name": "Email",
@@ -1454,8 +1466,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        4840,
-        -600
+        1400,
+        120
       ],
       "id": "8e1ef7b8-f92c-4bed-8ece-dcb2f93c9a9c",
       "name": "Slack",
@@ -1941,8 +1953,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4800,
-        -260
+        4660,
+        480
       ],
       "id": "95f21e14-cf03-4f61-9458-e45b1db84a80",
       "name": "Prompts2",
@@ -2430,8 +2442,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4360,
-        -260
+        4400,
+        480
       ],
       "id": "37955fea-309a-438e-8d4e-772b4c90b3ad",
       "name": "Channel Content tmp",
@@ -2924,7 +2936,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3020,
+        3280,
         900
       ],
       "id": "253f6463-2e69-4626-8c8d-6ea440b0f4b6",
@@ -2935,19 +2947,6 @@
           "name": "n8nToken_20250128"
         }
       }
-    },
-    {
-      "parameters": {
-        "html": "<html>\n        <head>    \n          <style>\n            body { font-family: Arial, sans-serif; padding: 20px; }\n            img { max-width: 100%; height: auto; }\n            .key-points { margin: 20px 0; }\n            .metadata { color: #888; }\n\n            .separator {\n            border-bottom: 1px solid #ccc;\n            margin: 20px 0;\n            }\n          </style>\n        </head>\n        <body>\n          <h2>{{ $('Youtube Transcript').first().json.videoTitle }}</h2>\n          <hr>   \n          </hr>\n          <div class=\"metadata\">\n            <h4>Video Information</h4>\n            <ul>\n              <li>Channel: {{ $('Read_Videos').first().json.Channelname }}</li>\n              <li>Hyperlink: <a href=\"{{ $('Read_Videos').first().json.Video_Url }}\" target=\"_blank\">{{ $('Read_Videos').first().json.Video_Url }}</a></li>\n              <li>Published: {{ $now }} </li>\n              <li>Duration: {{ $('Read_Videos').first().json.Duration }}</li>\n\n              <li>View count: {{ $('Read_Videos').first().json.Viewcount }}</li>\n              <li>Likes: {{ $('Read_Videos').first().json.Likes }}</li>\n\n            </ul>\n          </div>\n           <div class=\"metadata\">\n            <h4>Comment Sentiment Analysis</h4>\n            <ul>\n              <li>sNPS: {{ $json.snps }}%</li>\n              <li>Positive: {{ $('Positive').first().json.count_sentimentAnalysis }}</li>\n              <li>Neutral:  {{ $('Neutral').first().json.count_sentimentAnalysis }}</li>\n              <li>Negative: {{ $('Negative').first().json.count_sentimentAnalysis }}</li>\n            </ul>\n          </div>\n          <hr>   \n          </hr>\n          <h3>Summary</h3>\n          <p>{{ $('Summary Agent').first().json.text }}</p>\n\n          <h3>Transcript</h3>\n          <p>{{ $('Youtube Transcript').first().json.transcript }}</p>\n        </body>\n      </html>"
-      },
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1.2,
-      "position": [
-        2380,
-        900
-      ],
-      "id": "fb3af9bb-04ba-424e-9238-155ca95a26c5",
-      "name": "HTML"
     },
     {
       "parameters": {
@@ -3096,8 +3095,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1000,
-        -660
+        1040,
+        -1140
       ],
       "id": "48099515-02cb-468e-91c4-afbdf9649973",
       "name": "Sticky Note6"
@@ -3113,7 +3112,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        3340,
+        3520,
         920
       ],
       "id": "e3bfefdf-839a-443d-b4c9-06b6cdc70386",
@@ -5162,7 +5161,7 @@
     {
       "parameters": {
         "content": "PDF and Audio",
-        "height": 340,
+        "height": 480,
         "width": 2220,
         "color": 5
       },
@@ -5170,7 +5169,7 @@
       "typeVersion": 1,
       "position": [
         1860,
-        800
+        820
       ],
       "id": "a70f82dd-be27-4b39-981f-d6d87ee062eb",
       "name": "Sticky Note7"
@@ -5378,11 +5377,84 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3800,
+        3760,
         440
       ],
       "id": "07558453-935e-4374-91ae-cbe7bcec784d",
       "name": "Sentiment Stats"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "82ebf343-e69a-4d27-8c4e-6af3040f8139",
+              "name": "html_title",
+              "value": "<h2>{{ $('Youtube Transcript').first().json.videoTitle }}</h2>",
+              "type": "string"
+            },
+            {
+              "id": "0c93ecc9-d54e-48be-ad71-c60485cfad7a",
+              "name": "html_head",
+              "value": "<head>\n<style>\nbody { font-family: Arial, sans-serif; padding: 20px; }\nimg { max-width: 100%; height: auto; }\n.key-points { margin: 20px 0; }\n.metadata { color: #888; }\n.separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n</style>\n</head>",
+              "type": "string"
+            },
+            {
+              "id": "8009ccb4-770e-4d95-b10e-13a807c1333b",
+              "name": "html_metadata",
+              "value": "<style>\nbody { font-family: Arial, sans-serif; padding: 20px; }\nimg { max-width: 100%; height: auto; }\n.key-points { margin: 20px 0; }\n.metadata { color: #888; }\nhr {\n    border: 0;\n    height: 1px;\n    background-color: #ddd;\n     margin: 20px 0;\n    }\n</style>",
+              "type": "string"
+            },
+            {
+              "id": "5e5bd01f-738d-4c03-b082-58edec4ff66b",
+              "name": "html_summary",
+              "value": "<h3>Summary</h3>\n<p>{{ $('Summary Agent').first().json.text }}</p>\n",
+              "type": "string"
+            },
+            {
+              "id": "8e0a7b60-ff72-44c1-9c89-b3481f57b74a",
+              "name": "html_transcript",
+              "value": "<h3>Transcript</h3> \n<p>{{ $('Youtube Transcript').first().json.transcript }}</p>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3920,
+        440
+      ],
+      "id": "5da55f0d-ec56-401b-9ded-b25ae0002f62",
+      "name": "html_document"
+    },
+    {
+      "parameters": {
+        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>        \n    <hr></hr>\n    <h3>Transcript</h3> \\n<p>{{ $('Youtube Transcript').first().json.transcript }}</p>\n    <hr></hr>\n  </body>\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        2380,
+        1080
+      ],
+      "id": "6237d216-b83d-4033-a019-917b7736d8fb",
+      "name": "HTML_Transcript"
+    },
+    {
+      "parameters": {
+        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    <h2>{{ $('Youtube Transcript').first().json.videoTitle }}</h2>\n    <h3>Summary</h3>\n    <p>{{ $('Summary Agent').first().json.text }}</p>\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Read_Videos').first().json.Channelname }}</li>\n        <li>Hyperlink: <a href=\"{{ $('Read_Videos').first().json.Video_Url }}\" target=\"_blank\">{{ $('Read_Videos').first().json.Video_Url }}</a></li>\n        <li>Published: {{ $now }} </li>\n        <li>Duration: {{ $('Read_Videos').first().json.Duration }}</li>\n        <li>View count: {{ $('Read_Videos').first().json.Viewcount }}</li>\n        <li>Likes: {{ $('Read_Videos').first().json.Likes }}</li>              </ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>sNPS: {{ $json.snps }}%</li>\n        <li>Positive: {{ $('Positive').first().json.count_sentimentAnalysis }}</li>\n        <li>Neutral:  {{ $('Neutral').first().json.count_sentimentAnalysis }}</li>\n        <li>Negative: {{ $('Negative').first().json.count_sentimentAnalysis }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        2380,
+        900
+      ],
+      "id": "fb3af9bb-04ba-424e-9238-155ca95a26c5",
+      "name": "html_summary"
     }
   ],
   "pinData": {},
@@ -5392,6 +5464,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-31T11:08:58.000Z",
-  "versionId": "8ffb9bbd-13ea-4e13-a4dd-70301b0eabc0"
+  "updatedAt": "2025-02-03T22:08:23.000Z",
+  "versionId": "982500cb-5a64-4f7f-a271-92b1f5749e65"
 }
