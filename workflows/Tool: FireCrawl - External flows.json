@@ -3,16 +3,10 @@
   "connections": {
     "FireCrawl": {
       "main": [
-        [
-          {
-            "node": "Edit Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
-    "Execute Workflow Trigger": {
+    "Workflow Input Trigger": {
       "main": [
         [
           {
@@ -31,17 +25,6 @@
   },
   "name": "Tool: FireCrawl - External flows",
   "nodes": [
-    {
-      "parameters": {},
-      "id": "290cc9b8-e4b1-4124-ab0e-afbb02a9072b",
-      "name": "Execute Workflow Trigger",
-      "type": "n8n-nodes-base.executeWorkflowTrigger",
-      "position": [
-        400,
-        480
-      ],
-      "typeVersion": 1
-    },
     {
       "parameters": {
         "method": "POST",
@@ -71,29 +54,6 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "1af62ef9-7385-411a-8aba-e4087f09c3a9",
-              "name": "response",
-              "type": "string",
-              "value": "={{ $json.data.markdown }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "a28bdbe6-fa59-4bf1-b0ab-c34ebb10cf0f",
-      "name": "Edit Fields",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        840,
-        480
-      ],
-      "typeVersion": 3.4
-    },
-    {
-      "parameters": {
         "content": "## Send URL got Crawl\nThis can be reused by Ai Agents and any Workspace to crawl a site. All that Workspace has to do is send a request:\n\n```json\n {\n    \"url\": \"Some URL to Get\"\n  }\n```",
         "height": 200,
         "width": 620
@@ -106,6 +66,19 @@
         240
       ],
       "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        480
+      ],
+      "id": "a8ea37f9-39eb-4198-b7f0-423c609216c8",
+      "name": "Workflow Input Trigger"
     }
   ],
   "pinData": {},
@@ -115,6 +88,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-21T06:23:00.000Z",
-  "versionId": "bbc9926f-df39-4104-9db6-529ff2fb4aac"
+  "updatedAt": "2025-02-03T23:29:32.000Z",
+  "versionId": "79974d5d-e91c-4ed7-b42e-017812f8931f"
 }
