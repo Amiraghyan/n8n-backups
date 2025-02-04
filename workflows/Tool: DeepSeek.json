@@ -3,20 +3,14 @@
   "connections": {
     "When clicking ‘Test workflow’": {
       "main": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "When chat message received": {
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "Execute Workflow",
             "type": "main",
             "index": 0
           }
@@ -65,6 +59,28 @@
           }
         ]
       ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-01-28T09:04:28.704Z",
@@ -79,8 +95,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        0
+        40,
+        160
       ],
       "id": "e4a422f5-a293-4b43-ab26-50d4e476c2d8",
       "name": "When clicking ‘Test workflow’"
@@ -92,8 +108,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        220,
-        0
+        200,
+        1020
       ],
       "id": "8cb862c2-9280-4ff0-8911-3b546fbd73ca",
       "name": "When chat message received",
@@ -215,6 +231,94 @@
           "name": "n8nToken_20250128"
         }
       }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        500,
+        560
+      ],
+      "id": "bec6e5e7-60a8-4cab-8655-727c006b585a",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        500,
+        740
+      ],
+      "id": "c1bff44d-2bcd-49a2-867c-a188185ad22b",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "cOFFr7FB6SAc7Hl2",
+          "name": "Anthropic account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ed09994c-7dd9-4bb6-8e7d-fa9ae2b485c8",
+              "name": "prompt",
+              "value": "\"What are the unique headings available?\"",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        560
+      ],
+      "id": "6a5e8cc2-6e73-40ab-8994-dc2af4a06858",
+      "name": "Prompt"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "pnWFhM7su2rpk3Lw",
+          "mode": "list",
+          "cachedResultName": "Tool: FireCrawl - External flows"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        420,
+        1020
+      ],
+      "id": "53401b89-7052-4619-a53d-4a0fd1495c2a",
+      "name": "Execute Workflow",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -224,6 +328,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-28T22:14:01.000Z",
-  "versionId": "adaa5126-2bf1-4d9c-94d7-c82aad32ca01"
+  "updatedAt": "2025-02-03T23:25:31.000Z",
+  "versionId": "bb3aef0d-de52-499a-8eab-fe5a8756ff9f"
 }
