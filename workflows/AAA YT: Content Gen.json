@@ -469,7 +469,7 @@
       "main": [
         [
           {
-            "node": "Read_Comments",
+            "node": "Comments",
             "type": "main",
             "index": 0
           }
@@ -719,13 +719,7 @@
     },
     "to Process1": {
       "main": [
-        [
-          {
-            "node": "Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Read_Comments": {
@@ -976,7 +970,7 @@
         "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $json.fields.Video_Id }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 240\n} ",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Read_Videos').item.json.Video_Url }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 240\n} ",
         "options": {
           "batching": {
             "batch": {}
@@ -6145,7 +6139,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        2240,
+        1880,
         -280
       ],
       "id": "73f3fe8b-e68f-4951-9f89-8c9166877772",
@@ -6343,6 +6337,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-05T08:04:51.000Z",
-  "versionId": "c6cb5c4f-12e3-4e1f-a68a-b2406f29e2a5"
+  "updatedAt": "2025-02-05T15:50:21.000Z",
+  "versionId": "8f577986-239a-4472-a166-7521e1c5827c"
 }
