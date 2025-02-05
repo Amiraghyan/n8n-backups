@@ -75,7 +75,7 @@
       "main": [
         [
           {
-            "node": "If1",
+            "node": "If zero comments",
             "type": "main",
             "index": 0
           }
@@ -184,7 +184,7 @@
       "main": [
         [
           {
-            "node": "Text Classifier",
+            "node": "Classifier",
             "type": "main",
             "index": 0
           }
@@ -379,12 +379,6 @@
         []
       ]
     },
-    "If": {
-      "main": [
-        [],
-        []
-      ]
-    },
     "Markdown": {
       "main": [
         [
@@ -411,40 +405,9 @@
         []
       ]
     },
-    "If1": {
-      "main": [
-        [
-          {
-            "node": "Merge2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Split Out",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI ": {
       "ai_languageModel": [
         []
-      ]
-    },
-    "Text Classifier": {
-      "main": [
-        [],
-        [],
-        [
-          {
-            "node": "Merge3",
-            "type": "main",
-            "index": 2
-          }
-        ]
       ]
     },
     "Merge3": {
@@ -473,7 +436,7 @@
       "main": [
         [
           {
-            "node": "Youtube Transcript",
+            "node": "Process_video",
             "type": "main",
             "index": 0
           }
@@ -506,7 +469,7 @@
       "main": [
         [
           {
-            "node": "Comments",
+            "node": "Read_Comments",
             "type": "main",
             "index": 0
           }
@@ -528,7 +491,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "Text Classifier",
+            "node": "Classifier",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -622,6 +585,201 @@
           }
         ]
       ]
+    },
+    "Schedule Trigger Every Monday, @ 08:00am": {
+      "main": [
+        [
+          {
+            "node": "Topic for Google search",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Past Contributions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Past Contributions": {
+      "main": [
+        [
+          {
+            "node": "Merge Data (Keep New)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Topic for Google search": {
+      "main": [
+        [
+          {
+            "node": "LIN Advice articles (Google search)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LIN Advice articles (Google search)": {
+      "main": [
+        [
+          {
+            "node": "Extract Article links (LIN Advice articles)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Article links (LIN Advice articles)": {
+      "main": [
+        [
+          {
+            "node": "Split Out All Links (LinkedIn Advice articles)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out All Links (LinkedIn Advice articles)": {
+      "main": [
+        [
+          {
+            "node": "Merge Data (Keep New)",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Data (Keep New)": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (LIN Advice)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (LIN Advice)": {
+      "main": [
+        [
+          {
+            "node": "HTML Extract LIN Article & other users contributions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML Extract LIN Article & other users contributions": {
+      "main": [
+        [
+          {
+            "node": "LIN Contribution Writer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LIN Contribution Writer": {
+      "main": [
+        [
+          {
+            "node": "Post LIN Article contributions [Slack]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post LIN Article contributions [Slack]": {
+      "main": [
+        [
+          {
+            "node": "Post LIN Contribution [Airtable]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger4": {
+      "main": [
+        []
+      ]
+    },
+    "to Process1": {
+      "main": [
+        [
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read_Comments": {
+      "main": [
+        [
+          {
+            "node": "to Process1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process_video": {
+      "main": [
+        [
+          {
+            "node": "Youtube Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classifier": {
+      "main": [
+        [],
+        [],
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "If zero comments": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-19T09:12:19.494Z",
@@ -636,8 +794,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1920,
-        -820
+        1900,
+        -840
       ]
     },
     {
@@ -645,8 +803,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        2120,
-        2040
+        -580,
+        3140
       ],
       "id": "eaad669b-e18a-4c3e-b15a-00905a356c4c",
       "name": "Window Buffer Memory"
@@ -671,8 +829,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4260,
-        1780
+        1560,
+        2880
       ],
       "id": "d53ff90f-de2f-4200-8e2b-178e3308ee96",
       "name": "Google Drive",
@@ -730,8 +888,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4040,
-        1780
+        1340,
+        2880
       ],
       "id": "45f9a1c3-95ba-415d-bfa1-e96853a443e7",
       "name": "article"
@@ -750,8 +908,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        4260,
-        2000
+        1560,
+        3100
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -773,8 +931,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        2140,
-        1780
+        -560,
+        2880
       ],
       "id": "6204594e-a241-4aa0-acb9-418d3744c397",
       "name": "Researcher"
@@ -800,8 +958,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        2880,
-        1400
+        180,
+        2500
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
       "name": "Knowledge Base",
@@ -921,7 +1079,7 @@
         "url": "={{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\": [\"{{ $('Read_Videos').item.json.Video_Id }}\"]\n}\n\n",
+        "jsonBody": "={\n    \"startUrls\":[\"{{ $('Read_Videos').item.json.Video_Url }}\"]\n}\n\n",
         "options": {
           "batching": {
             "batch": {
@@ -936,8 +1094,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2600,
-        -600
+        2720,
+        -640
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -957,7 +1115,7 @@
       "typeVersion": 1.6,
       "position": [
         2820,
-        900
+        720
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1003,8 +1161,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        2900,
-        1780
+        200,
+        2880
       ],
       "id": "5e2b1539-dae8-4cda-90eb-c320be36bfb2",
       "name": "SEO Writer Agent",
@@ -1035,8 +1193,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        3280,
-        1780
+        580,
+        2880
       ],
       "id": "c9fd02f4-d190-4643-b48d-ecd74c1933fb",
       "name": "Editor Agent",
@@ -1063,8 +1221,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        2800,
-        -600
+        2900,
+        -640
       ],
       "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
       "name": "Summary Agent",
@@ -1107,8 +1265,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        2520,
-        1780
+        -180,
+        2880
       ],
       "id": "51469ce9-1135-42a7-b624-1c8cc399e46b",
       "name": "Title Generator Agent",
@@ -1139,8 +1297,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        3660,
-        1780
+        960,
+        2880
       ],
       "id": "026a61a5-f779-42c4-96dd-bf66c9f92a61",
       "name": "Formatter Agent",
@@ -1161,8 +1319,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        2680,
-        1940
+        -20,
+        3040
       ],
       "id": "32054070-9efa-4cb2-829c-0ff40243ef14",
       "name": "SerpAPI1",
@@ -1183,8 +1341,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        3080,
-        1940
+        380,
+        3040
       ],
       "id": "e6628d51-569c-4877-9f98-e3e6fb883925",
       "name": "SerpAPI2",
@@ -1215,8 +1373,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        3080,
-        1960
+        380,
+        3060
       ],
       "id": "bbfb4957-07c7-47e0-9067-593cde349cd7",
       "name": "Cover Picture & Charts Agent",
@@ -1239,7 +1397,7 @@
       "typeVersion": 1.2,
       "position": [
         1920,
-        -600
+        -540
       ],
       "id": "2a8d0e2d-6fdf-4a6d-9cb8-aefddf243b3f",
       "name": "Schedule Trigger"
@@ -1264,8 +1422,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        2680,
-        1960
+        -20,
+        3060
       ],
       "id": "982ca386-2f0c-498b-b3a1-58a60f7f6320",
       "name": "Market Trend / Current News",
@@ -1286,8 +1444,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        3500,
-        1940
+        800,
+        3040
       ],
       "id": "94b51b5e-a31c-40d4-9165-42526d40f336",
       "name": "SerpAPI3",
@@ -1318,8 +1476,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        3500,
-        1960
+        800,
+        3060
       ],
       "id": "323a5b34-85a3-4ae9-b9d4-9dcfc4707e83",
       "name": "Knowledge Base RAG",
@@ -1334,13 +1492,14 @@
       "parameters": {
         "content": "## Roadmap",
         "height": 80,
-        "width": 280
+        "width": 280,
+        "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2680,
-        2260
+        -20,
+        3360
       ],
       "id": "255a31fe-3495-4700-a190-cad807724301",
       "name": "Sticky Note"
@@ -1349,13 +1508,14 @@
       "parameters": {
         "content": "",
         "height": 460,
-        "width": 1200
+        "width": 1200,
+        "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2660,
-        1900
+        -40,
+        3000
       ],
       "id": "01bc5baf-bbca-45e8-b3ae-8784b80acfb0",
       "name": "Sticky Note1"
@@ -1407,7 +1567,7 @@
         "content": "## Roadmap\n",
         "height": 640,
         "width": 600,
-        "color": 6
+        "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -1489,8 +1649,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        2320,
-        2040
+        -380,
+        3140
       ],
       "id": "ef9822f5-6bc4-405a-912d-a84201df4bc4",
       "name": ".",
@@ -1521,8 +1681,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.7,
       "position": [
-        3080,
-        2180
+        380,
+        3280
       ],
       "id": "bfd9ab4a-e49a-482b-b1f6-ef29fb52d6f8",
       "name": "Industry Voices",
@@ -1557,8 +1717,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
       "position": [
-        2420,
-        2040
+        -280,
+        3140
       ]
     },
     {
@@ -1572,8 +1732,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        2220,
-        2040
+        -480,
+        3140
       ]
     },
     {
@@ -1583,8 +1743,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2000,
-        2040
+        -700,
+        3140
       ],
       "id": "25b8fe22-75ce-46c3-97b7-a9c484f843cb",
       "name": "OpenAI",
@@ -1642,7 +1802,7 @@
           "conditions": [
             {
               "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
-              "leftValue": "={{ $json.Process }}",
+              "leftValue": "={{ $json.Process_channel }}",
               "rightValue": "TRUE",
               "operator": {
                 "type": "boolean",
@@ -1953,8 +2113,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4660,
-        480
+        1280,
+        740
       ],
       "id": "95f21e14-cf03-4f61-9458-e45b1db84a80",
       "name": "Prompts2",
@@ -2442,8 +2602,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4400,
-        480
+        1020,
+        740
       ],
       "id": "37955fea-309a-438e-8d4e-772b4c90b3ad",
       "name": "Channel Content tmp",
@@ -2937,7 +3097,7 @@
       "typeVersion": 2.1,
       "position": [
         3280,
-        900
+        720
       ],
       "id": "253f6463-2e69-4626-8c8d-6ea440b0f4b6",
       "name": "Channel Content1",
@@ -2950,43 +3110,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "5fdd0ce5-abb8-4fcd-b999-1f71f1efbb32",
-              "leftValue": "=",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "empty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        2320,
-        -40
-      ],
-      "id": "4a38d8f6-e078-4cc4-921e-867b94b8aa80",
-      "name": "If",
-      "alwaysOutputData": true,
-      "disabled": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "html": "<html>\n        <head>\n          <style>\n            body { font-family: Arial, sans-serif; padding: 20px; }\n            img { max-width: 100%; height: auto; }\n            .key-points { margin: 20px 0; }\n            .metadata { color: #888; }\n          </style>\n        </head>\n        <body>\n          <h1>{{ $('Youtube Transcript').item.json.videoTitle }}</h1>\n          <h2>Summary</h2>\n          <p>{{ $('Summary Agent').item.json.text }}</p>\n        \n          <div class=\"metadata\">\n            <h2>Video Information</h2>\n            <ul>\n              <li>Channel: {{ $('Videos2process').item.json.Channelname }}</li>\n              <li>Hyperlink: <a href=\"{{ $('Videos2process').item.json.Video_Url }}\" target=\"_blank\">{{ $('Videos2process').item.json.Video_Url }}</a></li>\n              <li>Published: {{ $now }} </li>\n              <li>Duration: {{ $('Videos2process').item.json.Duration }}</li>\n            </ul>\n          </div>\n        </body>\n      </html>",
         "destinationKey": "Card",
         "options": {}
@@ -2995,7 +3118,7 @@
       "typeVersion": 1,
       "position": [
         2600,
-        900
+        720
       ],
       "id": "f9cd07b2-1bf0-49cc-88b3-5ad6f8f87d25",
       "name": "Markdown"
@@ -3004,7 +3127,7 @@
       "parameters": {
         "content": "## Comments Sentiment Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Score Ranges:\n-100 to +100 possible range\nAbove 0: Generally positive sentiment\nAbove 30: Considered good\nAbove 50: Excellent\nAbove 70: Exceptional/Industry leading\n\n## Interpretation Guidelines:\nBelow -20: Critical issues need addressing\n-20 to 0: Room for significant improvement\n0 to 30: Average/Acceptable\n30 to 50: Strong positive sentiment\n50+: Outstanding sentiment\n\n\n\n",
         "height": 720,
-        "width": 2240,
+        "width": 2260,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -3023,8 +3146,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2980,
-        -460
+        4180,
+        -400
       ],
       "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
       "name": "OpenAI 0",
@@ -3039,7 +3162,7 @@
       "parameters": {
         "content": "## Channels\n",
         "height": 300,
-        "width": 2220,
+        "width": 2260,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -3055,14 +3178,14 @@
       "parameters": {
         "content": "## Videos\n",
         "height": 340,
-        "width": 2220,
+        "width": 2260,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
         1860,
-        -660
+        -680
       ],
       "id": "80b2cd05-d3bc-43f0-881b-3384ad2e80c1",
       "name": "Sticky Note5"
@@ -3113,7 +3236,7 @@
       "typeVersion": 1.2,
       "position": [
         3520,
-        920
+        740
       ],
       "id": "e3bfefdf-839a-443d-b4c9-06b6cdc70386",
       "name": "Schedule Trigger2"
@@ -3129,52 +3252,19 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1920,
-        -280
+        1640,
+        560
       ],
       "id": "ad0e2e00-7efd-4bee-b6f5-a1e0db3a7c6d",
       "name": "Schedule Trigger3"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "adad4ab3-6a87-493b-8a65-98afd8ff7ca7",
-              "leftValue": "={{ $json.commentsCount }}",
-              "rightValue": "={{0}}",
-              "operator": {
-                "type": "number",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        2960,
-        -60
-      ],
-      "id": "06ed91f3-1c60-4503-9559-a2a3487fe097",
-      "name": "If1"
     },
     {
       "parameters": {},
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3800,
-        160
+        3680,
+        80
       ],
       "id": "f60ea077-0e26-468a-94a7-68402eba2213",
       "name": "Merge2",
@@ -3188,8 +3278,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3360,
-        -460
+        4180,
+        -580
       ],
       "id": "57d338b6-aa1b-4386-8171-ca00b0418b4a",
       "name": "OpenAI ",
@@ -3202,48 +3292,13 @@
     },
     {
       "parameters": {
-        "inputText": "={{ $('Youtube Transcript').item.json.transcript || '[null]' }}",
-        "categories": {
-          "categories": [
-            {
-              "category": "Empty",
-              "description": "there is no transcript"
-            },
-            {
-              "category": "Ad",
-              "description": "transcript is an advertisement"
-            },
-            {
-              "category": "Content",
-              "description": "When transcript is not an ad. It is real content."
-            }
-          ]
-        },
-        "options": {
-          "systemPromptTemplate": "={{ $('Prompts').item.json.Advertising }}",
-          "enableAutoFixing": true
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.textClassifier",
-      "typeVersion": 1,
-      "position": [
-        3160,
-        -600
-      ],
-      "id": "b11db0d8-e6fd-436e-b6c1-84978e586ce1",
-      "name": "Text Classifier",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "numberInputs": 3
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3600,
-        -600
+        3640,
+        -540
       ],
       "id": "b6fa2b0c-969c-4d12-a8d8-d48493808378",
       "name": "Merge3",
@@ -3281,8 +3336,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2140,
-        -600
+        2120,
+        -540
       ],
       "id": "4c42d43c-f939-4d58-a0c6-1159bfec510e",
       "name": "Prompts",
@@ -3318,8 +3373,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2360,
-        -600
+        2320,
+        -540
       ],
       "id": "d52ccc01-cee7-4b3d-a052-19e7f35dc6e2",
       "name": "Read_Videos",
@@ -3349,13 +3404,8 @@
           "cachedResultName": "Channels",
           "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblmB1yGomABObnxm"
         },
-        "filterByFormula": "{Process} = 'true'",
-        "options": {
-          "view": {
-            "mode": "list",
-            "value": ""
-          }
-        }
+        "filterByFormula": "{Process_channel} = 'true'",
+        "options": {}
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
@@ -3417,7 +3467,9 @@
             "inputChannelUrl": "={{ $json.inputChannelUrl }}",
             "isMonetized": "={{ $json.isMonetized }}",
             "hashtags": "={{ $json.hashtags }}",
-            "formats": "={{ $json.formats }}"
+            "formats": "={{ $json.formats }}",
+            "date": "={{ $now }}",
+            "thumbnailUrl": "="
           },
           "matchingColumns": [
             "channelUrl"
@@ -3511,6 +3563,18 @@
                 {
                   "name": "Brad Parker",
                   "value": "Brad Parker"
+                },
+                {
+                  "name": " Brian Kramer",
+                  "value": " Brian Kramer"
+                },
+                {
+                  "name": "ASOTU | More Than Cars",
+                  "value": "ASOTU | More Than Cars"
+                },
+                {
+                  "name": "The Dealer Playbook",
+                  "value": "The Dealer Playbook"
                 }
               ],
               "readOnly": false,
@@ -3554,15 +3618,15 @@
               "removed": true
             },
             {
-              "id": "Process",
-              "displayName": "Process",
+              "id": "Process_channel",
+              "displayName": "Process_channel",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Process_Date",
@@ -3993,10 +4057,11 @@
             "Transcript": "=",
             "Date_processed": "={{$now}}",
             "Description": "={{ $('Channel Videos').item.json.text }}",
-            "Title": "={{ $('Channel Videos').item.json.title }}"
+            "Title": "={{ $('Channel Videos').item.json.title }}",
+            "sNPS": 0
           },
           "matchingColumns": [
-            "Video_Url"
+            "Video_Id"
           ],
           "schema": [
             {
@@ -4021,17 +4086,6 @@
               "removed": false
             },
             {
-              "id": "Process?",
-              "displayName": "Process?",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
               "id": "Classified",
               "displayName": "Classified",
               "required": false,
@@ -4043,8 +4097,8 @@
               "removed": false
             },
             {
-              "id": "Channel_Updated",
-              "displayName": "Channel_Updated",
+              "id": "Process_video",
+              "displayName": "Process_video",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4056,6 +4110,17 @@
             {
               "id": "Date_processed",
               "displayName": "Date_processed",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channel_Updated",
+              "displayName": "Channel_Updated",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4161,6 +4226,17 @@
             {
               "id": "Likes",
               "displayName": "Likes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sNPS",
+              "displayName": "sNPS",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4469,7 +4545,9 @@
             "Video_Id": "={{ $('Youtube Transcript').item.json.url }}",
             "Transcript": "={{ $('Youtube Transcript').item.json.transcript }}",
             "Date_processed": "={{$now}}",
-            "Summary": "={{ $('Summary Agent').item.json.text }}"
+            "Summary": "={{ $('Summary Agent').item.json.text }}",
+            "sNPS": 0,
+            "Classified": "="
           },
           "matchingColumns": [
             "Video_Url"
@@ -4497,17 +4575,6 @@
               "removed": false
             },
             {
-              "id": "Process?",
-              "displayName": "Process?",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
               "id": "Classified",
               "displayName": "Classified",
               "required": false,
@@ -4519,8 +4586,8 @@
               "removed": false
             },
             {
-              "id": "Channel_Updated",
-              "displayName": "Channel_Updated",
+              "id": "Process_video",
+              "displayName": "Process_video",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -4541,6 +4608,17 @@
               "removed": false
             },
             {
+              "id": "Channel_Updated",
+              "displayName": "Channel_Updated",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
               "id": "KB_Approved",
               "displayName": "KB_Approved",
               "required": false,
@@ -4555,7 +4633,7 @@
                 }
               ],
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Title",
@@ -4644,6 +4722,17 @@
               "type": "number",
               "readOnly": false,
               "removed": true
+            },
+            {
+              "id": "sNPS",
+              "displayName": "sNPS",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
             },
             {
               "id": "Notes",
@@ -4903,14 +4992,15 @@
           "convertFieldsToString": false
         },
         "options": {
-          "typecast": false
+          "typecast": false,
+          "updateAllMatches": false
         }
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3820,
-        -600
+        3840,
+        -540
       ],
       "id": "6e275a4c-40f7-4c78-98d4-91c20882b8cd",
       "name": "Update_Videos",
@@ -5162,14 +5252,14 @@
       "parameters": {
         "content": "PDF and Audio",
         "height": 480,
-        "width": 2220,
+        "width": 2260,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
         1860,
-        820
+        640
       ],
       "id": "a70f82dd-be27-4b39-981f-d6d87ee062eb",
       "name": "Sticky Note7"
@@ -5184,8 +5274,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        4500,
-        220
+        1120,
+        480
       ],
       "id": "1e969a2f-8bb7-45dd-bcd8-36cb47239644",
       "name": "Sticky Note8"
@@ -5198,8 +5288,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        2840,
-        -460
+        3040,
+        -500
       ],
       "id": "37442d4b-d0b2-4ea1-a823-23913cb6a5c8",
       "name": "Anthropic Chat Model",
@@ -5218,8 +5308,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        3240,
-        -460
+        3360,
+        -500
       ],
       "id": "fa6fce3b-f2e6-40f4-8338-a293ebfc5d4b",
       "name": "Anthropic Chat Model1",
@@ -5377,8 +5467,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3760,
-        440
+        3880,
+        80
       ],
       "id": "07558453-935e-4374-91ae-cbe7bcec784d",
       "name": "Sentiment Stats"
@@ -5424,7 +5514,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3920,
+        3880,
         440
       ],
       "id": "5da55f0d-ec56-401b-9ded-b25ae0002f62",
@@ -5438,7 +5528,7 @@
       "typeVersion": 1.2,
       "position": [
         2380,
-        1080
+        900
       ],
       "id": "6237d216-b83d-4033-a019-917b7736d8fb",
       "name": "HTML_Transcript"
@@ -5451,10 +5541,799 @@
       "typeVersion": 1.2,
       "position": [
         2380,
-        900
+        720
       ],
       "id": "fb3af9bb-04ba-424e-9238-155ca95a26c5",
       "name": "html_summary"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "9c11be25-7728-40b0-b29b-cb7a33d5abde",
+      "name": "Schedule Trigger Every Monday, @ 08:00am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        1980,
+        1820
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "##    👆 \n## EDIT FIELD HERE",
+        "height": 140,
+        "width": 170,
+        "color": 4
+      },
+      "id": "f24801fe-ddfd-45a8-b9ca-c52ad5667bdb",
+      "name": "Sticky Note16",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2160,
+        2080
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblidpmK2pnZLkZzs",
+          "mode": "list",
+          "cachedResultName": "LinkedIn",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblidpmK2pnZLkZzs"
+        },
+        "options": {}
+      },
+      "id": "db2a935d-38cf-4c43-86ae-a16209eada53",
+      "name": "Past Contributions",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        2620,
+        1620
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "LDzy6MU6xGIUvyoG",
+          "name": "Airtable OAuth ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cf3ef4d0-2688-4fe1-9801-a8519bd293f7",
+              "name": "Topic",
+              "type": "string",
+              "value": "Used Car Market"
+            },
+            {
+              "id": "bbfd7ef1-2696-4824-a5a5-c20873a0f23f",
+              "name": "numResultsBack",
+              "value": "5",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ec7875a5-86ea-453a-96bc-d74fe635678d",
+      "name": "Topic for Google search",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2220,
+        1900
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "=https://serpapi.com/search?q=site%3Alinkedin.com%2Fadvice+{{ $json.Topic }}\n",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "engine",
+              "value": "google"
+            },
+            {
+              "name": "q",
+              "value": "={{ $json.Topic }}"
+            },
+            {
+              "name": "location",
+              "value": "United States"
+            },
+            {
+              "name": "hl",
+              "value": "en"
+            },
+            {
+              "name": "gl",
+              "value": "us"
+            },
+            {
+              "name": "google_domain",
+              "value": "google.com"
+            },
+            {
+              "name": "num",
+              "value": "={{ $json.numResultsBack }}"
+            },
+            {
+              "name": "start",
+              "value": "10"
+            },
+            {
+              "name": "safe",
+              "value": "active"
+            },
+            {
+              "name": "api_key",
+              "value": "979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {}
+          }
+        }
+      },
+      "id": "8b50747a-eb80-4837-87d4-4502cdb275e4",
+      "name": "LIN Advice articles (Google search)",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2420,
+        1900
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node script\n// Initialize an array to store all matches\n let allMatches = [];\n\nconst regexPattern = /https:\\/\\/www\\.linkedin\\.com\\/advice\\/[^%&\\s\"']+/g;\n\n\n $input.all().forEach(item => {\n   const organicResults = item.json.organic_results || [];\n   organicResults.forEach(result => {\n     if (result.link) {\n       const matches = result.link.match(regexPattern);\n       if (matches) allMatches.push(...matches);\n     }\n   });\n });\n\n return [{\"json\": {\"matches\": allMatches }}];"
+      },
+      "id": "a3b68aa5-2f87-4418-8880-494e704e9726",
+      "name": "Extract Article links (LIN Advice articles)",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        2620,
+        1900
+      ],
+      "typeVersion": 2,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "matches",
+        "options": {}
+      },
+      "id": "93d15bdb-e01a-4901-a9ab-66093477e205",
+      "name": "Split Out All Links (LinkedIn Advice articles)",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        2820,
+        1900
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "URL",
+              "field2": "matches"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input2",
+        "options": {}
+      },
+      "id": "8e9c1a4c-47b2-437c-b8c9-31ab74cb864c",
+      "name": "Merge Data (Keep New)",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        3080,
+        1740
+      ],
+      "typeVersion": 2.1,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.matches }}",
+        "options": {}
+      },
+      "id": "c30dc42d-576d-426d-ba7c-cf1b6d20a7ac",
+      "name": "HTTP Request (LIN Advice)",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3320,
+        1740
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "ArticleTitle",
+              "cssSelector": ".pulse-title"
+            },
+            {
+              "key": "ArticleTopics",
+              "cssSelector": ".article-main__content"
+            },
+            {
+              "key": "ArticleContributions",
+              "cssSelector": ".contribution__text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff4c75d8-e006-4ba2-9838-a2c9fb210cdc",
+      "name": "HTML Extract LIN Article & other users contributions",
+      "type": "n8n-nodes-base.html",
+      "position": [
+        3540,
+        1740
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Read the following collaborative article and provide your own helpful collaboration. The article has various topics that each need to be answered. Write me a paragraph of helpful advice for each topic and format your response as outlined in the template below.\n\n-------------\nARTICLE TITLE\n{{ $json.ArticleTitle }}\n\nTOPICS WITHIN THE LINKEDIN ARTICLE:\n{{ $json.ArticleTopics }}\n\nOTHER CONTRIBUTIONS TO THE LINKEDIN ARTICLE:\n{{ $json.ArticleContributions }}\n-------------\n\nYour advice must be unique and something that no one else has recommended before on the article, or in any of the topics. The response needs to be raw and genuine to elicit conversation and engagement.\n\nFormat your output in text and follow the template below. Only populate the template with as many topics as were provided in the original request \n\ni.e: if there were only 4 topics in the original request then only provide 4 pieces of advice:\n\nOUTPUT TEMPLATE\n\n1. [Topic #1 from Article]\n[Advice for Topic]\n\n2. [Topic #2 from Article]\n[Advice for Topic]\n\n3. [Topic #3 from Article]\n[Advice for Topic]\n\n4. [Topic #4 from Article]\n[Advice for Topic]\n\n5. [Topic #5 from Article]\n[Advice for Topic]\n\n6. [Topic #6 from Article]\n[Advice for Topic]"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "id": "58bfce54-05d8-49e6-9786-4b595b0ba588",
+      "name": "LIN Contribution Writer",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        3760,
+        1740
+      ],
+      "typeVersion": 1.4,
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "=C085C7Q7FPY",
+          "mode": "id"
+        },
+        "text": "=*{{ $('HTML Extract LIN Article & other users contributions').item.json.ArticleTitle }}*\n{{ $('Merge Data (Keep New)').item.json.matches }}\n\n{{ $json.message.content }}\n------------------------------------------------------",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": true,
+          "unfurl_links": true
+        }
+      },
+      "id": "622bcde9-7272-4136-ba1e-067dd57ac63e",
+      "name": "Post LIN Article contributions [Slack]",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        4120,
+        1740
+      ],
+      "typeVersion": 2.2,
+      "webhookId": "eeae66d1-7438-45d6-963f-e3825125c789",
+      "credentials": {
+        "slackApi": {
+          "id": "ExbHusd0mvUM1VMY",
+          "name": "SYCn8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblidpmK2pnZLkZzs",
+          "mode": "list",
+          "cachedResultName": "LinkedIn",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tblidpmK2pnZLkZzs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Post Title": "={{ $json.message.blocks[0].elements[0].elements[2].text }}",
+            "URL": "={{ $json.message.blocks[0].elements[0].elements[3].url }}",
+            "Contribution": "={{ $json.message.blocks[0].elements[0].elements[6].text }}",
+            "Topic": "={{ $('Topic for Google search').item.json.Topic }}",
+            "Person": "Sergio"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Contribution",
+              "displayName": "Contribution",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Topic",
+              "displayName": "Topic",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lead_Generation",
+              "displayName": "Lead_Generation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Person",
+              "displayName": "Person",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "In progress",
+                  "value": "In progress"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "aa50cee7-c4d1-4a60-b1f0-b13342978172",
+      "name": "Post LIN Contribution [Airtable]",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        4420,
+        1740
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "LDzy6MU6xGIUvyoG",
+          "name": "Airtable OAuth ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "### 1. Get advice articles from a Google search via SerpAPI for LinkedIn advice articles based on a predefined query.\n### 2. Extract Article link urls for LIN advice articles (regex). \n### 3. Split Out all links for LIN advice articles into individual items allowing each to be processed one at a time.\n",
+        "height": 147,
+        "width": 622
+      },
+      "id": "7bdb1564-37c5-4988-a2bd-9fd044df7b0c",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2360,
+        2080
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Merge data and keep unique google search results, ensuring that only unique LinkedIn article URLs are processed preventing duplicate article links from being handled.\n",
+        "height": 207,
+        "width": 213
+      },
+      "id": "98325a9a-b87c-4bfe-8151-2834ebb5b830",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3040,
+        1920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "\n### 1. HTTP Request to get LinkedIn advice articles - retrieves HTML content of each LinkedIn article link. \n\n### 2. HTML extract LinkedIn article & other users contributions. Node extracts relevant information from the HTML articles, including title, topics discussed, and contributions made by other users.\n",
+        "height": 211,
+        "width": 427
+      },
+      "id": "e408a073-567d-47c5-8b0f-93ba665ce786",
+      "name": "Sticky Note12",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3280,
+        1920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Post new LinkedIn contributions to a specified Slack channel. Posting to be shared with a team.\n",
+        "height": 112,
+        "width": 242
+      },
+      "id": "cf847dfb-2fa2-436f-97c1-95a207f7f08a",
+      "name": "Sticky Note13",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        4060,
+        1920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Post new LinkedIn contributions to Airtable, saving article title, link, & the contribution itself for future reference & tracking.",
+        "height": 110,
+        "width": 281
+      },
+      "id": "6d783055-e417-4d56-9cc5-a2d1cb81d458",
+      "name": "Sticky Note14",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        4320,
+        1920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Get LinkedIn contributions from Airtable (GetRows) - Node retrieves all LinkedIn contributions stored in a specified Airtable table\n\n",
+        "height": 283,
+        "width": 299
+      },
+      "id": "aa403e96-c427-4f63-a923-1603117afeea",
+      "name": "Sticky Note15",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2520,
+        1500
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "PDF and Audio",
+        "height": 820,
+        "width": 2880,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        1460
+      ],
+      "id": "b7f7467d-8d9e-4f1e-ad72-f253cfdb1077",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        2240,
+        -280
+      ],
+      "id": "73f3fe8b-e68f-4951-9f89-8c9166877772",
+      "name": "Schedule Trigger4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
+              "leftValue": "={{ $json.Process }}",
+              "rightValue": "TRUE",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2380,
+        -40
+      ],
+      "id": "58001b7c-2ff9-4be1-91b0-f96d26e58a43",
+      "name": "to Process1",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXgzD7mFshr94K3",
+          "mode": "list",
+          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltMGiskcvr9yejM",
+          "mode": "list",
+          "cachedResultName": "Comments",
+          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3/tbltMGiskcvr9yejM"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2160,
+        -40
+      ],
+      "id": "8bf52689-f998-4e86-94c0-d2d3967cb100",
+      "name": "Read_Comments",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
+              "leftValue": "={{ $json.Process_video }}",
+              "rightValue": "TRUE",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2500,
+        -540
+      ],
+      "id": "2e43d363-fa11-447b-8c63-372796d87113",
+      "name": "Process_video",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $('Youtube Transcript').item.json.transcript || '[null]' }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Empty",
+              "description": "there is no transcript"
+            },
+            {
+              "category": "Ad",
+              "description": "transcript is an advertisement"
+            },
+            {
+              "category": "Content",
+              "description": "When transcript is not an ad. It is real content."
+            }
+          ]
+        },
+        "options": {
+          "systemPromptTemplate": "={{ $('Prompts').item.json.Advertising }}",
+          "enableAutoFixing": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        3240,
+        -640
+      ],
+      "id": "b11db0d8-e6fd-436e-b6c1-84978e586ce1",
+      "name": "Classifier",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "adad4ab3-6a87-493b-8a65-98afd8ff7ca7",
+              "leftValue": "={{ $json.commentsCount }}",
+              "rightValue": "={{0}}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2960,
+        -60
+      ],
+      "id": "06ed91f3-1c60-4503-9559-a2a3487fe097",
+      "name": "If zero comments"
     }
   ],
   "pinData": {},
@@ -5464,6 +6343,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-03T22:08:23.000Z",
-  "versionId": "982500cb-5a64-4f7f-a271-92b1f5749e65"
+  "updatedAt": "2025-02-05T08:04:51.000Z",
+  "versionId": "c6cb5c4f-12e3-4e1f-a68a-b2406f29e2a5"
 }
