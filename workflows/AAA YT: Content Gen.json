@@ -579,7 +579,7 @@
       "main": [
         [
           {
-            "node": "Markdown",
+            "node": "html_summary_audio",
             "type": "main",
             "index": 0
           }
@@ -769,6 +769,17 @@
         [
           {
             "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "html_summary_audio": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
             "type": "main",
             "index": 0
           }
@@ -1097,10 +1108,11 @@
     {
       "parameters": {
         "resource": "audio",
-        "input": "=",
+        "input": "={{ $json.Markdown }}",
         "voice": "nova",
         "options": {
-          "response_format": "aac"
+          "response_format": "aac",
+          "binaryPropertyOutput": "audio"
         }
       },
       "id": "057cc906-959c-43fc-b33d-5a1caf1dd4eb",
@@ -1108,7 +1120,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        2820,
+        3000,
         720
       ],
       "alwaysOutputData": true,
@@ -3090,8 +3102,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3280,
-        720
+        2780,
+        900
       ],
       "id": "253f6463-2e69-4626-8c8d-6ea440b0f4b6",
       "name": "Channel Content1",
@@ -3104,14 +3116,14 @@
     },
     {
       "parameters": {
-        "html": "<html>\n        <head>\n          <style>\n            body { font-family: Arial, sans-serif; padding: 20px; }\n            img { max-width: 100%; height: auto; }\n            .key-points { margin: 20px 0; }\n            .metadata { color: #888; }\n          </style>\n        </head>\n        <body>\n          <h1>{{ $('Youtube Transcript').item.json.videoTitle }}</h1>\n          <h2>Summary</h2>\n          <p>{{ $('Summary Agent').item.json.text }}</p>\n        \n          <div class=\"metadata\">\n            <h2>Video Information</h2>\n            <ul>\n              <li>Channel: {{ $('Videos2process').item.json.Channelname }}</li>\n              <li>Hyperlink: <a href=\"{{ $('Videos2process').item.json.Video_Url }}\" target=\"_blank\">{{ $('Videos2process').item.json.Video_Url }}</a></li>\n              <li>Published: {{ $now }} </li>\n              <li>Duration: {{ $('Videos2process').item.json.Duration }}</li>\n            </ul>\n          </div>\n        </body>\n      </html>",
-        "destinationKey": "Card",
+        "html": "={{ $json.html }}",
+        "destinationKey": "Markdown",
         "options": {}
       },
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        2600,
+        2780,
         720
       ],
       "id": "f9cd07b2-1bf0-49cc-88b3-5ad6f8f87d25",
@@ -3229,8 +3241,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        3520,
-        740
+        3000,
+        900
       ],
       "id": "e3bfefdf-839a-443d-b4c9-06b6cdc70386",
       "name": "Schedule Trigger2"
@@ -5252,8 +5264,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
-        640
+        1540,
+        560
       ],
       "id": "a70f82dd-be27-4b39-981f-d6d87ee062eb",
       "name": "Sticky Note7"
@@ -5427,7 +5439,7 @@
             {
               "id": "5cf10c59-e72f-44bd-953f-d1e938b0fc08",
               "name": "details.total_comments",
-              "value": "={{ $('sNPS').item.json.details.total_comments }}",
+              "value": "={{ $json.details.total_comments }}",
               "type": "number"
             },
             {
@@ -6328,6 +6340,19 @@
       ],
       "id": "06ed91f3-1c60-4503-9559-a2a3487fe097",
       "name": "If zero comments"
+    },
+    {
+      "parameters": {
+        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    <h2>{{ $('Youtube Transcript').first().json.videoTitle }}</h2>\n    <h3>Summary</h3>\n    <p>{{ $('Summary Agent').first().json.text }}</p>\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Published: {{ $now.format('yyyy-MMM-dd') }} </li>\n        <li>Duration: under {{ $('Read_Videos').first().json.Duration.toDateTime().minute+1}} minutes</li>\n        <li>Views: {{ $('Read_Videos').first().json.Viewcount }}</li>\n        <li>Likes: {{ $('Read_Videos').first().json.Likes }}</li> </ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>Sentiment NPS: {{ $('Sentiment Stats').item.json.snps }}\" %\"</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        2580,
+        720
+      ],
+      "id": "6676a6ef-f4da-4b7b-b438-bb55ff84dead",
+      "name": "html_summary_audio"
     }
   ],
   "pinData": {},
@@ -6337,6 +6362,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-05T15:50:21.000Z",
-  "versionId": "8f577986-239a-4472-a166-7521e1c5827c"
+  "updatedAt": "2025-02-05T23:29:35.000Z",
+  "versionId": "d6e5a2e8-76e5-4962-a2ca-6c10bf82b9dd"
 }
