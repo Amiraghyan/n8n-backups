@@ -1120,8 +1120,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3000,
-        720
+        3020,
+        840
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -3102,8 +3102,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2780,
-        900
+        2000,
+        680
       ],
       "id": "253f6463-2e69-4626-8c8d-6ea440b0f4b6",
       "name": "Channel Content1",
@@ -3123,8 +3123,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        2780,
-        720
+        2820,
+        840
       ],
       "id": "f9cd07b2-1bf0-49cc-88b3-5ad6f8f87d25",
       "name": "Markdown"
@@ -3241,8 +3241,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        3000,
-        900
+        1780,
+        820
       ],
       "id": "e3bfefdf-839a-443d-b4c9-06b6cdc70386",
       "name": "Schedule Trigger2"
@@ -3258,8 +3258,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1640,
-        560
+        1800,
+        680
       ],
       "id": "ad0e2e00-7efd-4bee-b6f5-a1e0db3a7c6d",
       "name": "Schedule Trigger3"
@@ -5533,15 +5533,15 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2380,
-        900
+        2000,
+        820
       ],
       "id": "6237d216-b83d-4033-a019-917b7736d8fb",
       "name": "HTML_Transcript"
     },
     {
       "parameters": {
-        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    <h2>{{ $('Youtube Transcript').first().json.videoTitle }}</h2>\n    <h3>Summary</h3>\n    <p>{{ $('Summary Agent').first().json.text }}</p>\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Read_Videos').first().json.Channelname }}</li>\n        <li>Hyperlink: <a href=\"{{ $('Read_Videos').first().json.Video_Url }}\" target=\"_blank\">{{ $('Read_Videos').first().json.Video_Url }}</a></li>\n        <li>Published: {{ $now }} </li>\n        <li>Duration: {{ $('Read_Videos').first().json.Duration }}</li>\n        <li>View count: {{ $('Read_Videos').first().json.Viewcount }}</li>\n        <li>Likes: {{ $('Read_Videos').first().json.Likes }}</li>              </ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>sNPS: {{ $json.snps }}%</li>\n        <li>Positive: {{ $('Positive').first().json.count_sentimentAnalysis }}</li>\n        <li>Neutral:  {{ $('Neutral').first().json.count_sentimentAnalysis }}</li>\n        <li>Negative: {{ $('Negative').first().json.count_sentimentAnalysis }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
+        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    <h2>{{ $('Youtube Transcript').first().json.videoTitle }}</h2>\n    <h3>Summary</h3>\n    <p>{{ $('Summary Agent').first().json.text }}</p>\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Read_Videos').first().json.Channelname }}</li>\n        <li>Link: <a href=\"{{ $('Read_Videos').first().json.Video_Url }}\" target=\"_blank\">{{ $('Read_Videos').first().json.Video_Url }}</a></li>\n        <li>Published: {{ $now.format('yyyy-MMM-dd') }} </li>\n        <li>Duration: {{ $('Read_Videos').first().json.Duration}}</li>\n        <li>Views: {{ $('Read_Videos').first().json.Viewcount }}</li>\n        <li>Likes: {{ $('Read_Videos').first().json.Likes }}</li></ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>sNPS: {{ $('Sentiment Stats').item.json.snps }} %</li>\n        <li>Positive: {{ $('Positive').first().json.count_sentimentAnalysis }}</li>\n        <li>Neutral:  {{ $('Neutral').first().json.count_sentimentAnalysis }}</li>\n        <li>Negative: {{ $('Negative').first().json.count_sentimentAnalysis }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
       },
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
@@ -6348,11 +6348,35 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2580,
-        720
+        2600,
+        840
       ],
       "id": "6676a6ef-f4da-4b7b-b438-bb55ff84dead",
       "name": "html_summary_audio"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3000/forms/chromium/convert/html",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"Content-Disposition\": \"attachment; filename={{output-filename.pdf}}\",\n  \"Content-Type\": \"{{content-type}}\",\n  \"Content-Length\": \"{{content-length}}\",\n  \"Gotenberg-Trace\": \"{{trace}}\",\n  \"Body\": \"{{output-file}}\"\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4240,
+        780
+      ],
+      "id": "b29acaea-f2fe-4bbc-9d9c-df8ea4d65a00",
+      "name": "Gotenberg"
     }
   ],
   "pinData": {},
@@ -6362,6 +6386,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-05T23:29:35.000Z",
-  "versionId": "d6e5a2e8-76e5-4962-a2ca-6c10bf82b9dd"
+  "updatedAt": "2025-02-06T20:08:52.000Z",
+  "versionId": "70f9818b-e516-43e7-8513-4ff85631625a"
 }
