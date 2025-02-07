@@ -94,6 +94,11 @@
             "node": "Write_Comments",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
@@ -367,9 +372,9 @@
       "main": [
         [
           {
-            "node": "Merge2",
+            "node": "Aggregate",
             "type": "main",
-            "index": 1
+            "index": 0
           }
         ]
       ]
@@ -582,6 +587,11 @@
             "node": "html_summary_audio",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -741,13 +751,7 @@
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Classifier": {
-      "main": [
-        [],
-        [],
+        ],
         [
           {
             "node": "Merge3",
@@ -755,6 +759,25 @@
             "index": 2
           }
         ]
+      ]
+    },
+    "Classifier": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        []
       ]
     },
     "If zero comments": {
@@ -782,6 +805,17 @@
             "node": "Markdown",
             "type": "main",
             "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 2
           }
         ]
       ]
@@ -1006,8 +1040,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2320,
-        160
+        2160,
+        280
       ],
       "id": "829ff6f0-b4c0-4e1e-a0f1-95c403de1e1b",
       "name": "Split Out"
@@ -1028,8 +1062,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        2960,
-        160
+        2760,
+        500
       ],
       "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
       "name": "Positive"
@@ -1050,8 +1084,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        2960,
-        300
+        2760,
+        640
       ],
       "id": "a36731c9-a7a9-4bc6-b4c1-efb02b65eedf",
       "name": "Neutral"
@@ -1072,8 +1106,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        2960,
-        440
+        2760,
+        780
       ],
       "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
       "name": "Negative"
@@ -1100,7 +1134,7 @@
       "typeVersion": 4.2,
       "position": [
         2720,
-        -640
+        -700
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1120,8 +1154,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        3020,
-        840
+        4460,
+        1200
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1139,8 +1173,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3360,
-        300
+        3160,
+        640
       ],
       "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
       "name": "Merge",
@@ -1219,7 +1253,7 @@
           "messageValues": [
             {
               "type": "AIMessagePromptTemplate",
-              "message": "={{ $json.transcript }}"
+              "message": "={{ $('Prompts').item.json.Transcript }}"
             }
           ]
         }
@@ -1228,7 +1262,7 @@
       "typeVersion": 1.5,
       "position": [
         2900,
-        -640
+        -700
       ],
       "id": "521b7b3a-e886-46d5-9ab7-626ee93584b4",
       "name": "Summary Agent",
@@ -1247,8 +1281,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2560,
-        160
+        2360,
+        500
       ]
     },
     {
@@ -1402,8 +1436,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1920,
-        -540
+        1900,
+        -360
       ],
       "id": "2a8d0e2d-6fdf-4a6d-9cb8-aefddf243b3f",
       "name": "Schedule Trigger"
@@ -2090,8 +2124,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3540,
-        300
+        3340,
+        640
       ],
       "id": "49ae1488-128a-45e1-a8f9-917d8f0fd08b",
       "name": "sNPS",
@@ -3102,8 +3136,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2000,
-        680
+        1260,
+        960
       ],
       "id": "253f6463-2e69-4626-8c8d-6ea440b0f4b6",
       "name": "Channel Content1",
@@ -3123,8 +3157,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        2820,
-        840
+        4260,
+        1200
       ],
       "id": "f9cd07b2-1bf0-49cc-88b3-5ad6f8f87d25",
       "name": "Markdown"
@@ -3133,13 +3167,13 @@
       "parameters": {
         "content": "## Comments Sentiment Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Score Ranges:\n-100 to +100 possible range\nAbove 0: Generally positive sentiment\nAbove 30: Considered good\nAbove 50: Excellent\nAbove 70: Exceptional/Industry leading\n\n## Interpretation Guidelines:\nBelow -20: Critical issues need addressing\n-20 to 0: Room for significant improvement\n0 to 30: Average/Acceptable\n30 to 50: Strong positive sentiment\n50+: Outstanding sentiment\n\n\n\n",
         "height": 720,
-        "width": 2260,
+        "width": 2360,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
+        1760,
         -120
       ],
       "id": "44b6f604-2be7-41c6-a23f-3e65042805b4",
@@ -3152,8 +3186,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        4180,
-        -400
+        4260,
+        -80
       ],
       "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
       "name": "OpenAI 0",
@@ -3167,14 +3201,14 @@
     {
       "parameters": {
         "content": "## Channels\n",
-        "height": 300,
-        "width": 2260,
+        "height": 500,
+        "width": 2360,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
+        1760,
         -1160
       ],
       "id": "2071c9fe-483f-47e3-944a-60224586f862",
@@ -3183,14 +3217,14 @@
     {
       "parameters": {
         "content": "## Videos\n",
-        "height": 340,
-        "width": 2260,
+        "height": 560,
+        "width": 2360,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
+        1760,
         -680
       ],
       "id": "80b2cd05-d3bc-43f0-881b-3384ad2e80c1",
@@ -3205,8 +3239,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2720,
-        400
+        1060,
+        1320
       ],
       "credentials": {
         "openAiApi": {
@@ -3241,8 +3275,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1780,
-        820
+        1040,
+        1100
       ],
       "id": "e3bfefdf-839a-443d-b4c9-06b6cdc70386",
       "name": "Schedule Trigger2"
@@ -3258,19 +3292,21 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1800,
-        680
+        1060,
+        960
       ],
       "id": "ad0e2e00-7efd-4bee-b6f5-a1e0db3a7c6d",
       "name": "Schedule Trigger3"
     },
     {
-      "parameters": {},
+      "parameters": {
+        "numberInputs": 3
+      },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3680,
-        80
+        3700,
+        280
       ],
       "id": "f60ea077-0e26-468a-94a7-68402eba2213",
       "name": "Merge2",
@@ -3284,8 +3320,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        4180,
-        -580
+        4380,
+        -80
       ],
       "id": "57d338b6-aa1b-4386-8171-ca00b0418b4a",
       "name": "OpenAI ",
@@ -3298,13 +3334,18 @@
     },
     {
       "parameters": {
-        "numberInputs": 3
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {
+          "includeUnpaired": true
+        }
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3640,
-        -540
+        3760,
+        -360
       ],
       "id": "b6fa2b0c-969c-4d12-a8d8-d48493808378",
       "name": "Merge3",
@@ -3342,8 +3383,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2120,
-        -540
+        2100,
+        -360
       ],
       "id": "4c42d43c-f939-4d58-a0c6-1159bfec510e",
       "name": "Prompts",
@@ -3379,8 +3420,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2320,
-        -540
+        2300,
+        -360
       ],
       "id": "d52ccc01-cee7-4b3d-a052-19e7f35dc6e2",
       "name": "Read_Videos",
@@ -5005,8 +5046,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3840,
-        -540
+        3960,
+        -360
       ],
       "id": "6e275a4c-40f7-4c78-98d4-91c20882b8cd",
       "name": "Update_Videos",
@@ -5242,8 +5283,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2320,
-        380
+        2340,
+        960
       ],
       "id": "0e81ef80-5f01-4590-9778-daa1d5fa6b24",
       "name": "Write_Comments",
@@ -5257,14 +5298,14 @@
     {
       "parameters": {
         "content": "PDF and Audio",
-        "height": 480,
-        "width": 2260,
+        "height": 720,
+        "width": 2360,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1540,
+        1760,
         560
       ],
       "id": "a70f82dd-be27-4b39-981f-d6d87ee062eb",
@@ -5295,7 +5336,7 @@
       "typeVersion": 1.2,
       "position": [
         3040,
-        -500
+        -560
       ],
       "id": "37442d4b-d0b2-4ea1-a823-23913cb6a5c8",
       "name": "Anthropic Chat Model",
@@ -5314,8 +5355,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        3360,
-        -500
+        3380,
+        -560
       ],
       "id": "fa6fce3b-f2e6-40f4-8338-a293ebfc5d4b",
       "name": "Anthropic Chat Model1",
@@ -5333,8 +5374,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        2560,
-        420
+        2520,
+        680
       ],
       "id": "212a9e76-5205-42d3-832c-fbfe2c1cc167",
       "name": "Anthropic Chat Model2",
@@ -5362,8 +5403,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3140,
-        160
+        2940,
+        500
       ],
       "id": "caedf46d-01ac-4711-a6ce-48077008bcf1",
       "name": "positive"
@@ -5385,8 +5426,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3140,
-        300
+        2940,
+        640
       ],
       "id": "31c5db33-828f-401b-b98e-1bef6593a412",
       "name": "neutral"
@@ -5408,8 +5449,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3140,
-        440
+        2940,
+        780
       ],
       "id": "8cc9bda8-4017-4710-ad0f-7e9d24978ef7",
       "name": "negative"
@@ -5473,8 +5514,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3880,
-        80
+        3900,
+        280
       ],
       "id": "07558453-935e-4374-91ae-cbe7bcec784d",
       "name": "Sentiment Stats"
@@ -5520,8 +5561,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3880,
-        440
+        3900,
+        800
       ],
       "id": "5da55f0d-ec56-401b-9ded-b25ae0002f62",
       "name": "html_document"
@@ -5533,8 +5574,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2000,
-        820
+        1260,
+        1100
       ],
       "id": "6237d216-b83d-4033-a019-917b7736d8fb",
       "name": "HTML_Transcript"
@@ -5546,8 +5587,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2380,
-        720
+        3820,
+        1080
       ],
       "id": "fb3af9bb-04ba-424e-9238-155ca95a26c5",
       "name": "html_summary"
@@ -6151,8 +6192,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1880,
-        -280
+        4380,
+        360
       ],
       "id": "73f3fe8b-e68f-4951-9f89-8c9166877772",
       "name": "Schedule Trigger4"
@@ -6265,8 +6306,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2500,
-        -540
+        2520,
+        -360
       ],
       "id": "2e43d363-fa11-447b-8c63-372796d87113",
       "name": "Process_video",
@@ -6300,8 +6341,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        3240,
-        -640
+        3260,
+        -700
       ],
       "id": "b11db0d8-e6fd-436e-b6c1-84978e586ce1",
       "name": "Classifier",
@@ -6348,8 +6389,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2600,
-        840
+        4040,
+        1200
       ],
       "id": "6676a6ef-f4da-4b7b-b438-bb55ff84dead",
       "name": "html_summary_audio"
@@ -6377,6 +6418,42 @@
       ],
       "id": "b29acaea-f2fe-4bbc-9d9c-df8ea4d65a00",
       "name": "Gotenberg"
+    },
+    {
+      "parameters": {
+        "folderId": "1gSu4CuUtNEuoqfguuBZw5YCloEjKf9VH",
+        "title": "=Sum_{{ $('Read_Videos').item.json.Title }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        4040,
+        1040
+      ],
+      "id": "0902ee65-5ceb-48be-866f-8a3682c65ff1",
+      "name": "Google Docs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "Comments",
+        "include": "specifiedFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3520,
+        640
+      ],
+      "id": "0be3c11a-a69d-4dec-a034-2152328c0081",
+      "name": "Aggregate"
     }
   ],
   "pinData": {},
@@ -6386,6 +6463,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-06T20:08:52.000Z",
-  "versionId": "70f9818b-e516-43e7-8513-4ff85631625a"
+  "updatedAt": "2025-02-07T07:43:35.000Z",
+  "versionId": "e371efa9-cfae-4ef2-97ca-9e163df6ee88"
 }
