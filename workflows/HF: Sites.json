@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Google Sheets1",
+            "node": "process",
             "type": "main",
             "index": 0
           }
@@ -34,17 +34,6 @@
         ]
       ]
     },
-    "When chat message received": {
-      "main": [
-        [
-          {
-            "node": "Country",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "SerpAPI": {
       "ai_tool": [
         [
@@ -67,34 +56,12 @@
         ]
       ]
     },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Country",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "SerpAPI1": {
       "ai_tool": [
         [
           {
             "node": "City-State-Country",
             "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model2": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "City-State-Country",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -111,22 +78,11 @@
         ]
       ]
     },
-    "Structured Output Parser": {
-      "ai_outputParser": [
-        [
-          {
-            "node": "Country",
-            "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Country": {
       "main": [
         [
           {
-            "node": "Code",
+            "node": "countries",
             "type": "main",
             "index": 0
           }
@@ -135,13 +91,7 @@
     },
     "Code": {
       "main": [
-        [
-          {
-            "node": "Loop Over Items1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Loop Over Items1": {
@@ -218,17 +168,6 @@
           {
             "node": "Information Extractor",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Information Extractor",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -338,6 +277,166 @@
           }
         ]
       ]
+    },
+    "OpenAI 4o-mini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 4o-mini1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Open AI 4o-mini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "City-State-Country",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "countries": {
+      "main": [
+        [
+          {
+            "node": "States",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "prompts": {
+      "main": [
+        [
+          {
+            "node": "Countries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "process": {
+      "main": [
+        [
+          {
+            "node": "prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        []
+      ]
+    },
+    "Countries": {
+      "main": [
+        [
+          {
+            "node": "Country",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "SerpAPI2": {
+      "ai_tool": [
+        [
+          {
+            "node": "State",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia2": {
+      "ai_tool": [
+        [
+          {
+            "node": "State",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 4o-mini2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "State",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "State": {
+      "main": [
+        [
+          {
+            "node": "states",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "States Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "State",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Country Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "States": {
+      "main": [
+        [
+          {
+            "node": "State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-11-12T02:23:34.481Z",
@@ -354,8 +453,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -100,
-        540
+        60,
+        -40
       ]
     },
     {
@@ -368,8 +467,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        960,
-        660
+        1280,
+        1500
       ]
     },
     {
@@ -382,8 +481,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        1760,
-        660
+        2080,
+        1500
       ]
     },
     {
@@ -409,8 +508,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        160,
-        540
+        480,
+        1380
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -432,8 +531,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2060,
-        700
+        2380,
+        1540
       ]
     },
     {
@@ -521,8 +620,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1400,
-        -280
+        720,
+        -480
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -535,27 +634,13 @@
       "parameters": {
         "options": {}
       },
-      "id": "f280e136-751e-4133-aa83-960b360dd371",
-      "name": "When chat message received",
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        480,
-        -220
-      ],
-      "webhookId": "feb8b9fa-8ed7-45ec-8394-24830e79b9c9"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
       "id": "3f544b9d-95cc-4d50-8139-6cdd61370d3f",
       "name": "SerpAPI",
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        780,
-        120
+        1080,
+        -80
       ],
       "credentials": {
         "serpApi": {
@@ -571,29 +656,9 @@
       "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
       "typeVersion": 1,
       "position": [
-        920,
-        120
+        1180,
+        -80
       ]
-    },
-    {
-      "parameters": {
-        "model": "gpt-4o",
-        "options": {}
-      },
-      "id": "15462f95-97f3-415a-901a-13d6a62d80ad",
-      "name": "OpenAI Chat Model1",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        620,
-        120
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "d6Yoq77F0fgKy8Ul",
-          "name": "OpenAi account 2"
-        }
-      }
     },
     {
       "parameters": {
@@ -604,36 +669,13 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        2040,
-        240
+        2340,
+        1260
       ],
       "credentials": {
         "serpApi": {
           "id": "1Tzl11P6LGX6jXlo",
           "name": "SerpAPI account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "model": "gpt-4o",
-        "options": {
-          "responseFormat": "json_object",
-          "temperature": 0
-        }
-      },
-      "id": "7857e678-4daf-48e3-b336-cff4df8beca1",
-      "name": "OpenAI Chat Model2",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        1900,
-        240
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "d6Yoq77F0fgKy8Ul",
-          "name": "OpenAi account 2"
         }
       }
     },
@@ -647,8 +689,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1960,
-        -140
+        2260,
+        880
       ]
     },
     {
@@ -658,30 +700,19 @@
       "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
       "typeVersion": 1,
       "position": [
-        2160,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "jsonSchemaExample": "{\n  \"country\": \"usa\"\n}"
-      },
-      "id": "11f5e680-fc8c-4ca7-a557-f1c686a12b48",
-      "name": "Structured Output Parser",
-      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-      "typeVersion": 1.2,
-      "position": [
-        1080,
-        120
+        2460,
+        1260
       ]
     },
     {
       "parameters": {
         "promptType": "define",
-        "text": "Produce a list of the countries in the Americas. Exclusively provide the name of each of the countries without any additional description or commentary. Have each country be separated by a coma.",
+        "text": "={{ $json.country_text }}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "You are a helpful assistant which has access to Search, Wikipedia and Google Sheet tools. Exclusively provide the name of each of the countries without any additional description or commentary."
+          "systemMessage": "={{ $json.country_system }}",
+          "maxIterations": 100,
+          "returnIntermediateSteps": false
         }
       },
       "id": "b74dc5c5-8a33-4efb-8fc5-214d2f2e1777",
@@ -689,8 +720,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        740,
-        -60
+        1040,
+        -280
       ]
     },
     {
@@ -702,8 +733,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1120,
-        -60
+        220,
+        -460
       ]
     },
     {
@@ -715,8 +746,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1740,
-        -60
+        2040,
+        960
       ]
     },
     {
@@ -731,8 +762,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1960,
-        20
+        2260,
+        1040
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -746,8 +777,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        2300,
-        240
+        2600,
+        1260
       ]
     },
     {
@@ -923,8 +954,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1420,
-        880
+        1740,
+        1720
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -956,8 +987,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        1180,
-        660
+        1500,
+        1500
       ]
     },
     {
@@ -969,8 +1000,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        720,
-        540
+        1040,
+        1380
       ]
     },
     {
@@ -986,37 +1017,11 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1420,
-        660
+        1740,
+        1500
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "model": "gpt-4o",
-        "options": {
-          "maxTokens": 16000,
-          "responseFormat": "json_object",
-          "temperature": 0,
-          "timeout": 100000
-        }
-      },
-      "id": "ffbd1e84-708c-40f4-a8dd-1c4588b21a47",
-      "name": "OpenAI Chat Model",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        780,
-        920
-      ],
-      "notesInFlow": true,
-      "credentials": {
-        "openAiApi": {
-          "id": "WYs1nR5296TSQkXM",
-          "name": "OpenAi account 4"
-        }
-      }
     },
     {
       "parameters": {
@@ -1066,8 +1071,8 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1,
       "position": [
-        1060,
-        880
+        1380,
+        1720
       ],
       "alwaysOutputData": true,
       "executeOnce": false,
@@ -1082,8 +1087,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        720,
-        700
+        1040,
+        1540
       ]
     },
     {
@@ -1116,8 +1121,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        380,
-        540
+        700,
+        1380
       ]
     },
     {
@@ -1130,8 +1135,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -360,
-        -20
+        -500,
+        840
       ]
     },
     {
@@ -1307,8 +1312,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        100,
-        200
+        -40,
+        1060
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1340,8 +1345,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        -140,
-        -20
+        -280,
+        840
       ]
     },
     {
@@ -1353,8 +1358,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -600,
-        -140
+        -740,
+        720
       ]
     },
     {
@@ -1370,8 +1375,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        100,
-        -20
+        -40,
+        840
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1391,14 +1396,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        -540,
-        240
+        -680,
+        1100
       ],
       "notesInFlow": true,
       "credentials": {
         "openAiApi": {
-          "id": "WYs1nR5296TSQkXM",
-          "name": "OpenAi account 4"
+          "id": "NDtF8v0N0OMg1ZmW",
+          "name": "DeepSeek API"
         }
       }
     },
@@ -1450,8 +1455,8 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1,
       "position": [
-        -260,
-        200
+        -400,
+        1060
       ],
       "alwaysOutputData": true,
       "executeOnce": false,
@@ -1466,9 +1471,510 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -600,
-        20
+        -740,
+        880
       ]
+    },
+    {
+      "parameters": {
+        "model": "=gpt-4o-mini",
+        "options": {}
+      },
+      "id": "15462f95-97f3-415a-901a-13d6a62d80ad",
+      "name": "OpenAI 4o-mini",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        980,
+        -80
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "=gpt-4o-mini",
+        "options": {
+          "maxTokens": 16000,
+          "responseFormat": "json_object",
+          "temperature": 0,
+          "timeout": 100000
+        }
+      },
+      "id": "ffbd1e84-708c-40f4-a8dd-1c4588b21a47",
+      "name": "OpenAI 4o-mini1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        1760
+      ],
+      "notesInFlow": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseFormat": "json_object",
+          "temperature": 0
+        }
+      },
+      "id": "7857e678-4daf-48e3-b336-cff4df8beca1",
+      "name": "Open AI 4o-mini",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        1260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl8DTm1a7sxApzE5",
+          "mode": "list",
+          "cachedResultName": "countries",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tbl8DTm1a7sxApzE5"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "country": "={{ $('Country').all().map(item => item.json) }}",
+            "status": "done"
+          },
+          "matchingColumns": [
+            "country"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "updateAllMatches": "={{ true }}"
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1460,
+        -280
+      ],
+      "id": "65f06ac0-9cf1-44ef-b860-f2ea92d72193",
+      "name": "countries",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvJeXuCb2qK8Bmh",
+          "mode": "list",
+          "cachedResultName": "prompts",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tblvJeXuCb2qK8Bmh"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        500,
+        -40
+      ],
+      "id": "b1623a0b-bb37-4ef2-852e-1eb1892d9b4f",
+      "name": "prompts",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqrOsJTISz16sz9",
+          "mode": "list",
+          "cachedResultName": "process",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tblqrOsJTISz16sz9"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        280,
+        -40
+      ],
+      "id": "78f1bb7e-7866-47e0-9108-110f7daad4da",
+      "name": "process",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        500,
+        -440
+      ],
+      "id": "483f9242-2d9a-4632-a532-4daa8dabe9fa",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b26a1b97-e883-4b6b-b8d8-6dd89f9b0000",
+              "leftValue": "={{ $('process').item.json.Countries }}",
+              "rightValue": "True",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        700,
+        -40
+      ],
+      "id": "c6153f91-8c56-4057-92ee-10abffc9a69e",
+      "name": "Countries"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "181f8370-4307-407c-ad8d-3d074a815b2f",
+      "name": "SerpAPI2",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        -120
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "abdf3ff8-3cf7-4120-874c-26571ee284e5",
+      "name": "Wikipedia2",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "model": "=gpt-4o-mini",
+        "options": {}
+      },
+      "id": "f6d1200d-570c-40bc-b878-8a57cb5dd3d9",
+      "name": "OpenAI 4o-mini2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        -120
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbliwXVJDh1sJwLQJ",
+          "mode": "list",
+          "cachedResultName": "country-states",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tbliwXVJDh1sJwLQJ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "country": "={{ $json.country }}",
+            "status": "done",
+            "state": "{{ $json.state }}"
+          },
+          "matchingColumns": [
+            "country",
+            "state"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "state",
+              "displayName": "state",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2280,
+        -300
+      ],
+      "id": "5d3162b5-f5aa-431e-a2e9-162c19fd61f9",
+      "name": "states",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('prompts').item.json.state_text }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $('prompts').item.json.state_system }}",
+          "maxIterations": 50
+        }
+      },
+      "id": "af482963-473d-446c-8d38-28312678d7fa",
+      "name": "State",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1880,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"countries\": [\n    {\n      \"country\": \"usa\",\n      \"state\": [\n        \"Alabama\",\n        \"Alaska\",\n        \"Arizona\",\n        \"Arkansas\",\n        \"California\",\n        \"Colorado\",\n        \"Connecticut\",\n        \"Delaware\",\n        \"Florida\",\n        \"Georgia\",\n        \"Hawaii\",\n        \"Idaho\",\n        \"Illinois\",\n        \"Indiana\",\n        \"Iowa\",\n        \"Kansas\",\n        \"Kentucky\",\n        \"Louisiana\",\n        \"Maine\",\n        \"Maryland\",\n        \"Massachusetts\",\n        \"Michigan\",\n        \"Minnesota\",\n        \"Mississippi\",\n        \"Missouri\",\n        \"Montana\",\n        \"Nebraska\",\n        \"Nevada\",\n        \"New Hampshire\",\n        \"New Jersey\",\n        \"New Mexico\",\n        \"New York\",\n        \"North Carolina\",\n        \"North Dakota\",\n        \"Ohio\",\n        \"Oklahoma\",\n        \"Oregon\",\n        \"Pennsylvania\",\n        \"Rhode Island\",\n        \"South Carolina\",\n        \"South Dakota\",\n        \"Tennessee\",\n        \"Texas\",\n        \"Utah\",\n        \"Vermont\",\n        \"Virginia\",\n        \"Washington\",\n        \"West Virginia\",\n        \"Wisconsin\",\n        \"Wyoming\"\n      ]\n    },\n    {\n      \"country\": \"mexico\",\n      \"state\": [\n        \"Aguascalientes\",\n        \"Baja California\",\n        \"Baja California Sur\",\n        \"Campeche\",\n        \"Chiapas\",\n        \"Chihuahua\",\n        \"Coahuila\",\n        \"Colima\",\n        \"Durango\",\n        \"Guanajuato\",\n        \"Guerrero\",\n        \"Hidalgo\",\n        \"Jalisco\",\n        \"México\",\n        \"Mexico City\",\n        \"Michoacán\",\n        \"Morelos\",\n        \"Nayarit\",\n        \"Nuevo León\",\n        \"Oaxaca\",\n        \"Puebla\",\n        \"Querétaro\",\n        \"Quintana Roo\",\n        \"San Luis Potosí\",\n        \"Sinaloa\",\n        \"Sonora\",\n        \"Tabasco\",\n        \"Tamaulipas\",\n        \"Tlaxcala\",\n        \"Veracruz\",\n        \"Yucatán\",\n        \"Zacatecas\"\n      ]\n    }\n  ]\n}"
+      },
+      "id": "08b1ffcf-c9e6-4f25-9058-12fd3036cc0a",
+      "name": "States Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        2160,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"countries\": [\n    {\n      \"country\": \"usa\"\n    },\n    {\n      \"country\": \"mexico\"\n    }\n  ]\n}"
+      },
+      "id": "11f5e680-fc8c-4ca7-a557-f1c686a12b48",
+      "name": "Country Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1280,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b26a1b97-e883-4b6b-b8d8-6dd89f9b0000",
+              "leftValue": "={{ $('process').item.json.States }}",
+              "rightValue": "True",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1660,
+        -280
+      ],
+      "id": "bb401769-399b-4126-a86d-9e7f7954518c",
+      "name": "States"
     }
   ],
   "pinData": {
@@ -1663,6 +2169,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2024-11-25T22:05:20.000Z",
-  "versionId": "84f44ccf-8048-4ee7-acff-372d8be04c5e"
+  "updatedAt": "2025-02-11T07:46:41.000Z",
+  "versionId": "c8fe4af2-879b-4c7c-babd-0fee34dd64da"
 }
