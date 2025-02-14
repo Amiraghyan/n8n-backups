@@ -1008,8 +1008,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        180,
-        2500
+        -840,
+        2640
       ],
       "id": "0df0a11b-2d85-4f38-8d10-fffe20e73e4f",
       "name": "Knowledge Base",
@@ -7005,6 +7005,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-07T10:17:01.000Z",
-  "versionId": "9fa729a4-e90d-4d61-b17a-aaeed0672240"
+  "updatedAt": "2025-02-14T19:28:26.000Z",
+  "versionId": "d515fb27-9016-4858-868c-8a724b8e4dc3"
 }
