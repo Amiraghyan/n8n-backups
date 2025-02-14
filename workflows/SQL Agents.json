@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "OpenAI",
             "type": "main",
             "index": 0
           }
@@ -170,6 +170,356 @@
           }
         ]
       ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Get List IDs1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Get List IDs",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get List IDs for Single Task",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get List IDs for All Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get List IDs for Update Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Lists",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create New List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get List IDs": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Create Google Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Tasks1": {
+      "main": [
+        [
+          {
+            "node": "If Task Matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get List IDs1": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "If List Matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Tasks1": {
+      "main": [
+        [
+          {
+            "node": "If task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "IF List ID Matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "IF equal to List Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF equal to List Name": {
+      "main": [
+        [
+          {
+            "node": "Get All Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get List IDs for All Tasks": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get List IDs for Update Tasks": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get List IDs for Single Task": {
+      "main": [
+        [
+          {
+            "node": "Code6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code6": {
+      "main": [
+        [
+          {
+            "node": "IF equal to List Name1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF equal to List Name1": {
+      "main": [
+        [
+          {
+            "node": "Get All Tasks2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Tasks2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If equal task name": {
+      "main": [
+        [
+          {
+            "node": "Get a Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "If equal task name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF List ID Matches": {
+      "main": [
+        [
+          {
+            "node": "Get All Tasks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If List Matches": {
+      "main": [
+        [
+          {
+            "node": "Google Tasks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Task Matches": {
+      "main": [
+        [
+          {
+            "node": "Delete Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If task": {
+      "main": [
+        [
+          {
+            "node": "Update Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Tasks": {
+      "main": [
+        [
+          {
+            "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-02-05T18:19:04.863Z",
@@ -184,8 +534,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        260,
-        0
+        660,
+        360
       ],
       "id": "aeb4c41f-91fd-4cf6-abbf-61d5a303351d",
       "name": "When clicking ‘Test workflow’"
@@ -197,8 +547,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        260,
-        -180
+        -1220,
+        2780
       ],
       "id": "b4e32551-9a5a-4133-84ca-45827efe79cd",
       "name": "When chat message received",
@@ -213,8 +563,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        440,
-        0
+        840,
+        360
       ],
       "id": "964cc23e-a567-4e7c-bb40-90794c424306",
       "name": "AI Agent",
@@ -233,8 +583,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.1,
       "position": [
-        380,
-        200
+        780,
+        560
       ],
       "id": "fc96b988-ceff-424e-890c-16628a5d5928",
       "name": "OpenAI Chat Model",
@@ -252,8 +602,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        520,
-        180
+        920,
+        540
       ],
       "id": "7b67d579-a48d-4958-945e-2221c9d11b23",
       "name": "Window Buffer Memory"
@@ -268,8 +618,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        20,
-        500
+        -680,
+        300
       ],
       "id": "1b98202a-a4aa-44c1-853e-f87991c21513",
       "name": "Webhook",
@@ -284,8 +634,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        720,
-        500
+        20,
+        300
       ],
       "id": "207bb771-70b8-4a63-a609-b78fbc8dcd3a",
       "name": "Respond to Webhook"
@@ -297,11 +647,17 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        160,
-        780
+        -540,
+        580
       ],
       "id": "a445e630-52ab-4d64-bbdb-a96428dfd365",
-      "name": "SerpAPI"
+      "name": "SerpAPI",
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
     },
     {
       "parameters": {
@@ -310,8 +666,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "typeVersion": 1,
       "position": [
-        780,
-        700
+        80,
+        500
       ],
       "id": "a24206b6-a6da-4ff0-813b-18ddd0a34360",
       "name": "Vector Store Tool"
@@ -329,11 +685,17 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1,
       "position": [
-        740,
-        860
+        40,
+        660
       ],
       "id": "cbbf9ac7-30d2-43e2-811b-7918770bb5ca",
-      "name": "Pinecone Vector Store"
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "BKHUYU9beMFyqDKy",
+          "name": "sycpoc_Pinecone_campaigns"
+        }
+      }
     },
     {
       "parameters": {
@@ -342,11 +704,17 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1040,
-        860
+        340,
+        660
       ],
       "id": "b55e8a9a-1156-480c-ab74-50808210097e",
-      "name": "OpenAI Chat Model1"
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     },
     {
       "parameters": {
@@ -355,11 +723,17 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.1,
       "position": [
-        920,
-        1020
+        220,
+        820
       ],
       "id": "95d2d017-1643-4ba8-923f-aa63fe8de4b7",
-      "name": "Embeddings OpenAI"
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     },
     {
       "parameters": {
@@ -423,11 +797,17 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.5,
       "position": [
-        560,
-        780
+        -140,
+        580
       ],
       "id": "a890762e-98cc-4b12-9551-d2c7b2ccf93c",
-      "name": "Google Sheets"
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "psz4VI4aPHfgtBvc",
+          "name": "Google Sheets account 6"
+        }
+      }
     },
     {
       "parameters": {
@@ -451,9 +831,15 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.2,
       "position": [
-        300,
-        780
-      ]
+        -400,
+        580
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
+        }
+      }
     },
     {
       "parameters": {
@@ -475,9 +861,15 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.2,
       "position": [
-        440,
-        780
-      ]
+        -260,
+        580
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
+        }
+      }
     },
     {
       "parameters": {
@@ -486,11 +878,17 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        40,
-        780
+        -660,
+        580
       ],
       "id": "220d5e09-8690-4667-a031-40fa455d9b40",
-      "name": "Anthropic Chat Model"
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "cOFFr7FB6SAc7Hl2",
+          "name": "Anthropic account 3"
+        }
+      }
     },
     {
       "parameters": {
@@ -503,11 +901,1132 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        360,
-        580
+        -340,
+        380
       ],
       "id": "0cff464d-bc3e-42ca-ad08-a492492064fd",
       "name": "AI Agent1"
+    },
+    {
+      "parameters": {},
+      "id": "6448a144-7d2e-4781-a7a9-b1ae7f37af43",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1220,
+        2560
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=The input data will come in as: {{ $json.chatInput }}\n\n\nParse the user request, always output your answers in the following format:\n\n- Operation (Use either \"New Task\", \"Delete Task\", \"Update Task\", \"Get Task\", \"Get Many\", \"Create New List\" or \"Get Lists\")\n- Text (Pass the full text from the input data)\n- Task Name (Using the {{ $json.chatInput }} come up with a task name, do not include the operation in the task name. Also if the input query states to \"Add\" you can remove that from the task name.)\n- Notes (Create a note based on the input data if it make sense)\n- Due Date (Parse the input data for due date, if not specified set the due date to 7 days from {{ $now }}.\n- List Name (Parse the input data to determine the proper list name, remove list from the list name unless the list name is specified in quotes)\n\nWhen operation is (Update Task) add the following field:\n- Task Name (parse the input data to specify the original task name)\n- New Name (what the task should be updated to)\n\nWhen operation is (Delete Task) filter out any words like remove or delete when passing the task name along.\n\nWhen operation is (Get Many) return all tasks including the ones past due. "
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "id": "4d213611-a0d0-485e-8275-a454235b8182",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        -1000,
+        2560
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9795a9ee-e316-41b5-a259-0d7e341892f3",
+              "name": "task_name",
+              "value": "={{ $json.message.content[\"Task Name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "afc12ee2-66d4-4e34-8cae-efe2300a0b4d",
+              "name": "list_name",
+              "value": "={{ $json.message.content[\"List Name\"].replace(/\\blist\\b/i, \"\").trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "9ad938cf-18ef-460b-8d08-3be22c81ef9e",
+              "name": "operation",
+              "value": "={{ $json.message.content.Operation }}",
+              "type": "string"
+            },
+            {
+              "id": "70a5e0ee-9c22-4890-893b-a8e813efa0bb",
+              "name": "notes",
+              "value": "={{ $json.message.content.Notes }}",
+              "type": "string"
+            },
+            {
+              "id": "6af77db5-3fb7-4034-9ca9-c8024feeac42",
+              "name": "prompt",
+              "value": "={{ $json.message.content.Text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b935a976-d889-4c74-822c-3cf912527379",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        2140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "task": "={{ $json.id }}",
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "id": "d4f21808-2b20-440e-aba4-dcfc449820b6",
+      "name": "Get All Tasks",
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        2640
+      ],
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "task": "={{ $('IF List ID Matches').item.json.id }}",
+        "taskId": "={{ $json.id }}",
+        "updateFields": {
+          "title": "={{ $('Switch').item.json.message.content[\"New Name\"] }}"
+        }
+      },
+      "id": "ede40931-dc7c-4e1a-a21f-2b94b0f00970",
+      "name": "Update Task",
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        2940
+      ],
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.content.Operation }}",
+                    "rightValue": "New Task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "966d6731-85f7-4aac-9c02-abb6a5699d13",
+                    "leftValue": "={{ $json.message.content.Operation }}",
+                    "rightValue": "Delete Task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "29e71a7e-e2b9-4d8e-80f0-f55cacba3950",
+                    "leftValue": "={{ $json.message.content.Operation }}",
+                    "rightValue": "Get Task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "dca2c52a-c658-45aa-b59e-92b887cb7afd",
+                    "leftValue": "={{ $json.message.content.Operation }}",
+                    "rightValue": "Get Many",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "420ad6e3-ea20-4769-b974-01fc618864af",
+                    "leftValue": "={{ $json.message.content.Operation }}",
+                    "rightValue": "Update Task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "695610de-273b-4e4c-b115-2e245c394d70",
+                    "leftValue": "={{ $json.message.content.Operation }}",
+                    "rightValue": "Get Lists",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a88793a1-1de8-4675-8560-ad2cad170e56",
+                    "leftValue": "={{ $json.message.content.Operation }}",
+                    "rightValue": "Create New List",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "62020ebe-6788-4997-a014-dcd2c13310b6",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -280,
+        2480
+      ],
+      "notesInFlow": true,
+      "notes": "0 New 1 Del 2 Get 3 Many"
+    },
+    {
+      "parameters": {
+        "url": "https://tasks.googleapis.com/tasks/v1/users/@me/lists",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleTasksOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        3220
+      ],
+      "id": "a6833d56-2e32-4204-8acc-a410a7be27fa",
+      "name": "Get Lists",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "task": "={{ $('If List Matches').item.json.id }}",
+        "taskId": "={{ $json.id }}"
+      },
+      "id": "e0e7b28b-8026-4155-9ba6-f5807793c2b5",
+      "name": "Delete Task",
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        2100
+      ],
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://tasks.googleapis.com/tasks/v1/users/@me/lists",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleTasksOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.message.content['List Name'] }}\"\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        3540
+      ],
+      "id": "7df83166-eb87-4ebf-a14f-9347b820f1c6",
+      "name": "Create New List",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://tasks.googleapis.com/tasks/v1/users/@me/lists",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleTasksOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        1840
+      ],
+      "id": "2ec40850-bbf1-4f4d-9e61-3c6b1cf2b8b0",
+      "name": "Get List IDs",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ceff23c5-57b7-4320-a18a-c20ecd3679ea",
+              "leftValue": "={{ $json.title.toLowerCase() }}",
+              "rightValue": "={{ $('Switch').item.json.message.content[\"List Name\"].toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        980,
+        1840
+      ],
+      "id": "65d9e918-901d-482d-9fd0-4e262b9d0377",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items[0].json.items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        1840
+      ],
+      "id": "6277e87a-af3d-470f-8572-7a81f3975438",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "url": "https://tasks.googleapis.com/tasks/v1/users/@me/lists",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleTasksOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        2140
+      ],
+      "id": "6b8b2325-ce45-410f-bcc1-ec521c22e469",
+      "name": "Get List IDs1",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "task": "={{ $json.id }}",
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        2120
+      ],
+      "id": "a31b8e9d-1c00-41b5-a1c1-eaaf80c2a107",
+      "name": "Google Tasks1",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return items[0].json.items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        2140
+      ],
+      "id": "0755a721-7abf-4dbc-af27-23f9dd3f7503",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "task": "={{ $json.id }}",
+        "title": "={{ $('Switch').item.json.message.content[\"Task Name\"] }}",
+        "additionalFields": {
+          "dueDate": "={{ $('Switch').item.json.message.content[\"Due Date\"] }}",
+          "notes": "={{ $('Switch').item.json.message.content.Notes }}"
+        }
+      },
+      "id": "55847d5b-8454-4656-8f2d-65ee457e9a98",
+      "name": "Create Google Task",
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        1820
+      ],
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "task": "={{ $('IF equal to List Name1').item.json.id }}",
+        "taskId": "={{ $json.id }}"
+      },
+      "id": "c9e64117-5d9c-41f7-a21f-98534e25cfd7",
+      "name": "Get a Task",
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        2340
+      ],
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "task": "={{ $json.id }}",
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "id": "b51181b5-1569-4302-b499-d273c1a156af",
+      "name": "Get All Tasks1",
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        2960
+      ],
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return items[0].json.items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        940,
+        2980
+      ],
+      "id": "05b1670a-bce8-443f-9f3b-b7e24782d462",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items[0].json.items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        840,
+        2660
+      ],
+      "id": "d48089d3-97d0-43f1-81ea-ffdd874ff6c9",
+      "name": "Code5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2e65e4cf-09e7-4135-9d2c-d5334573309a",
+              "leftValue": "={{ $json.title.toLowerCase()}}",
+              "rightValue": "={{ $('Switch').item.json.message.content[\"List Name\"].toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1080,
+        2660
+      ],
+      "id": "dec521dc-c6b8-4e03-837c-bcd14641507f",
+      "name": "IF equal to List Name"
+    },
+    {
+      "parameters": {
+        "content": "## Update [task name] on  [List Name]",
+        "height": 240,
+        "width": 1760
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        520,
+        2900
+      ],
+      "typeVersion": 1,
+      "id": "432b307d-344b-4abf-8813-0e9628ca4933",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Get all tasks from [List Name]",
+        "height": 220,
+        "width": 1720
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        420,
+        2600
+      ],
+      "typeVersion": 1,
+      "id": "cdf57c64-839c-41f0-abde-f975144cebaa",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "url": "https://tasks.googleapis.com/tasks/v1/users/@me/lists",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleTasksOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        620,
+        2660
+      ],
+      "id": "ac1e8b2b-ff79-40d5-8d61-bf507d3ee92f",
+      "name": "Get List IDs for All Tasks",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://tasks.googleapis.com/tasks/v1/users/@me/lists",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleTasksOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        2980
+      ],
+      "id": "0729cb1b-d372-4f43-9553-962f1073c7f7",
+      "name": "Get List IDs for Update Tasks",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://tasks.googleapis.com/tasks/v1/users/@me/lists",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleTasksOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        540,
+        2380
+      ],
+      "id": "6f9fb501-b52a-4088-9f14-825d28532063",
+      "name": "Get List IDs for Single Task",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return items[0].json.items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        760,
+        2380
+      ],
+      "id": "91a302f0-e69c-4081-bbb3-b8b09be1659f",
+      "name": "Code6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2e65e4cf-09e7-4135-9d2c-d5334573309a",
+              "leftValue": "={{ $json.title.toLowerCase() }}",
+              "rightValue": "={{ $('Switch').item.json.message.content[\"List Name\"].toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        980,
+        2380
+      ],
+      "id": "464fedab-7c20-4406-99d5-575d8cef73d9",
+      "name": "IF equal to List Name1"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "task": "={{ $json.id }}",
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "id": "e511ff59-749d-4333-b1cf-8ab2f5754b62",
+      "name": "Get All Tasks2",
+      "type": "n8n-nodes-base.googleTasks",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        2360
+      ],
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "qG9eNog1uW8gfLDr",
+          "name": "Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "991f7ad1-75d9-4b33-a12d-418855c09f85",
+              "leftValue": "={{ $('Switch').item.json.message.content[\"Task Name\"].toLowerCase() }}",
+              "rightValue": "={{ $json.title.toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": "={{ false }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        2360
+      ],
+      "id": "84c7fdfe-5990-4f76-8b75-c5ded13823ef",
+      "name": "If equal task name"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6888acc6-d0e8-4844-9d03-7725fd9c0fa9",
+              "name": "title",
+              "value": "={{ $json.title.toLowerCase() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        2360
+      ],
+      "id": "3dea0b93-2c7a-479c-8051-de95e36c2868",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2e65e4cf-09e7-4135-9d2c-d5334573309a",
+              "leftValue": "={{ $json.title.toLowerCase() }}",
+              "rightValue": "={{ $('Switch').item.json.message.content[\"List Name\"].toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1160,
+        2980
+      ],
+      "id": "cdf1bc42-ecbf-4b68-8083-ce6d510e55d3",
+      "name": "IF List ID Matches"
+    },
+    {
+      "parameters": {
+        "content": "## Get [single task name] from [list name]",
+        "height": 240,
+        "width": 1840
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        300,
+        2320
+      ],
+      "typeVersion": 1,
+      "id": "e030951a-082c-4894-adc0-8653651b6637",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Return all my lists",
+        "height": 260,
+        "width": 440
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        440,
+        3160
+      ],
+      "typeVersion": 1,
+      "id": "e642f5ef-0a06-43ba-b444-6be939675bfb",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Create new list named [List Name]",
+        "height": 260,
+        "width": 500
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        460,
+        3460
+      ],
+      "typeVersion": 1,
+      "id": "74b1f817-d738-4ebf-8edb-659a00913dbb",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2cb3250e-3bcb-496a-acb7-62e97e91a8c5",
+              "leftValue": "={{ $json.title.toLowerCase() }}",
+              "rightValue": "={{ $('Switch').item.json.message.content[\"List Name\"].toLowerCase().replace(/\\blist\\b/i, \"\").trim()  }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1240,
+        2140
+      ],
+      "id": "d94e62f7-90ee-4c42-96dc-753d398024af",
+      "name": "If List Matches"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "872c3f6a-1a5b-49cb-a34c-eafba17d1a5a",
+              "leftValue": "={{ $json.title.toLowerCase() }}",
+              "rightValue": "={{ $('Switch').item.json.message.content[\"Task Name\"].toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        2120
+      ],
+      "id": "92ae0cb8-5829-4a7f-9708-9fe7d1a62541",
+      "name": "If Task Matches"
+    },
+    {
+      "parameters": {
+        "content": "## Delete [task name] from [list name]",
+        "height": 240,
+        "width": 1780
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        360,
+        2040
+      ],
+      "typeVersion": 1,
+      "id": "476c53a2-32ad-41f9-b4af-091b5b76f64f",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## Create [task name] on [list name]",
+        "height": 220,
+        "width": 1260
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        280,
+        1780
+      ],
+      "typeVersion": 1,
+      "id": "693685c8-25e0-44e8-a27f-899aec15e562",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "991f7ad1-75d9-4b33-a12d-418855c09f85",
+              "leftValue": "={{ $('Switch').item.json.message.content[\"Original Task Name\"].toLowerCase() }}",
+              "rightValue": "={{ $json.title.toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1640,
+        2960
+      ],
+      "id": "9eee79ee-3dd3-4f59-a878-d28828e8007d",
+      "name": "If task"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "076d67fc-7233-4321-8471-718907fa3669",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "76744c09-d2d4-4dd1-8ede-a2dd1c54c8f9",
+              "name": "notes",
+              "value": "={{ $json.notes }}",
+              "type": "string"
+            },
+            {
+              "id": "946b97c5-450a-4963-9bc9-8794fd453035",
+              "name": "due",
+              "value": "={{ $json.due }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1560,
+        2640
+      ],
+      "id": "788557fa-2f39-486b-83f3-34892c7db2e8",
+      "name": "Set Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n// Send the results back to the agent\nreturn {\n  results: items\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        2640
+      ],
+      "id": "059648e0-f0d2-4026-a61e-d82710ad99d4",
+      "name": "Code3"
     }
   ],
   "pinData": {},
@@ -517,6 +2036,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-14T07:04:24.000Z",
-  "versionId": "52e1cbcc-8c61-461a-9837-6d4b4c2677a1"
+  "updatedAt": "2025-02-14T19:26:48.000Z",
+  "versionId": "88a5dbcf-2d0b-458a-ab87-d9fa37d83c08"
 }
