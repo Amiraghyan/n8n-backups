@@ -49,6 +49,127 @@
           }
         ]
       ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vector Store Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Appointments": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Availability": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-02-05T18:19:04.863Z",
@@ -136,6 +257,257 @@
       ],
       "id": "7b67d579-a48d-4958-945e-2221c9d11b23",
       "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "test",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        20,
+        500
+      ],
+      "id": "1b98202a-a4aa-44c1-853e-f87991c21513",
+      "name": "Webhook",
+      "webhookId": "97dbae67-2675-48b4-bc25-de17ba6860b1"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"{{ JSON.stringify($json.output).replace(/(^\\\"|\\\"$)/g, '') }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        500
+      ],
+      "id": "207bb771-70b8-4a63-a609-b78fbc8dcd3a",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        160,
+        780
+      ],
+      "id": "a445e630-52ab-4d64-bbdb-a96428dfd365",
+      "name": "SerpAPI"
+    },
+    {
+      "parameters": {
+        "name": "aiworkshop_FAQ"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        780,
+        700
+      ],
+      "id": "a24206b6-a6da-4ff0-813b-18ddd0a34360",
+      "name": "Vector Store Tool"
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "n8n",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        740,
+        860
+      ],
+      "id": "cbbf9ac7-30d2-43e2-811b-7918770bb5ca",
+      "name": "Pinecone Vector Store"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        860
+      ],
+      "id": "b55e8a9a-1156-480c-ab74-50808210097e",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        920,
+        1020
+      ],
+      "id": "95d2d017-1643-4ba8-923f-aa63fe8de4b7",
+      "name": "Embeddings OpenAI"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1_Q8ifcFSVE8ClUF1lIRJL7WLxEHe0bF8SBevxjXNdjw",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_Q8ifcFSVE8ClUF1lIRJL7WLxEHe0bF8SBevxjXNdjw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_Q8ifcFSVE8ClUF1lIRJL7WLxEHe0bF8SBevxjXNdjw/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $fromAI('name') }}",
+            "Email ": "={{ $fromAI('email') }}",
+            "Phone Number": "={{ $fromAI('phone') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email ",
+              "displayName": "Email ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.5,
+      "position": [
+        560,
+        780
+      ],
+      "id": "a890762e-98cc-4b12-9551-d2c7b2ccf93c",
+      "name": "Google Sheets"
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "zubair.trabzada@gmail.com",
+          "mode": "list",
+          "cachedResultName": "zubair.trabzada@gmail.com"
+        },
+        "start": "={{ $fromAI(\"startTime\") }}",
+        "end": "={{ $fromAI(\"endTime\") }}",
+        "additionalFields": {
+          "attendees": [
+            "={{ $fromAI('attendee') }}"
+          ],
+          "summary": "={{ $fromAI(\"eventTitle\") }}"
+        }
+      },
+      "id": "f592b66b-7138-43b4-bb2a-d01004a4c6fd",
+      "name": "Appointments",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        300,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "zubair.trabzada@gmail.com",
+          "mode": "list",
+          "cachedResultName": "zubair.trabzada@gmail.com"
+        },
+        "returnAll": true,
+        "options": {
+          "timeMin": "={{ $fromAI(\"ondDayBefore\",\"one day before the date the user requested\") }}",
+          "timeMax": "={{ $fromAI(\"ondDayAfter\",\"one day after the date the user requested\") }}"
+        }
+      },
+      "id": "5bc1e216-ddf5-469a-9c5d-b82ddd65d030",
+      "name": "Availability",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        440,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        40,
+        780
+      ],
+      "id": "220d5e09-8690-4667-a031-40fa455d9b40",
+      "name": "Anthropic Chat Model"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=User request: {{ $json.query.request }}\n\nUser information:\n- Name: {{ $json.body.name || 'Not provided' }}\n- Email: {{ $json.body.email || 'Not provided' }}\n- Phone: {{ $json.body.phone || 'Not provided' }}\n- Date: {{ $json.body.date || 'Not provided' }}\n- Time: {{ $json.body.time || 'Not provided' }}\n",
+        "options": {
+          "systemMessage": "=You are a customer support AI Agent designed to handle various tasks efficiently. Your primary role is to check for available times for appointments, book appointments, grab contact information, and help retrieve information that is requested for the user. You have access to multiple tools to help you fulfill requests:\n\nAvailability: Use this tool for checking available times for appointment.\nAppointments: Use this tool to create the appointment.\n\nVector Store Tool: Use this tool to retrieve information about anything related to the Skool Community\n\nGoogle Sheets: Use this tool to store customer's contact information\n\nSerpAPI: Use this tool for general information to fetch results from Google Search.\n\nWhen a task requires using one or more of these tools, make sure to identify which tool is most appropriate, pass along the relevant details, and execute the actions needed to complete the task. Your goal is to be proactive, precise, and organized in managing these resources to provide a smooth experience for the user.\n\nKeep responses concise, short, and relevant to the user’s question.\n\nHere is the current time/date: {{ $now.format('DD')}}\n\nDO NOT PROVIDE ANY EXISTING MEETING DETAILS\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        360,
+        580
+      ],
+      "id": "0cff464d-bc3e-42ca-ad08-a492492064fd",
+      "name": "AI Agent1"
     }
   ],
   "pinData": {},
@@ -145,6 +517,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-11T18:19:58.000Z",
-  "versionId": "b340794e-7867-4dd5-b5db-bcfce92042a3"
+  "updatedAt": "2025-02-14T07:04:24.000Z",
+  "versionId": "52e1cbcc-8c61-461a-9837-6d4b4c2677a1"
 }
