@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Prompts",
+            "node": "Read_Channels",
             "type": "main",
             "index": 0
           }
@@ -390,11 +390,6 @@
         ]
       ]
     },
-    "OpenAI 0": {
-      "ai_languageModel": [
-        []
-      ]
-    },
     "OpenAI 2": {
       "ai_languageModel": [
         []
@@ -402,11 +397,6 @@
     },
     "Schedule Trigger3": {
       "main": [
-        []
-      ]
-    },
-    "OpenAI ": {
-      "ai_languageModel": [
         []
       ]
     },
@@ -717,11 +707,6 @@
         ]
       ]
     },
-    "Schedule Trigger4": {
-      "main": [
-        []
-      ]
-    },
     "to Process1": {
       "main": [
         []
@@ -844,8 +829,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1900,
-        -580
+        1920,
+        -880
       ]
     },
     {
@@ -3186,7 +3171,7 @@
       "parameters": {
         "content": "## Comments Sentiment Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Score Ranges:\n-100 to +100 possible range\nAbove 0: Generally positive sentiment\nAbove 30: Considered good\nAbove 50: Excellent\nAbove 70: Exceptional/Industry leading\n\n## Interpretation Guidelines:\nBelow -20: Critical issues need addressing\n-20 to 0: Room for significant improvement\n0 to 30: Average/Acceptable\n30 to 50: Strong positive sentiment\n50+: Outstanding sentiment\n\n\n\n",
         "height": 720,
-        "width": 2360,
+        "width": 2980,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -3200,28 +3185,9 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        4260,
-        -80
-      ],
-      "id": "322d4d4d-7cc1-4e27-ae53-2b3f62d074b2",
-      "name": "OpenAI 0",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
-    },
-    {
-      "parameters": {
         "content": "## Channels\n",
         "height": 480,
-        "width": 2360,
+        "width": 2980,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -3237,7 +3203,7 @@
       "parameters": {
         "content": "## Videos\n",
         "height": 560,
-        "width": 2360,
+        "width": 2980,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -3331,25 +3297,6 @@
       "name": "Merge2",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        4380,
-        -80
-      ],
-      "id": "57d338b6-aa1b-4386-8171-ca00b0418b4a",
-      "name": "OpenAI ",
-      "credentials": {
-        "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
-        }
-      }
     },
     {
       "parameters": {
@@ -5321,8 +5268,8 @@
     {
       "parameters": {
         "content": "PDF and Audio",
-        "height": 720,
-        "width": 2360,
+        "height": 900,
+        "width": 2980,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -5638,22 +5585,6 @@
         1820
       ],
       "typeVersion": 1.2
-    },
-    {
-      "parameters": {
-        "content": "##    👆 \n## EDIT FIELD HERE",
-        "height": 140,
-        "width": 170,
-        "color": 4
-      },
-      "id": "f24801fe-ddfd-45a8-b9ca-c52ad5667bdb",
-      "name": "Sticky Note16",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        2160,
-        2080
-      ],
-      "typeVersion": 1
     },
     {
       "parameters": {
@@ -6192,34 +6123,17 @@
       "parameters": {
         "content": "PDF and Audio",
         "height": 820,
-        "width": 2880,
+        "width": 2980,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
+        1760,
         1460
       ],
       "id": "b7f7467d-8d9e-4f1e-ad72-f253cfdb1077",
       "name": "Sticky Note10"
-    },
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {}
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        4380,
-        360
-      ],
-      "id": "73f3fe8b-e68f-4951-9f89-8c9166877772",
-      "name": "Schedule Trigger4"
     },
     {
       "parameters": {
@@ -6252,8 +6166,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1580,
-        1760
+        1020,
+        1700
       ],
       "id": "58001b7c-2ff9-4be1-91b0-f96d26e58a43",
       "name": "to Process1",
@@ -6282,8 +6196,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1580,
-        1900
+        1020,
+        1840
       ],
       "id": "8bf52689-f998-4e86-94c0-d2d3967cb100",
       "name": "Read_Comments",
@@ -6417,30 +6331,6 @@
       ],
       "id": "6676a6ef-f4da-4b7b-b438-bb55ff84dead",
       "name": "html_summary_audio"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://localhost:3000/forms/chromium/convert/html",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"Content-Disposition\": \"attachment; filename={{output-filename.pdf}}\",\n  \"Content-Type\": \"{{content-type}}\",\n  \"Content-Length\": \"{{content-length}}\",\n  \"Gotenberg-Trace\": \"{{trace}}\",\n  \"Body\": \"{{output-file}}\"\n}",
-        "options": {
-          "response": {
-            "response": {
-              "responseFormat": "file"
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        4240,
-        780
-      ],
-      "id": "b29acaea-f2fe-4bbc-9d9c-df8ea4d65a00",
-      "name": "Gotenberg"
     },
     {
       "parameters": {
@@ -7005,6 +6895,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-14T19:28:26.000Z",
-  "versionId": "d515fb27-9016-4858-868c-8a724b8e4dc3"
+  "updatedAt": "2025-02-17T20:59:26.000Z",
+  "versionId": "ae5a0810-e75b-4b8f-ad3d-464499b01994"
 }
