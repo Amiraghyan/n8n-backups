@@ -34,28 +34,6 @@
         ]
       ]
     },
-    "SerpAPI": {
-      "ai_tool": [
-        [
-          {
-            "node": "Country",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wikipedia": {
-      "ai_tool": [
-        [
-          {
-            "node": "Country",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "SerpAPI1": {
       "ai_tool": [
         [
@@ -82,7 +60,12 @@
       "main": [
         [
           {
-            "node": "countries",
+            "node": "Split Countries",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "States",
             "type": "main",
             "index": 0
           }
@@ -361,28 +344,6 @@
         []
       ]
     },
-    "SerpAPI2": {
-      "ai_tool": [
-        [
-          {
-            "node": "State",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wikipedia2": {
-      "ai_tool": [
-        [
-          {
-            "node": "State",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI 4o-mini2": {
       "ai_languageModel": [
         [
@@ -416,6 +377,39 @@
         ]
       ]
     },
+    "States": {
+      "main": [
+        [
+          {
+            "node": "State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call n8n Workflow Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call n8n Workflow Tool1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Country Parser": {
       "ai_outputParser": [
         [
@@ -427,11 +421,55 @@
         ]
       ]
     },
-    "States": {
-      "main": [
+    "SerpAPI_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI_tool2": {
+      "ai_tool": [
         [
           {
             "node": "State",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia_tool2": {
+      "ai_tool": [
+        [
+          {
+            "node": "State",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Countries": {
+      "main": [
+        [
+          {
+            "node": "countries",
             "type": "main",
             "index": 0
           }
@@ -467,8 +505,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1280,
-        1500
+        -1400,
+        940
       ]
     },
     {
@@ -481,8 +519,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        2080,
-        1500
+        -600,
+        940
       ]
     },
     {
@@ -508,8 +546,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        480,
-        1380
+        -2200,
+        820
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -531,8 +569,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2380,
-        1540
+        -300,
+        980
       ]
     },
     {
@@ -620,8 +658,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        720,
-        -480
+        -160,
+        -840
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -634,43 +672,13 @@
       "parameters": {
         "options": {}
       },
-      "id": "3f544b9d-95cc-4d50-8139-6cdd61370d3f",
-      "name": "SerpAPI",
-      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
-      "typeVersion": 1,
-      "position": [
-        1080,
-        -80
-      ],
-      "credentials": {
-        "serpApi": {
-          "id": "1Tzl11P6LGX6jXlo",
-          "name": "SerpAPI account"
-        }
-      }
-    },
-    {
-      "parameters": {},
-      "id": "1e26aa13-aba6-49e3-b8a3-3089ace4a761",
-      "name": "Wikipedia",
-      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
-      "typeVersion": 1,
-      "position": [
-        1180,
-        -80
-      ]
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
       "id": "d01794b1-c320-4ec5-9702-ef6cf37a50ac",
       "name": "SerpAPI1",
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        2340,
-        1260
+        -1300,
+        180
       ],
       "credentials": {
         "serpApi": {
@@ -689,8 +697,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2260,
-        880
+        -1380,
+        -200
       ]
     },
     {
@@ -700,8 +708,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
       "typeVersion": 1,
       "position": [
-        2460,
-        1260
+        -1180,
+        180
       ]
     },
     {
@@ -733,8 +741,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        220,
-        -460
+        -660,
+        -820
       ]
     },
     {
@@ -746,8 +754,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        2040,
-        960
+        -1600,
+        -120
       ]
     },
     {
@@ -762,8 +770,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        2260,
-        1040
+        -1380,
+        -40
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -777,8 +785,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        2600,
-        1260
+        -1040,
+        180
       ]
     },
     {
@@ -954,8 +962,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1740,
-        1720
+        -940,
+        1160
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -987,8 +995,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        1500,
-        1500
+        -1180,
+        940
       ]
     },
     {
@@ -1000,8 +1008,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1040,
-        1380
+        -1640,
+        820
       ]
     },
     {
@@ -1017,8 +1025,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1740,
-        1500
+        -940,
+        940
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1071,8 +1079,8 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1,
       "position": [
-        1380,
-        1720
+        -1300,
+        1160
       ],
       "alwaysOutputData": true,
       "executeOnce": false,
@@ -1087,8 +1095,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1040,
-        1540
+        -1640,
+        980
       ]
     },
     {
@@ -1121,8 +1129,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        700,
-        1380
+        -1980,
+        820
       ]
     },
     {
@@ -1135,8 +1143,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -500,
-        840
+        -1360,
+        -860
       ]
     },
     {
@@ -1312,8 +1320,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -40,
-        1060
+        -900,
+        -640
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1345,8 +1353,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        -280,
-        840
+        -1140,
+        -860
       ]
     },
     {
@@ -1358,8 +1366,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -740,
-        720
+        -1600,
+        -980
       ]
     },
     {
@@ -1375,8 +1383,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -40,
-        840
+        -900,
+        -860
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1396,8 +1404,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        -680,
-        1100
+        -1540,
+        -600
       ],
       "notesInFlow": true,
       "credentials": {
@@ -1455,8 +1463,8 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1,
       "position": [
-        -400,
-        1060
+        -1260,
+        -640
       ],
       "alwaysOutputData": true,
       "executeOnce": false,
@@ -1471,8 +1479,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -740,
-        880
+        -1600,
+        -820
       ]
     },
     {
@@ -1485,7 +1493,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        980,
+        1000,
         -80
       ],
       "credentials": {
@@ -1510,8 +1518,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1100,
-        1760
+        -1580,
+        1200
       ],
       "notesInFlow": true,
       "credentials": {
@@ -1533,8 +1541,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2200,
-        1260
+        -1440,
+        180
       ],
       "credentials": {
         "openAiApi": {
@@ -1563,7 +1571,7 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "country": "={{ $('Country').all().map(item => item.json) }}",
+            "country": "={{ $json.country }}",
             "status": "done"
           },
           "matchingColumns": [
@@ -1606,14 +1614,15 @@
           "convertFieldsToString": false
         },
         "options": {
+          "typecast": false,
           "updateAllMatches": "={{ true }}"
         }
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1460,
-        -280
+        1820,
+        -80
       ],
       "id": "65f06ac0-9cf1-44ef-b860-f2ea92d72193",
       "name": "countries",
@@ -1709,8 +1718,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        500,
-        -440
+        -380,
+        -800
       ],
       "id": "483f9242-2d9a-4632-a532-4daa8dabe9fa",
       "name": "Merge"
@@ -1750,36 +1759,6 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "id": "181f8370-4307-407c-ad8d-3d074a815b2f",
-      "name": "SerpAPI2",
-      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
-      "typeVersion": 1,
-      "position": [
-        1940,
-        -120
-      ],
-      "credentials": {
-        "serpApi": {
-          "id": "1Tzl11P6LGX6jXlo",
-          "name": "SerpAPI account"
-        }
-      }
-    },
-    {
-      "parameters": {},
-      "id": "abdf3ff8-3cf7-4120-874c-26571ee284e5",
-      "name": "Wikipedia2",
-      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
-      "typeVersion": 1,
-      "position": [
-        2040,
-        -120
-      ]
-    },
-    {
-      "parameters": {
         "model": "=gpt-4o-mini",
         "options": {}
       },
@@ -1788,7 +1767,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1820,
+        2500,
         -120
       ],
       "credentials": {
@@ -1818,9 +1797,9 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "country": "={{ $json.country }}",
+            "country": "={{ $json.output.countries[0].country }}",
             "status": "done",
-            "state": "{{ $json.state }}"
+            "state": "="
           },
           "matchingColumns": [
             "country",
@@ -1879,7 +1858,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2280,
+        3000,
         -300
       ],
       "id": "5d3162b5-f5aa-431e-a2e9-162c19fd61f9",
@@ -1902,7 +1881,7 @@
         "hasOutputParser": true,
         "options": {
           "systemMessage": "={{ $('prompts').item.json.state_system }}",
-          "maxIterations": 50
+          "maxIterations": 75
         }
       },
       "id": "af482963-473d-446c-8d38-28312678d7fa",
@@ -1910,34 +1889,21 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1880,
+        2560,
         -300
       ]
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"countries\": [\n    {\n      \"country\": \"usa\",\n      \"state\": [\n        \"Alabama\",\n        \"Alaska\",\n        \"Arizona\",\n        \"Arkansas\",\n        \"California\",\n        \"Colorado\",\n        \"Connecticut\",\n        \"Delaware\",\n        \"Florida\",\n        \"Georgia\",\n        \"Hawaii\",\n        \"Idaho\",\n        \"Illinois\",\n        \"Indiana\",\n        \"Iowa\",\n        \"Kansas\",\n        \"Kentucky\",\n        \"Louisiana\",\n        \"Maine\",\n        \"Maryland\",\n        \"Massachusetts\",\n        \"Michigan\",\n        \"Minnesota\",\n        \"Mississippi\",\n        \"Missouri\",\n        \"Montana\",\n        \"Nebraska\",\n        \"Nevada\",\n        \"New Hampshire\",\n        \"New Jersey\",\n        \"New Mexico\",\n        \"New York\",\n        \"North Carolina\",\n        \"North Dakota\",\n        \"Ohio\",\n        \"Oklahoma\",\n        \"Oregon\",\n        \"Pennsylvania\",\n        \"Rhode Island\",\n        \"South Carolina\",\n        \"South Dakota\",\n        \"Tennessee\",\n        \"Texas\",\n        \"Utah\",\n        \"Vermont\",\n        \"Virginia\",\n        \"Washington\",\n        \"West Virginia\",\n        \"Wisconsin\",\n        \"Wyoming\"\n      ]\n    },\n    {\n      \"country\": \"mexico\",\n      \"state\": [\n        \"Aguascalientes\",\n        \"Baja California\",\n        \"Baja California Sur\",\n        \"Campeche\",\n        \"Chiapas\",\n        \"Chihuahua\",\n        \"Coahuila\",\n        \"Colima\",\n        \"Durango\",\n        \"Guanajuato\",\n        \"Guerrero\",\n        \"Hidalgo\",\n        \"Jalisco\",\n        \"México\",\n        \"Mexico City\",\n        \"Michoacán\",\n        \"Morelos\",\n        \"Nayarit\",\n        \"Nuevo León\",\n        \"Oaxaca\",\n        \"Puebla\",\n        \"Querétaro\",\n        \"Quintana Roo\",\n        \"San Luis Potosí\",\n        \"Sinaloa\",\n        \"Sonora\",\n        \"Tabasco\",\n        \"Tamaulipas\",\n        \"Tlaxcala\",\n        \"Veracruz\",\n        \"Yucatán\",\n        \"Zacatecas\"\n      ]\n    }\n  ]\n}"
+        "schemaType": "manual"
       },
       "id": "08b1ffcf-c9e6-4f25-9058-12fd3036cc0a",
       "name": "States Parser",
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        2160,
-        -120
-      ]
-    },
-    {
-      "parameters": {
-        "jsonSchemaExample": "{\n  \"countries\": [\n    {\n      \"country\": \"usa\"\n    },\n    {\n      \"country\": \"mexico\"\n    }\n  ]\n}"
-      },
-      "id": "11f5e680-fc8c-4ca7-a557-f1c686a12b48",
-      "name": "Country Parser",
-      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-      "typeVersion": 1.2,
-      "position": [
-        1280,
-        -80
+        2820,
+        -140
       ]
     },
     {
@@ -1970,11 +1936,137 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1660,
+        2200,
         -280
       ],
       "id": "bb401769-399b-4126-a86d-9e7f7954518c",
       "name": "States"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        920,
+        660
+      ],
+      "id": "43a645b2-b5bb-426e-b8a1-6856441ce6c5",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        900
+      ],
+      "id": "195129b6-9667-4199-bca9-7c30db1d14e9",
+      "name": "Call n8n Workflow Tool"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to scrape a website. The input should be a URL."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        880
+      ],
+      "id": "21603731-93be-4fd5-a252-903f16b18471",
+      "name": "Call n8n Workflow Tool1"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"countries\": [\n    {\n      \"country\": \"usa\"\n    },\n    {\n      \"country\": \"mexico\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1320,
+        -80
+      ],
+      "id": "c363fb1e-9a49-47e7-a7a5-ec3d357ab65a",
+      "name": "Country Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "3f544b9d-95cc-4d50-8139-6cdd61370d3f",
+      "name": "SerpAPI_tool",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        60
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "1e26aa13-aba6-49e3-b8a3-3089ace4a761",
+      "name": "Wikipedia_tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "181f8370-4307-407c-ad8d-3d074a815b2f",
+      "name": "SerpAPI_tool2",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        2580,
+        20
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "abdf3ff8-3cf7-4120-874c-26571ee284e5",
+      "name": "Wikipedia_tool2",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ \"output.countries\" }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        -80
+      ],
+      "id": "46dacebd-2fa5-44d1-8c13-7c255a310352",
+      "name": "Split Countries",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {
@@ -2154,6 +2246,1436 @@
           "country": "Venezuela"
         }
       }
+    ],
+    "Country": [
+      {
+        "json": {
+          "output": {
+            "countries": [
+              {
+                "country": "Antigua and Barbuda"
+              },
+              {
+                "country": "Argentina"
+              },
+              {
+                "country": "Bahamas"
+              },
+              {
+                "country": "Barbados"
+              },
+              {
+                "country": "Belize"
+              },
+              {
+                "country": "Bolivia"
+              },
+              {
+                "country": "Brazil"
+              },
+              {
+                "country": "Canada"
+              },
+              {
+                "country": "Chile"
+              },
+              {
+                "country": "Colombia"
+              },
+              {
+                "country": "Costa Rica"
+              },
+              {
+                "country": "Cuba"
+              },
+              {
+                "country": "Dominica"
+              },
+              {
+                "country": "Dominican Republic"
+              },
+              {
+                "country": "Ecuador"
+              },
+              {
+                "country": "El Salvador"
+              },
+              {
+                "country": "Grenada"
+              },
+              {
+                "country": "Guatemala"
+              },
+              {
+                "country": "Haiti"
+              },
+              {
+                "country": "Honduras"
+              },
+              {
+                "country": "Jamaica"
+              },
+              {
+                "country": "Mexico"
+              },
+              {
+                "country": "Nicaragua"
+              },
+              {
+                "country": "Panama"
+              },
+              {
+                "country": "Paraguay"
+              },
+              {
+                "country": "Peru"
+              },
+              {
+                "country": "Saint Kitts and Nevis"
+              },
+              {
+                "country": "Saint Lucia"
+              },
+              {
+                "country": "Saint Vincent and the Grenadines"
+              },
+              {
+                "country": "Suriname"
+              },
+              {
+                "country": "Trinidad and Tobago"
+              },
+              {
+                "country": "United States"
+              },
+              {
+                "country": "Uruguay"
+              },
+              {
+                "country": "Venezuela"
+              }
+            ]
+          },
+          "intermediateSteps": [
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of countries in the Americas"
+                },
+                "toolCallId": "call_bkzSXGF5MoqwRS4QKm434OKY",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of countries in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_bkzSXGF5MoqwRS4QKm434OKY",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of countries in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 269,
+                          "completion_tokens": 20,
+                          "total_tokens": 289,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 0,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of countries in the Americas\"}",
+                          "id": "call_bkzSXGF5MoqwRS4QKm434OKY",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3BuilFBmHrbiCyMbLHdSvDzPqeKA",
+                      "usage_metadata": {
+                        "input_tokens": 269,
+                        "output_tokens": 20,
+                        "total_tokens": 289,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 0
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of countries in the Americas"
+                          },
+                          "id": "call_bkzSXGF5MoqwRS4QKm434OKY",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of countries in the Americas by population\nSummary: This is a list of countries and dependent territories in the Americas by population, which is sorted by the 2015 mid-year normalized demographic projections.\n\n\n== Table ==\n\n\n== See also ==\nList of countries in the Americas by life expectancy\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of sovereign states and dependent territories in North America\nSummary: The following is a list of sovereign countries and dependent territories in North America, a continent that covers the landmass north of the Colombia-Panama border as well as the islands of the Caribbean.\n\n\n== Sovereign states ==\n\nAll of the states listed here are member states of the United Nations.\n\n\n== Non-sovereign territories ==\nThis section contains areas that are not sovereign states nor integral parts of the sovereign states listed above. These include dependent territories and integral areas of primarily non-North American states.\n\n\n=== Dependent territories ===\nDependencies that are not internationally recognized, or not in effect, are listed in italics.\n\n\n=== Integral parts of primarily non-North American states ===\n\n\n=== Disputed territories ===\nDisputed territories that are not internationally recognized, or not in effect, are listed in italics:\n\n\n== See also ==\nFlags of North America\nList of currencies in the Americas\nList of North American countries by GDP (nominal)\nList of North American countries by GDP (nominal) per capita\nList of North American countries by GDP (PPP)\nList of North American countries by GDP (PPP) per capita\nList of predecessors of sovereign states in North America\nList of sovereign states and dependent territories in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References =="
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "Sovereign states in the Americas"
+                },
+                "toolCallId": "call_Ja65lc3OAyZXroUKar1uoBUs",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"Sovereign states in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_Ja65lc3OAyZXroUKar1uoBUs",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"Sovereign states in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 902,
+                          "completion_tokens": 21,
+                          "total_tokens": 923,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 0,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"Sovereign states in the Americas\"}",
+                          "id": "call_Ja65lc3OAyZXroUKar1uoBUs",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3BulwPaUys8bOSdb63lM7LbU1qXw",
+                      "usage_metadata": {
+                        "input_tokens": 902,
+                        "output_tokens": 21,
+                        "total_tokens": 923,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 0
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "Sovereign states in the Americas"
+                          },
+                          "id": "call_Ja65lc3OAyZXroUKar1uoBUs",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of sovereign states and dependent territories in North America\nSummary: The following is a list of sovereign countries and dependent territories in North America, a continent that covers the landmass north of the Colombia-Panama border as well as the islands of the Caribbean.\n\n\n== Sovereign states ==\n\nAll of the states listed here are member states of the United Nations.\n\n\n== Non-sovereign territories ==\nThis section contains areas that are not sovereign states nor integral parts of the sovereign states listed above. These include dependent territories and integral areas of primarily non-North American states.\n\n\n=== Dependent territories ===\nDependencies that are not internationally recognized, or not in effect, are listed in italics.\n\n\n=== Integral parts of primarily non-North American states ===\n\n\n=== Disputed territories ===\nDisputed territories that are not internationally recognized, or not in effect, are listed in italics:\n\n\n== See also ==\nFlags of North America\nList of currencies in the Americas\nList of North American countries by GDP (nominal)\nList of North American countries by GDP (nominal) per capita\nList of North American countries by GDP (PPP)\nList of North American countries by GDP (PPP) per capita\nList of predecessors of sovereign states in North America\nList of sovereign states and dependent territories in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of former sovereign states\nSummary: A historical sovereign state is a state that once existed, but has since been dissolved due to conflict, war, rebellion, annexation, or uprising. This page lists sovereign states, countries, nations, or empires that ceased to exist as political entities sometime after 1453, grouped geographically and by constitutional nature.\n\n\n== Criteria for inclusion ==\nThe criteria for inclusion in this list are similar to that of the list of states with limited recognition. To be included here, a polity must have claimed statehood and either:\n\nhad de facto control over a territory, a population, a government, a capacity to enter into relations with other states, or\nhave been recognised as a state by at least one other state.\nThis is not a list for all variant governments of a state, nor is it a list of variations of countries' official long form name.\nFor purposes of this list, the cutoff between medieval and early modern states is the fall of Constantinople in 1453.\n\n\n== Ancient and medieval states ==\nList of Copper Age states\nList of Bronze Age states\nList of Iron Age states\nList of Classi"
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of all countries in the Americas"
+                },
+                "toolCallId": "call_Ob2G5sDpPzsdBQ9rGFYJUgzb",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of all countries in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_Ob2G5sDpPzsdBQ9rGFYJUgzb",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of all countries in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 1702,
+                          "completion_tokens": 21,
+                          "total_tokens": 1723,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 0,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of all countries in the Americas\"}",
+                          "id": "call_Ob2G5sDpPzsdBQ9rGFYJUgzb",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3BundCiryaoaoHo5cv75YneWEqgV",
+                      "usage_metadata": {
+                        "input_tokens": 1702,
+                        "output_tokens": 21,
+                        "total_tokens": 1723,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 0
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of all countries in the Americas"
+                          },
+                          "id": "call_Ob2G5sDpPzsdBQ9rGFYJUgzb",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of sovereign states and dependent territories in North America\nSummary: The following is a list of sovereign countries and dependent territories in North America, a continent that covers the landmass north of the Colombia-Panama border as well as the islands of the Caribbean.\n\n\n== Sovereign states ==\n\nAll of the states listed here are member states of the United Nations.\n\n\n== Non-sovereign territories ==\nThis section contains areas that are not sovereign states nor integral parts of the sovereign states listed above. These include dependent territories and integral areas of primarily non-North American states.\n\n\n=== Dependent territories ===\nDependencies that are not internationally recognized, or not in effect, are listed in italics.\n\n\n=== Integral parts of primarily non-North American states ===\n\n\n=== Disputed territories ===\nDisputed territories that are not internationally recognized, or not in effect, are listed in italics:\n\n\n== See also ==\nFlags of North America\nList of currencies in the Americas\nList of North American countries by GDP (nominal)\nList of North American countries by GDP (nominal) per capita\nList of North American countries by GDP (PPP)\nList of North American countries by GDP (PPP) per capita\nList of predecessors of sovereign states in North America\nList of sovereign states and dependent territories in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of sovereign states and dependent territories in South America\nSummary: There are 12 sovereign states and 3 non-sovereign dependent territories in South America. The continent is bordered on the west by the Pacific Ocean and on the north and east by the Atlantic Ocean. North America and the Caribbean Sea lie to the northwest. South America has an area of approximately 17,840,000 square kilometres (6,890,000 sq mi), or almost 3.5% of Earth's surface. As of 2018, its population is more than 430 million, according to estimates of population in The World Factbook. South America ranks fourth among all continents in area (after Asia, Africa, and North America) and fifth in population (after Asia, Africa, Europe, and North America).\nThe border between North and South America is at some point in the Isthmus of Panama. The most common demarcation in atlases and other sources follows the Darién Mountains watershed that divides along the Colombia–Panama border where the isthmus meets the South American continent (see Darién Gap). Virtually all atlases list Panama as a state falling entirely within North America and/or Central"
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of countries in the Americas"
+                },
+                "toolCallId": "call_QrgfEflYDk23eyaA9vBVT62t",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of countries in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_QrgfEflYDk23eyaA9vBVT62t",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of countries in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 2512,
+                          "completion_tokens": 20,
+                          "total_tokens": 2532,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 1664,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of countries in the Americas\"}",
+                          "id": "call_QrgfEflYDk23eyaA9vBVT62t",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3Bup5WC4M86GTH0roZ7UTBDaOnAh",
+                      "usage_metadata": {
+                        "input_tokens": 2512,
+                        "output_tokens": 20,
+                        "total_tokens": 2532,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 1664
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of countries in the Americas"
+                          },
+                          "id": "call_QrgfEflYDk23eyaA9vBVT62t",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of countries in the Americas by population\nSummary: This is a list of countries and dependent territories in the Americas by population, which is sorted by the 2015 mid-year normalized demographic projections.\n\n\n== Table ==\n\n\n== See also ==\nList of countries in the Americas by life expectancy\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of sovereign states and dependent territories in North America\nSummary: The following is a list of sovereign countries and dependent territories in North America, a continent that covers the landmass north of the Colombia-Panama border as well as the islands of the Caribbean.\n\n\n== Sovereign states ==\n\nAll of the states listed here are member states of the United Nations.\n\n\n== Non-sovereign territories ==\nThis section contains areas that are not sovereign states nor integral parts of the sovereign states listed above. These include dependent territories and integral areas of primarily non-North American states.\n\n\n=== Dependent territories ===\nDependencies that are not internationally recognized, or not in effect, are listed in italics.\n\n\n=== Integral parts of primarily non-North American states ===\n\n\n=== Disputed territories ===\nDisputed territories that are not internationally recognized, or not in effect, are listed in italics:\n\n\n== See also ==\nFlags of North America\nList of currencies in the Americas\nList of North American countries by GDP (nominal)\nList of North American countries by GDP (nominal) per capita\nList of North American countries by GDP (PPP)\nList of North American countries by GDP (PPP) per capita\nList of predecessors of sovereign states in North America\nList of sovereign states and dependent territories in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References =="
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of countries in the Americas"
+                },
+                "toolCallId": "call_Nc122SbY81r8fsTn7HumLxJ8",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of countries in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_Nc122SbY81r8fsTn7HumLxJ8",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of countries in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 3145,
+                          "completion_tokens": 20,
+                          "total_tokens": 3165,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 2432,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of countries in the Americas\"}",
+                          "id": "call_Nc122SbY81r8fsTn7HumLxJ8",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3Burxcr7sC6KhW25PXI5AEPAvarg",
+                      "usage_metadata": {
+                        "input_tokens": 3145,
+                        "output_tokens": 20,
+                        "total_tokens": 3165,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 2432
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of countries in the Americas"
+                          },
+                          "id": "call_Nc122SbY81r8fsTn7HumLxJ8",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of countries in the Americas by population\nSummary: This is a list of countries and dependent territories in the Americas by population, which is sorted by the 2015 mid-year normalized demographic projections.\n\n\n== Table ==\n\n\n== See also ==\nList of countries in the Americas by life expectancy\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of sovereign states and dependent territories in North America\nSummary: The following is a list of sovereign countries and dependent territories in North America, a continent that covers the landmass north of the Colombia-Panama border as well as the islands of the Caribbean.\n\n\n== Sovereign states ==\n\nAll of the states listed here are member states of the United Nations.\n\n\n== Non-sovereign territories ==\nThis section contains areas that are not sovereign states nor integral parts of the sovereign states listed above. These include dependent territories and integral areas of primarily non-North American states.\n\n\n=== Dependent territories ===\nDependencies that are not internationally recognized, or not in effect, are listed in italics.\n\n\n=== Integral parts of primarily non-North American states ===\n\n\n=== Disputed territories ===\nDisputed territories that are not internationally recognized, or not in effect, are listed in italics:\n\n\n== See also ==\nFlags of North America\nList of currencies in the Americas\nList of North American countries by GDP (nominal)\nList of North American countries by GDP (nominal) per capita\nList of North American countries by GDP (PPP)\nList of North American countries by GDP (PPP) per capita\nList of predecessors of sovereign states in North America\nList of sovereign states and dependent territories in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References =="
+            },
+            {
+              "action": {
+                "tool": "search",
+                "toolInput": {
+                  "input": "Sovereign states in the Americas list"
+                },
+                "toolCallId": "call_FcgvTkexcsJI4k0x9nL8f9Xl",
+                "log": "Invoking \"search\" with {\"input\":\"Sovereign states in the Americas list\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_FcgvTkexcsJI4k0x9nL8f9Xl",
+                            "type": "function",
+                            "function": {
+                              "name": "search",
+                              "arguments": "{\"input\":\"Sovereign states in the Americas list\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 3778,
+                          "completion_tokens": 21,
+                          "total_tokens": 3799,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 3072,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "search",
+                          "args": "{\"input\":\"Sovereign states in the Americas list\"}",
+                          "id": "call_FcgvTkexcsJI4k0x9nL8f9Xl",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3But1YdDl6lyl2snnbl98oKlH7F6",
+                      "usage_metadata": {
+                        "input_tokens": 3778,
+                        "output_tokens": 21,
+                        "total_tokens": 3799,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 3072
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "search",
+                          "args": {
+                            "input": "Sovereign states in the Americas list"
+                          },
+                          "id": "call_FcgvTkexcsJI4k0x9nL8f9Xl",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "List of sovereign states and dependent territories in North America"
+            },
+            {
+              "action": {
+                "tool": "search",
+                "toolInput": {
+                  "input": "List of all the countries in the Americas"
+                },
+                "toolCallId": "call_yUR8UjucBjnsOB6ueHWqoGl9",
+                "log": "Invoking \"search\" with {\"input\":\"List of all the countries in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_yUR8UjucBjnsOB6ueHWqoGl9",
+                            "type": "function",
+                            "function": {
+                              "name": "search",
+                              "arguments": "{\"input\":\"List of all the countries in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 3815,
+                          "completion_tokens": 21,
+                          "total_tokens": 3836,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 3712,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "search",
+                          "args": "{\"input\":\"List of all the countries in the Americas\"}",
+                          "id": "call_yUR8UjucBjnsOB6ueHWqoGl9",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3BuwxKXzYSZtoZpgmXQPGqkds8XJ",
+                      "usage_metadata": {
+                        "input_tokens": 3815,
+                        "output_tokens": 21,
+                        "total_tokens": 3836,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 3712
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "search",
+                          "args": {
+                            "input": "List of all the countries in the Americas"
+                          },
+                          "id": "call_yUR8UjucBjnsOB6ueHWqoGl9",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "[\"The Americas, sometimes collectively called America, are a landmass comprising the totality of North America and South America. When viewed as a single continent, the Americas or America is the 2nd largest continent right after Asia, and is the 3rd largest continent by population.\",\"Americas kgmid: /m/07c5l\",\"Americas area: 16.43 million mi²\",\"Americas population: 1.02 billion\",\"Americas first_pope: Jorge Mario Bergoglio vatican.va\",\"Americas demonym: American (see usage)\",\"Americas languages: Spanish, English, Portuguese, French, Haitian Creole, Quechua, Guaraní, Aymara, Nahuatl, Dutch, and many others\",\"This is a list of countries and dependent territories in the Americas by population, which is sorted by the 2015 mid-year normalized demographic projections ...\"]"
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "countries in America"
+                },
+                "toolCallId": "call_l72aXHqruqg1UDEEc8uhoeNw",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"countries in America\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_l72aXHqruqg1UDEEc8uhoeNw",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"countries in America\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 4028,
+                          "completion_tokens": 17,
+                          "total_tokens": 4045,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 3712,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"countries in America\"}",
+                          "id": "call_l72aXHqruqg1UDEEc8uhoeNw",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3Bv1uU5bbC98K3UbkwiPJF6mry9j",
+                      "usage_metadata": {
+                        "input_tokens": 4028,
+                        "output_tokens": 17,
+                        "total_tokens": 4045,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 3712
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "countries in America"
+                          },
+                          "id": "call_l72aXHqruqg1UDEEc8uhoeNw",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of sovereign states and dependent territories in North America\nSummary: The following is a list of sovereign countries and dependent territories in North America, a continent that covers the landmass north of the Colombia-Panama border as well as the islands of the Caribbean.\n\n\n== Sovereign states ==\n\nAll of the states listed here are member states of the United Nations.\n\n\n== Non-sovereign territories ==\nThis section contains areas that are not sovereign states nor integral parts of the sovereign states listed above. These include dependent territories and integral areas of primarily non-North American states.\n\n\n=== Dependent territories ===\nDependencies that are not internationally recognized, or not in effect, are listed in italics.\n\n\n=== Integral parts of primarily non-North American states ===\n\n\n=== Disputed territories ===\nDisputed territories that are not internationally recognized, or not in effect, are listed in italics:\n\n\n== See also ==\nFlags of North America\nList of currencies in the Americas\nList of North American countries by GDP (nominal)\nList of North American countries by GDP (nominal) per capita\nList of North American countries by GDP (PPP)\nList of North American countries by GDP (PPP) per capita\nList of predecessors of sovereign states in North America\nList of sovereign states and dependent territories in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of sovereign states and dependent territories in South America\nSummary: There are 12 sovereign states and 3 non-sovereign dependent territories in South America. The continent is bordered on the west by the Pacific Ocean and on the north and east by the Atlantic Ocean. North America and the Caribbean Sea lie to the northwest. South America has an area of approximately 17,840,000 square kilometres (6,890,000 sq mi), or almost 3.5% of Earth's surface. As of 2018, its population is more than 430 million, according to estimates of population in The World Factbook. South America ranks fourth among all continents in area (after Asia, Africa, and North America) and fifth in population (after Asia, Africa, Europe, and North America).\nThe border between North and South America is at some point in the Isthmus of Panama. The most common demarcation in atlases and other sources follows the Darién Mountains watershed that divides along the Colombia–Panama border where the isthmus meets the South American continent (see Darién Gap). Virtually all atlases list Panama as a state falling entirely within North America and/or Central"
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of countries in the Americas"
+                },
+                "toolCallId": "call_pavC99pOkqYnawRfyfxDFDws",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of countries in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_pavC99pOkqYnawRfyfxDFDws",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of countries in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 4834,
+                          "completion_tokens": 20,
+                          "total_tokens": 4854,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 3968,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of countries in the Americas\"}",
+                          "id": "call_pavC99pOkqYnawRfyfxDFDws",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3Bv23qrVkajNJabElz9wlvE8pFv1",
+                      "usage_metadata": {
+                        "input_tokens": 4834,
+                        "output_tokens": 20,
+                        "total_tokens": 4854,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 3968
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of countries in the Americas"
+                          },
+                          "id": "call_pavC99pOkqYnawRfyfxDFDws",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of countries in the Americas by population\nSummary: This is a list of countries and dependent territories in the Americas by population, which is sorted by the 2015 mid-year normalized demographic projections.\n\n\n== Table ==\n\n\n== See also ==\nList of countries in the Americas by life expectancy\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of sovereign states and dependent territories in North America\nSummary: The following is a list of sovereign countries and dependent territories in North America, a continent that covers the landmass north of the Colombia-Panama border as well as the islands of the Caribbean.\n\n\n== Sovereign states ==\n\nAll of the states listed here are member states of the United Nations.\n\n\n== Non-sovereign territories ==\nThis section contains areas that are not sovereign states nor integral parts of the sovereign states listed above. These include dependent territories and integral areas of primarily non-North American states.\n\n\n=== Dependent territories ===\nDependencies that are not internationally recognized, or not in effect, are listed in italics.\n\n\n=== Integral parts of primarily non-North American states ===\n\n\n=== Disputed territories ===\nDisputed territories that are not internationally recognized, or not in effect, are listed in italics:\n\n\n== See also ==\nFlags of North America\nList of currencies in the Americas\nList of North American countries by GDP (nominal)\nList of North American countries by GDP (nominal) per capita\nList of North American countries by GDP (PPP)\nList of North American countries by GDP (PPP) per capita\nList of predecessors of sovereign states in North America\nList of sovereign states and dependent territories in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References =="
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of countries in the Americas by population"
+                },
+                "toolCallId": "call_Y3Pd3I4ftmfUv5gOT6GLXaYo",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of countries in the Americas by population\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_Y3Pd3I4ftmfUv5gOT6GLXaYo",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of countries in the Americas by population\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 5467,
+                          "completion_tokens": 22,
+                          "total_tokens": 5489,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 4736,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of countries in the Americas by population\"}",
+                          "id": "call_Y3Pd3I4ftmfUv5gOT6GLXaYo",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3Bv57lcqKmcGglgXGXHS2PMSSf4S",
+                      "usage_metadata": {
+                        "input_tokens": 5467,
+                        "output_tokens": 22,
+                        "total_tokens": 5489,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 4736
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of countries in the Americas by population"
+                          },
+                          "id": "call_Y3Pd3I4ftmfUv5gOT6GLXaYo",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of countries in the Americas by population\nSummary: This is a list of countries and dependent territories in the Americas by population, which is sorted by the 2015 mid-year normalized demographic projections.\n\n\n== Table ==\n\n\n== See also ==\nList of countries in the Americas by life expectancy\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of South American countries by population\nSummary: This is a list of South American countries and dependencies by population in South America, total projected population from the United Nations and the latest official figure.\n\n\n== Map ==\n\n\n== Table ==\n\n\n== See also ==\nDemographics of South America\nList of South American countries by area\nList of South American countries by life expectancy\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of countries and dependencies by population\nSummary: This is a list of countries and dependencies by population. It includes sovereign states, inhabited dependent territories and, in some cases, constituent countries of sovereign states, with inclusion within the list being primarily based on the ISO standard ISO 3166-1. For instance, the United Kingdom is considered a single entity, while the constituent countries of the Kingdom of the Netherlands are considered separately. In addition, this list includes certain states with limited recognition not found in ISO 3166-1. Also given in a percentage is each country's population compared with the world population, which the United Nations estimates at 8.119 billion as of 2024.\n\n\n== Method ==\n\nFigures used in this chart are based on the most up-to-date estimates or projections by the national census authority, where available, and are usually rounded off.\nWhere updated national data are not available, figures are based on the estimates or projections for 2024 by the Population Division of the United Nations Department of Economic and Social Affairs.\nBecause the compiled figures are not collected at the same time in every country, or at the same level of accuracy, the resulting numerical comparisons may create misleading conclusions. Furthermore, the addition of figures from all countries may not equal the world total.\nAreas that form integral parts of sovereign states, such as the countries of the United Kingdom, are counted as part of the sovereign states concerned. Not included are other entities that are not sovereign states, such as the European Union, and independent territories that do not have permanent populations, such as the Chagos Archipelago and various countries' claims to Antarctica.\n\n\n== Sovereign states and dependencies by population ==\nNote: A numbered rank is assigned to the 193 member states of the United Nations, plus the two observer states to the United Nations General Assembly. Dependent territories and constituent countries that are parts of sovereign states are not assigned a numbered rank. In addition, sovereign states with limited recognition are included, but not assigned a number rank.\n\n\n== See also ==\nList of countries by population (United Nations)\nDemographics of the world\nList of countries and dependencies by area\nList of countries and dependencies by population density\nList of countries by population growth rate\n\n\n== Explanatory notes ==\n\n\n== References =="
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of Americas countries alphabetical order"
+                },
+                "toolCallId": "call_KQiZkRD2GfaCmpp8P6JYGC7j",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of Americas countries alphabetical order\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_KQiZkRD2GfaCmpp8P6JYGC7j",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of Americas countries alphabetical order\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 6108,
+                          "completion_tokens": 20,
+                          "total_tokens": 6128,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 5376,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of Americas countries alphabetical order\"}",
+                          "id": "call_KQiZkRD2GfaCmpp8P6JYGC7j",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3Bv7egcyIZxoVWX3J2qCu86Dv3a6",
+                      "usage_metadata": {
+                        "input_tokens": 6108,
+                        "output_tokens": 20,
+                        "total_tokens": 6128,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 5376
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of Americas countries alphabetical order"
+                          },
+                          "id": "call_KQiZkRD2GfaCmpp8P6JYGC7j",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of national capitals\nSummary: This is a list of national capitals, including capitals of territories and dependencies, non-sovereign states including associated states and entities whose sovereignty is disputed.\nThe capitals included on this list are those associated with states or territories listed by the international standard ISO 3166-1, or that are included in the list of states with limited recognition.\nSovereign states and observer states within the United Nations are shown in bold text.\n\n\n== List ==\n\nThe column headings may cover the first row when the letter links are used.\n\n\n== See also ==\nList of countries with multiple capitals\nList of purpose-built national capitals\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of countries by total fertility rate\nSummary: This is a list of all sovereign states and dependencies by total fertility rate (TFR): the expected number of children born per woman in her child-bearing years.\n\n\n== Methodology ==\nThe first lists show the most recent year where there is published total fertility rate (TFR) data ranked by sovereign states and dependencies, and are ordered by organization type – intergovernmental, governmental, or non-governmental organization that searched, organized, and published the data.\nCountries are ranked by most recent years’ lists of the following types:\nInternational organizations’ ranking lists\nThe United Nations Population Fund ranking is based on the data for 2024 published online. The United Nations Population Fund (formerly the United Nations Fund for Population Activities - UNFPA) is an UN agency aimed at improving reproductive and maternal health worldwide. This agency collects and analyses information on demography issues based on its own work and national sources.\nThe World Bank ranking list is based on the data for the year 2020 published online. The World Bank is a United Nations international financial institution, a component of the World Bank Group, and a member of the United Nations Development Group, but it also collects and analyses information on demography issues based on international and national sources: (1) United Nations Population Division: World Population Prospects, (2) United Nations Statistics Division: Population and Vital Statistics Report (various years), (3) Census reports and other statistical publications from national statistical offices, (4) Eurostat: Demographic Statistics, (5) Secretariat of the Pacific Community: Statistics and Demography Programme, and (6) U.S. Census Bureau International Database.\nNote: Sometimes the World Bank changes its figures of fertility rates for a certain year due to more accurate and updated information from sources. Because of that, sometimes it is necessary to update World Bank figures for fertility rates more than once for the same year.\nGovernmental organizations ranking lists\nThe CIA ranking list is sourced from the CIA World Factbook for the most recent year unless otherwise specified. Sovereign states and countries are ranked. Some countries might not be listed because they are not fully recognized as countries at the time of this census.\nThe INED - Institut National d'Études Démographiques is based on the online publication Population & Sociétés - Tous les pays du monde (2019), number 569, September 2019.\nNon-governmental organizations ranking lists\nThe Population Reference Bureau (PRB) ranking list is based on the data of the 2024 World Population Data Sheet published online. The PRB is a private, nonprofit organization which informs people around the world about population, health and the environment for research or academic purposes. It was founded in 1929. World Population Data Sheets are double-sided wallcharts (now published online) that present detailed information on demographic, health and environment indicators for more than 200 countries.\n\nNotes: \n1- Changes in figures of fertility rates by country from one year to another do not always reflect an actual increase or decrea"
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of countries in the Americas alphabetical order"
+                },
+                "toolCallId": "call_I4MKCQjU8FHykvMXRrmpMkea",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of countries in the Americas alphabetical order\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_I4MKCQjU8FHykvMXRrmpMkea",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of countries in the Americas alphabetical order\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 6893,
+                          "completion_tokens": 22,
+                          "total_tokens": 6915,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 6016,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of countries in the Americas alphabetical order\"}",
+                          "id": "call_I4MKCQjU8FHykvMXRrmpMkea",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3Bv9SVE1bO0K6kRcPIWa84YZMd6R",
+                      "usage_metadata": {
+                        "input_tokens": 6893,
+                        "output_tokens": 22,
+                        "total_tokens": 6915,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 6016
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of countries in the Americas alphabetical order"
+                          },
+                          "id": "call_I4MKCQjU8FHykvMXRrmpMkea",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of national capitals\nSummary: This is a list of national capitals, including capitals of territories and dependencies, non-sovereign states including associated states and entities whose sovereignty is disputed.\nThe capitals included on this list are those associated with states or territories listed by the international standard ISO 3166-1, or that are included in the list of states with limited recognition.\nSovereign states and observer states within the United Nations are shown in bold text.\n\n\n== List ==\n\nThe column headings may cover the first row when the letter links are used.\n\n\n== See also ==\nList of countries with multiple capitals\nList of purpose-built national capitals\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of countries by total fertility rate\nSummary: This is a list of all sovereign states and dependencies by total fertility rate (TFR): the expected number of children born per woman in her child-bearing years.\n\n\n== Methodology ==\nThe first lists show the most recent year where there is published total fertility rate (TFR) data ranked by sovereign states and dependencies, and are ordered by organization type – intergovernmental, governmental, or non-governmental organization that searched, organized, and published the data.\nCountries are ranked by most recent years’ lists of the following types:\nInternational organizations’ ranking lists\nThe United Nations Population Fund ranking is based on the data for 2024 published online. The United Nations Population Fund (formerly the United Nations Fund for Population Activities - UNFPA) is an UN agency aimed at improving reproductive and maternal health worldwide. This agency collects and analyses information on demography issues based on its own work and national sources.\nThe World Bank ranking list is based on the data for the year 2020 published online. The World Bank is a United Nations international financial institution, a component of the World Bank Group, and a member of the United Nations Development Group, but it also collects and analyses information on demography issues based on international and national sources: (1) United Nations Population Division: World Population Prospects, (2) United Nations Statistics Division: Population and Vital Statistics Report (various years), (3) Census reports and other statistical publications from national statistical offices, (4) Eurostat: Demographic Statistics, (5) Secretariat of the Pacific Community: Statistics and Demography Programme, and (6) U.S. Census Bureau International Database.\nNote: Sometimes the World Bank changes its figures of fertility rates for a certain year due to more accurate and updated information from sources. Because of that, sometimes it is necessary to update World Bank figures for fertility rates more than once for the same year.\nGovernmental organizations ranking lists\nThe CIA ranking list is sourced from the CIA World Factbook for the most recent year unless otherwise specified. Sovereign states and countries are ranked. Some countries might not be listed because they are not fully recognized as countries at the time of this census.\nThe INED - Institut National d'Études Démographiques is based on the online publication Population & Sociétés - Tous les pays du monde (2019), number 569, September 2019.\nNon-governmental organizations ranking lists\nThe Population Reference Bureau (PRB) ranking list is based on the data of the 2024 World Population Data Sheet published online. The PRB is a private, nonprofit organization which informs people around the world about population, health and the environment for research or academic purposes. It was founded in 1929. World Population Data Sheets are double-sided wallcharts (now published online) that present detailed information on demographic, health and environment indicators for more than 200 countries.\n\nNotes: \n1- Changes in figures of fertility rates by country from one year to another do not always reflect an actual increase or decrea"
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of countries in the Americas alphabetical"
+                },
+                "toolCallId": "call_PK0QSuKN97QhQ4y8nfEV9bz2",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of countries in the Americas alphabetical\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_PK0QSuKN97QhQ4y8nfEV9bz2",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of countries in the Americas alphabetical\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 7680,
+                          "completion_tokens": 21,
+                          "total_tokens": 7701,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 6784,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of countries in the Americas alphabetical\"}",
+                          "id": "call_PK0QSuKN97QhQ4y8nfEV9bz2",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3BvBv9b7cdulFFGfHbziWefPKY4y",
+                      "usage_metadata": {
+                        "input_tokens": 7680,
+                        "output_tokens": 21,
+                        "total_tokens": 7701,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 6784
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of countries in the Americas alphabetical"
+                          },
+                          "id": "call_PK0QSuKN97QhQ4y8nfEV9bz2",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of national capitals\nSummary: This is a list of national capitals, including capitals of territories and dependencies, non-sovereign states including associated states and entities whose sovereignty is disputed.\nThe capitals included on this list are those associated with states or territories listed by the international standard ISO 3166-1, or that are included in the list of states with limited recognition.\nSovereign states and observer states within the United Nations are shown in bold text.\n\n\n== List ==\n\nThe column headings may cover the first row when the letter links are used.\n\n\n== See also ==\nList of countries with multiple capitals\nList of purpose-built national capitals\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of sovereign states\nSummary: The following is a list providing an overview of sovereign states around the world with information on their status and recognition of their sovereignty.\nThe 205 listed states can be divided into three categories based on membership within the United Nations System: 193 UN member states, two UN General Assembly non-member observer states, and ten other states. The sovereignty dispute column indicates states having undisputed sovereignty (188 states, of which there are 187 UN member states and one UN General Assembly non-member observer state), states having disputed sovereignty (15 states, of which there are six UN member states, one UN General Assembly non-member observer state, and eight de facto states), and states having a special political status (two states, both in free association with New Zealand).\nCompiling a list such as this can be complicated and controversial, as there is no definition that is binding on all the members of the community of nations concerning the criteria for statehood. For more information on the criteria used to determine the contents of this list, please see the criteria for inclusion section below. The list is intended to include entities that have been recognised as having de facto status as sovereign states, and inclusion should not be seen as an endorsement of any specific claim to statehood in legal terms.\n\n\n== Criteria for inclusion ==\nThe dominant customary international law standard of statehood is the declarative theory of statehood, which was codified by the Montevideo Convention of 1933. The Convention defines the state as a person of international law if it \"possess[es] the following qualifications: (a) a permanent population; (b) a defined territory; (c) government; and (d) a capacity to enter into relations with the other states\" so long as it was not \"obtained b"
+            },
+            {
+              "action": {
+                "tool": "wikipedia-api",
+                "toolInput": {
+                  "input": "List of sovereign states and dependent territories in the Americas"
+                },
+                "toolCallId": "call_oQ5rFRNgpXbwj0gyeyqxCOHw",
+                "log": "Invoking \"wikipedia-api\" with {\"input\":\"List of sovereign states and dependent territories in the Americas\"}\n",
+                "messageLog": [
+                  {
+                    "lc": 1,
+                    "type": "constructor",
+                    "id": [
+                      "langchain_core",
+                      "messages",
+                      "AIMessageChunk"
+                    ],
+                    "kwargs": {
+                      "content": "",
+                      "additional_kwargs": {
+                        "tool_calls": [
+                          {
+                            "index": 0,
+                            "id": "call_oQ5rFRNgpXbwj0gyeyqxCOHw",
+                            "type": "function",
+                            "function": {
+                              "name": "wikipedia-api",
+                              "arguments": "{\"input\":\"List of sovereign states and dependent territories in the Americas\"}"
+                            }
+                          }
+                        ]
+                      },
+                      "response_metadata": {
+                        "prompt": 0,
+                        "completion": 0,
+                        "usage": {
+                          "prompt_tokens": 8468,
+                          "completion_tokens": 24,
+                          "total_tokens": 8492,
+                          "prompt_tokens_details": {
+                            "cached_tokens": 7552,
+                            "audio_tokens": 0
+                          },
+                          "completion_tokens_details": {
+                            "reasoning_tokens": 0,
+                            "audio_tokens": 0,
+                            "accepted_prediction_tokens": 0,
+                            "rejected_prediction_tokens": 0
+                          }
+                        },
+                        "finish_reason": "tool_calls",
+                        "system_fingerprint": "fp_00428b782a",
+                        "model_name": "gpt-4o-mini-2024-07-18"
+                      },
+                      "tool_call_chunks": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": "{\"input\":\"List of sovereign states and dependent territories in the Americas\"}",
+                          "id": "call_oQ5rFRNgpXbwj0gyeyqxCOHw",
+                          "index": 0,
+                          "type": "tool_call_chunk"
+                        }
+                      ],
+                      "id": "chatcmpl-B3BvDDltoTBmC81gpkR19c1hf0ao5",
+                      "usage_metadata": {
+                        "input_tokens": 8468,
+                        "output_tokens": 24,
+                        "total_tokens": 8492,
+                        "input_token_details": {
+                          "audio": 0,
+                          "cache_read": 7552
+                        },
+                        "output_token_details": {
+                          "audio": 0,
+                          "reasoning": 0
+                        }
+                      },
+                      "tool_calls": [
+                        {
+                          "name": "wikipedia-api",
+                          "args": {
+                            "input": "List of sovereign states and dependent territories in the Americas"
+                          },
+                          "id": "call_oQ5rFRNgpXbwj0gyeyqxCOHw",
+                          "type": "tool_call"
+                        }
+                      ],
+                      "invalid_tool_calls": []
+                    }
+                  }
+                ]
+              },
+              "observation": "Page: List of sovereign states and dependent territories in the Americas\nSummary: This is an alphabetical list of sovereign states and dependent territories in the Americas. It comprises three regions, Northern America (Canada and the United States), the Caribbean (cultural region of the English, French, Dutch, and Creole speaking countries located on the Caribbean Sea) and Latin America (nations that speak Spanish and Portuguese). The Americas are almost entirely located in the Western Hemisphere, with some of the north-west islands of Alaska entering the Eastern Hemisphere. The majority of islands lying in the Atlantic between the Americas and Afro-Eurasia, such as Iceland, are not normally associated with the Americas and are therefore excluded from this list.\n\n\n== Sovereign states ==\nThe following is a list of sovereign states in the Americas. All 35 states are members of the United Nations and the Organization of American States. \n\n\n== Constituent parts of sovereign states ==\n\n\n== Dependent territories of sovereign states ==\n\n\n== See also ==\nList of countries in the Americas by population\nList of sovereign states\nList of sovereign states and dependent territories in North America\nList of sovereign states and dependent territories in South America\nList of former sovereign states § North America and List of former sovereign states § South America\n\n\n== Notes ==\n\nPage: List of sovereign states and dependent territories in South America\nSummary: There are 12 sovereign states and 3 non-sovereign dependent territories in South America. The continent is bordered on the west by the Pacific Ocean and on the north and east by the Atlantic Ocean. North America and the Caribbean Sea lie to the northwest. South America has an area of approximately 17,840,000 square kilometres (6,890,000 sq mi), or almost 3.5% of Earth's surface. As of 2018, its population is more than 430 million, according to estimates of population in The World Factbook. South America ranks fourth among all continents in area (after Asia, Africa, and North America) and fifth in population (after Asia, Africa, Europe, and North America).\nThe border between North and South America is at some point in the Isthmus of Panama. The most common demarcation in atlases and other sources follows the Darién Mountains watershed that divides along the Colombia–Panama border where the isthmus meets the South American continent (see Darién Gap). Virtually all atlases list Panama as a state falling entirely within North America and/or Central America.\n\n\n== Sovereign states ==\n\nA sovereign state is a political association with effective sovereignty over a population for whom it makes decisions in the national interest. According to the Montevideo Convention, a state must have a permanent population, a defined territory, a government, and the capacity to enter into relations with other states. The following states are all members of the United Nations and current or former members of the Union of South American Nations.\n\n\n== Non-sovereign territories ==\n\n\n=== External territories ===\n\n\n=== Internal territory ===\n\n\n== Economic statistics ==\n\n† Geographically associated with Antarctica, but due to geopolitical reasons, the United Nations geoscheme has included South Georgia and the South Sandwich Islands in South America instead.\n\n\n== See also ==\nList of South American countries by population\nList of South American countries by population density\nList of South American countries by GDP per capita\nList of South American countries by GDP (PPP)\nList of predecessors of sovereign states in South America\nList of sovereign states and dependent territories in the Americas\n\n\n== Notes ==\n\n\n== References ==\n\nPage: List of countries and dependencies by population density\nSummary: This is a list of countries and dependencies ranked by population density, sorted by inhabitants per square kilometre or square mile. The list includes sovereign states and self-governing dependent territories based upon th"
+            }
+          ]
+        }
+      }
     ]
   },
   "settings": {
@@ -2169,6 +3691,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-02-11T07:46:41.000Z",
-  "versionId": "c8fe4af2-879b-4c7c-babd-0fee34dd64da"
+  "updatedAt": "2025-02-25T19:47:55.000Z",
+  "versionId": "6678a664-209f-4c61-b985-7b2f4d594eba"
 }
