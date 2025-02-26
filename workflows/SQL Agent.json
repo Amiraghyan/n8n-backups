@@ -1,0 +1,209 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "USDB_Agent_tool": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-02-25T15:31:55.991Z",
+  "id": "U0WVICGhaz0o0bKs",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SQL Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        1060
+      ],
+      "id": "28c12df3-7315-4044-8464-1ce3dd682fb4",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "VKPiP4fbXK0BCM8T",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1200,
+        1000
+      ],
+      "id": "84b22423-a49c-4d34-89d4-81a7825436ae",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hi there! 👋\nMy name is Sergio \"The USDB guy\". How can I assist you today?",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        780,
+        820
+      ],
+      "id": "1a9a3989-44dc-4b4e-804d-3584add3bbe5",
+      "name": "When chat message received",
+      "webhookId": "a9dcd7a1-e09e-4582-b9a0-40dadb5304c1"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        940,
+        1000
+      ],
+      "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "8s1PPRvjrOXCDNtL",
+          "name": "n8n_AISandbox"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokensToSample": 8192
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        2000,
+        860
+      ],
+      "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "dcLqo62duKhDxGrw",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen-turbo",
+        "options": {
+          "maxTokens": -1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        660
+      ],
+      "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "ru25OpA66L1ExedM",
+          "name": "OpenRouter"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "agent": "sqlAgent",
+        "dataSource": "mysql",
+        "options": {
+          "includedSampleRows": 5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        980,
+        820
+      ],
+      "id": "8a04c6c0-5e19-4f6d-9b72-77dd92635527",
+      "name": "USDB_Agent_tool",
+      "credentials": {
+        "mySql": {
+          "id": "oUon8ECO0bjjL9bn",
+          "name": "AISandbox"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2025-02-26T19:07:46.000Z",
+  "versionId": "04b4ead1-78b3-4b7b-a04c-928ea234487d"
+}
