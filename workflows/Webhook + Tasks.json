@@ -1,50 +1,12 @@
 {
   "active": false,
   "connections": {
-    "When clicking ‘Test workflow’": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When chat message received": {
       "main": [
         [
           {
             "node": "OpenAI",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent": {
-      "main": [
-        []
-      ]
-    },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Window Buffer Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_memory",
             "index": 0
           }
         ]
@@ -530,17 +492,6 @@
   "name": "Webhook + Tasks",
   "nodes": [
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        380,
-        -300
-      ],
-      "id": "aeb4c41f-91fd-4cf6-abbf-61d5a303351d",
-      "name": "When clicking ‘Test workflow’"
-    },
-    {
       "parameters": {
         "options": {}
       },
@@ -553,60 +504,6 @@
       "id": "b4e32551-9a5a-4133-84ca-45827efe79cd",
       "name": "When chat message received",
       "webhookId": "14cbe5b9-2e8c-44e7-8921-7755e77b399c"
-    },
-    {
-      "parameters": {
-        "agent": "sqlAgent",
-        "dataSource": "mysql",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        560,
-        -300
-      ],
-      "id": "964cc23e-a567-4e7c-bb40-90794c424306",
-      "name": "AI Agent",
-      "credentials": {
-        "mySql": {
-          "id": "eJXB3gBP57kIUHI8",
-          "name": "MySQL 104.167.196.118:3306 Root"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "model": "gpt-4",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.1,
-      "position": [
-        500,
-        -100
-      ],
-      "id": "fc96b988-ceff-424e-890c-16628a5d5928",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "contextWindowLength": 10
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        640,
-        -120
-      ],
-      "id": "7b67d579-a48d-4958-945e-2221c9d11b23",
-      "name": "Window Buffer Memory"
     },
     {
       "parameters": {
@@ -886,7 +783,7 @@
       "credentials": {
         "anthropicApi": {
           "id": "cOFFr7FB6SAc7Hl2",
-          "name": "Anthropic account 3"
+          "name": "Anthropic"
         }
       }
     },
@@ -2036,6 +1933,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-25T19:42:04.000Z",
-  "versionId": "6f64bafb-ac34-467d-af2f-09f20771b199"
+  "updatedAt": "2025-02-27T21:52:17.000Z",
+  "versionId": "e3bef3d8-7712-48d5-846d-f5aee96c0046"
 }
