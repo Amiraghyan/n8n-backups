@@ -1,11 +1,6 @@
 {
   "active": false,
   "connections": {
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        []
-      ]
-    },
     "Window Buffer Memory": {
       "ai_memory": [
         [
@@ -28,7 +23,22 @@
         ]
       ]
     },
-    "Groq Chat Model": {
+    "USDB_Agent_tool": {
+      "main": [
+        []
+      ]
+    },
+    "OpenRouter Chat": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Anthropic Chat": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "OpenAI Chat": {
       "ai_languageModel": [
         [
           {
@@ -39,19 +49,113 @@
         ]
       ]
     },
-    "Anthropic Chat Model": {
+    "Groq Chat": {
       "ai_languageModel": [
         []
       ]
     },
-    "OpenRouter Chat Model": {
+    "OpenAI Chat Model1": {
       "ai_languageModel": [
-        []
+        [
+          {
+            "node": "animistic|toggl",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
       ]
     },
-    "USDB_Agent_tool": {
+    "Calculator1": {
+      "ai_tool": [
+        [
+          {
+            "node": "animistic|toggl",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DateConverter1": {
+      "ai_tool": [
+        [
+          {
+            "node": "animistic|toggl",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack Trigger1": {
       "main": [
-        []
+        [
+          {
+            "node": "Execution Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data1": {
+      "main": [
+        [
+          {
+            "node": "animistic|toggl",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Add reaction1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "animistic|toggl",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "animistic|toggl": {
+      "main": [
+        [
+          {
+            "node": "Send reply1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call USDB Agent Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "animistic|toggl",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -64,32 +168,13 @@
   "nodes": [
     {
       "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.1,
-      "position": [
-        2000,
-        1060
-      ],
-      "id": "28c12df3-7315-4044-8464-1ce3dd682fb4",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "VKPiP4fbXK0BCM8T",
-          "name": "n8n free OpenAI API credits"
-        }
-      }
-    },
-    {
-      "parameters": {
         "contextWindowLength": 10
       },
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1200,
-        1000
+        2180,
+        940
       ],
       "id": "84b22423-a49c-4d34-89d4-81a7825436ae",
       "name": "Window Buffer Memory"
@@ -97,36 +182,66 @@
     {
       "parameters": {
         "public": true,
-        "initialMessages": "Hi there! 👋\nMy name is Sergio \"The USDB guy\". How can I assist you today?",
-        "options": {}
+        "initialMessages": "Ready to ask some questions? ",
+        "options": {
+          "allowFileUploads": true,
+          "inputPlaceholder": "=Type your question here...",
+          "subtitle": "Do you have any questions?  We're here to help you 24/7.",
+          "title": "Hi there! 👋   I am Sergio, the USDB guy."
+        }
       },
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        780,
-        820
+        1780,
+        580
       ],
       "id": "1a9a3989-44dc-4b4e-804d-3584add3bbe5",
       "name": "When chat message received",
-      "webhookId": "a9dcd7a1-e09e-4582-b9a0-40dadb5304c1"
+      "webhookId": "a9dcd7a1-e09e-4582-b9a0-40dadb5304c1",
+      "notesInFlow": false
     },
     {
       "parameters": {
-        "model": "llama-3.3-70b-versatile",
+        "agent": "sqlAgent",
+        "dataSource": "mysql",
         "options": {}
       },
-      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1960,
+        760
+      ],
+      "id": "8a04c6c0-5e19-4f6d-9b72-77dd92635527",
+      "name": "USDB_Agent_tool",
+      "credentials": {
+        "mySql": {
+          "id": "oUon8ECO0bjjL9bn",
+          "name": "AISandbox"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "openai/o3-mini",
+        "options": {
+          "maxTokens": -1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        940,
-        1000
+        2180,
+        1500
       ],
-      "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
-      "name": "Groq Chat Model",
+      "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
+      "name": "OpenRouter Chat",
       "credentials": {
-        "groqApi": {
-          "id": "8s1PPRvjrOXCDNtL",
-          "name": "n8n_AISandbox"
+        "openRouterApi": {
+          "id": "ru25OpA66L1ExedM",
+          "name": "OpenRouter"
         }
       }
     },
@@ -139,11 +254,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        2000,
-        860
+        2180,
+        1160
       ],
       "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
-      "name": "Anthropic Chat Model",
+      "name": "Anthropic Chat",
       "credentials": {
         "anthropicApi": {
           "id": "dcLqo62duKhDxGrw",
@@ -153,57 +268,274 @@
     },
     {
       "parameters": {
-        "model": "qwen/qwen-turbo",
-        "options": {
-          "maxTokens": -1
-        }
+        "model": "gpt-4o",
+        "options": {}
       },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-      "typeVersion": 1,
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
       "position": [
-        2000,
-        660
+        1920,
+        940
       ],
-      "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
-      "name": "OpenRouter Chat Model",
+      "id": "28c12df3-7315-4044-8464-1ce3dd682fb4",
+      "name": "OpenAI Chat",
       "credentials": {
-        "openRouterApi": {
-          "id": "ru25OpA66L1ExedM",
-          "name": "OpenRouter"
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
         }
       }
     },
     {
       "parameters": {
-        "agent": "sqlAgent",
-        "dataSource": "mysql",
-        "options": {
-          "includedSampleRows": 5
-        }
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
       },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
       "position": [
-        980,
-        820
+        2180,
+        1320
       ],
-      "id": "8a04c6c0-5e19-4f6d-9b72-77dd92635527",
-      "name": "USDB_Agent_tool",
+      "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
+      "name": "Groq Chat",
       "credentials": {
-        "mySql": {
-          "id": "oUon8ECO0bjjL9bn",
-          "name": "AISandbox"
+        "groqApi": {
+          "id": "8s1PPRvjrOXCDNtL",
+          "name": "n8n_AISandbox"
         }
       }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6027eaf9-f4cd-4b9a-ac54-556bd6507b51",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        240,
+        1180
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "d1321a11-4944-42e8-a8dd-a3582230c783",
+      "name": "Calculator1",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "position": [
+        760,
+        1180
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "name": "DateToMilisecondsConvertorTool",
+        "description": "Call this tool to convert dates from format to miliseconds.\nExample 2024-12-02T21:04:23.623Z date is converted into time miliseconds.\n\nthis ideally is combinated with calculator to calculate duration periods.",
+        "jsCode": "// Example: convert the incoming query to uppercase and return it\nreturn (new Date(query)).getTime() "
+      },
+      "id": "8834cfa1-7960-47b6-a544-15df022d3bc1",
+      "name": "DateConverter1",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "position": [
+        560,
+        1180
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "trigger": [
+          "message"
+        ],
+        "watchWorkspace": true,
+        "options": {
+          "resolveIds": true
+        }
+      },
+      "id": "4c630f04-4748-460e-a2dc-e1dffef17072",
+      "name": "Slack Trigger1",
+      "type": "n8n-nodes-base.slackTrigger",
+      "position": [
+        0,
+        680
+      ],
+      "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
+      "typeVersion": 1,
+      "credentials": {
+        "slackApi": {
+          "id": "ExbHusd0mvUM1VMY",
+          "name": "SYCn8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {}
+          ]
+        }
+      },
+      "id": "22681ea7-520d-4825-9bbf-72b5cd82fd7c",
+      "name": "Execution Data1",
+      "type": "n8n-nodes-base.executionData",
+      "position": [
+        220,
+        680
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.user }}",
+        "contextWindowLength": 10
+      },
+      "id": "b1bee1ae-37de-4807-9259-76bc76b38e0a",
+      "name": "Window Buffer Memory1",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        380,
+        1180
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "resource": "reaction",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Execution Data1').item.json.channel }}"
+        },
+        "timestamp": "={{ $json.ts }}",
+        "name": "+1"
+      },
+      "id": "8bef0313-cf78-49c7-a8bf-5d9633c7f091",
+      "name": "Add reaction1",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        540,
+        520
+      ],
+      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Execution Data1').item.json.channel }}"
+        },
+        "text": "={{ $json.output }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "link_names": false,
+          "thread_ts": {
+            "replyValues": {
+              "thread_ts": "={{ $('Execution Data1').item.json.ts }}"
+            }
+          },
+          "mrkdwn": true,
+          "unfurl_links": false
+        }
+      },
+      "id": "b15da656-76ba-4d40-93f0-68d8140707bb",
+      "name": "Send reply1",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        800,
+        680
+      ],
+      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an smart assistant assisting engineers in the time logging management on Clockify for an agency called Blockia Labs using conversational chat system. Be precise and concise, you are engineers best friend copilot.\nYour goals is to guide and help engineers in the logging process; by proactively guiding them one step again in the process and giving them options and proactive guidance, not passively waiting only on instructions.\n\nNote that todays day is {{ $now.toUTC() }}\n\nFor date duration calculation use the date convertor tool along with the calculator.\nUse step by step guidance and reasoning for this process.\n\nFor creates, updates and delete operations always double confirm with the user. Especially when deleting, make the confirmation one by one since deleting is critical ops.\n\nMake sure the descriptions are checked, ethic and gramatically correct. \nMake sure there is no overlap in time entries or logging when one user is working on more projects at the same time. \nReturn a simple mardown resposne (no bold or ****)",
+          "passthroughBinaryImages": true
+        }
+      },
+      "id": "a3ef177b-2eed-47f2-ac16-77a126312ed5",
+      "name": "animistic|toggl",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        440,
+        940
+      ],
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "query"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1780,
+        760
+      ],
+      "id": "78315411-11d7-4767-b9cb-c80d84775efc",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "name": "USDB_tool",
+        "description": "Call this tool to have a subagent interpret natural language requests to extract information from the USDB MySQL database.",
+        "workflowId": {
+          "__rl": true,
+          "value": "CkxOrUKr43DcgrPX",
+          "mode": "list",
+          "cachedResultName": "My Sub-Workflow 1"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        1060,
+        1180
+      ],
+      "id": "4477bc4d-48fd-4328-8c7d-2fe5292268d6",
+      "name": "Call USDB Agent Tool"
     }
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 3,
-  "updatedAt": "2025-02-26T19:07:46.000Z",
-  "versionId": "04b4ead1-78b3-4b7b-a04c-928ea234487d"
+  "triggerCount": 2,
+  "updatedAt": "2025-02-28T01:05:33.000Z",
+  "versionId": "a786e24d-f0c3-4663-8647-49318c1fc205"
 }
