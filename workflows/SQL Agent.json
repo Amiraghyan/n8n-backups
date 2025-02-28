@@ -411,14 +411,12 @@
     },
     {
       "parameters": {
-        "resource": "reaction",
+        "resource": "channel",
         "channelId": {
           "__rl": true,
           "mode": "id",
           "value": "={{ $('Execution Data1').item.json.channel }}"
-        },
-        "timestamp": "={{ $json.ts }}",
-        "name": "+1"
+        }
       },
       "id": "8bef0313-cf78-49c7-a8bf-5d9633c7f091",
       "name": "Add reaction1",
@@ -428,7 +426,13 @@
         520
       ],
       "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "ExbHusd0mvUM1VMY",
+          "name": "SYCn8n"
+        }
+      }
     },
     {
       "parameters": {
@@ -459,7 +463,13 @@
         680
       ],
       "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "ExbHusd0mvUM1VMY",
+          "name": "SYCn8n"
+        }
+      }
     },
     {
       "parameters": {
@@ -535,7 +545,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 2,
-  "updatedAt": "2025-02-28T01:05:33.000Z",
-  "versionId": "a786e24d-f0c3-4663-8647-49318c1fc205"
+  "triggerCount": 3,
+  "updatedAt": "2025-02-28T16:27:03.000Z",
+  "versionId": "cc1a0c5d-fb9f-49e2-93c2-643905faf18f"
 }
