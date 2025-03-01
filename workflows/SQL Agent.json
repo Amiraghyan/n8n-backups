@@ -107,7 +107,7 @@
             "index": 0
           },
           {
-            "node": "Add reaction1",
+            "node": "Add reaction",
             "type": "main",
             "index": 0
           }
@@ -129,7 +129,7 @@
       "main": [
         [
           {
-            "node": "Send reply1",
+            "node": "Send reply",
             "type": "main",
             "index": 0
           }
@@ -356,7 +356,11 @@
         "trigger": [
           "message"
         ],
-        "watchWorkspace": true,
+        "channelId": {
+          "__rl": true,
+          "value": "C08FGUTFMA9",
+          "mode": "id"
+        },
         "options": {
           "resolveIds": true
         }
@@ -372,8 +376,8 @@
       "typeVersion": 1,
       "credentials": {
         "slackApi": {
-          "id": "ExbHusd0mvUM1VMY",
-          "name": "SYCn8n"
+          "id": "R6k5imXuLRRxalQY",
+          "name": "SYCn8n-Slack"
         }
       }
     },
@@ -408,68 +412,6 @@
         1180
       ],
       "typeVersion": 1.3
-    },
-    {
-      "parameters": {
-        "resource": "channel",
-        "channelId": {
-          "__rl": true,
-          "mode": "id",
-          "value": "={{ $('Execution Data1').item.json.channel }}"
-        }
-      },
-      "id": "8bef0313-cf78-49c7-a8bf-5d9633c7f091",
-      "name": "Add reaction1",
-      "type": "n8n-nodes-base.slack",
-      "position": [
-        540,
-        520
-      ],
-      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2,
-      "credentials": {
-        "slackApi": {
-          "id": "ExbHusd0mvUM1VMY",
-          "name": "SYCn8n"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "mode": "id",
-          "value": "={{ $('Execution Data1').item.json.channel }}"
-        },
-        "text": "={{ $json.output }}",
-        "otherOptions": {
-          "includeLinkToWorkflow": false,
-          "link_names": false,
-          "thread_ts": {
-            "replyValues": {
-              "thread_ts": "={{ $('Execution Data1').item.json.ts }}"
-            }
-          },
-          "mrkdwn": true,
-          "unfurl_links": false
-        }
-      },
-      "id": "b15da656-76ba-4d40-93f0-68d8140707bb",
-      "name": "Send reply1",
-      "type": "n8n-nodes-base.slack",
-      "position": [
-        800,
-        680
-      ],
-      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2,
-      "credentials": {
-        "slackApi": {
-          "id": "ExbHusd0mvUM1VMY",
-          "name": "SYCn8n"
-        }
-      }
     },
     {
       "parameters": {
@@ -536,6 +478,72 @@
       ],
       "id": "4477bc4d-48fd-4328-8c7d-2fe5292268d6",
       "name": "Call USDB Agent Tool"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08FGUTFMA9",
+          "mode": "id"
+        },
+        "text": "-1",
+        "otherOptions": {
+          "mrkdwn": true
+        }
+      },
+      "id": "8bef0313-cf78-49c7-a8bf-5d9633c7f091",
+      "name": "Add reaction",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        540,
+        520
+      ],
+      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08FGUTFMA9",
+          "mode": "id"
+        },
+        "text": "={{ $json.output }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "link_names": false,
+          "thread_ts": {
+            "replyValues": {
+              "thread_ts": "={{ $('Execution Data1').item.json.ts }}"
+            }
+          },
+          "mrkdwn": true,
+          "unfurl_links": false
+        }
+      },
+      "id": "b15da656-76ba-4d40-93f0-68d8140707bb",
+      "name": "Send reply",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        800,
+        680
+      ],
+      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -546,6 +554,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-02-28T16:27:03.000Z",
-  "versionId": "cc1a0c5d-fb9f-49e2-93c2-643905faf18f"
+  "updatedAt": "2025-02-28T23:56:18.000Z",
+  "versionId": "350db137-3a4b-4a05-bf89-c84f53a25a8c"
 }
