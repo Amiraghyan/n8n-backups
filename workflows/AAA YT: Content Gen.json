@@ -1639,6 +1639,7 @@
       ],
       "id": "409f85d7-2211-47d2-b0b9-135719fc8acd",
       "name": "Email",
+      "webhookId": "c9ac8221-8902-4e28-bc64-e1c582b12056",
       "credentials": {
         "smtp": {
           "id": "Dl8B2JzKzTKkFx5i",
@@ -5313,7 +5314,7 @@
       "credentials": {
         "anthropicApi": {
           "id": "cOFFr7FB6SAc7Hl2",
-          "name": "Anthropic account 3"
+          "name": "Anthropic"
         }
       }
     },
@@ -5333,7 +5334,7 @@
       "credentials": {
         "anthropicApi": {
           "id": "cOFFr7FB6SAc7Hl2",
-          "name": "Anthropic account 3"
+          "name": "Anthropic"
         }
       }
     },
@@ -5352,7 +5353,7 @@
       "credentials": {
         "anthropicApi": {
           "id": "cOFFr7FB6SAc7Hl2",
-          "name": "Anthropic account 3"
+          "name": "Anthropic"
         }
       }
     },
@@ -6895,6 +6896,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-17T20:59:26.000Z",
-  "versionId": "ae5a0810-e75b-4b8f-ad3d-464499b01994"
+  "updatedAt": "2025-03-03T23:17:37.000Z",
+  "versionId": "b4ae3dbf-51cb-4e79-aa8c-6735f14046f2"
 }
