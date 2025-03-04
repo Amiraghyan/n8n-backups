@@ -14,18 +14,18 @@
     },
     "When chat message received": {
       "main": [
-        [
-          {
-            "node": "USDB_Agent_tool",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "USDB_Agent_tool": {
       "main": [
-        []
+        [
+          {
+            "node": "Send reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "OpenRouter Chat": {
@@ -54,89 +54,65 @@
         []
       ]
     },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "animistic|toggl",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Calculator1": {
-      "ai_tool": [
-        [
-          {
-            "node": "animistic|toggl",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "DateConverter1": {
-      "ai_tool": [
-        [
-          {
-            "node": "animistic|toggl",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Slack Trigger1": {
+    "Filter": {
       "main": [
         [
           {
-            "node": "Execution Data1",
+            "node": "Switch",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Execution Data1": {
+    "Switch": {
       "main": [
         [
           {
-            "node": "animistic|toggl",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Add reaction",
+            "node": "Dwnld_Image",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Window Buffer Memory1": {
-      "ai_memory": [
+        ],
         [
           {
-            "node": "animistic|toggl",
-            "type": "ai_memory",
+            "node": "Dwnld_Audio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Out",
+            "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "animistic|toggl": {
+    "Slack Trigger": {
       "main": [
         [
           {
-            "node": "Send reply",
+            "node": "Filter",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "When Executed by Another Workflow": {
+    "Dwnld_Audio": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
       "main": [
         [
           {
@@ -147,12 +123,89 @@
         ]
       ]
     },
-    "Call USDB Agent Tool": {
+    "Text Out": {
+      "main": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "animistic|toggl1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "animistic|toggl1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DateConverter1": {
       "ai_tool": [
         [
           {
-            "node": "animistic|toggl",
+            "node": "animistic|toggl1",
             "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator1": {
+      "ai_tool": [
+        [
+          {
+            "node": "animistic|toggl1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "USDB Tool1": {
+      "ai_tool": [
+        [
+          {
+            "node": "animistic|toggl1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dwnld_Image": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "main",
             "index": 0
           }
         ]
@@ -168,13 +221,15 @@
   "nodes": [
     {
       "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Slack Trigger').item.json.user }}",
         "contextWindowLength": 10
       },
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        2180,
-        940
+        520,
+        1080
       ],
       "id": "84b22423-a49c-4d34-89d4-81a7825436ae",
       "name": "Window Buffer Memory"
@@ -193,25 +248,28 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        1780,
-        580
+        -200,
+        20
       ],
       "id": "1a9a3989-44dc-4b4e-804d-3584add3bbe5",
       "name": "When chat message received",
       "webhookId": "a9dcd7a1-e09e-4582-b9a0-40dadb5304c1",
-      "notesInFlow": false
+      "notesInFlow": false,
+      "disabled": true
     },
     {
       "parameters": {
         "agent": "sqlAgent",
         "dataSource": "mysql",
+        "promptType": "define",
+        "text": "={{ $json.text }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1960,
-        760
+        300,
+        900
       ],
       "id": "8a04c6c0-5e19-4f6d-9b72-77dd92635527",
       "name": "USDB_Agent_tool",
@@ -233,8 +291,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        2180,
-        1500
+        1360,
+        1060
       ],
       "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
       "name": "OpenRouter Chat",
@@ -254,8 +312,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        2180,
-        1160
+        1360,
+        720
       ],
       "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
       "name": "Anthropic Chat",
@@ -274,8 +332,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.1,
       "position": [
-        1920,
-        940
+        260,
+        1080
       ],
       "id": "28c12df3-7315-4044-8464-1ce3dd682fb4",
       "name": "OpenAI Chat",
@@ -294,8 +352,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        2180,
-        1320
+        1360,
+        880
       ],
       "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
       "name": "Groq Chat",
@@ -308,48 +366,158 @@
     },
     {
       "parameters": {
-        "options": {}
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08FGUTFMA9",
+          "mode": "id"
+        },
+        "text": "={{ $json.output }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
       },
-      "id": "6027eaf9-f4cd-4b9a-ac54-556bd6507b51",
-      "name": "OpenAI Chat Model1",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "id": "b15da656-76ba-4d40-93f0-68d8140707bb",
+      "name": "Send reply",
+      "type": "n8n-nodes-base.slack",
       "position": [
-        240,
-        1180
+        680,
+        900
       ],
-      "typeVersion": 1,
+      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
+      "typeVersion": 2.2,
       "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
         }
       }
     },
     {
-      "parameters": {},
-      "id": "d1321a11-4944-42e8-a8dd-a3582230c783",
-      "name": "Calculator1",
-      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "61c23cad-6c72-464e-9947-b7f309c9b994",
+              "leftValue": "={{ $json.user }}",
+              "rightValue": "={{\"U089MNN54NT\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
       "position": [
-        760,
-        1180
+        -680,
+        900
       ],
-      "typeVersion": 1
+      "id": "dd6c67d8-b244-4fbf-8c22-d9b875bd0b88",
+      "name": "Filter"
     },
     {
       "parameters": {
-        "name": "DateToMilisecondsConvertorTool",
-        "description": "Call this tool to convert dates from format to miliseconds.\nExample 2024-12-02T21:04:23.623Z date is converted into time miliseconds.\n\nthis ideally is combinated with calculator to calculate duration periods.",
-        "jsCode": "// Example: convert the incoming query to uppercase and return it\nreturn (new Date(query)).getTime() "
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "584c8c90-4cc3-43ea-aac0-d1762ba79d0d",
+                    "leftValue": "{{ $json.files[0].mimetype }}",
+                    "rightValue": "image/jpeg",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "audio/mp4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bb9fc3cb-1c38-4fc3-8ed0-896280711d84"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1ecab1e4-02c7-490e-82e5-f9f701140f00",
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {}
       },
-      "id": "8834cfa1-7960-47b6-a544-15df022d3bc1",
-      "name": "DateConverter1",
-      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
       "position": [
-        560,
-        1180
+        -460,
+        900
       ],
-      "typeVersion": 1.1
+      "id": "c9d64a95-8350-48db-8c5d-8bfa9cb798fa",
+      "name": "Switch"
     },
     {
       "parameters": {
@@ -362,15 +530,15 @@
           "mode": "id"
         },
         "options": {
-          "resolveIds": true
+          "resolveIds": false
         }
       },
       "id": "4c630f04-4748-460e-a2dc-e1dffef17072",
-      "name": "Slack Trigger1",
+      "name": "Slack Trigger",
       "type": "n8n-nodes-base.slackTrigger",
       "position": [
-        0,
-        680
+        -900,
+        900
       ],
       "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
       "typeVersion": 1,
@@ -383,35 +551,93 @@
     },
     {
       "parameters": {
-        "dataToSave": {
-          "values": [
-            {}
-          ]
-        }
+        "content": "## Relevant notes \n\nWhen the slack triggers, the I do the following:\n- filter any messages coming from the Slack Bot to avoid creating an infinite loop. The bot user ID I get from the last nodes where n8n responds back to slack\n- check if the message is audio or text.\n- if it is an audio, I need to use the slack credentials based on OAUTH (not API token) to be able to download the audio file.",
+        "height": 820,
+        "width": 1960,
+        "color": 4
       },
-      "id": "22681ea7-520d-4825-9bbf-72b5cd82fd7c",
-      "name": "Execution Data1",
-      "type": "n8n-nodes-base.executionData",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
       "position": [
-        220,
-        680
+        -960,
+        440
       ],
-      "typeVersion": 1
+      "id": "81e92f6c-d1d8-4307-9126-357ef8a4a865",
+      "name": "Sticky Note"
     },
     {
       "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $json.user }}",
-        "contextWindowLength": 10
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9569b209-0827-4fcd-96e8-1091a15d68e0",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "b1bee1ae-37de-4807-9259-76bc76b38e0a",
-      "name": "Window Buffer Memory1",
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
       "position": [
-        380,
-        1180
+        -100,
+        1000
       ],
-      "typeVersion": 1.3
+      "id": "1ef659b3-ed5b-47d9-969d-62ca44a06553",
+      "name": "Text Out"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.files[0].url_private_download }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "slackOAuth2Api",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "audio"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        840
+      ],
+      "id": "238d4e51-2d35-450b-8d86-55b2cb334a43",
+      "name": "Dwnld_Audio",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "HQneTCU7vTozIws1",
+          "name": "Slack Oauth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "binaryPropertyName": "audio",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        840
+      ],
+      "id": "dd49724f-0f36-48e5-a2db-3ab63711f2ca",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
     },
     {
       "parameters": {
@@ -423,33 +649,74 @@
           "passthroughBinaryImages": true
         }
       },
-      "id": "a3ef177b-2eed-47f2-ac16-77a126312ed5",
-      "name": "animistic|toggl",
+      "id": "82b80b31-338c-4357-8835-e44836d8b839",
+      "name": "animistic|toggl1",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        440,
-        940
+        80,
+        20
       ],
       "typeVersion": 1.7
     },
     {
       "parameters": {
-        "workflowInputs": {
-          "values": [
-            {
-              "name": "query"
-            }
-          ]
-        }
+        "options": {}
       },
-      "type": "n8n-nodes-base.executeWorkflowTrigger",
-      "typeVersion": 1.1,
+      "id": "c2874d54-9b76-48dd-98f9-4f2922f39a4f",
+      "name": "OpenAI Chat2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        1780,
-        760
+        -120,
+        260
       ],
-      "id": "78315411-11d7-4767-b9cb-c80d84775efc",
-      "name": "When Executed by Another Workflow"
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.user }}",
+        "contextWindowLength": 10
+      },
+      "id": "1934ceb7-a9d8-4839-af19-27fe5ba0de07",
+      "name": "Memory1",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        20,
+        260
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "name": "DateToMilisecondsConvertorTool",
+        "description": "Call this tool to convert dates from format to miliseconds.\nExample 2024-12-02T21:04:23.623Z date is converted into time miliseconds.\n\nthis ideally is combinated with calculator to calculate duration periods.",
+        "jsCode": "// Example: convert the incoming query to uppercase and return it\nreturn (new Date(query)).getTime() "
+      },
+      "id": "1ebe8505-8bde-4eda-a2b8-838851fb17f8",
+      "name": "DateConverter1",
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "position": [
+        200,
+        260
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {},
+      "id": "353f854d-89ed-4016-81f6-bdacf9c1e837",
+      "name": "Calculator1",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "position": [
+        400,
+        260
+      ],
+      "typeVersion": 1
     },
     {
       "parameters": {
@@ -473,75 +740,65 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        1060,
-        1180
+        580,
+        260
       ],
-      "id": "4477bc4d-48fd-4328-8c7d-2fe5292268d6",
-      "name": "Call USDB Agent Tool"
+      "id": "326f3477-9e25-495c-827e-8c25ca7e30c2",
+      "name": "USDB Tool1"
     },
     {
       "parameters": {
-        "select": "channel",
-        "channelId": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
           "__rl": true,
-          "value": "C08FGUTFMA9",
-          "mode": "id"
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
         },
-        "text": "-1",
-        "otherOptions": {
-          "mrkdwn": true
-        }
+        "options": {}
       },
-      "id": "8bef0313-cf78-49c7-a8bf-5d9633c7f091",
-      "name": "Add reaction",
-      "type": "n8n-nodes-base.slack",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
       "position": [
-        540,
-        520
+        0,
+        680
       ],
-      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2,
+      "id": "4521736b-8876-434c-8d1c-c872e98b503d",
+      "name": "OpenAI1",
       "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
         }
       }
     },
     {
       "parameters": {
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "value": "C08FGUTFMA9",
-          "mode": "id"
-        },
-        "text": "={{ $json.output }}",
-        "otherOptions": {
-          "includeLinkToWorkflow": false,
-          "link_names": false,
-          "thread_ts": {
-            "replyValues": {
-              "thread_ts": "={{ $('Execution Data1').item.json.ts }}"
+        "url": "={{ $json.files[0].url_private_download }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "slackOAuth2Api",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "audio"
             }
-          },
-          "mrkdwn": true,
-          "unfurl_links": false
+          }
         }
       },
-      "id": "b15da656-76ba-4d40-93f0-68d8140707bb",
-      "name": "Send reply",
-      "type": "n8n-nodes-base.slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [
-        800,
+        -200,
         680
       ],
-      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2,
+      "id": "43c61361-7475-46e1-8e08-707ab2fd0de9",
+      "name": "Dwnld_Image",
       "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
+        "slackOAuth2Api": {
+          "id": "HQneTCU7vTozIws1",
+          "name": "Slack Oauth2"
         }
       }
     }
@@ -553,7 +810,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 3,
-  "updatedAt": "2025-02-28T23:56:18.000Z",
-  "versionId": "350db137-3a4b-4a05-bf89-c84f53a25a8c"
+  "triggerCount": 1,
+  "updatedAt": "2025-03-04T08:21:35.000Z",
+  "versionId": "3960bfc8-ec7f-44f1-9d37-e6d3f811f41e"
 }
