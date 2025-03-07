@@ -1,0 +1,117 @@
+{
+  "active": false,
+  "connections": {
+    "Cron": {
+      "main": [
+        [
+          {
+            "node": "MySQL - select",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL - select": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T10:57:56.325Z",
+  "id": "YRMSRW7kGhCHDnE3",
+  "meta": {
+    "templateId": "1753",
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Import data from MySQL into Google Sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "mode": "everyWeek",
+              "hour": 5
+            }
+          ]
+        }
+      },
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "b7a71796-ffa9-428e-be10-76304e50d2c3"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT SpecMake, SpecModel, COUNT(*) AS total_sold FROM listings WHERE StateCode = 'FL' GROUP BY SpecMake, SpecModel ORDER BY total_sold DESC LIMIT 1;"
+      },
+      "name": "MySQL - select",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        580,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "043a8be3-5d49-40ba-a2fb-a7e53629babf",
+      "credentials": {
+        "mySql": {
+          "id": "TFcVWPDL15EZB4Pv",
+          "name": "MySQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1,
+      "position": [
+        720,
+        -80
+      ],
+      "id": "79b3adee-b705-4c2d-8281-b5c9fe7f38be",
+      "name": "Simple Vector Store"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "dealers",
+          "mode": "list",
+          "cachedResultName": "dealers"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        920,
+        240
+      ],
+      "id": "cb967d33-35c6-4325-9ed0-c93d6be0bb37",
+      "name": "MySQL",
+      "executeOnce": false,
+      "credentials": {
+        "mySql": {
+          "id": "TFcVWPDL15EZB4Pv",
+          "name": "MySQL account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T17:14:26.000Z",
+  "versionId": "998fd915-0ca0-4ee9-90ac-1621b7f3137f"
+}
