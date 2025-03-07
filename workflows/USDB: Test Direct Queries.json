@@ -1,0 +1,486 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Start Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get execution data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get execution data": {
+      "main": [
+        [
+          {
+            "node": "Extract webhook data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Time": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Response": {
+      "main": [
+        [
+          {
+            "node": "Delta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delta": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T06:26:31.703Z",
+  "id": "uFIr0zntJtyCAOq2",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "USDB: Test Direct Queries",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -460,
+        -100
+      ],
+      "id": "130f0714-68da-4f7a-a596-20ea5bbfd20d",
+      "name": "When chat message received",
+      "webhookId": "c5be6acc-e166-4cb4-b444-e7f87bd2e70a",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.chatInput }}",
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -20,
+        -100
+      ],
+      "id": "ef0affb5-ba93-4078-a567-90a20994d525",
+      "name": "MySQL",
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "d16d78fb-e457-4d93-b53c-91a67e035f24",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "position": [
+        1120,
+        -100
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const webhook_node_names = $json.workflowData.nodes.filter(x => x.type == 'n8n-nodes-base.webhook').map(x => x.name)\n\nconst webhook_data_array = webhook_node_names.map(n => $json.data.resultData.runData[n] ? $json.data.resultData.runData[n][0].data.main[0][0].json : null).filter(x => x != null)\n\nlet webhook_data = null;\nif (webhook_data_array.length > 0) {\n  webhook_data = webhook_data_array[0]\n}\n\nreturn {\n  'webhook_node_names': webhook_node_names,\n  'webook_node_payload': webhook_data\n}"
+      },
+      "id": "f4b8a01e-58bb-4809-88f0-69ef2ce21959",
+      "name": "Extract webhook data",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1480,
+        -220
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "resource": "execution",
+        "operation": "get",
+        "executionId": "={{ $json.execution.id }}",
+        "options": {
+          "activeWorkflows": true
+        },
+        "requestOptions": {}
+      },
+      "id": "c333464a-63c6-46f3-bb5d-ff8d9aab53b2",
+      "name": "Get execution data",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        1300,
+        -100
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "mUPEoqKL7hiSAjmX",
+          "name": "n8n account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f5e1c576-b197-44c6-825c-8b6ed343f2b6",
+              "name": "sessionId",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "47f13824-728b-459f-be3d-68cb22e8c459",
+              "name": "chatInput",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "296ec928-b65c-483f-9ede-2282d3cd416a",
+              "name": "Start",
+              "value": "={{$now}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        -100
+      ],
+      "id": "8d5814f3-1032-4a9e-9e7a-4ab4947f73de",
+      "name": "Start Time"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d7ac37dc-ff81-4bd4-92b2-44ce02145875",
+              "name": "Stop",
+              "value": "={{ $now }}",
+              "type": "string"
+            },
+            {
+              "id": "404b3c63-bd42-476f-ba74-bb19016dcd7f",
+              "name": "Request",
+              "value": "={{ $json.sql }}",
+              "type": "string"
+            },
+            {
+              "id": "378b8c45-f247-4a72-b3ec-17fe0639cb10",
+              "name": "Response",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        200,
+        -100
+      ],
+      "id": "e6b819f9-cd53-4680-a78d-e36f0760589a",
+      "name": "Response"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appGV8vCDX8WGdmJG",
+          "mode": "list",
+          "cachedResultName": "Direct Query",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNLhT1EBPCNCxQc",
+          "mode": "list",
+          "cachedResultName": "Direct Query Executions",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblNLhT1EBPCNCxQc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sessionId": "={{ $('When chat message received').item.json.sessionId }}",
+            "chatInput": "={{ $('Start Time').item.json.chatInput }}",
+            "startTime": "={{ $('Start Time').item.json.Start }}",
+            "request": "={{ $('MySQL').item.json.sql }}",
+            "response": "={{ $('MySQL').item.json.data[0].toJsonString() }}",
+            "stopTime": "={{ $('Response').item.json.Stop }}",
+            "time": "={{ ($('Response').item.json.Stop.toDateTime() -  $('Start Time').item.json.Start.toDateTime())/1000}}s"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "startTime",
+              "displayName": "startTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "chatInput",
+              "displayName": "chatInput",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "request",
+              "displayName": "request",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "response",
+              "displayName": "response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "stopTime",
+              "displayName": "stopTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Ok",
+                  "value": "Ok"
+                },
+                {
+                  "name": "Fail",
+                  "value": "Fail"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        620,
+        -100
+      ],
+      "id": "2b47c692-f615-409d-beb0-ce928dce8b78",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b4668751-987a-48e0-8c3b-b31f3fd5db8c",
+              "name": "time",
+              "value": "=  {{ ($json.Stop.toDateTime() - $('Start Time').item.json.Start.toDateTime())/1000}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        420,
+        -100
+      ],
+      "id": "2b613905-d2fc-48b8-a027-d69bedd52321",
+      "name": "Delta"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08FGUTFMA9",
+          "mode": "list",
+          "cachedResultName": "usdb"
+        },
+        "text": "=Query Metadata\n• Session ID: {{ $('When chat message received').item.json.sessionId }} \n• Start Time: {{ $('Start Time').item.json.Start }}\n• Stop Time : {{ $('Response').item.json.Stop }} \n• Request   : \n   {{ $('When chat message received').item.json.chatInput }} \n• Response  : \n   {{ $('MySQL').item.json.data[0]['COUNT(*)'] }}\n\n• Delta     : {{ $json.fields.time }} sec",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": true
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        620,
+        140
+      ],
+      "id": "a41f9f13-314b-48f1-b86d-00e44cf9ffde",
+      "name": "Slack",
+      "webhookId": "5a1c9d86-d919-403b-a5d6-b78b7d830701",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "qOdQUZtzpSolQMoG",
+          "name": "Slack account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "rbozDLMgZawoZrGa"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T09:14:09.000Z",
+  "versionId": "b4f1d6ae-a533-4ee7-b83e-ad7728b3e0ba"
+}
