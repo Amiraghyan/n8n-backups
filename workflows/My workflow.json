@@ -1,104 +1,11 @@
 {
   "active": false,
   "connections": {
-    "Groq Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Client Onboarding Form": {
+    "When chat message received": {
       "main": [
         [
           {
-            "node": "Clean Data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Clean Data": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "AI Agent1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent": {
-      "main": [
-        [
-          {
-            "node": "Welcome Client",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Welcome Client": {
-      "main": [
-        [
-          {
-            "node": "Welcome Client Email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent1": {
-      "main": [
-        [
-          {
-            "node": "TOS Contract",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "TOS Contract": {
-      "main": [
-        [
-          {
-            "node": "TOS Email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "TOS Email": {
-      "main": [
-        [
-          {
-            "node": "Slack",
+            "node": "MySQL",
             "type": "main",
             "index": 0
           }
@@ -106,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2025-02-14T18:28:05.246Z",
-  "id": "66kALp0DaE8uIRBq",
+  "createdAt": "2025-03-07T06:26:31.703Z",
+  "id": "uFIr0zntJtyCAOq2",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -115,325 +22,39 @@
   "nodes": [
     {
       "parameters": {
-        "model": "llama3-70b-8192",
         "options": {}
       },
-      "id": "a0839a90-038a-44ac-87b2-b23fa3fa8650",
-      "name": "Groq Chat Model",
-      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
-      "typeVersion": 1,
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
       "position": [
-        -20,
-        40
+        -140,
+        -100
       ],
-      "credentials": {
-        "groqApi": {
-          "id": "0PSKHqXxusBfS3qe",
-          "name": "Groq n8n"
+      "id": "130f0714-68da-4f7a-a596-20ea5bbfd20d",
+      "name": "When chat message received",
+      "webhookId": "c5be6acc-e166-4cb4-b444-e7f87bd2e70a",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.chatInput }}",
+        "options": {
+          "detailedOutput": true
         }
-      }
-    },
-    {
-      "parameters": {
-        "path": "tos",
-        "formTitle": "Client Onboarding Form",
-        "formDescription": "Please fill out the required fields to get started with the onboarding process.",
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "Full Name",
-              "placeholder": "e.g., John Doe",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Your Email",
-              "fieldType": "email",
-              "placeholder": "e.g., john.doe@example.com",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Company Name",
-              "placeholder": "e.g., Doe Enterprises",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Industry",
-              "placeholder": "e.g., Technology, Finance, Marketing",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Services Required",
-              "fieldType": "textarea",
-              "placeholder": "e.g., Website Development, Marketing Strategy",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Start Date",
-              "fieldType": "date"
-            }
-          ]
-        },
-        "options": {}
       },
-      "id": "e77b8d66-50a2-4825-a994-1367389ab387",
-      "name": "Client Onboarding Form",
-      "type": "n8n-nodes-base.formTrigger",
-      "typeVersion": 2.1,
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
       "position": [
-        -400,
-        180
+        80,
+        -100
       ],
-      "webhookId": "78254c76-a01b-4a2c-857a-0df90d287a95"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "4e344349-584b-4194-8f17-aeaf9437715d",
-              "name": "Name",
-              "value": "={{ $json['Full Name'] }}",
-              "type": "string"
-            },
-            {
-              "id": "675de97d-f364-4abf-a382-d1407cd0db94",
-              "name": "Email",
-              "value": "={{ $json['Your Email'] }}",
-              "type": "string"
-            },
-            {
-              "id": "a30fa396-3471-482d-a62f-92e319dc83e6",
-              "name": "Company Name",
-              "value": "={{ $json['Company Name'] }}",
-              "type": "string"
-            },
-            {
-              "id": "8c8168de-45e0-43fb-be50-f9ea476e45f5",
-              "name": "Industry",
-              "value": "={{ $json.Industry }}",
-              "type": "string"
-            },
-            {
-              "id": "580a83cf-e0ac-4bcd-b78a-171ed9ed7da2",
-              "name": "Services Required",
-              "value": "={{ $json['Services Required'] }}",
-              "type": "string"
-            },
-            {
-              "id": "aa929b98-edbe-43f1-8383-0165e68889f9",
-              "name": "Start Date",
-              "value": "={{ $json['Start Date'] }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "d1355780-52ac-4b0b-aacc-d0b30ef36b9c",
-      "name": "Clean Data",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -160,
-        180
-      ]
-    },
-    {
-      "parameters": {
-        "agent": "conversationalAgent",
-        "promptType": "define",
-        "text": "=Write a personalized welcome email to {{ $json.Email }} from AI Workshop.\n\nThey are in the {{ $json[\"Industry\"] }} industry and need services for{{ $json['Services Required'] }} . The services will start on {{ $json['Start Date'] }}. The tone should be professional yet friendly. Include a mention that we are excited to work with them. \n\nAlso, let them know that they will be receiving a separate email with the terms of services agreement that they need to sign or simply respond to the email.\n\n",
-        "options": {}
-      },
-      "id": "eb73c0cc-c0b2-4d55-93dd-75b6c758d754",
-      "name": "AI Agent",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.6,
-      "position": [
-        140,
-        80
-      ]
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "gpt-4o-mini",
-          "mode": "list",
-          "cachedResultName": "GPT-4O-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "Parse the JSON 'ouput' and output the following parameters separately:\n\nSubject\nBody",
-              "role": "system"
-            },
-            {
-              "content": "={{ $json.output }}"
-            }
-          ]
-        },
-        "jsonOutput": true,
-        "options": {}
-      },
-      "id": "8bc92db5-43c8-4ede-b8df-b2980b7b3d29",
-      "name": "Welcome Client",
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.5,
-      "position": [
-        460,
-        80
-      ],
+      "id": "ef0affb5-ba93-4078-a567-90a20994d525",
+      "name": "MySQL",
       "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "draft",
-        "subject": "={{ $json.message.content.Subject }}",
-        "message": "={{ $json.message.content.Body }}",
-        "options": {}
-      },
-      "id": "ef99dc2b-f51a-4217-be75-891e8e848102",
-      "name": "Welcome Client Email",
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        840,
-        40
-      ],
-      "webhookId": "07c84ffe-70c1-43ca-ba57-6761d3657a21",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "gzaTpmgZNuVcPNVx",
-          "name": "Sergio Gmail"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "2f2db5db-dad4-4d5e-9f5e-abc0f8ae1b21",
-      "name": "OpenAI Chat Model",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        20,
-        400
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "o9adSCKLAIT5PUFO",
-          "name": "DeepSeek 2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "agent": "conversationalAgent",
-        "promptType": "define",
-        "text": "=Please generate a Terms of Service and Contract document for {{ $json.Name }} from AI Workshop. The client operates in the {{ $json[\"Industry\"] }} industry and requires services such as {{ $json['Services Required'] }} starting from {{ $json['Start Date'] }}. The contract should include:\n\n1. An introduction outlining the purpose of the contract.\n2. The scope of services.\n3. Payment terms.\n4. Obligations of both parties.\n5. Terms and conditions, including liability clauses.\n6. A section for client signature.\n",
-        "options": {}
-      },
-      "id": "cfc30222-b1e5-41b3-8ecf-3e234b9c88b4",
-      "name": "AI Agent1",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.6,
-      "position": [
-        140,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "gpt-4o-mini",
-          "mode": "list",
-          "cachedResultName": "GPT-4O-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "Parse the JSON 'output' and return the following:\n\nParse the JSON 'output' and return the following parameters:\n\n- Title: Extract only the \"title\" field.\n- Body: Combine all other fields into a single text block and format it like an official contract (e.g., NDA or Terms of Service).\n  ",
-              "role": "system"
-            },
-            {
-              "content": "={{ $json.output }}"
-            }
-          ]
-        },
-        "jsonOutput": true,
-        "options": {}
-      },
-      "id": "d901e6d8-28f6-4f48-a1d7-be4647a86670",
-      "name": "TOS Contract",
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.5,
-      "position": [
-        460,
-        240
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "o9adSCKLAIT5PUFO",
-          "name": "DeepSeek 2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "draft",
-        "subject": "={{ $json.message.content.Title }}",
-        "message": "={{ $json.message.content.Body }}",
-        "options": {}
-      },
-      "id": "b0a662d9-82e7-4821-a386-76e2f4978ea7",
-      "name": "TOS Email",
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        840,
-        280
-      ],
-      "webhookId": "92d5d539-8656-4778-9595-46097a884941",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "6K4gqOnfx5Bz59Tl",
-          "name": "Gmail_Sergio"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "value": "C07N5K5JLTX",
-          "mode": "list",
-          "cachedResultName": "ai-agents"
-        },
-        "text": "={{ $('TOS Contract').item.json.message.content.Body }}",
-        "otherOptions": {}
-      },
-      "id": "0cdd98a7-6f0c-44eb-a614-52ebba5b73a1",
-      "name": "Slack",
-      "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.2,
-      "position": [
-        1080,
-        160
-      ],
-      "webhookId": "8313b9d2-c0a6-4b5b-8677-a8854fd467fc",
-      "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
         }
       }
     }
@@ -445,6 +66,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-14T18:28:05.246Z",
-  "versionId": "fa9d30d7-5745-4b2b-8c29-6b6ba7230762"
+  "updatedAt": "2025-03-07T06:42:45.000Z",
+  "versionId": "06abedad-a39c-485e-8313-08fba24e62f8"
 }
