@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "MySQL - select",
+            "node": "MySQL",
             "type": "main",
             "index": 0
           }
@@ -54,8 +54,8 @@
       "name": "MySQL - select",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        580,
-        240
+        520,
+        40
       ],
       "typeVersion": 1,
       "id": "043a8be3-5d49-40ba-a2fb-a7e53629babf",
@@ -81,19 +81,16 @@
     },
     {
       "parameters": {
-        "operation": "select",
-        "table": {
-          "__rl": true,
-          "value": "dealers",
-          "mode": "list",
-          "cachedResultName": "dealers"
-        },
-        "options": {}
+        "operation": "executeQuery",
+        "query": "SELECT * FROM dealers LIMIT 10000;",
+        "options": {
+          "detailedOutput": false
+        }
       },
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        920,
+        640,
         240
       ],
       "id": "cb967d33-35c6-4325-9ed0-c93d6be0bb37",
@@ -112,6 +109,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-07T17:14:26.000Z",
-  "versionId": "998fd915-0ca0-4ee9-90ac-1621b7f3137f"
+  "updatedAt": "2025-03-07T21:04:41.000Z",
+  "versionId": "553b00db-8ec6-4b96-8495-170392012d87"
 }
