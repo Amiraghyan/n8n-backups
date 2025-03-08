@@ -60,17 +60,12 @@
       "main": [
         [
           {
-            "node": "Run SQL query",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Combine query result and chat answer",
             "type": "main",
             "index": 1
           },
           {
-            "node": "HTTP Request",
+            "node": "Run SQL query",
             "type": "main",
             "index": 0
           }
@@ -207,7 +202,13 @@
     },
     "Prepare final output": {
       "main": [
-        []
+        [
+          {
+            "node": "Send reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Filter": {
@@ -274,13 +275,7 @@
     },
     "HTTP Request": {
       "main": [
-        [
-          {
-            "node": "Format query results",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     }
   },
@@ -485,7 +480,7 @@
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 749,
+        "height": 789,
         "width": 1183,
         "color": 6
       },
@@ -501,7 +496,7 @@
     {
       "parameters": {
         "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
-        "height": 755,
+        "height": 795,
         "width": 446,
         "color": 6
       },
@@ -647,7 +642,7 @@
     {
       "parameters": {
         "content": "",
-        "height": 936,
+        "height": 976,
         "width": 1803,
         "color": 6
       },
@@ -751,8 +746,7 @@
           "id": "QonuFF6AfGffP6d7",
           "name": "104.167.196.118 : 3306"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -882,7 +876,7 @@
       "type": "n8n-nodes-base.slackTrigger",
       "position": [
         480,
-        1180
+        1240
       ],
       "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
       "typeVersion": 1,
@@ -923,7 +917,7 @@
       "typeVersion": 2.2,
       "position": [
         660,
-        1180
+        1240
       ],
       "id": "cf32ad1a-2ebb-438d-ae0b-9510ad7783d4",
       "name": "Filter"
@@ -1015,7 +1009,7 @@
       "typeVersion": 3.2,
       "position": [
         860,
-        1180
+        1240
       ],
       "id": "dddb8a47-f10b-4737-8532-a33a35b6e155",
       "name": "Switch"
@@ -1038,7 +1032,7 @@
       "typeVersion": 3.4,
       "position": [
         1180,
-        1280
+        1340
       ],
       "id": "36d90c65-40b9-4d7a-a923-3e2914d8d7df",
       "name": "Text Out"
@@ -1061,7 +1055,7 @@
       "typeVersion": 4.2,
       "position": [
         1100,
-        1120
+        1180
       ],
       "id": "d2d35236-4f22-46bf-a078-8519fcd0a5f9",
       "name": "Dwnld_Audio",
@@ -1083,7 +1077,7 @@
       "typeVersion": 1.8,
       "position": [
         1260,
-        1120
+        1180
       ],
       "id": "008b5db8-026c-4a10-aade-de5e84e71ce5",
       "name": "OpenAI",
@@ -1098,19 +1092,22 @@
       "parameters": {
         "method": "PUT",
         "url": "https://dev-api.ioffer.io/Services/v2/Data/Any",
-        "authentication": "genericCredentialType",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "AppName",
               "value": "DbSYC"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 14FE34B2-9547-43F5-A57C-F0DC7DE81AA9"
             }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=\n{   \"Model\": \"Proc\",\n    \"Extension\": \"ExecScript\",\n    \"Params\": {\n        \"Script\": \"{{ $json.query }}\"\n    }\n} ",
+        "jsonBody": "={   \"Model\": \"Proc\",\n    \"Extension\": \"ExecScript\",\n    \"Params\": {\n        \"Script\": \"{{ $json.query }}\"\n    }\n} ",
         "options": {
           "redirect": {
             "redirect": {}
@@ -1140,6 +1137,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-07T20:29:52.000Z",
-  "versionId": "41a893fc-49c5-4a14-a45c-5f766e224513"
+  "updatedAt": "2025-03-08T00:02:06.000Z",
+  "versionId": "6e7c035e-c098-4349-abde-c00e417782ef"
 }
