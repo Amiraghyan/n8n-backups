@@ -68,6 +68,11 @@
             "node": "Run SQL query",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
           }
         ],
         [
@@ -275,7 +280,13 @@
     },
     "HTTP Request": {
       "main": [
-        []
+        [
+          {
+            "node": "Format query results",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -573,7 +584,7 @@
               "id": "ebbe194a-4b8b-44c9-ac19-03cf69d353bf",
               "name": "query",
               "type": "string",
-              "value": "={{ ($json.output.match(/SELECT[\\s\\S]*?;/i) || [])[0] || \"\" }}"
+              "value": "={{ ($json.output.match(/SELECT[\\s\\S]*\"\"\"\"?/i) || [])[0] || \"\" }}"
             }
           ]
         },
@@ -730,7 +741,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "{{ $json.query }}",
+        "query": "{{ $json.query}}",
         "options": {}
       },
       "id": "d958de24-84ef-4928-a7f3-32cada09a0eb",
@@ -1129,7 +1140,17 @@
       "name": "HTTP Request"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Chat Trigger": [
+      {
+        "json": {
+          "sessionId": "ce6d9d375e384016b2ead38769ade2f2",
+          "action": "sendMessage",
+          "chatInput": "SELECT COUNT(*) \nFROM listings l \nJOIN dealers d ON l.DEALERS_ID = d.DEALERS_ID \nJOIN spec_models sm ON l.SPEC_MODELS_ID = sm.SPEC_MODELS_ID \nWHERE d.City = 'Seattle' \n  AND sm.MakeName = 'Toyota' \n  AND sm.ModelName = 'Tacoma';"
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner"
@@ -1137,6 +1158,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-08T00:02:06.000Z",
-  "versionId": "6e7c035e-c098-4349-abde-c00e417782ef"
+  "updatedAt": "2025-03-09T21:39:49.000Z",
+  "versionId": "8808919d-78cc-4dca-8e2d-8ec189714b3e"
 }
