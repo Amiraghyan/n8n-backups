@@ -1,0 +1,810 @@
+{
+  "active": false,
+  "connections": {
+    "Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load the schema from the local file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run SQL query": {
+      "main": [
+        [
+          {
+            "node": "Format query results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract SQL query": {
+      "main": [
+        [
+          {
+            "node": "Check if query exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format query results": {
+      "main": [
+        [
+          {
+            "node": "Combine query result and chat answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check if query exists": {
+      "main": [
+        [
+          {
+            "node": "Run SQL query",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Combine query result and chat answer",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert data to binary": {
+      "main": [
+        []
+      ]
+    },
+    "Extract data from file": {
+      "main": [
+        [
+          {
+            "node": "Combine schema data and chat input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract database schema": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add table name to output": {
+      "main": [
+        []
+      ]
+    },
+    "List all tables in a database": {
+      "main": [
+        [
+          {
+            "node": "Extract database schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "List all tables in a database",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine schema data and chat input": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load the schema from the local file": {
+      "main": [
+        [
+          {
+            "node": "Extract data from file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine query result and chat answer": {
+      "main": [
+        [
+          {
+            "node": "Prepare final output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Extract SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Azure OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T17:44:41.845Z",
+  "id": "9KVHuM1YYmcfIbrF",
+  "meta": {
+    "templateId": "2508",
+    "templateCredsSetupCompleted": true
+  },
+  "name": "IO: SQL queries from schema only",
+  "nodes": [
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "id": "4d31a2ae-cd4c-44c6-8ca6-18c1912178b4",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        1720,
+        900
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {},
+      "id": "65cfd5da-b0bb-4b06-bc5f-f935b3f91dd9",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        2660,
+        920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SHOW TABLES;",
+        "options": {}
+      },
+      "id": "66dbb7b4-b23c-48f9-bef8-bce2add01e7f",
+      "name": "List all tables in a database",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        580,
+        500
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "DESCRIBE {{ $json.Tables_in_usdb }};",
+        "options": {}
+      },
+      "id": "ac17efc9-f096-4c8b-a00a-7a3debda63c4",
+      "name": "Extract database schema",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        760,
+        500
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "764176d6-3c89-404d-9c71-301e8a406a68",
+              "name": "table",
+              "type": "string",
+              "value": "={{ $('List all tables in a database').item.json.Tables_in_usdb }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "72f62a15-4ebf-4921-bf37-c5f5b58eac70",
+      "name": "Add table name to output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        820,
+        80
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "9b2d09a9-cb57-46ea-ba26-63ac239479cb",
+      "name": "Convert data to binary",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        1100,
+        20
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "options": {}
+      },
+      "id": "a456f27a-693d-43d6-ad26-4744aec16d24",
+      "name": "Extract data from file",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        980,
+        940
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "55802925-048e-428c-a89b-df9e66250b18",
+      "name": "Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        500,
+        940
+      ],
+      "webhookId": "bc734826-6ade-425e-9341-f5bb43f7ba43",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "content": "## Run this part only once\nThis section:\n* loads a list of all tables from the database\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./chinook_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
+        "height": 466,
+        "width": 1145,
+        "color": 3
+      },
+      "id": "4762ee5d-adda-42c3-8a6b-b5a9104b974a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "13e65345-aa4c-45fe-b44a-8787f5df7549",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        420,
+        500
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
+        "height": 469,
+        "width": 1183,
+        "color": 6
+      },
+      "id": "4002d754-c31f-4581-8108-cace3f0ac631",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        740
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
+        "height": 975,
+        "width": 446,
+        "color": 6
+      },
+      "id": "3e7f9a8c-e69a-4d3b-839a-ac4a71bd1d88",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1560,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "42abd24e-419a-47d6-bc8b-7146dd0b8314",
+              "name": "sessionId",
+              "type": "string",
+              "value": "={{ $('Chat Trigger').first().json.sessionId }}"
+            },
+            {
+              "id": "39244192-a1a6-42fe-bc75-a6fba1f264df",
+              "name": "action",
+              "type": "string",
+              "value": "={{ $('Chat Trigger').first().json.action }}"
+            },
+            {
+              "id": "f78c57d9-df13-43c7-89a7-5387e528107e",
+              "name": "chatinput",
+              "type": "string",
+              "value": "={{ $('Chat Trigger').first().json.chatInput }}"
+            },
+            {
+              "id": "e42b39eb-dfbd-48d9-94ed-d658bdd41454",
+              "name": "schema",
+              "type": "string",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a96f5134-aaf3-4c2a-9218-f5f7e3209aef",
+      "name": "Combine schema data and chat input",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1200,
+        940
+      ],
+      "executeOnce": true,
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "fileSelector": "./chinook_mysql.json",
+        "options": {}
+      },
+      "id": "0b32826e-4730-43a3-ad56-e53262c5d808",
+      "name": "Load the schema from the local file",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        740,
+        940
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ebbe194a-4b8b-44c9-ac19-03cf69d353bf",
+              "name": "query",
+              "type": "string",
+              "value": "={{ ($json.output.match(/SELECT[\\s\\S]*?;/i) || [])[0] || \"\" }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "89cacaa8-1096-4ce2-bb16-d1a3e0f55307",
+      "name": "Extract SQL query",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2140,
+        720
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "2963d04d-9d79-49f9-b52a-dc8732aca781",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.query }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1da54370-edfd-4acd-a5ae-ee49231fe843",
+      "name": "Check if query exists",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        2420,
+        720
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "content": "## SQL query extraction\nCheck if the agent's response contains an SQL query. If it does, we extract the query using a regular expression.",
+        "height": 319,
+        "width": 298,
+        "color": 3
+      },
+      "id": "bba1cd52-11ce-4879-b157-9ef40a76f047",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2040,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 976,
+        "width": 1103,
+        "color": 6
+      },
+      "id": "54e79749-9978-419d-9f96-3837c87d62ff",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2000,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "The AI Agent remembers the schema, questions, and final answers, but not data values, since queries run externally. The agent can't access database content. ",
+        "height": 108.03673727584527,
+        "width": 257.46308756569573,
+        "color": 3
+      },
+      "id": "891a1455-cc55-4d76-96ec-4edf48ee6353",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1700,
+        1060
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "- The SQL node accesses the database and executes the query. The results are then formatted for readability.\n- Both the chat response and the query result are displayed in the chat window.",
+        "height": 123,
+        "width": 409,
+        "color": 3
+      },
+      "id": "eddc3a65-0b69-4b36-a911-81f78b2364ed",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2640,
+        300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "When the agent responds without an SQL query, you receive an immediate answer with no additional processing.",
+        "height": 90,
+        "width": 390,
+        "color": 3
+      },
+      "id": "37329488-1453-44b8-81b9-efeaf94d33d9",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2660,
+        1080
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f944d21f-6aac-4842-8926-4108d6cad4bf",
+              "name": "sqloutput",
+              "type": "string",
+              "value": "={{ Object.keys($jmespath($input.all(),'[].json')[0]).join(' | ') }} \n{{ ($jmespath($input.all(),'[].json')).map(obj => Object.values(obj).join(' | ')).join('\\n') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "93f7538e-86e8-4293-867e-018aa04f75a3",
+      "name": "Format query results",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2900,
+        480
+      ],
+      "executeOnce": true,
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.query }}",
+        "options": {}
+      },
+      "id": "b1c0fec4-89c9-4ab7-93d5-647cbf855b0a",
+      "name": "Run SQL query",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        2660,
+        480
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aa55e186-1535-4923-aee4-e088ca69575b",
+              "name": "output",
+              "type": "string",
+              "value": "={{ $json.output }}\n\nSQL result:\n```markdown\n{{ $json.sqloutput }}\n```"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "53669ef5-0fd4-4cf2-8d7d-b488107a9132",
+      "name": "Prepare final output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2900,
+        720
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "53881a07-e3e0-4a7c-bc11-f0b094e9b3ae",
+      "name": "Combine query result and chat answer",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        2660,
+        720
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o1",
+          "mode": "list",
+          "cachedResultName": "o1"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1600,
+        900
+      ],
+      "id": "5a52975b-0b18-4561-90d4-39d7d8366df6",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=TOOLS\n------\nAssistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:\n\n{tools}\n\n{format_instructions}\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else):\n\n{{ $json.chatinput }}",
+        "options": {
+          "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\nHelp user to work with the MySQL database.\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        1640,
+        720
+      ],
+      "id": "a3b654d8-2b4f-423d-96f6-3c34d9e79a04",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "mode": "insert"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        260
+      ],
+      "id": "4ed09810-bdca-4fc9-ae45-cc4cb6e77c36",
+      "name": "Simple Vector Store"
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-large",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        440
+      ],
+      "id": "1bc52b01-6c3a-4ab7-9952-50ab5656b7f4",
+      "name": "Embeddings Azure OpenAI",
+      "credentials": {
+        "azureOpenAiApi": {
+          "id": "4VeSnVOeMXf8hHdP",
+          "name": "Azure Open AI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        440
+      ],
+      "id": "bc0d8052-a3cf-4f88-9b3a-7351c3375e66",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        600
+      ],
+      "id": "a18b02b1-6c65-4d52-87ae-d5beb250e885",
+      "name": "Token Splitter"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-10T19:37:50.000Z",
+  "versionId": "f90f7bf6-3c89-4762-9993-cee2a6feeea5"
+}
