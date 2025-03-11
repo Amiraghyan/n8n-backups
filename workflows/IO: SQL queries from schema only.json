@@ -97,13 +97,7 @@
     },
     "Extract database schema": {
       "main": [
-        [
-          {
-            "node": "Simple Vector Store",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Add table name to output": {
@@ -183,39 +177,6 @@
           {
             "node": "Extract SQL query",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Embeddings Azure OpenAI": {
-      "ai_embedding": [
-        [
-          {
-            "node": "Simple Vector Store",
-            "type": "ai_embedding",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Default Data Loader": {
-      "ai_document": [
-        [
-          {
-            "node": "Simple Vector Store",
-            "type": "ai_document",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Token Splitter": {
-      "ai_textSplitter": [
-        [
-          {
-            "node": "Default Data Loader",
-            "type": "ai_textSplitter",
             "index": 0
           }
         ]
@@ -738,63 +699,6 @@
       ],
       "id": "a3b654d8-2b4f-423d-96f6-3c34d9e79a04",
       "name": "AI Agent"
-    },
-    {
-      "parameters": {
-        "mode": "insert"
-      },
-      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
-      "typeVersion": 1,
-      "position": [
-        1080,
-        260
-      ],
-      "id": "4ed09810-bdca-4fc9-ae45-cc4cb6e77c36",
-      "name": "Simple Vector Store"
-    },
-    {
-      "parameters": {
-        "model": "text-embedding-3-large",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi",
-      "typeVersion": 1,
-      "position": [
-        1040,
-        440
-      ],
-      "id": "1bc52b01-6c3a-4ab7-9952-50ab5656b7f4",
-      "name": "Embeddings Azure OpenAI",
-      "credentials": {
-        "azureOpenAiApi": {
-          "id": "4VeSnVOeMXf8hHdP",
-          "name": "Azure Open AI account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
-      "typeVersion": 1,
-      "position": [
-        1200,
-        440
-      ],
-      "id": "bc0d8052-a3cf-4f88-9b3a-7351c3375e66",
-      "name": "Default Data Loader"
-    },
-    {
-      "parameters": {},
-      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
-      "typeVersion": 1,
-      "position": [
-        1420,
-        600
-      ],
-      "id": "a18b02b1-6c65-4d52-87ae-d5beb250e885",
-      "name": "Token Splitter"
     }
   ],
   "pinData": {},
@@ -805,6 +709,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-10T19:37:50.000Z",
-  "versionId": "f90f7bf6-3c89-4762-9993-cee2a6feeea5"
+  "updatedAt": "2025-03-10T21:29:54.000Z",
+  "versionId": "720b2680-6d21-4fe1-acbd-72f65794deff"
 }
