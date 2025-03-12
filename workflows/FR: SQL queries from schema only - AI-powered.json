@@ -14,13 +14,7 @@
     },
     "Run SQL query": {
       "main": [
-        [
-          {
-            "node": "Format query results",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Extract SQL query": {
@@ -65,12 +59,12 @@
             "index": 1
           },
           {
-            "node": "Run SQL query",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           },
           {
-            "node": "HTTP Request",
+            "node": "Run SQL query tmplt",
             "type": "main",
             "index": 0
           }
@@ -154,7 +148,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "AI Agent tmplt",
             "type": "main",
             "index": 0
           }
@@ -196,13 +190,7 @@
     },
     "AI Agent": {
       "main": [
-        [
-          {
-            "node": "Extract SQL query",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Prepare final output": {
@@ -288,6 +276,50 @@
           }
         ]
       ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent tmplt",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent tmplt",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent tmplt": {
+      "main": [
+        [
+          {
+            "node": "Extract SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run SQL query tmplt": {
+      "main": [
+        [
+          {
+            "node": "Format query results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-03-06T21:54:38.624Z",
@@ -306,8 +338,8 @@
       "name": "Window Buffer Memory",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        2280,
-        1200
+        2400,
+        300
       ],
       "typeVersion": 1.2
     },
@@ -584,7 +616,7 @@
               "id": "ebbe194a-4b8b-44c9-ac19-03cf69d353bf",
               "name": "query",
               "type": "string",
-              "value": "={{ ($json.output.match(/SELECT[\\s\\S]*\"\"\"\"?/i) || [])[0] || \"\" }}"
+              "value": "={{ ($json.output.match(/SELECT[\\s\\S]*?;/i) || [])[0] || \"\" }}"
             }
           ]
         },
@@ -748,8 +780,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        3080,
-        780
+        3320,
+        240
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -810,8 +842,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        2140,
-        1200
+        2260,
+        300
       ],
       "id": "a75594f3-a7e0-4f09-95b2-1e522f32de40",
       "name": "OpenAI Chat Model",
@@ -824,8 +856,6 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "=TOOLS\n------\nAssistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:\n\n{tools}\n\n{format_instructions}\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else):\n\n{{ $json.chatinput }}",
         "options": {
           "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\nHelp user to work with the MySQL database.\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you."
         }
@@ -833,8 +863,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        2160,
-        1020
+        2280,
+        120
       ],
       "id": "243c1165-8fcc-4c42-8cd9-a2832c1794f7",
       "name": "AI Agent"
@@ -1137,20 +1167,85 @@
         400
       ],
       "id": "d41c5479-ad56-4848-89aa-a1f703f9fd65",
-      "name": "HTTP Request"
-    }
-  ],
-  "pinData": {
-    "Chat Trigger": [
-      {
-        "json": {
-          "sessionId": "ce6d9d375e384016b2ead38769ade2f2",
-          "action": "sendMessage",
-          "chatInput": "SELECT COUNT(*) \nFROM listings l \nJOIN dealers d ON l.DEALERS_ID = d.DEALERS_ID \nJOIN spec_models sm ON l.SPEC_MODELS_ID = sm.SPEC_MODELS_ID \nWHERE d.City = 'Seattle' \n  AND sm.MakeName = 'Toyota' \n  AND sm.ModelName = 'Tacoma';"
+      "name": "HTTP Request",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "id": "0834d63b-d27f-4d5e-ba10-f52878cbf2d1",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        2140,
+        1160
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
         }
       }
-    ]
-  },
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "id": "e3892579-2702-481a-9948-6538e7dcf721",
+      "name": "Window Buffer Memory1",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        2320,
+        1160
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "=Here is the database schema: {{ $json.schema }}\nHere is the user request: {{ $('Chat Trigger').item.json.chatInput }}",
+        "options": {
+          "humanMessage": "TOOLS\n------\nAssistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:\n\n{tools}\n\n{format_instructions}\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else):\n\n{{input}}",
+          "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\nHelp user to work with the MySQL database.\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you."
+        }
+      },
+      "id": "f424b0c6-64b1-4833-bdac-32a178524d20",
+      "name": "AI Agent tmplt",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        2160,
+        1020
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.query }}",
+        "options": {}
+      },
+      "id": "fb5c1df6-cc03-457f-8dc1-4c95c40d8b9d",
+      "name": "Run SQL query tmplt",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        3100,
+        780
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "oUon8ECO0bjjL9bn",
+          "name": "AISandbox"
+        }
+      }
+    }
+  ],
+  "pinData": {},
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner"
@@ -1158,6 +1253,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-09T21:39:49.000Z",
-  "versionId": "8808919d-78cc-4dca-8e2d-8ec189714b3e"
+  "updatedAt": "2025-03-12T02:15:57.000Z",
+  "versionId": "8ecbc347-0b59-4633-b4f1-d2ecb595582e"
 }
