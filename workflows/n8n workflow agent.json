@@ -1,0 +1,136 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create AI Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-12T06:59:41.531Z",
+  "id": "1VNXxV1BkzUYmDKU",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "n8n workflow agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -620,
+        -180
+      ],
+      "id": "6dbbc0d8-e708-4a6c-8f43-22667fb27744",
+      "name": "When chat message received",
+      "webhookId": "2892f8b8-fd03-4c02-bef4-f207e52f5e74"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful assistant"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -80,
+        -180
+      ],
+      "id": "1cc76bd7-6a1c-43d1-89d7-719e08b3e73e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        80
+      ],
+      "id": "baf59560-5820-47dc-9185-797eed2f8e4f",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "RyKWXHUWMxKOC9lj",
+          "name": "OpenAi USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "N8N_agent_Creator",
+        "description": "Call this tool to create a AI agent after you have received the 'query' variable.\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "m3VURatpsyZna9N6",
+          "mode": "list",
+          "cachedResultName": "N8N Agent Creator (Sub-Flow)"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        260,
+        140
+      ],
+      "id": "ff499e90-82bc-4982-a413-ca0d44592940",
+      "name": "Create AI Agent"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-12T07:38:31.000Z",
+  "versionId": "304e64b7-c93f-43b5-8dd4-020f3f6ff71b"
+}
