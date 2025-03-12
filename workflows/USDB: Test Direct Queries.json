@@ -38,7 +38,7 @@
       "main": [
         [
           {
-            "node": "MySQL",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -47,13 +47,7 @@
     },
     "MySQL": {
       "main": [
-        [
-          {
-            "node": "Response",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Response": {
@@ -80,9 +74,14 @@
     },
     "Airtable": {
       "main": [
+        []
+      ]
+    },
+    "HTTP Request": {
+      "main": [
         [
           {
-            "node": "Slack",
+            "node": "Response",
             "type": "main",
             "index": 0
           }
@@ -104,7 +103,7 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -460,
+        -400,
         -100
       ],
       "id": "130f0714-68da-4f7a-a596-20ea5bbfd20d",
@@ -123,15 +122,15 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        -20,
-        -100
+        240,
+        -340
       ],
       "id": "ef0affb5-ba93-4078-a567-90a20994d525",
       "name": "MySQL",
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
+          "name": "104.167.196.118 : 4000 (3306)"
         }
       }
     },
@@ -215,7 +214,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -240,
+        -200,
         -100
       ],
       "id": "8d5814f3-1032-4a9e-9e7a-4ab4947f73de",
@@ -404,7 +403,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        620,
+        560,
         -100
       ],
       "id": "2b47c692-f615-409d-beb0-ce928dce8b78",
@@ -433,7 +432,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        420,
+        380,
         -100
       ],
       "id": "2b613905-d2fc-48b8-a027-d69bedd52321",
@@ -470,6 +469,35 @@
           "name": "Slack account 2"
         }
       }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://104.167.196.118:4000/mysql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.chatInput }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "timeout": 1000000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        20,
+        -100
+      ],
+      "id": "27ded745-55d8-48fa-a189-66e71acebc96",
+      "name": "HTTP Request"
     }
   ],
   "pinData": {},
@@ -481,6 +509,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-07T09:14:09.000Z",
-  "versionId": "b4f1d6ae-a533-4ee7-b83e-ad7728b3e0ba"
+  "updatedAt": "2025-03-12T18:15:46.000Z",
+  "versionId": "5d561553-c39a-4afe-8bb4-7a82918ecd76"
 }
