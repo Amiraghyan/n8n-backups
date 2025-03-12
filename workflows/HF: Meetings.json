@@ -1,0 +1,713 @@
+{
+  "active": false,
+  "connections": {
+    "Configuration": {
+      "main": [
+        [
+          {
+            "node": "Create Database Schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Database Schema": {
+      "main": [
+        [
+          {
+            "node": "Get Americas Countries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Americas Countries": {
+      "main": [
+        [
+          {
+            "node": "Process Countries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Countries": {
+      "main": [
+        [
+          {
+            "node": "Insert Countries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Countries": {
+      "main": [
+        [
+          {
+            "node": "Get Countries From DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Countries From DB": {
+      "main": [
+        [
+          {
+            "node": "Process Each Country",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Each Country": {
+      "main": [
+        [
+          {
+            "node": "Get States/Provinces",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get States/Provinces": {
+      "main": [
+        [
+          {
+            "node": "Insert States",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert States": {
+      "main": [
+        [
+          {
+            "node": "Process Each State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Each State": {
+      "main": [
+        [
+          {
+            "node": "Get Major Cities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Major Cities": {
+      "main": [
+        [
+          {
+            "node": "Insert Cities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Cities": {
+      "main": [
+        [
+          {
+            "node": "Get Cities From DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Cities From DB": {
+      "main": [
+        [
+          {
+            "node": "Process Each City",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Each City": {
+      "main": [
+        [
+          {
+            "node": "Find AA Websites",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find AA Websites": {
+      "main": [
+        [
+          {
+            "node": "Insert AA Websites",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert AA Websites": {
+      "main": [
+        [
+          {
+            "node": "Get Pending Websites",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Pending Websites": {
+      "main": [
+        [
+          {
+            "node": "Process Each Website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Each Website": {
+      "main": [
+        [
+          {
+            "node": "Scrape AA Meetings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape AA Meetings": {
+      "main": [
+        [
+          {
+            "node": "Insert Meeting",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Website Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Meeting": {
+      "main": [
+        [
+          {
+            "node": "Update Website Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Website Update": {
+      "main": [
+        [
+          {
+            "node": "Update Website Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Website Status": {
+      "main": [
+        [
+          {
+            "node": "Get Collection Stats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Collection Stats": {
+      "main": [
+        [
+          {
+            "node": "Workflow Complete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-12T03:23:20.176Z",
+  "id": "mBLMH6CiP6a4Jsl6",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "HF: Meetings",
+  "nodes": [
+    {
+      "parameters": {
+        "functionCode": "// Return configuration object for the workflow\nreturn {\n  // API keys - store these in credentials when possible\n  serpApiKey: \"979f843b8d4d78365ccdb42501e70c6d12c848bce8e63bdbf0c04d8452e491c1\", // SerpAPI key\n  firecrawlKey: \"fc-07068f535c7b4026b5620d9f0ba87dc4\", // Firecrawl key\n  \n  // Supabase connection details\n  supabaseUrl: \"https://hoibaqblndvzmbnmeuua.supabase.co\",\n  supabaseKey: \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhvaWJhcWJsbmR2em1ibm1ldXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE3NTI1MzAsImV4cCI6MjA1NzMyODUzMH0.IhmC79C1eD2A2mXQxX_1CuIgJpkua3TWR_A9F_6jL7w\",\n  \n  // System settings\n  maxConcurrentJobs: 3,\n  requestDelayMs: 1000,\n  minPopulation: 100000,\n  \n  // Limited scope for initial run\n  targetCountries: [\"US\", \"CA\", \"MX\", \"BR\"],\n  maxCitiesPerCountry: 5,\n  \n  // Set to true to reset database tables\n  resetDatabase: false\n};"
+      },
+      "name": "Configuration",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -2080,
+        620
+      ],
+      "id": "147202f8-97a4-4313-9bc5-68e49680635f"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Create database schema for the AA Meeting Collection System\nCREATE TABLE IF NOT EXISTS countries (\n  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n  code TEXT NOT NULL,\n  name TEXT NOT NULL,\n  population BIGINT,\n  status TEXT DEFAULT 'pending',\n  created_at TIMESTAMPTZ DEFAULT NOW(),\n  updated_at TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE IF NOT EXISTS states (\n  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n  code TEXT NOT NULL,\n  name TEXT NOT NULL,\n  country_code TEXT NOT NULL,\n  status TEXT DEFAULT 'pending',\n  created_at TIMESTAMPTZ DEFAULT NOW(),\n  updated_at TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE IF NOT EXISTS cities (\n  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n  name TEXT NOT NULL,\n  state_code TEXT NOT NULL,\n  country_code TEXT NOT NULL,\n  population INTEGER,\n  status TEXT DEFAULT 'pending',\n  websites_found INTEGER DEFAULT 0,\n  created_at TIMESTAMPTZ DEFAULT NOW(),\n  updated_at TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE IF NOT EXISTS aa_regions (\n  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n  name TEXT NOT NULL,\n  url TEXT NOT NULL,\n  confidence TEXT DEFAULT 'medium',\n  city_id UUID,\n  city_name TEXT,\n  state_name TEXT,\n  country_name TEXT,\n  status TEXT DEFAULT 'pending_scrape',\n  meetings_found INTEGER DEFAULT 0,\n  last_scraped TIMESTAMPTZ,\n  created_at TIMESTAMPTZ DEFAULT NOW(),\n  updated_at TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE IF NOT EXISTS aa_meetings (\n  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n  meeting_name TEXT NOT NULL,\n  day TEXT NOT NULL,\n  time TEXT NOT NULL,\n  location TEXT,\n  address TEXT,\n  city TEXT NOT NULL,\n  state TEXT NOT NULL,\n  country TEXT NOT NULL,\n  zipcode TEXT,\n  types TEXT[], \n  notes TEXT,\n  source_url TEXT,\n  website_id UUID,\n  created_at TIMESTAMPTZ DEFAULT NOW(),\n  last_updated TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE IF NOT EXISTS processing_log (\n  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n  timestamp TIMESTAMPTZ DEFAULT NOW(),\n  entity_type TEXT NOT NULL,\n  event_type TEXT NOT NULL,\n  details TEXT,\n  status TEXT DEFAULT 'info',\n  created_at TIMESTAMPTZ DEFAULT NOW()\n);",
+        "additionalFields": {}
+      },
+      "name": "Create Database Schema",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1880,
+        620
+      ],
+      "id": "190a3e37-7e99-4908-8f23-574d8d6467ec",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://restcountries.com/v3.1/region/americas",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "name": "Get Americas Countries",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        -1680,
+        620
+      ],
+      "id": "e64d6dd5-56dc-4aa1-9527-14ab5de88f75"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Filter and format countries\nconst config = $node[\"Configuration\"].json;\nconst response = $node[\"Get Americas Countries\"].json.body;\n\nlet countries = response.map(country => ({\n  code: country.cca2,\n  name: country.name.common,\n  population: country.population,\n  status: \"pending\",\n  updated_at: new Date().toISOString()\n}));\n\n// Filter by target countries and population\nif (config.targetCountries?.length > 0) {\n  countries = countries.filter(c => config.targetCountries.includes(c.code));\n}\n\n// For demo purposes, limit to the specified countries\nreturn countries.map(country => ({ json: country }));"
+      },
+      "name": "Process Countries",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -1480,
+        620
+      ],
+      "id": "427f619c-d951-453b-822e-82f9e5c53221"
+    },
+    {
+      "parameters": {
+        "table": "countries",
+        "columns": "code,name,population,status,updated_at",
+        "additionalFields": {}
+      },
+      "name": "Insert Countries",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1280,
+        620
+      ],
+      "id": "36ca49b2-57b9-48e7-b0e5-1de47ae67e91",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM countries;",
+        "additionalFields": {}
+      },
+      "name": "Get Countries From DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1080,
+        620
+      ],
+      "id": "528bf0cb-e7ea-4846-9aa7-a4119c924f84",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Process Each Country",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        620
+      ],
+      "id": "b4672336-3434-4242-823f-0753d3211166"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Get states/provinces for this country\nconst country = $json;\n\n// In a real implementation, you'd use a geographic API\n// For this example, using sample data for key countries\nconst statesByCountry = {\n  \"US\": [{code: \"CA\", name: \"California\"}, {code: \"TX\", name: \"Texas\"}, {code: \"NY\", name: \"New York\"}],\n  \"CA\": [{code: \"ON\", name: \"Ontario\"}, {code: \"QC\", name: \"Quebec\"}],\n  \"MX\": [{code: \"CMX\", name: \"Mexico City\"}, {code: \"JAL\", name: \"Jalisco\"}],\n  \"BR\": [{code: \"SP\", name: \"São Paulo\"}, {code: \"RJ\", name: \"Rio de Janeiro\"}]\n};\n\n// Get states for this country\nconst states = statesByCountry[country.code] || [];\n\n// Add country info to each state\nconst formattedStates = states.map(state => ({\n  code: state.code,\n  name: state.name,\n  country_code: country.code,\n  status: \"pending\",\n  updated_at: new Date().toISOString()\n}));\n\nreturn formattedStates.map(state => ({ json: state }));"
+      },
+      "name": "Get States/Provinces",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -2080,
+        880
+      ],
+      "id": "8d6245d3-5a83-464f-8d2d-b685785bd00a"
+    },
+    {
+      "parameters": {
+        "table": "states",
+        "columns": "code,name,country_code,status,updated_at",
+        "additionalFields": {}
+      },
+      "name": "Insert States",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1880,
+        880
+      ],
+      "id": "9bbbd76c-9446-4e1e-8eee-f1a192cc6ab4",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Process Each State",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        -1680,
+        880
+      ],
+      "id": "ebb9fe97-b371-4929-87b2-201feffac4c7"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Get major cities for this state\nconst state = $json;\nconst config = $node[\"Configuration\"].json;\n\n// Sample cities data for demo purposes\nconst citiesByState = {\n  // California\n  \"CA\": [\n    {name: \"Los Angeles\", population: 3980000},\n    {name: \"San Diego\", population: 1420000},\n    {name: \"San Francisco\", population: 875000}\n  ],\n  // New York\n  \"NY\": [\n    {name: \"New York City\", population: 8420000},\n    {name: \"Buffalo\", population: 256000}\n  ],\n  // Texas\n  \"TX\": [\n    {name: \"Houston\", population: 2310000},\n    {name: \"Dallas\", population: 1340000}\n  ],\n  // Ontario\n  \"ON\": [\n    {name: \"Toronto\", population: 2930000},\n    {name: \"Ottawa\", population: 934000}\n  ],\n  // Quebec\n  \"QC\": [\n    {name: \"Montreal\", population: 1780000},\n    {name: \"Quebec City\", population: 531000}\n  ],\n  // Mexico City\n  \"CMX\": [\n    {name: \"Mexico City\", population: 8900000}\n  ],\n  // São Paulo\n  \"SP\": [\n    {name: \"São Paulo\", population: 12330000}\n  ]\n};\n\n// Get cities for this state\nlet cities = citiesByState[state.code] || [];\n\n// Filter by minimum population\nconst minPopulation = config.minPopulation || 100000;\ncities = cities.filter(city => city.population >= minPopulation);\n\n// Add state info to each city\nconst formattedCities = cities.map(city => ({\n  name: city.name,\n  state_code: state.code,\n  country_code: state.country_code,\n  population: city.population,\n  status: \"pending\",\n  updated_at: new Date().toISOString()\n}));\n\nreturn formattedCities.map(city => ({ json: city }));"
+      },
+      "name": "Get Major Cities",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -1480,
+        880
+      ],
+      "id": "a9f38d06-cff0-49e2-9336-3e64623d053e"
+    },
+    {
+      "parameters": {
+        "table": "cities",
+        "columns": "name,state_code,country_code,population,status,updated_at",
+        "additionalFields": {}
+      },
+      "name": "Insert Cities",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1280,
+        880
+      ],
+      "id": "a8a2c5ba-daac-4a25-9b26-0fc24b72037a",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM cities;",
+        "additionalFields": {}
+      },
+      "name": "Get Cities From DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1080,
+        880
+      ],
+      "id": "2ac39253-7e45-4612-a1ee-67156c1f40ed",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Process Each City",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        880
+      ],
+      "id": "e9eb3e42-f181-4967-8498-cd59e4b38d3a"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Find AA websites for this city\nconst city = $json;\n\n// Get state and country names\nconst state = \"California\"; // This would be fetched from DB in real implementation\nconst country = \"United States\";\n\n// Simulate finding AA websites\nlet websites = [\n  {\n    name: `${city.name} AA Intergroup`,\n    url: `https://example.org/${city.name.toLowerCase().replace(/\\s+/g, '')}aa.org`,\n    confidence: \"high\"\n  }\n];\n\n// Special case for San Diego to use the real website\nif (city.name === \"San Diego\" && city.state_code === \"CA\") {\n  websites = [{\n    name: \"AA San Diego\",\n    url: \"https://aasandiego.org/meetings\",\n    confidence: \"high\"\n  }];\n}\n\n// Add city information to each website\nwebsites = websites.map(website => ({\n  ...website,\n  city_id: city.id,\n  city_name: city.name,\n  state_name: state,\n  country_name: country,\n  status: \"pending_scrape\",\n  updated_at: new Date().toISOString()\n}));\n\nreturn websites.map(website => ({ json: website }));"
+      },
+      "name": "Find AA Websites",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -2080,
+        1240
+      ],
+      "id": "8beeb2aa-a77a-472c-8d86-b5904f95ec6d"
+    },
+    {
+      "parameters": {
+        "table": "aa_regions",
+        "columns": "name,url,confidence,city_id,city_name,state_name,country_name,status,updated_at",
+        "additionalFields": {}
+      },
+      "name": "Insert AA Websites",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1880,
+        1240
+      ],
+      "id": "15953178-f55a-4374-9881-a7a1838037a9",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM aa_regions \nWHERE status = 'pending_scrape' \nLIMIT 10;",
+        "additionalFields": {}
+      },
+      "name": "Get Pending Websites",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1680,
+        1240
+      ],
+      "id": "eaeeaa63-afe3-48ae-a77a-2471f53677d7",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Process Each Website",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        -1480,
+        1240
+      ],
+      "id": "8f2e459f-4c88-49cb-94c4-09f230d2350d"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Simulate scraping meetings\nconst website = $json;\n\n// Special case for San Diego AA website\nif (website.url.includes(\"aasandiego.org\")) {\n  // Return sample San Diego AA meeting data\n  return [\n    {\n      json: {\n        meeting_name: \"Serenity in the City\",\n        day: \"Monday\",\n        time: \"7:30 PM\",\n        location: \"First Presbyterian Church\",\n        address: \"320 Date St, San Diego, CA 92101\",\n        city: website.city_name,\n        state: website.state_name,\n        country: \"United States\",\n        types: [\"Open\", \"Discussion\"],\n        notes: \"Wheelchair accessible. Beginner friendly.\",\n        source_url: website.url,\n        website_id: website.id\n      }\n    },\n    {\n      json: {\n        meeting_name: \"Freedom Group\",\n        day: \"Tuesday\",\n        time: \"6:00 PM\",\n        location: \"Christ Church\",\n        address: \"1465 C St, San Diego, CA 92101\",\n        city: website.city_name,\n        state: website.state_name,\n        country: \"United States\",\n        types: [\"Closed\", \"Big Book\"],\n        notes: \"Enter through side door.\",\n        source_url: website.url,\n        website_id: website.id\n      }\n    }\n  ];\n}\n\n// For other cities, generate generic meeting data\nreturn [\n  {\n    json: {\n      meeting_name: `${website.city_name} Recovery Group`,\n      day: \"Monday\",\n      time: \"7:00 PM\",\n      location: \"Community Church\",\n      address: `123 Main St, ${website.city_name}`,\n      city: website.city_name,\n      state: website.state_name,\n      country: \"United States\",\n      types: [\"Open\", \"Discussion\"],\n      notes: \"Sample meeting data.\",\n      source_url: website.url,\n      website_id: website.id\n    }\n  }\n];"
+      },
+      "name": "Scrape AA Meetings",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -1280,
+        1240
+      ],
+      "id": "ebf27757-a4c9-422e-8406-67afcd14c83d"
+    },
+    {
+      "parameters": {
+        "table": "aa_meetings",
+        "columns": "meeting_name,day,time,location,address,city,state,country,types,notes,source_url,website_id",
+        "additionalFields": {}
+      },
+      "name": "Insert Meeting",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -1080,
+        1240
+      ],
+      "id": "d81bf686-f5d9-4f0d-8d5d-8c0e2a37fa3e",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": "aa_regions",
+        "columns": "status,meetings_found,last_scraped",
+        "additionalFields": {}
+      },
+      "name": "Update Website Status",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        1240
+      ],
+      "id": "9257a71c-8583-4932-b826-c9c10b4cb75a",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "// Prepare website update data\nconst meetingCount = $input.all().length;\nreturn [{\n  json: {\n    status: \"scraped\",\n    meetings_found: meetingCount,\n    last_scraped: new Date().toISOString()\n  }\n}];"
+      },
+      "name": "Prepare Website Update",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -1080,
+        1100
+      ],
+      "id": "b7bdca1c-6882-452a-b614-3ae57f632d21"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  (SELECT COUNT(*) FROM countries) as total_countries,\n  (SELECT COUNT(*) FROM states) as total_states,\n  (SELECT COUNT(*) FROM cities) as total_cities,\n  (SELECT COUNT(*) FROM aa_regions) as total_websites,\n  (SELECT COUNT(*) FROM aa_meetings) as total_meetings;",
+        "additionalFields": {}
+      },
+      "name": "Get Collection Stats",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        1240
+      ],
+      "id": "30d50ed2-2296-4822-827c-8adb44cd5ea5",
+      "credentials": {
+        "postgres": {
+          "id": "YmKEUvTjdcFpycgI",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "name": "Workflow Complete",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        1240
+      ],
+      "id": "a5becc57-16be-4d2a-99de-09d4838e2689"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2260,
+        620
+      ],
+      "id": "ffce0e2e-2154-484a-8b72-2498e672eb14",
+      "name": "When clicking ‘Test workflow’"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-12T05:46:39.000Z",
+  "versionId": "7e2af7c5-da62-4a79-935e-9fd08e96b7ff"
+}
