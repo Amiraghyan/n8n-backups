@@ -102,24 +102,7 @@
     },
     "Extract database schema": {
       "main": [
-        [
-          {
-            "node": "Add table name to output",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Add table name to output": {
-      "main": [
-        [
-          {
-            "node": "Convert data to binary",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "List all tables in a database": {
@@ -137,7 +120,7 @@
       "main": [
         [
           {
-            "node": "List all tables in a database",
+            "node": "LIST ALL tables",
             "type": "main",
             "index": 0
           }
@@ -320,6 +303,83 @@
           }
         ]
       ]
+    },
+    "Start Time": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Response": {
+      "main": [
+        [
+          {
+            "node": "Delta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delta": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LIST ALL tables": {
+      "main": [
+        [
+          {
+            "node": "EXTRACT Schemas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EXTRACT Schemas": {
+      "main": [
+        [
+          {
+            "node": "Add table name column",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add table name column": {
+      "main": [
+        [
+          {
+            "node": "Convert data to binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-03-06T21:54:38.624Z",
@@ -364,14 +424,14 @@
       "name": "List all tables in a database",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        1020,
-        520
+        500,
+        20
       ],
       "typeVersion": 2.4,
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
+          "name": "104.167.196.118 : 4000 (3306)"
         }
       }
     },
@@ -385,40 +445,16 @@
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        1200,
-        520
+        680,
+        20
       ],
       "typeVersion": 2.4,
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
+          "name": "104.167.196.118 : 4000 (3306)"
         }
       }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "764176d6-3c89-404d-9c71-301e8a406a68",
-              "name": "table",
-              "type": "string",
-              "value": "={{ $('List all tables in a database').item.json.Tables_in_tttytdb2023 }}"
-            }
-          ]
-        },
-        "includeOtherFields": true,
-        "options": {}
-      },
-      "id": "d55e841d-11ed-4ce2-8c8e-840bd807ff2c",
-      "name": "Add table name to output",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        1380,
-        520
-      ],
-      "typeVersion": 3.4
     },
     {
       "parameters": {
@@ -437,7 +473,7 @@
     {
       "parameters": {
         "operation": "write",
-        "fileName": "./chinook_mysql.json",
+        "fileName": "./usdb_mysql.json",
         "options": {}
       },
       "id": "2d89f901-d4e7-4fea-bd69-20b518280bbc",
@@ -596,7 +632,7 @@
     },
     {
       "parameters": {
-        "fileSelector": "./chinook_mysql.json",
+        "fileSelector": "./usdb_mysql.json",
         "options": {}
       },
       "id": "e4045e33-bb87-488d-8ccf-b4a94339a841",
@@ -787,7 +823,7 @@
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
+          "name": "104.167.196.118 : 4000 (3306)"
         }
       }
     },
@@ -1243,6 +1279,370 @@
           "name": "AISandbox"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f5e1c576-b197-44c6-825c-8b6ed343f2b6",
+              "name": "sessionId",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "47f13824-728b-459f-be3d-68cb22e8c459",
+              "name": "chatInput",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "296ec928-b65c-483f-9ede-2282d3cd416a",
+              "name": "Start",
+              "value": "={{$now}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        40
+      ],
+      "id": "f948c81f-8026-4ad2-865f-96275668cb62",
+      "name": "Start Time"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d7ac37dc-ff81-4bd4-92b2-44ce02145875",
+              "name": "Stop",
+              "value": "={{ $now }}",
+              "type": "string"
+            },
+            {
+              "id": "404b3c63-bd42-476f-ba74-bb19016dcd7f",
+              "name": "Request",
+              "value": "={{ $json.sql }}",
+              "type": "string"
+            },
+            {
+              "id": "378b8c45-f247-4a72-b3ec-17fe0639cb10",
+              "name": "Response",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1440,
+        40
+      ],
+      "id": "94bf9718-c027-49e9-9313-4f163df6ea8b",
+      "name": "Response"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appGV8vCDX8WGdmJG",
+          "mode": "list",
+          "cachedResultName": "Direct Query",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNLhT1EBPCNCxQc",
+          "mode": "list",
+          "cachedResultName": "Direct Query Executions",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblNLhT1EBPCNCxQc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sessionId": "={{ $('Chat Trigger').item.json.sessionId }}",
+            "chatInput": "={{ $('Start Time').item.json.chatInput }}",
+            "startTime": "={{ $('Start Time').item.json.Start }}",
+            "request": "={{ $('MySQL').item.json.sql }}",
+            "response": "={{ $('MySQL').item.json.data[0].toJsonString() }}",
+            "stopTime": "={{ $('Response').item.json.Stop }}",
+            "time": "={{ ($('Response').item.json.Stop.toDateTime() -  $('Start Time').item.json.Start.toDateTime())/1000}}s"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "startTime",
+              "displayName": "startTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "chatInput",
+              "displayName": "chatInput",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "request",
+              "displayName": "request",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "response",
+              "displayName": "response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "stopTime",
+              "displayName": "stopTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Ok",
+                  "value": "Ok"
+                },
+                {
+                  "name": "Fail",
+                  "value": "Fail"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1800,
+        40
+      ],
+      "id": "b77bbb26-ea64-4de9-9e3e-aaa211dfff87",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "n8nToken_20250128"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b4668751-987a-48e0-8c3b-b31f3fd5db8c",
+              "name": "time",
+              "value": "=  {{ ($json.Stop.toDateTime() - $('Start Time').item.json.Start.toDateTime())/1000}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1620,
+        40
+      ],
+      "id": "9b85b27a-a6f5-4289-a719-ceb3027c5d0b",
+      "name": "Delta"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://104.167.196.118:4000/mysql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.chatInput }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "timeout": 1000000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1260,
+        40
+      ],
+      "id": "24aeefad-2bb8-4ddc-bed5-17d321fbe1a2",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://104.167.196.118:4000/mysql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=SHOW TABLES;"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "timeout": 1000000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        520
+      ],
+      "id": "1f9f3874-e941-4383-b006-41cf6c42fd73",
+      "name": "LIST ALL tables"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://104.167.196.118:4000/mysql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=DESCRIBE {{ $json.Tables_in_usdb }};"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "timeout": 1000000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1220,
+        520
+      ],
+      "id": "29b9ce9c-79c6-401b-98c0-adfd2e854900",
+      "name": "EXTRACT Schemas"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "764176d6-3c89-404d-9c71-301e8a406a68",
+              "name": "table",
+              "type": "string",
+              "value": "={{ $('LIST ALL tables').item.json.Tables_in_usdb }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d55e841d-11ed-4ce2-8c8e-840bd807ff2c",
+      "name": "Add table name column",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1380,
+        520
+      ],
+      "typeVersion": 3.4
     }
   ],
   "pinData": {},
@@ -1253,6 +1653,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-12T02:15:57.000Z",
-  "versionId": "8ecbc347-0b59-4633-b4f1-d2ecb595582e"
+  "updatedAt": "2025-03-12T19:10:49.000Z",
+  "versionId": "d4fb4de0-c4f1-4afc-bbf7-e5567c46883b"
 }
