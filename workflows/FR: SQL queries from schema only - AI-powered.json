@@ -1158,8 +1158,8 @@
     },
     {
       "parameters": {
-        "method": "PUT",
-        "url": "http://38.107.232.33:4000/mssql/execute",
+        "method": "POST",
+        "url": "http://38.107.232.33:4000/mysql/execute",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -1171,13 +1171,12 @@
         },
         "options": {
           "redirect": {
-            "redirect": {}
-          },
-          "response": {
-            "response": {
-              "fullResponse": true
+            "redirect": {
+              "followRedirects": true,
+              "maxRedirects": 21
             }
-          }
+          },
+          "response": {}
         }
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -1569,8 +1568,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1040,
-        520
+        340,
+        900
       ],
       "id": "1f9f3874-e941-4383-b006-41cf6c42fd73",
       "name": "LIST ALL tables"
@@ -1635,11 +1634,22 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        2820,
-        780
+        2660,
+        620
       ],
       "id": "a9ae54d6-6c25-4725-9b5b-95bbda0cb133",
       "name": "Microsoft SQL"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.microsoftSqlTool",
+      "typeVersion": 1.1,
+      "position": [
+        2860,
+        620
+      ],
+      "id": "4f4624fe-55c7-4076-b1a2-282498fb5871",
+      "name": "Microsoft SQL1"
     }
   ],
   "pinData": {},
@@ -1650,6 +1660,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-13T06:09:06.000Z",
-  "versionId": "090e3732-f9b7-430e-be86-ef5c2de0fe60"
+  "updatedAt": "2025-03-13T14:53:14.000Z",
+  "versionId": "e6818f73-da51-406a-89c4-d6d2724e9630"
 }
