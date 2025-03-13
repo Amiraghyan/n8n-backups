@@ -62,11 +62,6 @@
             "node": "HTTP Request",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Run SQL query tmplt",
-            "type": "main",
-            "index": 0
           }
         ],
         [
@@ -295,13 +290,7 @@
     },
     "Run SQL query tmplt": {
       "main": [
-        [
-          {
-            "node": "Format query results",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Start Time": {
@@ -398,8 +387,8 @@
       "name": "Window Buffer Memory",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        2400,
-        300
+        3240,
+        360
       ],
       "typeVersion": 1.2
     },
@@ -424,8 +413,8 @@
       "name": "List all tables in a database",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        500,
-        20
+        2660,
+        200
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -445,8 +434,8 @@
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        680,
-        20
+        2840,
+        200
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -816,8 +805,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        3320,
-        240
+        3480,
+        200
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -863,7 +852,9 @@
         3080,
         1020
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -878,8 +869,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        2260,
-        300
+        3100,
+        360
       ],
       "id": "a75594f3-a7e0-4f09-95b2-1e522f32de40",
       "name": "OpenAI Chat Model",
@@ -899,8 +890,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        2280,
-        120
+        3100,
+        200
       ],
       "id": "243c1165-8fcc-4c42-8cd9-a2832c1794f7",
       "name": "AI Agent"
@@ -1168,23 +1159,16 @@
     {
       "parameters": {
         "method": "PUT",
-        "url": "https://dev-api.ioffer.io/Services/v2/Data/Any",
-        "sendHeaders": true,
-        "headerParameters": {
+        "url": "http://38.107.232.33:4000/mssql/execute",
+        "sendBody": true,
+        "bodyParameters": {
           "parameters": [
             {
-              "name": "AppName",
-              "value": "DbSYC"
-            },
-            {
-              "name": "Authorization",
-              "value": "Bearer 14FE34B2-9547-43F5-A57C-F0DC7DE81AA9"
+              "name": "query",
+              "value": "={{ $json.query }}"
             }
           ]
         },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={   \"Model\": \"Proc\",\n    \"Extension\": \"ExecScript\",\n    \"Params\": {\n        \"Script\": \"{{ $json.query }}\"\n    }\n} ",
         "options": {
           "redirect": {
             "redirect": {}
@@ -1200,11 +1184,10 @@
       "typeVersion": 4.2,
       "position": [
         3080,
-        400
+        780
       ],
       "id": "d41c5479-ad56-4848-89aa-a1f703f9fd65",
-      "name": "HTTP Request",
-      "disabled": true
+      "name": "HTTP Request"
     },
     {
       "parameters": {
@@ -1269,8 +1252,8 @@
       "name": "Run SQL query tmplt",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        3100,
-        780
+        3580,
+        580
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1278,7 +1261,8 @@
           "id": "oUon8ECO0bjjL9bn",
           "name": "AISandbox"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1565,7 +1549,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "http://104.167.196.118:4000/mysql/execute",
+        "url": "http://38.107.232.33:4000/mysql/execute",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -1594,7 +1578,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "http://104.167.196.118:4000/mysql/execute",
+        "url": "http://38.107.232.33:4000/mysql/execute",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -1643,6 +1627,19 @@
         520
       ],
       "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        2820,
+        780
+      ],
+      "id": "a9ae54d6-6c25-4725-9b5b-95bbda0cb133",
+      "name": "Microsoft SQL"
     }
   ],
   "pinData": {},
@@ -1653,6 +1650,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-12T19:10:49.000Z",
-  "versionId": "d4fb4de0-c4f1-4afc-bbf7-e5567c46883b"
+  "updatedAt": "2025-03-13T06:09:06.000Z",
+  "versionId": "090e3732-f9b7-430e-be86-ef5c2de0fe60"
 }
