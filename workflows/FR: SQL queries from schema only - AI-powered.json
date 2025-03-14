@@ -39,17 +39,6 @@
         ]
       ]
     },
-    "Window Buffer Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Check if query exists": {
       "main": [
         [
@@ -126,7 +115,7 @@
       "main": [
         [
           {
-            "node": "AI Agent tmplt",
+            "node": "USDB AI Agent",
             "type": "main",
             "index": 0
           }
@@ -155,31 +144,9 @@
         ]
       ]
     },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent": {
-      "main": [
-        []
-      ]
-    },
     "Prepare final output": {
       "main": [
-        [
-          {
-            "node": "Send reply",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Filter": {
@@ -249,39 +216,6 @@
         [
           {
             "node": "Format query results",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent tmplt",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Window Buffer Memory1": {
-      "ai_memory": [
-        [
-          {
-            "node": "AI Agent tmplt",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI Agent tmplt": {
-      "main": [
-        [
-          {
-            "node": "Extract SQL query",
             "type": "main",
             "index": 0
           }
@@ -369,6 +303,50 @@
           }
         ]
       ]
+    },
+    "USDB AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Extract SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dateTimeInfo": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-03-06T21:54:38.624Z",
@@ -379,19 +357,6 @@
   },
   "name": "FR: SQL queries from schema only - AI-powered",
   "nodes": [
-    {
-      "parameters": {
-        "contextWindowLength": 10
-      },
-      "id": "977c3a82-440b-4d44-9042-47a673bcb52c",
-      "name": "Window Buffer Memory",
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "position": [
-        3240,
-        360
-      ],
-      "typeVersion": 1.2
-    },
     {
       "parameters": {},
       "id": "c6e9c0e2-d238-4f0b-a4c8-2271f2c8b31b",
@@ -413,8 +378,8 @@
       "name": "List all tables in a database",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2660,
-        200
+        2460,
+        160
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -434,8 +399,8 @@
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2840,
-        200
+        2640,
+        160
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -483,7 +448,7 @@
       "name": "Extract data from file",
       "type": "n8n-nodes-base.extractFromFile",
       "position": [
-        1660,
+        1700,
         1180
       ],
       "typeVersion": 1
@@ -497,32 +462,32 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "position": [
         1260,
-        940
+        980
       ],
       "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
       "typeVersion": 1.1
     },
     {
       "parameters": {
-        "content": "## Run this part only once\nThis section:\n* loads a list of all tables from the database hosted on [db4free](https://db4free.net/signup.php) \n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./chinook_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
+        "content": "## Run this part only once\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
         "height": 426,
-        "width": 1585,
+        "width": 1545,
         "color": 3
       },
       "id": "f5749b31-b28a-4341-b57f-94ee422d2873",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
+        420,
         280
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "## Pre-workflow setup \nConnect to a free MySQL server and import your database. Follow Step 1 and 2 in this [tutorial](https://blog.n8n.io/compare-databases/) for more.\n\n*The Chinook data used in this workflow is available on [GitHub](https://github.com/msimanga/chinook/tree/master/mysql).* ",
-        "height": 174.60585869504342,
-        "width": 312.47220527158765,
+        "content": "## Pre-workflow setup \nConnect to a free SQL server and import your database. Follow Step 1 and 2 in this [tutorial](https://blog.n8n.io/compare-databases/) for more.",
+        "height": 135,
+        "width": 312,
         "color": 6
       },
       "id": "6606abc9-1dcb-4dba-b7ef-e221f892eed8",
@@ -530,7 +495,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         1500,
-        320
+        340
       ],
       "typeVersion": 1
     },
@@ -549,14 +514,14 @@
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
         "height": 789,
-        "width": 1183,
+        "width": 1143,
         "color": 6
       },
       "id": "6f0b167c-e012-43e1-9892-ded05be47cf8",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
+        420,
         740
       ],
       "typeVersion": 1
@@ -613,7 +578,7 @@
       "name": "Combine schema data and chat input",
       "type": "n8n-nodes-base.set",
       "position": [
-        1860,
+        1880,
         1180
       ],
       "executeOnce": true,
@@ -628,7 +593,7 @@
       "name": "Load the schema from the local file",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        1460,
+        1520,
         1180
       ],
       "typeVersion": 1
@@ -652,7 +617,7 @@
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
-        2560,
+        2620,
         1020
       ],
       "typeVersion": 3.4
@@ -694,16 +659,16 @@
     {
       "parameters": {
         "content": "## SQL query extraction\nCheck if the agent's response contains an SQL query. If it does, we extract the query using a regular expression.",
-        "height": 319,
-        "width": 298,
+        "height": 359,
+        "width": 218,
         "color": 3
       },
       "id": "87162d31-2f6c-4f4a-af28-c65cbadd8ed5",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2460,
-        860
+        2560,
+        820
       ],
       "typeVersion": 1
     },
@@ -711,7 +676,7 @@
       "parameters": {
         "content": "",
         "height": 976,
-        "width": 1803,
+        "width": 1763,
         "color": 6
       },
       "id": "b3e77333-eaa9-4d23-a78c-8a19ae074739",
@@ -734,7 +699,7 @@
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2120,
+        2220,
         1360
       ],
       "typeVersion": 1
@@ -805,8 +770,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        3480,
-        200
+        2900,
+        160
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -855,46 +820,6 @@
       "typeVersion": 3,
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "o1",
-          "mode": "list",
-          "cachedResultName": "o1"
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        3100,
-        360
-      ],
-      "id": "a75594f3-a7e0-4f09-95b2-1e522f32de40",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {
-          "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\nHelp user to work with the MySQL database.\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you."
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.8,
-      "position": [
-        3100,
-        200
-      ],
-      "id": "243c1165-8fcc-4c42-8cd9-a2832c1794f7",
-      "name": "AI Agent"
     },
     {
       "parameters": {
@@ -1190,59 +1115,6 @@
     },
     {
       "parameters": {
-        "options": {
-          "temperature": 0.2
-        }
-      },
-      "id": "0834d63b-d27f-4d5e-ba10-f52878cbf2d1",
-      "name": "OpenAI Chat Model1",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "position": [
-        2140,
-        1160
-      ],
-      "typeVersion": 1,
-      "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "contextWindowLength": 10
-      },
-      "id": "e3892579-2702-481a-9948-6538e7dcf721",
-      "name": "Window Buffer Memory1",
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "position": [
-        2320,
-        1160
-      ],
-      "typeVersion": 1.2
-    },
-    {
-      "parameters": {
-        "agent": "conversationalAgent",
-        "promptType": "define",
-        "text": "=Here is the database schema: {{ $json.schema }}\nHere is the user request: {{ $('Chat Trigger').item.json.chatInput }}",
-        "options": {
-          "humanMessage": "TOOLS\n------\nAssistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:\n\n{tools}\n\n{format_instructions}\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else):\n\n{{input}}",
-          "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\nHelp user to work with the MySQL database.\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you."
-        }
-      },
-      "id": "f424b0c6-64b1-4833-bdac-32a178524d20",
-      "name": "AI Agent tmplt",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "position": [
-        2160,
-        1020
-      ],
-      "typeVersion": 1.6
-    },
-    {
-      "parameters": {
         "operation": "executeQuery",
         "query": "{{ $json.query }}",
         "options": {}
@@ -1251,8 +1123,8 @@
       "name": "Run SQL query tmplt",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        3580,
-        580
+        3140,
+        160
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1292,8 +1164,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1040,
-        40
+        2460,
+        380
       ],
       "id": "f948c81f-8026-4ad2-865f-96275668cb62",
       "name": "Start Time"
@@ -1327,8 +1199,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1440,
-        40
+        2860,
+        380
       ],
       "id": "94bf9718-c027-49e9-9313-4f163df6ea8b",
       "name": "Response"
@@ -1481,8 +1353,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1800,
-        40
+        3220,
+        380
       ],
       "id": "b77bbb26-ea64-4de9-9e3e-aaa211dfff87",
       "name": "Airtable",
@@ -1510,8 +1382,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1620,
-        40
+        3040,
+        380
       ],
       "id": "9b85b27a-a6f5-4289-a719-ceb3027c5d0b",
       "name": "Delta"
@@ -1539,8 +1411,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1260,
-        40
+        2680,
+        380
       ],
       "id": "24aeefad-2bb8-4ddc-bed5-17d321fbe1a2",
       "name": "HTTP Request1"
@@ -1568,8 +1440,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        340,
-        900
+        1040,
+        520
       ],
       "id": "1f9f3874-e941-4383-b006-41cf6c42fd73",
       "name": "LIST ALL tables"
@@ -1629,27 +1501,70 @@
     },
     {
       "parameters": {
-        "operation": "executeQuery"
+        "promptType": "define",
+        "text": "=User Message is:\n{{ $json.chatinput }}",
+        "options": {
+          "systemMessage": "=Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\n\n\nWhen users ask about dates, times, reporting periods, or business timeframes, \nalways use this tool to provide accurate temporal information.\n\n// SQL\nHelp user to work with the MySQL database.\n\nUSDB Table Schema:\n{{ $json.schema }}\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you.\n\nTOOLS\n------\nAssistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:\n\n{tools}\n\n// dateTimeInfo\nThe tool returns multiple formats including full date-time, separate date and time values, timezone information, and day of the week.\n\nYou have access to a dateTimeInfo tool that provides comprehensive date/time information. When a user asks about any temporal information, always use this tool to provide the most up-to-date response.\nIt supports business timeframes including:\n- full date-time\n- separate date and time values\n- timezone information\n- day of the week\n- MTD (Month-to-Date)\n- YTD (Year-to-Date) \n- MOM (Month-over-Month)\n- YOY (Year-over-Year)\n- This week/month/year information\n\n\n{format_instructions}\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n\n{{ $json.chatinput }}",
+          "returnIntermediateSteps": "={{ true }}"
+        }
       },
-      "type": "n8n-nodes-base.microsoftSql",
-      "typeVersion": 1.1,
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
       "position": [
-        2660,
-        620
+        2180,
+        1020
       ],
-      "id": "a9ae54d6-6c25-4725-9b5b-95bbda0cb133",
-      "name": "Microsoft SQL"
+      "id": "a984789b-82c1-45d9-a1b0-fb9530e98ff2",
+      "name": "USDB AI Agent"
     },
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.microsoftSqlTool",
+      "parameters": {
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "id": "0834d63b-d27f-4d5e-ba10-f52878cbf2d1",
+      "name": "OpenAI Chat",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        2100,
+        1200
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "id": "e3892579-2702-481a-9948-6538e7dcf721",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        2260,
+        1200
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "name": "dateTimeInfo",
+        "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
+        "jsCode": "// Advanced DateTime Tool for n8n Agent with support for business timeframes\nmodule.exports = async function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  const dayOfWeek = now.getDay(); // 0 = Sunday, 6 = Saturday\n  \n  // Format helper function\n  const formatDate = (date) => {\n    return {\n      formatted: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,\n      year: date.getFullYear(),\n      month: date.getMonth() + 1,\n      day: date.getDate()\n    };\n  };\n  \n  // Get start of current day\n  const startOfDay = new Date(year, month, day);\n  \n  // Get start of current month\n  const startOfMonth = new Date(year, month, 1);\n  \n  // Get start of current year\n  const startOfYear = new Date(year, 0, 1);\n  \n  // Get start of current week (Sunday-based)\n  const startOfWeek = new Date(now);\n  startOfWeek.setDate(now.getDate() - now.getDay());\n  startOfWeek.setHours(0, 0, 0, 0);\n  \n  // Month-to-Date (MTD)\n  const mtdDays = day;\n  const mtdStart = formatDate(startOfMonth);\n  const mtdEnd = formatDate(now);\n  \n  // Year-to-Date (YTD)\n  const ytdDays = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24)) + 1;\n  const ytdStart = formatDate(startOfYear);\n  const ytdEnd = formatDate(now);\n  \n  // Last month (for Month-over-Month)\n  const lastMonth = new Date(year, month - 1, 1);\n  const lastMonthEnd = new Date(year, month, 0);\n  const lastMonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(lastMonth);\n  \n  // Last year (for Year-over-Year)\n  const lastYear = new Date(year - 1, month, day);\n  const lastYearStart = new Date(year - 1, 0, 1);\n  const lastYearEnd = new Date(year - 1, 11, 31);\n  \n  // Format current time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Return comprehensive date/time information\n  return {\n    current: {\n      timestamp: now.getTime(),\n      dateTime: `${formatDate(now).formatted} ${timeString}`,\n      date: formatDate(now).formatted,\n      time: timeString,\n      year: year,\n      month: month + 1,\n      monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n      day: day,\n      dayOfWeek: dayOfWeek,\n      dayName: new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now),\n      quarter: Math.floor(month / 3) + 1\n    },\n    \n    timeframes: {\n      // This week\n      thisWeek: {\n        start: formatDate(startOfWeek),\n        end: formatDate(now),\n        daysPassed: dayOfWeek,\n        daysRemaining: 6 - dayOfWeek\n      },\n      \n      // This month\n      thisMonth: {\n        start: formatDate(startOfMonth),\n        end: formatDate(now),\n        name: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n        daysPassed: day - 1,\n        totalDays: new Date(year, month + 1, 0).getDate()\n      },\n      \n      // This year\n      thisYear: {\n        start: formatDate(startOfYear),\n        end: formatDate(now),\n        year: year,\n        daysPassed: ytdDays,\n        totalDays: (new Date(year, 11, 31) - new Date(year, 0, 1)) / (1000 * 60 * 60 * 24) + 1\n      },\n      \n      // Month-to-Date (MTD)\n      mtd: {\n        start: mtdStart,\n        end: mtdEnd,\n        daysPassed: mtdDays,\n        percentComplete: Math.round((mtdDays / new Date(year, month + 1, 0).getDate()) * 100)\n      },\n      \n      // Year-to-Date (YTD)\n      ytd: {\n        start: ytdStart,\n        end: ytdEnd,\n        daysPassed: ytdDays,\n        percentComplete: Math.round((ytdDays / 365) * 100)\n      }\n    },\n    \n    comparisons: {\n      // Month-over-Month (MoM)\n      mom: {\n        current: {\n          month: month + 1,\n          monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n          year: year\n        },\n        previous: {\n          month: lastMonth.getMonth() + 1,\n          monthName: lastMonthName,\n          year: lastMonth.getFullYear()\n        },\n        start: formatDate(lastMonth),\n        end: formatDate(lastMonthEnd)\n      },\n      \n      // Year-over-Year (YoY)\n      yoy: {\n        current: {\n          year: year,\n          month: month + 1,\n          day: day\n        },\n        previous: {\n          year: year - 1,\n          month: month + 1,\n          day: day\n        },\n        sameDay: formatDate(lastYear),\n        yearStart: formatDate(lastYearStart),\n        yearEnd: formatDate(lastYearEnd)\n      }\n    },\n    \n    timezone: {\n      name: Intl.DateTimeFormat().resolvedOptions().timeZone,\n      offset: now.getTimezoneOffset()\n    }\n  };\n};"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        2860,
-        620
+        2420,
+        1200
       ],
-      "id": "4f4624fe-55c7-4076-b1a2-282498fb5871",
-      "name": "Microsoft SQL1"
+      "id": "584030ef-643e-488b-a3f8-0bc4ee02ed59",
+      "name": "dateTimeInfo"
     }
   ],
   "pinData": {},
@@ -1660,6 +1575,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-13T14:53:14.000Z",
-  "versionId": "e6818f73-da51-406a-89c4-d6d2724e9630"
+  "updatedAt": "2025-03-14T06:51:08.000Z",
+  "versionId": "3a1eeb7c-4882-4740-a3fa-b1ff7424598f"
 }
