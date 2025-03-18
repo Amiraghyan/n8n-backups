@@ -45,11 +45,6 @@
         ]
       ]
     },
-    "MySQL": {
-      "main": [
-        []
-      ]
-    },
     "Response": {
       "main": [
         [
@@ -110,29 +105,6 @@
       "name": "When chat message received",
       "webhookId": "c5be6acc-e166-4cb4-b444-e7f87bd2e70a",
       "notesInFlow": true
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "{{ $json.chatInput }}",
-        "options": {
-          "detailedOutput": true
-        }
-      },
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        240,
-        -340
-      ],
-      "id": "ef0affb5-ba93-4078-a567-90a20994d525",
-      "name": "MySQL",
-      "credentials": {
-        "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 4000 (3306)"
-        }
-      }
     },
     {
       "parameters": {},
@@ -440,38 +412,6 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "value": "C08FGUTFMA9",
-          "mode": "list",
-          "cachedResultName": "usdb"
-        },
-        "text": "=Query Metadata\n• Session ID: {{ $('When chat message received').item.json.sessionId }} \n• Start Time: {{ $('Start Time').item.json.Start }}\n• Stop Time : {{ $('Response').item.json.Stop }} \n• Request   : \n   {{ $('When chat message received').item.json.chatInput }} \n• Response  : \n   {{ $('MySQL').item.json.data[0]['COUNT(*)'] }}\n\n• Delta     : {{ $json.fields.time }} sec",
-        "otherOptions": {
-          "includeLinkToWorkflow": false,
-          "mrkdwn": true
-        }
-      },
-      "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.3,
-      "position": [
-        620,
-        140
-      ],
-      "id": "a41f9f13-314b-48f1-b86d-00e44cf9ffde",
-      "name": "Slack",
-      "webhookId": "5a1c9d86-d919-403b-a5d6-b78b7d830701",
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "qOdQUZtzpSolQMoG",
-          "name": "Slack account 2"
-        }
-      }
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "http://104.167.196.118:4000/mysql/execute",
         "sendBody": true,
@@ -509,6 +449,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-12T18:15:46.000Z",
-  "versionId": "5d561553-c39a-4afe-8bb4-7a82918ecd76"
+  "updatedAt": "2025-03-18T15:07:12.000Z",
+  "versionId": "f89a3661-1f6a-4af4-a316-f443f1093653"
 }
