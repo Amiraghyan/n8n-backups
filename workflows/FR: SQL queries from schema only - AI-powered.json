@@ -379,7 +379,7 @@
       "type": "n8n-nodes-base.mySql",
       "position": [
         2460,
-        160
+        220
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -399,8 +399,8 @@
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2640,
-        160
+        2680,
+        220
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -470,7 +470,7 @@
     {
       "parameters": {
         "content": "## Run this part only once\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
-        "height": 426,
+        "height": 486,
         "width": 1545,
         "color": 3
       },
@@ -479,7 +479,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         420,
-        280
+        220
       ],
       "typeVersion": 1
     },
@@ -494,8 +494,8 @@
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1500,
-        340
+        1520,
+        280
       ],
       "typeVersion": 1
     },
@@ -770,8 +770,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2900,
-        160
+        2860,
+        220
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1123,8 +1123,8 @@
       "name": "Run SQL query tmplt",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        3140,
-        160
+        3040,
+        220
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1165,7 +1165,7 @@
       "typeVersion": 3.4,
       "position": [
         2460,
-        380
+        400
       ],
       "id": "f948c81f-8026-4ad2-865f-96275668cb62",
       "name": "Start Time"
@@ -1200,7 +1200,7 @@
       "typeVersion": 3.4,
       "position": [
         2860,
-        380
+        400
       ],
       "id": "94bf9718-c027-49e9-9313-4f163df6ea8b",
       "name": "Response"
@@ -1354,7 +1354,7 @@
       "typeVersion": 2.1,
       "position": [
         3220,
-        380
+        400
       ],
       "id": "b77bbb26-ea64-4de9-9e3e-aaa211dfff87",
       "name": "Airtable",
@@ -1383,7 +1383,7 @@
       "typeVersion": 3.4,
       "position": [
         3040,
-        380
+        400
       ],
       "id": "9b85b27a-a6f5-4289-a719-ceb3027c5d0b",
       "name": "Delta"
@@ -1412,7 +1412,7 @@
       "typeVersion": 4.2,
       "position": [
         2680,
-        380
+        400
       ],
       "id": "24aeefad-2bb8-4ddc-bed5-17d321fbe1a2",
       "name": "HTTP Request1"
@@ -1575,6 +1575,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-03-16T06:14:34.000Z",
-  "versionId": "0749cca6-8046-4880-90bf-d3ebf2879972"
+  "updatedAt": "2025-03-18T15:36:51.000Z",
+  "versionId": "bee23a58-e6b0-48ce-a322-7a3405c21b8b"
 }
