@@ -491,8 +491,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        60,
-        -40
+        140,
+        -260
       ]
     },
     {
@@ -1621,7 +1621,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1820,
+        1720,
         -80
       ],
       "id": "65f06ac0-9cf1-44ef-b860-f2ea92d72193",
@@ -1659,8 +1659,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        500,
-        -40
+        580,
+        -260
       ],
       "id": "b1623a0b-bb37-4ef2-852e-1eb1892d9b4f",
       "name": "prompts",
@@ -1697,8 +1697,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        280,
-        -40
+        360,
+        -260
       ],
       "id": "78f1bb7e-7866-47e0-9108-110f7daad4da",
       "name": "process",
@@ -1751,8 +1751,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        700,
-        -40
+        780,
+        -260
       ],
       "id": "c6153f91-8c56-4057-92ee-10abffc9a69e",
       "name": "Countries"
@@ -1767,7 +1767,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2500,
+        2220,
         -120
       ],
       "credentials": {
@@ -1858,7 +1858,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3000,
+        2720,
         -300
       ],
       "id": "5d3162b5-f5aa-431e-a2e9-162c19fd61f9",
@@ -1889,7 +1889,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        2560,
+        2280,
         -300
       ]
     },
@@ -1902,7 +1902,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        2820,
+        2540,
         -140
       ]
     },
@@ -1936,7 +1936,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2200,
+        2000,
         -280
       ],
       "id": "bb401769-399b-4126-a86d-9e7f7954518c",
@@ -2031,7 +2031,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        2580,
+        2300,
         20
       ],
       "credentials": {
@@ -2048,7 +2048,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
       "typeVersion": 1,
       "position": [
-        2760,
+        2480,
         20
       ]
     },
@@ -2060,7 +2060,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1620,
+        1540,
         -80
       ],
       "id": "46dacebd-2fa5-44d1-8c13-7c255a310352",
@@ -3691,6 +3691,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-02-25T19:47:55.000Z",
-  "versionId": "6678a664-209f-4c61-b985-7b2f4d594eba"
+  "updatedAt": "2025-03-19T23:59:50.000Z",
+  "versionId": "1917b504-9dd2-439b-99d1-c03ef4bd0a7e"
 }
