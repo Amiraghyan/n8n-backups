@@ -232,7 +232,7 @@
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
+          "name": "104.167.196.118 : 4000 (3306)"
         }
       }
     },
@@ -253,7 +253,7 @@
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
+          "name": "104.167.196.118 : 4000 (3306)"
         }
       }
     },
@@ -616,7 +616,7 @@
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
+          "name": "104.167.196.118 : 4000 (3306)"
         }
       }
     },
@@ -699,6 +699,26 @@
       ],
       "id": "a3b654d8-2b4f-423d-96f6-3c34d9e79a04",
       "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.questDb",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d342b285-87d5-4c4e-b5c1-9194dd820ebe",
+      "name": "QuestDB",
+      "credentials": {
+        "questDb": {
+          "id": "twg2OQat4eUxZCdE",
+          "name": "QuestDB account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -709,6 +729,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-10T21:29:54.000Z",
-  "versionId": "720b2680-6d21-4fe1-acbd-72f65794deff"
+  "updatedAt": "2025-03-19T19:15:19.000Z",
+  "versionId": "225d5f9c-2358-46b4-9e89-0f384ad232f1"
 }
