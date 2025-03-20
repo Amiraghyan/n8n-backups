@@ -1,0 +1,1348 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Country": {
+      "main": [
+        [
+          {
+            "node": "Split Countries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 4o-mini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Master Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "State",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "countries": {
+      "main": [
+        []
+      ]
+    },
+    "prompts": {
+      "main": [
+        [
+          {
+            "node": "prompts1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "State": {
+      "main": [
+        [
+          {
+            "node": "Split States",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Country Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Country",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI_tool2": {
+      "ai_tool": [
+        [
+          {
+            "node": "State",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia_tool2": {
+      "ai_tool": [
+        [
+          {
+            "node": "State",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Countries": {
+      "main": [
+        [
+          {
+            "node": "countries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "prompts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Master Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "City",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 4o-mini3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "City",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI_tool3": {
+      "ai_tool": [
+        [
+          {
+            "node": "City",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia_tool3": {
+      "ai_tool": [
+        [
+          {
+            "node": "City",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "City": {
+      "main": [
+        [
+          {
+            "node": "Split Cities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "States Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "City",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split States": {
+      "main": [
+        [
+          {
+            "node": "states",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "State Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "State",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Cities": {
+      "main": [
+        [
+          {
+            "node": "country-states-cities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "country-states-cities": {
+      "main": [
+        []
+      ]
+    },
+    "Countries Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "States Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Master Agent",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Country",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "State",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "prompts1": {
+      "main": [
+        []
+      ]
+    },
+    "Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Countries Request": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Country",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow1": {
+      "main": [
+        [
+          {
+            "node": "State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-12T03:23:20.176Z",
+  "id": "mBLMH6CiP6a4Jsl6",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "HF: AA Meetings",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -4840,
+        1440
+      ],
+      "id": "579adc80-a14f-4ea7-9711-63b29152381d",
+      "name": "When chat message received",
+      "webhookId": "a7e1a24f-94d0-420d-9ee6-08bfd84a6815"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('When chat message received').item.json.chatInput }}",
+                    "rightValue": "={{ \"/start\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e9cd41d3-869f-42ac-8fc1-4fa7cc946c6a"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -4620,
+        1440
+      ],
+      "id": "26ac6a4d-74f2-4bbc-8602-ffc62c0684f6",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.country_text }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $json.country_system }}",
+          "maxIterations": 100,
+          "returnIntermediateSteps": false
+        }
+      },
+      "id": "e22aef0c-423e-49ad-a977-57cc8fd45d0b",
+      "name": "Country",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -2700,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "model": "=gpt-4o-mini",
+        "options": {}
+      },
+      "id": "74b3b708-1041-4729-b10d-94da9b8f533d",
+      "name": "OpenAI 4o-mini",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -3960,
+        2500
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl8DTm1a7sxApzE5",
+          "mode": "list",
+          "cachedResultName": "countries",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tbl8DTm1a7sxApzE5"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "country": "={{ $json.country }}",
+            "status": "done"
+          },
+          "matchingColumns": [
+            "country"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": false,
+          "updateAllMatches": "={{ true }}"
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -2040,
+        1240
+      ],
+      "id": "2db60edb-57ce-4d0d-89f5-d0c53db2a8f2",
+      "name": "countries",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvJeXuCb2qK8Bmh",
+          "mode": "list",
+          "cachedResultName": "prompts",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tblvJeXuCb2qK8Bmh"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -4460,
+        1220
+      ],
+      "id": "fc577810-f641-4f5d-b27d-732baaac8712",
+      "name": "prompts",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('prompts').item.json.state_text }} {{\"Focus on the country: \"}}{{ $json.Country }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $('prompts').item.json.state_system }}",
+          "maxIterations": 100
+        }
+      },
+      "id": "6df3e405-f0b6-4fe4-bbfc-678f2f2711d4",
+      "name": "State",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -2700,
+        1920
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"countries\": [\n    {\n      \"country\": \"usa\"\n    },\n    {\n      \"country\": \"mexico\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -2200,
+        1440
+      ],
+      "id": "6e0e097f-0a5d-4a3b-a918-65325f131034",
+      "name": "Country Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e7e8a580-cce5-4380-83a6-5867002b98ca",
+      "name": "SerpAPI_tool",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        -2480,
+        1500
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "0ead1503-b058-4e57-a02b-e800b6495ad1",
+      "name": "Wikipedia_tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        -2340,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "888ad95f-3008-4157-a26e-03911209a592",
+      "name": "SerpAPI_tool2",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        -2680,
+        2180
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "189c2661-f042-4626-aa48-31e54608768e",
+      "name": "Wikipedia_tool2",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        -2540,
+        2180
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ \"output.countries\" }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2280,
+        1240
+      ],
+      "id": "59bd39c2-8801-4ecf-b6fd-bcef2509f684",
+      "name": "Split Countries",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -2840,
+        2740
+      ],
+      "id": "ae5e7288-b429-4215-9858-1ff4731bfc8d",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "model": "=gpt-4o-mini",
+        "options": {}
+      },
+      "id": "c1cadd86-7418-437b-aeef-5ffb2e717e7c",
+      "name": "OpenAI 4o-mini3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -2760,
+        3000
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6341a9ce-6fa5-4a99-8579-4505c974f6f7",
+      "name": "SerpAPI_tool3",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        -2640,
+        3100
+      ],
+      "credentials": {
+        "serpApi": {
+          "id": "1Tzl11P6LGX6jXlo",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "538aedb0-7db7-4321-be5d-242e94e58b61",
+      "name": "Wikipedia_tool3",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        -2500,
+        3100
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('prompts').item.json.city_text }} {{ \"Focus on the country of\"}} {{ $('Set Country').item.json.Country }} {{ \"in the state of\"}} {{$json.state}}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $('prompts').item.json.city_system }}",
+          "maxIterations": 200
+        }
+      },
+      "id": "337bdbac-e5b6-4220-bed5-b152932a8aba",
+      "name": "City",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -2660,
+        2800
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{ \"cities\": [\n    {\n        \"city\": \"anaheim\"\n    },\n    {\n        \"city\": \"cupertino\"\n    }\n  ]\n}"
+      },
+      "id": "2fbc0e3d-5417-49df-a8ba-0c012ca6d867",
+      "name": "States Parser3",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -2400,
+        3000
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ \"output.states\" }}",
+        "options": {
+          "disableDotNotation": false
+        }
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2260,
+        1920
+      ],
+      "id": "07b40178-7813-4d12-a7f7-ea2f9383bd70",
+      "name": "Split States",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"states\": [\n    {\n        \"state\": \"alabama\"\n    },\n    {\n        \"state\": \"alaska\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -2420,
+        2120
+      ],
+      "id": "1ac0de6c-46ab-42bc-9cdf-4ff00da8ca7d",
+      "name": "State Parser"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ $json.output }}",
+        "options": {
+          "disableDotNotation": false
+        }
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2260,
+        2940
+      ],
+      "id": "925d25a3-8cd3-4fe3-992d-143302cf502d",
+      "name": "Split Cities",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblE5riU6hTsCHaMq",
+          "mode": "list",
+          "cachedResultName": "country-state-cities",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tblE5riU6hTsCHaMq"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "country": "=",
+            "status": "done",
+            "state": "={{ $('Loop Over Items').item.json.state }}",
+            "city": "={{ $('City').item.json.output }}"
+          },
+          "matchingColumns": [
+            "state"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "state",
+              "displayName": "state",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -2120,
+        3080
+      ],
+      "id": "009d034c-e73e-41c1-8291-7fd4cee13159",
+      "name": "country-states-cities",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful assistant"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -4300,
+        1460
+      ],
+      "id": "ac577c90-bf7d-4099-8c31-ac201674dd15",
+      "name": "Master Agent"
+    },
+    {
+      "parameters": {
+        "content": "# Countries\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 500,
+        "width": 2680,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3620,
+        1160
+      ],
+      "id": "c6ae956d-5a2c-4885-80e2-af72089f4803",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# States\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 620,
+        "width": 2680,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3620,
+        1720
+      ],
+      "id": "6885532b-ff5d-44b9-b44e-a4697cd4e3ee",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "height": 740,
+        "width": 1540,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -5200,
+        1160
+      ],
+      "id": "119acc5a-4673-4236-aa4a-f9e469376059",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "name": "Countries",
+        "description": "Call this tool to get a list of countries in the given continent. The input should be a string.",
+        "workflowId": {
+          "__rl": true,
+          "value": "=mBLMH6CiP6a4Jsl6",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -3880,
+        1280
+      ],
+      "id": "9736ad58-9a45-4d05-8332-81923907a9f9",
+      "name": "Countries Tool"
+    },
+    {
+      "parameters": {
+        "name": "States",
+        "description": "Call this tool to get a list of states in the given country. The input should be a string.",
+        "workflowId": {
+          "__rl": true,
+          "value": "mBLMH6CiP6a4Jsl6",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        -3880,
+        1440
+      ],
+      "id": "66d4acc8-2f0f-48dd-83c9-1340444661f5",
+      "name": "States Tool"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblfoU0dN0aR4gtJA",
+          "mode": "list",
+          "cachedResultName": "states",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tblfoU0dN0aR4gtJA"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "country": "=",
+            "status": "done",
+            "state": "={{ $('Loop Over Items').item.json.state }}",
+            "city": "={{ $('City').item.json.output }}"
+          },
+          "matchingColumns": [
+            "state"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "state",
+              "displayName": "state",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -2020,
+        1920
+      ],
+      "id": "f6fd5b81-6a1f-4e30-834b-4b8539423fa2",
+      "name": "states",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('When chat message received').item.json.sessionId }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -4240,
+        2500
+      ],
+      "id": "04688311-550a-4636-9f95-19f371bf22e3",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78367a03-6441-4b78-9609-9dc466668c71",
+              "name": "",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "3bb67ab4-3848-4ca2-8370-20dcbd06db44",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "afeca936-4cc6-40f5-935f-d1904df73f7b",
+              "name": "country_text",
+              "value": "={{ $json.country_text }}",
+              "type": "string"
+            },
+            {
+              "id": "cd1a89b7-1ced-4048-9d1d-b05975cfe363",
+              "name": "country_system",
+              "value": "={{ $json.country_system }}",
+              "type": "string"
+            },
+            {
+              "id": "49359b63-5baf-49e2-9120-01857045dca7",
+              "name": "state_text",
+              "value": "={{ $json.state_text }}",
+              "type": "string"
+            },
+            {
+              "id": "8cbc4549-9eaf-4eb6-963e-84dcda38bfaa",
+              "name": "state_system",
+              "value": "={{ $json.state_system }}",
+              "type": "string"
+            },
+            {
+              "id": "a592cae8-c324-472f-9ce0-463d325dd731",
+              "name": "city_text",
+              "value": "={{ $json.city_text }}",
+              "type": "string"
+            },
+            {
+              "id": "3f26fb17-73f4-4996-a5eb-839145c3dc52",
+              "name": "city_system",
+              "value": "={{ $json.city_system }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4300,
+        1220
+      ],
+      "id": "d30d84cb-8a80-4388-8478-d292243ad368",
+      "name": "prompts1"
+    },
+    {
+      "parameters": {
+        "path": "49dbb083-58ff-408e-bb35-3c97685035df",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3340,
+        1420
+      ],
+      "id": "26f0d7c5-8017-4a0a-8a7a-744771c0bf30",
+      "name": "Webhook",
+      "webhookId": "49dbb083-58ff-408e-bb35-3c97685035df",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Call this tool to get a list of countries in the given continent. The input should be a string.",
+        "method": "POST",
+        "url": "https://syc.app.n8n.cloud/webhook-test/49dbb083-58ff-408e-bb35-3c97685035df",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "={{ $json.chatInput }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        -4040,
+        1680
+      ],
+      "id": "dba4e3ad-176f-401c-a8f1-a2d0d560d9a9",
+      "name": "Countries Request"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "mBLMH6CiP6a4Jsl6",
+          "mode": "list",
+          "cachedResultName": "Humanifree — HF: AA Meetings"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2900,
+        1240
+      ],
+      "id": "e46647fd-d892-4d90-87f9-a2deeb1b5e29",
+      "name": "Execute Workflow",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "mBLMH6CiP6a4Jsl6",
+          "mode": "list",
+          "cachedResultName": "Humanifree — HF: AA Meetings"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2900,
+        1920
+      ],
+      "id": "c5bcd193-96af-4314-b62e-e2735278dc4b",
+      "name": "Execute Workflow1",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-20T07:29:03.000Z",
+  "versionId": "db13bccb-9414-4995-b8e2-9fbd7ceaef54"
+}
