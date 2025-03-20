@@ -1,0 +1,29 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-03-20T05:20:23.151Z",
+  "id": "VXx88ddDKqa9c5Gv",
+  "meta": null,
+  "name": "My Sub-Workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "b5942df6-0160-4ef7-965d-57583acdc8aa",
+      "name": "Replace me with your logic",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        520,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-20T05:48:41.000Z",
+  "versionId": "f42daa1b-068a-4e7a-8b31-cebd960e8a7a"
+}
