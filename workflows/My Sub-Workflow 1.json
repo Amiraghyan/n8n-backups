@@ -1,43 +1,20 @@
 {
   "active": false,
-  "connections": {
-    "When Executed by Another Workflow": {
-      "main": [
-        [
-          {
-            "node": "Replace me with your logic",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "createdAt": "2025-02-26T08:17:50.731Z",
-  "id": "CkxOrUKr43DcgrPX",
+  "connections": {},
+  "createdAt": "2025-03-20T05:20:21.763Z",
+  "id": "Jexjoi6qarK6RFHZ",
   "meta": null,
   "name": "My Sub-Workflow 1",
   "nodes": [
     {
-      "id": "c055762a-8fe7-4141-a639-df2372f30060",
-      "typeVersion": 1.1,
-      "name": "When Executed by Another Workflow",
-      "type": "n8n-nodes-base.executeWorkflowTrigger",
-      "position": [
-        260,
-        340
-      ],
-      "parameters": {}
-    },
-    {
+      "parameters": {},
       "id": "b5942df6-0160-4ef7-965d-57583acdc8aa",
       "name": "Replace me with your logic",
       "type": "n8n-nodes-base.noOp",
       "position": [
         520,
         340
-      ],
-      "parameters": {}
+      ]
     }
   ],
   "pinData": {},
@@ -47,6 +24,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-26T08:17:50.731Z",
-  "versionId": "9dadd5a7-d9df-44c6-8184-21d36aeefee9"
+  "updatedAt": "2025-03-20T05:48:18.000Z",
+  "versionId": "6f5e5bb1-48af-4ba9-a619-3a4002e92633"
 }
