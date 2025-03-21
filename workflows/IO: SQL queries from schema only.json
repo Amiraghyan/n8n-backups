@@ -97,7 +97,13 @@
     },
     "Extract database schema": {
       "main": [
-        []
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Add table name to output": {
@@ -181,6 +187,83 @@
           }
         ]
       ]
+    },
+    "AI Transform": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Azure OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Azure OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Azure OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-03-07T17:44:41.845Z",
@@ -231,15 +314,15 @@
       "typeVersion": 2.4,
       "credentials": {
         "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 4000 (3306)"
+          "id": "oUon8ECO0bjjL9bn",
+          "name": "AISandbox"
         }
       }
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "DESCRIBE {{ $json.Tables_in_usdb }};",
+        "query": "SELECT \n  TABLE_NAME as table_name,\n  COLUMN_NAME as column_name,\n  DATA_TYPE as data_type,\n  COLUMN_KEY as column_key,\n  IS_NULLABLE as is_nullable,\n  COLUMN_DEFAULT as column_default,\n  EXTRA as extra\nFROM \n  INFORMATION_SCHEMA.COLUMNS\nWHERE \n  TABLE_SCHEMA = 'usdb'\n  AND TABLE_NAME = '{{$json[\"Tables_in_usdb\"]}}'\nORDER BY \n  ORDINAL_POSITION;",
         "options": {}
       },
       "id": "ac17efc9-f096-4c8b-a00a-7a3debda63c4",
@@ -252,8 +335,8 @@
       "typeVersion": 2.4,
       "credentials": {
         "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 4000 (3306)"
+          "id": "oUon8ECO0bjjL9bn",
+          "name": "AISandbox"
         }
       }
     },
@@ -276,8 +359,8 @@
       "name": "Add table name to output",
       "type": "n8n-nodes-base.set",
       "position": [
-        820,
-        80
+        1200,
+        0
       ],
       "typeVersion": 3.4
     },
@@ -289,7 +372,7 @@
       "name": "Convert data to binary",
       "type": "n8n-nodes-base.convertToFile",
       "position": [
-        1100,
+        1480,
         20
       ],
       "typeVersion": 1.1
@@ -703,13 +786,14 @@
     {
       "parameters": {
         "operation": "executeQuery",
+        "query": "SHOW TABLES;",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.questDb",
       "typeVersion": 1,
       "position": [
-        0,
-        0
+        1740,
+        40
       ],
       "id": "d342b285-87d5-4c4e-b5c1-9194dd820ebe",
       "name": "QuestDB",
@@ -717,6 +801,158 @@
         "questDb": {
           "id": "twg2OQat4eUxZCdE",
           "name": "QuestDB account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "instructions": "Analyze the provided MySQL schema and:\n1. Identify tables suitable for time-series analysis in QuestDB\n2. For each suitable table, determine:\n   - The best timestamp column to use\n   - Appropriate partitioning strategy (DAY, MONTH, YEAR)\n   - Type conversions from MySQL to QuestDB\n3. Generate optimized CREATE TABLE statements for QuestDB\nFocus on tables that have timestamp/datetime columns and would benefit from time-series optimization.\n\n",
+        "codeGeneratedForPrompt": "Analyze the provided MySQL schema and:\n1. Identify tables suitable for time-series analysis in QuestDB\n2. For each suitable table, determine:\n   - The best timestamp column to use\n   - Appropriate partitioning strategy (DAY, MONTH, YEAR)\n   - Type conversions from MySQL to QuestDB\n3. Generate optimized CREATE TABLE statements for QuestDB\nFocus on tables that have timestamp/datetime columns and would benefit from time-series optimization.\n\n",
+        "jsCode": "// This task cannot be fulfilled as it requires natural language processing and decision making that is beyond the capabilities of this node.\n// This node is focused on data transformation and cannot analyze MySQL schema to generate optimized CREATE TABLE statements for QuestDB.\n// It can only operate on the provided input data and return transformed data.\nreturn $input.all();\n"
+      },
+      "type": "n8n-nodes-base.aiTransform",
+      "typeVersion": 1,
+      "position": [
+        340,
+        -20
+      ],
+      "id": "4fbef71e-a474-41d0-bfe5-bd2e4a23783b",
+      "name": "AI Transform"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "You are a database migration expert specializing in optimizing MySQL schemas for time-series databases like QuestDB.\n\nAnalyze the provided MySQL schema and generate optimized QuestDB table definitions for tables that would benefit from time-series optimization.\n\nFor each suitable table:\n1. Identify tables suitable for time-series analysis in QuestDB\n2. For each suitable table, determine:\n   - The best timestamp column to use\n   - Appropriate partitioning strategy (DAY, MONTH, YEAR)\n   - Type conversions from MySQL to QuestDB\n3. Generate optimized CREATE TABLE statements for QuestDB\nFocus on tables that have timestamp/datetime columns and would benefit from time-series optimization.\n4. Create output ready to be added to vector database for future use ",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        1020,
+        280
+      ],
+      "id": "4a938ec3-67fa-454a-b224-2ce27fb3077a",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        520
+      ],
+      "id": "981cbe43-26d1-4faf-a776-a4f994a0d291",
+      "name": "Azure OpenAI Chat Model",
+      "credentials": {
+        "azureOpenAiApi": {
+          "id": "4VeSnVOeMXf8hHdP",
+          "name": "Azure Open AI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1,
+      "position": [
+        560,
+        -80
+      ],
+      "id": "bf9fbc5e-9aef-4444-b676-1166bd1291f9",
+      "name": "Simple Vector Store"
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-large",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi",
+      "typeVersion": 1,
+      "position": [
+        620,
+        100
+      ],
+      "id": "bd22eefc-346c-4400-a2f7-68e7d773156b",
+      "name": "Embeddings Azure OpenAI",
+      "credentials": {
+        "azureOpenAiApi": {
+          "id": "4VeSnVOeMXf8hHdP",
+          "name": "Azure Open AI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        880,
+        20
+      ],
+      "id": "964ffcdd-aaeb-4196-992c-f91ffc44211c",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "typeVersion": 1,
+      "position": [
+        800,
+        140
+      ],
+      "id": "3407604b-475d-47fc-8c73-8184a9b174de",
+      "name": "Token Splitter"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "qdrantCollection": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        280
+      ],
+      "id": "e6342f79-1e11-44db-bd8a-c6d9b9b4f969",
+      "name": "Qdrant Vector Store",
+      "credentials": {
+        "qdrantApi": {
+          "id": "AJtOOwkCcFudCaXm",
+          "name": "QdrantApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-large",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        520
+      ],
+      "id": "f42aec1d-28d0-48a6-800e-503cc86abb04",
+      "name": "Embeddings Azure OpenAI2",
+      "credentials": {
+        "azureOpenAiApi": {
+          "id": "4VeSnVOeMXf8hHdP",
+          "name": "Azure Open AI account"
         }
       }
     }
@@ -729,6 +965,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-19T19:15:19.000Z",
-  "versionId": "225d5f9c-2358-46b4-9e89-0f384ad232f1"
+  "updatedAt": "2025-03-21T13:34:31.000Z",
+  "versionId": "63dd9fff-7adc-4c23-bb34-b9a8114dd517"
 }
