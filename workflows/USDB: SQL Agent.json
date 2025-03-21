@@ -122,17 +122,6 @@
         []
       ]
     },
-    "Slack Trigger": {
-      "main": [
-        [
-          {
-            "node": "Filter1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "List all tables in a database": {
       "main": [
         [
@@ -155,55 +144,11 @@
         ]
       ]
     },
-    "Extract data from file": {
-      "main": [
-        [
-          {
-            "node": "Combine schema data and chat input",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Chat Trigger": {
-      "main": [
-        [
-          {
-            "node": "Load the schema from the local file",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When clicking \"Test workflow\"": {
       "main": [
         [
           {
             "node": "LIST ALL tables",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Combine schema data and chat input": {
-      "main": [
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Load the schema from the local file": {
-      "main": [
-        [
-          {
-            "node": "Extract data from file",
             "type": "main",
             "index": 0
           }
@@ -376,47 +321,6 @@
         ]
       ]
     },
-    "Filter1": {
-      "main": [
-        [
-          {
-            "node": "Switch1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch1": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Dwnld_Audio1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Text Out1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Dwnld_Audio1": {
-      "main": [
-        [
-          {
-            "node": "OpenAI2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI Chat1": {
       "ai_languageModel": [
         [
@@ -441,35 +345,7 @@
     },
     "Prepare final output": {
       "main": [
-        [
-          {
-            "node": "Send reply",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI2": {
-      "main": [
-        [
-          {
-            "node": "Load the schema from the local file",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Text Out1": {
-      "main": [
-        [
-          {
-            "node": "Load the schema from the local file",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Workflow Input Trigger": {
@@ -523,13 +399,7 @@
     },
     "Webhook1": {
       "main": [
-        [
-          {
-            "node": "USDB AI Agent1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "database_query1": {
@@ -567,13 +437,7 @@
     },
     "USDB AI Agent1": {
       "main": [
-        [
-          {
-            "node": "Respond1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Simple Memory": {
@@ -582,6 +446,79 @@
           {
             "node": "USDB AI Agent1",
             "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "LIST ALL tables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load the schema from the local file": {
+      "main": [
+        [
+          {
+            "node": "Extract data from file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract data from file": {
+      "main": [
+        [
+          {
+            "node": "Combine schema data and chat input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine schema data and chat input": {
+      "main": [
+        [
+          {
+            "node": "USDB AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "LIST ALL tables",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Load the schema from the local file",
+            "type": "main",
             "index": 0
           }
         ]
@@ -604,8 +541,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        660,
-        1380
+        740,
+        1420
       ],
       "id": "84b22423-a49c-4d34-89d4-81a7825436ae",
       "name": "Window Buffer Memory"
@@ -621,8 +558,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        440,
-        1200
+        520,
+        1240
       ],
       "id": "8a04c6c0-5e19-4f6d-9b72-77dd92635527",
       "name": "USDB_Agent_tool",
@@ -644,8 +581,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1180,
-        1400
+        1460,
+        1560
       ],
       "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
       "name": "OpenRouter Chat",
@@ -665,8 +602,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1180,
-        1100
+        1460,
+        1260
       ],
       "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
       "name": "Anthropic Chat",
@@ -685,8 +622,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.1,
       "position": [
-        400,
-        1380
+        480,
+        1420
       ],
       "id": "28c12df3-7315-4044-8464-1ce3dd682fb4",
       "name": "OpenAI Chat",
@@ -705,8 +642,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        1180,
-        1240
+        1460,
+        1400
       ],
       "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
       "name": "Groq Chat",
@@ -745,8 +682,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -540,
-        1200
+        -460,
+        1240
       ],
       "id": "dd6c67d8-b244-4fbf-8c22-d9b875bd0b88",
       "name": "Filter"
@@ -837,8 +774,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -320,
-        1200
+        -240,
+        1240
       ],
       "id": "c9d64a95-8350-48db-8c5d-8bfa9cb798fa",
       "name": "Switch"
@@ -847,13 +784,13 @@
       "parameters": {
         "content": "# SQL AGENT\n\n## Relevant notes \n\nWhen the slack triggers, the I do the following:\n- filter any messages coming from the Slack Bot to avoid creating an infinite loop. The bot user ID I get from the last nodes where n8n responds back to slack\n- check if the message is audio or text.\n- if it is an audio, I need to use the slack credentials based on OAUTH (not API token) to be able to download the audio file.",
         "height": 680,
-        "width": 1860,
+        "width": 2120,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -780,
+        -940,
         900
       ],
       "id": "81e92f6c-d1d8-4307-9126-357ef8a4a865",
@@ -876,8 +813,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        40,
-        1300
+        120,
+        1340
       ],
       "id": "1ef659b3-ed5b-47d9-969d-62ca44a06553",
       "name": "Text Out"
@@ -899,8 +836,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -60,
-        1140
+        20,
+        1180
       ],
       "id": "238d4e51-2d35-450b-8d86-55b2cb334a43",
       "name": "Dwnld_Audio",
@@ -921,8 +858,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        140,
-        1140
+        220,
+        1180
       ],
       "id": "dd49724f-0f36-48e5-a2db-3ab63711f2ca",
       "name": "OpenAI",
@@ -948,8 +885,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        1160,
-        900
+        1440,
+        1060
       ],
       "id": "4521736b-8876-434c-8d1c-c872e98b503d",
       "name": "OpenAI1",
@@ -977,8 +914,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1160,
-        660
+        1440,
+        820
       ],
       "id": "43c61361-7475-46e1-8e08-707ab2fd0de9",
       "name": "Dwnld_Image",
@@ -990,72 +927,12 @@
       }
     },
     {
-      "parameters": {
-        "trigger": [
-          "message"
-        ],
-        "channelId": {
-          "__rl": true,
-          "value": "C08FGUTFMA9",
-          "mode": "id"
-        },
-        "options": {
-          "resolveIds": false
-        }
-      },
-      "id": "f741180f-c021-4013-b50f-306b9afe595e",
-      "name": "Slack Trigger",
-      "type": "n8n-nodes-base.slackTrigger",
-      "position": [
-        -720,
-        2800
-      ],
-      "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
-      "typeVersion": 1,
-      "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "value": "C08FGUTFMA9",
-          "mode": "id"
-        },
-        "text": "={{ $json.output }}",
-        "otherOptions": {
-          "includeLinkToWorkflow": false
-        }
-      },
-      "id": "adfca55b-c627-4564-85a6-53ca29900bc8",
-      "name": "Send reply",
-      "type": "n8n-nodes-base.slack",
-      "position": [
-        2340,
-        2740
-      ],
-      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2,
-      "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
-        }
-      }
-    },
-    {
       "parameters": {},
       "id": "15bb7faf-2cb7-41de-8d1b-c9d403784cae",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1880,
+        360,
         2940
       ],
       "typeVersion": 1
@@ -1111,8 +988,8 @@
       "name": "Convert data to binary",
       "type": "n8n-nodes-base.convertToFile",
       "position": [
-        660,
-        2020
+        480,
+        2060
       ],
       "typeVersion": 1.1
     },
@@ -1126,38 +1003,10 @@
       "name": "Save file locally",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        820,
-        2020
+        640,
+        2060
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "operation": "fromJson",
-        "options": {}
-      },
-      "id": "74e46a7d-563b-44b6-ba86-529eb2e64c4a",
-      "name": "Extract data from file",
-      "type": "n8n-nodes-base.extractFromFile",
-      "position": [
-        500,
-        2740
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "6f7b1576-bd2d-4bd7-8089-dff80867a372",
-      "name": "Chat Trigger",
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "position": [
-        80,
-        2580
-      ],
-      "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
-      "typeVersion": 1.1
     },
     {
       "parameters": {},
@@ -1165,64 +1014,8 @@
       "name": "When clicking \"Test workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        -40,
-        2020
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "42abd24e-419a-47d6-bc8b-7146dd0b8314",
-              "name": "sessionId",
-              "type": "string",
-              "value": "={{ $('Chat Trigger').first().json.sessionId }}"
-            },
-            {
-              "id": "39244192-a1a6-42fe-bc75-a6fba1f264df",
-              "name": "action",
-              "type": "string",
-              "value": "={{ $('Chat Trigger').first().json.action }}"
-            },
-            {
-              "id": "f78c57d9-df13-43c7-89a7-5387e528107e",
-              "name": "chatinput",
-              "type": "string",
-              "value": "={{ $('Chat Trigger').first().json.chatInput }}"
-            },
-            {
-              "id": "e42b39eb-dfbd-48d9-94ed-d658bdd41454",
-              "name": "schema",
-              "type": "string",
-              "value": "={{ $json.data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "7ab6ce74-936a-427e-a533-a842502c6c55",
-      "name": "Combine schema data and chat input",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        680,
-        2740
-      ],
-      "executeOnce": true,
-      "typeVersion": 3.4
-    },
-    {
-      "parameters": {
-        "fileSelector": "./usdb_mysql.json",
-        "options": {}
-      },
-      "id": "fe9af152-641a-49b1-93e6-8bf03bd025f2",
-      "name": "Load the schema from the local file",
-      "type": "n8n-nodes-base.readWriteFile",
-      "position": [
-        320,
-        2740
+        -220,
+        1940
       ],
       "typeVersion": 1
     },
@@ -1245,8 +1038,8 @@
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
-        1420,
-        2740
+        0,
+        2820
       ],
       "typeVersion": 3.4
     },
@@ -1279,8 +1072,8 @@
       "name": "Check if query exists",
       "type": "n8n-nodes-base.if",
       "position": [
-        1640,
-        2740
+        180,
+        2820
       ],
       "typeVersion": 2.2
     },
@@ -1295,8 +1088,8 @@
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1040,
-        2960
+        -340,
+        2680
       ],
       "typeVersion": 1
     },
@@ -1318,8 +1111,8 @@
       "name": "Format query results",
       "type": "n8n-nodes-base.set",
       "position": [
-        2120,
-        2500
+        560,
+        2680
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -1363,8 +1156,8 @@
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
-        2120,
-        2740
+        960,
+        2780
       ],
       "typeVersion": 3.4
     },
@@ -1372,14 +1165,16 @@
       "parameters": {
         "mode": "combine",
         "combineBy": "combineByPosition",
-        "options": {}
+        "options": {
+          "includeUnpaired": true
+        }
       },
       "id": "4bc0b259-4be4-4f0f-9428-d856c570605c",
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1880,
-        2740
+        760,
+        2780
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1411,11 +1206,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1880,
-        2500
+        360,
+        2680
       ],
       "id": "70d3381e-ae22-40fc-8de5-e4e9936b46c5",
-      "name": "HTTP Request"
+      "name": "HTTP Request",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1744,8 +1541,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        140,
-        2020
+        -40,
+        2060
       ],
       "id": "372741d5-17d3-4f90-9b9b-36b07d2c48fc",
       "name": "LIST ALL tables"
@@ -1773,8 +1570,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        320,
-        2020
+        140,
+        2060
       ],
       "id": "f7d5ab5c-c5d0-4acd-8007-248ff892dbcf",
       "name": "EXTRACT Schemas",
@@ -1800,8 +1597,8 @@
       "name": "Add table name column",
       "type": "n8n-nodes-base.set",
       "position": [
-        480,
-        2020
+        300,
+        2060
       ],
       "typeVersion": 3.4
     },
@@ -1810,30 +1607,30 @@
         "promptType": "define",
         "text": "=User Message is:\n{{ $json.chatinput }}",
         "options": {
-          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable to fulfill different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you are able to use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use with against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assitant that can aid the user in exploring the USDB by asking question in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $json.schema }}\n\n# Rules\n\n# Tools\n<tools>\n  <tool>\n    <!-- \n    dateTimeInfo\n    The tool returns multiple formats including full date-time, separate date and time values, timezone information, and day of the week.\n    You have access to a dateTimeInfo tool that provides comprehensive date/time information. When a user asks about any temporal information, always use this tool to provide the most up-to-date response.\n    It supports business timeframes including:\n    - full date-time\n    - separate date and time values\n    - timezone information\n    - day of the week\n    - MTD (Month-to-Date)\n    - YTD (Year-to-Date) \n    - MOM (Month-over-Month)\n    - YOY (Year-over-Year)\n    - This week/month/year information\n    -->\n  </tool>\n  <tool>\n    <!-- \n    MsSQL_tool\n    The tool returns multiple formats including full date-time, separate date and time values, timezone information, and day of the week. You have access to a dateTimeInfo tool that provides comprehensive date/time information. When a user asks about any temporal information, always use this tool to provide the most up-to-date response.\n    It supports business timeframes including:\n    - full date-time\n    - separate date and time values\n    - timezone information\n    - day of the week\n    - MTD (Month-to-Date)\n    - YTD (Year-to-Date) \n    - MOM (Month-over-Month)\n    - YOY (Year-over-Year)\n    - This week/month/year information\n    -->\n  </tool>\n</tools>\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​  <examples>\n  Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n  SQL Query:\n    sqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\n    FROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n​  </example>\n\n​  <example>\n   Natural Language Query: \"Count how many rows in the entire dataset\"\n   SQL Query:\n   SELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n​  </example>\n\n​  <example>\n   Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n   SQL Query:\n    sqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\n    FROM dbo.LISTINGS\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC\n    LIMIT 10;\n​  </example>\n </examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $json.chatinput }}",
+          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable to fulfill different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you are able to use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use with against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assitant that can aid the user in exploring the USDB by asking question in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $json.schema }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n\n# When to use this tool\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n-->\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $json.chatinput }}",
           "returnIntermediateSteps": "={{ true }}"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1000,
-        2620
+        -340,
+        2820
       ],
       "id": "0a255659-643f-4777-a03f-cae820514dd8",
       "name": "USDB AI Agent"
     },
     {
       "parameters": {
-        "name": "dateTimeInfo",
+        "name": "DateandTime",
         "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
         "jsCode": "// Advanced DateTime Tool for n8n\nmodule.exports = function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  \n  // Format date as string\n  const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;\n  \n  // Format time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Create simple data object\n  const data = {\n    current: {\n      dateTime: `${dateString} ${timeString}`,\n      date: dateString,\n      time: timeString\n    }\n  };\n  \n  // Create the response property n8n expects\n  const responseData = {\n    response: JSON.stringify(data)\n  };\n  \n  // Debug\n  console.log(\"Response data:\", responseData);\n  console.log(\"Response type:\", typeof responseData.response);\n\n  // Return the object with the response property containing a string\n  return responseData;\n};"
       },
       "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        1160,
-        2800
+        -120,
+        3000
       ],
       "id": "63f377a3-72dc-4189-b2bc-1c12b91e9777",
       "name": "dateTimeInfo"
@@ -1841,218 +1638,18 @@
     {
       "parameters": {
         "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
-        "height": 366,
-        "width": 1925,
+        "height": 466,
+        "width": 2125,
         "color": 3
       },
       "id": "89a2c89f-2d85-489e-9370-5316b444295e",
       "name": "Sticky Note9",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -780,
-        1900
+        -940,
+        1800
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "61c23cad-6c72-464e-9947-b7f309c9b994",
-              "leftValue": "={{ $json.user }}",
-              "rightValue": "={{\"U089MNN54NT\"}}",
-              "operator": {
-                "type": "string",
-                "operation": "notEquals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 2.2,
-      "position": [
-        -540,
-        2800
-      ],
-      "id": "5ba3e3ef-b886-485d-a34f-f8245e75e38e",
-      "name": "Filter1"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "584c8c90-4cc3-43ea-aac0-d1762ba79d0d",
-                    "leftValue": "{{ $json.files[0].mimetype }}",
-                    "rightValue": "image/jpeg",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "image"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.files[0].mimetype }}",
-                    "rightValue": "audio/mp4",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "bb9fc3cb-1c38-4fc3-8ed0-896280711d84"
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "audio"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "1ecab1e4-02c7-490e-82e5-f9f701140f00",
-                    "leftValue": "={{ $json.files[0].mimetype }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notExists",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "text"
-            }
-          ]
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        -340,
-        2800
-      ],
-      "id": "4937ff31-f0ed-4bd8-965a-883670c5a4ac",
-      "name": "Switch1"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "9569b209-0827-4fcd-96e8-1091a15d68e0",
-              "name": "text",
-              "value": "={{ $json.text }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -20,
-        2980
-      ],
-      "id": "e455fd27-81f8-42f2-a31d-c95d65640d20",
-      "name": "Text Out1"
-    },
-    {
-      "parameters": {
-        "url": "={{ $json.files[0].url_private_download }}",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "slackOAuth2Api",
-        "options": {
-          "response": {
-            "response": {
-              "responseFormat": "file",
-              "outputPropertyName": "audio"
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -100,
-        2740
-      ],
-      "id": "d1423782-5064-4392-9a8d-51999b34532e",
-      "name": "Dwnld_Audio1",
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "HQneTCU7vTozIws1",
-          "name": "Slack Oauth2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "audio",
-        "operation": "transcribe",
-        "binaryPropertyName": "audio",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.8,
-      "position": [
-        80,
-        2740
-      ],
-      "id": "270af76a-10d9-4aa1-9313-f45ed3726e2a",
-      "name": "OpenAI2",
-      "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
-        }
-      }
     },
     {
       "parameters": {
@@ -2064,8 +1661,8 @@
       "name": "OpenAI Chat1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        920,
-        2800
+        -360,
+        3000
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2083,32 +1680,16 @@
       "name": "Window Buffer Memory1",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        1040,
-        2800
+        -240,
+        3000
       ],
       "typeVersion": 1.2
     },
     {
       "parameters": {
-        "content": "",
-        "height": 856,
-        "width": 1763,
-        "color": 6
-      },
-      "id": "83f0e3b0-378f-4ea6-acb6-109d01f982cb",
-      "name": "Sticky Note5",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        820,
-        2320
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
         "height": 855,
-        "width": 446,
+        "width": 806,
         "color": 6
       },
       "id": "88bce765-bb6c-43f6-a629-1d9edb4dd47b",
@@ -2124,14 +1705,14 @@
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
         "height": 849,
-        "width": 1163,
+        "width": 1323,
         "color": 6
       },
       "id": "0eec58c1-30d2-447a-ae82-acb6ff26ca61",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -780,
+        -940,
         2320
       ],
       "typeVersion": 1
@@ -2140,14 +1721,14 @@
       "parameters": {
         "content": "",
         "height": 106,
-        "width": 3365
+        "width": 2125
       },
       "id": "a236d2c7-c1ba-446c-b950-a871084badb2",
       "name": "Sticky Note10",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -780,
-        1720
+        -940,
+        1640
       ],
       "typeVersion": 1
     },
@@ -2155,13 +1736,13 @@
       "parameters": {
         "content": "",
         "height": 106,
-        "width": 3365
+        "width": 2125
       },
       "id": "8b9d4568-c3a9-4e8e-bb74-1b46a594091d",
       "name": "Sticky Note11",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -780,
+        -940,
         3260
       ],
       "typeVersion": 1
@@ -2176,8 +1757,8 @@
       "name": "Workflow Input Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
-        1160,
-        3760
+        -540,
+        4100
       ]
     },
     {
@@ -2199,8 +1780,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2360,
-        3760
+        680,
+        4100
       ]
     },
     {
@@ -2213,8 +1794,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1640,
-        3760
+        -60,
+        4100
       ]
     },
     {
@@ -2229,8 +1810,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1380,
-        3940
+        -320,
+        4280
       ],
       "credentials": {
         "anthropicApi": {
@@ -2314,8 +1895,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2180,
-        3760
+        480,
+        4100
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -2331,7 +1912,7 @@
         "messages": {
           "messageValues": [
             {
-              "message": "=## Objective You are a world-class SQL developer. You convert the following natural language query into an SQL query that can be executed against the the USDB database.\n\n{{ $json.schema }}\n\n---\n\n- Natural Language Query: \n\"What is the earliest and latest datapoints in the dataset?\"\nSQL Query:\nsqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\nFROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n\n- Natural Language Query: \"Count how many rows in the entire dataset\"\nSQL Query:\nsqlCopySELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n\n- Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\nSQL Query:\nsqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\nFROM dbo.LISTINGS\nWHERE SpecMake IS NOT NULL\nGROUP BY SpecMake\nORDER BY occurrences DESC\nLIMIT 10;\n\n\n**Requirements:**\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE"
+              "message": "=## Objective You are a world-class SQL developer. You convert the following natural language query into an SQL query that can be executed against the USDB database.\n\n{{ $json.schema }}\n\n---\n\n- Natural Language Query: \n\"What is the earliest and latest datapoints in the dataset?\"\nSQL Query:\nsqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\nFROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n\n- Natural Language Query: \"Count how many rows in the entire dataset\"\nSQL Query:\nsqlCopySELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n\n- Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\nSQL Query:\nsqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\nFROM dbo.LISTINGS\nWHERE SpecMake IS NOT NULL\nGROUP BY SpecMake\nORDER BY occurrences DESC\nLIMIT 10;\n\n\n**Requirements:**\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE"
             }
           ]
         }
@@ -2341,15 +1922,14 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.4,
       "position": [
-        1320,
-        3760
+        -380,
+        4100
       ]
     },
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "USDB-query-db-agent",
-        "authentication": "headerAuth",
+        "path": "USDB-agent",
         "responseMode": "responseNode",
         "options": {}
       },
@@ -2358,16 +1938,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -340,
-        3820
+        -1200,
+        3480
       ],
       "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "fQaPmY6oVBw9CXvd",
-          "name": "VAPI Header Auth"
-        }
-      },
       "disabled": true
     },
     {
@@ -2381,9 +1955,10 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        300,
-        3760
-      ]
+        1260,
+        3480
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -2391,14 +1966,18 @@
         "description": "Call this tool to Convert natural language query into SQL and fetch the response from the database\n",
         "workflowId": {
           "__rl": true,
-          "value": "bdYmCR3Mw0upc1kV",
           "mode": "list",
-          "cachedResultName": "🛠️ Database_query_tool"
+          "value": "U0WVICGhaz0o0bKs",
+          "cachedResultName": "AI-Sandbox — USDB: SQL Agent"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
+          "value": {
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "query"
+          ],
           "schema": [
             {
               "id": "query",
@@ -2418,8 +1997,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        140,
-        3960
+        560,
+        3920
       ],
       "id": "e5842b38-477c-4e67-abbc-8bb8e0094492",
       "name": "database_query1"
@@ -2436,8 +2015,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -200,
-        3960
+        220,
+        3920
       ],
       "id": "8e96b8c1-b705-4e5d-9ec6-b791b186b21c",
       "name": "OpenAI Chat Model1",
@@ -2457,22 +2036,22 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2000,
-        3760
+        300,
+        4100
       ]
     },
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 709,
-        "width": 3363,
+        "height": 1009,
+        "width": 2123,
         "color": 5
       },
       "id": "22c45365-8dd8-4095-9c35-cb681f9296c7",
       "name": "Sticky Note12",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -780,
+        -940,
         3460
       ],
       "typeVersion": 1
@@ -2503,8 +2082,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1820,
-        3760
+        120,
+        4100
       ],
       "id": "8383995c-dcec-4082-a8da-430d84f4d3c0",
       "name": "HTTP Request2"
@@ -2512,33 +2091,179 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=User Query:\n{{ $json.chatInput }}",
+        "text": "=User Query:\n{{ $json.chatinput }}",
         "options": {
-          "systemMessage": "=# Role\nYou are a world-class MySQL SQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing Google Analytics sample data, including user visits, traffic sources, device details, geo-network information, and interaction details. The database consists of the following key tables and columns:\n\n## **Table Overview:**\n- **visitorId (Int64)** – Unique visitor identifier.\n- **visitNumber (Int64)** – Count of visits by a user.\n- **visitId (Int64)** – Unique session identifier.\n- **visitStartTime (Int64)** – Unix timestamp of visit start.\n- **date (String, YYYYMMDD format)** – Visit date.\n- **totals (Object)** – Contains visit-level metrics like:\n  - `hits`, `pageviews`, `timeOnSite`, `bounces`, `transactions`, etc.\n- **trafficSource (Object)** – Contains fields like:\n  - `referralPath`, `source`, `medium`, `campaign`, `adContent`, etc.\n- **device (Object)** – Device-related details like:\n  - `browser`, `operatingSystem`, `isMobile`, etc.\n- **geoNetwork (Object)** – User location details like:\n  - `continent`, `country`, `city`, `networkDomain`, etc.\n- **customDimensions (Object)** – Stores custom dimension data.\n- **hits (Object)** – Detailed interaction events (page views, transactions, etc.).\n- **fullVisitorId (String)** – Unique identifier for visitors.\n- **userId (String, Nullable)** – Logged-in user ID if available.\n- **channelGrouping (String)** – Categorized traffic source.\n- **socialEngagementType (String)** – Whether the user engaged socially.\n\nUsers may ask various analytical questions related to visitor behavior, traffic sources, device usage, location insights, and website interactions. Your role is to accurately interpret the user's intent, convert the query into MySQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Use the `database_query` tool to convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n# **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n\n# **Examples**\n\n### **Example 1**\n**User Query**: \"What are the earliest and latest data points in this dataset?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query passing it the knowlege that the dataset comprises of multiple tables, each corresponding to a specific date. For instance, a table named ga_sessions_20170801 contains data for August 1, 2017.\n- Retrieves the results of the earliest and latest table names\n- Responds:  \n  *\"The earliest and latest data points in the dataset range from  August 1, 2016, to August 1, 2017\"*\n\n---\n\n### **Example 2**\n**User Query**: \"What are the top 5 traffic sources during march 2017?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query, passing:  \n  *\"Retrieve the top 5 traffic sources during march 2017 based on the number of visits. Use `trafficSource.source` and count the visits, ordering by highest traffic.\"*\n- Retrieves and processes results.\n- Responds:  \n  *\"The top 5 traffic sources during the month of march 2017 are:  \n    1. Google - X visits  \n    2. Facebook - Y visits  \n    3. Direct - Z visits  \n    ...\"*\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}",
+          "systemMessage": "=# Role\nYou are a world-class MySQL SQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing Google Analytics sample data, including user visits, traffic sources, device details, geo-network information, and interaction details. The database consists of the following key tables and columns:\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, . Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n{{ $json.schema }}\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Use the `database_query` tool to convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n# **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n\n# **Examples**\n\n### **Example 1**\n**User Query**: \"What are the earliest and latest data points in this dataset?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query passing it the knowlege that the dataset comprises of multiple tables, each corresponding to a specific date. For instance, a table named ga_sessions_20170801 contains data for August 1, 2017.\n- Retrieves the results of the earliest and latest table names\n- Responds:  \n  *\"The earliest and latest data points in the dataset range from  August 1, 2016, to August 1, 2017\"*\n\n---\n\n### **Example 2**\n**User Query**: \"What are the top 5 traffic sources during march 2017?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query, passing:  \n  *\"Retrieve the top 5 traffic sources during march 2017 based on the number of visits. Use `trafficSource.source` and count the visits, ordering by highest traffic.\"*\n- Retrieves and processes results.\n- Responds:  \n  *\"The top 5 traffic sources during the month of march 2017 are:  \n    1. Google - X visits  \n    2. Facebook - Y visits  \n    3. Direct - Z visits  \n    ...\"*\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}",
           "returnIntermediateSteps": true
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        -120,
-        3760
+        300,
+        3720
       ],
       "id": "84924176-7a3c-4cab-9cfd-ba7248cd3421",
       "name": "USDB AI Agent1"
     },
     {
       "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.sessionId }}",
         "contextWindowLength": 50
       },
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        -40,
-        3960
+        380,
+        3920
       ],
       "id": "01333e33-c658-44f5-a62a-baf292729aeb",
       "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -460,
+        2060
+      ],
+      "id": "d47424d7-4908-4742-ab9d-0eee1c36c0b4",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "fileSelector": "./usdb_mysql.json",
+        "options": {}
+      },
+      "id": "782232ae-c540-432e-8dfc-a89fa9d349bf",
+      "name": "Load the schema from the local file",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        -240,
+        3720
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "42abd24e-419a-47d6-bc8b-7146dd0b8314",
+              "name": "sessionId",
+              "type": "string",
+              "value": "={{ $('Chat Trigger').item.json.sessionId }}"
+            },
+            {
+              "id": "39244192-a1a6-42fe-bc75-a6fba1f264df",
+              "name": "action",
+              "type": "string",
+              "value": "={{ $('Chat Trigger').item.json.action }}"
+            },
+            {
+              "id": "f78c57d9-df13-43c7-89a7-5387e528107e",
+              "name": "chatinput",
+              "type": "string",
+              "value": "= {{ $('Chat Trigger').item.json.chatInput }}"
+            },
+            {
+              "id": "e42b39eb-dfbd-48d9-94ed-d658bdd41454",
+              "name": "schema",
+              "type": "string",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fe338be5-0116-4ea5-a039-a5cd146edaf9",
+      "name": "Combine schema data and chat input",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        120,
+        3720
+      ],
+      "executeOnce": true,
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "options": {}
+      },
+      "id": "b67ad300-b432-424e-95bd-eb483e8c3978",
+      "name": "Extract data from file",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -60,
+        3720
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f160176d-d5be-4209-844b-bb0405451374",
+      "name": "Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        -860,
+        2660
+      ],
+      "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.chatInput }}",
+                    "rightValue": "={{ \"/start\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e9cd41d3-869f-42ac-8fc1-4fa7cc946c6a"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -700,
+        2660
+      ],
+      "id": "7d975764-9824-49c1-9d96-895a230c0dab",
+      "name": "Switch1"
     }
   ],
   "pinData": {},
@@ -2556,6 +2281,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-03-21T07:43:46.000Z",
-  "versionId": "55b4e94e-a617-4636-8384-4407db5784b0"
+  "updatedAt": "2025-03-21T19:11:50.000Z",
+  "versionId": "3590be83-36ba-4222-8cc2-fe2e49640b37"
 }
