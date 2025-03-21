@@ -49,17 +49,6 @@
         []
       ]
     },
-    "prompts": {
-      "main": [
-        [
-          {
-            "node": "prompts1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "State": {
       "main": [
         [
@@ -141,7 +130,7 @@
       "main": [
         [
           {
-            "node": "prompts",
+            "node": "read prompts",
             "type": "main",
             "index": 0
           }
@@ -303,11 +292,6 @@
         ]
       ]
     },
-    "prompts1": {
-      "main": [
-        []
-      ]
-    },
     "Webhook": {
       "main": [
         []
@@ -334,6 +318,22 @@
         [
           {
             "node": "State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "store prompts": {
+      "main": [
+        []
+      ]
+    },
+    "read prompts": {
+      "main": [
+        [
+          {
+            "node": "store prompts",
             "type": "main",
             "index": 0
           }
@@ -433,8 +433,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        -3960,
-        2500
+        -3860,
+        2200
       ],
       "credentials": {
         "openAiApi": {
@@ -531,49 +531,11 @@
     },
     {
       "parameters": {
-        "operation": "search",
-        "base": {
-          "__rl": true,
-          "value": "app88lW8XQ0Ri8J9M",
-          "mode": "list",
-          "cachedResultName": "Hfree AA Meetings",
-          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblvJeXuCb2qK8Bmh",
-          "mode": "list",
-          "cachedResultName": "prompts",
-          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tblvJeXuCb2qK8Bmh"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        -4460,
-        1220
-      ],
-      "id": "fc577810-f641-4f5d-b27d-732baaac8712",
-      "name": "prompts",
-      "executeOnce": false,
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "qyFxe22Z4fHSPHn3",
-          "name": "Airtable Access Token✔️️"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "promptType": "define",
-        "text": "={{ $('prompts').item.json.state_text }} {{\"Focus on the country: \"}}{{ $json.Country }}",
+        "text": "={{ $('read prompts').item.json.state_text }} {{\"Focus on the country: \"}}{{ $json.Country }}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "={{ $('prompts').item.json.state_system }}",
+          "systemMessage": "={{ $('read prompts').item.json.state_system }}",
           "maxIterations": 100
         }
       },
@@ -743,10 +705,10 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $('prompts').item.json.city_text }} {{ \"Focus on the country of\"}} {{ $('Set Country').item.json.Country }} {{ \"in the state of\"}} {{$json.state}}",
+        "text": "={{ $('read prompts').item.json.city_text }} {{ \"Focus on the country of\"}} {{ $('Set Country').item.json.Country }} {{ \"in the state of\"}} {{$json.state}}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "={{ $('prompts').item.json.city_system }}",
+          "systemMessage": "={{ $('read prompts').item.json.city_system }}",
           "maxIterations": 200
         }
       },
@@ -1155,18 +1117,117 @@
       "onError": "continueRegularOutput"
     },
     {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('When chat message received').item.json.sessionId }}"
-      },
+      "parameters": {},
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        -4240,
-        2500
+        -4220,
+        2080
       ],
       "id": "04688311-550a-4636-9f95-19f371bf22e3",
       "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "path": "49dbb083-58ff-408e-bb35-3c97685035df",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3340,
+        1420
+      ],
+      "id": "26f0d7c5-8017-4a0a-8a7a-744771c0bf30",
+      "name": "Webhook",
+      "webhookId": "49dbb083-58ff-408e-bb35-3c97685035df",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Call this tool to get a list of countries in the given continent. The input should be a string.",
+        "method": "POST",
+        "url": "https://syc.app.n8n.cloud/webhook-test/49dbb083-58ff-408e-bb35-3c97685035df",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "={{ $json.chatInput }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        -4040,
+        1680
+      ],
+      "id": "dba4e3ad-176f-401c-a8f1-a2d0d560d9a9",
+      "name": "Countries Request"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "mBLMH6CiP6a4Jsl6",
+          "mode": "list",
+          "cachedResultName": "Humanifree — HF: AA Meetings"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2900,
+        1240
+      ],
+      "id": "e46647fd-d892-4d90-87f9-a2deeb1b5e29",
+      "name": "Execute Workflow",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "mBLMH6CiP6a4Jsl6",
+          "mode": "list",
+          "cachedResultName": "Humanifree — HF: AA Meetings"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -2920,
+        1840
+      ],
+      "id": "c5bcd193-96af-4314-b62e-e2735278dc4b",
+      "name": "Execute Workflow1",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1231,108 +1292,44 @@
         1220
       ],
       "id": "d30d84cb-8a80-4388-8478-d292243ad368",
-      "name": "prompts1"
+      "name": "store prompts"
     },
     {
       "parameters": {
-        "path": "49dbb083-58ff-408e-bb35-3c97685035df",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "app88lW8XQ0Ri8J9M",
+          "mode": "list",
+          "cachedResultName": "Hfree AA Meetings",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvJeXuCb2qK8Bmh",
+          "mode": "list",
+          "cachedResultName": "prompts",
+          "cachedResultUrl": "https://airtable.com/app88lW8XQ0Ri8J9M/tblvJeXuCb2qK8Bmh"
+        },
         "options": {}
       },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
       "position": [
-        -3340,
-        1420
+        -4460,
+        1220
       ],
-      "id": "26f0d7c5-8017-4a0a-8a7a-744771c0bf30",
-      "name": "Webhook",
-      "webhookId": "49dbb083-58ff-408e-bb35-3c97685035df",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "toolDescription": "Call this tool to get a list of countries in the given continent. The input should be a string.",
-        "method": "POST",
-        "url": "https://syc.app.n8n.cloud/webhook-test/49dbb083-58ff-408e-bb35-3c97685035df",
-        "placeholderDefinitions": {
-          "values": [
-            {
-              "name": "={{ $json.chatInput }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
-      "typeVersion": 1.1,
-      "position": [
-        -4040,
-        1680
-      ],
-      "id": "dba4e3ad-176f-401c-a8f1-a2d0d560d9a9",
-      "name": "Countries Request"
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "mBLMH6CiP6a4Jsl6",
-          "mode": "list",
-          "cachedResultName": "Humanifree — HF: AA Meetings"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "mode": "each",
-        "options": {
-          "waitForSubWorkflow": true
-        }
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.2,
-      "position": [
-        -2900,
-        1240
-      ],
-      "id": "e46647fd-d892-4d90-87f9-a2deeb1b5e29",
-      "name": "Execute Workflow",
+      "id": "fc577810-f641-4f5d-b27d-732baaac8712",
+      "name": "read prompts",
+      "executeOnce": false,
       "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "mBLMH6CiP6a4Jsl6",
-          "mode": "list",
-          "cachedResultName": "Humanifree — HF: AA Meetings"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "mode": "each",
-        "options": {
-          "waitForSubWorkflow": true
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
         }
       },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.2,
-      "position": [
-        -2900,
-        1920
-      ],
-      "id": "c5bcd193-96af-4314-b62e-e2735278dc4b",
-      "name": "Execute Workflow1",
-      "alwaysOutputData": true,
       "onError": "continueRegularOutput"
     }
   ],
@@ -1343,6 +1340,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-20T07:29:03.000Z",
-  "versionId": "db13bccb-9414-4995-b8e2-9fbd7ceaef54"
+  "updatedAt": "2025-03-21T19:36:45.000Z",
+  "versionId": "0cb42b38-5b90-46ed-aad2-eaa7f69267d6"
 }
