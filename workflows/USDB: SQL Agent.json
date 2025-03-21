@@ -554,11 +554,6 @@
         ]
       ]
     },
-    "Postgres Chat Memory1": {
-      "ai_memory": [
-        []
-      ]
-    },
     "Format Response2": {
       "main": [
         [
@@ -1013,7 +1008,7 @@
       "type": "n8n-nodes-base.slackTrigger",
       "position": [
         -720,
-        3040
+        2800
       ],
       "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
       "typeVersion": 1,
@@ -1043,7 +1038,7 @@
       "type": "n8n-nodes-base.slack",
       "position": [
         2340,
-        2820
+        2740
       ],
       "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
       "typeVersion": 2.2,
@@ -1061,7 +1056,7 @@
       "type": "n8n-nodes-base.noOp",
       "position": [
         1880,
-        3020
+        2940
       ],
       "typeVersion": 1
     },
@@ -1075,8 +1070,8 @@
       "name": "List all tables in a database",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        1820,
-        2140
+        1840,
+        1920
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1096,8 +1091,8 @@
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2040,
-        2140
+        2060,
+        1920
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1116,8 +1111,8 @@
       "name": "Convert data to binary",
       "type": "n8n-nodes-base.convertToFile",
       "position": [
-        360,
-        2320
+        660,
+        2020
       ],
       "typeVersion": 1.1
     },
@@ -1131,8 +1126,8 @@
       "name": "Save file locally",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        520,
-        2320
+        820,
+        2020
       ],
       "typeVersion": 1
     },
@@ -1146,7 +1141,7 @@
       "type": "n8n-nodes-base.extractFromFile",
       "position": [
         500,
-        2980
+        2740
       ],
       "typeVersion": 1
     },
@@ -1159,7 +1154,7 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "position": [
         80,
-        2820
+        2580
       ],
       "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
       "typeVersion": 1.1
@@ -1170,8 +1165,8 @@
       "name": "When clicking \"Test workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        -340,
-        2320
+        -40,
+        2020
       ],
       "typeVersion": 1
     },
@@ -1212,7 +1207,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         680,
-        2980
+        2740
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -1227,7 +1222,7 @@
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
         320,
-        2980
+        2740
       ],
       "typeVersion": 1
     },
@@ -1251,7 +1246,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         1420,
-        2820
+        2740
       ],
       "typeVersion": 3.4
     },
@@ -1285,7 +1280,7 @@
       "type": "n8n-nodes-base.if",
       "position": [
         1640,
-        2820
+        2740
       ],
       "typeVersion": 2.2
     },
@@ -1300,8 +1295,8 @@
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1020,
-        3160
+        1040,
+        2960
       ],
       "typeVersion": 1
     },
@@ -1324,7 +1319,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         2120,
-        2580
+        2500
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -1339,8 +1334,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2220,
-        2140
+        2240,
+        1920
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1369,7 +1364,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         2120,
-        2820
+        2740
       ],
       "typeVersion": 3.4
     },
@@ -1384,7 +1379,7 @@
       "type": "n8n-nodes-base.merge",
       "position": [
         1880,
-        2820
+        2740
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1417,7 +1412,7 @@
       "typeVersion": 4.2,
       "position": [
         1880,
-        2580
+        2500
       ],
       "id": "70d3381e-ae22-40fc-8de5-e4e9936b46c5",
       "name": "HTTP Request"
@@ -1432,8 +1427,8 @@
       "name": "Run SQL query tmplt",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2400,
-        2140
+        2420,
+        1920
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1474,7 +1469,7 @@
       "typeVersion": 3.4,
       "position": [
         1620,
-        1780
+        1540
       ],
       "id": "c9d39312-d1fd-4576-8bec-b54a934321b6",
       "name": "Start Time"
@@ -1509,7 +1504,7 @@
       "typeVersion": 3.4,
       "position": [
         2020,
-        1780
+        1540
       ],
       "id": "0a326dd2-368d-4d5f-aef0-6a0abe97ecbf",
       "name": "Response"
@@ -1663,7 +1658,7 @@
       "typeVersion": 2.1,
       "position": [
         2380,
-        1780
+        1540
       ],
       "id": "e5981541-bd25-4848-86ab-8db4e9ae11cd",
       "name": "Airtable",
@@ -1692,7 +1687,7 @@
       "typeVersion": 3.4,
       "position": [
         2200,
-        1780
+        1540
       ],
       "id": "644a1614-1f74-4bbd-82de-1babf5733dd2",
       "name": "Delta"
@@ -1721,7 +1716,7 @@
       "typeVersion": 4.2,
       "position": [
         1840,
-        1780
+        1540
       ],
       "id": "dba3a83e-9cdf-4ddb-93e5-099e3590c0cb",
       "name": "HTTP Request1"
@@ -1749,8 +1744,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -160,
-        2320
+        140,
+        2020
       ],
       "id": "372741d5-17d3-4f90-9b9b-36b07d2c48fc",
       "name": "LIST ALL tables"
@@ -1778,8 +1773,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        20,
-        2320
+        320,
+        2020
       ],
       "id": "f7d5ab5c-c5d0-4acd-8007-248ff892dbcf",
       "name": "EXTRACT Schemas",
@@ -1805,8 +1800,8 @@
       "name": "Add table name column",
       "type": "n8n-nodes-base.set",
       "position": [
-        180,
-        2320
+        480,
+        2020
       ],
       "typeVersion": 3.4
     },
@@ -1815,15 +1810,15 @@
         "promptType": "define",
         "text": "=User Message is:\n{{ $json.chatinput }}",
         "options": {
-          "systemMessage": "=Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\n\n\nWhen users ask about dates, times, reporting periods, or business timeframes, \nalways use this tool to provide accurate temporal information.\n\n// SQL\nHelp user to work with the MsSQL database.\n\nUSDB Table Schema:\n{{ $json.schema }}\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you.\n\nTOOLS\n------\nAssistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:\n\n{tools}\n\n// dateTimeInfo\nThe tool returns multiple formats including full date-time, separate date and time values, timezone information, and day of the week.\n\nYou have access to a dateTimeInfo tool that provides comprehensive date/time information. When a user asks about any temporal information, always use this tool to provide the most up-to-date response.\nIt supports business timeframes including:\n- full date-time\n- separate date and time values\n- timezone information\n- day of the week\n- MTD (Month-to-Date)\n- YTD (Year-to-Date) \n- MOM (Month-over-Month)\n- YOY (Year-over-Year)\n- This week/month/year information\n\n\n{format_instructions}\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n\n{{ $json.chatinput }}",
+          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable to fulfill different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you are able to use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use with against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assitant that can aid the user in exploring the USDB by asking question in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $json.schema }}\n\n# Rules\n\n# Tools\n<tools>\n  <tool>\n    <!-- \n    dateTimeInfo\n    The tool returns multiple formats including full date-time, separate date and time values, timezone information, and day of the week.\n    You have access to a dateTimeInfo tool that provides comprehensive date/time information. When a user asks about any temporal information, always use this tool to provide the most up-to-date response.\n    It supports business timeframes including:\n    - full date-time\n    - separate date and time values\n    - timezone information\n    - day of the week\n    - MTD (Month-to-Date)\n    - YTD (Year-to-Date) \n    - MOM (Month-over-Month)\n    - YOY (Year-over-Year)\n    - This week/month/year information\n    -->\n  </tool>\n  <tool>\n    <!-- \n    MsSQL_tool\n    The tool returns multiple formats including full date-time, separate date and time values, timezone information, and day of the week. You have access to a dateTimeInfo tool that provides comprehensive date/time information. When a user asks about any temporal information, always use this tool to provide the most up-to-date response.\n    It supports business timeframes including:\n    - full date-time\n    - separate date and time values\n    - timezone information\n    - day of the week\n    - MTD (Month-to-Date)\n    - YTD (Year-to-Date) \n    - MOM (Month-over-Month)\n    - YOY (Year-over-Year)\n    - This week/month/year information\n    -->\n  </tool>\n</tools>\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​  <examples>\n  Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n  SQL Query:\n    sqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\n    FROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n​  </example>\n\n​  <example>\n   Natural Language Query: \"Count how many rows in the entire dataset\"\n   SQL Query:\n   SELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n​  </example>\n\n​  <example>\n   Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n   SQL Query:\n    sqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\n    FROM dbo.LISTINGS\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC\n    LIMIT 10;\n​  </example>\n </examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $json.chatinput }}",
           "returnIntermediateSteps": "={{ true }}"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        980,
-        2820
+        1000,
+        2620
       ],
       "id": "0a255659-643f-4777-a03f-cae820514dd8",
       "name": "USDB AI Agent"
@@ -1832,13 +1827,13 @@
       "parameters": {
         "name": "dateTimeInfo",
         "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
-        "jsCode": "// Advanced DateTime Tool for n8n Agent with support for business timeframes\nmodule.exports = async function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  const dayOfWeek = now.getDay(); // 0 = Sunday, 6 = Saturday\n  \n  // Format helper function\n  const formatDate = (date) => {\n    return {\n      formatted: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,\n      year: date.getFullYear(),\n      month: date.getMonth() + 1,\n      day: date.getDate()\n    };\n  };\n  \n  // Get start of current day\n  const startOfDay = new Date(year, month, day);\n  \n  // Get start of current month\n  const startOfMonth = new Date(year, month, 1);\n  \n  // Get start of current year\n  const startOfYear = new Date(year, 0, 1);\n  \n  // Get start of current week (Sunday-based)\n  const startOfWeek = new Date(now);\n  startOfWeek.setDate(now.getDate() - now.getDay());\n  startOfWeek.setHours(0, 0, 0, 0);\n  \n  // Month-to-Date (MTD)\n  const mtdDays = day;\n  const mtdStart = formatDate(startOfMonth);\n  const mtdEnd = formatDate(now);\n  \n  // Year-to-Date (YTD)\n  const ytdDays = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24)) + 1;\n  const ytdStart = formatDate(startOfYear);\n  const ytdEnd = formatDate(now);\n  \n  // Last month (for Month-over-Month)\n  const lastMonth = new Date(year, month - 1, 1);\n  const lastMonthEnd = new Date(year, month, 0);\n  const lastMonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(lastMonth);\n  \n  // Last year (for Year-over-Year)\n  const lastYear = new Date(year - 1, month, day);\n  const lastYearStart = new Date(year - 1, 0, 1);\n  const lastYearEnd = new Date(year - 1, 11, 31);\n  \n  // Format current time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Return comprehensive date/time information\n  return {\n    current: {\n      timestamp: now.getTime(),\n      dateTime: `${formatDate(now).formatted} ${timeString}`,\n      date: formatDate(now).formatted,\n      time: timeString,\n      year: year,\n      month: month + 1,\n      monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n      day: day,\n      dayOfWeek: dayOfWeek,\n      dayName: new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now),\n      quarter: Math.floor(month / 3) + 1\n    },\n    \n    timeframes: {\n      // This week\n      thisWeek: {\n        start: formatDate(startOfWeek),\n        end: formatDate(now),\n        daysPassed: dayOfWeek,\n        daysRemaining: 6 - dayOfWeek\n      },\n      \n      // This month\n      thisMonth: {\n        start: formatDate(startOfMonth),\n        end: formatDate(now),\n        name: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n        daysPassed: day - 1,\n        totalDays: new Date(year, month + 1, 0).getDate()\n      },\n      \n      // This year\n      thisYear: {\n        start: formatDate(startOfYear),\n        end: formatDate(now),\n        year: year,\n        daysPassed: ytdDays,\n        totalDays: (new Date(year, 11, 31) - new Date(year, 0, 1)) / (1000 * 60 * 60 * 24) + 1\n      },\n      \n      // Month-to-Date (MTD)\n      mtd: {\n        start: mtdStart,\n        end: mtdEnd,\n        daysPassed: mtdDays,\n        percentComplete: Math.round((mtdDays / new Date(year, month + 1, 0).getDate()) * 100)\n      },\n      \n      // Year-to-Date (YTD)\n      ytd: {\n        start: ytdStart,\n        end: ytdEnd,\n        daysPassed: ytdDays,\n        percentComplete: Math.round((ytdDays / 365) * 100)\n      }\n    },\n    \n    comparisons: {\n      // Month-over-Month (MoM)\n      mom: {\n        current: {\n          month: month + 1,\n          monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n          year: year\n        },\n        previous: {\n          month: lastMonth.getMonth() + 1,\n          monthName: lastMonthName,\n          year: lastMonth.getFullYear()\n        },\n        start: formatDate(lastMonth),\n        end: formatDate(lastMonthEnd)\n      },\n      \n      // Year-over-Year (YoY)\n      yoy: {\n        current: {\n          year: year,\n          month: month + 1,\n          day: day\n        },\n        previous: {\n          year: year - 1,\n          month: month + 1,\n          day: day\n        },\n        sameDay: formatDate(lastYear),\n        yearStart: formatDate(lastYearStart),\n        yearEnd: formatDate(lastYearEnd)\n      }\n    },\n    \n    timezone: {\n      name: Intl.DateTimeFormat().resolvedOptions().timeZone,\n      offset: now.getTimezoneOffset()\n    }\n  };\n};"
+        "jsCode": "// Advanced DateTime Tool for n8n\nmodule.exports = function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  \n  // Format date as string\n  const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;\n  \n  // Format time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Create simple data object\n  const data = {\n    current: {\n      dateTime: `${dateString} ${timeString}`,\n      date: dateString,\n      time: timeString\n    }\n  };\n  \n  // Create the response property n8n expects\n  const responseData = {\n    response: JSON.stringify(data)\n  };\n  \n  // Debug\n  console.log(\"Response data:\", responseData);\n  console.log(\"Response type:\", typeof responseData.response);\n\n  // Return the object with the response property containing a string\n  return responseData;\n};"
       },
       "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        1220,
-        3000
+        1160,
+        2800
       ],
       "id": "63f377a3-72dc-4189-b2bc-1c12b91e9777",
       "name": "dateTimeInfo"
@@ -1847,7 +1842,7 @@
       "parameters": {
         "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
         "height": 366,
-        "width": 1545,
+        "width": 1925,
         "color": 3
       },
       "id": "89a2c89f-2d85-489e-9370-5316b444295e",
@@ -1855,7 +1850,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -780,
-        2140
+        1900
       ],
       "typeVersion": 1
     },
@@ -1888,7 +1883,7 @@
       "typeVersion": 2.2,
       "position": [
         -540,
-        3040
+        2800
       ],
       "id": "5ba3e3ef-b886-485d-a34f-f8245e75e38e",
       "name": "Filter1"
@@ -1980,7 +1975,7 @@
       "typeVersion": 3.2,
       "position": [
         -340,
-        3040
+        2800
       ],
       "id": "4937ff31-f0ed-4bd8-965a-883670c5a4ac",
       "name": "Switch1"
@@ -2003,7 +1998,7 @@
       "typeVersion": 3.4,
       "position": [
         -20,
-        3220
+        2980
       ],
       "id": "e455fd27-81f8-42f2-a31d-c95d65640d20",
       "name": "Text Out1"
@@ -2026,7 +2021,7 @@
       "typeVersion": 4.2,
       "position": [
         -100,
-        2980
+        2740
       ],
       "id": "d1423782-5064-4392-9a8d-51999b34532e",
       "name": "Dwnld_Audio1",
@@ -2048,7 +2043,7 @@
       "typeVersion": 1.8,
       "position": [
         80,
-        2980
+        2740
       ],
       "id": "270af76a-10d9-4aa1-9313-f45ed3726e2a",
       "name": "OpenAI2",
@@ -2069,8 +2064,8 @@
       "name": "OpenAI Chat1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        900,
-        3000
+        920,
+        2800
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2088,15 +2083,15 @@
       "name": "Window Buffer Memory1",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        1060,
-        3000
+        1040,
+        2800
       ],
       "typeVersion": 1.2
     },
     {
       "parameters": {
         "content": "",
-        "height": 1036,
+        "height": 856,
         "width": 1763,
         "color": 6
       },
@@ -2105,7 +2100,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         820,
-        2380
+        2320
       ],
       "typeVersion": 1
     },
@@ -2121,7 +2116,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         380,
-        2560
+        2320
       ],
       "typeVersion": 1
     },
@@ -2137,7 +2132,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -780,
-        2560
+        2320
       ],
       "typeVersion": 1
     },
@@ -2152,7 +2147,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -780,
-        1960
+        1720
       ],
       "typeVersion": 1
     },
@@ -2167,7 +2162,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -780,
-        3620
+        3260
       ],
       "typeVersion": 1
     },
@@ -2181,10 +2176,9 @@
       "name": "Workflow Input Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
-        960,
-        4180
-      ],
-      "disabled": true
+        1160,
+        3760
+      ]
     },
     {
       "parameters": {
@@ -2205,10 +2199,9 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2160,
-        4180
-      ],
-      "disabled": true
+        2360,
+        3760
+      ]
     },
     {
       "parameters": {
@@ -2220,10 +2213,9 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1440,
-        4180
-      ],
-      "disabled": true
+        1640,
+        3760
+      ]
     },
     {
       "parameters": {
@@ -2237,16 +2229,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1180,
-        4360
+        1380,
+        3940
       ],
       "credentials": {
         "anthropicApi": {
           "id": "dcLqo62duKhDxGrw",
           "name": "Anthropic account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -2323,16 +2314,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1980,
-        4180
+        2180,
+        3760
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "BQrRr81yIEFDlryk",
           "name": "USDB GSheets"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -2341,7 +2331,7 @@
         "messages": {
           "messageValues": [
             {
-              "message": "=## Objective You are a world-class SQL developer. You convert the following natural language query into an SQL query that can be executed against the the bigquery-public-data.google_analytics_sample dataset. Which has the following schema (in JSON format):\n\n\n{\n  \"visitorId\": {\n    \"column_name\": \"visitorId\",\n    \"data_type\": \"Int64\",\n    \"sample_values\": [\n      \"<NA>\"\n    ]\n  },\n  \"visitNumber\": {\n    \"column_name\": \"visitNumber\",\n    \"data_type\": \"Int64\",\n    \"sample_values\": [\n      1\n    ]\n  },\n  \"visitId\": {\n    \"column_name\": \"visitId\",\n    \"data_type\": \"Int64\",\n    \"sample_values\": [\n      1485653136\n    ]\n  },\n  \"visitStartTime\": {\n    \"column_name\": \"visitStartTime\",\n    \"data_type\": \"Int64\",\n    \"sample_values\": [\n      1485653136\n    ]\n  },\n  \"date\": {\n    \"column_name\": \"date\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      \"20170128\"\n    ]\n  },\n  \"totals\": {\n    \"column_name\": \"totals\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      {\n        \"visits\": 1,\n        \"hits\": 14,\n        \"pageviews\": 13,\n        \"timeOnSite\": 206,\n        \"bounces\": null,\n        \"transactions\": null,\n        \"transactionRevenue\": null,\n        \"newVisits\": 1,\n        \"screenviews\": null,\n        \"uniqueScreenviews\": null,\n        \"timeOnScreen\": null,\n        \"totalTransactionRevenue\": null,\n        \"sessionQualityDim\": null\n      }\n    ],\n    \"nested_schema\": {\n      \"visits\": {\n        \"data_type\": \"int\",\n        \"sample_value\": 1\n      },\n      \"hits\": {\n        \"data_type\": \"int\",\n        \"sample_value\": 14\n      },\n      \"pageviews\": {\n        \"data_type\": \"int\",\n        \"sample_value\": 13\n      },\n      \"timeOnSite\": {\n        \"data_type\": \"int\",\n        \"sample_value\": 206\n      },\n      \"bounces\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"transactions\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"transactionRevenue\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"newVisits\": {\n        \"data_type\": \"int\",\n        \"sample_value\": 1\n      },\n      \"screenviews\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"uniqueScreenviews\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"timeOnScreen\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"totalTransactionRevenue\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"sessionQualityDim\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      }\n    }\n  },\n  \"trafficSource\": {\n    \"column_name\": \"trafficSource\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      {\n        \"referralPath\": null,\n        \"campaign\": \"(not set)\",\n        \"source\": \"(direct)\",\n        \"medium\": \"(none)\",\n        \"keyword\": null,\n        \"adContent\": null,\n        \"adwordsClickInfo\": {\n          \"campaignId\": null,\n          \"adGroupId\": null,\n          \"creativeId\": null,\n          \"criteriaId\": null,\n          \"page\": null,\n          \"slot\": null,\n          \"criteriaParameters\": \"not available in demo dataset\",\n          \"gclId\": null,\n          \"customerId\": null,\n          \"adNetworkType\": null,\n          \"targetingCriteria\": null,\n          \"isVideoAd\": null\n        },\n        \"isTrueDirect\": null,\n        \"campaignCode\": null\n      }\n    ],\n    \"nested_schema\": {\n      \"referralPath\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"campaign\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"(not set)\"\n      },\n      \"source\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"(direct)\"\n      },\n      \"medium\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"(none)\"\n      },\n      \"keyword\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"adContent\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"adwordsClickInfo\": {\n        \"data_type\": \"dict\",\n        \"nested_schema\": {\n          \"campaignId\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"adGroupId\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"creativeId\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"criteriaId\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"page\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"slot\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"criteriaParameters\": {\n            \"data_type\": \"str\",\n            \"sample_value\": \"not available in demo dataset\"\n          },\n          \"gclId\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"customerId\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"adNetworkType\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"targetingCriteria\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          },\n          \"isVideoAd\": {\n            \"data_type\": \"NoneType\",\n            \"sample_value\": null\n          }\n        },\n        \"sample_value\": {\n          \"campaignId\": null,\n          \"adGroupId\": null,\n          \"creativeId\": null,\n          \"criteriaId\": null,\n          \"page\": null,\n          \"slot\": null,\n          \"criteriaParameters\": \"not available in demo dataset\",\n          \"gclId\": null,\n          \"customerId\": null,\n          \"adNetworkType\": null,\n          \"targetingCriteria\": null,\n          \"isVideoAd\": null\n        }\n      },\n      \"isTrueDirect\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"campaignCode\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      }\n    }\n  },\n  \"device\": {\n    \"column_name\": \"device\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      {\n        \"browser\": \"Chrome\",\n        \"browserVersion\": \"not available in demo dataset\",\n        \"browserSize\": \"not available in demo dataset\",\n        \"operatingSystem\": \"Windows\",\n        \"operatingSystemVersion\": \"not available in demo dataset\",\n        \"isMobile\": false,\n        \"mobileDeviceBranding\": \"not available in demo dataset\",\n        \"mobileDeviceModel\": \"not available in demo dataset\",\n        \"mobileInputSelector\": \"not available in demo dataset\",\n        \"mobileDeviceInfo\": \"not available in demo dataset\",\n        \"mobileDeviceMarketingName\": \"not available in demo dataset\",\n        \"flashVersion\": \"not available in demo dataset\",\n        \"javaEnabled\": null,\n        \"language\": \"not available in demo dataset\",\n        \"screenColors\": \"not available in demo dataset\",\n        \"screenResolution\": \"not available in demo dataset\",\n        \"deviceCategory\": \"desktop\"\n      }\n    ],\n    \"nested_schema\": {\n      \"browser\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"Chrome\"\n      },\n      \"browserVersion\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"browserSize\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"operatingSystem\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"Windows\"\n      },\n      \"operatingSystemVersion\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"isMobile\": {\n        \"data_type\": \"bool\",\n        \"sample_value\": false\n      },\n      \"mobileDeviceBranding\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"mobileDeviceModel\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"mobileInputSelector\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"mobileDeviceInfo\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"mobileDeviceMarketingName\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"flashVersion\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"javaEnabled\": {\n        \"data_type\": \"NoneType\",\n        \"sample_value\": null\n      },\n      \"language\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"screenColors\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"screenResolution\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"deviceCategory\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"desktop\"\n      }\n    }\n  },\n  \"geoNetwork\": {\n    \"column_name\": \"geoNetwork\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      {\n        \"continent\": \"Americas\",\n        \"subContinent\": \"Northern America\",\n        \"country\": \"United States\",\n        \"region\": \"New York\",\n        \"metro\": \"New York NY\",\n        \"city\": \"New York\",\n        \"cityId\": \"not available in demo dataset\",\n        \"networkDomain\": \"(not set)\",\n        \"latitude\": \"not available in demo dataset\",\n        \"longitude\": \"not available in demo dataset\",\n        \"networkLocation\": \"not available in demo dataset\"\n      }\n    ],\n    \"nested_schema\": {\n      \"continent\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"Americas\"\n      },\n      \"subContinent\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"Northern America\"\n      },\n      \"country\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"United States\"\n      },\n      \"region\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"New York\"\n      },\n      \"metro\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"New York NY\"\n      },\n      \"city\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"New York\"\n      },\n      \"cityId\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"networkDomain\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"(not set)\"\n      },\n      \"latitude\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"longitude\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      },\n      \"networkLocation\": {\n        \"data_type\": \"str\",\n        \"sample_value\": \"not available in demo dataset\"\n      }\n    }\n  },\n  \"customDimensions\": {\n    \"column_name\": \"customDimensions\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      \"[{'index': 4, 'value': 'North America'}]\"\n    ]\n  },\n  \"hits\": {\n    \"column_name\": \"hits\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      \"[{'hitNumber': 1, 'time': 0, 'hour': 17, 'minute': 25, 'isSecure': None, 'isInteraction': True, 'isEntrance': True, 'isExit': None, 'referer': 'https://www.google.com/', 'page': {'pagePath': '/home', 'hostname': 'www.googlemerchandisestore.com', 'pageTitle': 'Google Online Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/home', 'pagePathLevel2': '', 'pagePathLevel3': '', 'pagePathLevel4': ''}, 'transaction': None, 'item': None, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'www.googlemerchandisestore.com/home', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([], dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': '(not set)', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(entrance)', 'previousContentGroup2': '(entrance)', 'previousContentGroup3': '(entrance)', 'previousContentGroup4': '(entrance)', 'previousContentGroup5': '(entrance)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 2, 'time': 3936, 'hour': 17, 'minute': 25, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/home', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Home', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/home', 'pagePathLevel2': '', 'pagePathLevel3': '', 'pagePathLevel4': ''}, 'transaction': None, 'item': None, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/home', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([], dtype=object), 'promotion': array([{'promoId': 'Apparel Row 1', 'promoName': 'Apparel', 'promoCreative': 'home_main_link_apparel.jpg', 'promoPosition': 'Row 1'},\\n        {'promoId': 'Backpacks Row 2 Combo', 'promoName': 'Backpacks', 'promoCreative': 'home_bags_google_2.jpg', 'promoPosition': 'Row 2 Combo'},\\n        {'promoId': 'Mens T-Shirts Row 3-1', 'promoName': 'Mens T-Shirts', 'promoCreative': 'mens-tshirts.jpg', 'promoPosition': 'Row 3-1'},\\n        {'promoId': 'Womens T-Shirts Row 3-2', 'promoName': 'Womens T-Shirts', 'promoCreative': 'womens-tshirts.jpg', 'promoPosition': 'Row 3-2'},\\n        {'promoId': 'Office Row 5 Color Combo', 'promoName': 'Office', 'promoCreative': 'green_row_link_to_office.jpg', 'promoPosition': 'Row 5 Color Combo'},\\n        {'promoId': 'Drinkware Row 4 Color Combo', 'promoName': 'Drinkware', 'promoCreative': 'red_row_hydrate.jpg', 'promoPosition': 'Row 4 Color Combo'},\\n        {'promoId': 'Google Brand Row 7-1', 'promoName': 'Google Brand', 'promoCreative': 'home_lower_google_500.jpg', 'promoPosition': 'Brand Row 7-1'},\\n        {'promoId': 'YouTube Brand Row 7-2', 'promoName': 'YouTube Brand', 'promoCreative': 'home_lower_youtube_500.jpg', 'promoPosition': 'Brand Row 7-2'},\\n        {'promoId': 'Android Brand Row 7-3', 'promoName': 'Andriod Brand', 'promoCreative': 'home_lower_android_500.jpg', 'promoPosition': 'Brand Row 7-3'}],\\n       dtype=object), 'promotionActionInfo': {'promoIsView': True, 'promoIsClick': None}, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': '(not set)', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': '(not set)', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 3, 'time': 10829, 'hour': 17, 'minute': 25, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/apparel/men++s/men++s+outerwear', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': \\\"Men's Outerwear | Apparel | Google Merchandise Store\\\", 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/apparel/', 'pagePathLevel3': '/men++s/', 'pagePathLevel4': '/men++s+outerwear'}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/apparel/men++s/men++s+outerwear', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGAAX0358', 'v2ProductName': \\\"Google Men's  Zip Hoodie\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 55990000, 'localProductPrice': 55990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0568', 'v2ProductName': \\\"Google Men's Watershed Full Zip Hoodie Grey\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 109990000, 'localProductPrice': 109990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0359', 'v2ProductName': \\\"Android Men's  Zip Hoodie\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 55990000, 'localProductPrice': 55990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0362', 'v2ProductName': \\\"Google Men's Pullover Hoodie Grey\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 51990000, 'localProductPrice': 51990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0313', 'v2ProductName': 'Google Tri-blend Hoodie Grey', 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 39990000, 'localProductPrice': 39990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0566', 'v2ProductName': \\\"Google Men's Weatherblock Shell Jacket Black\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 92990000, 'localProductPrice': 92990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0573', 'v2ProductName': \\\"Google Men's Lightweight Microfleece Jacket Black\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 74990000, 'localProductPrice': 74990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0596', 'v2ProductName': \\\"Google Men's Quilted Insulated Vest Black\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 74990000, 'localProductPrice': 74990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 8, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0598', 'v2ProductName': \\\"Google Men's Convertible Vest-Jacket Pewter\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 98990000, 'localProductPrice': 98990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 9, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0594', 'v2ProductName': \\\"Google Men's Microfiber 1/4 Zip Pullover Grey/Black\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 74990000, 'localProductPrice': 74990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 10, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0595', 'v2ProductName': \\\"Google Men's Microfiber 1/4 Zip Pullover Blue/Indigo\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 74990000, 'localProductPrice': 74990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 11, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGAAX0569', 'v2ProductName': \\\"Google Men's Performance Full Zip Jacket Black\\\", 'v2ProductCategory': \\\"Home/Apparel/Men's/Men's-Outerwear/\\\", 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 119990000, 'localProductPrice': 119990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 12, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Apparel', 'contentGroup3': 'Mens', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': '(not set)', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': 1, 'contentGroupUniqueViews3': 1, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 4, 'time': 42822, 'hour': 17, 'minute': 26, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/home', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Home', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/home', 'pagePathLevel2': '', 'pagePathLevel3': '', 'pagePathLevel4': ''}, 'transaction': None, 'item': None, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/home', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([], dtype=object), 'promotion': array([{'promoId': 'Apparel Row 1', 'promoName': 'Apparel', 'promoCreative': 'home_main_link_apparel.jpg', 'promoPosition': 'Row 1'},\\n        {'promoId': 'Backpacks Row 2 Combo', 'promoName': 'Backpacks', 'promoCreative': 'home_bags_google_2.jpg', 'promoPosition': 'Row 2 Combo'},\\n        {'promoId': 'Mens T-Shirts Row 3-1', 'promoName': 'Mens T-Shirts', 'promoCreative': 'mens-tshirts.jpg', 'promoPosition': 'Row 3-1'},\\n        {'promoId': 'Womens T-Shirts Row 3-2', 'promoName': 'Womens T-Shirts', 'promoCreative': 'womens-tshirts.jpg', 'promoPosition': 'Row 3-2'},\\n        {'promoId': 'Office Row 5 Color Combo', 'promoName': 'Office', 'promoCreative': 'green_row_link_to_office.jpg', 'promoPosition': 'Row 5 Color Combo'},\\n        {'promoId': 'Drinkware Row 4 Color Combo', 'promoName': 'Drinkware', 'promoCreative': 'red_row_hydrate.jpg', 'promoPosition': 'Row 4 Color Combo'},\\n        {'promoId': 'Google Brand Row 7-1', 'promoName': 'Google Brand', 'promoCreative': 'home_lower_google_500.jpg', 'promoPosition': 'Brand Row 7-1'},\\n        {'promoId': 'YouTube Brand Row 7-2', 'promoName': 'YouTube Brand', 'promoCreative': 'home_lower_youtube_500.jpg', 'promoPosition': 'Brand Row 7-2'},\\n        {'promoId': 'Android Brand Row 7-3', 'promoName': 'Andriod Brand', 'promoCreative': 'home_lower_android_500.jpg', 'promoPosition': 'Brand Row 7-3'}],\\n       dtype=object), 'promotionActionInfo': {'promoIsView': True, 'promoIsClick': None}, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': '(not set)', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Apparel', 'previousContentGroup3': 'Mens', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 5, 'time': 57760, 'hour': 17, 'minute': 26, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/electronics/power', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Power & Chargers | Electronics | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/electronics/', 'pagePathLevel3': '/power', 'pagePathLevel4': ''}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/electronics/power', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGEVB070699', 'v2ProductName': 'Google Bluetooth Speaker-Power Bank', 'v2ProductCategory': 'Home/Electronics/Power/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 76990000, 'localProductPrice': 76990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGETR014599', 'v2ProductName': 'Google Tube Power Bank', 'v2ProductCategory': 'Home/Electronics/Power/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 16990000, 'localProductPrice': 16990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEHQ071199', 'v2ProductName': 'Google High Capacity 10,400mAh Charger', 'v2ProductCategory': 'Home/Electronics/Power/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 58990000, 'localProductPrice': 58990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEHQ072599', 'v2ProductName': 'Google 4400mAh Power Bank', 'v2ProductCategory': 'Home/Electronics/Power/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 37990000, 'localProductPrice': 37990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGETB023799', 'v2ProductName': 'Google Power Bank', 'v2ProductCategory': 'Home/Electronics/Power/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 55990000, 'localProductPrice': 55990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEHQ072499', 'v2ProductName': 'Google 2200mAh Micro Charger', 'v2ProductCategory': 'Home/Electronics/Power/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 22990000, 'localProductPrice': 22990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEHQ024099', 'v2ProductName': 'Clip-on Compact Charger', 'v2ProductCategory': 'Home/Electronics/Power/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 59990000, 'localProductPrice': 59990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Electronics', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Apparel', 'previousContentGroup3': 'Mens', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': 1, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 6, 'time': 70160, 'hour': 17, 'minute': 26, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/home', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Home', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/home', 'pagePathLevel2': '', 'pagePathLevel3': '', 'pagePathLevel4': ''}, 'transaction': None, 'item': None, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/home', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([], dtype=object), 'promotion': array([{'promoId': 'Apparel Row 1', 'promoName': 'Apparel', 'promoCreative': 'home_main_link_apparel.jpg', 'promoPosition': 'Row 1'},\\n        {'promoId': 'Backpacks Row 2 Combo', 'promoName': 'Backpacks', 'promoCreative': 'home_bags_google_2.jpg', 'promoPosition': 'Row 2 Combo'},\\n        {'promoId': 'Mens T-Shirts Row 3-1', 'promoName': 'Mens T-Shirts', 'promoCreative': 'mens-tshirts.jpg', 'promoPosition': 'Row 3-1'},\\n        {'promoId': 'Womens T-Shirts Row 3-2', 'promoName': 'Womens T-Shirts', 'promoCreative': 'womens-tshirts.jpg', 'promoPosition': 'Row 3-2'},\\n        {'promoId': 'Office Row 5 Color Combo', 'promoName': 'Office', 'promoCreative': 'green_row_link_to_office.jpg', 'promoPosition': 'Row 5 Color Combo'},\\n        {'promoId': 'Drinkware Row 4 Color Combo', 'promoName': 'Drinkware', 'promoCreative': 'red_row_hydrate.jpg', 'promoPosition': 'Row 4 Color Combo'},\\n        {'promoId': 'Google Brand Row 7-1', 'promoName': 'Google Brand', 'promoCreative': 'home_lower_google_500.jpg', 'promoPosition': 'Brand Row 7-1'},\\n        {'promoId': 'YouTube Brand Row 7-2', 'promoName': 'YouTube Brand', 'promoCreative': 'home_lower_youtube_500.jpg', 'promoPosition': 'Brand Row 7-2'},\\n        {'promoId': 'Android Brand Row 7-3', 'promoName': 'Andriod Brand', 'promoCreative': 'home_lower_android_500.jpg', 'promoPosition': 'Brand Row 7-3'}],\\n       dtype=object), 'promotionActionInfo': {'promoIsView': True, 'promoIsClick': None}, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': '(not set)', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Electronics', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 7, 'time': 75285, 'hour': 17, 'minute': 26, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/shop+by+brand/android', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Android | Shop by Brand | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/shop+by+brand/', 'pagePathLevel3': '/android', 'pagePathLevel4': ''}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/shop+by+brand/android', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEAKDH019899', 'v2ProductName': 'Windup Android', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 3990000, 'localProductPrice': 3990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEADHH073999', 'v2ProductName': 'Android 17oz Stainless Steel Sport Bottle', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 18990000, 'localProductPrice': 18990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEAOCH014199', 'v2ProductName': 'Android Journal Book Set', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 8990000, 'localProductPrice': 8990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEAFKQ020599', 'v2ProductName': 'Android Sticker Sheet Ultra Removable', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 2990000, 'localProductPrice': 2990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEACCQ017299', 'v2ProductName': 'Android Lunch Kit', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 17990000, 'localProductPrice': 17990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEAHPA004110', 'v2ProductName': 'Android Wool Heather Cap Heather/Black', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 24990000, 'localProductPrice': 24990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEADHH055999', 'v2ProductName': '22 oz Android Bottle', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 2990000, 'localProductPrice': 2990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None},\\n        {'productSKU': 'GGOEADWQ015699', 'v2ProductName': 'Android Rise 14 oz Mug', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 12990000, 'localProductPrice': 12990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 8, 'productCouponCode': None},\\n        {'productSKU': 'GGOEAOCB077499', 'v2ProductName': 'Android RFID Journal', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 19990000, 'localProductPrice': 19990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 9, 'productCouponCode': None},\\n        {'productSKU': 'GGOEA0CH077599', 'v2ProductName': 'Android Hard Cover Journal', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 14990000, 'localProductPrice': 14990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 10, 'productCouponCode': None},\\n        {'productSKU': 'GGOEAOBH078799', 'v2ProductName': 'Android Luggage Tag', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 8990000, 'localProductPrice': 8990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 11, 'productCouponCode': None},\\n        {'productSKU': 'GGOEAHPB080210', 'v2ProductName': 'Android 5-Panel Low Cap', 'v2ProductCategory': 'Home/Shop by Brand/Android/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 18990000, 'localProductPrice': 18990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 12, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Brands', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Electronics', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': 1, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 8, 'time': 97850, 'hour': 17, 'minute': 27, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/electronics', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Electronics | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/electronics', 'pagePathLevel3': '', 'pagePathLevel4': ''}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGEVR014999', 'v2ProductName': 'Google Water Resistant Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 34990000, 'localProductPrice': 34990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGODR017799', 'v2ProductName': 'Recycled Mouse Pad', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 1500000, 'localProductPrice': 1500000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070699', 'v2ProductName': 'Google Bluetooth Speaker-Power Bank', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 76990000, 'localProductPrice': 76990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGETR014599', 'v2ProductName': 'Google Tube Power Bank', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 16990000, 'localProductPrice': 16990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGOFH020299', 'v2ProductName': 'Galaxy Screen Cleaning Cloth', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 1990000, 'localProductPrice': 1990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070599', 'v2ProductName': 'Google G Noise-reducing Bluetooth Headphones', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 145990000, 'localProductPrice': 145990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEFR024199', 'v2ProductName': 'Metal Earbuds with Small Zipper Case', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 10990000, 'localProductPrice': 10990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEHQ071199', 'v2ProductName': 'Google High Capacity 10,400mAh Charger', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 58990000, 'localProductPrice': 58990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 8, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGCBB074399', 'v2ProductName': 'Google Device Holder Sticky Pad', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 4990000, 'localProductPrice': 4990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 9, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGBFC018799', 'v2ProductName': 'Electronics Accessory Pouch', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 4990000, 'localProductPrice': 4990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 10, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVJ023999', 'v2ProductName': 'Compact Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 79990000, 'localProductPrice': 79990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 11, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGESC014699', 'v2ProductName': 'Aluminum Handy Emergency Flashlight', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 16990000, 'localProductPrice': 16990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 12, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Electronics', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Brands', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 9, 'time': 140282, 'hour': 17, 'minute': 27, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/electronics/audio', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Audio | Electronics | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/electronics/', 'pagePathLevel3': '/audio', 'pagePathLevel4': ''}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/electronics/audio', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGEVR014999', 'v2ProductName': 'Google Water Resistant Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 34990000, 'localProductPrice': 34990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070699', 'v2ProductName': 'Google Bluetooth Speaker-Power Bank', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 76990000, 'localProductPrice': 76990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070599', 'v2ProductName': 'Google G Noise-reducing Bluetooth Headphones', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 145990000, 'localProductPrice': 145990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEFR024199', 'v2ProductName': 'Metal Earbuds with Small Zipper Case', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 10990000, 'localProductPrice': 10990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVJ023999', 'v2ProductName': 'Compact Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 79990000, 'localProductPrice': 79990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070499', 'v2ProductName': 'Google Bluetooth Headphones', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 49990000, 'localProductPrice': 49990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVA022399', 'v2ProductName': 'Micro Wireless Earbud', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 39990000, 'localProductPrice': 39990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB071799', 'v2ProductName': 'Google Pocket Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 27990000, 'localProductPrice': 27990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 8, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070899', 'v2ProductName': 'Google Bongo Cupholder Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 59990000, 'localProductPrice': 59990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 9, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Electronics', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Electronics', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 10, 'time': 159437, 'hour': 17, 'minute': 28, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/shop+by+brand/google', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Google | Shop by Brand | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/shop+by+brand/', 'pagePathLevel3': '/google', 'pagePathLevel4': ''}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/shop+by+brand/google', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGAAX0104', 'v2ProductName': \\\"Google Men's 100% Cotton Short Sleeve Hero Tee White\\\", 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 16990000, 'localProductPrice': 16990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGOAR013099', 'v2ProductName': 'Google Stylus Pen w/ LED Light', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 5500000, 'localProductPrice': 5500000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGDHB072199', 'v2ProductName': 'Google Accent Insulated Stainless Steel Bottle', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 24990000, 'localProductPrice': 24990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGDHB072099', 'v2ProductName': 'Google Insulated Stainless Steel Bottle', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 19990000, 'localProductPrice': 19990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGDHC074099', 'v2ProductName': 'Google 17oz Stainless Steel Sport Bottle', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 18990000, 'localProductPrice': 18990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGHPB071610', 'v2ProductName': 'Google Twill Cap', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 10990000, 'localProductPrice': 10990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGHPB003410', 'v2ProductName': 'Google Snapback Hat Black', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 22990000, 'localProductPrice': 22990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070699', 'v2ProductName': 'Google Bluetooth Speaker-Power Bank', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 76990000, 'localProductPrice': 76990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 8, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGDHG014499', 'v2ProductName': 'Google Infuser-Top Water Bottle', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 9990000, 'localProductPrice': 9990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 9, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070599', 'v2ProductName': 'Google G Noise-reducing Bluetooth Headphones', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 145990000, 'localProductPrice': 145990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 10, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGHPA002910', 'v2ProductName': 'Google Trucker Hat', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 21990000, 'localProductPrice': 21990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 11, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEHQ071199', 'v2ProductName': 'Google High Capacity 10,400mAh Charger', 'v2ProductCategory': 'Home/Shop by Brand/Google/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 58990000, 'localProductPrice': 58990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 12, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': 'Google', 'contentGroup2': 'Brands', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Electronics', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': 1, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 11, 'time': 193920, 'hour': 17, 'minute': 28, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/electronics/audio', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Audio | Electronics | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/electronics/', 'pagePathLevel3': '/audio', 'pagePathLevel4': ''}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/electronics/audio', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGEVR014999', 'v2ProductName': 'Google Water Resistant Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 34990000, 'localProductPrice': 34990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070699', 'v2ProductName': 'Google Bluetooth Speaker-Power Bank', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 76990000, 'localProductPrice': 76990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070599', 'v2ProductName': 'Google G Noise-reducing Bluetooth Headphones', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 145990000, 'localProductPrice': 145990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEFR024199', 'v2ProductName': 'Metal Earbuds with Small Zipper Case', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 10990000, 'localProductPrice': 10990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVJ023999', 'v2ProductName': 'Compact Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 79990000, 'localProductPrice': 79990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070499', 'v2ProductName': 'Google Bluetooth Headphones', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 49990000, 'localProductPrice': 49990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVA022399', 'v2ProductName': 'Micro Wireless Earbud', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 39990000, 'localProductPrice': 39990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB071799', 'v2ProductName': 'Google Pocket Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 27990000, 'localProductPrice': 27990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 8, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070899', 'v2ProductName': 'Google Bongo Cupholder Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 59990000, 'localProductPrice': 59990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 9, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Electronics', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': 'Google', 'previousContentGroup2': 'Brands', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 12, 'time': 197623, 'hour': 17, 'minute': 28, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/electronics/audio/quickview', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Audio | Electronics | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/electronics/', 'pagePathLevel3': '/audio/', 'pagePathLevel4': '/quickview'}, 'transaction': None, 'item': None, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/electronics/audio/quickview', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGEVJ023999', 'v2ProductName': 'Compact Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 79990000, 'localProductPrice': 0, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': None, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '2', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Electronics', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Electronics', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 13, 'time': 197624, 'hour': 17, 'minute': 28, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': None, 'referer': None, 'page': {'pagePath': '/google+redesign/electronics/audio', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Audio | Electronics | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/electronics/', 'pagePathLevel3': '/audio', 'pagePathLevel4': ''}, 'transaction': None, 'item': None, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/electronics/audio', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': {'eventCategory': 'Enhanced Ecommerce', 'eventAction': 'Quickview Click', 'eventLabel': 'Compact Bluetooth Speaker', 'eventValue': None}, 'product': array([{'productSKU': 'GGOEGEVJ023999', 'v2ProductName': 'Compact Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/Audio/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 79990000, 'localProductPrice': 0, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': None, 'isClick': True, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 0, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '1', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'EVENT', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Electronics', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Electronics', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}\\n {'hitNumber': 14, 'time': 206348, 'hour': 17, 'minute': 29, 'isSecure': None, 'isInteraction': True, 'isEntrance': None, 'isExit': True, 'referer': None, 'page': {'pagePath': '/google+redesign/electronics', 'hostname': 'shop.googlemerchandisestore.com', 'pageTitle': 'Electronics | Google Merchandise Store', 'searchKeyword': None, 'searchCategory': None, 'pagePathLevel1': '/google+redesign/', 'pagePathLevel2': '/electronics', 'pagePathLevel3': '', 'pagePathLevel4': ''}, 'transaction': {'transactionId': None, 'transactionRevenue': None, 'transactionTax': None, 'transactionShipping': None, 'affiliation': None, 'currencyCode': 'USD', 'localTransactionRevenue': None, 'localTransactionTax': None, 'localTransactionShipping': None, 'transactionCoupon': None}, 'item': {'transactionId': None, 'productName': None, 'productCategory': None, 'productSku': None, 'itemQuantity': None, 'itemRevenue': None, 'currencyCode': 'USD', 'localItemRevenue': None}, 'contentInfo': None, 'appInfo': {'name': None, 'version': None, 'id': None, 'installerId': None, 'appInstallerId': None, 'appName': None, 'appVersion': None, 'appId': None, 'screenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'landingScreenName': 'www.googlemerchandisestore.com/home', 'exitScreenName': 'shop.googlemerchandisestore.com/google+redesign/electronics', 'screenDepth': '0'}, 'exceptionInfo': {'description': None, 'isFatal': True, 'exceptions': None, 'fatalExceptions': None}, 'eventInfo': None, 'product': array([{'productSKU': 'GGOEGEVR014999', 'v2ProductName': 'Google Water Resistant Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 34990000, 'localProductPrice': 34990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 1, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGODR017799', 'v2ProductName': 'Recycled Mouse Pad', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 1500000, 'localProductPrice': 1500000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 2, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070699', 'v2ProductName': 'Google Bluetooth Speaker-Power Bank', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 76990000, 'localProductPrice': 76990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 3, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGETR014599', 'v2ProductName': 'Google Tube Power Bank', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 16990000, 'localProductPrice': 16990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 4, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGOFH020299', 'v2ProductName': 'Galaxy Screen Cleaning Cloth', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 1990000, 'localProductPrice': 1990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 5, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVB070599', 'v2ProductName': 'Google G Noise-reducing Bluetooth Headphones', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 145990000, 'localProductPrice': 145990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 6, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEFR024199', 'v2ProductName': 'Metal Earbuds with Small Zipper Case', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 10990000, 'localProductPrice': 10990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 7, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEHQ071199', 'v2ProductName': 'Google High Capacity 10,400mAh Charger', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 58990000, 'localProductPrice': 58990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 8, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGCBB074399', 'v2ProductName': 'Google Device Holder Sticky Pad', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 4990000, 'localProductPrice': 4990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 9, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGBFC018799', 'v2ProductName': 'Electronics Accessory Pouch', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 4990000, 'localProductPrice': 4990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 10, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGEVJ023999', 'v2ProductName': 'Compact Bluetooth Speaker', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 79990000, 'localProductPrice': 79990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 11, 'productCouponCode': None},\\n        {'productSKU': 'GGOEGESC014699', 'v2ProductName': 'Aluminum Handy Emergency Flashlight', 'v2ProductCategory': 'Home/Electronics/', 'productVariant': '(not set)', 'productBrand': '(not set)', 'productRevenue': None, 'localProductRevenue': None, 'productPrice': 16990000, 'localProductPrice': 16990000, 'productQuantity': None, 'productRefundAmount': None, 'localProductRefundAmount': None, 'isImpression': True, 'isClick': None, 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'productListName': 'Category', 'productListPosition': 12, 'productCouponCode': None}],\\n       dtype=object), 'promotion': array([], dtype=object), 'promotionActionInfo': None, 'refund': None, 'eCommerceAction': {'action_type': '0', 'step': 1, 'option': None}, 'experiment': array([], dtype=object), 'publisher': None, 'customVariables': array([], dtype=object), 'customDimensions': array([], dtype=object), 'customMetrics': array([], dtype=object), 'type': 'PAGE', 'social': {'socialInteractionNetwork': None, 'socialInteractionAction': None, 'socialInteractions': None, 'socialInteractionTarget': None, 'socialNetwork': '(not set)', 'uniqueSocialInteractions': None, 'hasSocialSourceReferral': 'No', 'socialInteractionNetworkAction': ' : '}, 'latencyTracking': None, 'sourcePropertyInfo': None, 'contentGroup': {'contentGroup1': '(not set)', 'contentGroup2': 'Electronics', 'contentGroup3': '(not set)', 'contentGroup4': '(not set)', 'contentGroup5': '(not set)', 'previousContentGroup1': '(not set)', 'previousContentGroup2': 'Electronics', 'previousContentGroup3': '(not set)', 'previousContentGroup4': '(not set)', 'previousContentGroup5': '(not set)', 'contentGroupUniqueViews1': None, 'contentGroupUniqueViews2': None, 'contentGroupUniqueViews3': None, 'contentGroupUniqueViews4': None, 'contentGroupUniqueViews5': None}, 'dataSource': None, 'publisher_infos': array([], dtype=object)}                                                                                                                                                                                           ]\"\n    ]\n  },\n  \"fullVisitorId\": {\n    \"column_name\": \"fullVisitorId\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      \"1732067593142523157\"\n    ]\n  },\n  \"userId\": {\n    \"column_name\": \"userId\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      null\n    ]\n  },\n  \"clientId\": {\n    \"column_name\": \"clientId\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      null\n    ]\n  },\n  \"channelGrouping\": {\n    \"column_name\": \"channelGrouping\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      \"Organic Search\"\n    ]\n  },\n  \"socialEngagementType\": {\n    \"column_name\": \"socialEngagementType\",\n    \"data_type\": \"object\",\n    \"sample_values\": [\n      \"Not Socially Engaged\"\n    ]\n  }\n}\n---\n\n**Examples:**\n\n- **Natural Language Query:** \"What is the earliest and latest datapoints in the dataset?\"\n  **SQL Query:**\n  SELECT\n  MIN(_TABLE_SUFFIX) AS earliest_date,\n  MAX(_TABLE_SUFFIX) AS latest_date\nFROM\n  `bigquery-public-data.google_analytics_sample.ga_sessions_*`;\n\n- **Natural Language Query:** \"Count How many rows in the entire dataset\"\n  **SQL Query:**\n  SELECT COUNT(*) AS total_rows\n  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`\n  WHERE _TABLE_SUFFIX BETWEEN '20160801' AND '20170801';\n\n- **Natural Language Query:** \"What are the top 10 most frequent event categories?\"\n  **SQL Query:**\n  SELECT\n  hits.eventInfo.eventCategory AS search_query,\n  COUNT(*) AS occurrences\n  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,\n    UNNEST(hits) AS hits\n  WHERE _TABLE_SUFFIX BETWEEN '20160801' AND '20170801'\n  AND hits.type = 'EVENT'\n  AND hits.eventInfo.eventCategory IS NOT NULL\n  GROUP BY search_query\n  ORDER BY occurrences DESC\n  LIMIT 10;\n\n\n**Requirements:**\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE"
+              "message": "=## Objective You are a world-class SQL developer. You convert the following natural language query into an SQL query that can be executed against the the USDB database.\n\n{{ $json.schema }}\n\n---\n\n- Natural Language Query: \n\"What is the earliest and latest datapoints in the dataset?\"\nSQL Query:\nsqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\nFROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n\n- Natural Language Query: \"Count how many rows in the entire dataset\"\nSQL Query:\nsqlCopySELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n\n- Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\nSQL Query:\nsqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\nFROM dbo.LISTINGS\nWHERE SpecMake IS NOT NULL\nGROUP BY SpecMake\nORDER BY occurrences DESC\nLIMIT 10;\n\n\n**Requirements:**\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE"
             }
           ]
         }
@@ -2351,10 +2341,9 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.4,
       "position": [
-        1120,
-        4180
-      ],
-      "disabled": true
+        1320,
+        3760
+      ]
     },
     {
       "parameters": {
@@ -2369,8 +2358,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -480,
-        4260
+        -340,
+        3820
       ],
       "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e",
       "credentials": {
@@ -2392,10 +2381,9 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        160,
-        4200
-      ],
-      "disabled": true
+        300,
+        3760
+      ]
     },
     {
       "parameters": {
@@ -2430,12 +2418,11 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        0,
-        4400
+        140,
+        3960
       ],
       "id": "e5842b38-477c-4e67-abbc-8bb8e0094492",
-      "name": "database_query1",
-      "disabled": true
+      "name": "database_query1"
     },
     {
       "parameters": {
@@ -2449,8 +2436,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -340,
-        4400
+        -200,
+        3960
       ],
       "id": "8e96b8c1-b705-4e5d-9ec6-b791b186b21c",
       "name": "OpenAI Chat Model1",
@@ -2459,29 +2446,7 @@
           "id": "dbsbEP9NpcetZP6N",
           "name": "Research Assistant"
         }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Chat Trigger').item.json.sessionId }}"
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
-      "typeVersion": 1.3,
-      "position": [
-        -720,
-        4480
-      ],
-      "id": "b3616569-79f5-4475-a384-485f4cdf8f36",
-      "name": "Postgres Chat Memory1",
-      "credentials": {
-        "postgres": {
-          "id": "HZdqlI7jEongf2TA",
-          "name": "Postgres Mem"
-        }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -2492,15 +2457,14 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1800,
-        4180
-      ],
-      "disabled": true
+        2000,
+        3760
+      ]
     },
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 789,
+        "height": 709,
         "width": 3363,
         "color": 5
       },
@@ -2509,14 +2473,14 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -780,
-        3860
+        3460
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "http://104.167.196.176:4000/mysql/execute",
+        "url": "http://38.107.232.33:4000/mssql/execute",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -2539,12 +2503,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1620,
-        4180
+        1820,
+        3760
       ],
       "id": "8383995c-dcec-4082-a8da-430d84f4d3c0",
-      "name": "HTTP Request2",
-      "disabled": true
+      "name": "HTTP Request2"
     },
     {
       "parameters": {
@@ -2558,12 +2521,11 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        -260,
-        4200
+        -120,
+        3760
       ],
       "id": "84924176-7a3c-4cab-9cfd-ba7248cd3421",
-      "name": "USDB AI Agent1",
-      "disabled": true
+      "name": "USDB AI Agent1"
     },
     {
       "parameters": {
@@ -2572,12 +2534,11 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        -180,
-        4400
+        -40,
+        3960
       ],
       "id": "01333e33-c658-44f5-a62a-baf292729aeb",
-      "name": "Simple Memory",
-      "disabled": true
+      "name": "Simple Memory"
     }
   ],
   "pinData": {},
@@ -2595,6 +2556,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-03-20T15:29:05.000Z",
-  "versionId": "8bee7fa5-da41-4d76-8c8b-3946d4d059e2"
+  "updatedAt": "2025-03-21T07:43:46.000Z",
+  "versionId": "55b4e94e-a617-4636-8384-4407db5784b0"
 }
