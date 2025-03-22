@@ -245,13 +245,7 @@
     },
     "AI Agent1": {
       "main": [
-        [
-          {
-            "node": "Qdrant Vector Store",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Embeddings Azure OpenAI2": {
@@ -314,8 +308,8 @@
       "typeVersion": 2.4,
       "credentials": {
         "mySql": {
-          "id": "oUon8ECO0bjjL9bn",
-          "name": "AISandbox"
+          "id": "n7aaXB29elYhw6be",
+          "name": "MySQL Azure"
         }
       }
     },
@@ -335,8 +329,8 @@
       "typeVersion": 2.4,
       "credentials": {
         "mySql": {
-          "id": "oUon8ECO0bjjL9bn",
-          "name": "AISandbox"
+          "id": "n7aaXB29elYhw6be",
+          "name": "MySQL Azure"
         }
       }
     },
@@ -792,7 +786,7 @@
       "type": "n8n-nodes-base.questDb",
       "typeVersion": 1,
       "position": [
-        1740,
+        1840,
         40
       ],
       "id": "d342b285-87d5-4c4e-b5c1-9194dd820ebe",
@@ -924,8 +918,8 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
       "typeVersion": 1,
       "position": [
-        1340,
-        280
+        1400,
+        300
       ],
       "id": "e6342f79-1e11-44db-bd8a-c6d9b9b4f969",
       "name": "Qdrant Vector Store",
@@ -955,6 +949,17 @@
           "name": "Azure Open AI account"
         }
       }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.s3Tool",
+      "typeVersion": 1,
+      "position": [
+        960,
+        620
+      ],
+      "id": "c51efb99-933d-415c-9cac-e9b2901efc39",
+      "name": "S3"
     }
   ],
   "pinData": {},
@@ -965,6 +970,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-03-21T13:34:31.000Z",
-  "versionId": "63dd9fff-7adc-4c23-bb34-b9a8114dd517"
+  "updatedAt": "2025-03-21T21:19:12.000Z",
+  "versionId": "61dd78dd-7ae8-4575-b0d0-df44dc35dd4b"
 }
