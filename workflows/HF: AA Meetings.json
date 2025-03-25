@@ -1,17 +1,6 @@
 {
   "active": false,
   "connections": {
-    "When chat message received": {
-      "main": [
-        [
-          {
-            "node": "Switch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Country": {
       "main": [
         [
@@ -257,24 +246,12 @@
     },
     "Countries Tool": {
       "ai_tool": [
-        [
-          {
-            "node": "Master Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "States Tool": {
       "ai_tool": [
-        [
-          {
-            "node": "Master Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Simple Memory": {
@@ -300,7 +277,13 @@
     },
     "Webhook": {
       "main": [
-        []
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Countries Request": {
@@ -355,6 +338,50 @@
           }
         ]
       ]
+    },
+    "States Hook": {
+      "main": [
+        [
+          {
+            "node": "State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "States Hook1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Master Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "states": {
+      "main": [
+        [
+          {
+            "node": "States Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Master Agent": {
+      "main": [
+        [
+          {
+            "node": "Chat webhook response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-03-12T03:23:20.176Z",
@@ -364,20 +391,6 @@
   },
   "name": "HF: AA Meetings",
   "nodes": [
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        -4840,
-        1440
-      ],
-      "id": "579adc80-a14f-4ea7-9711-63b29152381d",
-      "name": "When chat message received",
-      "webhookId": "a7e1a24f-94d0-420d-9ee6-08bfd84a6815"
-    },
     {
       "parameters": {
         "rules": {
@@ -991,11 +1004,12 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2.1,
       "position": [
-        -3880,
-        1280
+        -4980,
+        2060
       ],
       "id": "9736ad58-9a45-4d05-8332-81923907a9f9",
-      "name": "Countries Tool"
+      "name": "Countries Tool",
+      "disabled": true
     },
     {
       "parameters": {
@@ -1018,11 +1032,12 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2.1,
       "position": [
-        -3880,
-        1440
+        -4980,
+        2220
       ],
       "id": "66d4acc8-2f0f-48dd-83c9-1340444661f5",
-      "name": "States Tool"
+      "name": "States Tool",
+      "disabled": true
     },
     {
       "parameters": {
@@ -1145,19 +1160,19 @@
     },
     {
       "parameters": {
-        "path": "49dbb083-58ff-408e-bb35-3c97685035df",
+        "path": "Chat",
+        "responseMode": "responseNode",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -3340,
-        1420
+        -4820,
+        1440
       ],
       "id": "26f0d7c5-8017-4a0a-8a7a-744771c0bf30",
       "name": "Webhook",
-      "webhookId": "49dbb083-58ff-408e-bb35-3c97685035df",
-      "disabled": true
+      "webhookId": "49dbb083-58ff-408e-bb35-3c97685035df"
     },
     {
       "parameters": {
@@ -1176,8 +1191,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "typeVersion": 1.1,
       "position": [
-        -700,
-        1280
+        -4800,
+        2060
       ],
       "id": "dba4e3ad-176f-401c-a8f1-a2d0d560d9a9",
       "name": "Countries Request",
@@ -1207,12 +1222,13 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        -3140,
-        1240
+        -5040,
+        2440
       ],
       "id": "e46647fd-d892-4d90-87f9-a2deeb1b5e29",
       "name": "Execute Workflow",
       "alwaysOutputData": true,
+      "disabled": true,
       "onError": "continueRegularOutput"
     },
     {
@@ -1239,12 +1255,13 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        -3140,
-        1840
+        -4840,
+        2440
       ],
       "id": "c5bcd193-96af-4314-b62e-e2735278dc4b",
       "name": "Execute Workflow1",
       "alwaysOutputData": true,
+      "disabled": true,
       "onError": "continueRegularOutput"
     },
     {
@@ -1392,6 +1409,79 @@
       ],
       "id": "4e7940c7-2ccb-4f7d-9bbf-b1e14de29e1d",
       "name": "Country Request"
+    },
+    {
+      "parameters": {
+        "path": "countries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "21ed68d7-7796-4090-aaf8-ac05338dd28d",
+      "name": "Countries Hook1",
+      "webhookId": "540accef-4e3b-455e-b6a4-d70e40caea16"
+    },
+    {
+      "parameters": {
+        "path": "states",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2880,
+        1920
+      ],
+      "id": "01c8f3df-5432-4fe6-b425-104d3a6f1c27",
+      "name": "States Hook",
+      "webhookId": "540accef-4e3b-455e-b6a4-d70e40caea16"
+    },
+    {
+      "parameters": {
+        "toolDescription": "This tool connects to an Agentic workflow that produces a list of States for a given country",
+        "url": "https://syc.app.n8n.cloud/webhook-test/states"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        -3920,
+        1700
+      ],
+      "id": "302861ae-8278-418e-8cda-6c405a254501",
+      "name": "States Hook1"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Countries Completed",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1800,
+        1920
+      ],
+      "id": "f1787376-e5b7-40ba-b329-70f807048b69",
+      "name": "States Response"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3960,
+        1460
+      ],
+      "id": "671aaf14-73f4-441c-8177-ba143be0b53d",
+      "name": "Chat webhook response"
     }
   ],
   "pinData": {},
@@ -1401,6 +1491,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-03-21T19:54:19.000Z",
-  "versionId": "654ae99e-7f6d-4f4b-aedc-12915b25b2ef"
+  "updatedAt": "2025-03-25T01:45:26.000Z",
+  "versionId": "f0dbd05f-0873-494e-a91c-000a0073bc92"
 }
