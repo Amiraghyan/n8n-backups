@@ -348,28 +348,12 @@
         []
       ]
     },
-    "Workflow Input Trigger": {
-      "main": [
-        [
-          {
-            "node": "USDB-SQL-query-Generator",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Query Validation": {
       "main": [
-        []
-      ]
-    },
-    "Anthropic Chat Model": {
-      "ai_languageModel": [
         [
           {
-            "node": "USDB-SQL-query-Generator",
-            "type": "ai_languageModel",
+            "node": "Query USDB",
+            "type": "main",
             "index": 0
           }
         ]
@@ -386,42 +370,14 @@
         ]
       ]
     },
-    "USDB-SQL-query-Generator": {
-      "main": [
-        [
-          {
-            "node": "Query Validation",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Webhook1": {
-      "main": [
-        []
-      ]
-    },
     "database_query1": {
       "ai_tool": [
-        [
-          {
-            "node": "USDB AI Agent1",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenAI Chat Model1": {
       "ai_languageModel": [
-        [
-          {
-            "node": "USDB AI Agent1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Format Response2": {
@@ -433,11 +389,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "USDB AI Agent1": {
-      "main": [
-        []
       ]
     },
     "Simple Memory": {
@@ -495,17 +446,6 @@
         ]
       ]
     },
-    "Chat Trigger": {
-      "main": [
-        [
-          {
-            "node": "Switch1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Switch1": {
       "main": [
         [
@@ -518,6 +458,113 @@
         [
           {
             "node": "Load the schema from the local file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat Trigger": {
+      "main": [
+        []
+      ]
+    },
+    "USDB-SQL-query-Executor": {
+      "main": [
+        []
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        []
+      ]
+    },
+    "Query_Validation": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "format_response": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "USDB AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "execute_query": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Query USDB": {
+      "main": [
+        [
+          {
+            "node": "Format Response2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "quewry_USDB": {
+      "main": [
+        [
+          {
+            "node": "Query Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "USDB_Webhook": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "USDB AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save file locally": {
+      "main": [
+        [
+          {
+            "node": "Respond",
             "type": "main",
             "index": 0
           }
@@ -996,7 +1043,7 @@
     {
       "parameters": {
         "operation": "write",
-        "fileName": "./usdb_mysql.json",
+        "fileName": "./usdb_sql.json",
         "options": {}
       },
       "id": "71d64a24-2c33-4de5-9318-3652c6eda29a",
@@ -1749,20 +1796,6 @@
     },
     {
       "parameters": {
-        "inputSource": "jsonExample",
-        "jsonExample": "{\n  \"query\": \"a string\"\n}"
-      },
-      "id": "87f46ee6-fdba-4532-a5ea-5c3652bb1843",
-      "typeVersion": 1.1,
-      "name": "Workflow Input Trigger",
-      "type": "n8n-nodes-base.executeWorkflowTrigger",
-      "position": [
-        -540,
-        4100
-      ]
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -1780,7 +1813,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        680,
+        780,
         4100
       ]
     },
@@ -1794,31 +1827,9 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -60,
+        -80,
         4100
       ]
-    },
-    {
-      "parameters": {
-        "model": "claude-3-5-sonnet-20241022",
-        "options": {
-          "temperature": 0.2
-        }
-      },
-      "id": "f637d665-d3e3-49d8-93ba-2bd900696f1c",
-      "name": "Anthropic Chat Model",
-      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-      "typeVersion": 1.2,
-      "position": [
-        -320,
-        4280
-      ],
-      "credentials": {
-        "anthropicApi": {
-          "id": "dcLqo62duKhDxGrw",
-          "name": "Anthropic account"
-        }
-      }
     },
     {
       "parameters": {
@@ -1895,7 +1906,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        480,
+        560,
         4100
       ],
       "credentials": {
@@ -1907,81 +1918,25 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "=Natural Language Query:\n{{ $json.query }}\n\nSQL Query:",
-        "messages": {
-          "messageValues": [
-            {
-              "message": "=## Objective You are a world-class SQL developer. You convert the following natural language query into an SQL query that can be executed against the USDB database.\n\n{{ $json.schema }}\n\n---\n\n- Natural Language Query: \n\"What is the earliest and latest datapoints in the dataset?\"\nSQL Query:\nsqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\nFROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n\n- Natural Language Query: \"Count how many rows in the entire dataset\"\nSQL Query:\nsqlCopySELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n\n- Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\nSQL Query:\nsqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\nFROM dbo.LISTINGS\nWHERE SpecMake IS NOT NULL\nGROUP BY SpecMake\nORDER BY occurrences DESC\nLIMIT 10;\n\n\n**Requirements:**\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE"
-            }
-          ]
-        }
-      },
-      "id": "b2ab04ea-9d4b-4b0d-be37-fa89a16f9912",
-      "name": "USDB-SQL-query-Generator",
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.4,
-      "position": [
-        -380,
-        4100
-      ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "USDB-agent",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "0208ff3f-b9d1-4716-82e0-51744c0b2f69",
-      "name": "Webhook1",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1200,
-        3480
-      ],
-      "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "={\n  \"response\": \"{{ $json.response }}\"\n}",
-        "options": {}
-      },
-      "id": "900a9516-f41f-499c-97e4-efb666ecc58f",
-      "name": "Respond1",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.1,
-      "position": [
-        1260,
-        3480
-      ],
-      "disabled": true
-    },
-    {
-      "parameters": {
         "name": "database_query",
-        "description": "Call this tool to Convert natural language query into SQL and fetch the response from the database\n",
+        "description": "Call this tool to query into USDB and get the response from the database\n",
         "workflowId": {
           "__rl": true,
-          "mode": "list",
-          "value": "U0WVICGhaz0o0bKs",
-          "cachedResultName": "AI-Sandbox — USDB: SQL Agent"
+          "value": "={{\"U0WVICGhaz0o0bKs\"}}",
+          "mode": "id"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
           "value": {
-            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}"
+            "Query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Query', ``, 'string') }}"
           },
           "matchingColumns": [
-            "query"
+            "aField"
           ],
           "schema": [
             {
-              "id": "query",
-              "displayName": "query",
+              "id": "Query",
+              "displayName": "Query",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1997,8 +1952,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        560,
-        3920
+        1340,
+        3900
       ],
       "id": "e5842b38-477c-4e67-abbc-8bb8e0094492",
       "name": "database_query1"
@@ -2015,8 +1970,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        220,
-        3920
+        -60,
+        3940
       ],
       "id": "8e96b8c1-b705-4e5d-9ec6-b791b186b21c",
       "name": "OpenAI Chat Model1",
@@ -2036,7 +1991,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        300,
+        340,
         4100
       ]
     },
@@ -2065,7 +2020,7 @@
           "parameters": [
             {
               "name": "query",
-              "value": "={{ $json.query }}"
+              "value": "={{ $json.sqlquery }}"
             }
           ]
         },
@@ -2082,29 +2037,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        120,
-        4100
+        1320,
+        4080
       ],
       "id": "8383995c-dcec-4082-a8da-430d84f4d3c0",
       "name": "HTTP Request2"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "=User Query:\n{{ $json.chatinput }}",
-        "options": {
-          "systemMessage": "=# Role\nYou are a world-class MySQL SQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing Google Analytics sample data, including user visits, traffic sources, device details, geo-network information, and interaction details. The database consists of the following key tables and columns:\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, . Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n{{ $json.schema }}\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Use the `database_query` tool to convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n# **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n\n# **Examples**\n\n### **Example 1**\n**User Query**: \"What are the earliest and latest data points in this dataset?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query passing it the knowlege that the dataset comprises of multiple tables, each corresponding to a specific date. For instance, a table named ga_sessions_20170801 contains data for August 1, 2017.\n- Retrieves the results of the earliest and latest table names\n- Responds:  \n  *\"The earliest and latest data points in the dataset range from  August 1, 2016, to August 1, 2017\"*\n\n---\n\n### **Example 2**\n**User Query**: \"What are the top 5 traffic sources during march 2017?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query, passing:  \n  *\"Retrieve the top 5 traffic sources during march 2017 based on the number of visits. Use `trafficSource.source` and count the visits, ordering by highest traffic.\"*\n- Retrieves and processes results.\n- Responds:  \n  *\"The top 5 traffic sources during the month of march 2017 are:  \n    1. Google - X visits  \n    2. Facebook - Y visits  \n    3. Direct - Z visits  \n    ...\"*\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}",
-          "returnIntermediateSteps": true
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        300,
-        3720
-      ],
-      "id": "84924176-7a3c-4cab-9cfd-ba7248cd3421",
-      "name": "USDB AI Agent1"
     },
     {
       "parameters": {
@@ -2115,7 +2052,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        380,
+        340,
         3920
       ],
       "id": "01333e33-c658-44f5-a62a-baf292729aeb",
@@ -2212,20 +2149,6 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "id": "f160176d-d5be-4209-844b-bb0405451374",
-      "name": "Chat Trigger",
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "position": [
-        -860,
-        2660
-      ],
-      "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
-      "typeVersion": 1.1
-    },
-    {
-      "parameters": {
         "rules": {
           "values": [
             {
@@ -2264,6 +2187,289 @@
       ],
       "id": "7d975764-9824-49c1-9d96-895a230c0dab",
       "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "path": "Orchestrator",
+        "responseMode": "responseNode",
+        "options": {
+          "ignoreBots": true
+        }
+      },
+      "id": "0208ff3f-b9d1-4716-82e0-51744c0b2f69",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        2660
+      ],
+      "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"response\": \"{{$json.output}}\"\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "900a9516-f41f-499c-97e4-efb666ecc58f",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1320,
+        2800
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e03a53f2-1105-4a6e-9f24-e6010a95250f",
+      "name": "Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        -880,
+        2880
+      ],
+      "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
+      "typeVersion": 1.1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Natural Language Query:\n{{ $json.query }}\n\nSQL Query:",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=## Objective You are a world-class MsSQL developer. You will execute the following query against the USDB database.\n\n---\n\n- Natural Language Query: \n\"What is the earliest and latest datapoints in the dataset?\"\nSQL Query:\nsqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\nFROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n\n- Natural Language Query: \"Count how many rows in the entire dataset\"\nSQL Query:\nsqlCopySELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n\n- Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\nSQL Query:\nsqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\nFROM dbo.LISTINGS\nWHERE SpecMake IS NOT NULL\nGROUP BY SpecMake\nORDER BY occurrences DESC\nLIMIT 10;\n\n\n**Requirements:**\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE"
+            }
+          ]
+        }
+      },
+      "id": "b2ab04ea-9d4b-4b0d-be37-fa89a16f9912",
+      "name": "USDB-SQL-query-Executor",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        -440,
+        4260
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "Query"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -640,
+        4260
+      ],
+      "id": "f3c28052-1a26-4b91-907b-a390395831c5",
+      "name": "When Executed by Another Workflow",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "name": "query_validation",
+        "description": "Call this tool to validate that the query will not perform destructive actions.",
+        "jsCode": "// Get the SQL query from the previous node\nconst sqlQuery = $json[\"text\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\s*--/, // End of statement with comment\n  /DROP\\s+TABLE/i,\n  /DELETE\\s+FROM/i,\n  /UPDATE\\s+/i,\n  /INSERT\\s+INTO/i,\n  /ALTER\\s+TABLE/i,\n];\n\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(sqlQuery)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn [{\n  json: { response: JSON.stringify(items[0].json)}\n}];\n// {sqlQuery};\n\n// Parse the query result and return it as a string\n// const queryResult = items[0].json;\n// const resultString = JSON.stringify(queryResult);\n\n// Return the result as a string\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        3900
+      ],
+      "id": "d2753543-31c7-4990-9ea3-81c8eeeabc35",
+      "name": "Query_Validation"
+    },
+    {
+      "parameters": {
+        "name": "format_response",
+        "description": "Call this tool after the execute_query tool has been called to format its response.",
+        "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row (optional)\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | ')); // For Markdown table formatting\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => item[header]);\n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        1760,
+        3900
+      ],
+      "id": "05273ace-e56d-41da-93f5-af98cdb8a210",
+      "name": "format_response"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=User Query:\n{{ $json.chatinput }}",
+        "options": {
+          "systemMessage": "=# Role\nYou are a world-class MsSQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n## **Examples**\n### **Example 1**\n**User Query**: \"What are the earliest and latest data points in this dataset?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query passing it the knowlege that the dataset comprises of multiple tables, each corresponding to a specific date. For instance, a table named ga_sessions_20170801 contains data for August 1, 2017.\n- Retrieves the results of the earliest and latest table names\n- Responds:  \n  *\"The earliest and latest data points in the dataset range from  August 1, 2016, to August 1, 2017\"*\n\n---\n### **Example 2**\n**User Query**: \"What are the top 5 traffic sources during march 2017?\"  \n**Assistant Response**:  \n- Uses `database_query` to generate the SQL query, passing:  \n  *\"Retrieve the top 5 traffic sources during march 2017 based on the number of visits. Use `trafficSource.source` and count the visits, ordering by highest traffic.\"*\n- Retrieves and processes results.\n- Responds:  \n  *\"The top 5 traffic sources during the month of march 2017 are:  \n    1. Google - X visits  \n    2. Facebook - Y visits  \n    3. Direct - Z visits  \n    ...\"*\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}",
+          "returnIntermediateSteps": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        300,
+        3720
+      ],
+      "id": "84924176-7a3c-4cab-9cfd-ba7248cd3421",
+      "name": "USDB AI Agent1"
+    },
+    {
+      "parameters": {
+        "toolDescription": "execute_query",
+        "method": "POST",
+        "url": "http://38.107.232.33:4000/mssql/execute",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"query\": \n\"Find the count of unique dealers in Phoenix, Arizona\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        1640,
+        3900
+      ],
+      "id": "2b19177e-a83e-462b-8a86-49fbc8e0278d",
+      "name": "execute_query"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://38.107.232.33:4000/mssql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.sqlquery }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": true,
+              "maxRedirects": 21
+            }
+          },
+          "response": {}
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8b4ac798-28cb-4677-ba37-f787efcdba05",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://38.107.232.33:4000/mssql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.sqlquery }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": true,
+              "maxRedirects": 21
+            }
+          },
+          "response": {}
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        140,
+        4100
+      ],
+      "id": "a7a0fc87-32e9-4e60-83d6-db8da7c69016",
+      "name": "Query USDB"
+    },
+    {
+      "parameters": {
+        "path": "query_USDB",
+        "responseMode": "responseNode",
+        "options": {
+          "ignoreBots": true
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -260,
+        4100
+      ],
+      "id": "67036655-68ed-4e0d-9cd9-e62315b92816",
+      "name": "quewry_USDB",
+      "webhookId": "ee542699-4213-4de5-a73e-61e776148104"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syc.app.n8n.cloud/webhook-test/query_USDB",
+        "sendBody": true,
+        "parametersBody": {
+          "values": [
+            {}
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        520,
+        3920
+      ],
+      "id": "8fb1d07f-a03b-41ac-a18d-805488b8f0be",
+      "name": "USDB_Webhook"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {
+          "temperature": 0.7,
+          "thinking": false
+        }
+      },
+      "id": "f637d665-d3e3-49d8-93ba-2bd900696f1c",
+      "name": "Anthropic Chat1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        200,
+        3920
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "dcLqo62duKhDxGrw",
+          "name": "Anthropic account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2271,7 +2477,11 @@
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [
     {
       "createdAt": "2025-03-13T07:39:24.180Z",
@@ -2280,7 +2490,7 @@
       "name": "Agent"
     }
   ],
-  "triggerCount": 0,
-  "updatedAt": "2025-03-21T19:11:50.000Z",
-  "versionId": "3590be83-36ba-4222-8cc2-fe2e49640b37"
+  "triggerCount": 3,
+  "updatedAt": "2025-03-25T18:08:25.000Z",
+  "versionId": "b043065d-1d10-4497-992a-53019105244f"
 }
