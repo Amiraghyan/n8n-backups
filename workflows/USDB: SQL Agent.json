@@ -132,7 +132,7 @@
       "main": [
         [
           {
-            "node": "LIST ALL tables",
+            "node": "Microsoft SQL1",
             "type": "main",
             "index": 0
           }
@@ -263,13 +263,7 @@
     },
     "EXTRACT Schemas": {
       "main": [
-        [
-          {
-            "node": "Add table name column",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Add table name column": {
@@ -336,7 +330,7 @@
       "main": [
         [
           {
-            "node": "Query USDB",
+            "node": "Microsoft SQL",
             "type": "main",
             "index": 0
           }
@@ -388,13 +382,7 @@
     },
     "Schedule Trigger": {
       "main": [
-        [
-          {
-            "node": "LIST ALL tables",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Load the schema from the local file": {
@@ -434,7 +422,7 @@
       "main": [
         [
           {
-            "node": "Respond",
+            "node": "Microsoft SQL1",
             "type": "main",
             "index": 0
           }
@@ -492,13 +480,7 @@
     },
     "Query USDB": {
       "main": [
-        [
-          {
-            "node": "Format Response2",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "quewry_USDB": {
@@ -536,7 +518,13 @@
     },
     "Save file locally": {
       "main": [
-        []
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "When chat message received": {
@@ -544,6 +532,39 @@
         [
           {
             "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft SQL": {
+      "main": [
+        [
+          {
+            "node": "Format Response2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft SQL1": {
+      "main": [
+        [
+          {
+            "node": "Microsoft SQL2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft SQL2": {
+      "main": [
+        [
+          {
+            "node": "Add table name column",
             "type": "main",
             "index": 0
           }
@@ -984,8 +1005,8 @@
       "name": "When clicking \"Test workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        -220,
-        1940
+        -240,
+        1860
       ],
       "typeVersion": 1
     },
@@ -1567,8 +1588,8 @@
       "name": "Add table name column",
       "type": "n8n-nodes-base.set",
       "position": [
-        300,
-        2060
+        400,
+        1860
       ],
       "typeVersion": 3.4
     },
@@ -2022,19 +2043,19 @@
               "id": "42abd24e-419a-47d6-bc8b-7146dd0b8314",
               "name": "sessionId",
               "type": "string",
-              "value": "={{ $('Chat Trigger').item.json.sessionId }}"
+              "value": "={{ $('Switch1').item.json.sessionId }}"
             },
             {
               "id": "39244192-a1a6-42fe-bc75-a6fba1f264df",
               "name": "action",
               "type": "string",
-              "value": "={{ $('Chat Trigger').item.json.action }}"
+              "value": "={{ $('Switch1').item.json.action }}"
             },
             {
               "id": "f78c57d9-df13-43c7-89a7-5387e528107e",
               "name": "chatinput",
               "type": "string",
-              "value": "= {{ $('Chat Trigger').item.json.chatInput }}"
+              "value": "= {{ $('Switch1').item.json.chatInput }}"
             },
             {
               "id": "e42b39eb-dfbd-48d9-94ed-d658bdd41454",
@@ -2260,40 +2281,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        0,
-        0
-      ],
-      "id": "8b4ac798-28cb-4677-ba37-f787efcdba05",
-      "name": "HTTP Request3"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "={{ $json.sqlquery }}"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {
-              "followRedirects": true,
-              "maxRedirects": 21
-            }
-          },
-          "response": {}
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        120,
-        4100
+        -520,
+        4000
       ],
       "id": "a7a0fc87-32e9-4e60-83d6-db8da7c69016",
       "name": "Query USDB"
@@ -2340,8 +2329,7 @@
       "parameters": {
         "model": "claude-3-5-sonnet-20241022",
         "options": {
-          "temperature": 0.7,
-          "thinking": false
+          "thinking": true
         }
       },
       "id": "f637d665-d3e3-49d8-93ba-2bd900696f1c",
@@ -2372,6 +2360,66 @@
       "id": "12c0413e-00c6-4b86-afe2-02c8a664ed17",
       "name": "When chat message received",
       "webhookId": "f0b92997-6084-43dd-914e-55bf2f6b5c28"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=EXEC sp_columns '{{ $json.name }}';"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        120,
+        4100
+      ],
+      "id": "2ec13be2-96ed-4738-bd8f-2e6bb41553e3",
+      "name": "Microsoft SQL",
+      "credentials": {
+        "microsoftSql": {
+          "id": "BbAMiDytg4JU7Jas",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT name\nFROM sys.tables"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        1860
+      ],
+      "id": "5ad2d466-ec6d-4955-b938-9178744f24fd",
+      "name": "Microsoft SQL1",
+      "credentials": {
+        "microsoftSql": {
+          "id": "BbAMiDytg4JU7Jas",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=EXEC sp_columns '{{ $json.name }}';"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        1860
+      ],
+      "id": "8c92b24c-3c9d-427a-b7d3-2c71b3add8be",
+      "name": "Microsoft SQL2",
+      "credentials": {
+        "microsoftSql": {
+          "id": "BbAMiDytg4JU7Jas",
+          "name": "Microsoft SQL account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2393,6 +2441,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2025-03-27T05:39:10.000Z",
-  "versionId": "e5f0059b-e7fb-4143-b2e3-bf4a6552d5d1"
+  "updatedAt": "2025-03-27T15:27:11.000Z",
+  "versionId": "efe8ddb9-1047-433a-8a0a-e45fe9770d0b"
 }
