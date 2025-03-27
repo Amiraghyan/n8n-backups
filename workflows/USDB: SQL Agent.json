@@ -432,7 +432,13 @@
     },
     "Switch1": {
       "main": [
-        [],
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "Load the schema from the local file",
@@ -1887,8 +1893,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -60,
-        3940
+        980,
+        3900
       ],
       "id": "8e96b8c1-b705-4e5d-9ec6-b791b186b21c",
       "name": "OpenAI Chat Model1",
@@ -2313,7 +2319,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://syc.app.n8n.cloud/webhook-test/query_USDB",
+        "url": "https://syc.app.n8n.cloud/webhook/query_USDB",
         "sendBody": true,
         "parametersBody": {
           "values": [
@@ -2387,6 +2393,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2025-03-26T05:50:43.000Z",
-  "versionId": "7a3352b5-8a76-4ca4-87c7-807050d543e1"
+  "updatedAt": "2025-03-27T05:39:10.000Z",
+  "versionId": "e5f0059b-e7fb-4143-b2e3-bf4a6552d5d1"
 }
