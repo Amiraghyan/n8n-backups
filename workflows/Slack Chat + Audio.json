@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Call Agent Webhook",
+            "node": "Merge",
             "type": "main",
             "index": 0
           }
@@ -38,9 +38,9 @@
       "main": [
         [
           {
-            "node": "Call Agent Webhook",
+            "node": "Merge",
             "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -86,11 +86,22 @@
         ]
       ]
     },
-    "Call Agent Webhook": {
+    "Call USDB Orchestrator": {
       "main": [
         [
           {
             "node": "Send reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Call USDB Orchestrator",
             "type": "main",
             "index": 0
           }
@@ -117,8 +128,7 @@
         400
       ],
       "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
-      "typeVersion": 1.1,
-      "disabled": true
+      "typeVersion": 1.1
     },
     {
       "parameters": {
@@ -337,8 +347,8 @@
       "name": "Send reply",
       "type": "n8n-nodes-base.slack",
       "position": [
-        440,
-        160
+        640,
+        180
       ],
       "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
       "typeVersion": 2.2,
@@ -381,49 +391,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://syc.app.n8n.cloud/webhook-test/USDB-agent",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "=SessionId",
-              "value": "={{ $json.sessionId }}"
-            },
-            {
-              "name": "ChatInput",
-              "value": "={{ $json.chatInput }}"
-            },
-            {
-              "name": "Action",
-              "value": "={{ $json.action }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        240,
-        160
-      ],
-      "id": "58c271df-2792-44c2-b1d0-b4a09f4af044",
-      "name": "Call Agent Webhook"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -180,
-        1400
-      ],
-      "id": "5c4b3e68-b4d4-4ebb-b5a6-929bb14d1d9b",
-      "name": "Sticky Note"
-    },
-    {
-      "parameters": {
         "content": "## Slack Chat + Audio UI\n- This workflow processes text and audio inputs from Slack\n- Makes a call to the USDB Agent Workflow\n- Returns results back to Slack",
         "height": 660,
         "width": 1900
@@ -436,6 +403,50 @@
       ],
       "id": "ff686d04-5348-4f20-b94d-3fcca588fb22",
       "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "url": "https://syc.app.n8n.cloud/webhook/USDB_Orchestrator",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=sessionId",
+              "value": "={{ $('Chat Trigger').item.json.sessionId }}"
+            },
+            {
+              "name": "chatInput",
+              "value": "={{ $('Switch1').item.json.chatInput }}"
+            },
+            {
+              "name": "action",
+              "value": "={{ $('Filter1').item.json.action }}"
+            }
+          ]
+        },
+        "options": {
+          "lowercaseHeaders": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        180
+      ],
+      "id": "58c271df-2792-44c2-b1d0-b4a09f4af044",
+      "name": "Call USDB Orchestrator"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        240,
+        180
+      ],
+      "id": "5643db97-f2e2-4594-b668-eb81ef78300a",
+      "name": "Merge"
     }
   ],
   "pinData": {},
@@ -445,6 +456,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-03-25T06:41:18.000Z",
-  "versionId": "ab0ebb8a-28c1-4e2f-92b4-128606aedc28"
+  "updatedAt": "2025-03-27T05:44:27.000Z",
+  "versionId": "4cac74dc-d5fe-41b0-89b2-a81b58796ca3"
 }
