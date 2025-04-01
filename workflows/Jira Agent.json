@@ -1,0 +1,180 @@
+{
+  "active": false,
+  "connections": {
+    "Jira Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jira Software": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-01T01:28:44.698Z",
+  "id": "0TqFuqRh6rAFudvh",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jira Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "events": [
+          "jira:issue_created",
+          "jira:issue_updated",
+          "jira:issue_deleted",
+          "comment_updated",
+          "comment_created",
+          "comment_deleted"
+        ],
+        "additionalFields": {
+          "excludeBody": false,
+          "filter": "=",
+          "includeFields": [
+            "project.id",
+            "project.key",
+            "issue.id",
+            "comment.id"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.jiraTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -300,
+        -160
+      ],
+      "id": "7770b18d-823b-4e8c-99a0-5d81880b8fe6",
+      "name": "Jira Trigger",
+      "webhookId": "c4b7d687-ec0b-4f2e-a40a-33dc7ef80ff4",
+      "credentials": {
+        "jiraSoftwareCloudApi": {
+          "id": "wNpJWHBM1zNYVTqx",
+          "name": "Jira SW Cloud account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful assistant"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -60,
+        -20
+      ],
+      "id": "33fee8a5-8476-4f3f-9b98-c41c7bd7aba1",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -40,
+        200
+      ],
+      "id": "e23f27c0-9700-48df-bc43-48c5007f5e95",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "cOFFr7FB6SAc7Hl2",
+          "name": "Anthropic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Return_All', ``, 'boolean') }}",
+        "options": {
+          "fields": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fields', ``, 'string') }}",
+          "fieldsByKey": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fields_By_Key', ``, 'boolean') }}",
+          "jql": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JQL', ``, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.jiraTool",
+      "typeVersion": 1,
+      "position": [
+        100,
+        200
+      ],
+      "id": "30c2c144-2c71-4492-8c08-0bc1b120a654",
+      "name": "Jira Software",
+      "credentials": {
+        "jiraSoftwareCloudApi": {
+          "id": "wNpJWHBM1zNYVTqx",
+          "name": "Jira SW Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        100
+      ],
+      "id": "93373112-e41d-4e96-8018-2764d4edb1c0",
+      "name": "When clicking ‘Test workflow’"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-01T02:09:27.000Z",
+  "versionId": "98593892-0717-4bf2-94ae-e240cef870a0"
+}
