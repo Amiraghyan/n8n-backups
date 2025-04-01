@@ -2134,6 +2134,7 @@
     },
     {
       "parameters": {
+        "httpMethod": "POST",
         "path": "Orchestrator",
         "responseMode": "responseNode",
         "options": {
@@ -2148,7 +2149,8 @@
         -880,
         2660
       ],
-      "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e"
+      "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e",
+      "disabled": true
     },
     {
       "parameters": {
@@ -2327,9 +2329,9 @@
     },
     {
       "parameters": {
-        "model": "claude-3-5-sonnet-20241022",
+        "model": "claude-3-haiku-20240307",
         "options": {
-          "thinking": true
+          "thinking": false
         }
       },
       "id": "f637d665-d3e3-49d8-93ba-2bd900696f1c",
@@ -2342,8 +2344,8 @@
       ],
       "credentials": {
         "anthropicApi": {
-          "id": "dcLqo62duKhDxGrw",
-          "name": "Anthropic account"
+          "id": "6XoeyrVJuZadyovW",
+          "name": "Kris' Anthropic"
         }
       }
     },
@@ -2441,6 +2443,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2025-03-27T15:27:11.000Z",
-  "versionId": "efe8ddb9-1047-433a-8a0a-e45fe9770d0b"
+  "updatedAt": "2025-04-01T14:29:34.000Z",
+  "versionId": "3189350c-7ea2-4b8f-9675-0dc7b478939c"
 }
