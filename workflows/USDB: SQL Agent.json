@@ -1,17 +1,6 @@
 {
   "active": false,
   "connections": {
-    "Window Buffer Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "USDB_Agent_tool",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "USDB_Agent_tool": {
       "main": [
         []
@@ -263,7 +252,13 @@
     },
     "EXTRACT Schemas": {
       "main": [
-        []
+        [
+          {
+            "node": "Add table name column",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Add table name column": {
@@ -422,7 +417,7 @@
       "main": [
         [
           {
-            "node": "Microsoft SQL1",
+            "node": "LIST ALL tables",
             "type": "main",
             "index": 0
           }
@@ -438,13 +433,7 @@
     },
     "Webhook": {
       "main": [
-        [
-          {
-            "node": "Switch1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "USDB-SQL-query-Executor": {
@@ -466,7 +455,7 @@
       "main": [
         [
           {
-            "node": "Respond",
+            "node": "Send reply",
             "type": "main",
             "index": 0
           }
@@ -520,7 +509,7 @@
       "main": [
         [
           {
-            "node": "Respond",
+            "node": "Send reply",
             "type": "main",
             "index": 0
           }
@@ -531,7 +520,7 @@
       "main": [
         [
           {
-            "node": "Switch1",
+            "node": "USDB AI Agent",
             "type": "main",
             "index": 0
           }
@@ -562,9 +551,93 @@
     },
     "Microsoft SQL2": {
       "main": [
+        []
+      ]
+    },
+    "OpenAI2": {
+      "main": [
         [
           {
-            "node": "Add table name column",
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dwnld_Audio1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Out1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call USDB Orchestrator": {
+      "main": [
+        []
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Dwnld_Audio1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Out1",
             "type": "main",
             "index": 0
           }
@@ -581,26 +654,13 @@
   "nodes": [
     {
       "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Slack Trigger').item.json.user }}",
-        "contextWindowLength": 10
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        740,
-        1420
-      ],
-      "id": "84b22423-a49c-4d34-89d4-81a7825436ae",
-      "name": "Window Buffer Memory"
-    },
-    {
-      "parameters": {
         "agent": "sqlAgent",
         "dataSource": "mysql",
         "promptType": "define",
-        "text": "={{ $json.text }}",
-        "options": {}
+        "text": "={{ $('Switch').item.json.chatInput }}",
+        "options": {
+          "includedTables": ""
+        }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
@@ -663,7 +723,7 @@
     },
     {
       "parameters": {
-        "model": "gpt-4o",
+        "model": "o3-mini",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
@@ -924,7 +984,7 @@
       "type": "n8n-nodes-base.noOp",
       "position": [
         360,
-        2940
+        2860
       ],
       "typeVersion": 1
     },
@@ -994,7 +1054,7 @@
       "name": "Save file locally",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        640,
+        660,
         2060
       ],
       "typeVersion": 1
@@ -1008,7 +1068,8 @@
         -240,
         1860
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "disabled": true
     },
     {
       "parameters": {
@@ -1030,7 +1091,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         0,
-        2820
+        2740
       ],
       "typeVersion": 3.4
     },
@@ -1064,7 +1125,7 @@
       "type": "n8n-nodes-base.if",
       "position": [
         180,
-        2820
+        2740
       ],
       "typeVersion": 2.2
     },
@@ -1080,7 +1141,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -340,
-        2680
+        2600
       ],
       "typeVersion": 1
     },
@@ -1103,7 +1164,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         560,
-        2680
+        2600
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -1148,7 +1209,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         960,
-        2780
+        2700
       ],
       "typeVersion": 3.4
     },
@@ -1165,7 +1226,7 @@
       "type": "n8n-nodes-base.merge",
       "position": [
         760,
-        2780
+        2700
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1174,7 +1235,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
+        "url": "http://38.107.232.33:1434",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -1198,7 +1259,7 @@
       "typeVersion": 4.2,
       "position": [
         360,
-        2680
+        2600
       ],
       "id": "70d3381e-ae22-40fc-8de5-e4e9936b46c5",
       "name": "HTTP Request",
@@ -1512,7 +1573,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
+        "url": "http://38.107.232.33:1434",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -1596,7 +1657,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=User Message is:\n{{ $json.chatinput }}",
+        "text": "=User Message is:\n{{ $json.chatInput }}",
         "options": {
           "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable to fulfill different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you are able to use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use with against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assitant that can aid the user in exploring the USDB by asking question in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $json.schema }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n\n# When to use this tool\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n-->\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $json.chatinput }}",
           "returnIntermediateSteps": "={{ true }}"
@@ -1606,7 +1667,7 @@
       "typeVersion": 1.8,
       "position": [
         -340,
-        2820
+        2740
       ],
       "id": "0a255659-643f-4777-a03f-cae820514dd8",
       "name": "USDB AI Agent"
@@ -1621,7 +1682,7 @@
       "typeVersion": 1.1,
       "position": [
         -120,
-        3000
+        2920
       ],
       "id": "63f377a3-72dc-4189-b2bc-1c12b91e9777",
       "name": "dateTimeInfo"
@@ -1653,7 +1714,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
         -360,
-        3000
+        2920
       ],
       "typeVersion": 1,
       "credentials": {
@@ -1672,7 +1733,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
         -240,
-        3000
+        2920
       ],
       "typeVersion": 1.2
     },
@@ -1914,8 +1975,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        980,
-        3900
+        1340,
+        4100
       ],
       "id": "8e96b8c1-b705-4e5d-9ec6-b791b186b21c",
       "name": "OpenAI Chat Model1",
@@ -2126,8 +2187,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -700,
-        2660
+        -640,
+        2740
       ],
       "id": "7d975764-9824-49c1-9d96-895a230c0dab",
       "name": "Switch1"
@@ -2146,8 +2207,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -880,
-        2660
+        -1580,
+        3260
       ],
       "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e",
       "disabled": true
@@ -2165,9 +2226,10 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        1320,
-        2800
-      ]
+        1360,
+        2460
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -2283,8 +2345,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -520,
-        4000
+        1340,
+        4280
       ],
       "id": "a7a0fc87-32e9-4e60-83d6-db8da7c69016",
       "name": "Query USDB"
@@ -2305,7 +2367,8 @@
       ],
       "id": "67036655-68ed-4e0d-9cd9-e62315b92816",
       "name": "quewry_USDB",
-      "webhookId": "ee542699-4213-4de5-a73e-61e776148104"
+      "webhookId": "ee542699-4213-4de5-a73e-61e776148104",
+      "disabled": true
     },
     {
       "parameters": {
@@ -2356,8 +2419,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -880,
-        2840
+        -640,
+        2940
       ],
       "id": "12c0413e-00c6-4b86-afe2-02c8a664ed17",
       "name": "When chat message received",
@@ -2422,6 +2485,311 @@
           "name": "Microsoft SQL account"
         }
       }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "binaryPropertyName": "audio",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1280,
+        2640
+      ],
+      "id": "fcf4cb73-c272-4aae-b3b3-d80d69568571",
+      "name": "OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.files[0].url_private_download }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "slackOAuth2Api",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "audio"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1460,
+        2640
+      ],
+      "id": "cc6a3a1d-3667-4e67-8d1f-6c4027fd4cde",
+      "name": "Dwnld_Audio1",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "7VOxhQHkBloxHtkn",
+          "name": "syc-n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9569b209-0827-4fcd-96e8-1091a15d68e0",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1380,
+        2900
+      ],
+      "id": "a801bd50-045d-441f-9212-f282af3b2271",
+      "name": "Text Out1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "61c23cad-6c72-464e-9947-b7f309c9b994",
+              "leftValue": "={{ $json.user }}",
+              "rightValue": "={{\"D089ZDPG57X\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -1900,
+        2740
+      ],
+      "id": "b480e3cc-9cab-4d02-947e-eec7ebf6d125",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "={{\"D089ZDPG57X\"}}",
+          "mode": "id"
+        },
+        "text": "={{ $json.output }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "id": "f28f7710-54e3-4cd7-b47b-72dda3a90c92",
+      "name": "Send reply",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        1360,
+        2700
+      ],
+      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "trigger": [
+          "message"
+        ],
+        "channelId": {
+          "__rl": true,
+          "value": "={{ \"D089ZDPG57X\" }}",
+          "mode": "id"
+        },
+        "options": {
+          "resolveIds": false
+        }
+      },
+      "id": "7e788357-6b11-44cc-b45a-9a839ce6baf0",
+      "name": "Slack Trigger",
+      "type": "n8n-nodes-base.slackTrigger",
+      "position": [
+        -2080,
+        2740
+      ],
+      "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
+      "typeVersion": 1,
+      "credentials": {
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "https://syc.app.n8n.cloud/webhook/USDB_Orchestrator",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=sessionId",
+              "value": "={{ $('When chat message received').item.json.sessionId }}"
+            },
+            {
+              "name": "chatInput",
+              "value": "={{ $('Switch2').item.json.chatInput }}"
+            },
+            {
+              "name": "action",
+              "value": "={{ $('Filter1').item.json.action }}"
+            }
+          ]
+        },
+        "options": {
+          "lowercaseHeaders": true
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1320,
+        3260
+      ],
+      "id": "63cbff9a-b17b-4a53-8b35-8ad098e8eb65",
+      "name": "Call USDB Orchestrator"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -1060,
+        2740
+      ],
+      "id": "9071a455-4b46-40b1-b54a-ca6d9ea39b32",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "584c8c90-4cc3-43ea-aac0-d1762ba79d0d",
+                    "leftValue": "{{ $json.files[0].mimetype }}",
+                    "rightValue": "image/jpeg",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "audio/mp4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bb9fc3cb-1c38-4fc3-8ed0-896280711d84"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1ecab1e4-02c7-490e-82e5-f9f701140f00",
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1700,
+        2740
+      ],
+      "id": "fead85ee-e12b-4464-9c64-171333add7e3",
+      "name": "Switch2"
     }
   ],
   "pinData": {},
@@ -2442,7 +2810,7 @@
       "name": "Agent"
     }
   ],
-  "triggerCount": 3,
-  "updatedAt": "2025-04-01T14:29:34.000Z",
-  "versionId": "3189350c-7ea2-4b8f-9675-0dc7b478939c"
+  "triggerCount": 4,
+  "updatedAt": "2025-04-03T04:30:06.000Z",
+  "versionId": "e48b9663-57ad-440e-a358-7b4d44df9391"
 }
