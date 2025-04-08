@@ -1,26 +1,9 @@
 {
   "active": false,
   "connections": {
-    "Jira Trigger": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Anthropic Chat Model": {
       "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Jira Software": {
@@ -45,23 +28,23 @@
         ]
       ]
     },
-    "Google Sheets": {
-      "ai_tool": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When chat message received": {
       "main": [
         [
           {
             "node": "AI Agent",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -77,44 +60,6 @@
   "nodes": [
     {
       "parameters": {
-        "events": [
-          "jira:issue_created",
-          "jira:issue_updated",
-          "jira:issue_deleted",
-          "comment_updated",
-          "comment_created",
-          "comment_deleted"
-        ],
-        "additionalFields": {
-          "excludeBody": false,
-          "filter": "=",
-          "includeFields": [
-            "project.id",
-            "project.key",
-            "issue.id",
-            "comment.id"
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.jiraTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        -300,
-        -160
-      ],
-      "id": "7770b18d-823b-4e8c-99a0-5d81880b8fe6",
-      "name": "Jira Trigger",
-      "webhookId": "c4b7d687-ec0b-4f2e-a40a-33dc7ef80ff4",
-      "credentials": {
-        "jiraSoftwareCloudApi": {
-          "id": "wNpJWHBM1zNYVTqx",
-          "name": "Jira SW Cloud account"
-        }
-      },
-      "disabled": true
-    },
-    {
-      "parameters": {
         "model": {
           "__rl": true,
           "mode": "list",
@@ -126,8 +71,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        -120,
-        180
+        -520,
+        -80
       ],
       "id": "e23f27c0-9700-48df-bc43-48c5007f5e95",
       "name": "Anthropic Chat Model",
@@ -140,19 +85,13 @@
     },
     {
       "parameters": {
-        "operation": "getAll",
-        "returnAll": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Return_All', ``, 'boolean') }}",
-        "options": {
-          "fields": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fields', ``, 'string') }}",
-          "fieldsByKey": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fields_By_Key', ``, 'boolean') }}",
-          "jql": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JQL', ``, 'string') }}"
-        }
+        "resource": "__CUSTOM_API_CALL__"
       },
       "type": "n8n-nodes-base.jiraTool",
       "typeVersion": 1,
       "position": [
-        160,
-        260
+        200,
+        200
       ],
       "id": "30c2c144-2c71-4492-8c08-0bc1b120a654",
       "name": "Jira Software",
@@ -168,234 +107,17 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        20,
-        260
+        60,
+        200
       ],
       "id": "5b458208-121a-406c-99c7-9b417bb99c61",
       "name": "Simple Memory"
     },
     {
       "parameters": {
-        "descriptionType": "manual",
-        "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "1CC0ExZmdAXJFJg8vs4da7pnPrxY6qvmSl-I85mnjXDo",
-          "mode": "list",
-          "cachedResultName": "R&D Priorities",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CC0ExZmdAXJFJg8vs4da7pnPrxY6qvmSl-I85mnjXDo/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 282417260,
-          "mode": "list",
-          "cachedResultName": "Current Priorities - 15 Jan 25",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CC0ExZmdAXJFJg8vs4da7pnPrxY6qvmSl-I85mnjXDo/edit#gid=282417260"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Originating BU",
-              "displayName": "Originating BU",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Owner",
-              "displayName": "Owner",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Tech Area",
-              "displayName": "Tech Area",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "EPIC",
-              "displayName": "EPIC",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Feature",
-              "displayName": "Feature",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "User / Business Value",
-              "displayName": "User / Business Value",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Time Criticality",
-              "displayName": "Time Criticality",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Risk Reduction / Opportunity",
-              "displayName": "Risk Reduction / Opportunity",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Cost of Delay",
-              "displayName": "Cost of Delay",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Job Size",
-              "displayName": "Job Size",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Priority Score",
-              "displayName": "Priority Score",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Development State",
-              "displayName": "Development State",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Resource",
-              "displayName": "Resource",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Percent Complete",
-              "displayName": "Percent Complete",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Requirements",
-              "displayName": "Requirements",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Dependancies",
-              "displayName": "Dependancies",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Priority Order",
-              "displayName": "Priority Order",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Notes",
-              "displayName": "Notes",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheetsTool",
-      "typeVersion": 4.5,
-      "position": [
-        280,
-        180
-      ],
-      "id": "9a81971e-fc50-4d20-b1bb-dea820465c2e",
-      "name": "Google Sheets",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "q6VF6y0ZbTwykyn7",
-          "name": "G Sheets fr@SYC"
-        }
-      }
-    },
-    {
-      "parameters": {
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "You are a helpful assistant that can read any new information in the project jira and capture this into a google sheet with a specific format. \n"
+          "systemMessage": "You are a helpful assistant that can read information in jira and respond with it. \n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -420,6 +142,31 @@
       "id": "a230e7f6-e51f-4fcc-aaaf-9c129303a6ad",
       "name": "When chat message received",
       "webhookId": "4b914127-6186-4afc-8964-7be7863e54d5"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        200
+      ],
+      "id": "8e7f7b9d-1aeb-4775-aa12-c425edafeb24",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -429,6 +176,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-01T13:48:16.000Z",
-  "versionId": "b6a1f3bc-197c-4ff9-bf6a-dffc834f2a68"
+  "updatedAt": "2025-04-08T05:31:57.000Z",
+  "versionId": "22e838cd-83ad-4b55-8303-9a90e72e823f"
 }
