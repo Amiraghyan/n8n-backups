@@ -121,7 +121,7 @@
       "main": [
         [
           {
-            "node": "Query Validation1",
+            "node": "Query Validation2",
             "type": "main",
             "index": 0
           }
@@ -137,9 +137,9 @@
             "index": 1
           },
           {
-            "node": "HTTP Request",
+            "node": "SQL template and AI queries",
             "type": "main",
-            "index": 0
+            "index": 1
           }
         ],
         [
@@ -153,13 +153,7 @@
     },
     "Format query results": {
       "main": [
-        [
-          {
-            "node": "Combine query result and chat answer",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Combine query result and chat answer": {
@@ -177,7 +171,7 @@
       "main": [
         [
           {
-            "node": "Format query results",
+            "node": "Results Formatter",
             "type": "main",
             "index": 0
           }
@@ -228,17 +222,6 @@
         ]
       ]
     },
-    "dateTimeInfo": {
-      "ai_tool": [
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI Chat1": {
       "ai_languageModel": [
         [
@@ -254,68 +237,8 @@
       "main": [
         [
           {
-            "node": "Airtable",
+            "node": "Stop_Time",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Query Validation": {
-      "main": [
-        [
-          {
-            "node": "Query USDB",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Sheets": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "database_query1": {
-      "ai_tool": [
-        []
-      ]
-    },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "USDB Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Format Response2": {
-      "main": [
-        [
-          {
-            "node": "Google Sheets",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Simple Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "USDB Agent",
-            "type": "ai_memory",
             "index": 0
           }
         ]
@@ -323,36 +246,9 @@
     },
     "Schedule Trigger": {
       "main": [
-        []
-      ]
-    },
-    "Load the schema from the local file": {
-      "main": [
         [
           {
-            "node": "Extract data from file",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Extract data from file": {
-      "main": [
-        [
-          {
-            "node": "Combine schema data and chat input",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Combine schema data and chat input": {
-      "main": [
-        [
-          {
-            "node": "USDB Agent",
+            "node": "LIST ALL tables",
             "type": "main",
             "index": 0
           }
@@ -377,47 +273,6 @@
         ]
       ]
     },
-    "Webhook": {
-      "main": [
-        []
-      ]
-    },
-    "USDB-SQL-query-Executor": {
-      "main": [
-        []
-      ]
-    },
-    "Query_Validation": {
-      "ai_tool": [
-        []
-      ]
-    },
-    "format_response": {
-      "ai_tool": [
-        []
-      ]
-    },
-    "Query USDB": {
-      "main": [
-        [
-          {
-            "node": "Format Response2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "USDB_Webhook": {
-      "ai_tool": [
-        []
-      ]
-    },
-    "Anthropic Chat1": {
-      "ai_languageModel": [
-        []
-      ]
-    },
     "Save file locally": {
       "main": [
         []
@@ -432,11 +287,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "Microsoft SQL": {
-      "main": [
-        []
       ]
     },
     "OpenAI2": {
@@ -494,11 +344,6 @@
         ]
       ]
     },
-    "Call USDB Orchestrator": {
-      "main": [
-        []
-      ]
-    },
     "Merge": {
       "main": [
         []
@@ -523,59 +368,11 @@
         ]
       ]
     },
-    "USDB Agent": {
-      "main": [
-        [
-          {
-            "node": "Query Validation",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "query_USDB": {
-      "main": [
-        []
-      ]
-    },
-    "query_USDB1": {
-      "ai_tool": [
-        []
-      ]
-    },
-    "Edit Fields": {
-      "main": [
-        []
-      ]
-    },
     "Start_Time": {
       "main": [
         [
           {
-            "node": "USDB AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Query Validation1": {
-      "main": [
-        [
-          {
-            "node": "Check if query exists",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Sheets1": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields1",
+            "node": "Query Templates Matcher",
             "type": "main",
             "index": 0
           }
@@ -588,17 +385,6 @@
           {
             "node": "USDB Agent1",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Format Response": {
-      "main": [
-        [
-          {
-            "node": "Google Sheets1",
-            "type": "main",
             "index": 0
           }
         ]
@@ -648,17 +434,6 @@
         ]
       ]
     },
-    "Query USDB1": {
-      "main": [
-        [
-          {
-            "node": "Format Response",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "USDB Agent1": {
       "main": [
         []
@@ -670,6 +445,90 @@
           {
             "node": "USDB AI Agent",
             "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Results Formatter": {
+      "main": [
+        [
+          {
+            "node": "Combine query result and chat answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query Templates Matcher": {
+      "main": [
+        [
+          {
+            "node": "Template or LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Template or LLM": {
+      "main": [
+        [
+          {
+            "node": "SQL template and AI queries",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stop_Time": {
+      "main": [
+        [
+          {
+            "node": "Calculate Delta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query Validation2": {
+      "main": [
+        [
+          {
+            "node": "Check if query exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SQL template and AI queries": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Delta": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
             "index": 0
           }
         ]
@@ -719,8 +578,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1380,
-        1360
+        1320,
+        2140
       ],
       "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
       "name": "OpenRouter Chat",
@@ -740,8 +599,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1380,
-        1060
+        1320,
+        1840
       ],
       "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
       "name": "Anthropic Chat",
@@ -780,8 +639,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        1380,
-        1200
+        1320,
+        1980
       ],
       "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
       "name": "Groq Chat",
@@ -1014,8 +873,8 @@
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1240,
-        2860
+        1380,
+        2940
       ],
       "typeVersion": 1
     },
@@ -1029,8 +888,8 @@
       "name": "List all tables in a database",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        1800,
-        1080
+        440,
+        940
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1050,8 +909,8 @@
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        1980,
-        1080
+        620,
+        940
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1070,8 +929,8 @@
       "name": "Convert data to binary",
       "type": "n8n-nodes-base.convertToFile",
       "position": [
-        760,
-        2060
+        60,
+        2100
       ],
       "typeVersion": 1.1
     },
@@ -1085,8 +944,8 @@
       "name": "Save file locally",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        960,
-        2060
+        260,
+        2100
       ],
       "typeVersion": 1
     },
@@ -1109,8 +968,8 @@
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
-        360,
-        2760
+        840,
+        2820
       ],
       "typeVersion": 3.4
     },
@@ -1143,8 +1002,8 @@
       "name": "Check if query exists",
       "type": "n8n-nodes-base.if",
       "position": [
-        800,
-        2760
+        1200,
+        2820
       ],
       "typeVersion": 2.2
     },
@@ -1159,8 +1018,8 @@
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -340,
-        2600
+        -360,
+        2940
       ],
       "typeVersion": 1
     },
@@ -1182,8 +1041,8 @@
       "name": "Format query results",
       "type": "n8n-nodes-base.set",
       "position": [
-        1300,
-        2600
+        2080,
+        2440
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -1198,8 +1057,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2160,
-        1080
+        800,
+        940
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1217,7 +1076,7 @@
               "id": "aa55e186-1535-4923-aee4-e088ca69575b",
               "name": "output",
               "type": "string",
-              "value": "={{ $json.output }}\n\nSQL result:\n```markdown\n{{ $json.sqloutput }}\n```"
+              "value": "=Question:\n{{ $('When chat message received').item.json.chatInput }}\n\nSQL request:\n{{ $json.query }}\n\nSQL result:\n```markdown\n{{ $json.textOutput }}\n```"
             }
           ]
         },
@@ -1227,8 +1086,8 @@
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
-        1720,
-        2720
+        2080,
+        2780
       ],
       "typeVersion": 3.4
     },
@@ -1244,8 +1103,8 @@
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1500,
-        2720
+        1880,
+        2780
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1277,8 +1136,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1120,
-        2600
+        1540,
+        2640
       ],
       "id": "70d3381e-ae22-40fc-8de5-e4e9936b46c5",
       "name": "HTTP Request",
@@ -1295,8 +1154,8 @@
       "name": "Run SQL query tmplt",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2340,
-        1080
+        980,
+        940
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1330,9 +1189,10 @@
             "sessionId": "={{ $('When chat message received').item.json.sessionId }}",
             "chatInput": "={{ $('When chat message received').item.json.chatInput }}",
             "request": "={{ $('Extract SQL query').item.json.query }}",
-            "response": "={{ $('Combine query result and chat answer').item.json.sqloutput }}",
-            "stopTime": "={{ $now }}",
-            "time": "stopTime - startTime"
+            "response": "={{ $('Combine query result and chat answer').item.json.textOutput }}",
+            "stopTime": "={{ $json.stopTime }}",
+            "time": "={{ $json.executionTimeReadable }}",
+            "startTime": "={{ $('Template or LLM').item.json.original_input.Start_time }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -1454,8 +1314,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1920,
-        2720
+        2260,
+        3020
       ],
       "id": "e5981541-bd25-4848-86ab-8db4e9ae11cd",
       "name": "Airtable",
@@ -1489,8 +1349,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        160,
-        2060
+        -540,
+        2100
       ],
       "id": "372741d5-17d3-4f90-9b9b-36b07d2c48fc",
       "name": "LIST ALL tables"
@@ -1518,8 +1378,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        360,
-        2060
+        -340,
+        2100
       ],
       "id": "f7d5ab5c-c5d0-4acd-8007-248ff892dbcf",
       "name": "EXTRACT Schemas",
@@ -1545,57 +1405,42 @@
       "name": "Add table name column",
       "type": "n8n-nodes-base.set",
       "position": [
-        560,
-        2060
+        -140,
+        2100
       ],
       "typeVersion": 3.4
     },
     {
       "parameters": {
         "promptType": "define",
-        "text": "=User Message is:\n{{ $('When chat message received').item.json.chatInput }}",
+        "text": "=User Message is:\n{{ $('When chat message received').item.json.chatInput }}\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable to fulfill different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you are able to use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use with against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assitant that can aid the user in exploring the USDB by asking question in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $('Extract data from file1').item.json.data }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n\n# When to use this tool\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n-->\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}",
+          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable to fulfill different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you are able to use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use with against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assitant that can aid the user in exploring the USDB by asking question in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $('Extract data from file1').item.json.data }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n\n# When to use this tool\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n-->\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n{{ $json.original_input.chatinput }}",
           "returnIntermediateSteps": "={{ true }}"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        20,
-        2760
+        480,
+        2820
       ],
       "id": "0a255659-643f-4777-a03f-cae820514dd8",
       "name": "USDB AI Agent"
     },
     {
       "parameters": {
-        "name": "DateandTime",
-        "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
-        "jsCode": "// Advanced DateTime Tool for n8n\nmodule.exports = function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  \n  // Format date as string\n  const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;\n  \n  // Format time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Create simple data object\n  const data = {\n    current: {\n      dateTime: `${dateString} ${timeString}`,\n      date: dateString,\n      time: timeString\n    }\n  };\n  \n  // Create the response property n8n expects\n  const responseData = {\n    response: JSON.stringify(data)\n  };\n  \n  // Debug\n  console.log(\"Response data:\", responseData);\n  console.log(\"Response type:\", typeof responseData.response);\n\n  // Return the object with the response property containing a string\n  return responseData;\n};"
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolCode",
-      "typeVersion": 1.1,
-      "position": [
-        120,
-        2980
-      ],
-      "id": "63f377a3-72dc-4189-b2bc-1c12b91e9777",
-      "name": "dateTimeInfo"
-    },
-    {
-      "parameters": {
-        "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
-        "height": 466,
-        "width": 2125,
+        "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once (READ SCHEMA)\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
+        "height": 486,
+        "width": 1665,
         "color": 3
       },
       "id": "89a2c89f-2d85-489e-9370-5316b444295e",
       "name": "Sticky Note9",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -940,
+        -1140,
         1800
       ],
       "typeVersion": 1
@@ -1611,8 +1456,8 @@
       "name": "OpenAI Chat1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        -180,
-        2980
+        420,
+        3000
       ],
       "typeVersion": 1,
       "credentials": {
@@ -1625,8 +1470,8 @@
     {
       "parameters": {
         "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
-        "height": 855,
-        "width": 1926,
+        "height": 955,
+        "width": 2106,
         "color": 6
       },
       "id": "88bce765-bb6c-43f6-a629-1d9edb4dd47b",
@@ -1641,15 +1486,15 @@
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 849,
-        "width": 2543,
+        "height": 949,
+        "width": 1523,
         "color": 6
       },
       "id": "0eec58c1-30d2-447a-ae82-acb6ff26ca61",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -2160,
+        -1140,
         2320
       ],
       "typeVersion": 1
@@ -1686,271 +1531,6 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "30c3394f-b862-4d3f-85fe-f5eb97f787d5",
-              "name": "response",
-              "value": "={{ $('Format Response2').item.json.textOutput }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "67ea26b5-b922-4eb7-82e7-5b51ef2562f5",
-      "name": "Edit Fields",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        5460,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "// Get the SQL query from the previous node\nconst sqlQuery = $json[\"text\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\s*--/, // End of statement with comment\n  /DROP\\s+TABLE/i,\n  /DELETE\\s+FROM/i,\n  /UPDATE\\s+/i,\n  /INSERT\\s+INTO/i,\n  /ALTER\\s+TABLE/i,\n];\n\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(sqlQuery)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn { sqlQuery };\n"
-      },
-      "id": "c4135f87-6f4f-48fd-8888-fe572f7932a1",
-      "name": "Query Validation",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5080,
-        1080
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "append",
-        "documentId": {
-          "__rl": true,
-          "value": "1Yw_auhBNKJnLfpP0xUGhl3Xznt5Jh1lQpFbco_DYVKc",
-          "mode": "list",
-          "cachedResultName": "USDB Query Log",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Yw_auhBNKJnLfpP0xUGhl3Xznt5Jh1lQpFbco_DYVKc/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 1788684584,
-          "mode": "list",
-          "cachedResultName": "USDB queries",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Yw_auhBNKJnLfpP0xUGhl3Xznt5Jh1lQpFbco_DYVKc/edit#gid=1788684584"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "timestamp": "={{ $now }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "timestamp",
-              "displayName": "timestamp",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "natural language question",
-              "displayName": "natural language question",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "SQL query",
-              "displayName": "SQL query",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "answer",
-              "displayName": "answer",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "id": "116efde2-35cd-4d49-89c8-b7053805582a",
-      "name": "Google Sheets",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        5280,
-        1300
-      ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "BQrRr81yIEFDlryk",
-          "name": "USDB GSheets"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "name": "database_query",
-        "description": "Call this tool to query into USDB and get the response from the database\n",
-        "workflowId": {
-          "__rl": true,
-          "value": "={{\"U0WVICGhaz0o0bKs\"}}",
-          "mode": "id"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Query', ``, 'string') }}"
-          },
-          "matchingColumns": [
-            "aField"
-          ],
-          "schema": [
-            {
-              "id": "Query",
-              "displayName": "Query",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
-      "typeVersion": 2,
-      "position": [
-        5760,
-        1260
-      ],
-      "id": "e5842b38-477c-4e67-abbc-8bb8e0094492",
-      "name": "database_query1"
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "gpt-4o",
-          "mode": "list",
-          "cachedResultName": "gpt-4o"
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        4600,
-        1360
-      ],
-      "id": "8e96b8c1-b705-4e5d-9ec6-b791b186b21c",
-      "name": "OpenAI Chat Model1",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row (optional)\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | ')); // For Markdown table formatting\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => item[header]);\n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];\n"
-      },
-      "id": "b38da21b-0eb4-4045-bfc1-c7ca8cca6ac4",
-      "name": "Format Response2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5080,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 1009,
-        "width": 2123,
-        "color": 5
-      },
-      "id": "22c45365-8dd8-4095-9c35-cb681f9296c7",
-      "name": "Sticky Note12",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        3480,
-        820
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "={{ $json.sqlquery }}"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {
-              "followRedirects": true,
-              "maxRedirects": 21
-            }
-          },
-          "response": {}
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        6120,
-        920
-      ],
-      "id": "8383995c-dcec-4082-a8da-430d84f4d3c0",
-      "name": "HTTP Request2"
-    },
-    {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $json.sessionId }}",
-        "contextWindowLength": 50
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        4780,
-        1280
-      ],
-      "id": "01333e33-c658-44f5-a62a-baf292729aeb",
-      "name": "Simple Memory"
-    },
-    {
-      "parameters": {
         "rule": {
           "interval": [
             {
@@ -1962,81 +1542,11 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -220,
-        2040
+        -800,
+        2120
       ],
       "id": "d47424d7-4908-4742-ab9d-0eee1c36c0b4",
       "name": "Schedule Trigger"
-    },
-    {
-      "parameters": {
-        "fileSelector": "./usdb_sql.json",
-        "options": {}
-      },
-      "id": "782232ae-c540-432e-8dfc-a89fa9d349bf",
-      "name": "Load the schema from the local file",
-      "type": "n8n-nodes-base.readWriteFile",
-      "position": [
-        4180,
-        1080
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "42abd24e-419a-47d6-bc8b-7146dd0b8314",
-              "name": "sessionId",
-              "type": "string",
-              "value": "={{ $('Switch1').item.json.sessionId }}"
-            },
-            {
-              "id": "39244192-a1a6-42fe-bc75-a6fba1f264df",
-              "name": "action",
-              "type": "string",
-              "value": "={{ $('Switch1').item.json.action }}"
-            },
-            {
-              "id": "f78c57d9-df13-43c7-89a7-5387e528107e",
-              "name": "chatinput",
-              "type": "string",
-              "value": "= {{ $('Switch1').item.json.chatInput }}"
-            },
-            {
-              "id": "e42b39eb-dfbd-48d9-94ed-d658bdd41454",
-              "name": "schema",
-              "type": "string",
-              "value": "={{ $json.data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "fe338be5-0116-4ea5-a039-a5cd146edaf9",
-      "name": "Combine schema data and chat input",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        4540,
-        1080
-      ],
-      "executeOnce": true,
-      "typeVersion": 3.4
-    },
-    {
-      "parameters": {
-        "operation": "fromJson",
-        "options": {}
-      },
-      "id": "b67ad300-b432-424e-95bd-eb483e8c3978",
-      "name": "Extract data from file",
-      "type": "n8n-nodes-base.extractFromFile",
-      "position": [
-        4360,
-        1080
-      ],
-      "typeVersion": 1
     },
     {
       "parameters": {
@@ -2074,174 +1584,10 @@
       "typeVersion": 3.2,
       "position": [
         -800,
-        2740
+        2660
       ],
       "id": "7d975764-9824-49c1-9d96-895a230c0dab",
       "name": "Switch1"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "Orchestrator",
-        "responseMode": "responseNode",
-        "options": {
-          "ignoreBots": true
-        }
-      },
-      "id": "0208ff3f-b9d1-4716-82e0-51744c0b2f69",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        2840,
-        620
-      ],
-      "webhookId": "2a6b4dfd-841c-4894-8f86-ef7601bba00e",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "={\n  \"response\": \"{{$json.output}}\"\n}",
-        "options": {
-          "responseCode": 200
-        }
-      },
-      "id": "900a9516-f41f-499c-97e4-efb666ecc58f",
-      "name": "Respond",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.1,
-      "position": [
-        -1020,
-        3480
-      ],
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "=Natural Language Query:\n{{ $json.query }}\n\nSQL Query:",
-        "messages": {
-          "messageValues": [
-            {
-              "message": "=## Objective You are a world-class MsSQL developer. You will execute the following query against the USDB database.\n\n---\n\n- Natural Language Query: \n\"What is the earliest and latest datapoints in the dataset?\"\nSQL Query:\nsqlCopySELECT \n    MIN(EarliestDate) AS earliest_date,\n    MAX(LatestDate) AS latest_date\nFROM (\n    SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WHERE ChangedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WHERE SalesDate IS NOT NULL\n    UNION ALL\n    SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WHERE CreatedOn IS NOT NULL\n    UNION ALL\n    SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n) AS DateRanges;\n\n- Natural Language Query: \"Count how many rows in the entire dataset\"\nSQL Query:\nsqlCopySELECT \n    (SELECT COUNT(*) FROM dbo.LISTINGS) +\n    (SELECT COUNT(*) FROM dbo.DEALERS) +\n    (SELECT COUNT(*) FROM dbo.VINS) +\n    (SELECT COUNT(*) FROM dbo.HISTORY) AS total_rows;\n\n- Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\nSQL Query:\nsqlCopySELECT \n    SpecMake AS make,\n    COUNT(*) AS occurrences\nFROM dbo.LISTINGS\nWHERE SpecMake IS NOT NULL\nGROUP BY SpecMake\nORDER BY occurrences DESC\nLIMIT 10;\n\n\n**Requirements:**\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE"
-            }
-          ]
-        }
-      },
-      "id": "b2ab04ea-9d4b-4b0d-be37-fa89a16f9912",
-      "name": "USDB-SQL-query-Executor",
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.4,
-      "position": [
-        5940,
-        1140
-      ],
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "name": "query_validation",
-        "description": "Call this tool to validate that the query will not perform destructive actions.",
-        "jsCode": "// Get the SQL query from the previous node\nconst sqlQuery = $json[\"text\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\s*--/, // End of statement with comment\n  /DROP\\s+TABLE/i,\n  /DELETE\\s+FROM/i,\n  /UPDATE\\s+/i,\n  /INSERT\\s+INTO/i,\n  /ALTER\\s+TABLE/i,\n];\n\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(sqlQuery)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn [{\n  json: { response: JSON.stringify(items[0].json)}\n}];\n// {sqlQuery};\n\n// Parse the query result and return it as a string\n// const queryResult = items[0].json;\n// const resultString = JSON.stringify(queryResult);\n\n// Return the result as a string\n"
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolCode",
-      "typeVersion": 1.1,
-      "position": [
-        5760,
-        1100
-      ],
-      "id": "d2753543-31c7-4990-9ea3-81c8eeeabc35",
-      "name": "Query_Validation"
-    },
-    {
-      "parameters": {
-        "name": "format_response",
-        "description": "Call this tool after the execute_query tool has been called to format its response.",
-        "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row (optional)\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | ')); // For Markdown table formatting\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => item[header]);\n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];"
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolCode",
-      "typeVersion": 1.1,
-      "position": [
-        5760,
-        940
-      ],
-      "id": "05273ace-e56d-41da-93f5-af98cdb8a210",
-      "name": "format_response"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "={{ $json.query }}"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {
-              "followRedirects": true,
-              "maxRedirects": 21
-            }
-          },
-          "response": {}
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        5260,
-        1080
-      ],
-      "id": "a7a0fc87-32e9-4e60-83d6-db8da7c69016",
-      "name": "Query USDB"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://syc.app.n8n.cloud/webhook/query_USDB",
-        "sendBody": true,
-        "parametersBody": {
-          "values": [
-            {}
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
-      "typeVersion": 1.1,
-      "position": [
-        6160,
-        1300
-      ],
-      "id": "8fb1d07f-a03b-41ac-a18d-805488b8f0be",
-      "name": "USDB_Webhook"
-    },
-    {
-      "parameters": {
-        "model": "claude-3-5-sonnet-20241022",
-        "options": {
-          "thinking": false
-        }
-      },
-      "id": "f637d665-d3e3-49d8-93ba-2bd900696f1c",
-      "name": "Anthropic Chat1",
-      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-      "typeVersion": 1.2,
-      "position": [
-        5780,
-        1420
-      ],
-      "credentials": {
-        "anthropicApi": {
-          "id": "6XoeyrVJuZadyovW",
-          "name": "Kris' Anthropic"
-        }
-      }
     },
     {
       "parameters": {
@@ -2250,32 +1596,12 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -1060,
-        3000
+        -1000,
+        2880
       ],
       "id": "12c0413e-00c6-4b86-afe2-02c8a664ed17",
       "name": "When chat message received",
       "webhookId": "f0b92997-6084-43dd-914e-55bf2f6b5c28"
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "=EXEC sp_columns '{{ $json.name }}';"
-      },
-      "type": "n8n-nodes-base.microsoftSql",
-      "typeVersion": 1.1,
-      "position": [
-        5360,
-        1620
-      ],
-      "id": "2ec13be2-96ed-4738-bd8f-2e6bb41553e3",
-      "name": "Microsoft SQL",
-      "credentials": {
-        "microsoftSql": {
-          "id": "BbAMiDytg4JU7Jas",
-          "name": "Microsoft SQL account"
-        }
-      }
     },
     {
       "parameters": {
@@ -2287,8 +1613,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        -1280,
-        2640
+        -1560,
+        2520
       ],
       "id": "fcf4cb73-c272-4aae-b3b3-d80d69568571",
       "name": "OpenAI2",
@@ -2316,8 +1642,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1460,
-        2640
+        -1720,
+        2520
       ],
       "id": "cc6a3a1d-3667-4e67-8d1f-6c4027fd4cde",
       "name": "Dwnld_Audio1",
@@ -2345,8 +1671,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1380,
-        2900
+        -1640,
+        2740
       ],
       "id": "a801bd50-045d-441f-9212-f282af3b2271",
       "name": "Text Out1"
@@ -2379,8 +1705,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -1900,
-        2740
+        -2120,
+        2660
       ],
       "id": "b480e3cc-9cab-4d02-947e-eec7ebf6d125",
       "name": "Filter1"
@@ -2403,8 +1729,8 @@
       "name": "Slack Trigger",
       "type": "n8n-nodes-base.slackTrigger",
       "position": [
-        -2080,
-        2740
+        -2300,
+        2660
       ],
       "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
       "typeVersion": 1,
@@ -2417,45 +1743,12 @@
       "disabled": true
     },
     {
-      "parameters": {
-        "url": "https://syc.app.n8n.cloud/webhook/USDB_Orchestrator",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "=sessionId",
-              "value": "={{ $('When chat message received').item.json.sessionId }}"
-            },
-            {
-              "name": "chatInput",
-              "value": "={{ $('Switch2').item.json.chatInput }}"
-            },
-            {
-              "name": "action",
-              "value": "={{ $('Filter1').item.json.action }}"
-            }
-          ]
-        },
-        "options": {
-          "lowercaseHeaders": true
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        3100,
-        620
-      ],
-      "id": "63cbff9a-b17b-4a53-8b35-8ad098e8eb65",
-      "name": "Call USDB Orchestrator"
-    },
-    {
       "parameters": {},
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        -1060,
-        2740
+        -1380,
+        2660
       ],
       "id": "9071a455-4b46-40b1-b54a-ca6d9ea39b32",
       "name": "Merge"
@@ -2546,65 +1839,11 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -1700,
-        2740
+        -1920,
+        2660
       ],
       "id": "fead85ee-e12b-4464-9c64-171333add7e3",
       "name": "Switch2"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "=User Query:\n{{ $json.chatinput }}",
-        "options": {
-          "systemMessage": "=# Role\nYou are a world-class MsSQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
-          "returnIntermediateSteps": true
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        4720,
-        1080
-      ],
-      "id": "84924176-7a3c-4cab-9cfd-ba7248cd3421",
-      "name": "USDB Agent"
-    },
-    {
-      "parameters": {
-        "path": "query_USDB",
-        "responseMode": "responseNode",
-        "options": {
-          "ignoreBots": true
-        }
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        4180,
-        1460
-      ],
-      "id": "67036655-68ed-4e0d-9cd9-e62315b92816",
-      "name": "query_USDB",
-      "webhookId": "ee542699-4213-4de5-a73e-61e776148104"
-    },
-    {
-      "parameters": {
-        "toolDescription": "pass the query to this tool to execute it ",
-        "method": "POST",
-        "url": "https://syc.app.n8n.cloud/webhook-test/query_USDB",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\"query\":\"total vins count\"}"
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
-      "typeVersion": 1.1,
-      "position": [
-        6020,
-        1480
-      ],
-      "id": "2b19177e-a83e-462b-8a86-49fbc8e0278d",
-      "name": "query_USDB1"
     },
     {
       "parameters": {
@@ -2623,8 +1862,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -160,
-        2760
+        -180,
+        2660
       ],
       "id": "2da28234-45ac-492d-b1c2-d81fcda8e815",
       "name": "Start_Time"
@@ -2632,139 +1871,17 @@
     {
       "parameters": {
         "content": "",
-        "height": 106,
-        "width": 2125
+        "height": 946,
+        "width": 1245
       },
       "id": "93b79683-fc38-40e7-a126-60a89846c018",
       "name": "Sticky Note13",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1880,
-        2020
+        -2400,
+        2320
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "30c3394f-b862-4d3f-85fe-f5eb97f787d5",
-              "name": "response",
-              "value": "={{ $('Format Response').item.json.textOutput }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "8984beae-b9b5-4c1f-828e-07f147fec034",
-      "name": "Edit Fields1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        3860,
-        2700
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "// Get the SQL query from the previous node\nconst query = $json[\"Extract SQL query\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\s*--/, // End of statement with comment\n  /DROP\\s+TABLE/i,\n  /DELETE\\s+FROM/i,\n  /UPDATE\\s+/i,\n  /INSERT\\s+INTO/i,\n  /ALTER\\s+TABLE/i,\n];\n\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(query)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn { query };\n"
-      },
-      "id": "6e06e10c-7eff-43ae-a92a-27a1d3a4b2ea",
-      "name": "Query Validation1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        580,
-        2760
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "append",
-        "documentId": {
-          "__rl": true,
-          "value": "1Yw_auhBNKJnLfpP0xUGhl3Xznt5Jh1lQpFbco_DYVKc",
-          "mode": "list",
-          "cachedResultName": "USDB Query Log",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Yw_auhBNKJnLfpP0xUGhl3Xznt5Jh1lQpFbco_DYVKc/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 1788684584,
-          "mode": "list",
-          "cachedResultName": "USDB queries",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Yw_auhBNKJnLfpP0xUGhl3Xznt5Jh1lQpFbco_DYVKc/edit#gid=1788684584"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "timestamp": "={{ $now }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "timestamp",
-              "displayName": "timestamp",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "natural language question",
-              "displayName": "natural language question",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "SQL query",
-              "displayName": "SQL query",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "answer",
-              "displayName": "answer",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "id": "21a02cc3-0fb8-41bf-9821-d3a82a21ef3d",
-      "name": "Google Sheets1",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        3680,
-        2700
-      ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "BQrRr81yIEFDlryk",
-          "name": "USDB GSheets"
-        }
-      }
     },
     {
       "parameters": {
@@ -2793,29 +1910,16 @@
     },
     {
       "parameters": {
-        "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row (optional)\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | ')); // For Markdown table formatting\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => item[header]);\n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];\n"
-      },
-      "id": "c2b038e5-21f4-4638-b6f4-e4dcc19f0bb5",
-      "name": "Format Response",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3480,
-        2700
-      ]
-    },
-    {
-      "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 1009,
-        "width": 1643,
+        "height": 669,
+        "width": 1243,
         "color": 5
       },
       "id": "0f6674ba-a10c-4662-b9b3-033a94c4e8c0",
       "name": "Sticky Note14",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2360,
+        2760,
         2220
       ],
       "typeVersion": 1
@@ -2844,8 +1948,8 @@
       "name": "Load the schema from the local file1",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        -540,
-        2760
+        -560,
+        2660
       ],
       "typeVersion": 1
     },
@@ -2900,42 +2004,10 @@
       "name": "Extract data from file1",
       "type": "n8n-nodes-base.extractFromFile",
       "position": [
-        -340,
-        2760
+        -360,
+        2660
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "={{ $json.query }}"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {
-              "followRedirects": true,
-              "maxRedirects": 21
-            }
-          },
-          "response": {}
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        3660,
-        2480
-      ],
-      "id": "25e7586c-be30-4f03-ad64-7dba440e9e1d",
-      "name": "Query USDB1"
     },
     {
       "parameters": {
@@ -2945,8 +2017,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        3760,
-        3020
+        2260,
+        2440
       ],
       "id": "9d4ae333-14dc-4c09-b911-27f963a67e75",
       "name": "Microsoft SQL1",
@@ -2977,24 +2049,6 @@
     },
     {
       "parameters": {
-        "path": "query_USDB",
-        "responseMode": "responseNode",
-        "options": {
-          "ignoreBots": true
-        }
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        2580,
-        2860
-      ],
-      "id": "dedfbd4b-0dfd-459c-b9a7-0a941a6648a7",
-      "name": "query_USDB2",
-      "webhookId": "ee542699-4213-4de5-a73e-61e776148104"
-    },
-    {
-      "parameters": {
         "sessionIdType": "customKey",
         "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
         "contextWindowLength": 10
@@ -3002,14 +2056,164 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        -40,
-        2980
+        560,
+        3000
       ],
       "id": "7b9f5a5f-15bb-44b0-91c2-53eed1eacf37",
       "name": "Simple Memory2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | '));\n\n// Detect if this is a comparison query (contains percentage or difference columns)\nconst isComparisonQuery = headers.some(h => \n  h.includes('percent') || h.includes('diff') || h.includes('change'));\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => {\n    const value = item[header];\n    \n    // Format numbers with thousands separators\n    if (typeof value === 'number' && !isNaN(value)) {\n      // Format percentages\n      if (header.includes('percent') || header.includes('change')) {\n        return `${(value * 100).toFixed(2)}%`;\n      }\n      // Format currency\n      else if (header.includes('price') || header.includes('cost')) {\n        return `$${value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;\n      }\n      // Format regular numbers\n      else if (value > 1000) {\n        return value.toLocaleString('en-US');\n      }\n    }\n    \n    return value;\n  });\n  \n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1740,
+        2640
+      ],
+      "id": "e5ef801c-a5dc-4870-b00c-0cf28cc6483c",
+      "name": "Results Formatter"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Template matching function for common dealer queries\nconst templateMatchers = [\n  {\n    // Price adjustment queries\n    pattern: /(how many|how often|number of) times did (.*?) adjust prices? (before selling)? .*?(last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'price_adjustments',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Inventory turn rate queries\n    pattern: /(what was|how was) (.*?)('s)? inventory turn rate .*?(last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'inventory_turn_rate',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Inventory turn rate comparison\n    pattern: /how did (.*?)('s)? inventory turn rate compare to (brand|non-brand) dealers (last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'inventory_turn_rate_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_group: matches[3],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Sales count queries\n    pattern: /how many cars did (.*?) sell (last day|last week|last month|MTD|YTD|MOM|YOY|last 90 days|last 1Y|last 3Y|last 5Y)/i,\n    templateName: 'sales_count',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      time_period: matches[2]\n    })\n  },\n  {\n    // Sales velocity queries\n    pattern: /how (fast|quickly) did (.*?) sell (cars|vehicles) (last week|last month|MTD|MOM|YTD|YOY|last 90 days|last 1Y|last 3Y)/i,\n    templateName: 'sales_velocity',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      vehicle_type: matches[3],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Market comparison queries\n    pattern: /how did (.*?)('s)? (car sales|sales velocity) compare to (market average|national average|other dealers) (last week|last month|YTD|YOY|last 90 days)/i,\n    templateName: 'market_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_type: matches[3],\n      comparison_group: matches[4],\n      time_period: matches[5]\n    })\n  },\n  {\n    // Radius comparison\n    pattern: /how did (.*?)('s)? (car sales|sales velocity) compare to (.*?) (within a (\\d+) mile radius) (last week|last month|YTD|YOY|last 90 days)/i,\n    templateName: 'radius_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_type: matches[3],\n      dealer_group: matches[4],\n      radius: matches[6],\n      time_period: matches[7]\n    })\n  }\n];\n\n// Query templates with parameterized SQL\nconst queryTemplates = {\n  'price_adjustments': `\n    SELECT \n        d.Name AS DealerName,\n        AVG(CAST(ISNULL(l.PriceChanges, 0) AS FLOAT)) AS AvgPriceAdjustments,\n        COUNT_BIG(*) AS TotalSales\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'inventory_turn_rate': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n        COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n        AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n        CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n            NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n        AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'inventory_turn_rate_comparison': `\n    WITH DealerData AS (\n        SELECT \n            d.Name AS DealerName,\n            d.DEALERS_ID,\n            COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n            COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n            CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n                NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate,\n            MAX(l.SpecMake) AS MainBrand\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n            AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            d.Name, d.DEALERS_ID\n    ),\n    ComparisonData AS (\n        SELECT \n            {{comparison_select_clause}},\n            COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n            COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n            CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n                NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n            CROSS JOIN DealerData dd\n        WHERE \n            d.DEALERS_ID <> dd.DEALERS_ID\n            {{comparison_where_clause}}\n            AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n            AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            {{comparison_group_clause}}\n    )\n    SELECT \n        dd.DealerName,\n        dd.TurnRate AS DealerTurnRate,\n        AVG(cd.TurnRate) AS ComparisonTurnRate,\n        dd.TurnRate - AVG(cd.TurnRate) AS TurnRateDifference,\n        CASE \n            WHEN AVG(cd.TurnRate) = 0 THEN NULL \n            ELSE (dd.TurnRate - AVG(cd.TurnRate)) / AVG(cd.TurnRate) * 100 \n        END AS PercentDifference\n    FROM \n        DealerData dd\n    CROSS JOIN\n        ComparisonData cd\n    GROUP BY \n        dd.DealerName, dd.TurnRate;\n  `,\n  'sales_count': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(*) AS TotalSales\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'sales_velocity': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(*) AS TotalSales,\n        AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'market_comparison': `\n    WITH DealerData AS (\n        SELECT \n            d.Name AS DealerName,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            d.Name\n    ),\n    MarketData AS (\n        SELECT \n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    )\n    SELECT \n        dd.DealerName,\n        dd.TotalSales AS DealerSales,\n        m.TotalSales AS MarketSales,\n        dd.AvgDaysToSell AS DealerAvgDaysToSell,\n        m.AvgDaysToSell AS MarketAvgDaysToSell,\n        dd.AvgDaysToSell - m.AvgDaysToSell AS DaysToSellDifference,\n        CASE \n            WHEN m.AvgDaysToSell = 0 THEN NULL \n            ELSE (dd.AvgDaysToSell - m.AvgDaysToSell) / m.AvgDaysToSell * 100 \n        END AS PercentDifference\n    FROM \n        DealerData dd\n    CROSS JOIN\n        MarketData m;\n  `,\n  'radius_comparison': `\n    WITH DealerLocation AS (\n        SELECT \n            d.DEALERS_ID,\n            d.Name AS DealerName,\n            d.Latitude,\n            d.Longitude\n        FROM \n            dbo.DEALERS d WITH (NOLOCK)\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND d.Latitude IS NOT NULL\n            AND d.Longitude IS NOT NULL\n    ),\n    DealerData AS (\n        SELECT \n            dl.DealerName,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN DealerLocation dl ON l.DEALERS_ID = dl.DEALERS_ID\n        WHERE \n            l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            dl.DealerName\n    ),\n    NearbyDealers AS (\n        SELECT \n            d.DEALERS_ID,\n            d.Name AS DealerName,\n            d.Latitude,\n            d.Longitude,\n            dl.Latitude AS CenterLat,\n            dl.Longitude AS CenterLong,\n            (3959 * ACOS(COS(RADIANS(dl.Latitude)) * COS(RADIANS(d.Latitude)) * COS(RADIANS(d.Longitude) - RADIANS(dl.Longitude)) + SIN(RADIANS(dl.Latitude)) * SIN(RADIANS(d.Latitude)))) AS DistanceMiles\n        FROM \n            dbo.DEALERS d WITH (NOLOCK)\n            CROSS JOIN DealerLocation dl\n        WHERE \n            d.Latitude IS NOT NULL\n            AND d.Longitude IS NOT NULL\n            AND d.Name LIKE '%{{dealer_group}}%'\n            AND d.DEALERS_ID <> dl.DEALERS_ID\n    ),\n    RadiusData AS (\n        SELECT \n            nd.DealerName,\n            nd.DistanceMiles,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN NearbyDealers nd ON l.DEALERS_ID = nd.DEALERS_ID\n        WHERE \n            nd.DistanceMiles <= {{radius}}\n            AND l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            nd.DealerName, nd.DistanceMiles\n    )\n    SELECT \n        dd.DealerName,\n        dd.TotalSales AS DealerSales,\n        AVG(rd.TotalSales) AS AvgRadiusSales,\n        dd.AvgDaysToSell AS DealerAvgDaysToSell,\n        AVG(rd.AvgDaysToSell) AS RadiusAvgDaysToSell,\n        dd.AvgDaysToSell - AVG(rd.AvgDaysToSell) AS DaysToSellDifference,\n        CASE \n            WHEN AVG(rd.AvgDaysToSell) = 0 THEN NULL \n            ELSE (dd.AvgDaysToSell - AVG(rd.AvgDaysToSell)) / AVG(rd.AvgDaysToSell) * 100 \n        END AS PercentDifference,\n        COUNT(rd.DealerName) AS DealersInRadius\n    FROM \n        DealerData dd\n    LEFT JOIN\n        RadiusData rd ON 1=1\n    GROUP BY \n        dd.DealerName, dd.TotalSales, dd.AvgDaysToSell;\n  `\n};\n\n// Get the user's question and current date\nconst userQuestion = $input.item.json.chatinput || \"\";\nconst now = new Date();\n\n// Detect time period and convert to actual dates\nfunction getDateRange(timePeriod) {\n  let startDate, endDate = new Date(now);\n  \n  if (timePeriod.includes('last day')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 1);\n  } else if (timePeriod.includes('last week')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 7);\n  } else if (timePeriod.includes('last month')) {\n    startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);\n    endDate = new Date(now.getFullYear(), now.getMonth(), 0);\n  } else if (timePeriod.includes('MTD')) {\n    startDate = new Date(now.getFullYear(), now.getMonth(), 1);\n  } else if (timePeriod.includes('YTD')) {\n    startDate = new Date(now.getFullYear(), 0, 1);\n  } else if (timePeriod.includes('MOM')) {\n    // Month over Month (current month vs previous month)\n    startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);\n    endDate = new Date(now.getFullYear(), now.getMonth(), 0);\n  } else if (timePeriod.includes('YOY')) {\n    // Year over Year (current month this year vs same month last year)\n    startDate = new Date(now.getFullYear() - 1, now.getMonth(), 1);\n    endDate = new Date(now.getFullYear() - 1, now.getMonth() + 1, 0);\n  } else if (timePeriod.includes('last 90 days')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 90);\n  } else if (timePeriod.includes('last 1Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 1);\n  } else if (timePeriod.includes('last 3Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 3);\n  } else if (timePeriod.includes('last 5Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 5);\n  } else if (timePeriod.includes('last year')) {\n    startDate = new Date(now.getFullYear() - 1, 0, 1);\n    endDate = new Date(now.getFullYear() - 1, 11, 31);\n  } else {\n    // Default to last 30 days\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 30);\n  }\n  \n  return {\n    start_date: startDate.toISOString().split('T')[0],\n    end_date: endDate.toISOString().split('T')[0]\n  };\n}\n\n// Helper function for comparison clauses\nfunction getComparisonClauses(comparisonGroup, dealerMainBrand) {\n  if (comparisonGroup === 'brand') {\n    return {\n      select: \"d.Name AS ComparisonDealer\",\n      where: `AND l.SpecMake = '${dealerMainBrand}'`,\n      group: \"d.Name\"\n    };\n  } else if (comparisonGroup === 'non-brand') {\n    return {\n      select: \"d.Name AS ComparisonDealer\",\n      where: `AND l.SpecMake <> '${dealerMainBrand}'`,\n      group: \"d.Name\"\n    };\n  } else {\n    return {\n      select: \"'All Dealers' AS ComparisonGroup\",\n      where: \"\",\n      group: \"'All Dealers'\"\n    };\n  }\n}\n\n// Try to match the question to a template\nlet matchedTemplate = null;\nlet templateParams = {};\n\nfor (const matcher of templateMatchers) {\n  const matches = userQuestion.match(matcher.pattern);\n  if (matches) {\n    matchedTemplate = matcher.templateName;\n    templateParams = matcher.extractParams(matches, userQuestion);\n    \n    // Add date params based on detected time period\n    const dateRange = getDateRange(templateParams.time_period || \"last month\");\n    templateParams.start_date = dateRange.start_date;\n    templateParams.end_date = dateRange.end_date;\n    \n    // Special handling for comparison queries\n    if (matchedTemplate === 'inventory_turn_rate_comparison') {\n      const mainBrand = \"Toyota\"; // This should be retrieved dynamically in production\n      const clauses = getComparisonClauses(templateParams.comparison_group, mainBrand);\n      templateParams.comparison_select_clause = clauses.select;\n      templateParams.comparison_where_clause = clauses.where;\n      templateParams.comparison_group_clause = clauses.group;\n    }\n    \n    break;\n  }\n}\n\n// If we matched a template, populate it with parameters\nif (matchedTemplate && queryTemplates[matchedTemplate]) {\n  let query = queryTemplates[matchedTemplate];\n  \n  // Replace template parameters\n  Object.keys(templateParams).forEach(key => {\n    query = query.replace(new RegExp(`{{${key}}}`, 'g'), templateParams[key]);\n  });\n  \n  // Output the populated template\n  return { \n    template_matched: true,\n    template_name: matchedTemplate,\n    template_params: templateParams,\n    query: query.trim(),\n    ...templateParams,\n    original_input: $input.item.json\n  };\n} else {\n  // No template matched, continue with normal LLM-based query generation\n  return { \n    template_matched: false,\n    query: null,\n    original_input: $input.item.json\n  };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        20,
+        2660
+      ],
+      "id": "4b524c5c-712a-4891-9b1b-b2140661dc3b",
+      "name": "Query Templates Matcher"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.template_matched }}",
+                    "rightValue": "=True",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e17b0650-ab6d-4a43-bc41-b8de6acccf31"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Template"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        220,
+        2660
+      ],
+      "id": "407eff01-fba4-4ff5-8184-5691e8763245",
+      "name": "Template or LLM"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b2126b70-9ce0-4541-b596-e2e32830bb57",
+              "name": "stopTime",
+              "value": "={{ $now }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2260,
+        2780
+      ],
+      "id": "6f1c0405-f987-4a7d-993f-c7102b0fafe9",
+      "name": "Stop_Time"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Get the SQL query from the previous node\nconst sqlQuery = $json[\"query\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\\\s*--/, // End of statement with comment\n  /DROP\\\\s+TABLE/i,\n  /DELETE\\\\s+FROM/i,\n  /UPDATE\\\\s+/i,\n  /INSERT\\\\s+INTO/i,\n  /ALTER\\\\s+TABLE/i,\n];\n\n// Check for dangerous patterns\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(sqlQuery)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// Validate proper JOIN conditions\nif (sqlQuery.includes(\"JOIN\") && !sqlQuery.includes(\"ON \")) {\n  throw new Error(\"JOIN without proper ON clause detected.\");\n}\n\n// Validate ORDER BY clause for TOP queries\nif (sqlQuery.includes(\"TOP \") && !sqlQuery.includes(\"ORDER BY\")) {\n  throw new Error(\"TOP query without ORDER BY clause detected.\");\n}\n\n// Validate date range calculations\nif (sqlQuery.includes(\"DATEADD\") || sqlQuery.includes(\"DATEDIFF\")) {\n  if (!sqlQuery.includes(\"IS NOT NULL\")) {\n    console.log(\"Warning: Date calculation without NULL check detected.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn { query: sqlQuery };"
+      },
+      "id": "6e06e10c-7eff-43ae-a92a-27a1d3a4b2ea",
+      "name": "Query Validation2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1020,
+        2820
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "id": "93a6dd9d-c845-4816-9471-de0c2707001e",
+      "name": "SQL template and AI queries",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1340,
+        2640
+      ],
+      "typeVersion": 3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get start and stop times\nconst startTime = $('Template or LLM').first()?.json?.original_input?.Start_time;\nconst stopTime = new Date($input.first().json.stopTime); // Convert to Date object\n\n// Calculate the difference in milliseconds\nconst deltaMs = stopTime - startTime;\n\n// Convert to seconds (with 2 decimal places)\nconst deltaSeconds = (deltaMs / 1000).toFixed(2);\n\n// Convert to a more readable format if it's a longer duration\nlet readableDelta;\nif (deltaMs < 1000) {\n  readableDelta = `${deltaMs} ms`;\n} else if (deltaMs < 60000) {\n  readableDelta = `${deltaSeconds} seconds`;\n} else {\n  const minutes = Math.floor(deltaMs / 60000);\n  const seconds = ((deltaMs % 60000) / 1000).toFixed(2);\n  readableDelta = `${minutes} minutes and ${seconds} seconds`;\n}\n\n// Return both the original data and the time measurements\nreturn {\n  ...($input.item.json),\n  stopTime: new Date(stopTime).toISOString(),\n  executionTimeMs: deltaMs,\n  executionTimeSec: parseFloat(deltaSeconds),\n  executionTimeReadable: readableDelta\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        3020
+      ],
+      "id": "b92ce5de-91de-4155-a700-8fa944856b2b",
+      "name": "Calculate Delta"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When chat message received": [
+      {
+        "json": {
+          "sessionId": "bc233a1aeae8430084494bb646ce5210",
+          "action": "sendMessage",
+          "chatInput": "What are the top dealers in Arizona?"
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner"
@@ -3028,6 +2232,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-08T07:00:37.000Z",
-  "versionId": "d2fa736d-bb2b-46e0-892b-bc1676107ee6"
+  "updatedAt": "2025-04-08T16:12:01.000Z",
+  "versionId": "ad670bce-8925-46d8-93c1-2935314eeef7"
 }
