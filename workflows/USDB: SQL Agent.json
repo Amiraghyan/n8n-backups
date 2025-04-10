@@ -132,14 +132,9 @@
       "main": [
         [
           {
-            "node": "Combine query result and chat answer",
+            "node": "HTTP Request",
             "type": "main",
-            "index": 1
-          },
-          {
-            "node": "SQL template and AI queries",
-            "type": "main",
-            "index": 1
+            "index": 0
           }
         ],
         [
@@ -372,7 +367,7 @@
       "main": [
         [
           {
-            "node": "Query Templates Matcher",
+            "node": "USDB AI Agent",
             "type": "main",
             "index": 0
           }
@@ -443,13 +438,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Stop_Time": {
@@ -476,13 +465,7 @@
     },
     "SQL template and AI queries": {
       "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Calculate Delta": {
@@ -605,6 +588,11 @@
           }
         ]
       ]
+    },
+    "dateTimeInfo1": {
+      "ai_tool": [
+        []
+      ]
     }
   },
   "createdAt": "2025-02-25T15:31:55.991Z",
@@ -650,8 +638,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1320,
-        2140
+        -1780,
+        1980
       ],
       "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
       "name": "OpenRouter Chat",
@@ -671,8 +659,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1320,
-        1840
+        -1460,
+        1980
       ],
       "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
       "name": "Anthropic Chat",
@@ -711,7 +699,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        1320,
+        -1620,
         1980
       ],
       "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
@@ -945,8 +933,8 @@
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1380,
-        2940
+        1480,
+        3040
       ],
       "typeVersion": 1
     },
@@ -1158,8 +1146,8 @@
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
-        2080,
-        2780
+        2120,
+        2800
       ],
       "typeVersion": 3.4
     },
@@ -1175,8 +1163,8 @@
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1880,
-        2780
+        1920,
+        2800
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1208,8 +1196,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1540,
-        2640
+        1480,
+        2760
       ],
       "id": "70d3381e-ae22-40fc-8de5-e4e9936b46c5",
       "name": "HTTP Request",
@@ -1386,7 +1374,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2260,
+        2120,
         3020
       ],
       "id": "e5981541-bd25-4848-86ab-8db4e9ae11cd",
@@ -1488,7 +1476,7 @@
         "text": "=User Message is:\n{{ $('When chat message received').item.json.chatInput }}\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assistant that can aid the user in exploring the USDB by asking questions in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $('Extract data from file1').item.json.data }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n# Tools\n\n## \"USDB_SQL_tool\": use this tool to retrieve relevant information from the associated vector store and use it to determine, with a high level of accuracy, the best pattern to be used to translate the natural language question presented by the user into an MsSQL query designed to extract the correct answer from the USDB. The tool will help you retrieve known shapes for SQL queries. If the answer cannot be found in the provided vector store, respond with \"I cannot find an applicable pattern in the USDB_SQL_tool.\" and proceed to look at other resources to come up with the proper query design.\n\n## When to use this tool\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n-->\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n{{ $json.original_input.chatinput }}",
+          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assistant that can aid the user in exploring the USDB by asking questions in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $('Extract data from file1').item.json.data }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n# Tools\n<tools>\n## \"mssql_tool\": \n<mssql_tool>\nuse this tool to retrieve relevant information from the associated vector store and use it to determine, with a high level of accuracy, the best pattern to be used to translate the natural language question presented by the user into an MsSQL query designed to extract the correct answer from the USDB. The tool will help you retrieve known shapes for SQL queries. If the shape of the query cannot be found in the provided vector store, continue the thought process to craft the proper query.\n\n// respond with \"I cannot find an applicable pattern in the \n// USDB_SQL_tool.\" and proceed to look at other resources to come up with \n// the proper query design.\n\n</mssql_tool>\n\n## \"date_time_tool\": \n<date_time_tool>\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n\n</date_time_tool>\n</tools>\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n{{ $json.original_input.chatinput }}",
           "returnIntermediateSteps": "={{ true }}"
         }
       },
@@ -1528,8 +1516,8 @@
       "name": "OpenAI Chat1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        360,
-        3040
+        280,
+        3000
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2028,7 +2016,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        480,
+        380,
         3120
       ],
       "id": "7b9f5a5f-15bb-44b0-91c2-53eed1eacf37",
@@ -2041,8 +2029,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1740,
-        2640
+        1700,
+        2760
       ],
       "id": "e5ef801c-a5dc-4870-b00c-0cf28cc6483c",
       "name": "Results Formatter"
@@ -2055,8 +2043,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        20,
-        2660
+        360,
+        2600
       ],
       "id": "4b524c5c-712a-4891-9b1b-b2140661dc3b",
       "name": "Query Templates Matcher"
@@ -2099,8 +2087,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        220,
-        2660
+        540,
+        2600
       ],
       "id": "407eff01-fba4-4ff5-8184-5691e8763245",
       "name": "Template or LLM"
@@ -2122,8 +2110,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2260,
-        2780
+        2320,
+        2800
       ],
       "id": "6f1c0405-f987-4a7d-993f-c7102b0fafe9",
       "name": "Stop_Time"
@@ -2154,8 +2142,8 @@
       "name": "SQL template and AI queries",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1340,
-        2640
+        820,
+        2600
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -2168,7 +2156,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2060,
+        1920,
         3020
       ],
       "id": "b92ce5de-91de-4155-a700-8fa944856b2b",
@@ -2231,8 +2219,8 @@
     },
     {
       "parameters": {
-        "name": "company_documents_tool",
-        "description": "Retrieve information from any company documents"
+        "name": "mssql_tool",
+        "description": "Retrieve information about query patterns for the USDB using MsSQL"
       },
       "id": "462f13a3-cac1-49b1-bda8-d78399734eb5",
       "name": "Vector Store Tool",
@@ -2464,7 +2452,7 @@
       "typeVersion": 1.2,
       "position": [
         1060,
-        3400
+        3320
       ],
       "id": "5c86e4c5-a6b5-4ffa-9b85-096eac90b301",
       "name": "OpenAI Chat Model1",
@@ -2474,6 +2462,36 @@
           "name": "USDB"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "# Slack Text and Voice Messages",
+        "height": 126,
+        "width": 325
+      },
+      "id": "318a96bd-675b-4c04-adfe-64fc5936bdf8",
+      "name": "Sticky Note16",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2340,
+        2380
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "name": "date_time_tool",
+        "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
+        "jsCode": "// Advanced DateTime Tool for n8n Agent with support for business timeframes\nmodule.exports = async function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  const dayOfWeek = now.getDay(); // 0 = Sunday, 6 = Saturday\n  \n  // Format helper function\n  const formatDate = (date) => {\n    return {\n      formatted: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,\n      year: date.getFullYear(),\n      month: date.getMonth() + 1,\n      day: date.getDate()\n    };\n  };\n  \n  // Get start of current day\n  const startOfDay = new Date(year, month, day);\n  startOfDay.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current month\n  const startOfMonth = new Date(year, month, 1);\n  startOfMonth.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current year\n  const startOfYear = new Date(year, 0, 1);\n  startOfYear.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current week (Sunday-based)\n  const startOfWeek = new Date(now);\n  startOfWeek.setDate(now.getDate() - now.getDay());\n  startOfWeek.setHours(0, 0, 0, 0);\n  \n  // Month-to-Date (MTD)\n  const mtdDays = day;\n  const mtdStart = formatDate(startOfMonth);\n  const mtdEnd = formatDate(now);\n  \n  // Year-to-Date (YTD)\n  const ytdDays = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24)) + 1;\n  const ytdStart = formatDate(startOfYear);\n  const ytdEnd = formatDate(now);\n  \n  // Last month (for Month-over-Month)\n  let lastMonthYear = year;\n  let lastMonthMonth = month - 1;\n  \n  // Adjust for January (handle previous year December)\n  if (lastMonthMonth < 0) {\n    lastMonthMonth = 11; // December\n    lastMonthYear = year - 1;\n  }\n  \n  const lastMonth = new Date(lastMonthYear, lastMonthMonth, 1);\n  const lastMonthEnd = new Date(year, month, 0);\n  lastMonthEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  const lastMonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(lastMonth);\n  \n  // Last year (for Year-over-Year)\n  const lastYear = new Date(year - 1, month, day);\n  const lastYearStart = new Date(year - 1, 0, 1);\n  lastYearStart.setHours(0, 0, 0, 0); // Set to beginning of the day\n  const lastYearEnd = new Date(year - 1, 11, 31);\n  lastYearEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  \n  // Format current time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Calculate days in the current year (accounting for leap years)\n  const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);\n  const daysInYear = isLeapYear ? 366 : 365;\n  \n  // Safely handle day overflow for last year (e.g., Feb 29 on leap year to non-leap year)\n  function createSafePreviousYearDate(currentYear, currentMonth, currentDay) {\n    // Check if we're dealing with Feb 29 on a leap year\n    if (currentMonth === 1 && currentDay === 29) { // February 29\n      const prevYear = currentYear - 1;\n      const isPrevLeapYear = (prevYear % 4 === 0 && prevYear % 100 !== 0) || (prevYear % 400 === 0);\n      \n      if (!isPrevLeapYear) {\n        // Previous year is not a leap year, so Feb 29 doesn't exist - use Feb 28 instead\n        return new Date(prevYear, currentMonth, 28);\n      }\n    }\n    \n    // For all other cases, just use the same month and day in the previous year\n    return new Date(currentYear - 1, currentMonth, currentDay);\n  }\n  \n  // Recalculate lastYear date to handle potential February 29 issue\n  const safeLastYear = createSafePreviousYearDate(year, month, day);\n  \n  // Return comprehensive date/time information\n  const result = {\n    current: {\n      timestamp: now.getTime(),\n      dateTime: `${formatDate(now).formatted} ${timeString}`,\n      date: formatDate(now).formatted,\n      time: timeString,\n      year: year,\n      month: month + 1,\n      monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n      day: day,\n      dayOfWeek: dayOfWeek,\n      dayName: new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now),\n      quarter: Math.floor(month / 3) + 1\n    },\n    \n    timeframes: {\n      // This week\n      thisWeek: {\n        start: formatDate(startOfWeek),\n        end: formatDate(now),\n        daysPassed: dayOfWeek,\n        daysRemaining: 6 - dayOfWeek\n      },\n      \n      // This month\n      thisMonth: {\n        start: formatDate(startOfMonth),\n        end: formatDate(now),\n        name: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n        daysPassed: day - 1,\n        totalDays: new Date(year, month + 1, 0).getDate()\n      },\n      \n      // This year\n      thisYear: {\n        start: formatDate(startOfYear),\n        end: formatDate(now),\n        year: year,\n        daysPassed: ytdDays,\n        totalDays: daysInYear\n      },\n      \n      // Month-to-Date (MTD)\n      mtd: {\n        start: mtdStart,\n        end: mtdEnd,\n        daysPassed: mtdDays,\n        percentComplete: Math.round((mtdDays / new Date(year, month + 1, 0).getDate()) * 100)\n      },\n      \n      // Year-to-Date (YTD)\n      ytd: {\n        start: ytdStart,\n        end: ytdEnd,\n        daysPassed: ytdDays,\n        percentComplete: Math.round((ytdDays / daysInYear) * 100)\n      }\n    },\n    \n    comparisons: {\n      // Month-over-Month (MoM)\n      mom: {\n        current: {\n          month: month + 1,\n          monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n          year: year\n        },\n        previous: {\n          month: lastMonth.getMonth() + 1,\n          monthName: lastMonthName,\n          year: lastMonth.getFullYear()\n        },\n        start: formatDate(lastMonth),\n        end: formatDate(lastMonthEnd)\n      },\n      \n      // Year-over-Year (YoY)\n      yoy: {\n        current: {\n          year: year,\n          month: month + 1,\n          day: day\n        },\n        previous: {\n          year: safeLastYear.getFullYear(),\n          month: safeLastYear.getMonth() + 1,\n          day: safeLastYear.getDate()\n        },\n        sameDay: formatDate(safeLastYear),\n        yearStart: formatDate(lastYearStart),\n        yearEnd: formatDate(lastYearEnd)\n      }\n    },\n    \n    timezone: {\n      name: Intl.DateTimeFormat().resolvedOptions().timeZone,\n      offset: now.getTimezoneOffset()\n    },\n    \n    // Business days calculation (Mon-Fri)\n    business: {\n      isBusinessDay: (dayOfWeek >= 1 && dayOfWeek <= 5),\n      daysSinceLastBusinessDay: dayOfWeek === 0 ? 2 : dayOfWeek === 1 ? 3 : 1,\n      businessDaysInMonth: getBusinessDaysInMonth(year, month),\n      businessDaysPassedThisMonth: getBusinessDaysPassed(year, month, day)\n    }\n  };\n  \n  // Helper function to calculate business days in a month (Mon-Fri)\n  function getBusinessDaysInMonth(year, month) {\n    const daysInMonth = new Date(year, month + 1, 0).getDate();\n    let businessDays = 0;\n    \n    for (let i = 1; i <= daysInMonth; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  // Helper function to calculate business days passed in the current month\n  function getBusinessDaysPassed(year, month, currentDay) {\n    let businessDays = 0;\n    \n    for (let i = 1; i <= currentDay; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  return JSON.stringify(result);\n};"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        520,
+        3180
+      ],
+      "id": "1e692664-393f-4cce-8d89-b8dd6a1c548a",
+      "name": "dateTimeInfo1"
     }
   ],
   "pinData": {},
@@ -2495,6 +2513,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-10T07:24:45.000Z",
-  "versionId": "1733c87c-9b2f-4bd6-9f82-e5d1049a58fc"
+  "updatedAt": "2025-04-10T17:15:35.000Z",
+  "versionId": "37b4a546-4f00-4aab-b779-7abd3f5c3b94"
 }
