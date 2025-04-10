@@ -379,44 +379,11 @@
         ]
       ]
     },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "USDB Agent1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Simple Memory1": {
-      "ai_memory": [
-        [
-          {
-            "node": "USDB Agent1",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Load the schema from the local file1": {
       "main": [
         [
           {
             "node": "Extract data from file1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Combine schema data and chat input1": {
-      "main": [
-        [
-          {
-            "node": "USDB Agent1",
             "type": "main",
             "index": 0
           }
@@ -432,11 +399,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "USDB Agent1": {
-      "main": [
-        []
       ]
     },
     "Simple Memory2": {
@@ -529,6 +491,116 @@
           {
             "node": "Airtable",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vector Store Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store (Retrieval)": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File From Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive File Updated": {
+      "main": [
+        [
+          {
+            "node": "Download File From Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive File Created": {
+      "main": [
+        [
+          {
+            "node": "Download File From Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store (Retrieval)",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -1416,7 +1488,7 @@
         "text": "=User Message is:\n{{ $('When chat message received').item.json.chatInput }}\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable to fulfill different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you are able to use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use with against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assitant that can aid the user in exploring the USDB by asking question in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $('Extract data from file1').item.json.data }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n\n# When to use this tool\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n-->\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n{{ $json.original_input.chatinput }}",
+          "systemMessage": "=# Role\nYou are an AI assistant who as a language model, you are able to generate human-like text based on the input you receive, allowing you to engage in natural-sounding conversation and provide responses that are coherent and relevant to the topic at hand. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required.\n\n# Instructions\nGet the user request and translate human natural language and translated into MsSQL queries to use against the USDB.\nYou will take into consideration the USDB tables when formulating the MsSQL queries. Your goal is to be a useful expert assistant that can aid the user in exploring the USDB by asking questions in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\nTake into consideration the USDB Table Schema while formulating the MsSQL queries:\n{{ $('Extract data from file1').item.json.data }}\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating Microsoft SQL Server (MSSQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MSSQL\n\n# Tools\n\n## \"USDB_SQL_tool\": use this tool to retrieve relevant information from the associated vector store and use it to determine, with a high level of accuracy, the best pattern to be used to translate the natural language question presented by the user into an MsSQL query designed to extract the correct answer from the USDB. The tool will help you retrieve known shapes for SQL queries. If the answer cannot be found in the provided vector store, respond with \"I cannot find an applicable pattern in the USDB_SQL_tool.\" and proceed to look at other resources to come up with the proper query design.\n\n## When to use this tool\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n# Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n# What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n# How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n# Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n# When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n-->\n\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n{{ $json.original_input.chatinput }}",
           "returnIntermediateSteps": "={{ true }}"
         }
       },
@@ -1456,8 +1528,8 @@
       "name": "OpenAI Chat1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        420,
-        3000
+        360,
+        3040
       ],
       "typeVersion": 1,
       "credentials": {
@@ -1470,7 +1542,7 @@
     {
       "parameters": {
         "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
-        "height": 955,
+        "height": 1575,
         "width": 2106,
         "color": 6
       },
@@ -1486,7 +1558,7 @@
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 949,
+        "height": 1569,
         "width": 1523,
         "color": 6
       },
@@ -1871,7 +1943,7 @@
     {
       "parameters": {
         "content": "",
-        "height": 946,
+        "height": 666,
         "width": 1245
       },
       "id": "93b79683-fc38-40e7-a126-60a89846c018",
@@ -1885,33 +1957,8 @@
     },
     {
       "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "gpt-4o",
-          "mode": "list",
-          "cachedResultName": "gpt-4o"
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        3000,
-        2760
-      ],
-      "id": "9123ad35-598f-4dff-9392-d5a4c1b93c1e",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 669,
+        "content": "# Role\nYou are a world-class MsSQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
+        "height": 2689,
         "width": 1243,
         "color": 5
       },
@@ -1926,21 +1973,6 @@
     },
     {
       "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $json.sessionId }}",
-        "contextWindowLength": 50
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        3180,
-        2680
-      ],
-      "id": "7236172e-c21b-4019-9df4-186556d1a231",
-      "name": "Simple Memory1"
-    },
-    {
-      "parameters": {
         "fileSelector": "./usdb_sql.json",
         "options": {}
       },
@@ -1952,48 +1984,6 @@
         2660
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "42abd24e-419a-47d6-bc8b-7146dd0b8314",
-              "name": "sessionId",
-              "type": "string",
-              "value": "={{ $('Switch1').item.json.sessionId }}"
-            },
-            {
-              "id": "39244192-a1a6-42fe-bc75-a6fba1f264df",
-              "name": "action",
-              "type": "string",
-              "value": "={{ $('Switch1').item.json.action }}"
-            },
-            {
-              "id": "f78c57d9-df13-43c7-89a7-5387e528107e",
-              "name": "chatinput",
-              "type": "string",
-              "value": "= {{ $('Switch1').item.json.chatInput }}"
-            },
-            {
-              "id": "e42b39eb-dfbd-48d9-94ed-d658bdd41454",
-              "name": "schema",
-              "type": "string",
-              "value": "={{ $json.data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "22b91826-3682-4278-a069-2b5bfa5ff381",
-      "name": "Combine schema data and chat input1",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        2940,
-        2480
-      ],
-      "executeOnce": true,
-      "typeVersion": 3.4
     },
     {
       "parameters": {
@@ -2031,24 +2021,6 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "=User Query:\n{{ $json.chatinput }}",
-        "options": {
-          "systemMessage": "=# Role\nYou are a world-class MsSQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
-          "returnIntermediateSteps": true
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        3120,
-        2480
-      ],
-      "id": "8d029525-676f-44c0-bb88-4744f7846bc2",
-      "name": "USDB Agent1"
-    },
-    {
-      "parameters": {
         "sessionIdType": "customKey",
         "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
         "contextWindowLength": 10
@@ -2056,8 +2028,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        560,
-        3000
+        480,
+        3120
       ],
       "id": "7b9f5a5f-15bb-44b0-91c2-53eed1eacf37",
       "name": "Simple Memory2"
@@ -2201,19 +2173,310 @@
       ],
       "id": "b92ce5de-91de-4155-a700-8fa944856b2b",
       "name": "Calculate Delta"
-    }
-  ],
-  "pinData": {
-    "When chat message received": [
-      {
-        "json": {
-          "sessionId": "bc233a1aeae8430084494bb646ce5210",
-          "action": "sendMessage",
-          "chatInput": "What are the top dealers in Arizona?"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "mssql-tool",
+          "mode": "list",
+          "cachedResultName": "mssql-tool"
+        },
+        "options": {}
+      },
+      "id": "9e16e65c-128f-4d92-9693-1cb2be23dd21",
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "position": [
+        -1680,
+        3300
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "pineconeApi": {
+          "id": "AXHlIneCPEV9bOUP",
+          "name": "Pinecone mssql"
         }
       }
-    ]
-  },
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "binaryMode": "specificField",
+        "options": {}
+      },
+      "id": "9e088058-576c-46de-a613-9f7bb729b6b2",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "position": [
+        -1520,
+        3520
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "chunkOverlap": 100,
+        "options": {}
+      },
+      "id": "221efb6a-4f60-4209-952d-9e84263380e7",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "position": [
+        -1540,
+        3720
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "name": "company_documents_tool",
+        "description": "Retrieve information from any company documents"
+      },
+      "id": "462f13a3-cac1-49b1-bda8-d78399734eb5",
+      "name": "Vector Store Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "position": [
+        840,
+        3100
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "mssql-tool",
+          "mode": "list",
+          "cachedResultName": "mssql-tool"
+        },
+        "options": {}
+      },
+      "id": "1ced0e38-b4fa-41ac-9652-fc017d1f99a3",
+      "name": "Pinecone Vector Store (Retrieval)",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "position": [
+        740,
+        3280
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "pineconeApi": {
+          "id": "AXHlIneCPEV9bOUP",
+          "name": "Pinecone mssql"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {
+          "fileName": "={{ $json.name }}"
+        }
+      },
+      "id": "0acaa59d-1bf9-4fe2-9f64-0d6efa9a6af2",
+      "name": "Download File From Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        -1900,
+        3300
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM",
+          "mode": "list",
+          "cachedResultName": "- SQL_RAG",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM"
+        },
+        "event": "fileUpdated",
+        "options": {}
+      },
+      "id": "0c4be5e4-ee7b-4732-89a5-c707fd9143ae",
+      "name": "Google Drive File Updated",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        -2220,
+        3440
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM",
+          "mode": "list",
+          "cachedResultName": "- SQL_RAG",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "all"
+        }
+      },
+      "id": "89df8c91-0c5f-43a6-bdcb-f1081b710dcf",
+      "name": "Google Drive File Created",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        -2220,
+        3180
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "Look for query shapes",
+        "height": 520,
+        "width": 520
+      },
+      "id": "ead44dd9-cea5-4cfe-a40f-9dd772bb77bc",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        700,
+        3040
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Add documents to vector store when updating or creating new documents in Google Drive",
+        "width": 320,
+        "color": 3
+      },
+      "id": "f0c2447b-88f7-450c-add4-1637a901c8c5",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1920,
+        3060
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 846,
+        "width": 1245,
+        "color": 3
+      },
+      "id": "45d61a6b-0bf4-4aa4-8092-dbf96486a14e",
+      "name": "Sticky Note15",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2400,
+        3040
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1740,
+        3500
+      ],
+      "id": "e77f7ca0-0c90-4890-969e-c8133fb4f029",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        840,
+        3400
+      ],
+      "id": "f34ba679-a61b-494b-a9f2-0faf495c9919",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1060,
+        3400
+      ],
+      "id": "5c86e4c5-a6b5-4ffa-9b85-096eac90b301",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    }
+  ],
+  "pinData": {},
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner"
@@ -2232,6 +2495,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-08T16:12:01.000Z",
-  "versionId": "ad670bce-8925-46d8-93c1-2935314eeef7"
+  "updatedAt": "2025-04-10T07:24:45.000Z",
+  "versionId": "1733c87c-9b2f-4bd6-9f82-e5d1049a58fc"
 }
