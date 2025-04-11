@@ -615,8 +615,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        520,
-        1240
+        120,
+        1460
       ],
       "id": "8a04c6c0-5e19-4f6d-9b72-77dd92635527",
       "name": "USDB_Agent_tool",
@@ -638,8 +638,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1780,
-        1980
+        -2360,
+        2140
       ],
       "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
       "name": "OpenRouter Chat",
@@ -659,8 +659,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        -1460,
-        1980
+        -2040,
+        2140
       ],
       "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
       "name": "Anthropic Chat",
@@ -679,8 +679,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.1,
       "position": [
-        480,
-        1420
+        80,
+        1640
       ],
       "id": "28c12df3-7315-4044-8464-1ce3dd682fb4",
       "name": "OpenAI Chat",
@@ -699,8 +699,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        -1620,
-        1980
+        -2200,
+        2140
       ],
       "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
       "name": "Groq Chat",
@@ -739,8 +739,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -460,
-        1240
+        -860,
+        1460
       ],
       "id": "dd6c67d8-b244-4fbf-8c22-d9b875bd0b88",
       "name": "Filter"
@@ -831,8 +831,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -240,
-        1240
+        -640,
+        1460
       ],
       "id": "c9d64a95-8350-48db-8c5d-8bfa9cb798fa",
       "name": "Switch"
@@ -840,15 +840,15 @@
     {
       "parameters": {
         "content": "# SQL AGENT\n\n## Relevant notes \n\nWhen the slack triggers, the I do the following:\n- filter any messages coming from the Slack Bot to avoid creating an infinite loop. The bot user ID I get from the last nodes where n8n responds back to slack\n- check if the message is audio or text.\n- if it is an audio, I need to use the slack credentials based on OAUTH (not API token) to be able to download the audio file.",
-        "height": 680,
-        "width": 2120,
+        "height": 480,
+        "width": 4840,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -940,
-        900
+        -2360,
+        1320
       ],
       "id": "81e92f6c-d1d8-4307-9126-357ef8a4a865",
       "name": "Sticky Note"
@@ -870,8 +870,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        120,
-        1340
+        -280,
+        1560
       ],
       "id": "1ef659b3-ed5b-47d9-969d-62ca44a06553",
       "name": "Text Out"
@@ -893,8 +893,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        20,
-        1180
+        -380,
+        1400
       ],
       "id": "238d4e51-2d35-450b-8d86-55b2cb334a43",
       "name": "Dwnld_Audio",
@@ -915,8 +915,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        220,
-        1180
+        -180,
+        1400
       ],
       "id": "dd49724f-0f36-48e5-a2db-3ab63711f2ca",
       "name": "OpenAI",
@@ -933,8 +933,8 @@
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1480,
-        3040
+        1280,
+        2880
       ],
       "typeVersion": 1
     },
@@ -948,8 +948,8 @@
       "name": "List all tables in a database",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        440,
-        940
+        800,
+        1380
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -969,8 +969,8 @@
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        620,
-        940
+        980,
+        1380
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -990,7 +990,7 @@
       "type": "n8n-nodes-base.convertToFile",
       "position": [
         60,
-        2100
+        2060
       ],
       "typeVersion": 1.1
     },
@@ -1005,7 +1005,7 @@
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
         260,
-        2100
+        2060
       ],
       "typeVersion": 1
     },
@@ -1028,8 +1028,8 @@
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
-        840,
-        2820
+        640,
+        2660
       ],
       "typeVersion": 3.4
     },
@@ -1062,8 +1062,8 @@
       "name": "Check if query exists",
       "type": "n8n-nodes-base.if",
       "position": [
-        1200,
-        2820
+        1000,
+        2660
       ],
       "typeVersion": 2.2
     },
@@ -1101,8 +1101,8 @@
       "name": "Format query results",
       "type": "n8n-nodes-base.set",
       "position": [
-        2080,
-        2440
+        1640,
+        3260
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -1117,8 +1117,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        800,
-        940
+        1160,
+        1380
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1146,8 +1146,8 @@
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
-        2120,
-        2800
+        1920,
+        2640
       ],
       "typeVersion": 3.4
     },
@@ -1163,8 +1163,8 @@
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1920,
-        2800
+        1720,
+        2640
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1196,8 +1196,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1480,
-        2760
+        1280,
+        2600
       ],
       "id": "70d3381e-ae22-40fc-8de5-e4e9936b46c5",
       "name": "HTTP Request",
@@ -1214,8 +1214,8 @@
       "name": "Run SQL query tmplt",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        980,
-        940
+        1380,
+        1380
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1374,8 +1374,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2120,
-        3020
+        1920,
+        2860
       ],
       "id": "e5981541-bd25-4848-86ab-8db4e9ae11cd",
       "name": "Airtable",
@@ -1410,7 +1410,7 @@
       "typeVersion": 4.2,
       "position": [
         -540,
-        2100
+        2060
       ],
       "id": "372741d5-17d3-4f90-9b9b-36b07d2c48fc",
       "name": "LIST ALL tables"
@@ -1439,7 +1439,7 @@
       "typeVersion": 4.2,
       "position": [
         -340,
-        2100
+        2060
       ],
       "id": "f7d5ab5c-c5d0-4acd-8007-248ff892dbcf",
       "name": "EXTRACT Schemas",
@@ -1466,7 +1466,7 @@
       "type": "n8n-nodes-base.set",
       "position": [
         -140,
-        2100
+        2060
       ],
       "typeVersion": 3.4
     },
@@ -1483,8 +1483,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        480,
-        2820
+        280,
+        2660
       ],
       "id": "0a255659-643f-4777-a03f-cae820514dd8",
       "name": "USDB AI Agent"
@@ -1492,16 +1492,16 @@
     {
       "parameters": {
         "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once (READ SCHEMA)\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
-        "height": 486,
-        "width": 1665,
+        "height": 306,
+        "width": 4165,
         "color": 3
       },
       "id": "89a2c89f-2d85-489e-9370-5316b444295e",
       "name": "Sticky Note9",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1140,
-        1800
+        -1680,
+        1980
       ],
       "typeVersion": 1
     },
@@ -1516,8 +1516,8 @@
       "name": "OpenAI Chat1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        280,
-        3000
+        80,
+        2840
       ],
       "typeVersion": 1,
       "credentials": {
@@ -1530,7 +1530,7 @@
     {
       "parameters": {
         "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
-        "height": 1575,
+        "height": 1235,
         "width": 2106,
         "color": 6
       },
@@ -1546,7 +1546,7 @@
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 1569,
+        "height": 1229,
         "width": 1523,
         "color": 6
       },
@@ -1562,15 +1562,15 @@
     {
       "parameters": {
         "content": "",
-        "height": 106,
-        "width": 2125
+        "height": 80,
+        "width": 4845
       },
       "id": "a236d2c7-c1ba-446c-b950-a871084badb2",
       "name": "Sticky Note10",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -940,
-        1640
+        -2380,
+        1860
       ],
       "typeVersion": 1
     },
@@ -1603,7 +1603,7 @@
       "typeVersion": 1.2,
       "position": [
         -800,
-        2120
+        2080
       ],
       "id": "d47424d7-4908-4742-ab9d-0eee1c36c0b4",
       "name": "Schedule Trigger"
@@ -1931,7 +1931,7 @@
     {
       "parameters": {
         "content": "",
-        "height": 666,
+        "height": 626,
         "width": 1245
       },
       "id": "93b79683-fc38-40e7-a126-60a89846c018",
@@ -1995,8 +1995,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        2260,
-        2440
+        1860,
+        3260
       ],
       "id": "9d4ae333-14dc-4c09-b911-27f963a67e75",
       "name": "Microsoft SQL1",
@@ -2016,8 +2016,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        380,
-        3120
+        180,
+        2960
       ],
       "id": "7b9f5a5f-15bb-44b0-91c2-53eed1eacf37",
       "name": "Simple Memory2"
@@ -2029,8 +2029,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1700,
-        2760
+        1500,
+        2600
       ],
       "id": "e5ef801c-a5dc-4870-b00c-0cf28cc6483c",
       "name": "Results Formatter"
@@ -2043,8 +2043,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        360,
-        2600
+        1640,
+        3120
       ],
       "id": "4b524c5c-712a-4891-9b1b-b2140661dc3b",
       "name": "Query Templates Matcher"
@@ -2087,8 +2087,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        540,
-        2600
+        1860,
+        3120
       ],
       "id": "407eff01-fba4-4ff5-8184-5691e8763245",
       "name": "Template or LLM"
@@ -2110,8 +2110,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2320,
-        2800
+        2120,
+        2640
       ],
       "id": "6f1c0405-f987-4a7d-993f-c7102b0fafe9",
       "name": "Stop_Time"
@@ -2126,8 +2126,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1020,
-        2820
+        820,
+        2660
       ]
     },
     {
@@ -2142,8 +2142,8 @@
       "name": "SQL template and AI queries",
       "type": "n8n-nodes-base.merge",
       "position": [
-        820,
-        2600
+        2160,
+        3120
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -2156,8 +2156,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1920,
-        3020
+        1720,
+        2860
       ],
       "id": "b92ce5de-91de-4155-a700-8fa944856b2b",
       "name": "Calculate Delta"
@@ -2178,7 +2178,7 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "position": [
         -1680,
-        3300
+        3080
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2198,8 +2198,8 @@
       "name": "Default Data Loader",
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "position": [
-        -1520,
-        3520
+        -1560,
+        3240
       ],
       "typeVersion": 1
     },
@@ -2212,8 +2212,8 @@
       "name": "Recursive Character Text Splitter",
       "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
       "position": [
-        -1540,
-        3720
+        -1460,
+        3360
       ],
       "typeVersion": 1
     },
@@ -2226,8 +2226,8 @@
       "name": "Vector Store Tool",
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "position": [
-        840,
-        3100
+        640,
+        2940
       ],
       "typeVersion": 1
     },
@@ -2245,8 +2245,8 @@
       "name": "Pinecone Vector Store (Retrieval)",
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "position": [
-        740,
-        3280
+        540,
+        3120
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2272,8 +2272,8 @@
       "name": "Download File From Google Drive",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        -1900,
-        3300
+        -1920,
+        3080
       ],
       "typeVersion": 3,
       "credentials": {
@@ -2307,8 +2307,8 @@
       "name": "Google Drive File Updated",
       "type": "n8n-nodes-base.googleDriveTrigger",
       "position": [
-        -2220,
-        3440
+        -2280,
+        3220
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2344,8 +2344,8 @@
       "name": "Google Drive File Created",
       "type": "n8n-nodes-base.googleDriveTrigger",
       "position": [
-        -2220,
-        3180
+        -2280,
+        3080
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2365,30 +2365,31 @@
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        700,
-        3040
+        500,
+        2880
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
         "content": "## Add documents to vector store when updating or creating new documents in Google Drive",
-        "width": 320,
+        "height": 80,
+        "width": 560,
         "color": 3
       },
       "id": "f0c2447b-88f7-450c-add4-1637a901c8c5",
       "name": "Sticky Note5",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1920,
-        3060
+        -2380,
+        3440
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
         "content": "",
-        "height": 846,
+        "height": 546,
         "width": 1245,
         "color": 3
       },
@@ -2397,7 +2398,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -2400,
-        3040
+        3000
       ],
       "typeVersion": 1
     },
@@ -2408,8 +2409,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -1740,
-        3500
+        -1760,
+        3240
       ],
       "id": "e77f7ca0-0c90-4890-969e-c8133fb4f029",
       "name": "Embeddings OpenAI",
@@ -2427,8 +2428,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        840,
-        3400
+        640,
+        3240
       ],
       "id": "f34ba679-a61b-494b-a9f2-0faf495c9919",
       "name": "Embeddings OpenAI1",
@@ -2451,8 +2452,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1060,
-        3320
+        860,
+        3160
       ],
       "id": "5c86e4c5-a6b5-4ffa-9b85-096eac90b301",
       "name": "OpenAI Chat Model1",
@@ -2487,8 +2488,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        520,
-        3180
+        320,
+        3020
       ],
       "id": "1e692664-393f-4cce-8d89-b8dd6a1c548a",
       "name": "dateTimeInfo1"
@@ -2513,6 +2514,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-10T17:15:35.000Z",
-  "versionId": "37b4a546-4f00-4aab-b779-7abd3f5c3b94"
+  "updatedAt": "2025-04-11T15:34:12.000Z",
+  "versionId": "0b8f3dda-b782-4a60-813b-a826e12a5c9c"
 }
