@@ -501,6 +501,20 @@
           "name": "Kris' Anthropic"
         }
       }
+    },
+    {
+      "parameters": {
+        "path": "4384f4f0-4d5e-4e16-90dd-001220312c1c"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a5a1e5e4-9610-4bbf-a12e-b1ffcb1a5656",
+      "name": "MCP Server Trigger",
+      "webhookId": "4384f4f0-4d5e-4e16-90dd-001220312c1c"
     }
   ],
   "pinData": {},
@@ -510,6 +524,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-11T05:16:47.862Z",
-  "versionId": "bc72b77d-d810-4d55-b4a4-b339d91562a5"
+  "updatedAt": "2025-04-11T15:22:14.000Z",
+  "versionId": "a6d34e62-c0db-4050-8027-022fea3a5069"
 }
