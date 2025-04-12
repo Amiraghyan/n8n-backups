@@ -1,0 +1,2673 @@
+{
+  "active": false,
+  "connections": {
+    "USDB_Agent_tool": {
+      "main": [
+        []
+      ]
+    },
+    "OpenRouter Chat": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Anthropic Chat": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "OpenAI Chat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Dwnld_Audio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dwnld_Audio": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Out": {
+      "main": [
+        [
+          {
+            "node": "USDB_Agent_tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert data to binary": {
+      "main": [
+        [
+          {
+            "node": "Save file locally",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract SQL query": {
+      "main": [
+        [
+          {
+            "node": "Query Validation2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check if query exists": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format query results": {
+      "main": [
+        []
+      ]
+    },
+    "Combine query result and chat answer": {
+      "main": [
+        [
+          {
+            "node": "Prepare final output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "LIST ALL tables": {
+      "main": [
+        [
+          {
+            "node": "EXTRACT Schemas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EXTRACT Schemas": {
+      "main": [
+        []
+      ]
+    },
+    "Add table name column": {
+      "main": [
+        [
+          {
+            "node": "Convert data to binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "USDB AI Agent": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare final output": {
+      "main": [
+        [
+          {
+            "node": "Stop_Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "List all tables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "List all tables",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Load the schema from the local file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save file locally": {
+      "main": [
+        []
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dwnld_Audio1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Out1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        []
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Dwnld_Audio1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start_Time": {
+      "main": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load the schema from the local file1": {
+      "main": [
+        [
+          {
+            "node": "Extract data from file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract data from file1": {
+      "main": [
+        [
+          {
+            "node": "Start_Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Results Formatter": {
+      "main": [
+        [
+          {
+            "node": "Combine query result and chat answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query Templates Matcher": {
+      "main": [
+        [
+          {
+            "node": "Template or LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Template or LLM": {
+      "main": [
+        [
+          {
+            "node": "SQL template and AI queries",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Stop_Time": {
+      "main": [
+        [
+          {
+            "node": "Calculate Delta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query Validation2": {
+      "main": [
+        [
+          {
+            "node": "Check if query exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SQL template and AI queries": {
+      "main": [
+        []
+      ]
+    },
+    "Calculate Delta": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store (Retrieval)": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector_Store_Tool",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File From Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive File Updated": {
+      "main": [
+        [
+          {
+            "node": "Download File From Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive File Created": {
+      "main": [
+        [
+          {
+            "node": "Download File From Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store (Retrieval)",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft SQL": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "LIST TABLES": {
+      "main": [
+        [
+          {
+            "node": "SCHEMAS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List all tables": {
+      "main": [
+        [
+          {
+            "node": "Extract DB schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract DB schema": {
+      "main": [
+        [
+          {
+            "node": "Add table name column",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        []
+      ]
+    },
+    "Vector_Store_Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "date_time_tool": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "OpenAI Chat ": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vector_Store_Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL": {
+      "main": [
+        [
+          {
+            "node": "Results Formatter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-11T20:41:56.285Z",
+  "id": "LI7EcTEe0p299KM2",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "USDB: SQL Agent (MySQL)",
+  "nodes": [
+    {
+      "parameters": {
+        "agent": "sqlAgent",
+        "dataSource": "mysql",
+        "promptType": "define",
+        "text": "={{ $('Switch').item.json.chatInput }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        120,
+        1460
+      ],
+      "id": "fd04f5bd-7823-43bd-a643-89a7836ff614",
+      "name": "USDB_Agent_tool",
+      "credentials": {
+        "mySql": {
+          "id": "oUon8ECO0bjjL9bn",
+          "name": "AISandbox"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "openai/o3-mini",
+        "options": {
+          "maxTokens": -1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -2360,
+        2140
+      ],
+      "id": "e711327a-d10a-4723-be36-c086c693351b",
+      "name": "OpenRouter Chat",
+      "credentials": {
+        "openRouterApi": {
+          "id": "ru25OpA66L1ExedM",
+          "name": "OpenRouter"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokensToSample": 8192
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -2040,
+        2140
+      ],
+      "id": "7810ccda-d20a-40ca-bf75-ddc875746eff",
+      "name": "Anthropic Chat",
+      "credentials": {
+        "anthropicApi": {
+          "id": "dcLqo62duKhDxGrw",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "o3-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        80,
+        1640
+      ],
+      "id": "01ceb42d-d3f4-4bb1-b96b-0478108c76cc",
+      "name": "OpenAI Chat",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -2200,
+        2140
+      ],
+      "id": "52019d45-e4bd-43a0-a6b7-66659c1ca87a",
+      "name": "Groq Chat",
+      "credentials": {
+        "groqApi": {
+          "id": "8s1PPRvjrOXCDNtL",
+          "name": "n8n_AISandbox"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "61c23cad-6c72-464e-9947-b7f309c9b994",
+              "leftValue": "={{ $json.user }}",
+              "rightValue": "={{\"U089MNN54NT\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -860,
+        1460
+      ],
+      "id": "72553120-bdbd-46b7-8a63-9cdd2ba29f3b",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "584c8c90-4cc3-43ea-aac0-d1762ba79d0d",
+                    "leftValue": "{{ $json.files[0].mimetype }}",
+                    "rightValue": "image/jpeg",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "audio/mp4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bb9fc3cb-1c38-4fc3-8ed0-896280711d84"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1ecab1e4-02c7-490e-82e5-f9f701140f00",
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -640,
+        1460
+      ],
+      "id": "530d5640-4f93-4ae3-9d4d-b5c03bbc117e",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "content": "# SQL AGENT\n\n## Relevant notes \n\nWhen the slack triggers, the I do the following:\n- filter any messages coming from the Slack Bot to avoid creating an infinite loop. The bot user ID I get from the last nodes where n8n responds back to slack\n- check if the message is audio or text.\n- if it is an audio, I need to use the slack credentials based on OAUTH (not API token) to be able to download the audio file.",
+        "height": 480,
+        "width": 4840,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2360,
+        1320
+      ],
+      "id": "92d3972c-378b-481b-abbb-f1841289c689",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9569b209-0827-4fcd-96e8-1091a15d68e0",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -280,
+        1560
+      ],
+      "id": "163764a2-8354-4d09-a8b7-d9fedc7357c6",
+      "name": "Text Out"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.files[0].url_private_download }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "slackOAuth2Api",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "audio"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -380,
+        1400
+      ],
+      "id": "01cef6e3-f72b-4f23-a43e-4df5bc21a188",
+      "name": "Dwnld_Audio",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "HQneTCU7vTozIws1",
+          "name": "Slack Oauth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "binaryPropertyName": "audio",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -180,
+        1400
+      ],
+      "id": "2425f40f-befd-4b5c-ba05-72a81b6b944e",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "1246564a-a4f1-4f90-b0cc-6078c878556f",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        1520,
+        2540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "options": {}
+      },
+      "id": "b10f279b-6b09-41ec-b1f9-9176b0f61e07",
+      "name": "Convert data to binary",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        500,
+        2060
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "./usdb_sql.json",
+        "options": {}
+      },
+      "id": "5d780fd1-9ce0-4c89-9d0f-2cf6829dfd3c",
+      "name": "Save file locally",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        680,
+        2060
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ebbe194a-4b8b-44c9-ac19-03cf69d353bf",
+              "name": "query",
+              "type": "string",
+              "value": "={{ ($json.output.match(/SELECT[\\s\\S]*?;/i) || [])[0] || \"\" }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "6b13fb1a-f8bc-44d5-9531-353122076941",
+      "name": "Extract SQL query",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        680,
+        2520
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "2963d04d-9d79-49f9-b52a-dc8732aca781",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.query }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f92d588e-da88-4e8c-aaf4-f9347b10bda7",
+      "name": "Check if query exists",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1040,
+        2540
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "content": "The AI Agent remembers the schema, questions, and final answers, but not data values, since queries run externally. The agent can't access database content. ",
+        "height": 108.03673727584527,
+        "width": 257.46308756569573,
+        "color": 3
+      },
+      "id": "ef719e87-dc52-4064-8462-fc97642690db",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -360,
+        2940
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f944d21f-6aac-4842-8926-4108d6cad4bf",
+              "name": "sqloutput",
+              "type": "string",
+              "value": "={{ Object.keys($jmespath($input.all(),'[].json')[0]).join(' | ') }} \n{{ ($jmespath($input.all(),'[].json')).map(obj => Object.values(obj).join(' | ')).join('\\n') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aa1a0186-04bd-4274-a5ac-6b998f33993a",
+      "name": "Format query results",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1640,
+        3260
+      ],
+      "executeOnce": true,
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.query}}",
+        "options": {}
+      },
+      "id": "3bfca121-bc8c-4341-87df-cee3d1c6ab1b",
+      "name": "Run SQL query",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        1220,
+        1360
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aa55e186-1535-4923-aee4-e088ca69575b",
+              "name": "output",
+              "type": "string",
+              "value": "=Question:\n{{ $('When chat message received').item.json.chatInput }}\n\nSQL request:\n{{ $json.query }}\n\nSQL result:\n```markdown\n{{ $json.textOutput }}\n```"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "65f7d27c-8b26-4cfc-8726-66873ec16bbd",
+      "name": "Prepare final output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1480,
+        2720
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "id": "dec18b01-bbf7-41d8-9cc5-eca4955ad28e",
+      "name": "Combine query result and chat answer",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1260,
+        2720
+      ],
+      "typeVersion": 3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://38.107.232.33:4000/mssql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.query }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": true,
+              "maxRedirects": 21
+            }
+          },
+          "response": {}
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1280,
+        2520
+      ],
+      "id": "3f319a85-d778-470e-ba85-ab1a5dfbf026",
+      "name": "HTTP Request",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.query }}",
+        "options": {}
+      },
+      "id": "7d51d3fc-af4e-4035-8efb-1a69af4c53af",
+      "name": "Run SQL query tmplt",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        1380,
+        1380
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "oUon8ECO0bjjL9bn",
+          "name": "AISandbox"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appGV8vCDX8WGdmJG",
+          "mode": "list",
+          "cachedResultName": "Direct Query",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNLhT1EBPCNCxQc",
+          "mode": "list",
+          "cachedResultName": "Direct Query Executions",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblNLhT1EBPCNCxQc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sessionId": "={{ $('When chat message received').item.json.sessionId }}",
+            "chatInput": "={{ $('When chat message received').item.json.chatInput }}",
+            "request": "={{ $('Extract SQL query').item.json.query }}",
+            "response": "={{ $('Combine query result and chat answer').item.json.textOutput }}",
+            "stopTime": "={{ $json.stopTime }}",
+            "time": "={{ $json.executionTimeReadable }}",
+            "startTime": "={{ $('Template or LLM').item.json.original_input.Start_time }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "startTime",
+              "displayName": "startTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "chatInput",
+              "displayName": "chatInput",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "request",
+              "displayName": "request",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "response",
+              "displayName": "response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "stopTime",
+              "displayName": "stopTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Ok",
+                  "value": "Ok"
+                },
+                {
+                  "name": "Fail",
+                  "value": "Fail"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2060,
+        2720
+      ],
+      "id": "ca3c0cf9-ffbe-4334-ae1a-604083a21429",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "USDB_Airtable_logs"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://38.107.232.33:4000/mssql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=SELECT name\nFROM sys.tables"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "timeout": 1000000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        2020
+      ],
+      "id": "ec5a0bc6-c84d-45a0-ba45-9206cc001208",
+      "name": "LIST ALL tables"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://38.107.232.33:4000/mssql/execute",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "=EXEC sp_columns '{{ $json.name }}';"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "timeout": 1000000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        2020
+      ],
+      "id": "816a7df8-109b-43f3-b66f-0d84cd7c52e2",
+      "name": "EXTRACT Schemas",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "764176d6-3c89-404d-9c71-301e8a406a68",
+              "name": "table",
+              "type": "string",
+              "value": "={{ $('List all tables').item.json.Tables_in_usdb }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f5d8f8b8-4e8f-4294-9429-a023206e3af2",
+      "name": "Add table name column",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        300,
+        2060
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=User Message is:\n{{ $('When chat message received').item.json.chatInput }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=# Role\nYou are a world-class MySQL Developer. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required.\n\n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data. You can get information about the tables and their schema using the Vector_Store_Tool.\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n# Instructions\nGet the user request and translate human natural language and translate it into MySQL queries to execute against the USDB. You will consider information about the USDB tables and their schemas, when formulating the MySQL queries. \n\n# Goals\nYour goal is to be a useful expert assistant that can aid the user in exploring the USDB by asking questions in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating SQL (MySQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MySQL\n\n# Instructions\nWhen generating SQL (MySQL) queries:\n1. Check the vector store first using the Vector_Store_Tool\n2. Look for table and table schema information to inform the prompt better\n3. Use the date_time_tool to inform the prompt better regarding references to time\n4. Once the query is crafted, execute the query to get the response to the query\n\n#Tools\n<tools>\n<MySQL_tool>\nUse this tool to execute SQL queries against the USDB. After properly designing the query with the relevant information use it to determine, with a high level of accuracy, the correct answer from the USDB. Take into consideration the USDB Table Schema while formulating the MySQL queries.\n</MySQL_tool>\n\n<Vector_Store_Tool>\nUse this tool to retrieve relevant information from the associated vector store and use it to determine, with a high level of accuracy, the best query pattern to extract the correct answer from the USDB. The tool will help you retrieve known shapes for SQL queries. If the shape of the query cannot be found in the provided vector store, continue the thought process to craft the proper query.\n</Vector_Store_Tool>\n\n<date_time_tool>\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n### Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n### What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n### How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n### Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n### When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n</date_time_tool>\n</tools>\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n",
+          "returnIntermediateSteps": "={{ true }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        500,
+        2700
+      ],
+      "id": "db24c3e4-06c3-4fd5-ab8c-e95a2395d4b6",
+      "name": "USDB AI Agent"
+    },
+    {
+      "parameters": {
+        "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once (READ SCHEMA)\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
+        "height": 306,
+        "width": 4165,
+        "color": 3
+      },
+      "id": "c63da263-ecdb-472f-b884-204e76786ab7",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1680,
+        1980
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "id": "8e99be71-7346-47ac-b8c1-51fe97b5ce36",
+      "name": "OpenAI Chat1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        240,
+        2920
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
+        "height": 1235,
+        "width": 2106,
+        "color": 6
+      },
+      "id": "d409aede-54f7-4c11-8b90-db8dcd55b873",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        2320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. \n* This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
+        "height": 1229,
+        "width": 1523,
+        "color": 6
+      },
+      "id": "81b9073e-97b3-49e8-bd20-d0f78207c122",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1140,
+        2320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 80,
+        "width": 4845
+      },
+      "id": "a7b34651-9e89-4a14-906f-a84e74f6542d",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2380,
+        1860
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 106,
+        "width": 2125
+      },
+      "id": "a6c4e6c9-fa5b-4fda-9ed7-7b07f541026f",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3480,
+        620
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -500,
+        2060
+      ],
+      "id": "8ebcbbbf-a8d5-4143-8b56-03ca0646b3b0",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.chatInput }}",
+                    "rightValue": "={{ \"/start\" }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e9cd41d3-869f-42ac-8fc1-4fa7cc946c6a"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -380,
+        2680
+      ],
+      "id": "4b9348b4-5cfc-49ff-b1cd-951e85fb1675",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -560,
+        2680
+      ],
+      "id": "ebdb8e02-3c11-4246-abe2-d66160f1d0da",
+      "name": "When chat message received",
+      "webhookId": "76588d08-b117-4acf-8470-511c8ffe311b"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "binaryPropertyName": "audio",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1560,
+        2520
+      ],
+      "id": "50680c3f-d59b-4b5f-bdb7-4de71ef8e986",
+      "name": "OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.files[0].url_private_download }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "slackOAuth2Api",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "audio"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1720,
+        2520
+      ],
+      "id": "b6deb1e6-a037-4f27-bdcb-6c0420b65080",
+      "name": "Dwnld_Audio1",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "7VOxhQHkBloxHtkn",
+          "name": "syc-n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9569b209-0827-4fcd-96e8-1091a15d68e0",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1640,
+        2740
+      ],
+      "id": "69673441-3533-4065-b40c-a840408a57c5",
+      "name": "Text Out1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "61c23cad-6c72-464e-9947-b7f309c9b994",
+              "leftValue": "={{ $json.user }}",
+              "rightValue": "={{\"D089ZDPG57X\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -2120,
+        2660
+      ],
+      "id": "34fd6278-2b3f-4db2-b81d-9d4b0dc5cd15",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "trigger": [
+          "message"
+        ],
+        "channelId": {
+          "__rl": true,
+          "value": "={{ \"D089ZDPG57X\" }}",
+          "mode": "id"
+        },
+        "options": {
+          "resolveIds": false
+        }
+      },
+      "id": "97ad2f45-b218-4c65-82df-03c76ff514a2",
+      "name": "Slack Trigger",
+      "type": "n8n-nodes-base.slackTrigger",
+      "position": [
+        -2300,
+        2660
+      ],
+      "webhookId": "8edbd35a-f445-4e73-8ebd-7a024c87e077",
+      "typeVersion": 1,
+      "credentials": {
+        "slackApi": {
+          "id": "OjRpDB3gj10WwGnG",
+          "name": "SYCn8n Bot Token"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -1380,
+        2660
+      ],
+      "id": "f274209e-3e6d-4148-9b49-daacee1dc3bc",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "584c8c90-4cc3-43ea-aac0-d1762ba79d0d",
+                    "leftValue": "{{ $json.files[0].mimetype }}",
+                    "rightValue": "image/jpeg",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "audio/mp4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bb9fc3cb-1c38-4fc3-8ed0-896280711d84"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1ecab1e4-02c7-490e-82e5-f9f701140f00",
+                    "leftValue": "={{ $json.files[0].mimetype }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1920,
+        2660
+      ],
+      "id": "49ec1e27-b820-45e3-a377-48f5354584f2",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "82fed747-df46-45df-abaa-0629131fe5db",
+              "name": "Start_time",
+              "value": "={{ $now }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        2700
+      ],
+      "id": "95c4cb24-4b53-41e0-9bb9-a4e2ca40bd30",
+      "name": "Start_Time"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 626,
+        "width": 1245
+      },
+      "id": "2cb73202-ade9-4962-86d8-238a7c97b375",
+      "name": "Sticky Note13",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2400,
+        2320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Role\nYou are a world-class MsSQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
+        "height": 2689,
+        "width": 1243,
+        "color": 5
+      },
+      "id": "4a584fd5-9df6-4ede-b5f7-cef15318fe7d",
+      "name": "Sticky Note14",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2760,
+        2220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fileSelector": "./usdb_sql.json",
+        "options": {}
+      },
+      "id": "a632de58-4566-4913-a587-ef6f5811ee9c",
+      "name": "Load the schema from the local file1",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        -160,
+        2700
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "options": {}
+      },
+      "id": "0f286254-e86b-4e68-acd8-c34728f8a8fe",
+      "name": "Extract data from file1",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        40,
+        2700
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=EXEC sp_columns '{{ $json.name }}';"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        1860,
+        3260
+      ],
+      "id": "d8ec7541-b0c5-46dc-b2fd-e7551148b3e5",
+      "name": "Microsoft SQL1",
+      "credentials": {
+        "microsoftSql": {
+          "id": "BbAMiDytg4JU7Jas",
+          "name": "MsSQL 38.107.232.33 "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        3000
+      ],
+      "id": "68de6aff-46b4-4d03-9df9-ba274d6165be",
+      "name": "Simple Memory2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | '));\n\n// Detect if this is a comparison query (contains percentage or difference columns)\nconst isComparisonQuery = headers.some(h => \n  h.includes('percent') || h.includes('diff') || h.includes('change'));\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => {\n    const value = item[header];\n    \n    // Format numbers with thousands separators\n    if (typeof value === 'number' && !isNaN(value)) {\n      // Format percentages\n      if (header.includes('percent') || header.includes('change')) {\n        return `${(value * 100).toFixed(2)}%`;\n      }\n      // Format currency\n      else if (header.includes('price') || header.includes('cost')) {\n        return `$${value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;\n      }\n      // Format regular numbers\n      else if (value > 1000) {\n        return value.toLocaleString('en-US');\n      }\n    }\n    \n    return value;\n  });\n  \n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        2700
+      ],
+      "id": "d83e128b-1c42-4a1b-b73b-3f408cc1100d",
+      "name": "Results Formatter"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Template matching function for common dealer queries\nconst templateMatchers = [\n  {\n    // Price adjustment queries\n    pattern: /(how many|how often|number of) times did (.*?) adjust prices? (before selling)? .*?(last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'price_adjustments',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Inventory turn rate queries\n    pattern: /(what was|how was) (.*?)('s)? inventory turn rate .*?(last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'inventory_turn_rate',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Inventory turn rate comparison\n    pattern: /how did (.*?)('s)? inventory turn rate compare to (brand|non-brand) dealers (last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'inventory_turn_rate_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_group: matches[3],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Sales count queries\n    pattern: /how many cars did (.*?) sell (last day|last week|last month|MTD|YTD|MOM|YOY|last 90 days|last 1Y|last 3Y|last 5Y)/i,\n    templateName: 'sales_count',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      time_period: matches[2]\n    })\n  },\n  {\n    // Sales velocity queries\n    pattern: /how (fast|quickly) did (.*?) sell (cars|vehicles) (last week|last month|MTD|MOM|YTD|YOY|last 90 days|last 1Y|last 3Y)/i,\n    templateName: 'sales_velocity',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      vehicle_type: matches[3],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Market comparison queries\n    pattern: /how did (.*?)('s)? (car sales|sales velocity) compare to (market average|national average|other dealers) (last week|last month|YTD|YOY|last 90 days)/i,\n    templateName: 'market_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_type: matches[3],\n      comparison_group: matches[4],\n      time_period: matches[5]\n    })\n  },\n  {\n    // Radius comparison\n    pattern: /how did (.*?)('s)? (car sales|sales velocity) compare to (.*?) (within a (\\d+) mile radius) (last week|last month|YTD|YOY|last 90 days)/i,\n    templateName: 'radius_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_type: matches[3],\n      dealer_group: matches[4],\n      radius: matches[6],\n      time_period: matches[7]\n    })\n  }\n];\n\n// Query templates with parameterized SQL\nconst queryTemplates = {\n  'price_adjustments': `\n    SELECT \n        d.Name AS DealerName,\n        AVG(CAST(ISNULL(l.PriceChanges, 0) AS FLOAT)) AS AvgPriceAdjustments,\n        COUNT_BIG(*) AS TotalSales\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'inventory_turn_rate': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n        COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n        AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n        CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n            NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n        AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'inventory_turn_rate_comparison': `\n    WITH DealerData AS (\n        SELECT \n            d.Name AS DealerName,\n            d.DEALERS_ID,\n            COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n            COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n            CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n                NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate,\n            MAX(l.SpecMake) AS MainBrand\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n            AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            d.Name, d.DEALERS_ID\n    ),\n    ComparisonData AS (\n        SELECT \n            {{comparison_select_clause}},\n            COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n            COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n            CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n                NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n            CROSS JOIN DealerData dd\n        WHERE \n            d.DEALERS_ID <> dd.DEALERS_ID\n            {{comparison_where_clause}}\n            AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n            AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            {{comparison_group_clause}}\n    )\n    SELECT \n        dd.DealerName,\n        dd.TurnRate AS DealerTurnRate,\n        AVG(cd.TurnRate) AS ComparisonTurnRate,\n        dd.TurnRate - AVG(cd.TurnRate) AS TurnRateDifference,\n        CASE \n            WHEN AVG(cd.TurnRate) = 0 THEN NULL \n            ELSE (dd.TurnRate - AVG(cd.TurnRate)) / AVG(cd.TurnRate) * 100 \n        END AS PercentDifference\n    FROM \n        DealerData dd\n    CROSS JOIN\n        ComparisonData cd\n    GROUP BY \n        dd.DealerName, dd.TurnRate;\n  `,\n  'sales_count': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(*) AS TotalSales\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'sales_velocity': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(*) AS TotalSales,\n        AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'market_comparison': `\n    WITH DealerData AS (\n        SELECT \n            d.Name AS DealerName,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            d.Name\n    ),\n    MarketData AS (\n        SELECT \n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    )\n    SELECT \n        dd.DealerName,\n        dd.TotalSales AS DealerSales,\n        m.TotalSales AS MarketSales,\n        dd.AvgDaysToSell AS DealerAvgDaysToSell,\n        m.AvgDaysToSell AS MarketAvgDaysToSell,\n        dd.AvgDaysToSell - m.AvgDaysToSell AS DaysToSellDifference,\n        CASE \n            WHEN m.AvgDaysToSell = 0 THEN NULL \n            ELSE (dd.AvgDaysToSell - m.AvgDaysToSell) / m.AvgDaysToSell * 100 \n        END AS PercentDifference\n    FROM \n        DealerData dd\n    CROSS JOIN\n        MarketData m;\n  `,\n  'radius_comparison': `\n    WITH DealerLocation AS (\n        SELECT \n            d.DEALERS_ID,\n            d.Name AS DealerName,\n            d.Latitude,\n            d.Longitude\n        FROM \n            dbo.DEALERS d WITH (NOLOCK)\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND d.Latitude IS NOT NULL\n            AND d.Longitude IS NOT NULL\n    ),\n    DealerData AS (\n        SELECT \n            dl.DealerName,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN DealerLocation dl ON l.DEALERS_ID = dl.DEALERS_ID\n        WHERE \n            l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            dl.DealerName\n    ),\n    NearbyDealers AS (\n        SELECT \n            d.DEALERS_ID,\n            d.Name AS DealerName,\n            d.Latitude,\n            d.Longitude,\n            dl.Latitude AS CenterLat,\n            dl.Longitude AS CenterLong,\n            (3959 * ACOS(COS(RADIANS(dl.Latitude)) * COS(RADIANS(d.Latitude)) * COS(RADIANS(d.Longitude) - RADIANS(dl.Longitude)) + SIN(RADIANS(dl.Latitude)) * SIN(RADIANS(d.Latitude)))) AS DistanceMiles\n        FROM \n            dbo.DEALERS d WITH (NOLOCK)\n            CROSS JOIN DealerLocation dl\n        WHERE \n            d.Latitude IS NOT NULL\n            AND d.Longitude IS NOT NULL\n            AND d.Name LIKE '%{{dealer_group}}%'\n            AND d.DEALERS_ID <> dl.DEALERS_ID\n    ),\n    RadiusData AS (\n        SELECT \n            nd.DealerName,\n            nd.DistanceMiles,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN NearbyDealers nd ON l.DEALERS_ID = nd.DEALERS_ID\n        WHERE \n            nd.DistanceMiles <= {{radius}}\n            AND l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            nd.DealerName, nd.DistanceMiles\n    )\n    SELECT \n        dd.DealerName,\n        dd.TotalSales AS DealerSales,\n        AVG(rd.TotalSales) AS AvgRadiusSales,\n        dd.AvgDaysToSell AS DealerAvgDaysToSell,\n        AVG(rd.AvgDaysToSell) AS RadiusAvgDaysToSell,\n        dd.AvgDaysToSell - AVG(rd.AvgDaysToSell) AS DaysToSellDifference,\n        CASE \n            WHEN AVG(rd.AvgDaysToSell) = 0 THEN NULL \n            ELSE (dd.AvgDaysToSell - AVG(rd.AvgDaysToSell)) / AVG(rd.AvgDaysToSell) * 100 \n        END AS PercentDifference,\n        COUNT(rd.DealerName) AS DealersInRadius\n    FROM \n        DealerData dd\n    LEFT JOIN\n        RadiusData rd ON 1=1\n    GROUP BY \n        dd.DealerName, dd.TotalSales, dd.AvgDaysToSell;\n  `\n};\n\n// Get the user's question and current date\nconst userQuestion = $input.item.json.chatinput || \"\";\nconst now = new Date();\n\n// Detect time period and convert to actual dates\nfunction getDateRange(timePeriod) {\n  let startDate, endDate = new Date(now);\n  \n  if (timePeriod.includes('last day')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 1);\n  } else if (timePeriod.includes('last week')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 7);\n  } else if (timePeriod.includes('last month')) {\n    startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);\n    endDate = new Date(now.getFullYear(), now.getMonth(), 0);\n  } else if (timePeriod.includes('MTD')) {\n    startDate = new Date(now.getFullYear(), now.getMonth(), 1);\n  } else if (timePeriod.includes('YTD')) {\n    startDate = new Date(now.getFullYear(), 0, 1);\n  } else if (timePeriod.includes('MOM')) {\n    // Month over Month (current month vs previous month)\n    startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);\n    endDate = new Date(now.getFullYear(), now.getMonth(), 0);\n  } else if (timePeriod.includes('YOY')) {\n    // Year over Year (current month this year vs same month last year)\n    startDate = new Date(now.getFullYear() - 1, now.getMonth(), 1);\n    endDate = new Date(now.getFullYear() - 1, now.getMonth() + 1, 0);\n  } else if (timePeriod.includes('last 90 days')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 90);\n  } else if (timePeriod.includes('last 1Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 1);\n  } else if (timePeriod.includes('last 3Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 3);\n  } else if (timePeriod.includes('last 5Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 5);\n  } else if (timePeriod.includes('last year')) {\n    startDate = new Date(now.getFullYear() - 1, 0, 1);\n    endDate = new Date(now.getFullYear() - 1, 11, 31);\n  } else {\n    // Default to last 30 days\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 30);\n  }\n  \n  return {\n    start_date: startDate.toISOString().split('T')[0],\n    end_date: endDate.toISOString().split('T')[0]\n  };\n}\n\n// Helper function for comparison clauses\nfunction getComparisonClauses(comparisonGroup, dealerMainBrand) {\n  if (comparisonGroup === 'brand') {\n    return {\n      select: \"d.Name AS ComparisonDealer\",\n      where: `AND l.SpecMake = '${dealerMainBrand}'`,\n      group: \"d.Name\"\n    };\n  } else if (comparisonGroup === 'non-brand') {\n    return {\n      select: \"d.Name AS ComparisonDealer\",\n      where: `AND l.SpecMake <> '${dealerMainBrand}'`,\n      group: \"d.Name\"\n    };\n  } else {\n    return {\n      select: \"'All Dealers' AS ComparisonGroup\",\n      where: \"\",\n      group: \"'All Dealers'\"\n    };\n  }\n}\n\n// Try to match the question to a template\nlet matchedTemplate = null;\nlet templateParams = {};\n\nfor (const matcher of templateMatchers) {\n  const matches = userQuestion.match(matcher.pattern);\n  if (matches) {\n    matchedTemplate = matcher.templateName;\n    templateParams = matcher.extractParams(matches, userQuestion);\n    \n    // Add date params based on detected time period\n    const dateRange = getDateRange(templateParams.time_period || \"last month\");\n    templateParams.start_date = dateRange.start_date;\n    templateParams.end_date = dateRange.end_date;\n    \n    // Special handling for comparison queries\n    if (matchedTemplate === 'inventory_turn_rate_comparison') {\n      const mainBrand = \"Toyota\"; // This should be retrieved dynamically in production\n      const clauses = getComparisonClauses(templateParams.comparison_group, mainBrand);\n      templateParams.comparison_select_clause = clauses.select;\n      templateParams.comparison_where_clause = clauses.where;\n      templateParams.comparison_group_clause = clauses.group;\n    }\n    \n    break;\n  }\n}\n\n// If we matched a template, populate it with parameters\nif (matchedTemplate && queryTemplates[matchedTemplate]) {\n  let query = queryTemplates[matchedTemplate];\n  \n  // Replace template parameters\n  Object.keys(templateParams).forEach(key => {\n    query = query.replace(new RegExp(`{{${key}}}`, 'g'), templateParams[key]);\n  });\n  \n  // Output the populated template\n  return { \n    template_matched: true,\n    template_name: matchedTemplate,\n    template_params: templateParams,\n    query: query.trim(),\n    ...templateParams,\n    original_input: $input.item.json\n  };\n} else {\n  // No template matched, continue with normal LLM-based query generation\n  return { \n    template_matched: false,\n    query: null,\n    original_input: $input.item.json\n  };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        3120
+      ],
+      "id": "a0ae29bf-df08-4a90-a1c3-7b706da31717",
+      "name": "Query Templates Matcher"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.template_matched }}",
+                    "rightValue": "=True",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e17b0650-ab6d-4a43-bc41-b8de6acccf31"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Template"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1860,
+        3120
+      ],
+      "id": "aaa342c2-9509-455e-a6c8-d795adba7027",
+      "name": "Template or LLM"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b2126b70-9ce0-4541-b596-e2e32830bb57",
+              "name": "stopTime",
+              "value": "={{ $now }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1660,
+        2720
+      ],
+      "id": "1ebd2594-2ff4-474a-ae74-a1a9ea645d60",
+      "name": "Stop_Time"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Get the SQL query from the previous node\nconst sqlQuery = $json[\"query\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\\\s*--/, // End of statement with comment\n  /DROP\\\\s+TABLE/i,\n  /DELETE\\\\s+FROM/i,\n  /UPDATE\\\\s+/i,\n  /INSERT\\\\s+INTO/i,\n  /ALTER\\\\s+TABLE/i,\n];\n\n// Check for dangerous patterns\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(sqlQuery)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// Validate proper JOIN conditions\nif (sqlQuery.includes(\"JOIN\") && !sqlQuery.includes(\"ON \")) {\n  throw new Error(\"JOIN without proper ON clause detected.\");\n}\n\n// Validate ORDER BY clause for TOP queries\nif (sqlQuery.includes(\"TOP \") && !sqlQuery.includes(\"ORDER BY\")) {\n  throw new Error(\"TOP query without ORDER BY clause detected.\");\n}\n\n// Validate date range calculations\nif (sqlQuery.includes(\"DATEADD\") || sqlQuery.includes(\"DATEDIFF\")) {\n  if (!sqlQuery.includes(\"IS NOT NULL\")) {\n    console.log(\"Warning: Date calculation without NULL check detected.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn { query: sqlQuery };"
+      },
+      "id": "b8f59537-0f47-4a99-97e8-d3bfd31bb58f",
+      "name": "Query Validation2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        840,
+        2520
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "id": "d2e3fc7b-33f3-4d47-b7c0-69555d106b5f",
+      "name": "SQL template and AI queries",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        2160,
+        3120
+      ],
+      "typeVersion": 3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get start and stop times\nconst startTime = $('Template or LLM').first()?.json?.original_input?.Start_time;\nconst stopTime = new Date($input.first().json.stopTime); // Convert to Date object\n\n// Calculate the difference in milliseconds\nconst deltaMs = stopTime - startTime;\n\n// Convert to seconds (with 2 decimal places)\nconst deltaSeconds = (deltaMs / 1000).toFixed(2);\n\n// Convert to a more readable format if it's a longer duration\nlet readableDelta;\nif (deltaMs < 1000) {\n  readableDelta = `${deltaMs} ms`;\n} else if (deltaMs < 60000) {\n  readableDelta = `${deltaSeconds} seconds`;\n} else {\n  const minutes = Math.floor(deltaMs / 60000);\n  const seconds = ((deltaMs % 60000) / 1000).toFixed(2);\n  readableDelta = `${minutes} minutes and ${seconds} seconds`;\n}\n\n// Return both the original data and the time measurements\nreturn {\n  ...($input.item.json),\n  stopTime: new Date(stopTime).toISOString(),\n  executionTimeMs: deltaMs,\n  executionTimeSec: parseFloat(deltaSeconds),\n  executionTimeReadable: readableDelta\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1860,
+        2720
+      ],
+      "id": "9e808e56-9b76-435f-96be-98957ebbd552",
+      "name": "Calculate Delta"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "mssql-tool",
+          "mode": "list",
+          "cachedResultName": "mssql-tool"
+        },
+        "options": {}
+      },
+      "id": "b7e5abe9-fde2-459a-99a8-6d39744fc9f6",
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "position": [
+        -1680,
+        3080
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "pineconeApi": {
+          "id": "AXHlIneCPEV9bOUP",
+          "name": "Pinecone mssql"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "binaryMode": "specificField",
+        "options": {}
+      },
+      "id": "357e30ec-af9c-4a6d-9262-49bc44256f63",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "position": [
+        -1560,
+        3240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "chunkOverlap": 100,
+        "options": {}
+      },
+      "id": "bd882c34-c791-4805-af4f-1c08e746b7a3",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "position": [
+        -1460,
+        3360
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "mssql-tool",
+          "mode": "list",
+          "cachedResultName": "mssql-tool"
+        },
+        "options": {}
+      },
+      "id": "9cb93840-c07b-418d-96cd-59d98a1fdb9a",
+      "name": "Pinecone Vector Store (Retrieval)",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "position": [
+        700,
+        3200
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "pineconeApi": {
+          "id": "AXHlIneCPEV9bOUP",
+          "name": "Pinecone mssql"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {
+          "fileName": "={{ $json.name }}"
+        }
+      },
+      "id": "2aa1e533-0916-4cdd-acb4-0a14a44ea958",
+      "name": "Download File From Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        -1920,
+        3080
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM",
+          "mode": "list",
+          "cachedResultName": "- SQL_RAG",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM"
+        },
+        "event": "fileUpdated",
+        "options": {}
+      },
+      "id": "bfb516f2-f5ad-462c-b3fe-ab9a5657cb7d",
+      "name": "Google Drive File Updated",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        -2280,
+        3240
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM",
+          "mode": "list",
+          "cachedResultName": "- SQL_RAG",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/14gs6wwvbn_dZpqy9RuKpFVj413LRUfSM"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "all"
+        }
+      },
+      "id": "3029a90e-3d38-42a6-a562-1de73d60dc8d",
+      "name": "Google Drive File Created",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        -2280,
+        3080
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "Look for query shapes",
+        "height": 500,
+        "width": 420
+      },
+      "id": "434d25b9-f1e8-4330-9823-305eb822d051",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        680,
+        2980
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Add documents to vector store when updating or creating new documents in Google Drive",
+        "height": 80,
+        "width": 560,
+        "color": 3
+      },
+      "id": "59f870d3-80b0-429c-b705-535201caff95",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2380,
+        3440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 546,
+        "width": 1245,
+        "color": 3
+      },
+      "id": "b3618435-218c-4dfe-af6b-7934c318476c",
+      "name": "Sticky Note15",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2400,
+        3000
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1760,
+        3240
+      ],
+      "id": "b78aedb5-f9ff-4d3c-a2d2-73878cea0c7f",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        720,
+        3340
+      ],
+      "id": "0bbf3f9d-7392-43e2-a19d-62ba520326bf",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Slack Text and Voice Messages",
+        "height": 126,
+        "width": 325
+      },
+      "id": "def59642-4fa2-4fb0-b99e-695bc9b70cb5",
+      "name": "Sticky Note16",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2340,
+        2380
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ \"$json\" }}"
+      },
+      "type": "n8n-nodes-base.microsoftSqlTool",
+      "typeVersion": 1.1,
+      "position": [
+        2080,
+        3320
+      ],
+      "id": "c08d37c5-3d4f-49d1-ae31-4f79381ada38",
+      "name": "Microsoft SQL",
+      "credentials": {
+        "microsoftSql": {
+          "id": "BbAMiDytg4JU7Jas",
+          "name": "MsSQL 38.107.232.33 "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT name\nFROM sys.tables"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        940,
+        2200
+      ],
+      "id": "626c393e-720b-43c0-9d3c-31e800b2f0a6",
+      "name": "LIST TABLES",
+      "credentials": {
+        "microsoftSql": {
+          "id": "BbAMiDytg4JU7Jas",
+          "name": "MsSQL 38.107.232.33 "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "EXEC sp_columns '{{ $json.name }}';"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        1160,
+        2180
+      ],
+      "id": "744ff2b7-9f61-401a-b4bd-47074083ce71",
+      "name": "SCHEMAS",
+      "credentials": {
+        "microsoftSql": {
+          "id": "BbAMiDytg4JU7Jas",
+          "name": "MsSQL 38.107.232.33 "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        2700
+      ],
+      "id": "79b81d7a-1afa-4530-8237-250bcdb6f544",
+      "name": "MySQL",
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SHOW TABLES;",
+        "options": {}
+      },
+      "id": "e3e4a8a2-d8b8-47b4-9077-d4fc24d8b816",
+      "name": "List all tables",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        -40,
+        2060
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "DESCRIBE {{ $json.Tables_in_usdb }};",
+        "options": {}
+      },
+      "id": "80a42a87-dab8-4bac-9b7d-14d214e5e0d0",
+      "name": "Extract DB schema",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        120,
+        2060
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $fromAI('output') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        460,
+        3060
+      ],
+      "id": "a29b4bb7-e882-4e75-af0b-f98a64119ae9",
+      "name": "MySQL_tool",
+      "credentials": {
+        "mySql": {
+          "id": "n7aaXB29elYhw6be",
+          "name": "MySQL_172.210.61.67"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"response\": {\n    \"generations\": [\n      [\n        {\n          \"text\": \"SELECT \\n    DEALERS.Name, \\n    COUNT(LISTINGS.ID) AS Total_Listings \\nFROM \\n    LISTINGS \\nJOIN \\n    DEALERS \\nON \\n    LISTINGS.DEALERS_ID = DEALERS.ID \\nWHERE \\n    DEALERS.State LIKE 'North Carolina' \\nGROUP BY \\n    DEALERS.Name \\nORDER BY \\n    Total_Listings DESC \\nLIMIT 5;\",\n          \"generationInfo\": {\n            \"prompt\": 0,\n            \"completion\": 0,\n            \"finish_reason\": \"stop\",\n            \"system_fingerprint\": null,\n            \"model_name\": \"gpt-4-0613\"\n          }\n        }\n      ]\n    ]\n  },\n  \"tokenUsage\": {\n    \"completionTokens\": 81,\n    \"promptTokens\": 2010,\n    \"totalTokens\": 2091\n  }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1180,
+        2960
+      ],
+      "id": "52fb622d-38d3-48ce-9562-a5e09781f833",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "name": "mssql_tool",
+        "description": "Retrieve information about Tables, Table Schemas and query patterns desinged to extract information from the USDB using MySQL"
+      },
+      "id": "d2d023e5-2fdc-405a-b23b-4257196ef26a",
+      "name": "Vector_Store_Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "position": [
+        780,
+        3040
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "name": "date_time_tool",
+        "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
+        "jsCode": "// Advanced DateTime Tool for n8n Agent with support for business timeframes\nmodule.exports = async function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  const dayOfWeek = now.getDay(); // 0 = Sunday, 6 = Saturday\n  \n  // Format helper function\n  const formatDate = (date) => {\n    return {\n      formatted: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,\n      year: date.getFullYear(),\n      month: date.getMonth() + 1,\n      day: date.getDate()\n    };\n  };\n  \n  // Get start of current day\n  const startOfDay = new Date(year, month, day);\n  startOfDay.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current month\n  const startOfMonth = new Date(year, month, 1);\n  startOfMonth.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current year\n  const startOfYear = new Date(year, 0, 1);\n  startOfYear.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current week (Sunday-based)\n  const startOfWeek = new Date(now);\n  startOfWeek.setDate(now.getDate() - now.getDay());\n  startOfWeek.setHours(0, 0, 0, 0);\n  \n  // Month-to-Date (MTD)\n  const mtdDays = day;\n  const mtdStart = formatDate(startOfMonth);\n  const mtdEnd = formatDate(now);\n  \n  // Year-to-Date (YTD)\n  const ytdDays = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24)) + 1;\n  const ytdStart = formatDate(startOfYear);\n  const ytdEnd = formatDate(now);\n  \n  // Last month (for Month-over-Month)\n  let lastMonthYear = year;\n  let lastMonthMonth = month - 1;\n  \n  // Adjust for January (handle previous year December)\n  if (lastMonthMonth < 0) {\n    lastMonthMonth = 11; // December\n    lastMonthYear = year - 1;\n  }\n  \n  const lastMonth = new Date(lastMonthYear, lastMonthMonth, 1);\n  const lastMonthEnd = new Date(year, month, 0);\n  lastMonthEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  const lastMonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(lastMonth);\n  \n  // Last year (for Year-over-Year)\n  const lastYear = new Date(year - 1, month, day);\n  const lastYearStart = new Date(year - 1, 0, 1);\n  lastYearStart.setHours(0, 0, 0, 0); // Set to beginning of the day\n  const lastYearEnd = new Date(year - 1, 11, 31);\n  lastYearEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  \n  // Format current time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Calculate days in the current year (accounting for leap years)\n  const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);\n  const daysInYear = isLeapYear ? 366 : 365;\n  \n  // Safely handle day overflow for last year (e.g., Feb 29 on leap year to non-leap year)\n  function createSafePreviousYearDate(currentYear, currentMonth, currentDay) {\n    // Check if we're dealing with Feb 29 on a leap year\n    if (currentMonth === 1 && currentDay === 29) { // February 29\n      const prevYear = currentYear - 1;\n      const isPrevLeapYear = (prevYear % 4 === 0 && prevYear % 100 !== 0) || (prevYear % 400 === 0);\n      \n      if (!isPrevLeapYear) {\n        // Previous year is not a leap year, so Feb 29 doesn't exist - use Feb 28 instead\n        return new Date(prevYear, currentMonth, 28);\n      }\n    }\n    \n    // For all other cases, just use the same month and day in the previous year\n    return new Date(currentYear - 1, currentMonth, currentDay);\n  }\n  \n  // Recalculate lastYear date to handle potential February 29 issue\n  const safeLastYear = createSafePreviousYearDate(year, month, day);\n  \n  // Return comprehensive date/time information\n  const result = {\n    current: {\n      timestamp: now.getTime(),\n      dateTime: `${formatDate(now).formatted} ${timeString}`,\n      date: formatDate(now).formatted,\n      time: timeString,\n      year: year,\n      month: month + 1,\n      monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n      day: day,\n      dayOfWeek: dayOfWeek,\n      dayName: new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now),\n      quarter: Math.floor(month / 3) + 1\n    },\n    \n    timeframes: {\n      // This week\n      thisWeek: {\n        start: formatDate(startOfWeek),\n        end: formatDate(now),\n        daysPassed: dayOfWeek,\n        daysRemaining: 6 - dayOfWeek\n      },\n      \n      // This month\n      thisMonth: {\n        start: formatDate(startOfMonth),\n        end: formatDate(now),\n        name: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n        daysPassed: day - 1,\n        totalDays: new Date(year, month + 1, 0).getDate()\n      },\n      \n      // This year\n      thisYear: {\n        start: formatDate(startOfYear),\n        end: formatDate(now),\n        year: year,\n        daysPassed: ytdDays,\n        totalDays: daysInYear\n      },\n      \n      // Month-to-Date (MTD)\n      mtd: {\n        start: mtdStart,\n        end: mtdEnd,\n        daysPassed: mtdDays,\n        percentComplete: Math.round((mtdDays / new Date(year, month + 1, 0).getDate()) * 100)\n      },\n      \n      // Year-to-Date (YTD)\n      ytd: {\n        start: ytdStart,\n        end: ytdEnd,\n        daysPassed: ytdDays,\n        percentComplete: Math.round((ytdDays / daysInYear) * 100)\n      }\n    },\n    \n    comparisons: {\n      // Month-over-Month (MoM)\n      mom: {\n        current: {\n          month: month + 1,\n          monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n          year: year\n        },\n        previous: {\n          month: lastMonth.getMonth() + 1,\n          monthName: lastMonthName,\n          year: lastMonth.getFullYear()\n        },\n        start: formatDate(lastMonth),\n        end: formatDate(lastMonthEnd)\n      },\n      \n      // Year-over-Year (YoY)\n      yoy: {\n        current: {\n          year: year,\n          month: month + 1,\n          day: day\n        },\n        previous: {\n          year: safeLastYear.getFullYear(),\n          month: safeLastYear.getMonth() + 1,\n          day: safeLastYear.getDate()\n        },\n        sameDay: formatDate(safeLastYear),\n        yearStart: formatDate(lastYearStart),\n        yearEnd: formatDate(lastYearEnd)\n      }\n    },\n    \n    timezone: {\n      name: Intl.DateTimeFormat().resolvedOptions().timeZone,\n      offset: now.getTimezoneOffset()\n    },\n    \n    // Business days calculation (Mon-Fri)\n    business: {\n      isBusinessDay: (dayOfWeek >= 1 && dayOfWeek <= 5),\n      daysSinceLastBusinessDay: dayOfWeek === 0 ? 2 : dayOfWeek === 1 ? 3 : 1,\n      businessDaysInMonth: getBusinessDaysInMonth(year, month),\n      businessDaysPassedThisMonth: getBusinessDaysPassed(year, month, day)\n    }\n  };\n  \n  // Helper function to calculate business days in a month (Mon-Fri)\n  function getBusinessDaysInMonth(year, month) {\n    const daysInMonth = new Date(year, month + 1, 0).getDate();\n    let businessDays = 0;\n    \n    for (let i = 1; i <= daysInMonth; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  // Helper function to calculate business days passed in the current month\n  function getBusinessDaysPassed(year, month, currentDay) {\n    let businessDays = 0;\n    \n    for (let i = 1; i <= currentDay; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  return JSON.stringify(result);\n};"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        3100
+      ],
+      "id": "94076cf0-257d-4e0c-9fc3-7d82967ae678",
+      "name": "date_time_tool"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        980,
+        3240
+      ],
+      "id": "757d3102-a1ec-4af6-91b0-089a83c3782e",
+      "name": "OpenAI Chat ",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-03-13T07:39:24.180Z",
+      "updatedAt": "2025-03-13T07:39:24.180Z",
+      "id": "Ub8twoxVAlrzBUUv",
+      "name": "Agent"
+    }
+  ],
+  "triggerCount": 4,
+  "updatedAt": "2025-04-12T07:50:35.000Z",
+  "versionId": "1115b9cc-0a7e-469d-8910-b39b685eb011"
+}
