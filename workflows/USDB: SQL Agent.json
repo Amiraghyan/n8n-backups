@@ -638,8 +638,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -2360,
-        2140
+        1920,
+        2060
       ],
       "id": "e51796f6-7b0c-4125-8a9c-3a4ea6267d4d",
       "name": "OpenRouter Chat",
@@ -659,8 +659,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        -2040,
-        2140
+        2240,
+        2060
       ],
       "id": "8f649ac8-d90c-4d7d-9ace-44b55fa13575",
       "name": "Anthropic Chat",
@@ -699,8 +699,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        -2200,
-        2140
+        2080,
+        2060
       ],
       "id": "c3d30e45-eb86-47e9-bca7-4a1459088bec",
       "name": "Groq Chat",
@@ -841,13 +841,13 @@
       "parameters": {
         "content": "# SQL AGENT\n\n## Relevant notes \n\nWhen the slack triggers, the I do the following:\n- filter any messages coming from the Slack Bot to avoid creating an infinite loop. The bot user ID I get from the last nodes where n8n responds back to slack\n- check if the message is audio or text.\n- if it is an audio, I need to use the slack credentials based on OAUTH (not API token) to be able to download the audio file.",
         "height": 480,
-        "width": 4840,
+        "width": 4880,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2360,
+        -2400,
         1320
       ],
       "id": "81e92f6c-d1d8-4307-9126-357ef8a4a865",
@@ -955,7 +955,7 @@
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 4000 (3306)"
+          "name": "104.167.196.118 : 3306"
         }
       }
     },
@@ -976,7 +976,7 @@
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 4000 (3306)"
+          "name": "104.167.196.118 : 3306"
         }
       }
     },
@@ -1124,7 +1124,7 @@
       "credentials": {
         "mySql": {
           "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 4000 (3306)"
+          "name": "104.167.196.118 : 3306"
         }
       }
     },
@@ -1493,14 +1493,14 @@
       "parameters": {
         "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once (READ SCHEMA)\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
         "height": 306,
-        "width": 4165,
+        "width": 4885,
         "color": 3
       },
       "id": "89a2c89f-2d85-489e-9370-5316b444295e",
       "name": "Sticky Note9",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1680,
+        -2400,
         1980
       ],
       "typeVersion": 1
@@ -1563,13 +1563,13 @@
       "parameters": {
         "content": "",
         "height": 80,
-        "width": 4845
+        "width": 4885
       },
       "id": "a236d2c7-c1ba-446c-b950-a871084badb2",
       "name": "Sticky Note10",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -2380,
+        -2400,
         1860
       ],
       "typeVersion": 1
@@ -2003,7 +2003,7 @@
       "credentials": {
         "microsoftSql": {
           "id": "BbAMiDytg4JU7Jas",
-          "name": "Microsoft SQL account"
+          "name": "MsSQL 38.107.232.33 "
         }
       }
     },
@@ -2514,6 +2514,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-11T15:34:12.000Z",
-  "versionId": "0b8f3dda-b782-4a60-813b-a826e12a5c9c"
+  "updatedAt": "2025-04-14T14:38:27.000Z",
+  "versionId": "3ea9c2cc-cd1c-4861-9094-7f163ea4fcea"
 }
