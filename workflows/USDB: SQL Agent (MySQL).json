@@ -187,7 +187,7 @@
       "main": [
         [
           {
-            "node": "MySQL",
+            "node": "Stop_Time",
             "type": "main",
             "index": 0
           }
@@ -207,13 +207,7 @@
     },
     "Prepare final output": {
       "main": [
-        [
-          {
-            "node": "Stop_Time",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Schedule Trigger": {
@@ -482,7 +476,7 @@
       "ai_vectorStore": [
         [
           {
-            "node": "Vector_Store_Tool",
+            "node": "vector_store_tool",
             "type": "ai_vectorStore",
             "index": 0
           }
@@ -598,7 +592,7 @@
         []
       ]
     },
-    "Vector_Store_Tool": {
+    "date_time_tool": {
       "ai_tool": [
         [
           {
@@ -609,16 +603,11 @@
         ]
       ]
     },
-    "date_time_tool": {
-      "ai_tool": [
-        []
-      ]
-    },
     "OpenAI Chat ": {
       "ai_languageModel": [
         [
           {
-            "node": "Vector_Store_Tool",
+            "node": "vector_store_tool",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -631,6 +620,28 @@
           {
             "node": "Results Formatter",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Item List Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "vector_store_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB AI Agent",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -973,8 +984,8 @@
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1520,
-        2540
+        2500,
+        2440
       ],
       "typeVersion": 1
     },
@@ -1026,8 +1037,8 @@
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
-        680,
-        2520
+        1680,
+        2380
       ],
       "typeVersion": 3.4
     },
@@ -1060,24 +1071,24 @@
       "name": "Check if query exists",
       "type": "n8n-nodes-base.if",
       "position": [
-        1040,
-        2540
+        2040,
+        2380
       ],
       "typeVersion": 2.2
     },
     {
       "parameters": {
         "content": "The AI Agent remembers the schema, questions, and final answers, but not data values, since queries run externally. The agent can't access database content. ",
-        "height": 108.03673727584527,
-        "width": 257.46308756569573,
-        "color": 3
+        "height": 248,
+        "width": 297,
+        "color": 6
       },
       "id": "ef719e87-dc52-4064-8462-fc97642690db",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -360,
-        2940
+        -660,
+        3060
       ],
       "typeVersion": 1
     },
@@ -1115,8 +1126,8 @@
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        1220,
-        1360
+        2600,
+        1660
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1144,8 +1155,8 @@
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
-        1480,
-        2720
+        2280,
+        2600
       ],
       "typeVersion": 3.4
     },
@@ -1161,8 +1172,8 @@
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1260,
-        2720
+        2080,
+        2600
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1194,8 +1205,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1280,
-        2520
+        2500,
+        2300
       ],
       "id": "3f319a85-d778-470e-ba85-ab1a5dfbf026",
       "name": "HTTP Request",
@@ -1212,8 +1223,8 @@
       "name": "Run SQL query tmplt",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        1380,
-        1380
+        2600,
+        1440
       ],
       "typeVersion": 2.4,
       "credentials": {
@@ -1372,8 +1383,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2060,
-        2720
+        1240,
+        2700
       ],
       "id": "ca3c0cf9-ffbe-4334-ae1a-604083a21429",
       "name": "Airtable",
@@ -1407,8 +1418,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        940,
-        2020
+        2620,
+        1840
       ],
       "id": "ec5a0bc6-c84d-45a0-ba45-9206cc001208",
       "name": "LIST ALL tables"
@@ -1436,8 +1447,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1140,
-        2020
+        2820,
+        1840
       ],
       "id": "816a7df8-109b-43f3-b66f-0d84cd7c52e2",
       "name": "EXTRACT Schemas",
@@ -1471,10 +1482,11 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=User Message is:\n{{ $('When chat message received').item.json.chatInput }}\n",
+        "text": "=User Message is: {{ $('When chat message received').item.json.chatInput }}\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=# Role\nYou are a world-class MySQL Developer. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required.\n\n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data. You can get information about the tables and their schema using the Vector_Store_Tool. {{ $('Extract data from file1').item.json.data }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MySQL using the provided tool, execute it, and return the relevant insights.\n\n# Instructions\nGet the user request and translate human natural language and translate it into MySQL queries to execute against the USDB. You will consider information about the USDB tables and their schemas, when formulating the MySQL queries. \n\n# Goals\nYour goal is to be a useful expert assistant that can aid the user in exploring the USDB by asking questions in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating SQL (MySQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MySQL\n\n# Instructions\nWhen generating SQL (MySQL) queries:\n1. Check the vector store first using the Vector_Store_Tool\n2. Look for table and table schema information to inform the prompt better\n3. Use the date_time_tool to inform the prompt better regarding references to time\n4. Once the query is crafted, execute the query to get the response to the query\n\n#Tools\n<tools>\n<MySQL_tool>\nUse this tool to execute SQL queries against the USDB. After properly designing the query with the relevant information use it to determine, with a high level of accuracy, the correct answer from the USDB. Take into consideration the USDB Table Schema while formulating the MySQL queries.\n</MySQL_tool>\n\n<Vector_Store_Tool>\nUse this tool to retrieve relevant information from the associated vector store and use it to determine, with a high level of accuracy, the best query pattern to extract the correct answer from the USDB. The tool will help you retrieve known shapes for SQL queries. If the shape of the query cannot be found in the provided vector store, continue the thought process to craft the proper query.\n</Vector_Store_Tool>\n\n<date_time_tool>\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n### Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n### What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n### How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n### Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n### When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n</date_time_tool>\n</tools>\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n",
+          "systemMessage": "=# Role\nYou are a world-class MySQL Developer. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required\n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data. \n\n//You can get information about the tables and their schema, using the vector_store_tool.\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MySQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
+          "maxIterations": 10,
           "returnIntermediateSteps": "={{ true }}"
         }
       },
@@ -1653,7 +1665,7 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -560,
+        -600,
         2680
       ],
       "id": "ebdb8e02-3c11-4246-abe2-d66160f1d0da",
@@ -1942,9 +1954,9 @@
     },
     {
       "parameters": {
-        "content": "# Role\nYou are a world-class MsSQL Developer. \n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
+        "content": "# Role\nYou are a world-class MySQL Developer. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required.\n\n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data. You can get information about the tables and their schema using the vector_store_tool. \n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MySQL using the provided tool, execute it, and return the relevant insights.\n\n# Instructions\nGet the user request and translate human natural language and translate it into MySQL queries to execute against the USDB. You will consider information about the USDB tables and their schemas, when formulating the MySQL queries. \n\n# Goals\nYour goal is to be a useful expert assistant that can aid the user in exploring the USDB by asking questions in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating SQL (MySQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MySQL\n\n# Instructions\nWhen generating SQL (MySQL) queries:\n1. Check the vector store first using the Vector_Store_Tool\n2. Look for table and table schema information to inform the prompt better\n3. Use the date_time_tool to inform the prompt better regarding references to time\n4. Once the query is crafted, execute the query to get the response to the query\n\n#Tools\n<tools>\n<MySQL_tool>\nUse this tool to execute SQL queries against the USDB. After properly designing the query with the relevant information use it to determine, with a high level of accuracy, the correct answer from the USDB. Take into consideration the USDB Table Schema while formulating the MySQL queries.\n</MySQL_tool>\n\n<vector_store_tool>\nUse this tool to retrieve relevant information from the associated vector store and use it to determine, with a high level of accuracy, the best query pattern to extract the correct answer from the USDB. The tool will help you retrieve known shapes for SQL queries. If the shape of the query cannot be found in the provided vector store, continue the thought process to craft the proper query.\n</vector_store_tool>\n\n<date_time_tool>\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n### Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n### What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n### How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n### Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n### When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n</date_time_tool>\n</tools>\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n",
         "height": 2689,
-        "width": 1243,
+        "width": 1043,
         "color": 5
       },
       "id": "4a584fd5-9df6-4ede-b5f7-cef15318fe7d",
@@ -2026,8 +2038,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1040,
-        2700
+        1860,
+        2580
       ],
       "id": "d83e128b-1c42-4a1b-b73b-3f408cc1100d",
       "name": "Results Formatter"
@@ -2107,8 +2119,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1660,
-        2720
+        860,
+        2700
       ],
       "id": "1ebd2594-2ff4-474a-ae74-a1a9ea645d60",
       "name": "Stop_Time"
@@ -2123,8 +2135,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        840,
-        2520
+        1840,
+        2380
       ]
     },
     {
@@ -2153,8 +2165,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1860,
-        2720
+        1040,
+        2700
       ],
       "id": "9e808e56-9b76-435f-96be-98957ebbd552",
       "name": "Calculate Delta"
@@ -2342,7 +2354,7 @@
       "parameters": {
         "content": "Look for query shapes",
         "height": 500,
-        "width": 420
+        "width": 400
       },
       "id": "434d25b9-f1e8-4330-9823-305eb822d051",
       "name": "Sticky Note4",
@@ -2466,8 +2478,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        940,
-        2200
+        2620,
+        2020
       ],
       "id": "626c393e-720b-43c0-9d3c-31e800b2f0a6",
       "name": "LIST TABLES",
@@ -2486,8 +2498,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        1160,
-        2180
+        2820,
+        2020
       ],
       "id": "744ff2b7-9f61-401a-b4bd-47074083ce71",
       "name": "SCHEMAS",
@@ -2507,8 +2519,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        860,
-        2700
+        1680,
+        2580
       ],
       "id": "79b81d7a-1afa-4530-8237-250bcdb6f544",
       "name": "MySQL",
@@ -2563,8 +2575,6 @@
     },
     {
       "parameters": {
-        "descriptionType": "manual",
-        "toolDescription": "Excute MySQL query",
         "operation": "executeQuery",
         "query": "{{ $fromAI('output') }}",
         "options": {}
@@ -2591,25 +2601,11 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        1180,
-        2960
+        1120,
+        3080
       ],
       "id": "52fb622d-38d3-48ce-9562-a5e09781f833",
       "name": "Structured Output Parser"
-    },
-    {
-      "parameters": {
-        "name": "mssql_tool",
-        "description": "Retrieve information about Tables, Table Schemas and query patterns, based on the MySQL reference manual, desinged to extract information from the USDB using MySQL"
-      },
-      "id": "d2d023e5-2fdc-405a-b23b-4257196ef26a",
-      "name": "Vector_Store_Tool",
-      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
-      "position": [
-        780,
-        3040
-      ],
-      "typeVersion": 1
     },
     {
       "parameters": {
@@ -2621,7 +2617,7 @@
       "typeVersion": 1.1,
       "position": [
         560,
-        3100
+        3160
       ],
       "id": "94076cf0-257d-4e0c-9fc3-7d82967ae678",
       "name": "date_time_tool"
@@ -2649,6 +2645,51 @@
           "name": "USDB"
         }
       }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserItemList",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        2900
+      ],
+      "id": "7e4cd363-801d-4e99-a625-22d1e7217b10",
+      "name": "Item List Output Parser"
+    },
+    {
+      "parameters": {
+        "content": "# Role\nYou are a world-class MySQL Developer. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required\n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
+        "height": 2689,
+        "width": 1043,
+        "color": 5
+      },
+      "id": "d6b997c4-f247-423c-8c85-c6c49522db7c",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3920,
+        2220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "name": "mssql_tool",
+        "description": "Retrieve information about Tables and Table Schemas to desing and extract information from the USDB using MySQL.",
+        "topK": "={{ $fromAI('output') }}"
+      },
+      "id": "d2d023e5-2fdc-405a-b23b-4257196ef26a",
+      "name": "vector_store_tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "position": [
+        780,
+        3040
+      ],
+      "typeVersion": 1,
+      "notesInFlow": true
     }
   ],
   "pinData": {},
@@ -2670,6 +2711,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-12T08:23:10.000Z",
-  "versionId": "f05769a4-7128-486f-bade-38ddf09ff329"
+  "updatedAt": "2025-04-14T19:16:35.000Z",
+  "versionId": "5c87cbe0-644a-4060-85cd-41a89f6f28e0"
 }
