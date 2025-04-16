@@ -86,26 +86,9 @@
         ]
       ]
     },
-    "Call USDB Orchestrator": {
-      "main": [
-        [
-          {
-            "node": "Send reply",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Merge": {
       "main": [
-        [
-          {
-            "node": "Call USDB Orchestrator",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     }
   },
@@ -405,39 +388,6 @@
       "name": "Sticky Note1"
     },
     {
-      "parameters": {
-        "url": "https://syc.app.n8n.cloud/webhook/USDB_Orchestrator",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "=sessionId",
-              "value": "={{ $('Chat Trigger').item.json.sessionId }}"
-            },
-            {
-              "name": "chatInput",
-              "value": "={{ $('Switch1').item.json.chatInput }}"
-            },
-            {
-              "name": "action",
-              "value": "={{ $('Filter1').item.json.action }}"
-            }
-          ]
-        },
-        "options": {
-          "lowercaseHeaders": true
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        440,
-        220
-      ],
-      "id": "58c271df-2792-44c2-b1d0-b4a09f4af044",
-      "name": "Call USDB Orchestrator"
-    },
-    {
       "parameters": {},
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
@@ -456,6 +406,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-04-01T14:16:13.000Z",
-  "versionId": "4349c50d-433b-4f9b-a073-f410ac5d1ead"
+  "updatedAt": "2025-04-15T20:58:18.000Z",
+  "versionId": "84a69612-2210-42f4-a5f9-25a190576067"
 }
