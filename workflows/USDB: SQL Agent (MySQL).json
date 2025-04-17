@@ -2153,8 +2153,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1500,
-        2700
+        1880,
+        2760
       ],
       "id": "9e808e56-9b76-435f-96be-98957ebbd552",
       "name": "Calculate Delta"
@@ -2702,6 +2702,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-14T19:47:15.000Z",
-  "versionId": "25422573-4e99-4a46-92e0-b24a8d48d61f"
+  "updatedAt": "2025-04-17T02:35:30.000Z",
+  "versionId": "13338c76-f790-4f68-9ff7-b1137c679777"
 }
