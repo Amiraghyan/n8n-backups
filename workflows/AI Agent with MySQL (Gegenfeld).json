@@ -1,0 +1,390 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat History": {
+      "ai_memory": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL_execute": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL_schema": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL_definition": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-17T03:18:29.976Z",
+  "id": "WudGx5eDjF4i7h59",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI Agent with MySQL (Gegenfeld)",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "id": "66a2a919-69cc-4e0e-b4f8-45d784d4a144",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        0,
+        220
+      ],
+      "webhookId": "cf1de04f-3e38-426c-89f0-3bdb110a5dcf",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "id": "7fb24ca8-a57a-4fb8-b4c1-952a5c2139fd",
+      "name": "Chat History",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        340,
+        420
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "model": "llama3-70b-8192",
+        "options": {
+          "maxTokensToSample": 4096
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        1000
+      ],
+      "id": "d2110664-212c-41e9-af88-6f8484ff68fa",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "LknJPE6p4ep7FlbF",
+          "name": "Groq account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "You can change the chat model, but also select any other AI provider, if you want (e.g., OpenAI, Anthropic, Mistral).\n\nIf you wish, you can set or adjust the maximum number of tokens used per chat interaction.",
+        "height": 280,
+        "width": 150,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        120,
+        600
+      ],
+      "id": "e0c346a8-0212-4585-8083-1910fa5956d8",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "You can adjust the context of your AI chatbot by increasing or decreasing the number of remembered chats in the chat history.\n\nYou can adjust the context of your AI chatbot by increasing or decreasing the number of remembered chats in the chat history.\n\nNote that increasing the context window may increase the API cost of your AI model because more tokens may be used if no limit is set (you can do this in your chat model node).",
+        "height": 560,
+        "width": 150,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        300,
+        600
+      ],
+      "typeVersion": 1,
+      "id": "f70250f9-849b-4546-b8e3-89e3d37831ee",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "You can customize these MySQL queries. Make sure you have a secure database connection.\n\nYou can also swap MySQL for PostgreSQL or any other SQL-based solution if you wish.",
+        "height": 120,
+        "width": 540,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        480,
+        600
+      ],
+      "typeVersion": 1,
+      "id": "f174e62d-9993-4bb4-a5d0-04160fefd111",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "### ✨ How to set this workflow up:\n1. Add your **MySQL** and **Groq Chat** credentials.\n2. Click the **Groq Chat Model** node and select your prefered model.\n3. Click on the **Chat** button and ask a question.\n4. If you want, make the chat public and embed it into your website ([Full Tutorial](https://workflow.gegenfeld.com/ai-chat-bot-with-mysql-database)). ",
+        "height": 140,
+        "width": 640,
+        "color": 4
+      },
+      "id": "7f45306c-f850-45f0-95b5-efdb99e4c892",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=# Role\nYou are a world-class MySQL Developer with 30 years of experience in top database companies, capable of fulfilling user requests in human natural language by translating these into precise MySQL queries leveraging the tools you have available. Your capability ranges from answering simple questions to providing in-depth explanations of complex queries and insights attained using the USDB. \n\n# Goal\nYour goal is to be a useful and accurate expert who can assist the user in exploring information from the USDB. \n\n# Task\nWhen generating MySQL queries:\n1. First analyze to understand the question the user is asking in human natural language and think about what he needs.\n2. Use the tools available to get familiarised with the tables, schemas and field definitions you have available to work with, and any additional details about the data its relationships so you can enrich the context.\n3. Translate the user request into a MySQL query with correct syntax designed to correctly answer the user request using the USDB\n4. Execute the query generated to obtain the response to the user question\n5. Present the response to the user formatting the data properly. \n6. After the response has been presented, skip a line and present the MySQL query used to generate the answer\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- Always use LIKE for filters never explicit names. \n- Don't Limit the data.\n- The queries should be aligned with user intent, structured correctly, and safe to be executed.\n- It is required that you use the tools available to get familiar with the tables available and their schemas and relationships, and the different data fields, their data types, lengths, etc, and then perform tasks as needed.\n- The Current Date = {{ $now }}\n\n# Rules\nWhen generating MySQL queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MySQL\n\n---\n\n#Tools\n<tools>\n<MySQL_schema>\nThis node retrieves a list of relevant tables from the USDB database (e.g., from the public schema, excluding system schemas like pg_catalog or information_schema). The agent uses this information to understand the available tables, which typically involves executing a MySQL query like `SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';`. Use this tool to get an initial understanding of the tables available to you in the USDB. \n</MySQL_schema>\n\n<MySQL_definition>\nThis MySQL node fetches detailed metadata (such as column names, data types, and relationships using foreign keys) for a specific table. The table name (and schema if necessary) is supplied dynamically by the AI Agent. This often involves querying information_schema.columns,\n</MySQL_definition>\n\n<MySQL_execute>\nThis node executes the MySQL query generated by the USDB Agent against the USDB database. You reference the query using an expression allowing the agent’s output to control data retrieval.\n</MySQL_execute>\n\n</tools>",
+          "maxIterations": "={{ 25 }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        420,
+        220
+      ],
+      "id": "453a1fbe-ae02-4d3c-87ee-5a11795a0483",
+      "name": "USDB Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-3-7-sonnet-20250219",
+          "mode": "list",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        180,
+        400
+      ],
+      "id": "22fa4bf6-3a14-4bc3-a662-cb40354c711b",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "dcLqo62duKhDxGrw",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "This node executes the MySQL query generated by the USDB Agent against the USDB database. You reference the query using an expression (e.g., {{$fromAI('mysql_query')}}), allowing the agent’s output to control data retrieval.",
+        "operation": "executeQuery",
+        "query": "{{$fromAI('sql')}}",
+        "options": {
+          "replaceEmptyStrings": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Replace_Empty_Strings_with_NULL', ``, 'boolean') }}",
+          "detailedOutput": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Output_Query_Execution_Details', ``, 'boolean') }}"
+        }
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        520,
+        420
+      ],
+      "id": "c8e5ae8d-9959-4d29-9932-deaea89efd91",
+      "name": "MySQL_execute",
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "This node retrieves a list of relevant tables from the USDB database (e.g., from the public schema, excluding system schemas like pg_catalog or information_schema). The agent uses this information to understand the available tables. This typically involves executing a MySQL query like SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+        "operation": "executeQuery",
+        "query": "SELECT \n    table_schema,\n    table_name\nFROM information_schema.tables\nWHERE table_type = 'BASE TABLE'\n    AND table_schema NOT IN ('mysql', 'information_schema', 'performance_schema', 'sys')\nORDER BY table_schema, table_name;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        700,
+        420
+      ],
+      "id": "1a4e6d6e-1d54-4f34-8a40-270a43747751",
+      "name": "MySQL_schema",
+      "credentials": {
+        "mySql": {
+          "id": "eJXB3gBP57kIUHI8",
+          "name": "MySQL 104.167.196.118:3306 Root"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=This MySQL node fetches detailed metadata (such as column names, data types, and potentially relationships using foreign keys) for a specific table. The table name (and schema if necessary) is supplied dynamically by the AI Agent. This often involves querying information_schema.columns.",
+        "operation": "executeQuery",
+        "query": "SELECT \n  c.column_name,\n  c.data_type,\n  c.is_nullable,\n  c.column_default,\n  tc.constraint_type,\n  ccu.table_name AS referenced_table,\n  ccu.column_name AS referenced_column\nFROM information_schema.columns c\nLEFT JOIN information_schema.key_column_usage kcu\n  ON c.table_schema = kcu.table_schema\n  AND c.table_name = kcu.table_name\n  AND c.column_name = kcu.column_name\nLEFT JOIN information_schema.table_constraints tc\n  ON kcu.constraint_name = tc.constraint_name\n  AND kcu.table_schema = tc.table_schema\n  AND tc.constraint_type = 'FOREIGN KEY'\nLEFT JOIN information_schema.referential_constraints rc\n  ON tc.constraint_name = rc.constraint_name\n  AND tc.table_schema = rc.constraint_schema\nLEFT JOIN information_schema.key_column_usage ccu\n  ON rc.unique_constraint_name = ccu.constraint_name\n  AND rc.unique_constraint_schema = ccu.table_schema\n  AND kcu.ordinal_position = ccu.ordinal_position\nWHERE \n  c.table_name = '{{$fromAI('table')}}'\n  AND c.table_schema = '{{$fromAI('table_schema')}}'\nORDER BY \n  c.ordinal_position;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        880,
+        420
+      ],
+      "id": "f44b0289-2abc-4fda-96ff-268854076760",
+      "name": "MySQL_definition",
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Use the tool to think thoroughly about the user question and the translation into a MySQL query to extract information from the USDB considering its tables, schemas, relationships, field definitions, data types, etc. It will not obtain new information or change the database, but just append the thought to the log."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        420
+      ],
+      "id": "3a61351c-610d-4900-aa4f-2de74c548fb9",
+      "name": "Think"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "This node retrieves a list of relevant tables from the USDB database (e.g., from the public schema, excluding system schemas like pg_catalog or information_schema). The agent uses this information to understand the available tables. This typically involves executing a MySQL query like SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+        "operation": "executeQuery",
+        "query": "SELECT \n    table_schema,\n    table_name\nFROM information_schema.tables\nWHERE table_type = 'BASE TABLE'\n    AND table_schema NOT IN ('mysql', 'information_schema', 'performance_schema', 'sys')\nORDER BY table_schema, table_name;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        -20,
+        620
+      ],
+      "id": "9396a542-6104-437c-a6be-f9200e9e9ac0",
+      "name": "MySQL_schema1",
+      "credentials": {
+        "mySql": {
+          "id": "eJXB3gBP57kIUHI8",
+          "name": "MySQL 104.167.196.118:3306 Root"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=This MySQL node fetches detailed metadata (such as column names, data types, and potentially relationships using foreign keys) for a specific table. The table name (and schema if necessary) is supplied dynamically by the AI Agent. This often involves querying information_schema.columns.",
+        "operation": "executeQuery",
+        "query": "SELECT \n  c.column_name,\n  c.data_type,\n  c.is_nullable,\n  c.column_default,\n  tc.constraint_type,\n  ccu.table_name AS referenced_table,\n  ccu.column_name AS referenced_column\nFROM information_schema.columns c\nLEFT JOIN information_schema.key_column_usage kcu\n  ON c.table_schema = kcu.table_schema\n  AND c.table_name = kcu.table_name\n  AND c.column_name = kcu.column_name\nLEFT JOIN information_schema.table_constraints tc\n  ON kcu.constraint_name = tc.constraint_name\n  AND kcu.table_schema = tc.table_schema\n  AND tc.constraint_type = 'FOREIGN KEY'\nLEFT JOIN information_schema.referential_constraints rc\n  ON tc.constraint_name = rc.constraint_name\n  AND tc.table_schema = rc.constraint_schema\nLEFT JOIN information_schema.key_column_usage ccu\n  ON rc.unique_constraint_name = ccu.constraint_name\n  AND rc.unique_constraint_schema = ccu.table_schema\n  AND kcu.ordinal_position = ccu.ordinal_position\nWHERE \n  c.table_name = '{{$fromAI('table')}}'\n  AND c.table_schema = '{{$fromAI('schema')}}'\nORDER BY \n  c.ordinal_position;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        -40,
+        800
+      ],
+      "id": "95d413b7-8ec4-4aaa-9b0c-d03d2e4ca72b",
+      "name": "MySQL_definition1",
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-17T07:27:42.000Z",
+  "versionId": "12721dfe-7947-4ace-9520-9d178bcbedcf"
+}
