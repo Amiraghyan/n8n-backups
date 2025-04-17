@@ -1576,21 +1576,6 @@
     },
     {
       "parameters": {
-        "content": "",
-        "height": 106,
-        "width": 2125
-      },
-      "id": "8b9d4568-c3a9-4e8e-bb74-1b46a594091d",
-      "name": "Sticky Note11",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        3480,
-        620
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "rule": {
           "interval": [
             {
@@ -2514,6 +2499,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-14T14:38:27.000Z",
-  "versionId": "3ea9c2cc-cd1c-4861-9094-7f163ea4fcea"
+  "updatedAt": "2025-04-17T07:25:38.000Z",
+  "versionId": "083500a8-8df3-421d-bddd-0f917d972117"
 }
