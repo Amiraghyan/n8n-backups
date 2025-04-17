@@ -95,17 +95,6 @@
         ]
       ]
     },
-    "Convert data to binary": {
-      "main": [
-        [
-          {
-            "node": "Save file locally",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Extract SQL query": {
       "main": [
         [
@@ -172,74 +161,12 @@
         []
       ]
     },
-    "Add table name column": {
-      "main": [
-        [
-          {
-            "node": "Convert data to binary",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "USDB AI Agent": {
-      "main": [
-        [
-          {
-            "node": "Stop_Time",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Prepare final output": {
       "main": [
         []
       ]
     },
-    "Schedule Trigger": {
-      "main": [
-        [
-          {
-            "node": "List all tables",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch1": {
-      "main": [
-        [
-          {
-            "node": "List all tables",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Load the schema from the local file1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Save file locally": {
+    "Prepare final output": {
       "main": [
         []
       ]
@@ -248,7 +175,7 @@
       "main": [
         [
           {
-            "node": "Switch1",
+            "node": "Start_Time",
             "type": "main",
             "index": 0
           }
@@ -338,41 +265,8 @@
       "main": [
         [
           {
-            "node": "USDB AI Agent",
+            "node": "USDB Agent",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Load the schema from the local file1": {
-      "main": [
-        [
-          {
-            "node": "Extract data from file1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Extract data from file1": {
-      "main": [
-        [
-          {
-            "node": "Start_Time",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Simple Memory2": {
-      "ai_memory": [
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "ai_memory",
             "index": 0
           }
         ]
@@ -380,13 +274,7 @@
     },
     "Results Formatter": {
       "main": [
-        [
-          {
-            "node": "Combine query result and chat answer",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Query Templates Matcher": {
@@ -425,13 +313,7 @@
     },
     "Query Validation2": {
       "main": [
-        [
-          {
-            "node": "Check if query exists",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "SQL template and AI queries": {
@@ -521,17 +403,6 @@
         ]
       ]
     },
-    "Embeddings OpenAI1": {
-      "ai_embedding": [
-        [
-          {
-            "node": "Pinecone Vector Store (Retrieval)",
-            "type": "ai_embedding",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Microsoft SQL": {
       "ai_tool": [
         []
@@ -548,59 +419,9 @@
         ]
       ]
     },
-    "List all tables": {
-      "main": [
-        [
-          {
-            "node": "Extract DB schema",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Extract DB schema": {
-      "main": [
-        [
-          {
-            "node": "Add table name column",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "MySQL_tool": {
-      "ai_tool": [
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Structured Output Parser": {
-      "ai_outputParser": [
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "date_time_tool": {
       "ai_tool": [
-        [
-          {
-            "node": "USDB AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenAI Chat ": {
@@ -625,14 +446,108 @@
         ]
       ]
     },
-    "Item List Output Parser": {
-      "ai_outputParser": [
-        []
-      ]
-    },
     "vector_store_tool": {
       "ai_tool": [
         []
+      ]
+    },
+    "Chat History": {
+      "ai_memory": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL_execute": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL_schema": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL_definition": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "USDB Agent": {
+      "main": [
+        [
+          {
+            "node": "Stop_Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store (Retrieval)",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "USDB Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -669,7 +584,7 @@
     },
     {
       "parameters": {
-        "model": "openai/o3-mini",
+        "model": "01-ai/yi-large",
         "options": {
           "maxTokens": -1
         }
@@ -677,8 +592,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -2360,
-        2140
+        420,
+        2120
       ],
       "id": "e711327a-d10a-4723-be36-c086c693351b",
       "name": "OpenRouter Chat",
@@ -880,13 +795,13 @@
       "parameters": {
         "content": "# SQL AGENT\n\n## Relevant notes \n\nWhen the slack triggers, the I do the following:\n- filter any messages coming from the Slack Bot to avoid creating an infinite loop. The bot user ID I get from the last nodes where n8n responds back to slack\n- check if the message is audio or text.\n- if it is an audio, I need to use the slack credentials based on OAUTH (not API token) to be able to download the audio file.",
         "height": 480,
-        "width": 4840,
+        "width": 2960,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2360,
+        -2400,
         1320
       ],
       "id": "92d3972c-378b-481b-abbb-f1841289c689",
@@ -972,37 +887,8 @@
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        2500,
-        2440
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "operation": "toJson",
-        "options": {}
-      },
-      "id": "b10f279b-6b09-41ec-b1f9-9176b0f61e07",
-      "name": "Convert data to binary",
-      "type": "n8n-nodes-base.convertToFile",
-      "position": [
-        500,
-        2060
-      ],
-      "typeVersion": 1.1
-    },
-    {
-      "parameters": {
-        "operation": "write",
-        "fileName": "./usdb_sql.json",
-        "options": {}
-      },
-      "id": "5d780fd1-9ce0-4c89-9d0f-2cf6829dfd3c",
-      "name": "Save file locally",
-      "type": "n8n-nodes-base.readWriteFile",
-      "position": [
-        680,
-        2060
+        -2680,
+        2740
       ],
       "typeVersion": 1
     },
@@ -1025,8 +911,8 @@
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
-        1680,
-        2380
+        -3500,
+        2680
       ],
       "typeVersion": 3.4
     },
@@ -1059,26 +945,10 @@
       "name": "Check if query exists",
       "type": "n8n-nodes-base.if",
       "position": [
-        2040,
-        2380
+        -3140,
+        2680
       ],
       "typeVersion": 2.2
-    },
-    {
-      "parameters": {
-        "content": "The AI Agent remembers the schema, questions, and final answers, but not data values, since queries run externally. The agent can't access database content. ",
-        "height": 248,
-        "width": 297,
-        "color": 6
-      },
-      "id": "ef719e87-dc52-4064-8462-fc97642690db",
-      "name": "Sticky Note7",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -660,
-        3060
-      ],
-      "typeVersion": 1
     },
     {
       "parameters": {
@@ -1098,32 +968,11 @@
       "name": "Format query results",
       "type": "n8n-nodes-base.set",
       "position": [
-        1640,
-        3260
+        -3040,
+        3060
       ],
       "executeOnce": true,
       "typeVersion": 3.4
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "{{ $json.query}}",
-        "options": {}
-      },
-      "id": "3bfca121-bc8c-4341-87df-cee3d1c6ab1b",
-      "name": "Run SQL query",
-      "type": "n8n-nodes-base.mySql",
-      "position": [
-        2600,
-        1660
-      ],
-      "typeVersion": 2.4,
-      "credentials": {
-        "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
-        }
-      }
     },
     {
       "parameters": {
@@ -1143,8 +992,8 @@
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
-        2280,
-        2600
+        -3300,
+        3060
       ],
       "typeVersion": 3.4
     },
@@ -1160,8 +1009,8 @@
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
-        2080,
-        2600
+        -3500,
+        3060
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1193,35 +1042,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2500,
-        2300
+        -2680,
+        2600
       ],
       "id": "3f319a85-d778-470e-ba85-ab1a5dfbf026",
       "name": "HTTP Request",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "{{ $json.query }}",
-        "options": {}
-      },
-      "id": "7d51d3fc-af4e-4035-8efb-1a69af4c53af",
-      "name": "Run SQL query tmplt",
-      "type": "n8n-nodes-base.mySql",
-      "position": [
-        2600,
-        1440
-      ],
-      "typeVersion": 2.4,
-      "credentials": {
-        "mySql": {
-          "id": "oUon8ECO0bjjL9bn",
-          "name": "AISandbox"
-        }
-      },
-      "disabled": true
     },
     {
       "parameters": {
@@ -1244,12 +1071,12 @@
           "mappingMode": "defineBelow",
           "value": {
             "sessionId": "={{ $('When chat message received').item.json.sessionId }}",
-            "chatInput": "={{ $('When chat message received').item.json.chatInput }}",
-            "request": "={{ $('USDB AI Agent').item.json.intermediateSteps[0].action.messageLog[0].kwargs.tool_calls[0].args.output }}",
-            "response": "={{ $('USDB AI Agent').item.json.intermediateSteps[0].observation }}",
+            "chatInput": "={{ $('USDB Agent').item.json.output.question }}",
+            "response": "={{ $('USDB Agent').item.json.output.answer }}",
             "stopTime": "={{ $json.stopTime }}",
-            "time": "=",
-            "startTime": "={{ $('Start_Time').item.json.Start_time }}"
+            "time": "={{ ((new Date($json.stopTime).getTime() - new Date($('Start_Time').item.json.Start_time).getTime()) / 1000).toString() }}",
+            "startTime": "={{ $('Start_Time').item.json.Start_time }}",
+            "request": "={{ $('USDB Agent').item.json.output.sql }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -1371,8 +1198,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1060,
-        2700
+        100,
+        2600
       ],
       "id": "ca3c0cf9-ffbe-4334-ae1a-604083a21429",
       "name": "Airtable",
@@ -1406,8 +1233,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2620,
-        1840
+        -3500,
+        2220
       ],
       "id": "ec5a0bc6-c84d-45a0-ba45-9206cc001208",
       "name": "LIST ALL tables"
@@ -1435,37 +1262,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2820,
-        1840
+        -3300,
+        2220
       ],
       "id": "816a7df8-109b-43f3-b66f-0d84cd7c52e2",
       "name": "EXTRACT Schemas",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "764176d6-3c89-404d-9c71-301e8a406a68",
-              "name": "table",
-              "type": "string",
-              "value": "={{ $('List all tables').item.json.Tables_in_usdb }}"
-            }
-          ]
-        },
-        "includeOtherFields": true,
-        "options": {}
-      },
-      "id": "f5d8f8b8-4e8f-4294-9429-a023206e3af2",
-      "name": "Add table name column",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        300,
-        2060
-      ],
-      "typeVersion": 3.4
     },
     {
       "parameters": {
@@ -1481,70 +1284,17 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        500,
-        2700
+        -1140,
+        2120
       ],
       "id": "db24c3e4-06c3-4fd5-ab8c-e95a2395d4b6",
       "name": "USDB AI Agent"
     },
     {
       "parameters": {
-        "content": "# AGENT WITH TOOLS (SQL)\n\n## Run this part only once (READ SCHEMA)\nThis section:\n* loads a list of all tables from the USDB database hosted on 10.20.30.21\n* extracts the database schema for each table and adds the table name\n* converts the schema into a binary JSON format\n* saves the schema `./usdb_mysql.json` file locally\n\n***Now you can use chat to \"talk\" to your data!*** 🎉",
-        "height": 306,
-        "width": 4165,
-        "color": 3
-      },
-      "id": "c63da263-ecdb-472f-b884-204e76786ab7",
-      "name": "Sticky Note9",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -1680,
-        1980
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "options": {
-          "temperature": 0
-        }
-      },
-      "id": "8e99be71-7346-47ac-b8c1-51fe97b5ce36",
-      "name": "OpenAI Chat1",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "position": [
-        240,
-        2920
-      ],
-      "typeVersion": 1,
-      "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "content": "### LangChain AI Agent's system prompt is modified.\nIt uses only the database schema to generate SQL queries. The agent creates these queries but does not execute them. Instead, it passes them to subsequent nodes.\n\n**Example:**\n\"Can you show me the list of all German customers?\" \n\nQueries are generated only when necessary; for some requests, a query may not be needed. This is because certain questions can be answered directly without SQL execution.\n\n**Example:**\n\"Can you list me all tables?\"",
-        "height": 1235,
-        "width": 2106,
-        "color": 6
-      },
-      "id": "d409aede-54f7-4c11-8b90-db8dcd55b873",
-      "name": "Sticky Note3",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        380,
-        2320
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. \n* This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
         "height": 1229,
-        "width": 1523,
+        "width": 1743,
         "color": 6
       },
       "id": "81b9073e-97b3-49e8-bd20-d0f78207c122",
@@ -1560,91 +1310,16 @@
       "parameters": {
         "content": "",
         "height": 80,
-        "width": 4845
+        "width": 2965
       },
       "id": "a7b34651-9e89-4a14-906f-a84e74f6542d",
       "name": "Sticky Note10",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -2380,
+        -2400,
         1860
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "content": "",
-        "height": 106,
-        "width": 2125
-      },
-      "id": "a6c4e6c9-fa5b-4fda-9ed7-7b07f541026f",
-      "name": "Sticky Note11",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        3480,
-        620
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "triggerAtHour": 1
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        -500,
-        2060
-      ],
-      "id": "8ebcbbbf-a8d5-4143-8b56-03ca0646b3b0",
-      "name": "Schedule Trigger"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.chatInput }}",
-                    "rightValue": "={{ \"/start\" }}",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "e9cd41d3-869f-42ac-8fc1-4fa7cc946c6a"
-                  }
-                ],
-                "combinator": "and"
-              }
-            }
-          ]
-        },
-        "options": {
-          "fallbackOutput": "extra"
-        }
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        -380,
-        2680
-      ],
-      "id": "4b9348b4-5cfc-49ff-b1cd-951e85fb1675",
-      "name": "Switch1"
     },
     {
       "parameters": {
@@ -1653,8 +1328,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -600,
-        2680
+        -900,
+        2600
       ],
       "id": "ebdb8e02-3c11-4246-abe2-d66160f1d0da",
       "name": "When chat message received",
@@ -1911,6 +1586,24 @@
               "name": "Start_time",
               "value": "={{ $now }}",
               "type": "string"
+            },
+            {
+              "id": "9e71b784-37e4-4237-9f58-2aaa0f476208",
+              "name": "sessionId",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "01ad41c4-0e03-45dd-8018-820a727f4e2b",
+              "name": "action",
+              "value": "={{ $json.action }}",
+              "type": "string"
+            },
+            {
+              "id": "1d6216df-fcb4-4c48-bb33-fecd6d93f53f",
+              "name": "chatInput",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
             }
           ]
         },
@@ -1919,8 +1612,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        240,
-        2700
+        -720,
+        2600
       ],
       "id": "95c4cb24-4b53-41e0-9bb9-a4e2ca40bd30",
       "name": "Start_Time"
@@ -1944,43 +1637,15 @@
       "parameters": {
         "content": "# Role\nYou are a world-class MySQL Developer. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required.\n\n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MySQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data. You can get information about the tables and their schema using the vector_store_tool. \n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MySQL using the provided tool, execute it, and return the relevant insights.\n\n# Instructions\nGet the user request and translate human natural language and translate it into MySQL queries to execute against the USDB. You will consider information about the USDB tables and their schemas, when formulating the MySQL queries. \n\n# Goals\nYour goal is to be a useful expert assistant that can aid the user in exploring the USDB by asking questions in natural language and developing insights or gathering complex information while asking written or spoken questions. \n\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- always use LIKE for filters never explicit names. \n- Dont Limit the data\n- The Current Date = {{ $now }}\n- ONLY RETURN THE SQL QUERY AND NOTHING ELSE\n\n# Rules\nWhen generating SQL (MySQL) queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MySQL\n\n# Instructions\nWhen generating SQL (MySQL) queries:\n1. Check the vector store first using the Vector_Store_Tool\n2. Look for table and table schema information to inform the prompt better\n3. Use the date_time_tool to inform the prompt better regarding references to time\n4. Once the query is crafted, execute the query to get the response to the query\n\n#Tools\n<tools>\n<MySQL_tool>\nUse this tool to execute SQL queries against the USDB. After properly designing the query with the relevant information use it to determine, with a high level of accuracy, the correct answer from the USDB. Take into consideration the USDB Table Schema while formulating the MySQL queries.\n</MySQL_tool>\n\n<vector_store_tool>\nUse this tool to retrieve relevant information from the associated vector store and use it to determine, with a high level of accuracy, the best query pattern to extract the correct answer from the USDB. The tool will help you retrieve known shapes for SQL queries. If the shape of the query cannot be found in the provided vector store, continue the thought process to craft the proper query.\n</vector_store_tool>\n\n<date_time_tool>\nUse this tool when the user asks about:\n- Current date or time\n- Today's date\n- What day of the week it is\n- How many days into the month/year we are\n- Month-to-date or year-to-date timeframes\n- Comparisons to last month or last year\n- Business reporting periods\n- Any time-related calculations\n\n### Example trigger phrases:\n- \"What's today's date?\"\n- \"What day of the week is it?\"\n- \"How many days are we into the month?\"\n- \"What's the month-to-date period?\"\n- \"What's the date range for year-to-date?\"\n- \"How does this month compare to last month?\"\n- \"What's the current month and quarter?\"\n\n### What this tool returns\nThis tool provides comprehensive date and time information including:\n- Current timestamp, date, and time\n- Day, month, year information\n- Week, month, quarter, and year timeframes \n- MTD (Month-to-Date) and YTD (Year-to-Date) periods\n- MOM (Month-over-Month) and YOY (Year-over-Year) comparison dates\n\n### How to use the response\nThe tool returns a JSON object with nested properties. To access specific information:\n- For current date: response.current.date\n- For MTD: response.timeframes.mtd\n- For YOY comparisons: response.comparisons.yoy\n\n### Business context\nThis tool is especially valuable for:\n- Financial reporting periods\n- Sales comparisons across time periods\n- Business analytics and KPI tracking\n- Scheduling and planning activities\n\n### When NOT to use this tool\nDon't use this tool for:\n- Historical dates (dates in the past) that aren't relative to today\n- Future date calculations beyond simple relative periods\n- Complex calendar manipulations\n- Timezone conversions requiring specific rules\n</date_time_tool>\n</tools>\n\n<userStyle>\n  Normal\n</userStyle>\n\n\n# Examples\n​ <examples>  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n#Additional context\n - date time\n - context about the business\n\n\nUSER'S INPUT\n--------------------\nHere is the user's input (remember to respond with a markdown code snippet of a json blob with a single action, and NOTHING else. Make sure you format markdown tables properly.):\n{{ $('When chat message received').item.json.chatInput }}\n",
         "height": 2689,
-        "width": 1043,
+        "width": 583,
         "color": 5
       },
       "id": "4a584fd5-9df6-4ede-b5f7-cef15318fe7d",
       "name": "Sticky Note14",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2760,
-        2220
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "fileSelector": "./usdb_sql.json",
-        "options": {}
-      },
-      "id": "a632de58-4566-4913-a587-ef6f5811ee9c",
-      "name": "Load the schema from the local file1",
-      "type": "n8n-nodes-base.readWriteFile",
-      "position": [
-        -160,
-        2700
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "operation": "fromJson",
-        "options": {}
-      },
-      "id": "0f286254-e86b-4e68-acd8-c34728f8a8fe",
-      "name": "Extract data from file1",
-      "type": "n8n-nodes-base.extractFromFile",
-      "position": [
-        40,
-        2700
+        1360,
+        1300
       ],
       "typeVersion": 1
     },
@@ -1992,8 +1657,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        1860,
-        3260
+        -180,
+        2120
       ],
       "id": "d8ec7541-b0c5-46dc-b2fd-e7551148b3e5",
       "name": "Microsoft SQL1",
@@ -2006,28 +1671,13 @@
     },
     {
       "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
-        "contextWindowLength": 10
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        340,
-        3000
-      ],
-      "id": "68de6aff-46b4-4d03-9df9-ba274d6165be",
-      "name": "Simple Memory2"
-    },
-    {
-      "parameters": {
         "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | '));\n\n// Detect if this is a comparison query (contains percentage or difference columns)\nconst isComparisonQuery = headers.some(h => \n  h.includes('percent') || h.includes('diff') || h.includes('change'));\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => {\n    const value = item[header];\n    \n    // Format numbers with thousands separators\n    if (typeof value === 'number' && !isNaN(value)) {\n      // Format percentages\n      if (header.includes('percent') || header.includes('change')) {\n        return `${(value * 100).toFixed(2)}%`;\n      }\n      // Format currency\n      else if (header.includes('price') || header.includes('cost')) {\n        return `$${value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;\n      }\n      // Format regular numbers\n      else if (value > 1000) {\n        return value.toLocaleString('en-US');\n      }\n    }\n    \n    return value;\n  });\n  \n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1860,
-        2580
+        -3320,
+        2880
       ],
       "id": "d83e128b-1c42-4a1b-b73b-3f408cc1100d",
       "name": "Results Formatter"
@@ -2040,8 +1690,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1640,
-        3120
+        -3500,
+        3300
       ],
       "id": "a0ae29bf-df08-4a90-a1c3-7b706da31717",
       "name": "Query Templates Matcher"
@@ -2084,8 +1734,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1860,
-        3120
+        -3300,
+        3300
       ],
       "id": "aaa342c2-9509-455e-a6c8-d795adba7027",
       "name": "Template or LLM"
@@ -2107,8 +1757,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        860,
-        2700
+        -100,
+        2600
       ],
       "id": "1ebd2594-2ff4-474a-ae74-a1a9ea645d60",
       "name": "Stop_Time"
@@ -2123,8 +1773,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1840,
-        2380
+        -3340,
+        2680
       ]
     },
     {
@@ -2139,8 +1789,8 @@
       "name": "SQL template and AI queries",
       "type": "n8n-nodes-base.merge",
       "position": [
-        2160,
-        3120
+        -3000,
+        3300
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -2153,8 +1803,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1880,
-        2760
+        -3100,
+        2880
       ],
       "id": "9e808e56-9b76-435f-96be-98957ebbd552",
       "name": "Calculate Delta"
@@ -2228,8 +1878,8 @@
       "name": "Pinecone Vector Store (Retrieval)",
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "position": [
-        700,
-        3200
+        -420,
+        3140
       ],
       "typeVersion": 1,
       "credentials": {
@@ -2341,15 +1991,16 @@
     {
       "parameters": {
         "content": "Look for query shapes",
-        "height": 500,
-        "width": 400
+        "height": 480,
+        "width": 420,
+        "color": 5
       },
       "id": "434d25b9-f1e8-4330-9823-305eb822d051",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        680,
-        2980
+        -440,
+        2940
       ],
       "typeVersion": 1
     },
@@ -2406,25 +2057,6 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        720,
-        3340
-      ],
-      "id": "0bbf3f9d-7392-43e2-a19d-62ba520326bf",
-      "name": "Embeddings OpenAI1",
-      "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
-        }
-      }
-    },
-    {
-      "parameters": {
         "content": "# Slack Text and Voice Messages",
         "height": 126,
         "width": 325
@@ -2446,8 +2078,8 @@
       "type": "n8n-nodes-base.microsoftSqlTool",
       "typeVersion": 1.1,
       "position": [
-        2080,
-        3320
+        -320,
+        2120
       ],
       "id": "c08d37c5-3d4f-49d1-ae31-4f79381ada38",
       "name": "Microsoft SQL",
@@ -2466,8 +2098,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        2620,
-        2020
+        -3500,
+        2400
       ],
       "id": "626c393e-720b-43c0-9d3c-31e800b2f0a6",
       "name": "LIST TABLES",
@@ -2486,8 +2118,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        2820,
-        2020
+        -3300,
+        2400
       ],
       "id": "744ff2b7-9f61-401a-b4bd-47074083ce71",
       "name": "SCHEMAS",
@@ -2507,8 +2139,8 @@
       "type": "n8n-nodes-base.mySql",
       "typeVersion": 2.4,
       "position": [
-        1680,
-        2580
+        -3500,
+        2880
       ],
       "id": "79b81d7a-1afa-4530-8237-250bcdb6f544",
       "name": "MySQL",
@@ -2521,82 +2153,6 @@
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "SHOW TABLES;",
-        "options": {}
-      },
-      "id": "e3e4a8a2-d8b8-47b4-9077-d4fc24d8b816",
-      "name": "List all tables",
-      "type": "n8n-nodes-base.mySql",
-      "position": [
-        -40,
-        2060
-      ],
-      "typeVersion": 2.4,
-      "credentials": {
-        "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "DESCRIBE {{ $json.Tables_in_usdb }};",
-        "options": {}
-      },
-      "id": "80a42a87-dab8-4bac-9b7d-14d214e5e0d0",
-      "name": "Extract DB schema",
-      "type": "n8n-nodes-base.mySql",
-      "position": [
-        120,
-        2060
-      ],
-      "typeVersion": 2.4,
-      "credentials": {
-        "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "{{ $fromAI('output') }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.mySqlTool",
-      "typeVersion": 2.4,
-      "position": [
-        460,
-        3060
-      ],
-      "id": "a29b4bb7-e882-4e75-af0b-f98a64119ae9",
-      "name": "MySQL_tool",
-      "credentials": {
-        "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsonSchemaExample": "[\n  {\n    \"output\": [\n      \"{\\\"text\\\":\\\"There are a total of 188,178 active dealers.\\\"}\"\n    ],\n    \"intermediateSteps\": [\n      {\n        \"action\": {\n          \"tool\": \"MySQL_tool\",\n          \"toolInput\": {\n            \"output\": \"SELECT COUNT(*) AS total_dealers FROM dealers WHERE IsDeleted = 0;\"\n          },\n          \"toolCallId\": \"call_J0gxTbuFkm5iN07XasV3ez6F\",\n          \"log\": \"Invoking \\\"MySQL_tool\\\" with {\\\"output\\\":\\\"SELECT COUNT(*) AS total_dealers FROM dealers WHERE IsDeleted = 0;\\\"}\\n\",\n          \"messageLog\": [\n            {\n              \"lc\": 1,\n              \"type\": \"constructor\",\n              \"id\": [\n                \"langchain_core\",\n                \"messages\",\n                \"AIMessageChunk\"\n              ],\n              \"kwargs\": {\n                \"content\": \"\",\n                \"additional_kwargs\": {\n                  \"tool_calls\": [\n                    {\n                      \"index\": 0,\n                      \"id\": \"call_J0gxTbuFkm5iN07XasV3ez6F\",\n                      \"type\": \"function\",\n                      \"function\": {\n                        \"name\": \"MySQL_tool\",\n                        \"arguments\": \"{\\\"output\\\":\\\"SELECT COUNT(*) AS total_dealers FROM dealers WHERE IsDeleted = 0;\\\"}\"\n                      }\n                    }\n                  ]\n                },\n                \"response_metadata\": {\n                  \"prompt\": 0,\n                  \"completion\": 0,\n                  \"usage\": {\n                    \"prompt_tokens\": 13824,\n                    \"completion_tokens\": 31,\n                    \"total_tokens\": 13855,\n                    \"prompt_tokens_details\": {\n                      \"cached_tokens\": 0,\n                      \"audio_tokens\": 0\n                    },\n                    \"completion_tokens_details\": {\n                      \"reasoning_tokens\": 0,\n                      \"audio_tokens\": 0,\n                      \"accepted_prediction_tokens\": 0,\n                      \"rejected_prediction_tokens\": 0\n                    }\n                  },\n                  \"finish_reason\": \"tool_calls\",\n                  \"system_fingerprint\": \"fp_80cf447eee\",\n                  \"model_name\": \"gpt-4o-mini-2024-07-18\"\n                },\n                \"tool_call_chunks\": [\n                  {\n                    \"name\": \"MySQL_tool\",\n                    \"args\": \"{\\\"output\\\":\\\"SELECT COUNT(*) AS total_dealers FROM dealers WHERE IsDeleted = 0;\\\"}\",\n                    \"id\": \"call_J0gxTbuFkm5iN07XasV3ez6F\",\n                    \"index\": 0,\n                    \"type\": \"tool_call_chunk\"\n                  }\n                ],\n                \"id\": \"chatcmpl-BMK0kbSHz3DTzbIPLiQuAU808tsa5\",\n                \"usage_metadata\": {\n                  \"input_tokens\": 13824,\n                  \"output_tokens\": 31,\n                  \"total_tokens\": 13855,\n                  \"input_token_details\": {\n                    \"audio\": 0,\n                    \"cache_read\": 0\n                  },\n                  \"output_token_details\": {\n                    \"audio\": 0,\n                    \"reasoning\": 0\n                  }\n                },\n                \"tool_calls\": [\n                  {\n                    \"name\": \"MySQL_tool\",\n                    \"args\": {\n                      \"output\": \"SELECT COUNT(*) AS total_dealers FROM dealers WHERE IsDeleted = 0;\"\n                    },\n                    \"id\": \"call_J0gxTbuFkm5iN07XasV3ez6F\",\n                    \"type\": \"tool_call\"\n                  }\n                ],\n                \"invalid_tool_calls\": []\n              }\n            }\n          ]\n        },\n        \"observation\": \"[{\\\"total_dealers\\\":188178}]\"\n      }\n    ]\n  }\n]"
-      },
-      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-      "typeVersion": 1.2,
-      "position": [
-        1120,
-        2920
-      ],
-      "id": "52fb622d-38d3-48ce-9562-a5e09781f833",
-      "name": "Structured Output Parser"
-    },
-    {
-      "parameters": {
         "name": "date_time_tool",
         "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
         "jsCode": "// Advanced DateTime Tool for n8n Agent with support for business timeframes\nmodule.exports = async function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  const dayOfWeek = now.getDay(); // 0 = Sunday, 6 = Saturday\n  \n  // Format helper function\n  const formatDate = (date) => {\n    return {\n      formatted: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,\n      year: date.getFullYear(),\n      month: date.getMonth() + 1,\n      day: date.getDate()\n    };\n  };\n  \n  // Get start of current day\n  const startOfDay = new Date(year, month, day);\n  startOfDay.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current month\n  const startOfMonth = new Date(year, month, 1);\n  startOfMonth.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current year\n  const startOfYear = new Date(year, 0, 1);\n  startOfYear.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current week (Sunday-based)\n  const startOfWeek = new Date(now);\n  startOfWeek.setDate(now.getDate() - now.getDay());\n  startOfWeek.setHours(0, 0, 0, 0);\n  \n  // Month-to-Date (MTD)\n  const mtdDays = day;\n  const mtdStart = formatDate(startOfMonth);\n  const mtdEnd = formatDate(now);\n  \n  // Year-to-Date (YTD)\n  const ytdDays = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24)) + 1;\n  const ytdStart = formatDate(startOfYear);\n  const ytdEnd = formatDate(now);\n  \n  // Last month (for Month-over-Month)\n  let lastMonthYear = year;\n  let lastMonthMonth = month - 1;\n  \n  // Adjust for January (handle previous year December)\n  if (lastMonthMonth < 0) {\n    lastMonthMonth = 11; // December\n    lastMonthYear = year - 1;\n  }\n  \n  const lastMonth = new Date(lastMonthYear, lastMonthMonth, 1);\n  const lastMonthEnd = new Date(year, month, 0);\n  lastMonthEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  const lastMonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(lastMonth);\n  \n  // Last year (for Year-over-Year)\n  const lastYear = new Date(year - 1, month, day);\n  const lastYearStart = new Date(year - 1, 0, 1);\n  lastYearStart.setHours(0, 0, 0, 0); // Set to beginning of the day\n  const lastYearEnd = new Date(year - 1, 11, 31);\n  lastYearEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  \n  // Format current time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Calculate days in the current year (accounting for leap years)\n  const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);\n  const daysInYear = isLeapYear ? 366 : 365;\n  \n  // Safely handle day overflow for last year (e.g., Feb 29 on leap year to non-leap year)\n  function createSafePreviousYearDate(currentYear, currentMonth, currentDay) {\n    // Check if we're dealing with Feb 29 on a leap year\n    if (currentMonth === 1 && currentDay === 29) { // February 29\n      const prevYear = currentYear - 1;\n      const isPrevLeapYear = (prevYear % 4 === 0 && prevYear % 100 !== 0) || (prevYear % 400 === 0);\n      \n      if (!isPrevLeapYear) {\n        // Previous year is not a leap year, so Feb 29 doesn't exist - use Feb 28 instead\n        return new Date(prevYear, currentMonth, 28);\n      }\n    }\n    \n    // For all other cases, just use the same month and day in the previous year\n    return new Date(currentYear - 1, currentMonth, currentDay);\n  }\n  \n  // Recalculate lastYear date to handle potential February 29 issue\n  const safeLastYear = createSafePreviousYearDate(year, month, day);\n  \n  // Return comprehensive date/time information\n  const result = {\n    current: {\n      timestamp: now.getTime(),\n      dateTime: `${formatDate(now).formatted} ${timeString}`,\n      date: formatDate(now).formatted,\n      time: timeString,\n      year: year,\n      month: month + 1,\n      monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n      day: day,\n      dayOfWeek: dayOfWeek,\n      dayName: new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now),\n      quarter: Math.floor(month / 3) + 1\n    },\n    \n    timeframes: {\n      // This week\n      thisWeek: {\n        start: formatDate(startOfWeek),\n        end: formatDate(now),\n        daysPassed: dayOfWeek,\n        daysRemaining: 6 - dayOfWeek\n      },\n      \n      // This month\n      thisMonth: {\n        start: formatDate(startOfMonth),\n        end: formatDate(now),\n        name: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n        daysPassed: day - 1,\n        totalDays: new Date(year, month + 1, 0).getDate()\n      },\n      \n      // This year\n      thisYear: {\n        start: formatDate(startOfYear),\n        end: formatDate(now),\n        year: year,\n        daysPassed: ytdDays,\n        totalDays: daysInYear\n      },\n      \n      // Month-to-Date (MTD)\n      mtd: {\n        start: mtdStart,\n        end: mtdEnd,\n        daysPassed: mtdDays,\n        percentComplete: Math.round((mtdDays / new Date(year, month + 1, 0).getDate()) * 100)\n      },\n      \n      // Year-to-Date (YTD)\n      ytd: {\n        start: ytdStart,\n        end: ytdEnd,\n        daysPassed: ytdDays,\n        percentComplete: Math.round((ytdDays / daysInYear) * 100)\n      }\n    },\n    \n    comparisons: {\n      // Month-over-Month (MoM)\n      mom: {\n        current: {\n          month: month + 1,\n          monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n          year: year\n        },\n        previous: {\n          month: lastMonth.getMonth() + 1,\n          monthName: lastMonthName,\n          year: lastMonth.getFullYear()\n        },\n        start: formatDate(lastMonth),\n        end: formatDate(lastMonthEnd)\n      },\n      \n      // Year-over-Year (YoY)\n      yoy: {\n        current: {\n          year: year,\n          month: month + 1,\n          day: day\n        },\n        previous: {\n          year: safeLastYear.getFullYear(),\n          month: safeLastYear.getMonth() + 1,\n          day: safeLastYear.getDate()\n        },\n        sameDay: formatDate(safeLastYear),\n        yearStart: formatDate(lastYearStart),\n        yearEnd: formatDate(lastYearEnd)\n      }\n    },\n    \n    timezone: {\n      name: Intl.DateTimeFormat().resolvedOptions().timeZone,\n      offset: now.getTimezoneOffset()\n    },\n    \n    // Business days calculation (Mon-Fri)\n    business: {\n      isBusinessDay: (dayOfWeek >= 1 && dayOfWeek <= 5),\n      daysSinceLastBusinessDay: dayOfWeek === 0 ? 2 : dayOfWeek === 1 ? 3 : 1,\n      businessDaysInMonth: getBusinessDaysInMonth(year, month),\n      businessDaysPassedThisMonth: getBusinessDaysPassed(year, month, day)\n    }\n  };\n  \n  // Helper function to calculate business days in a month (Mon-Fri)\n  function getBusinessDaysInMonth(year, month) {\n    const daysInMonth = new Date(year, month + 1, 0).getDate();\n    let businessDays = 0;\n    \n    for (let i = 1; i <= daysInMonth; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  // Helper function to calculate business days passed in the current month\n  function getBusinessDaysPassed(year, month, currentDay) {\n    let businessDays = 0;\n    \n    for (let i = 1; i <= currentDay; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  return JSON.stringify(result);\n};"
@@ -2604,8 +2160,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        560,
-        3160
+        -580,
+        3060
       ],
       "id": "94076cf0-257d-4e0c-9fc3-7d82967ae678",
       "name": "date_time_tool"
@@ -2622,8 +2178,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        980,
-        3240
+        -140,
+        3180
       ],
       "id": "757d3102-a1ec-4af6-91b0-089a83c3782e",
       "name": "OpenAI Chat ",
@@ -2636,51 +2192,211 @@
     },
     {
       "parameters": {
-        "options": {
-          "numberOfItems": -1,
-          "separator": "\\n"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.outputParserItemList",
-      "typeVersion": 1,
-      "position": [
-        1280,
-        2900
-      ],
-      "id": "7e4cd363-801d-4e99-a625-22d1e7217b10",
-      "name": "Item List Output Parser"
-    },
-    {
-      "parameters": {
         "content": "# Role\nYou are a world-class MySQL Developer. You are capable of fulfilling different requests from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. Additionally, you can use tools to perform tasks as required\n\n# Task\nI want you to read a user query in natural language, then convert it to an accurate MsSQL SQL query with the correct syntax that retrieves the relevant data from a USDB dataset. Ensure the queries are aligned with user intent, structured correctly, and safe to execute.\n\n# Context\nYou are working with a dataset containing USDB vehicle data, including the following schema:\n{{ $json.schema }}\n\n\n## **Table Overview:**\nUsers may ask various analytical questions related to listings, dealers, VINs, etc. Your role is to accurately interpret the user's intent, convert the query into MsSQL using the provided tool, execute it, and return the relevant insights.\n\n\n# **Detailed Instructions:**\n1. **Understand User Intent**  \n   - Analyze the user's query to determine the required dataset.\n   - Identify filters, date ranges, groupings, and aggregation requirements.\n   - Enrich the user's query. \n\n2. **SQL Query Generation**  \n   - Convert the enriched natural language query into a SQL query.\n   - Pass **only the enriched natural language query and relevant columns & filtering** to the tool to generate the query dynamically.\n   - Ensure accuracy in column selection and handling of nested JSON-like fields.\n\n3. **Present Results**: Deliver the query results to the user in a concise and easy-to-understand format. Avoid presenting SQL code in your final response.\n\n4. **Handle Missing Data**: If the requested data doesn't exist or is unavailable, inform the user politely and suggest any alternative queries if possible.\n\n## **Output Requirements**\n- **Concise and Clear Summaries** – Only present the interpreted query results, without exposing SQL code.\n- **Polite Handling of Missing Data** – If no relevant data is found, provide a friendly response with context.\n- **No SQL Code in Responses** – Avoid sharing raw SQL queries unless explicitly requested.\n\n---\n​ <examples>\n  <example>\n    Natural Language Query: \"What is the earliest and latest datapoints in the dataset?\"\n    SQL Query:\n    SELECT \n      MIN(EarliestDate) AS earliest_date,\n      MAX(LatestDate) AS latest_date\n    FROM (\n      SELECT MIN(ChangedOn) AS EarliestDate, MAX(ChangedOn) AS LatestDate FROM dbo.LISTINGS WITH (NOLOCK) WHERE ChangedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDate), MAX(SalesDate) FROM dbo.LISTINGS WITH (NOLOCK) WHERE SalesDate IS NOT NULL\n      UNION ALL\n      SELECT MIN(CreatedOn), MAX(CreatedOn) FROM dbo.VINS WITH (NOLOCK) WHERE CreatedOn IS NOT NULL\n      UNION ALL\n      SELECT MIN(SalesDateStart), MAX(SalesDateEnd) FROM dbo.HISTORY WITH (NOLOCK) WHERE SalesDateStart IS NOT NULL AND SalesDateEnd IS NOT NULL\n    ) AS DateRanges;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Count how many rows in the entire dataset\"\n    SQL Query:\n    SELECT \n      (SELECT COUNT_BIG(*) FROM dbo.LISTINGS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.DEALERS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.VINS WITH (NOLOCK)) +\n      (SELECT COUNT_BIG(*) FROM dbo.HISTORY WITH (NOLOCK)) AS total_rows;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What are the top 10 most frequent vehicle makes?\"\n    SQL Query:\n    SELECT TOP 10 WITH TIES\n      SpecMake AS car_make,\n      COUNT_BIG(*) AS occurrences\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake IS NOT NULL\n    GROUP BY SpecMake\n    ORDER BY occurrences DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"Find all CARMAX sales in 2024\"\n    SQL Query:\n    SELECT COUNT_BIG(*) AS total_sales \n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE DEALERS_ID IN (SELECT DEALERS_ID FROM dbo.DEALERS WITH (NOLOCK) WHERE Name = 'CARMAX') \n      AND SalesDate IS NOT NULL\n      AND SalesDate >= CONVERT(DATE, '2024-01-01') \n      AND SalesDate < CONVERT(DATE, '2025-01-01');\n  </example>\n  \n  <example>\n    Natural Language Query: \"Which states have the most car listings?\"\n    SQL Query:\n    SELECT TOP 10\n      StateCode,\n      COUNT_BIG(*) AS listing_count\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE StateCode IS NOT NULL\n    GROUP BY StateCode\n    ORDER BY listing_count DESC;\n  </example>\n  \n  <example>\n    Natural Language Query: \"What's the average price of Toyota cars by model?\"\n    SQL Query:\n    SELECT \n      SpecModel,\n      AVG(CAST(ListingPrice AS DECIMAL(10,2))) AS avg_price,\n      COUNT_BIG(*) AS sample_size\n    FROM dbo.LISTINGS WITH (NOLOCK)\n    WHERE SpecMake = 'Toyota' \n      AND SpecModel IS NOT NULL\n      AND ListingPrice IS NOT NULL\n      AND ListingPrice > 0\n    GROUP BY SpecModel\n    HAVING COUNT_BIG(*) > 5\n    ORDER BY avg_price DESC;\n  </example>\n</examples>\n\n\n\n\n# Notes\n- You must only use the schema above to correctly identify the column names.\n- If the column name is not clear from user's query, then ask them to clarify.\n- keep the response concise.\n- If the response is not accurate, ask user to clarify.\n- Always call the database query tool before answering, never assume the answer without having the data\n- The Current Date = {{ $now }}\n\n",
         "height": 2689,
-        "width": 1043,
+        "width": 603,
         "color": 5
       },
       "id": "d6b997c4-f247-423c-8c85-c6c49522db7c",
       "name": "Sticky Note17",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3920,
-        2220
+        2160,
+        1300
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
         "name": "mssql_tool",
-        "description": "Retrieve information about Tables and Table Schemas to desing and extract information from the USDB using MySQL.",
-        "topK": "={{ $fromAI('output') }}"
+        "description": "Retrieve information about the shapes of different queries to extract particular type of questions and information from the USDB using MySQL.",
+        "topK": "={{ $fromAI('query_shape') }}"
       },
       "id": "d2d023e5-2fdc-405a-b23b-4257196ef26a",
       "name": "vector_store_tool",
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "position": [
-        780,
-        3040
+        -340,
+        2980
       ],
       "typeVersion": 1,
       "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
+        "contextWindowLength": 10
+      },
+      "id": "75e547f8-d513-4919-96bd-ea768b1dd377",
+      "name": "Chat History",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        -800,
+        2920
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('When chat message received').item.json.chatInput }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=# Role\nYou are a world-class MySQL Developer with 30 years of experience in top database companies, capable of fulfilling user requests in human natural language by translating these into precise MySQL queries leveraging the tools you have available. Your capability ranges from answering simple questions to providing in-depth explanations of complex queries and insights attained using the USDB. \n\n# Goal\nYour goal is to be a useful and accurate expert who can assist the user in exploring information from the USDB. \n\n# Task\nWhen generating MySQL queries:\n1. First analyze to understand the question the user is asking in human natural language and think about what he needs.\n2. Use the tools available to get familiarised with the tables, schemas and field definitions you have available to work with, and any additional details about the data its relationships so you can enrich the context.\n3. Translate the user request into a MySQL query with correct syntax designed to correctly answer the user request using the USDB\n4. Execute the query generated to obtain the response to the user question\n5. Present the response to the user formatting the data properly. \n6. After the response has been presented, skip a line and present the MySQL query used to generate the answer\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- Always use LIKE for filters never explicit names. \n- Don't Limit the data.\n- The queries should be aligned with user intent, structured correctly, and safe to be executed.\n- It is required that you use the tools available to get familiar with the tables available and their schemas and relationships, and the different data fields, their data types, lengths, etc, and then perform tasks as needed.\n- The Current Date = {{ $now }}\n\n# Rules\nWhen generating MySQL queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MySQL\n\n---\n\n#Tools\n<tools>\n<MySQL_schema>\nThis node retrieves a list of relevant tables from the USDB database (e.g., from the public schema, excluding system schemas like pg_catalog or information_schema). The agent uses this information to understand the available tables, which typically involves executing a MySQL query like `SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';`. Use this tool to get an initial understanding of the tables available to you in the USDB. \n</MySQL_schema>\n\n<MySQL_definition>\nThis MySQL node fetches detailed metadata (such as column names, data types, and relationships using foreign keys) for a specific table. The table name (and schema if necessary) is supplied dynamically by the AI Agent. This often involves querying information_schema.columns,\n</MySQL_definition>\n\n<MySQL_execute>\nThis node executes the MySQL query generated by the USDB Agent against the USDB database. You reference the query using an expression allowing the agent’s output to control data retrieval.\n</MySQL_execute>\n\n<vector_store>\nThis node retrieves information related to query shapes to extract different types of questions from the USDB using MySQL.\n</vector_store>\n\n</tools>",
+          "maxIterations": "={{ 25 }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -480,
+        2660
+      ],
+      "id": "5140b756-6909-48b5-86f6-97257b11c7c2",
+      "name": "USDB Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-3-7-sonnet-20250219",
+          "mode": "list",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -920,
+        2840
+      ],
+      "id": "edc0c260-4ac0-45df-99a4-e260988327d5",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "dcLqo62duKhDxGrw",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "This node executes the MySQL query generated by the USDB Agent against the USDB database. You reference the query using an expression (e.g., {{$fromAI('mysql_query')}}), allowing the agent’s output to control data retrieval.",
+        "operation": "executeQuery",
+        "query": "{{$fromAI('sql')}}",
+        "options": {
+          "replaceEmptyStrings": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Replace_Empty_Strings_with_NULL', ``, 'boolean') }}",
+          "detailedOutput": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Output_Query_Execution_Details', ``, 'boolean') }}"
+        }
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        320,
+        2900
+      ],
+      "id": "f2e685b7-05dc-4b50-8a5a-67f761b4d04f",
+      "name": "MySQL_execute",
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "This node retrieves a list of relevant tables from the USDB database (e.g., from the public schema, excluding system schemas like pg_catalog or information_schema). The agent uses this information to understand the available tables. This typically involves executing a MySQL query like SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+        "operation": "executeQuery",
+        "query": "SELECT \n    table_schema,\n    table_name\nFROM information_schema.tables\nWHERE table_type = 'BASE TABLE'\n    AND table_schema NOT IN ('mysql', 'information_schema', 'performance_schema', 'sys')\nORDER BY table_schema, table_name;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        60,
+        3020
+      ],
+      "id": "68c9f550-ec84-4a04-9bd8-6ff038b61e22",
+      "name": "MySQL_schema",
+      "credentials": {
+        "mySql": {
+          "id": "n7aaXB29elYhw6be",
+          "name": "MySQL_172.210.61.67"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=This MySQL node fetches detailed metadata (such as column names, data types, and potentially relationships using foreign keys) for a specific table. The table name (and schema if necessary) is supplied dynamically by the AI Agent. This often involves querying information_schema.columns.",
+        "operation": "executeQuery",
+        "query": "SELECT \n  c.column_name,\n  c.data_type,\n  c.is_nullable,\n  c.column_default,\n  tc.constraint_type,\n  ccu.table_name AS referenced_table,\n  ccu.column_name AS referenced_column\nFROM information_schema.columns c\nLEFT JOIN information_schema.key_column_usage kcu\n  ON c.table_schema = kcu.table_schema\n  AND c.table_name = kcu.table_name\n  AND c.column_name = kcu.column_name\nLEFT JOIN information_schema.table_constraints tc\n  ON kcu.constraint_name = tc.constraint_name\n  AND kcu.table_schema = tc.table_schema\n  AND tc.constraint_type = 'FOREIGN KEY'\nLEFT JOIN information_schema.referential_constraints rc\n  ON tc.constraint_name = rc.constraint_name\n  AND tc.table_schema = rc.constraint_schema\nLEFT JOIN information_schema.key_column_usage ccu\n  ON rc.unique_constraint_name = ccu.constraint_name\n  AND rc.unique_constraint_schema = ccu.table_schema\n  AND kcu.ordinal_position = ccu.ordinal_position\nWHERE \n  c.table_name = '{{$fromAI('table')}}'\n  AND c.table_schema = '{{$fromAI('table_schema')}}'\nORDER BY \n  c.ordinal_position;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySqlTool",
+      "typeVersion": 2.4,
+      "position": [
+        200,
+        2960
+      ],
+      "id": "12fab3c0-e1f8-4829-86ef-733457411615",
+      "name": "MySQL_definition",
+      "credentials": {
+        "mySql": {
+          "id": "QonuFF6AfGffP6d7",
+          "name": "104.167.196.118 : 3306"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Use the tool to think thoroughly about the user question and the translation into a MySQL query to extract information from the USDB considering its tables, schemas, relationships, field definitions, data types, etc. It will not obtain new information or change the database, but just append the thought to the log."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        -700,
+        3000
+      ],
+      "id": "1a9425fd-2ab8-4e38-9ed6-e919500b6dbc",
+      "name": "Think"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -400,
+        3280
+      ],
+      "id": "0bbf3f9d-7392-43e2-a19d-62ba520326bf",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "D09ujHRZlS7g66tq",
+          "name": "USDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"question\": \"$fromAI('question')\",\n  \"sql\": \"$fromAI('sql')\",\n  \"answer\": \"$fromAI('output')\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        460,
+        2840
+      ],
+      "id": "94aac25c-856e-429e-8fa0-7dc9f8e73855",
+      "name": "Structured Output Parser"
     }
   ],
   "pinData": {},
@@ -2702,6 +2418,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-17T02:35:30.000Z",
-  "versionId": "13338c76-f790-4f68-9ff7-b1137c679777"
+  "updatedAt": "2025-04-17T08:47:31.000Z",
+  "versionId": "955a8f22-ead9-4328-8b76-1c60b64718b9"
 }
