@@ -549,6 +549,51 @@
           }
         ]
       ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Start_Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-04-11T20:41:56.285Z",
@@ -1198,8 +1243,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        100,
-        2600
+        880,
+        3440
       ],
       "id": "ca3c0cf9-ffbe-4334-ae1a-604083a21429",
       "name": "Airtable",
@@ -1293,8 +1338,8 @@
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. \n* This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 1229,
-        "width": 1743,
+        "height": 1329,
+        "width": 2223,
         "color": 6
       },
       "id": "81b9073e-97b3-49e8-bd20-d0f78207c122",
@@ -1328,8 +1373,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -900,
-        2600
+        -1000,
+        2560
       ],
       "id": "ebdb8e02-3c11-4246-abe2-d66160f1d0da",
       "name": "When chat message received",
@@ -1612,8 +1657,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -720,
-        2600
+        -340,
+        2760
       ],
       "id": "95c4cb24-4b53-41e0-9bb9-a4e2ca40bd30",
       "name": "Start_Time"
@@ -1757,8 +1802,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -100,
-        2600
+        760,
+        2800
       ],
       "id": "1ebd2594-2ff4-474a-ae74-a1a9ea645d60",
       "name": "Stop_Time"
@@ -1878,8 +1923,8 @@
       "name": "Pinecone Vector Store (Retrieval)",
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "position": [
-        -420,
-        3140
+        -220,
+        3280
       ],
       "typeVersion": 1,
       "credentials": {
@@ -1999,8 +2044,8 @@
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -440,
-        2940
+        -240,
+        3080
       ],
       "typeVersion": 1
     },
@@ -2160,8 +2205,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        -580,
-        3060
+        -380,
+        3200
       ],
       "id": "94076cf0-257d-4e0c-9fc3-7d82967ae678",
       "name": "date_time_tool"
@@ -2178,8 +2223,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -140,
-        3180
+        60,
+        3320
       ],
       "id": "757d3102-a1ec-4af6-91b0-089a83c3782e",
       "name": "OpenAI Chat ",
@@ -2216,8 +2261,8 @@
       "name": "vector_store_tool",
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "position": [
-        -340,
-        2980
+        -140,
+        3120
       ],
       "typeVersion": 1,
       "notesInFlow": true
@@ -2232,8 +2277,8 @@
       "name": "Chat History",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        -800,
-        2920
+        -600,
+        3060
       ],
       "typeVersion": 1.3
     },
@@ -2250,8 +2295,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        -480,
-        2660
+        -140,
+        2800
       ],
       "id": "5140b756-6909-48b5-86f6-97257b11c7c2",
       "name": "USDB Agent"
@@ -2269,8 +2314,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        -920,
-        2840
+        -720,
+        2980
       ],
       "id": "edc0c260-4ac0-45df-99a4-e260988327d5",
       "name": "Anthropic Chat Model",
@@ -2295,8 +2340,8 @@
       "type": "n8n-nodes-base.mySqlTool",
       "typeVersion": 2.4,
       "position": [
-        320,
-        2900
+        520,
+        3040
       ],
       "id": "f2e685b7-05dc-4b50-8a5a-67f761b4d04f",
       "name": "MySQL_execute",
@@ -2318,8 +2363,8 @@
       "type": "n8n-nodes-base.mySqlTool",
       "typeVersion": 2.4,
       "position": [
-        60,
-        3020
+        260,
+        3160
       ],
       "id": "68c9f550-ec84-4a04-9bd8-6ff038b61e22",
       "name": "MySQL_schema",
@@ -2341,8 +2386,8 @@
       "type": "n8n-nodes-base.mySqlTool",
       "typeVersion": 2.4,
       "position": [
-        200,
-        2960
+        400,
+        3100
       ],
       "id": "12fab3c0-e1f8-4829-86ef-733457411615",
       "name": "MySQL_definition",
@@ -2360,8 +2405,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolThink",
       "typeVersion": 1,
       "position": [
-        -700,
-        3000
+        -500,
+        3140
       ],
       "id": "1a9425fd-2ab8-4e38-9ed6-e919500b6dbc",
       "name": "Think"
@@ -2373,8 +2418,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -400,
-        3280
+        -200,
+        3420
       ],
       "id": "0bbf3f9d-7392-43e2-a19d-62ba520326bf",
       "name": "Embeddings OpenAI1",
@@ -2392,11 +2437,69 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        460,
-        2840
+        660,
+        2980
       ],
       "id": "94aac25c-856e-429e-8fa0-7dc9f8e73855",
       "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        2740
+      ],
+      "id": "7eef83d3-1199-43b1-ab00-6b6a484fe296",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appGV8vCDX8WGdmJG",
+          "mode": "list",
+          "cachedResultName": "Direct Query",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNLhT1EBPCNCxQc",
+          "mode": "list",
+          "cachedResultName": "Direct Query Executions",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblNLhT1EBPCNCxQc"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -940,
+        2740
+      ],
+      "id": "e6941f91-aa08-42d4-9961-3fb7257a611d",
+      "name": "Airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "USDB_Airtable_logs"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -760,
+        2740
+      ],
+      "id": "dcd1cc4b-e4ac-40c0-89f5-6c870843c1a3",
+      "name": "Loop Over Items"
     }
   ],
   "pinData": {},
@@ -2418,6 +2521,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-17T08:47:31.000Z",
-  "versionId": "955a8f22-ead9-4328-8b76-1c60b64718b9"
+  "updatedAt": "2025-04-18T00:32:34.000Z",
+  "versionId": "bd068f23-c1db-4543-810b-0fff65043a09"
 }
