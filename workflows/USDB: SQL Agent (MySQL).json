@@ -175,7 +175,7 @@
       "main": [
         [
           {
-            "node": "Start_Time",
+            "node": "Test Metadata",
             "type": "main",
             "index": 0
           }
@@ -304,7 +304,7 @@
       "main": [
         [
           {
-            "node": "Airtable",
+            "node": "Results",
             "type": "main",
             "index": 0
           }
@@ -554,18 +554,7 @@
       "main": [
         [
           {
-            "node": "Airtable1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Airtable1": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
+            "node": "Dealers",
             "type": "main",
             "index": 0
           }
@@ -574,7 +563,24 @@
     },
     "Loop Over Items": {
       "main": [
-        [],
+        [
+          {
+            "node": "Group",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Test Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Metadata": {
+      "main": [
         [
           {
             "node": "Start_Time",
@@ -584,11 +590,67 @@
         ]
       ]
     },
-    "Airtable": {
+    "Tests": {
       "main": [
         [
           {
             "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dealers": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Tests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Results": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Group": {
+      "main": [
+        [
+          {
+            "node": "Dealers1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dealers1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
             "type": "main",
             "index": 0
           }
@@ -1097,166 +1159,6 @@
     },
     {
       "parameters": {
-        "operation": "create",
-        "base": {
-          "__rl": true,
-          "value": "appGV8vCDX8WGdmJG",
-          "mode": "list",
-          "cachedResultName": "Direct Query",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblNLhT1EBPCNCxQc",
-          "mode": "list",
-          "cachedResultName": "Direct Query Executions",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblNLhT1EBPCNCxQc"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "sessionId": "={{ $('When chat message received').item.json.sessionId }}",
-            "chatInput": "={{ $('USDB Agent').item.json.output.question }}",
-            "response": "={{ $('USDB Agent').item.json.output.answer }}",
-            "stopTime": "={{ $json.stopTime }}",
-            "time": "={{ ((new Date($json.stopTime).getTime() - new Date($('Start_Time').item.json.Start_time).getTime()) / 1000).toString() }}",
-            "startTime": "={{ $('Start_Time').item.json.Start_time }}",
-            "request": "={{ $('USDB Agent').item.json.output.sql }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "sessionId",
-              "displayName": "sessionId",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "startTime",
-              "displayName": "startTime",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "dateTime",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "chatInput",
-              "displayName": "chatInput",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "request",
-              "displayName": "request",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "response",
-              "displayName": "response",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "stopTime",
-              "displayName": "stopTime",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "dateTime",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "time",
-              "displayName": "time",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Notes",
-              "displayName": "Notes",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Status",
-              "displayName": "Status",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "options",
-              "options": [
-                {
-                  "name": "Ok",
-                  "value": "Ok"
-                },
-                {
-                  "name": "Fail",
-                  "value": "Fail"
-                }
-              ],
-              "readOnly": false,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        880,
-        3440
-      ],
-      "id": "ca3c0cf9-ffbe-4334-ae1a-604083a21429",
-      "name": "Airtable",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "0k6jxJu0tQwdczzt",
-          "name": "USDB_Airtable_logs"
-        }
-      }
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "http://38.107.232.33:4000/mssql/execute",
         "sendBody": true,
@@ -1338,8 +1240,8 @@
     {
       "parameters": {
         "content": "## On every chat message:\n\n* The workflow gets the data from the local schema file and extracts it as a JSON object. \n* This way, we achieve two important improvements:\n  * faster processing time as we don't need to fetch the schema for each table from a slow remote database\n  * the Agent will know database structure without seeing the actual data\n* DB schema is then converted into a long string, JSON fields from the Chat Trigger are added before they are entered into the Agent node.\n",
-        "height": 1329,
-        "width": 2223,
+        "height": 1509,
+        "width": 2763,
         "color": 6
       },
       "id": "81b9073e-97b3-49e8-bd20-d0f78207c122",
@@ -1373,8 +1275,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -1000,
-        2560
+        -320,
+        2600
       ],
       "id": "ebdb8e02-3c11-4246-abe2-d66160f1d0da",
       "name": "When chat message received",
@@ -1649,6 +1551,12 @@
               "name": "chatInput",
               "value": "={{ $json.chatInput }}",
               "type": "string"
+            },
+            {
+              "id": "c2457ca6-ebfb-4298-a73e-156d790aa8b3",
+              "name": "",
+              "value": "={{ $json.Name.replace(\"X dealer\", $json.dealerName) }}",
+              "type": "string"
             }
           ]
         },
@@ -1657,8 +1565,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -340,
-        2760
+        60,
+        2840
       ],
       "id": "95c4cb24-4b53-41e0-9bb9-a4e2ca40bd30",
       "name": "Start_Time"
@@ -1689,7 +1597,7 @@
       "name": "Sticky Note14",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1360,
+        1820,
         1300
       ],
       "typeVersion": 1
@@ -1802,8 +1710,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        760,
-        2800
+        1120,
+        2880
       ],
       "id": "1ebd2594-2ff4-474a-ae74-a1a9ea645d60",
       "name": "Stop_Time"
@@ -1878,7 +1786,8 @@
           "id": "AXHlIneCPEV9bOUP",
           "name": "Pinecone mssql"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1893,7 +1802,8 @@
         -1560,
         3240
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "disabled": true
     },
     {
       "parameters": {
@@ -1907,7 +1817,8 @@
         -1460,
         3360
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "disabled": true
     },
     {
       "parameters": {
@@ -1923,8 +1834,8 @@
       "name": "Pinecone Vector Store (Retrieval)",
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "position": [
-        -220,
-        3280
+        180,
+        3400
       ],
       "typeVersion": 1,
       "credentials": {
@@ -1959,7 +1870,8 @@
           "id": "HR5Tk4YDcaNJda9N",
           "name": "Google Drive Sergio"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1994,7 +1906,8 @@
           "id": "HR5Tk4YDcaNJda9N",
           "name": "Google Drive Sergio"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -2031,7 +1944,8 @@
           "id": "HR5Tk4YDcaNJda9N",
           "name": "Google Drive Sergio"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -2044,8 +1958,8 @@
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -240,
-        3080
+        160,
+        3200
       ],
       "typeVersion": 1
     },
@@ -2063,7 +1977,8 @@
         -2380,
         3440
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "disabled": true
     },
     {
       "parameters": {
@@ -2098,7 +2013,8 @@
           "id": "D09ujHRZlS7g66tq",
           "name": "USDB"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -2205,8 +2121,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolCode",
       "typeVersion": 1.1,
       "position": [
-        -380,
-        3200
+        0,
+        3280
       ],
       "id": "94076cf0-257d-4e0c-9fc3-7d82967ae678",
       "name": "date_time_tool"
@@ -2223,8 +2139,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        60,
-        3320
+        460,
+        3440
       ],
       "id": "757d3102-a1ec-4af6-91b0-089a83c3782e",
       "name": "OpenAI Chat ",
@@ -2246,7 +2162,7 @@
       "name": "Sticky Note17",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2160,
+        2440,
         1300
       ],
       "typeVersion": 1
@@ -2261,8 +2177,8 @@
       "name": "vector_store_tool",
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "position": [
-        -140,
-        3120
+        260,
+        3240
       ],
       "typeVersion": 1,
       "notesInFlow": true
@@ -2270,22 +2186,22 @@
     {
       "parameters": {
         "sessionIdType": "customKey",
-        "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
+        "sessionKey": "={{ $('Test Metadata').item.json.sessionId }}",
         "contextWindowLength": 10
       },
       "id": "75e547f8-d513-4919-96bd-ea768b1dd377",
       "name": "Chat History",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        -600,
-        3060
+        -200,
+        3140
       ],
       "typeVersion": 1.3
     },
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $('When chat message received').item.json.chatInput }}",
+        "text": "={{ $json.chatInput }}",
         "hasOutputParser": true,
         "options": {
           "systemMessage": "=# Role\nYou are a world-class MySQL Developer with 30 years of experience in top database companies, capable of fulfilling user requests in human natural language by translating these into precise MySQL queries leveraging the tools you have available. Your capability ranges from answering simple questions to providing in-depth explanations of complex queries and insights attained using the USDB. \n\n# Goal\nYour goal is to be a useful and accurate expert who can assist the user in exploring information from the USDB. \n\n# Task\nWhen generating MySQL queries:\n1. First analyze to understand the question the user is asking in human natural language and think about what he needs.\n2. Use the tools available to get familiarised with the tables, schemas and field definitions you have available to work with, and any additional details about the data its relationships so you can enrich the context.\n3. Translate the user request into a MySQL query with correct syntax designed to correctly answer the user request using the USDB\n4. Execute the query generated to obtain the response to the user question\n5. Present the response to the user formatting the data properly. \n6. After the response has been presented, skip a line and present the MySQL query used to generate the answer\n\n# Requirements:\n- Ensure the SQL query is syntactically correct.\n- Do not include any destructive operations (e.g., DROP, DELETE).\n- Always use LIKE for filters never explicit names. \n- Don't Limit the data.\n- The queries should be aligned with user intent, structured correctly, and safe to be executed.\n- It is required that you use the tools available to get familiar with the tables available and their schemas and relationships, and the different data fields, their data types, lengths, etc, and then perform tasks as needed.\n- The Current Date = {{ $now }}\n\n# Rules\nWhen generating MySQL queries:\n1. Always write defensive code that handles NULL values and multiple/empty results\n2. Use appropriate table hints like WITH (NOLOCK) for read operations\n3. For subqueries that might return multiple rows, use IN instead of = or use TOP with ORDER BY\n4. When dealing with dates, use CONVERT or explicit date formats\n5. Include appropriate schema prefixes (dbo.)\n6. Write queries that will not cause timeouts on large tables\n7. Avoid constructs known to cause \"Internal server error\" issues in MySQL\n\n---\n\n#Tools\n<tools>\n<MySQL_schema>\nThis node retrieves a list of relevant tables from the USDB database (e.g., from the public schema, excluding system schemas like pg_catalog or information_schema). The agent uses this information to understand the available tables, which typically involves executing a MySQL query like `SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';`. Use this tool to get an initial understanding of the tables available to you in the USDB. \n</MySQL_schema>\n\n<MySQL_definition>\nThis MySQL node fetches detailed metadata (such as column names, data types, and relationships using foreign keys) for a specific table. The table name (and schema if necessary) is supplied dynamically by the AI Agent. This often involves querying information_schema.columns,\n</MySQL_definition>\n\n<MySQL_execute>\nThis node executes the MySQL query generated by the USDB Agent against the USDB database. You reference the query using an expression allowing the agent’s output to control data retrieval.\n</MySQL_execute>\n\n<vector_store>\nThis node retrieves information related to query shapes to extract different types of questions from the USDB using MySQL.\n</vector_store>\n\n</tools>",
@@ -2295,8 +2211,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        -140,
-        2800
+        260,
+        2880
       ],
       "id": "5140b756-6909-48b5-86f6-97257b11c7c2",
       "name": "USDB Agent"
@@ -2314,8 +2230,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        -720,
-        2980
+        -320,
+        3060
       ],
       "id": "edc0c260-4ac0-45df-99a4-e260988327d5",
       "name": "Anthropic Chat Model",
@@ -2340,8 +2256,8 @@
       "type": "n8n-nodes-base.mySqlTool",
       "typeVersion": 2.4,
       "position": [
-        520,
-        3040
+        920,
+        3120
       ],
       "id": "f2e685b7-05dc-4b50-8a5a-67f761b4d04f",
       "name": "MySQL_execute",
@@ -2363,8 +2279,8 @@
       "type": "n8n-nodes-base.mySqlTool",
       "typeVersion": 2.4,
       "position": [
-        260,
-        3160
+        660,
+        3240
       ],
       "id": "68c9f550-ec84-4a04-9bd8-6ff038b61e22",
       "name": "MySQL_schema",
@@ -2386,8 +2302,8 @@
       "type": "n8n-nodes-base.mySqlTool",
       "typeVersion": 2.4,
       "position": [
-        400,
-        3100
+        800,
+        3180
       ],
       "id": "12fab3c0-e1f8-4829-86ef-733457411615",
       "name": "MySQL_definition",
@@ -2405,8 +2321,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolThink",
       "typeVersion": 1,
       "position": [
-        -500,
-        3140
+        -100,
+        3220
       ],
       "id": "1a9425fd-2ab8-4e38-9ed6-e919500b6dbc",
       "name": "Think"
@@ -2418,8 +2334,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -200,
-        3420
+        200,
+        3540
       ],
       "id": "0bbf3f9d-7392-43e2-a19d-62ba520326bf",
       "name": "Embeddings OpenAI1",
@@ -2437,8 +2353,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        660,
-        2980
+        1060,
+        3060
       ],
       "id": "94aac25c-856e-429e-8fa0-7dc9f8e73855",
       "name": "Structured Output Parser"
@@ -2449,10 +2365,58 @@
       "typeVersion": 1,
       "position": [
         -1100,
-        2740
+        2700
       ],
       "id": "7eef83d3-1199-43b1-ab00-6b6a484fe296",
       "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -320,
+        2780
+      ],
+      "id": "dcd1cc4b-e4ac-40c0-89f5-6c870843c1a3",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bc9f4797-6534-4d93-9af8-54ce2b960858",
+              "name": "sessionId",
+              "value": "={{ $json.id }} {{ $json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "1400d571-7976-4e3d-9e7d-f5500dfe9d5e",
+              "name": "action",
+              "value": "={{ $json.action }} {{ $json.Group }}",
+              "type": "string"
+            },
+            {
+              "id": "4a1ba95c-d3cb-4f13-b234-105e5bc3cefe",
+              "name": "chatInput",
+              "value": "={{ $json.chatInput }} {{ $json.Name.replace(\"X dealer\", $('Dealers').item.json.Name) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -140,
+        2840
+      ],
+      "id": "6b171178-a2b1-42c7-8501-1865d75da160",
+      "name": "Test Metadata"
     },
     {
       "parameters": {
@@ -2461,26 +2425,62 @@
           "__rl": true,
           "value": "appGV8vCDX8WGdmJG",
           "mode": "list",
-          "cachedResultName": "Direct Query",
+          "cachedResultName": "USDB Agent Testing",
           "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
         },
         "table": {
           "__rl": true,
-          "value": "tblNLhT1EBPCNCxQc",
+          "value": "tblR30GD6tQ1WGT5c",
           "mode": "list",
-          "cachedResultName": "Direct Query Executions",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblNLhT1EBPCNCxQc"
+          "cachedResultName": "Tests",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblR30GD6tQ1WGT5c"
         },
+        "filterByFormula": "(Process='True')",
         "options": {}
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -940,
-        2740
+        -520,
+        2780
       ],
       "id": "e6941f91-aa08-42d4-9961-3fb7257a611d",
-      "name": "Airtable1",
+      "name": "Tests",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "USDB_Airtable_logs"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appGV8vCDX8WGdmJG",
+          "mode": "list",
+          "cachedResultName": "USDB Agent Testing",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblWceV4FjTXDeHhL",
+          "mode": "list",
+          "cachedResultName": "Dealers",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblWceV4FjTXDeHhL"
+        },
+        "filterByFormula": "(Process='True')",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -920,
+        2700
+      ],
+      "id": "3c0ba02e-ccd4-4e7e-975b-b50f44823cc4",
+      "name": "Dealers",
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
@@ -2495,11 +2495,297 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -760,
-        2740
+        -740,
+        2700
       ],
-      "id": "dcd1cc4b-e4ac-40c0-89f5-6c870843c1a3",
-      "name": "Loop Over Items"
+      "id": "c78d684e-64e2-42e8-8879-c66b0df463f9",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appGV8vCDX8WGdmJG",
+          "mode": "list",
+          "cachedResultName": "Direct Query",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNLhT1EBPCNCxQc",
+          "mode": "list",
+          "cachedResultName": "Results",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblNLhT1EBPCNCxQc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sessionId": "={{ $('Test Metadata').item.json.sessionId }}",
+            "chatInput": "={{ $('USDB Agent').item.json.output.question }}",
+            "response": "={{ $('USDB Agent').item.json.output.answer }}",
+            "stopTime": "={{ $json.stopTime }}",
+            "time": "={{ ((new Date($json.stopTime).getTime() - new Date($('Start_Time').item.json.Start_time).getTime()) / 1000).toString() }}",
+            "startTime": "={{ $('Start_Time').item.json.Start_time }}",
+            "request": "={{ $('USDB Agent').item.json.output.sql }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "startTime",
+              "displayName": "startTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "chatInput",
+              "displayName": "chatInput",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "request",
+              "displayName": "request",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "response",
+              "displayName": "response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "stopTime",
+              "displayName": "stopTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Ok",
+                  "value": "Ok"
+                },
+                {
+                  "name": "Fail",
+                  "value": "Fail"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1240,
+        3520
+      ],
+      "id": "ca3c0cf9-ffbe-4334-ae1a-604083a21429",
+      "name": "Results",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "USDB_Airtable_logs"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2d364eb1-f1c7-4fe1-ac4d-0a503b85e0e6",
+              "name": "Group",
+              "value": "={{ $json.Group }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        2760
+      ],
+      "id": "8ebd06f7-b8a5-45bd-9449-50993e8ad3c7",
+      "name": "Group"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appGV8vCDX8WGdmJG",
+          "mode": "list",
+          "cachedResultName": "Direct Query",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblWceV4FjTXDeHhL",
+          "mode": "list",
+          "cachedResultName": "Dealers",
+          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblWceV4FjTXDeHhL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "Executed"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Failed",
+                  "value": "Failed"
+                },
+                {
+                  "name": "Executed",
+                  "value": "Executed"
+                },
+                {
+                  "name": "Passed",
+                  "value": "Passed"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1440,
+        3600
+      ],
+      "id": "cf562af6-f340-4550-a9d6-187efdb8e3d9",
+      "name": "Dealers1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "0k6jxJu0tQwdczzt",
+          "name": "USDB_Airtable_logs"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2521,6 +2807,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-18T00:32:34.000Z",
-  "versionId": "bd068f23-c1db-4543-810b-0fff65043a09"
+  "updatedAt": "2025-04-18T09:48:24.000Z",
+  "versionId": "70f6ec90-da95-4225-92c9-821a2ce2f5e5"
 }
