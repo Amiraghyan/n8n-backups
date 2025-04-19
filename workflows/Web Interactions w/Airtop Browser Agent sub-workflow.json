@@ -1,0 +1,225 @@
+{
+  "active": false,
+  "connections": {
+    "Slack": {
+      "main": [
+        [
+          {
+            "node": "Return IDs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Session": {
+      "main": [
+        [
+          {
+            "node": "Window",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-19T19:07:38.328Z",
+  "id": "VBwfLlT9OTxf353y",
+  "meta": {
+    "templateId": "3592",
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Web Interactions w/Airtop Browser Agent sub-workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "C08E83RDJN9",
+          "cachedResultName": "n8n-debug"
+        },
+        "text": "={{ $json.data.liveViewUrl }}",
+        "otherOptions": {}
+      },
+      "id": "2c5c5768-b32e-43da-aa73-a023c9c9a72b",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        668,
+        900
+      ],
+      "webhookId": "24e0e805-4512-477c-99a1-1a4df9847c0f",
+      "typeVersion": 2.3,
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "qOdQUZtzpSolQMoG",
+          "name": "Slack account 2"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Note\nThis sub-workflow simplifies the session management for the agent",
+        "height": 300,
+        "width": 220,
+        "color": 5
+      },
+      "id": "9fd4bce9-9390-4f1d-a9bc-69ffe544321e",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -52,
+        760
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "profileName": "={{ $json.profile_name }}"
+      },
+      "id": "f91c4ac2-8b68-4d2c-b845-e42a87b100e7",
+      "name": "Session",
+      "type": "n8n-nodes-base.airtop",
+      "position": [
+        228,
+        900
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "airtopApi": {
+          "id": "G92ijVbHDrEK6VE9",
+          "name": "Airtop n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "window",
+        "url": "={{ $('When Executed by Another Workflow').item.json.url }}",
+        "getLiveView": true,
+        "additionalFields": {}
+      },
+      "id": "4aecf533-c178-4b24-b840-dbb76723c726",
+      "name": "Window",
+      "type": "n8n-nodes-base.airtop",
+      "position": [
+        448,
+        900
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "airtopApi": {
+          "id": "G92ijVbHDrEK6VE9",
+          "name": "Airtop n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n### See the agent in action\nEnable this Slack node to receive the URL for the Live View in a message\n\n",
+        "height": 340,
+        "width": 220,
+        "color": 7
+      },
+      "id": "e05e0994-8072-45be-b736-cfc902fb2f86",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        608,
+        880
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0a0680af-39bd-4bc7-b9cd-84c1766c79a1",
+              "name": "sessionId",
+              "type": "string",
+              "value": "={{ $('Session').item.json.sessionId }}"
+            },
+            {
+              "id": "13940ee8-c1d4-4718-a7b4-176c44c097b7",
+              "name": "windowId",
+              "type": "string",
+              "value": "={{ $('Window').item.json.data.windowId }}"
+            },
+            {
+              "id": "a0f2005c-2cd2-4a8d-891b-a4759b72a124",
+              "name": "output",
+              "type": "string",
+              "value": "Session and window created successfully"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9b499e43-1b54-4377-ba04-1a61c8a0d90a",
+      "name": "Return IDs",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        888,
+        900
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "url"
+            },
+            {
+              "name": "profile_name"
+            }
+          ]
+        }
+      },
+      "id": "3acea57b-8569-4a8f-931a-e5a4f5fea6a1",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        8,
+        900
+      ],
+      "typeVersion": 1.1
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-19T19:08:18.000Z",
+  "versionId": "4eb6dc78-4389-4b15-891b-ccb867beb40f"
+}
