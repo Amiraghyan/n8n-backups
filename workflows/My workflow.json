@@ -1,99 +1,64 @@
 {
   "active": false,
   "connections": {
-    "Chat Trigger": {
-      "main": [
-        []
-      ]
-    },
-    "OpenAI2": {
-      "main": [
+    "Update Event": {
+      "ai_tool": [
         [
           {
-            "node": "Call Agent Webhook",
-            "type": "main",
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "Dwnld_Audio1": {
-      "main": [
+    "Delete Event": {
+      "ai_tool": [
         [
           {
-            "node": "OpenAI2",
-            "type": "main",
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "Text Out1": {
-      "main": [
+    "Get Events": {
+      "ai_tool": [
         [
           {
-            "node": "Call Agent Webhook",
-            "type": "main",
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "Switch1": {
-      "main": [
-        [],
+    "Create Event": {
+      "ai_tool": [
         [
           {
-            "node": "Dwnld_Audio1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Text Out1",
-            "type": "main",
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "Filter1": {
-      "main": [
+    "Create Event with Attendee": {
+      "ai_tool": [
         [
           {
-            "node": "Switch1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Slack Trigger": {
-      "main": [
-        [
-          {
-            "node": "Filter1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Call Agent Webhook": {
-      "main": [
-        [
-          {
-            "node": "Send reply",
-            "type": "main",
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     }
   },
-  "createdAt": "2025-03-21T08:44:40.732Z",
-  "id": "gzdZsPv5NsBaKJZG",
+  "createdAt": "2025-04-20T06:43:05.835Z",
+  "id": "0H5fSGOKh7UzXCVw",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -101,334 +66,169 @@
   "nodes": [
     {
       "parameters": {
-        "options": {}
+        "path": "mcp/calendar"
       },
-      "id": "d22498a4-e5fa-49fe-8149-d9fe537cf710",
-      "name": "Chat Trigger",
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
       "position": [
         0,
         0
       ],
-      "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
-      "typeVersion": 1.1
+      "id": "77c02581-e204-4276-a32e-e4ce93ba9815",
+      "name": "MCP Server Trigger",
+      "webhookId": "23a95c27-5a91-49b1-8d99-1f64dfe04b2d"
     },
     {
       "parameters": {
-        "resource": "audio",
-        "operation": "transcribe",
-        "binaryPropertyName": "audio",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.8,
-      "position": [
-        0,
-        160
-      ],
-      "id": "59943fea-ef73-4304-a60e-b801d90d0f58",
-      "name": "OpenAI2",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "url": "={{ $json.files[0].url_private_download }}",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "slackOAuth2Api",
-        "options": {
-          "response": {
-            "response": {
-              "responseFormat": "file",
-              "outputPropertyName": "audio"
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -180,
-        160
-      ],
-      "id": "9fffdf2a-a202-4c82-bd99-8a994312ce36",
-      "name": "Dwnld_Audio1",
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "7VOxhQHkBloxHtkn",
-          "name": "syc-n8n"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "9569b209-0827-4fcd-96e8-1091a15d68e0",
-              "name": "text",
-              "value": "={{ $json.text }}",
-              "type": "string"
-            }
-          ]
+        "descriptionType": "manual",
+        "toolDescription": "Create an event with participants.",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ $fromAI('CalendarID', `Psychologist's calendar ID.`, 'string') }}",
+          "mode": "id"
         },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -100,
-        400
-      ],
-      "id": "7501cff1-fcad-4501-bb50-a7ba88d51b28",
-      "name": "Text Out1"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "584c8c90-4cc3-43ea-aac0-d1762ba79d0d",
-                    "leftValue": "{{ $json.files[0].mimetype }}",
-                    "rightValue": "image/jpeg",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "image"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.files[0].mimetype }}",
-                    "rightValue": "audio/mp4",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "bb9fc3cb-1c38-4fc3-8ed0-896280711d84"
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "audio"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "1ecab1e4-02c7-490e-82e5-f9f701140f00",
-                    "leftValue": "={{ $json.files[0].mimetype }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notExists",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "text"
-            }
-          ]
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        -420,
-        220
-      ],
-      "id": "5558c44e-5619-4d89-890c-84eed879f2f4",
-      "name": "Switch1"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "61c23cad-6c72-464e-9947-b7f309c9b994",
-              "leftValue": "={{ $json.user }}",
-              "rightValue": "={{\"U089MNN54NT\"}}",
-              "operator": {
-                "type": "string",
-                "operation": "notEquals"
-              }
-            }
+        "start": "={{ $fromAI(\"eventStart\") }}",
+        "end": "={{ $fromAI(\"eventEnd\") }}",
+        "additionalFields": {
+          "attendees": [
+            "={{ $fromAI(\"eventAttendeeEmail\") }}"
           ],
-          "combinator": "and"
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 2.2,
-      "position": [
-        -620,
-        220
-      ],
-      "id": "62f8b23f-9634-4960-a3ee-cd8f43071a1a",
-      "name": "Filter1"
-    },
-    {
-      "parameters": {
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "value": "C08FGUTFMA9",
-          "mode": "id"
-        },
-        "text": "={{ $json.output }}",
-        "otherOptions": {
-          "includeLinkToWorkflow": false
+          "summary": "={{ $fromAI(\"eventTitle\") }}"
         }
       },
-      "id": "5e522ec3-c7e1-4ebd-874c-40ab4da57ea9",
-      "name": "Send reply",
-      "type": "n8n-nodes-base.slack",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
       "position": [
-        440,
-        160
+        400,
+        280
       ],
-      "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
-      "typeVersion": 2.2,
+      "id": "092a9212-49fd-472b-9693-6dbdbe5a7e39",
+      "name": "Create Event with Attendee",
       "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
         }
       }
     },
     {
       "parameters": {
-        "trigger": [
-          "message"
-        ],
-        "channelId": {
+        "descriptionType": "manual",
+        "toolDescription": "Create an event without participants.",
+        "calendar": {
           "__rl": true,
-          "value": "C08FGUTFMA9",
+          "value": "={{ $fromAI('CalendarID', `Psychologist's calendar ID.`, 'string') }}",
           "mode": "id"
         },
-        "options": {
-          "resolveIds": false
+        "start": "={{ $fromAI(\"eventStart\") }}",
+        "end": "={{ $fromAI(\"eventEnd\") }}",
+        "additionalFields": {
+          "attendees": [],
+          "summary": "={{ $fromAI(\"eventTitle\") }}"
         }
       },
-      "id": "cea520e5-cea5-4930-aed2-cffd981f001f",
-      "name": "Slack Trigger",
-      "type": "n8n-nodes-base.slackTrigger",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
       "position": [
-        -800,
-        220
+        280,
+        280
       ],
-      "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
-      "typeVersion": 1,
+      "id": "e2b7d10e-652f-4129-bbe7-65b5fc90765d",
+      "name": "Create Event",
       "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
         }
       }
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://syc.app.n8n.cloud/webhook-test/USDB-agent",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "=SessionId",
-              "value": "={{ $json.sessionId }}"
-            },
-            {
-              "name": "ChatInput",
-              "value": "={{ $json.chatInput }}"
-            },
-            {
-              "name": "Action",
-              "value": "={{ $json.action }}"
-            }
-          ]
+        "descriptionType": "manual",
+        "toolDescription": "Search for existing events in the calendar.",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ $fromAI('CalendarID', `Psychologist's calendar ID.`, 'string') }}",
+          "mode": "id"
         },
+        "timeMin": "={{ $fromAI(\"dayBefore\",\"the day before the date the user requested\") }}",
+        "timeMax": "={{ $fromAI(\"dayAfter\",\"the day after the date the user requested\") }}",
         "options": {}
       },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
       "position": [
-        240,
-        160
+        160,
+        280
       ],
-      "id": "58c271df-2792-44c2-b1d0-b4a09f4af044",
-      "name": "Call Agent Webhook"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -180,
-        1400
-      ],
-      "id": "5c4b3e68-b4d4-4ebb-b5a6-929bb14d1d9b",
-      "name": "Sticky Note"
+      "id": "a17842d8-d40c-4929-a407-b0f3eef971fc",
+      "name": "Get Events",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
+        }
+      }
     },
     {
       "parameters": {
-        "content": "## Slack Chat + Audio UI\n- This workflow processes text and audio inputs from Slack\n- Makes a call to the USDB Agent Workflow\n- Returns results back to Slack",
-        "height": 660,
-        "width": 1900
+        "descriptionType": "manual",
+        "toolDescription": "Delete an existing event.",
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ $fromAI('CalendarID', `Psychologist's calendar ID.`, 'string') }}",
+          "mode": "id"
+        },
+        "eventId": "={{ $fromAI(\"eventID\") }}",
+        "options": {}
       },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
       "position": [
-        -980,
-        -60
+        40,
+        280
       ],
-      "id": "ff686d04-5348-4f20-b94d-3fcca588fb22",
-      "name": "Sticky Note1"
+      "id": "337fa7e7-6a8b-4fa7-aa7b-faa430674e8f",
+      "name": "Delete Event",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use to update an existing event.",
+        "operation": "update",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ $fromAI('CalendarID', `Psychologist's calendar ID.`, 'string') }}",
+          "mode": "id"
+        },
+        "eventId": "={{ $fromAI(\"eventID\") }}",
+        "updateFields": {
+          "end": "={{ $fromAI(\"endTime\") }}",
+          "start": "={{ $fromAI(\"startTime\") }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -80,
+        280
+      ],
+      "id": "57710f88-67d6-4206-9ba9-dc482e6f6d53",
+      "name": "Update Event",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "5wjHRyFErWBfPdfC",
+          "name": "Google Calendar account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -437,7 +237,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 3,
-  "updatedAt": "2025-03-21T09:34:09.000Z",
-  "versionId": "dacea06c-b9e4-451f-b3cb-7ab04a307d1a"
+  "triggerCount": 0,
+  "updatedAt": "2025-04-20T06:44:08.000Z",
+  "versionId": "808abc59-eac5-42fa-aac6-5fb1454d329e"
 }
