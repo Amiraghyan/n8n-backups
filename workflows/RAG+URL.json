@@ -253,7 +253,9 @@
     {
       "parameters": {
         "batchSize": 10,
-        "options": {}
+        "options": {
+          "reset": false
+        }
       },
       "id": "db34e8f1-e29e-439e-9df4-44832694e1e6",
       "name": "Loop Over Items",
@@ -527,7 +529,7 @@
     },
     {
       "parameters": {
-        "url": "https://www.uspto.gov/",
+        "url": "https://www.aa.org",
         "options": {}
       },
       "id": "822da359-842c-4dee-b587-f91e6358dde0",
@@ -547,6 +549,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-19T09:17:00.000Z",
-  "versionId": "c38a2f0a-f3e8-4e9d-9acf-039fe2dc0bf1"
+  "updatedAt": "2025-04-20T08:12:45.000Z",
+  "versionId": "6bd0bb36-134e-4792-acc5-ff06ab556b67"
 }
