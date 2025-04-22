@@ -658,8 +658,8 @@
       ]
     }
   },
-  "createdAt": "2025-04-11T20:41:56.285Z",
-  "id": "LI7EcTEe0p299KM2",
+  "createdAt": "2025-04-22T15:10:04.523Z",
+  "id": "1WWzT5PCr5kXtUSu",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -679,7 +679,7 @@
         120,
         1460
       ],
-      "id": "fd04f5bd-7823-43bd-a643-89a7836ff614",
+      "id": "fde23782-b114-4f36-ad97-978028c4d418",
       "name": "USDB_Agent_tool",
       "credentials": {
         "mySql": {
@@ -702,7 +702,7 @@
         420,
         2120
       ],
-      "id": "e711327a-d10a-4723-be36-c086c693351b",
+      "id": "0109caa3-89bb-4125-88cb-91312fa5490b",
       "name": "OpenRouter Chat",
       "credentials": {
         "openRouterApi": {
@@ -723,7 +723,7 @@
         -2040,
         2140
       ],
-      "id": "7810ccda-d20a-40ca-bf75-ddc875746eff",
+      "id": "1345540d-b91f-424f-a097-b66ad40da1ed",
       "name": "Anthropic Chat",
       "credentials": {
         "anthropicApi": {
@@ -743,7 +743,7 @@
         80,
         1640
       ],
-      "id": "01ceb42d-d3f4-4bb1-b96b-0478108c76cc",
+      "id": "63d5af8c-4da8-4d9a-b0ae-7d9d459c45bf",
       "name": "OpenAI Chat",
       "credentials": {
         "openAiApi": {
@@ -763,7 +763,7 @@
         -2200,
         2140
       ],
-      "id": "52019d45-e4bd-43a0-a6b7-66659c1ca87a",
+      "id": "5bb52e94-506d-47f8-b016-f8b442992f88",
       "name": "Groq Chat",
       "credentials": {
         "groqApi": {
@@ -803,7 +803,7 @@
         -860,
         1460
       ],
-      "id": "72553120-bdbd-46b7-8a63-9cdd2ba29f3b",
+      "id": "493c8df1-3086-4eb1-bfea-8e340751950a",
       "name": "Filter"
     },
     {
@@ -895,7 +895,7 @@
         -640,
         1460
       ],
-      "id": "530d5640-4f93-4ae3-9d4d-b5c03bbc117e",
+      "id": "257e55c9-eaba-4ed2-ba31-c02cb9ab317d",
       "name": "Switch"
     },
     {
@@ -911,7 +911,7 @@
         -2400,
         1320
       ],
-      "id": "92d3972c-378b-481b-abbb-f1841289c689",
+      "id": "89f2e639-9096-49f1-909e-7ac75cfc1a25",
       "name": "Sticky Note"
     },
     {
@@ -934,7 +934,7 @@
         -280,
         1560
       ],
-      "id": "163764a2-8354-4d09-a8b7-d9fedc7357c6",
+      "id": "5a13660c-78dc-4882-9e99-ce8fd71438ae",
       "name": "Text Out"
     },
     {
@@ -957,7 +957,7 @@
         -380,
         1400
       ],
-      "id": "01cef6e3-f72b-4f23-a43e-4df5bc21a188",
+      "id": "f8e214be-2832-45a3-8f33-c3a37317d165",
       "name": "Dwnld_Audio",
       "credentials": {
         "slackOAuth2Api": {
@@ -979,7 +979,7 @@
         -180,
         1400
       ],
-      "id": "2425f40f-befd-4b5c-ba05-72a81b6b944e",
+      "id": "97e9ede6-e546-415a-8ae0-00995090c209",
       "name": "OpenAI",
       "credentials": {
         "openAiApi": {
@@ -990,7 +990,7 @@
     },
     {
       "parameters": {},
-      "id": "1246564a-a4f1-4f90-b0cc-6078c878556f",
+      "id": "c7d12bf9-fe6b-4e40-82a9-c90d9a95241e",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
@@ -1014,7 +1014,7 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "6b13fb1a-f8bc-44d5-9531-353122076941",
+      "id": "e54f5989-7ff4-4260-97a2-94d4b9cce1c3",
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
@@ -1048,7 +1048,7 @@
         },
         "options": {}
       },
-      "id": "f92d588e-da88-4e8c-aaf4-f9347b10bda7",
+      "id": "8bb8e6d1-1c7c-4c31-999b-7afc12d088e4",
       "name": "Check if query exists",
       "type": "n8n-nodes-base.if",
       "position": [
@@ -1071,7 +1071,7 @@
         },
         "options": {}
       },
-      "id": "aa1a0186-04bd-4274-a5ac-6b998f33993a",
+      "id": "999ef4e9-49a4-4d72-b8f9-45b21386d7b8",
       "name": "Format query results",
       "type": "n8n-nodes-base.set",
       "position": [
@@ -1095,7 +1095,7 @@
         },
         "options": {}
       },
-      "id": "65f7d27c-8b26-4cfc-8726-66873ec16bbd",
+      "id": "4c985308-1157-498f-a98a-3c025c669e9b",
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
@@ -1112,7 +1112,7 @@
           "includeUnpaired": true
         }
       },
-      "id": "dec18b01-bbf7-41d8-9cc5-eca4955ad28e",
+      "id": "e0a676d7-c5fd-46a0-b6e1-e7ca891db02b",
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
@@ -1152,7 +1152,7 @@
         -2680,
         2600
       ],
-      "id": "3f319a85-d778-470e-ba85-ab1a5dfbf026",
+      "id": "a27e8505-32be-4939-8669-58890b95da9d",
       "name": "HTTP Request",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1183,7 +1183,7 @@
         -3500,
         2220
       ],
-      "id": "ec5a0bc6-c84d-45a0-ba45-9206cc001208",
+      "id": "4ec99c42-fa6e-4314-84d1-dd15efeb6256",
       "name": "LIST ALL tables"
     },
     {
@@ -1212,7 +1212,7 @@
         -3300,
         2220
       ],
-      "id": "816a7df8-109b-43f3-b66f-0d84cd7c52e2",
+      "id": "2a232231-f33b-47fe-b37f-8a3783d6c826",
       "name": "EXTRACT Schemas",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1234,7 +1234,7 @@
         -1140,
         2120
       ],
-      "id": "db24c3e4-06c3-4fd5-ab8c-e95a2395d4b6",
+      "id": "225bfbd6-1716-449a-aa6a-086380a4de17",
       "name": "USDB AI Agent"
     },
     {
@@ -1244,7 +1244,7 @@
         "width": 2763,
         "color": 6
       },
-      "id": "81b9073e-97b3-49e8-bd20-d0f78207c122",
+      "id": "56fb5e9a-f743-424d-a7d4-8acecd73c270",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -1259,7 +1259,7 @@
         "height": 80,
         "width": 2965
       },
-      "id": "a7b34651-9e89-4a14-906f-a84e74f6542d",
+      "id": "317c9806-5933-4cd6-89a7-b7a3def12d4a",
       "name": "Sticky Note10",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -1278,9 +1278,9 @@
         -320,
         2600
       ],
-      "id": "ebdb8e02-3c11-4246-abe2-d66160f1d0da",
+      "id": "075de073-413f-489b-b6f7-cf4d72c74070",
       "name": "When chat message received",
-      "webhookId": "76588d08-b117-4acf-8470-511c8ffe311b"
+      "webhookId": "bd5f83a8-2517-47f7-aa87-7443c38dc3d9"
     },
     {
       "parameters": {
@@ -1295,7 +1295,7 @@
         -1560,
         2520
       ],
-      "id": "50680c3f-d59b-4b5f-bdb7-4de71ef8e986",
+      "id": "2ed598ad-9407-4a38-8530-180f4a862abb",
       "name": "OpenAI2",
       "credentials": {
         "openAiApi": {
@@ -1324,7 +1324,7 @@
         -1720,
         2520
       ],
-      "id": "b6deb1e6-a037-4f27-bdcb-6c0420b65080",
+      "id": "db95b33f-ea51-40f6-8701-d304d27c6061",
       "name": "Dwnld_Audio1",
       "credentials": {
         "slackOAuth2Api": {
@@ -1353,7 +1353,7 @@
         -1640,
         2740
       ],
-      "id": "69673441-3533-4065-b40c-a840408a57c5",
+      "id": "07c28bb9-dfea-4c42-a9b5-8e22c1fce0a0",
       "name": "Text Out1"
     },
     {
@@ -1387,7 +1387,7 @@
         -2120,
         2660
       ],
-      "id": "34fd6278-2b3f-4db2-b81d-9d4b0dc5cd15",
+      "id": "083ac6a5-16d0-425c-8920-7dc558a6860e",
       "name": "Filter1"
     },
     {
@@ -1404,14 +1404,14 @@
           "resolveIds": false
         }
       },
-      "id": "97ad2f45-b218-4c65-82df-03c76ff514a2",
+      "id": "c3c7176e-bd0b-4165-8c00-ffefb4b59465",
       "name": "Slack Trigger",
       "type": "n8n-nodes-base.slackTrigger",
       "position": [
         -2300,
         2660
       ],
-      "webhookId": "8edbd35a-f445-4e73-8ebd-7a024c87e077",
+      "webhookId": "71d5b8bd-a542-4752-a471-4b08ec02b4dc",
       "typeVersion": 1,
       "credentials": {
         "slackApi": {
@@ -1429,7 +1429,7 @@
         -1380,
         2660
       ],
-      "id": "f274209e-3e6d-4148-9b49-daacee1dc3bc",
+      "id": "6e15d9ea-b8e1-4daf-8344-c3624ed4a420",
       "name": "Merge"
     },
     {
@@ -1521,7 +1521,7 @@
         -1920,
         2660
       ],
-      "id": "49ec1e27-b820-45e3-a377-48f5354584f2",
+      "id": "fb5b9d63-9954-4ca5-840e-f38e93169492",
       "name": "Switch2"
     },
     {
@@ -1568,7 +1568,7 @@
         60,
         2840
       ],
-      "id": "95c4cb24-4b53-41e0-9bb9-a4e2ca40bd30",
+      "id": "b15aadb2-49b9-4673-ac50-bcd038144f25",
       "name": "Start_Time"
     },
     {
@@ -1577,7 +1577,7 @@
         "height": 626,
         "width": 1245
       },
-      "id": "2cb73202-ade9-4962-86d8-238a7c97b375",
+      "id": "2524ba6f-d914-42d5-8cf5-7abbc3beca48",
       "name": "Sticky Note13",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -1593,7 +1593,7 @@
         "width": 583,
         "color": 5
       },
-      "id": "4a584fd5-9df6-4ede-b5f7-cef15318fe7d",
+      "id": "8b4f537a-1cbe-40cd-b26b-3c374bbb6c60",
       "name": "Sticky Note14",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -1613,7 +1613,7 @@
         -180,
         2120
       ],
-      "id": "d8ec7541-b0c5-46dc-b2fd-e7551148b3e5",
+      "id": "30631fdd-4779-4bf4-afda-91891b0fee70",
       "name": "Microsoft SQL1",
       "credentials": {
         "microsoftSql": {
@@ -1632,7 +1632,7 @@
         -3320,
         2880
       ],
-      "id": "d83e128b-1c42-4a1b-b73b-3f408cc1100d",
+      "id": "c676cad9-bdbb-4e5c-add2-489fc0c2baab",
       "name": "Results Formatter"
     },
     {
@@ -1646,7 +1646,7 @@
         -3500,
         3300
       ],
-      "id": "a0ae29bf-df08-4a90-a1c3-7b706da31717",
+      "id": "c4eb6a85-17f1-4563-b4dd-c7ec625fdc9e",
       "name": "Query Templates Matcher"
     },
     {
@@ -1690,7 +1690,7 @@
         -3300,
         3300
       ],
-      "id": "aaa342c2-9509-455e-a6c8-d795adba7027",
+      "id": "9a0f4a8e-6c3f-4812-828d-49a328c956a1",
       "name": "Template or LLM"
     },
     {
@@ -1713,7 +1713,7 @@
         1120,
         2880
       ],
-      "id": "1ebd2594-2ff4-474a-ae74-a1a9ea645d60",
+      "id": "2c166478-a3ef-462a-89cf-ea9d2f2f6359",
       "name": "Stop_Time"
     },
     {
@@ -1721,7 +1721,7 @@
         "mode": "runOnceForEachItem",
         "jsCode": "// Get the SQL query from the previous node\nconst sqlQuery = $json[\"query\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\\\s*--/, // End of statement with comment\n  /DROP\\\\s+TABLE/i,\n  /DELETE\\\\s+FROM/i,\n  /UPDATE\\\\s+/i,\n  /INSERT\\\\s+INTO/i,\n  /ALTER\\\\s+TABLE/i,\n];\n\n// Check for dangerous patterns\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(sqlQuery)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// Validate proper JOIN conditions\nif (sqlQuery.includes(\"JOIN\") && !sqlQuery.includes(\"ON \")) {\n  throw new Error(\"JOIN without proper ON clause detected.\");\n}\n\n// Validate ORDER BY clause for TOP queries\nif (sqlQuery.includes(\"TOP \") && !sqlQuery.includes(\"ORDER BY\")) {\n  throw new Error(\"TOP query without ORDER BY clause detected.\");\n}\n\n// Validate date range calculations\nif (sqlQuery.includes(\"DATEADD\") || sqlQuery.includes(\"DATEDIFF\")) {\n  if (!sqlQuery.includes(\"IS NOT NULL\")) {\n    console.log(\"Warning: Date calculation without NULL check detected.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn { query: sqlQuery };"
       },
-      "id": "b8f59537-0f47-4a99-97e8-d3bfd31bb58f",
+      "id": "e8b0be7b-e5b2-487b-920c-7bdda8fec2e5",
       "name": "Query Validation2",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1738,7 +1738,7 @@
           "includeUnpaired": true
         }
       },
-      "id": "d2e3fc7b-33f3-4d47-b7c0-69555d106b5f",
+      "id": "6d134ec7-f993-433b-be1b-f3f1e611c666",
       "name": "SQL template and AI queries",
       "type": "n8n-nodes-base.merge",
       "position": [
@@ -1759,7 +1759,7 @@
         -3100,
         2880
       ],
-      "id": "9e808e56-9b76-435f-96be-98957ebbd552",
+      "id": "e8e76dc0-38df-4169-90b2-114227989fb3",
       "name": "Calculate Delta"
     },
     {
@@ -1773,7 +1773,7 @@
         },
         "options": {}
       },
-      "id": "b7e5abe9-fde2-459a-99a8-6d39744fc9f6",
+      "id": "4c1f77af-f718-49fc-951b-3607d8bca5aa",
       "name": "Pinecone Vector Store",
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "position": [
@@ -1795,7 +1795,7 @@
         "binaryMode": "specificField",
         "options": {}
       },
-      "id": "357e30ec-af9c-4a6d-9262-49bc44256f63",
+      "id": "5b04545e-4969-41c1-b1a2-8e912b224dd5",
       "name": "Default Data Loader",
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "position": [
@@ -1810,7 +1810,7 @@
         "chunkOverlap": 100,
         "options": {}
       },
-      "id": "bd882c34-c791-4805-af4f-1c08e746b7a3",
+      "id": "b49e2786-d8b7-4f1d-bf2f-ef323612531b",
       "name": "Recursive Character Text Splitter",
       "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
       "position": [
@@ -1830,7 +1830,7 @@
         },
         "options": {}
       },
-      "id": "9cb93840-c07b-418d-96cd-59d98a1fdb9a",
+      "id": "0daaf857-325d-4194-b4ca-0f7cf0160165",
       "name": "Pinecone Vector Store (Retrieval)",
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "position": [
@@ -1857,7 +1857,7 @@
           "fileName": "={{ $json.name }}"
         }
       },
-      "id": "2aa1e533-0916-4cdd-acb4-0a14a44ea958",
+      "id": "6eae47c4-0966-4b18-8a2e-a33349539745",
       "name": "Download File From Google Drive",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
@@ -1893,7 +1893,7 @@
         "event": "fileUpdated",
         "options": {}
       },
-      "id": "bfb516f2-f5ad-462c-b3fe-ab9a5657cb7d",
+      "id": "767bc699-5890-417a-abbd-a5792e26a1ea",
       "name": "Google Drive File Updated",
       "type": "n8n-nodes-base.googleDriveTrigger",
       "position": [
@@ -1931,7 +1931,7 @@
           "fileType": "all"
         }
       },
-      "id": "3029a90e-3d38-42a6-a562-1de73d60dc8d",
+      "id": "5f815425-7065-4daf-aeaa-c3a72c25677c",
       "name": "Google Drive File Created",
       "type": "n8n-nodes-base.googleDriveTrigger",
       "position": [
@@ -1954,7 +1954,7 @@
         "width": 420,
         "color": 5
       },
-      "id": "434d25b9-f1e8-4330-9823-305eb822d051",
+      "id": "ebbd44af-c36a-43c9-81db-034cbb65dc0d",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -1970,7 +1970,7 @@
         "width": 560,
         "color": 3
       },
-      "id": "59f870d3-80b0-429c-b705-535201caff95",
+      "id": "baa2a65a-ba52-483e-bf20-9fbd5aeffe9d",
       "name": "Sticky Note5",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -1987,7 +1987,7 @@
         "width": 1245,
         "color": 3
       },
-      "id": "b3618435-218c-4dfe-af6b-7934c318476c",
+      "id": "50397bbd-437d-4c89-8dda-703952dc74b1",
       "name": "Sticky Note15",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -2006,7 +2006,7 @@
         -1760,
         3240
       ],
-      "id": "b78aedb5-f9ff-4d3c-a2d2-73878cea0c7f",
+      "id": "87aad9b5-0c79-4974-938f-50ef10d1cdc5",
       "name": "Embeddings OpenAI",
       "credentials": {
         "openAiApi": {
@@ -2022,7 +2022,7 @@
         "height": 126,
         "width": 325
       },
-      "id": "def59642-4fa2-4fb0-b99e-695bc9b70cb5",
+      "id": "e318e263-cd44-4e3a-862d-32dfc8664a5a",
       "name": "Sticky Note16",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -2042,7 +2042,7 @@
         -320,
         2120
       ],
-      "id": "c08d37c5-3d4f-49d1-ae31-4f79381ada38",
+      "id": "b77b806f-36bc-4475-a591-9475fce11766",
       "name": "Microsoft SQL",
       "credentials": {
         "microsoftSql": {
@@ -2062,7 +2062,7 @@
         -3500,
         2400
       ],
-      "id": "626c393e-720b-43c0-9d3c-31e800b2f0a6",
+      "id": "f49ccf98-8ab4-4221-99c5-82ebcf797629",
       "name": "LIST TABLES",
       "credentials": {
         "microsoftSql": {
@@ -2082,7 +2082,7 @@
         -3300,
         2400
       ],
-      "id": "744ff2b7-9f61-401a-b4bd-47074083ce71",
+      "id": "47ad5da2-e12c-42bb-9cf4-0ce117a1ecda",
       "name": "SCHEMAS",
       "credentials": {
         "microsoftSql": {
@@ -2103,7 +2103,7 @@
         -3500,
         2880
       ],
-      "id": "79b81d7a-1afa-4530-8237-250bcdb6f544",
+      "id": "8ce6d858-da7c-49ac-a7ef-11f4bcd34cb7",
       "name": "MySQL",
       "credentials": {
         "mySql": {
@@ -2124,7 +2124,7 @@
         0,
         3280
       ],
-      "id": "94076cf0-257d-4e0c-9fc3-7d82967ae678",
+      "id": "f69cce2b-646d-416e-8be6-1695d73cab81",
       "name": "date_time_tool"
     },
     {
@@ -2142,7 +2142,7 @@
         460,
         3440
       ],
-      "id": "757d3102-a1ec-4af6-91b0-089a83c3782e",
+      "id": "3f24eb18-1ac5-4a40-b9ba-331c133bf6df",
       "name": "OpenAI Chat ",
       "credentials": {
         "openAiApi": {
@@ -2158,7 +2158,7 @@
         "width": 603,
         "color": 5
       },
-      "id": "d6b997c4-f247-423c-8c85-c6c49522db7c",
+      "id": "c9582321-ee4b-453c-931c-557118dcb28b",
       "name": "Sticky Note17",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -2173,7 +2173,7 @@
         "description": "Retrieve information about the shapes of different queries to extract particular type of questions and information from the USDB using MySQL.",
         "topK": "={{ $fromAI('query_shape') }}"
       },
-      "id": "d2d023e5-2fdc-405a-b23b-4257196ef26a",
+      "id": "dcf521d7-68e8-4d0a-8e20-5f82837d48da",
       "name": "vector_store_tool",
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "position": [
@@ -2189,7 +2189,7 @@
         "sessionKey": "={{ $('Test Metadata').item.json.sessionId }}",
         "contextWindowLength": 10
       },
-      "id": "75e547f8-d513-4919-96bd-ea768b1dd377",
+      "id": "bf565443-cbe3-4335-98cc-9e2632c0c1bb",
       "name": "Chat History",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
@@ -2214,7 +2214,7 @@
         260,
         2880
       ],
-      "id": "5140b756-6909-48b5-86f6-97257b11c7c2",
+      "id": "52778a57-aa0e-42d5-a45a-2d7870000272",
       "name": "USDB Agent"
     },
     {
@@ -2233,7 +2233,7 @@
         -320,
         3060
       ],
-      "id": "edc0c260-4ac0-45df-99a4-e260988327d5",
+      "id": "b1214504-ad67-4133-9222-4ecf7092ecb8",
       "name": "Anthropic Chat Model",
       "credentials": {
         "anthropicApi": {
@@ -2259,7 +2259,7 @@
         920,
         3120
       ],
-      "id": "f2e685b7-05dc-4b50-8a5a-67f761b4d04f",
+      "id": "957e0597-12b6-4672-a3ec-314579f11006",
       "name": "MySQL_execute",
       "credentials": {
         "mySql": {
@@ -2282,7 +2282,7 @@
         660,
         3240
       ],
-      "id": "68c9f550-ec84-4a04-9bd8-6ff038b61e22",
+      "id": "9cce5942-9d0d-424c-ae1b-395405034024",
       "name": "MySQL_schema",
       "credentials": {
         "mySql": {
@@ -2305,7 +2305,7 @@
         800,
         3180
       ],
-      "id": "12fab3c0-e1f8-4829-86ef-733457411615",
+      "id": "3d73934d-4692-4aef-832d-3813ee11bf23",
       "name": "MySQL_definition",
       "credentials": {
         "mySql": {
@@ -2324,7 +2324,7 @@
         -100,
         3220
       ],
-      "id": "1a9425fd-2ab8-4e38-9ed6-e919500b6dbc",
+      "id": "95864be6-2d77-46a0-bafd-5bfb9a714958",
       "name": "Think"
     },
     {
@@ -2337,7 +2337,7 @@
         200,
         3540
       ],
-      "id": "0bbf3f9d-7392-43e2-a19d-62ba520326bf",
+      "id": "3b84a2f9-1f1a-4993-a592-ec5388f8023c",
       "name": "Embeddings OpenAI1",
       "credentials": {
         "openAiApi": {
@@ -2356,7 +2356,7 @@
         1060,
         3060
       ],
-      "id": "94aac25c-856e-429e-8fa0-7dc9f8e73855",
+      "id": "4f7b0cef-1b38-44dd-8c01-e96e4f53502e",
       "name": "Structured Output Parser"
     },
     {
@@ -2367,7 +2367,7 @@
         -1100,
         2700
       ],
-      "id": "7eef83d3-1199-43b1-ab00-6b6a484fe296",
+      "id": "699e6dd0-5499-4656-a1a5-80491894e821",
       "name": "When clicking ‘Test workflow’"
     },
     {
@@ -2380,7 +2380,7 @@
         -320,
         2780
       ],
-      "id": "dcd1cc4b-e4ac-40c0-89f5-6c870843c1a3",
+      "id": "85c3d75f-7c54-411d-b438-807ff2c42b3b",
       "name": "Loop Over Items"
     },
     {
@@ -2415,7 +2415,7 @@
         -140,
         2840
       ],
-      "id": "6b171178-a2b1-42c7-8501-1865d75da160",
+      "id": "93db6bce-6c42-4004-a38b-0b99f686030b",
       "name": "Test Metadata"
     },
     {
@@ -2444,7 +2444,7 @@
         -520,
         2780
       ],
-      "id": "e6941f91-aa08-42d4-9961-3fb7257a611d",
+      "id": "756a0e38-9f4f-4a32-aec6-5c4c582779e7",
       "name": "Tests",
       "credentials": {
         "airtableTokenApi": {
@@ -2479,7 +2479,7 @@
         -920,
         2700
       ],
-      "id": "3c0ba02e-ccd4-4e7e-975b-b50f44823cc4",
+      "id": "cae50787-6aad-4416-99fa-8e46fe2d0f17",
       "name": "Dealers",
       "credentials": {
         "airtableTokenApi": {
@@ -2498,7 +2498,7 @@
         -740,
         2700
       ],
-      "id": "c78d684e-64e2-42e8-8879-c66b0df463f9",
+      "id": "98cabd9e-7a80-4421-8e84-368c553044b1",
       "name": "Loop Over Items1"
     },
     {
@@ -2652,7 +2652,7 @@
         1240,
         3520
       ],
-      "id": "ca3c0cf9-ffbe-4334-ae1a-604083a21429",
+      "id": "0aac6bcb-e2f8-42eb-9919-62ab41e86186",
       "name": "Results",
       "credentials": {
         "airtableTokenApi": {
@@ -2681,7 +2681,7 @@
         1320,
         2760
       ],
-      "id": "8ebd06f7-b8a5-45bd-9449-50993e8ad3c7",
+      "id": "6e745638-6a47-49df-ac63-6d6db10d0f55",
       "name": "Group"
     },
     {
@@ -2778,7 +2778,7 @@
         1440,
         3600
       ],
-      "id": "cf562af6-f340-4550-a9d6-187efdb8e3d9",
+      "id": "2b1bda83-fa02-4646-8249-d6d933dda222",
       "name": "Dealers1",
       "credentials": {
         "airtableTokenApi": {
@@ -2807,6 +2807,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-18T09:48:24.000Z",
-  "versionId": "70f6ec90-da95-4225-92c9-821a2ce2f5e5"
+  "updatedAt": "2025-04-22T15:10:23.000Z",
+  "versionId": "4141dac9-bd2e-416f-92c2-9f037a78582c"
 }
