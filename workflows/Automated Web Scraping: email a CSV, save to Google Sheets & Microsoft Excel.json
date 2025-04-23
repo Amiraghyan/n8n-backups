@@ -408,8 +408,15 @@
   "pinData": {},
   "settings": {},
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-04-23T15:19:21.428Z",
+      "updatedAt": "2025-04-23T15:19:21.428Z",
+      "id": "gcD5ayc90q4XeKKx",
+      "name": "⭐️"
+    }
+  ],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:17:54.000Z",
-  "versionId": "4942a82d-660e-406f-ac0e-5785f4fea4ec"
+  "updatedAt": "2025-04-23T15:19:29.000Z",
+  "versionId": "aae49266-cec7-45d7-8621-d482919f11a2"
 }
