@@ -1,11 +1,6 @@
 {
   "active": false,
   "connections": {
-    "USDB_Agent_tool": {
-      "main": [
-        []
-      ]
-    },
     "OpenRouter Chat": {
       "ai_languageModel": [
         []
@@ -16,157 +11,12 @@
         []
       ]
     },
-    "OpenAI Chat": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "USDB_Agent_tool",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Groq Chat": {
       "ai_languageModel": [
         []
       ]
     },
-    "Filter": {
-      "main": [
-        [
-          {
-            "node": "Switch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Dwnld_Audio",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Text Out",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Dwnld_Audio": {
-      "main": [
-        [
-          {
-            "node": "OpenAI",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI": {
-      "main": [
-        [
-          {
-            "node": "USDB_Agent_tool",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Text Out": {
-      "main": [
-        [
-          {
-            "node": "USDB_Agent_tool",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Extract SQL query": {
-      "main": [
-        [
-          {
-            "node": "Query Validation2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Check if query exists": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Format query results": {
-      "main": [
-        []
-      ]
-    },
-    "Combine query result and chat answer": {
-      "main": [
-        [
-          {
-            "node": "Prepare final output",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request": {
-      "main": [
-        []
-      ]
-    },
-    "LIST ALL tables": {
-      "main": [
-        [
-          {
-            "node": "EXTRACT Schemas",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "EXTRACT Schemas": {
-      "main": [
-        []
-      ]
-    },
     "USDB AI Agent": {
-      "main": [
-        []
-      ]
-    },
-    "Prepare final output": {
       "main": [
         []
       ]
@@ -272,34 +122,6 @@
         ]
       ]
     },
-    "Results Formatter": {
-      "main": [
-        []
-      ]
-    },
-    "Query Templates Matcher": {
-      "main": [
-        [
-          {
-            "node": "Template or LLM",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Template or LLM": {
-      "main": [
-        [
-          {
-            "node": "SQL template and AI queries",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        []
-      ]
-    },
     "Stop_Time": {
       "main": [
         [
@@ -309,21 +131,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "Query Validation2": {
-      "main": [
-        []
-      ]
-    },
-    "SQL template and AI queries": {
-      "main": [
-        []
-      ]
-    },
-    "Calculate Delta": {
-      "main": [
-        []
       ]
     },
     "Default Data Loader": {
@@ -408,17 +215,6 @@
         []
       ]
     },
-    "LIST TABLES": {
-      "main": [
-        [
-          {
-            "node": "SCHEMAS",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "date_time_tool": {
       "ai_tool": [
         []
@@ -430,17 +226,6 @@
           {
             "node": "vector_store_tool",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "MySQL": {
-      "main": [
-        [
-          {
-            "node": "Results Formatter",
-            "type": "main",
             "index": 0
           }
         ]
@@ -550,35 +335,6 @@
         ]
       ]
     },
-    "When clicking ‘Test workflow’": {
-      "main": [
-        [
-          {
-            "node": "Dealers",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items": {
-      "main": [
-        [
-          {
-            "node": "Group",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Test Metadata",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Test Metadata": {
       "main": [
         [
@@ -590,71 +346,9 @@
         ]
       ]
     },
-    "Tests": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Dealers": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items1": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Tests",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Results": {
       "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Group": {
-      "main": [
-        [
-          {
-            "node": "Dealers1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Dealers1": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     }
   },
@@ -665,30 +359,6 @@
   },
   "name": "USDB: SQL Agent (MySQL)",
   "nodes": [
-    {
-      "parameters": {
-        "agent": "sqlAgent",
-        "dataSource": "mysql",
-        "promptType": "define",
-        "text": "={{ $('Switch').item.json.chatInput }}",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        120,
-        1460
-      ],
-      "id": "fde23782-b114-4f36-ad97-978028c4d418",
-      "name": "USDB_Agent_tool",
-      "credentials": {
-        "mySql": {
-          "id": "oUon8ECO0bjjL9bn",
-          "name": "AISandbox"
-        }
-      },
-      "onError": "continueRegularOutput"
-    },
     {
       "parameters": {
         "model": "01-ai/yi-large",
@@ -734,26 +404,6 @@
     },
     {
       "parameters": {
-        "model": "o3-mini",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.1,
-      "position": [
-        80,
-        1640
-      ],
-      "id": "63d5af8c-4da8-4d9a-b0ae-7d9d459c45bf",
-      "name": "OpenAI Chat",
-      "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
-        }
-      }
-    },
-    {
-      "parameters": {
         "model": "llama-3.3-70b-versatile",
         "options": {}
       },
@@ -771,451 +421,6 @@
           "name": "n8n_AISandbox"
         }
       }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "61c23cad-6c72-464e-9947-b7f309c9b994",
-              "leftValue": "={{ $json.user }}",
-              "rightValue": "={{\"U089MNN54NT\"}}",
-              "operator": {
-                "type": "string",
-                "operation": "notEquals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 2.2,
-      "position": [
-        -860,
-        1460
-      ],
-      "id": "493c8df1-3086-4eb1-bfea-8e340751950a",
-      "name": "Filter"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "584c8c90-4cc3-43ea-aac0-d1762ba79d0d",
-                    "leftValue": "{{ $json.files[0].mimetype }}",
-                    "rightValue": "image/jpeg",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "image"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.files[0].mimetype }}",
-                    "rightValue": "audio/mp4",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "bb9fc3cb-1c38-4fc3-8ed0-896280711d84"
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "audio"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "1ecab1e4-02c7-490e-82e5-f9f701140f00",
-                    "leftValue": "={{ $json.files[0].mimetype }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notExists",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "text"
-            }
-          ]
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        -640,
-        1460
-      ],
-      "id": "257e55c9-eaba-4ed2-ba31-c02cb9ab317d",
-      "name": "Switch"
-    },
-    {
-      "parameters": {
-        "content": "# SQL AGENT\n\n## Relevant notes \n\nWhen the slack triggers, the I do the following:\n- filter any messages coming from the Slack Bot to avoid creating an infinite loop. The bot user ID I get from the last nodes where n8n responds back to slack\n- check if the message is audio or text.\n- if it is an audio, I need to use the slack credentials based on OAUTH (not API token) to be able to download the audio file.",
-        "height": 480,
-        "width": 2960,
-        "color": 4
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -2400,
-        1320
-      ],
-      "id": "89f2e639-9096-49f1-909e-7ac75cfc1a25",
-      "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "9569b209-0827-4fcd-96e8-1091a15d68e0",
-              "name": "text",
-              "value": "={{ $json.text }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -280,
-        1560
-      ],
-      "id": "5a13660c-78dc-4882-9e99-ce8fd71438ae",
-      "name": "Text Out"
-    },
-    {
-      "parameters": {
-        "url": "={{ $json.files[0].url_private_download }}",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "slackOAuth2Api",
-        "options": {
-          "response": {
-            "response": {
-              "responseFormat": "file",
-              "outputPropertyName": "audio"
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -380,
-        1400
-      ],
-      "id": "f8e214be-2832-45a3-8f33-c3a37317d165",
-      "name": "Dwnld_Audio",
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "HQneTCU7vTozIws1",
-          "name": "Slack Oauth2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "audio",
-        "operation": "transcribe",
-        "binaryPropertyName": "audio",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.8,
-      "position": [
-        -180,
-        1400
-      ],
-      "id": "97e9ede6-e546-415a-8ae0-00995090c209",
-      "name": "OpenAI",
-      "credentials": {
-        "openAiApi": {
-          "id": "D09ujHRZlS7g66tq",
-          "name": "USDB"
-        }
-      }
-    },
-    {
-      "parameters": {},
-      "id": "c7d12bf9-fe6b-4e40-82a9-c90d9a95241e",
-      "name": "No Operation, do nothing",
-      "type": "n8n-nodes-base.noOp",
-      "position": [
-        -2680,
-        2740
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "ebbe194a-4b8b-44c9-ac19-03cf69d353bf",
-              "name": "query",
-              "type": "string",
-              "value": "={{ ($json.output.match(/SELECT[\\s\\S]*?;/i) || [])[0] || \"\" }}"
-            }
-          ]
-        },
-        "includeOtherFields": true,
-        "options": {}
-      },
-      "id": "e54f5989-7ff4-4260-97a2-94d4b9cce1c3",
-      "name": "Extract SQL query",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        -3500,
-        2680
-      ],
-      "typeVersion": 3.4
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "version": 2,
-            "leftValue": "",
-            "caseSensitive": true,
-            "typeValidation": "strict"
-          },
-          "combinator": "and",
-          "conditions": [
-            {
-              "id": "2963d04d-9d79-49f9-b52a-dc8732aca781",
-              "operator": {
-                "type": "string",
-                "operation": "notEmpty",
-                "singleValue": true
-              },
-              "leftValue": "={{ $json.query }}",
-              "rightValue": ""
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "8bb8e6d1-1c7c-4c31-999b-7afc12d088e4",
-      "name": "Check if query exists",
-      "type": "n8n-nodes-base.if",
-      "position": [
-        -3140,
-        2680
-      ],
-      "typeVersion": 2.2
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "f944d21f-6aac-4842-8926-4108d6cad4bf",
-              "name": "sqloutput",
-              "type": "string",
-              "value": "={{ Object.keys($jmespath($input.all(),'[].json')[0]).join(' | ') }} \n{{ ($jmespath($input.all(),'[].json')).map(obj => Object.values(obj).join(' | ')).join('\\n') }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "999ef4e9-49a4-4d72-b8f9-45b21386d7b8",
-      "name": "Format query results",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        -3040,
-        3060
-      ],
-      "executeOnce": true,
-      "typeVersion": 3.4
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "aa55e186-1535-4923-aee4-e088ca69575b",
-              "name": "output",
-              "type": "string",
-              "value": "=Question:\n{{ $('When chat message received').item.json.chatInput }}\n\nSQL request:\n{{ $json.query }}\n\nSQL result:\n```markdown\n{{ $json.textOutput }}\n```"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "4c985308-1157-498f-a98a-3c025c669e9b",
-      "name": "Prepare final output",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        -3300,
-        3060
-      ],
-      "typeVersion": 3.4
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "combineBy": "combineByPosition",
-        "options": {
-          "includeUnpaired": true
-        }
-      },
-      "id": "e0a676d7-c5fd-46a0-b6e1-e7ca891db02b",
-      "name": "Combine query result and chat answer",
-      "type": "n8n-nodes-base.merge",
-      "position": [
-        -3500,
-        3060
-      ],
-      "typeVersion": 3,
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "={{ $json.query }}"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {
-              "followRedirects": true,
-              "maxRedirects": 21
-            }
-          },
-          "response": {}
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -2680,
-        2600
-      ],
-      "id": "a27e8505-32be-4939-8669-58890b95da9d",
-      "name": "HTTP Request",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "=SELECT name\nFROM sys.tables"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {}
-          },
-          "timeout": 1000000
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -3500,
-        2220
-      ],
-      "id": "4ec99c42-fa6e-4314-84d1-dd15efeb6256",
-      "name": "LIST ALL tables"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://38.107.232.33:4000/mssql/execute",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "query",
-              "value": "=EXEC sp_columns '{{ $json.name }}';"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {}
-          },
-          "timeout": 1000000
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -3300,
-        2220
-      ],
-      "id": "2a232231-f33b-47fe-b37f-8a3783d6c826",
-      "name": "EXTRACT Schemas",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1255,28 +460,13 @@
     },
     {
       "parameters": {
-        "content": "",
-        "height": 80,
-        "width": 2965
-      },
-      "id": "317c9806-5933-4cd6-89a7-b7a3def12d4a",
-      "name": "Sticky Note10",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -2400,
-        1860
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -320,
-        2600
+        -440,
+        2780
       ],
       "id": "075de073-413f-489b-b6f7-cf4d72c74070",
       "name": "When chat message received",
@@ -1624,77 +814,6 @@
     },
     {
       "parameters": {
-        "jsCode": "// Access the items from the previous node (MySQL node)\nconst queryResults = items.map(item => item.json);\n\n// Check if there are any results\nif (queryResults.length === 0) {\n  return [{ json: { textOutput: \"No results found for your query.\" } }];\n}\n\n// Extract column names (headers)\nconst headers = Object.keys(queryResults[0]);\n\n// Initialize an array to hold formatted lines\nlet lines = [];\n\n// Create a header row\nlines.push(headers.join(' | '));\nlines.push(headers.map(() => '---').join(' | '));\n\n// Detect if this is a comparison query (contains percentage or difference columns)\nconst isComparisonQuery = headers.some(h => \n  h.includes('percent') || h.includes('diff') || h.includes('change'));\n\n// Iterate over each result item\nqueryResults.forEach(item => {\n  const row = headers.map(header => {\n    const value = item[header];\n    \n    // Format numbers with thousands separators\n    if (typeof value === 'number' && !isNaN(value)) {\n      // Format percentages\n      if (header.includes('percent') || header.includes('change')) {\n        return `${(value * 100).toFixed(2)}%`;\n      }\n      // Format currency\n      else if (header.includes('price') || header.includes('cost')) {\n        return `$${value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;\n      }\n      // Format regular numbers\n      else if (value > 1000) {\n        return value.toLocaleString('en-US');\n      }\n    }\n    \n    return value;\n  });\n  \n  lines.push(row.join(' | '));\n});\n\n// Join all lines into a single string with line breaks\nconst textOutput = lines.join('\\n');\n\n// Return the formatted text as a new field\nreturn [{ json: { textOutput } }];"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        -3320,
-        2880
-      ],
-      "id": "c676cad9-bdbb-4e5c-add2-489fc0c2baab",
-      "name": "Results Formatter"
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "// Template matching function for common dealer queries\nconst templateMatchers = [\n  {\n    // Price adjustment queries\n    pattern: /(how many|how often|number of) times did (.*?) adjust prices? (before selling)? .*?(last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'price_adjustments',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Inventory turn rate queries\n    pattern: /(what was|how was) (.*?)('s)? inventory turn rate .*?(last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'inventory_turn_rate',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Inventory turn rate comparison\n    pattern: /how did (.*?)('s)? inventory turn rate compare to (brand|non-brand) dealers (last month|YTD|last year|last week|last 90 days)/i,\n    templateName: 'inventory_turn_rate_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_group: matches[3],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Sales count queries\n    pattern: /how many cars did (.*?) sell (last day|last week|last month|MTD|YTD|MOM|YOY|last 90 days|last 1Y|last 3Y|last 5Y)/i,\n    templateName: 'sales_count',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      time_period: matches[2]\n    })\n  },\n  {\n    // Sales velocity queries\n    pattern: /how (fast|quickly) did (.*?) sell (cars|vehicles) (last week|last month|MTD|MOM|YTD|YOY|last 90 days|last 1Y|last 3Y)/i,\n    templateName: 'sales_velocity',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[2],\n      vehicle_type: matches[3],\n      time_period: matches[4]\n    })\n  },\n  {\n    // Market comparison queries\n    pattern: /how did (.*?)('s)? (car sales|sales velocity) compare to (market average|national average|other dealers) (last week|last month|YTD|YOY|last 90 days)/i,\n    templateName: 'market_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_type: matches[3],\n      comparison_group: matches[4],\n      time_period: matches[5]\n    })\n  },\n  {\n    // Radius comparison\n    pattern: /how did (.*?)('s)? (car sales|sales velocity) compare to (.*?) (within a (\\d+) mile radius) (last week|last month|YTD|YOY|last 90 days)/i,\n    templateName: 'radius_comparison',\n    extractParams: (matches, question) => ({ \n      dealer_name: matches[1],\n      comparison_type: matches[3],\n      dealer_group: matches[4],\n      radius: matches[6],\n      time_period: matches[7]\n    })\n  }\n];\n\n// Query templates with parameterized SQL\nconst queryTemplates = {\n  'price_adjustments': `\n    SELECT \n        d.Name AS DealerName,\n        AVG(CAST(ISNULL(l.PriceChanges, 0) AS FLOAT)) AS AvgPriceAdjustments,\n        COUNT_BIG(*) AS TotalSales\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'inventory_turn_rate': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n        COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n        AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n        CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n            NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n        AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'inventory_turn_rate_comparison': `\n    WITH DealerData AS (\n        SELECT \n            d.Name AS DealerName,\n            d.DEALERS_ID,\n            COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n            COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n            CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n                NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate,\n            MAX(l.SpecMake) AS MainBrand\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n            AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            d.Name, d.DEALERS_ID\n    ),\n    ComparisonData AS (\n        SELECT \n            {{comparison_select_clause}},\n            COUNT_BIG(l.LISTINGS_ID) AS TotalInventory,\n            COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) AS TotalSold,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell,\n            CAST(COUNT_BIG(CASE WHEN l.SalesDate IS NOT NULL THEN 1 END) * 1.0 / \n                NULLIF(COUNT_BIG(l.LISTINGS_ID), 0) AS DECIMAL(10,2)) AS TurnRate\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n            CROSS JOIN DealerData dd\n        WHERE \n            d.DEALERS_ID <> dd.DEALERS_ID\n            {{comparison_where_clause}}\n            AND l.ChangedOn >= CONVERT(DATE, '{{start_date}}') \n            AND l.ChangedOn < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            {{comparison_group_clause}}\n    )\n    SELECT \n        dd.DealerName,\n        dd.TurnRate AS DealerTurnRate,\n        AVG(cd.TurnRate) AS ComparisonTurnRate,\n        dd.TurnRate - AVG(cd.TurnRate) AS TurnRateDifference,\n        CASE \n            WHEN AVG(cd.TurnRate) = 0 THEN NULL \n            ELSE (dd.TurnRate - AVG(cd.TurnRate)) / AVG(cd.TurnRate) * 100 \n        END AS PercentDifference\n    FROM \n        DealerData dd\n    CROSS JOIN\n        ComparisonData cd\n    GROUP BY \n        dd.DealerName, dd.TurnRate;\n  `,\n  'sales_count': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(*) AS TotalSales\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'sales_velocity': `\n    SELECT \n        d.Name AS DealerName,\n        COUNT_BIG(*) AS TotalSales,\n        AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n    FROM \n        dbo.LISTINGS l WITH (NOLOCK)\n        INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n    WHERE \n        d.Name LIKE '%{{dealer_name}}%'\n        AND l.SalesDate IS NOT NULL\n        AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n        AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    GROUP BY \n        d.Name;\n  `,\n  'market_comparison': `\n    WITH DealerData AS (\n        SELECT \n            d.Name AS DealerName,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            d.Name\n    ),\n    MarketData AS (\n        SELECT \n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN dbo.DEALERS d WITH (NOLOCK) ON l.DEALERS_ID = d.DEALERS_ID\n        WHERE \n            l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n    )\n    SELECT \n        dd.DealerName,\n        dd.TotalSales AS DealerSales,\n        m.TotalSales AS MarketSales,\n        dd.AvgDaysToSell AS DealerAvgDaysToSell,\n        m.AvgDaysToSell AS MarketAvgDaysToSell,\n        dd.AvgDaysToSell - m.AvgDaysToSell AS DaysToSellDifference,\n        CASE \n            WHEN m.AvgDaysToSell = 0 THEN NULL \n            ELSE (dd.AvgDaysToSell - m.AvgDaysToSell) / m.AvgDaysToSell * 100 \n        END AS PercentDifference\n    FROM \n        DealerData dd\n    CROSS JOIN\n        MarketData m;\n  `,\n  'radius_comparison': `\n    WITH DealerLocation AS (\n        SELECT \n            d.DEALERS_ID,\n            d.Name AS DealerName,\n            d.Latitude,\n            d.Longitude\n        FROM \n            dbo.DEALERS d WITH (NOLOCK)\n        WHERE \n            d.Name LIKE '%{{dealer_name}}%'\n            AND d.Latitude IS NOT NULL\n            AND d.Longitude IS NOT NULL\n    ),\n    DealerData AS (\n        SELECT \n            dl.DealerName,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN DealerLocation dl ON l.DEALERS_ID = dl.DEALERS_ID\n        WHERE \n            l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            dl.DealerName\n    ),\n    NearbyDealers AS (\n        SELECT \n            d.DEALERS_ID,\n            d.Name AS DealerName,\n            d.Latitude,\n            d.Longitude,\n            dl.Latitude AS CenterLat,\n            dl.Longitude AS CenterLong,\n            (3959 * ACOS(COS(RADIANS(dl.Latitude)) * COS(RADIANS(d.Latitude)) * COS(RADIANS(d.Longitude) - RADIANS(dl.Longitude)) + SIN(RADIANS(dl.Latitude)) * SIN(RADIANS(d.Latitude)))) AS DistanceMiles\n        FROM \n            dbo.DEALERS d WITH (NOLOCK)\n            CROSS JOIN DealerLocation dl\n        WHERE \n            d.Latitude IS NOT NULL\n            AND d.Longitude IS NOT NULL\n            AND d.Name LIKE '%{{dealer_group}}%'\n            AND d.DEALERS_ID <> dl.DEALERS_ID\n    ),\n    RadiusData AS (\n        SELECT \n            nd.DealerName,\n            nd.DistanceMiles,\n            COUNT_BIG(*) AS TotalSales,\n            AVG(CAST(ISNULL(l.SalesDaysOld, 0) AS FLOAT)) AS AvgDaysToSell\n        FROM \n            dbo.LISTINGS l WITH (NOLOCK)\n            INNER JOIN NearbyDealers nd ON l.DEALERS_ID = nd.DEALERS_ID\n        WHERE \n            nd.DistanceMiles <= {{radius}}\n            AND l.SalesDate IS NOT NULL\n            AND l.SalesDate >= CONVERT(DATE, '{{start_date}}') \n            AND l.SalesDate < CONVERT(DATE, '{{end_date}}')\n        GROUP BY \n            nd.DealerName, nd.DistanceMiles\n    )\n    SELECT \n        dd.DealerName,\n        dd.TotalSales AS DealerSales,\n        AVG(rd.TotalSales) AS AvgRadiusSales,\n        dd.AvgDaysToSell AS DealerAvgDaysToSell,\n        AVG(rd.AvgDaysToSell) AS RadiusAvgDaysToSell,\n        dd.AvgDaysToSell - AVG(rd.AvgDaysToSell) AS DaysToSellDifference,\n        CASE \n            WHEN AVG(rd.AvgDaysToSell) = 0 THEN NULL \n            ELSE (dd.AvgDaysToSell - AVG(rd.AvgDaysToSell)) / AVG(rd.AvgDaysToSell) * 100 \n        END AS PercentDifference,\n        COUNT(rd.DealerName) AS DealersInRadius\n    FROM \n        DealerData dd\n    LEFT JOIN\n        RadiusData rd ON 1=1\n    GROUP BY \n        dd.DealerName, dd.TotalSales, dd.AvgDaysToSell;\n  `\n};\n\n// Get the user's question and current date\nconst userQuestion = $input.item.json.chatinput || \"\";\nconst now = new Date();\n\n// Detect time period and convert to actual dates\nfunction getDateRange(timePeriod) {\n  let startDate, endDate = new Date(now);\n  \n  if (timePeriod.includes('last day')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 1);\n  } else if (timePeriod.includes('last week')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 7);\n  } else if (timePeriod.includes('last month')) {\n    startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);\n    endDate = new Date(now.getFullYear(), now.getMonth(), 0);\n  } else if (timePeriod.includes('MTD')) {\n    startDate = new Date(now.getFullYear(), now.getMonth(), 1);\n  } else if (timePeriod.includes('YTD')) {\n    startDate = new Date(now.getFullYear(), 0, 1);\n  } else if (timePeriod.includes('MOM')) {\n    // Month over Month (current month vs previous month)\n    startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);\n    endDate = new Date(now.getFullYear(), now.getMonth(), 0);\n  } else if (timePeriod.includes('YOY')) {\n    // Year over Year (current month this year vs same month last year)\n    startDate = new Date(now.getFullYear() - 1, now.getMonth(), 1);\n    endDate = new Date(now.getFullYear() - 1, now.getMonth() + 1, 0);\n  } else if (timePeriod.includes('last 90 days')) {\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 90);\n  } else if (timePeriod.includes('last 1Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 1);\n  } else if (timePeriod.includes('last 3Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 3);\n  } else if (timePeriod.includes('last 5Y')) {\n    startDate = new Date(now);\n    startDate.setFullYear(startDate.getFullYear() - 5);\n  } else if (timePeriod.includes('last year')) {\n    startDate = new Date(now.getFullYear() - 1, 0, 1);\n    endDate = new Date(now.getFullYear() - 1, 11, 31);\n  } else {\n    // Default to last 30 days\n    startDate = new Date(now);\n    startDate.setDate(startDate.getDate() - 30);\n  }\n  \n  return {\n    start_date: startDate.toISOString().split('T')[0],\n    end_date: endDate.toISOString().split('T')[0]\n  };\n}\n\n// Helper function for comparison clauses\nfunction getComparisonClauses(comparisonGroup, dealerMainBrand) {\n  if (comparisonGroup === 'brand') {\n    return {\n      select: \"d.Name AS ComparisonDealer\",\n      where: `AND l.SpecMake = '${dealerMainBrand}'`,\n      group: \"d.Name\"\n    };\n  } else if (comparisonGroup === 'non-brand') {\n    return {\n      select: \"d.Name AS ComparisonDealer\",\n      where: `AND l.SpecMake <> '${dealerMainBrand}'`,\n      group: \"d.Name\"\n    };\n  } else {\n    return {\n      select: \"'All Dealers' AS ComparisonGroup\",\n      where: \"\",\n      group: \"'All Dealers'\"\n    };\n  }\n}\n\n// Try to match the question to a template\nlet matchedTemplate = null;\nlet templateParams = {};\n\nfor (const matcher of templateMatchers) {\n  const matches = userQuestion.match(matcher.pattern);\n  if (matches) {\n    matchedTemplate = matcher.templateName;\n    templateParams = matcher.extractParams(matches, userQuestion);\n    \n    // Add date params based on detected time period\n    const dateRange = getDateRange(templateParams.time_period || \"last month\");\n    templateParams.start_date = dateRange.start_date;\n    templateParams.end_date = dateRange.end_date;\n    \n    // Special handling for comparison queries\n    if (matchedTemplate === 'inventory_turn_rate_comparison') {\n      const mainBrand = \"Toyota\"; // This should be retrieved dynamically in production\n      const clauses = getComparisonClauses(templateParams.comparison_group, mainBrand);\n      templateParams.comparison_select_clause = clauses.select;\n      templateParams.comparison_where_clause = clauses.where;\n      templateParams.comparison_group_clause = clauses.group;\n    }\n    \n    break;\n  }\n}\n\n// If we matched a template, populate it with parameters\nif (matchedTemplate && queryTemplates[matchedTemplate]) {\n  let query = queryTemplates[matchedTemplate];\n  \n  // Replace template parameters\n  Object.keys(templateParams).forEach(key => {\n    query = query.replace(new RegExp(`{{${key}}}`, 'g'), templateParams[key]);\n  });\n  \n  // Output the populated template\n  return { \n    template_matched: true,\n    template_name: matchedTemplate,\n    template_params: templateParams,\n    query: query.trim(),\n    ...templateParams,\n    original_input: $input.item.json\n  };\n} else {\n  // No template matched, continue with normal LLM-based query generation\n  return { \n    template_matched: false,\n    query: null,\n    original_input: $input.item.json\n  };\n}"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        -3500,
-        3300
-      ],
-      "id": "c4eb6a85-17f1-4563-b4dd-c7ec625fdc9e",
-      "name": "Query Templates Matcher"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.template_matched }}",
-                    "rightValue": "=True",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "e17b0650-ab6d-4a43-bc41-b8de6acccf31"
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Template"
-            }
-          ]
-        },
-        "looseTypeValidation": true,
-        "options": {
-          "fallbackOutput": "extra"
-        }
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [
-        -3300,
-        3300
-      ],
-      "id": "9a0f4a8e-6c3f-4812-828d-49a328c956a1",
-      "name": "Template or LLM"
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -1710,57 +829,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1120,
-        2880
+        620,
+        2840
       ],
       "id": "2c166478-a3ef-462a-89cf-ea9d2f2f6359",
       "name": "Stop_Time"
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "// Get the SQL query from the previous node\nconst sqlQuery = $json[\"query\"];\n\n// Basic validation to prevent dangerous queries\nconst disallowedPatterns = [\n  /;\\\\s*--/, // End of statement with comment\n  /DROP\\\\s+TABLE/i,\n  /DELETE\\\\s+FROM/i,\n  /UPDATE\\\\s+/i,\n  /INSERT\\\\s+INTO/i,\n  /ALTER\\\\s+TABLE/i,\n];\n\n// Check for dangerous patterns\nfor (const pattern of disallowedPatterns) {\n  if (pattern.test(sqlQuery)) {\n    throw new Error(\"Generated SQL query contains disallowed operations.\");\n  }\n}\n\n// Validate proper JOIN conditions\nif (sqlQuery.includes(\"JOIN\") && !sqlQuery.includes(\"ON \")) {\n  throw new Error(\"JOIN without proper ON clause detected.\");\n}\n\n// Validate ORDER BY clause for TOP queries\nif (sqlQuery.includes(\"TOP \") && !sqlQuery.includes(\"ORDER BY\")) {\n  throw new Error(\"TOP query without ORDER BY clause detected.\");\n}\n\n// Validate date range calculations\nif (sqlQuery.includes(\"DATEADD\") || sqlQuery.includes(\"DATEDIFF\")) {\n  if (!sqlQuery.includes(\"IS NOT NULL\")) {\n    console.log(\"Warning: Date calculation without NULL check detected.\");\n  }\n}\n\n// If safe, pass the SQL query along\nreturn { query: sqlQuery };"
-      },
-      "id": "e8b0be7b-e5b2-487b-920c-7bdda8fec2e5",
-      "name": "Query Validation2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        -3340,
-        2680
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "combineBy": "combineByPosition",
-        "options": {
-          "includeUnpaired": true
-        }
-      },
-      "id": "6d134ec7-f993-433b-be1b-f3f1e611c666",
-      "name": "SQL template and AI queries",
-      "type": "n8n-nodes-base.merge",
-      "position": [
-        -3000,
-        3300
-      ],
-      "typeVersion": 3,
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Get start and stop times\n let startTime = $('Template or LLM').first()?.json?.original_input?.Start_time;\n const stopTime = new Date($input.first().json.stopTime); // Convert to Date object\n \n if (startTime === undefined || startTime === null) {\n   throw new Error(\"Start time is undefined or null. Ensure 'Template or LLM' node has executed.\");\n }\n \n startTime = new Date(startTime); // Convert startTime to a Date object\n \n // Calculate the difference in milliseconds\n const deltaMs = stopTime - startTime;\n \n // Convert to seconds (with 2 decimal places)\n const deltaSeconds = (deltaMs / 1000).toFixed(2);\n \n // Convert to a more readable format if it's a longer duration\n let readableDelta;\n if (deltaMs < 1000) {\n   readableDelta = `${deltaMs} ms`;\n } else if (deltaMs < 60000) {\n   readableDelta = `${deltaSeconds} seconds`;\n } else {\n   const minutes = Math.floor(deltaMs / 60000);\n   const seconds = ((deltaMs % 60000) / 1000).toFixed(2);\n   readableDelta = `${minutes} minutes and ${seconds} seconds`;\n }\n \n // Return both the original data and the time measurements\n return {\n   ...($input.item.json),\n   stopTime: new Date(stopTime).toISOString(),\n   executionTimeMs: deltaMs,\n   executionTimeSec: parseFloat(deltaSeconds),\n   executionTimeReadable: readableDelta\n };"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        -3100,
-        2880
-      ],
-      "id": "e8e76dc0-38df-4169-90b2-114227989fb3",
-      "name": "Calculate Delta"
     },
     {
       "parameters": {
@@ -2053,67 +1126,6 @@
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT name\nFROM sys.tables"
-      },
-      "type": "n8n-nodes-base.microsoftSql",
-      "typeVersion": 1.1,
-      "position": [
-        -3500,
-        2400
-      ],
-      "id": "f49ccf98-8ab4-4221-99c5-82ebcf797629",
-      "name": "LIST TABLES",
-      "credentials": {
-        "microsoftSql": {
-          "id": "BbAMiDytg4JU7Jas",
-          "name": "MsSQL 38.107.232.33 "
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "EXEC sp_columns '{{ $json.name }}';"
-      },
-      "type": "n8n-nodes-base.microsoftSql",
-      "typeVersion": 1.1,
-      "position": [
-        -3300,
-        2400
-      ],
-      "id": "47ad5da2-e12c-42bb-9cf4-0ce117a1ecda",
-      "name": "SCHEMAS",
-      "credentials": {
-        "microsoftSql": {
-          "id": "BbAMiDytg4JU7Jas",
-          "name": "MsSQL 38.107.232.33 "
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "{{ $json.output }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.4,
-      "position": [
-        -3500,
-        2880
-      ],
-      "id": "8ce6d858-da7c-49ac-a7ef-11f4bcd34cb7",
-      "name": "MySQL",
-      "credentials": {
-        "mySql": {
-          "id": "QonuFF6AfGffP6d7",
-          "name": "104.167.196.118 : 3306"
-        }
-      }
-    },
-    {
-      "parameters": {
         "name": "date_time_tool",
         "description": "Returns the current date and time information including formatted date, time, timezone, and day of week and other temporal expressions.",
         "jsCode": "// Advanced DateTime Tool for n8n Agent with support for business timeframes\nmodule.exports = async function() {\n  // Create date objects\n  const now = new Date();\n  \n  // Basic date components\n  const year = now.getFullYear();\n  const month = now.getMonth(); // 0-based\n  const day = now.getDate();\n  const dayOfWeek = now.getDay(); // 0 = Sunday, 6 = Saturday\n  \n  // Format helper function\n  const formatDate = (date) => {\n    return {\n      formatted: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,\n      year: date.getFullYear(),\n      month: date.getMonth() + 1,\n      day: date.getDate()\n    };\n  };\n  \n  // Get start of current day\n  const startOfDay = new Date(year, month, day);\n  startOfDay.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current month\n  const startOfMonth = new Date(year, month, 1);\n  startOfMonth.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current year\n  const startOfYear = new Date(year, 0, 1);\n  startOfYear.setHours(0, 0, 0, 0); // Set to beginning of the day\n  \n  // Get start of current week (Sunday-based)\n  const startOfWeek = new Date(now);\n  startOfWeek.setDate(now.getDate() - now.getDay());\n  startOfWeek.setHours(0, 0, 0, 0);\n  \n  // Month-to-Date (MTD)\n  const mtdDays = day;\n  const mtdStart = formatDate(startOfMonth);\n  const mtdEnd = formatDate(now);\n  \n  // Year-to-Date (YTD)\n  const ytdDays = Math.floor((now - startOfYear) / (1000 * 60 * 60 * 24)) + 1;\n  const ytdStart = formatDate(startOfYear);\n  const ytdEnd = formatDate(now);\n  \n  // Last month (for Month-over-Month)\n  let lastMonthYear = year;\n  let lastMonthMonth = month - 1;\n  \n  // Adjust for January (handle previous year December)\n  if (lastMonthMonth < 0) {\n    lastMonthMonth = 11; // December\n    lastMonthYear = year - 1;\n  }\n  \n  const lastMonth = new Date(lastMonthYear, lastMonthMonth, 1);\n  const lastMonthEnd = new Date(year, month, 0);\n  lastMonthEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  const lastMonthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(lastMonth);\n  \n  // Last year (for Year-over-Year)\n  const lastYear = new Date(year - 1, month, day);\n  const lastYearStart = new Date(year - 1, 0, 1);\n  lastYearStart.setHours(0, 0, 0, 0); // Set to beginning of the day\n  const lastYearEnd = new Date(year - 1, 11, 31);\n  lastYearEnd.setHours(23, 59, 59, 999); // Set to end of the day\n  \n  // Format current time\n  const hours = String(now.getHours()).padStart(2, '0');\n  const minutes = String(now.getMinutes()).padStart(2, '0');\n  const seconds = String(now.getSeconds()).padStart(2, '0');\n  const timeString = `${hours}:${minutes}:${seconds}`;\n  \n  // Calculate days in the current year (accounting for leap years)\n  const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);\n  const daysInYear = isLeapYear ? 366 : 365;\n  \n  // Safely handle day overflow for last year (e.g., Feb 29 on leap year to non-leap year)\n  function createSafePreviousYearDate(currentYear, currentMonth, currentDay) {\n    // Check if we're dealing with Feb 29 on a leap year\n    if (currentMonth === 1 && currentDay === 29) { // February 29\n      const prevYear = currentYear - 1;\n      const isPrevLeapYear = (prevYear % 4 === 0 && prevYear % 100 !== 0) || (prevYear % 400 === 0);\n      \n      if (!isPrevLeapYear) {\n        // Previous year is not a leap year, so Feb 29 doesn't exist - use Feb 28 instead\n        return new Date(prevYear, currentMonth, 28);\n      }\n    }\n    \n    // For all other cases, just use the same month and day in the previous year\n    return new Date(currentYear - 1, currentMonth, currentDay);\n  }\n  \n  // Recalculate lastYear date to handle potential February 29 issue\n  const safeLastYear = createSafePreviousYearDate(year, month, day);\n  \n  // Return comprehensive date/time information\n  const result = {\n    current: {\n      timestamp: now.getTime(),\n      dateTime: `${formatDate(now).formatted} ${timeString}`,\n      date: formatDate(now).formatted,\n      time: timeString,\n      year: year,\n      month: month + 1,\n      monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n      day: day,\n      dayOfWeek: dayOfWeek,\n      dayName: new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now),\n      quarter: Math.floor(month / 3) + 1\n    },\n    \n    timeframes: {\n      // This week\n      thisWeek: {\n        start: formatDate(startOfWeek),\n        end: formatDate(now),\n        daysPassed: dayOfWeek,\n        daysRemaining: 6 - dayOfWeek\n      },\n      \n      // This month\n      thisMonth: {\n        start: formatDate(startOfMonth),\n        end: formatDate(now),\n        name: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n        daysPassed: day - 1,\n        totalDays: new Date(year, month + 1, 0).getDate()\n      },\n      \n      // This year\n      thisYear: {\n        start: formatDate(startOfYear),\n        end: formatDate(now),\n        year: year,\n        daysPassed: ytdDays,\n        totalDays: daysInYear\n      },\n      \n      // Month-to-Date (MTD)\n      mtd: {\n        start: mtdStart,\n        end: mtdEnd,\n        daysPassed: mtdDays,\n        percentComplete: Math.round((mtdDays / new Date(year, month + 1, 0).getDate()) * 100)\n      },\n      \n      // Year-to-Date (YTD)\n      ytd: {\n        start: ytdStart,\n        end: ytdEnd,\n        daysPassed: ytdDays,\n        percentComplete: Math.round((ytdDays / daysInYear) * 100)\n      }\n    },\n    \n    comparisons: {\n      // Month-over-Month (MoM)\n      mom: {\n        current: {\n          month: month + 1,\n          monthName: new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now),\n          year: year\n        },\n        previous: {\n          month: lastMonth.getMonth() + 1,\n          monthName: lastMonthName,\n          year: lastMonth.getFullYear()\n        },\n        start: formatDate(lastMonth),\n        end: formatDate(lastMonthEnd)\n      },\n      \n      // Year-over-Year (YoY)\n      yoy: {\n        current: {\n          year: year,\n          month: month + 1,\n          day: day\n        },\n        previous: {\n          year: safeLastYear.getFullYear(),\n          month: safeLastYear.getMonth() + 1,\n          day: safeLastYear.getDate()\n        },\n        sameDay: formatDate(safeLastYear),\n        yearStart: formatDate(lastYearStart),\n        yearEnd: formatDate(lastYearEnd)\n      }\n    },\n    \n    timezone: {\n      name: Intl.DateTimeFormat().resolvedOptions().timeZone,\n      offset: now.getTimezoneOffset()\n    },\n    \n    // Business days calculation (Mon-Fri)\n    business: {\n      isBusinessDay: (dayOfWeek >= 1 && dayOfWeek <= 5),\n      daysSinceLastBusinessDay: dayOfWeek === 0 ? 2 : dayOfWeek === 1 ? 3 : 1,\n      businessDaysInMonth: getBusinessDaysInMonth(year, month),\n      businessDaysPassedThisMonth: getBusinessDaysPassed(year, month, day)\n    }\n  };\n  \n  // Helper function to calculate business days in a month (Mon-Fri)\n  function getBusinessDaysInMonth(year, month) {\n    const daysInMonth = new Date(year, month + 1, 0).getDate();\n    let businessDays = 0;\n    \n    for (let i = 1; i <= daysInMonth; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  // Helper function to calculate business days passed in the current month\n  function getBusinessDaysPassed(year, month, currentDay) {\n    let businessDays = 0;\n    \n    for (let i = 1; i <= currentDay; i++) {\n      const dayOfWeek = new Date(year, month, i).getDay();\n      if (dayOfWeek >= 1 && dayOfWeek <= 5) {\n        businessDays++;\n      }\n    }\n    \n    return businessDays;\n  }\n  \n  return JSON.stringify(result);\n};"
@@ -2360,30 +1372,6 @@
       "name": "Structured Output Parser"
     },
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -1100,
-        2700
-      ],
-      "id": "699e6dd0-5499-4656-a1a5-80491894e821",
-      "name": "When clicking ‘Test workflow’"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        -320,
-        2780
-      ],
-      "id": "85c3d75f-7c54-411d-b438-807ff2c42b3b",
-      "name": "Loop Over Items"
-    },
-    {
       "parameters": {
         "assignments": {
           "assignments": [
@@ -2417,89 +1405,6 @@
       ],
       "id": "93db6bce-6c42-4004-a38b-0b99f686030b",
       "name": "Test Metadata"
-    },
-    {
-      "parameters": {
-        "operation": "search",
-        "base": {
-          "__rl": true,
-          "value": "appGV8vCDX8WGdmJG",
-          "mode": "list",
-          "cachedResultName": "USDB Agent Testing",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblR30GD6tQ1WGT5c",
-          "mode": "list",
-          "cachedResultName": "Tests",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblR30GD6tQ1WGT5c"
-        },
-        "filterByFormula": "(Process='True')",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        -520,
-        2780
-      ],
-      "id": "756a0e38-9f4f-4a32-aec6-5c4c582779e7",
-      "name": "Tests",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "0k6jxJu0tQwdczzt",
-          "name": "USDB_Airtable_logs"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "search",
-        "base": {
-          "__rl": true,
-          "value": "appGV8vCDX8WGdmJG",
-          "mode": "list",
-          "cachedResultName": "USDB Agent Testing",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblWceV4FjTXDeHhL",
-          "mode": "list",
-          "cachedResultName": "Dealers",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblWceV4FjTXDeHhL"
-        },
-        "filterByFormula": "(Process='True')",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        -920,
-        2700
-      ],
-      "id": "cae50787-6aad-4416-99fa-8e46fe2d0f17",
-      "name": "Dealers",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "0k6jxJu0tQwdczzt",
-          "name": "USDB_Airtable_logs"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        -740,
-        2700
-      ],
-      "id": "98cabd9e-7a80-4421-8e84-368c553044b1",
-      "name": "Loop Over Items1"
     },
     {
       "parameters": {
@@ -2649,137 +1554,11 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1240,
-        3520
+        800,
+        2840
       ],
       "id": "0aac6bcb-e2f8-42eb-9919-62ab41e86186",
       "name": "Results",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "0k6jxJu0tQwdczzt",
-          "name": "USDB_Airtable_logs"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "2d364eb1-f1c7-4fe1-ac4d-0a503b85e0e6",
-              "name": "Group",
-              "value": "={{ $json.Group }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        1320,
-        2760
-      ],
-      "id": "6e745638-6a47-49df-ac63-6d6db10d0f55",
-      "name": "Group"
-    },
-    {
-      "parameters": {
-        "operation": "create",
-        "base": {
-          "__rl": true,
-          "value": "appGV8vCDX8WGdmJG",
-          "mode": "list",
-          "cachedResultName": "Direct Query",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblWceV4FjTXDeHhL",
-          "mode": "list",
-          "cachedResultName": "Dealers",
-          "cachedResultUrl": "https://airtable.com/appGV8vCDX8WGdmJG/tblWceV4FjTXDeHhL"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Status": "Executed"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Name",
-              "displayName": "Name",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Process",
-              "displayName": "Process",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Notes",
-              "displayName": "Notes",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Status",
-              "displayName": "Status",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "options",
-              "options": [
-                {
-                  "name": "Failed",
-                  "value": "Failed"
-                },
-                {
-                  "name": "Executed",
-                  "value": "Executed"
-                },
-                {
-                  "name": "Passed",
-                  "value": "Passed"
-                }
-              ],
-              "readOnly": false,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        1440,
-        3600
-      ],
-      "id": "2b1bda83-fa02-4646-8249-d6d933dda222",
-      "name": "Dealers1",
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
@@ -2807,6 +1586,6 @@
     }
   ],
   "triggerCount": 4,
-  "updatedAt": "2025-04-22T15:10:23.000Z",
-  "versionId": "4141dac9-bd2e-416f-92c2-9f037a78582c"
+  "updatedAt": "2025-04-23T14:20:49.000Z",
+  "versionId": "60bc2ed0-ee26-4c9a-aafa-8f3667b52c34"
 }
