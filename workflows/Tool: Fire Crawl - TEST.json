@@ -22,6 +22,17 @@
           }
         ]
       ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-01-10T20:03:22.136Z",
@@ -70,7 +81,7 @@
             {
               "id": "6042c27d-516c-4d2a-b82b-484d8b443d6b",
               "name": "URL",
-              "value": "https://www.uspto.gov/",
+              "value": "https://api.firecrawl.dev/v1/map",
               "type": "string"
             }
           ]
@@ -85,6 +96,19 @@
       ],
       "id": "ad026c6e-9bc0-415c-b9ea-beadb03e2b07",
       "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        0
+      ],
+      "id": "e2bb4208-e515-44d0-88b2-5ca8895971f9",
+      "name": "Edit Fields1"
     }
   ],
   "pinData": {},
@@ -94,6 +118,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-19T22:20:50.000Z",
-  "versionId": "96cce122-cde7-491a-8471-5a2a182d6f76"
+  "updatedAt": "2025-04-23T15:11:50.000Z",
+  "versionId": "e334f3cc-d478-401f-b222-905b165484e6"
 }
