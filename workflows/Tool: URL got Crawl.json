@@ -34,7 +34,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.firecrawl.dev/v1/crawl",
+        "url": "https://api.firecrawl.dev/v1/map",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -45,8 +45,14 @@
           ]
         },
         "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n\"URL\": \"https://www.uspto.gov/\",\n  \"limit\": 100,\n  \"scrapeOptions\": {\n    \"formats\": [\n      \"markdown\",\n      \"html\"\n    ]\n  }\n}",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url",
+              "value": "https://aasonora.org/meeting-guide/"
+            }
+          ]
+        },
         "options": {}
       },
       "id": "f256ed59-ba61-4912-9a75-4e7703547de5",
@@ -117,6 +123,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-19T22:20:41.000Z",
-  "versionId": "1c4a74ef-2f24-4a3e-80f4-cb332d7961ba"
+  "updatedAt": "2025-04-23T15:11:39.000Z",
+  "versionId": "d76c60b0-f62d-4404-aa23-30febbd1f2a2"
 }
