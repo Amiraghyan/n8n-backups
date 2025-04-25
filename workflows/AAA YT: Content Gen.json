@@ -829,7 +829,7 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1920,
+        1980,
         -880
       ]
     },
@@ -1024,7 +1024,7 @@
       "typeVersion": 4.2,
       "position": [
         2180,
-        280
+        160
       ],
       "alwaysOutputData": true
     },
@@ -1037,7 +1037,7 @@
       "typeVersion": 1,
       "position": [
         2180,
-        500
+        380
       ],
       "id": "829ff6f0-b4c0-4e1e-a0f1-95c403de1e1b",
       "name": "Split Out"
@@ -1059,7 +1059,7 @@
       "typeVersion": 1,
       "position": [
         2760,
-        500
+        380
       ],
       "id": "53c0cc01-7d44-4964-bc17-83ce6d072df2",
       "name": "Positive"
@@ -1081,7 +1081,7 @@
       "typeVersion": 1,
       "position": [
         2760,
-        640
+        520
       ],
       "id": "a36731c9-a7a9-4bc6-b4c1-efb02b65eedf",
       "name": "Neutral"
@@ -1103,7 +1103,7 @@
       "typeVersion": 1,
       "position": [
         2760,
-        780
+        660
       ],
       "id": "f0fbcf42-9306-4403-aa76-fb9f2e082a23",
       "name": "Negative"
@@ -1150,8 +1150,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        4460,
-        1200
+        4520,
+        680
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1170,7 +1170,7 @@
       "typeVersion": 3,
       "position": [
         3160,
-        640
+        520
       ],
       "id": "c8e30cbd-cc8a-406c-805f-fdac1dc99b22",
       "name": "Merge",
@@ -1278,7 +1278,7 @@
       "typeVersion": 1,
       "position": [
         2360,
-        500
+        380
       ]
     },
     {
@@ -1432,7 +1432,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1900,
+        2000,
         -360
       ],
       "id": "2a8d0e2d-6fdf-4a6d-9cb8-aefddf243b3f",
@@ -1741,7 +1741,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1920,
+        1980,
         -1040
       ],
       "id": "035d3ee7-dacb-468b-a1d5-42ed627fd453",
@@ -2130,7 +2130,7 @@
       "typeVersion": 2,
       "position": [
         3340,
-        640
+        520
       ],
       "id": "49ae1488-128a-45e1-a8f9-917d8f0fd08b",
       "name": "sNPS",
@@ -3149,7 +3149,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       }
     },
@@ -3162,8 +3162,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        4260,
-        1200
+        4320,
+        680
       ],
       "id": "f9cd07b2-1bf0-49cc-88b3-5ad6f8f87d25",
       "name": "Markdown"
@@ -3292,7 +3292,7 @@
       "typeVersion": 3,
       "position": [
         3700,
-        280
+        160
       ],
       "id": "f60ea077-0e26-468a-94a7-68402eba2213",
       "name": "Merge2",
@@ -3311,8 +3311,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3760,
-        -360
+        3740,
+        -380
       ],
       "id": "b6fa2b0c-969c-4d12-a8d8-d48493808378",
       "name": "Merge3",
@@ -3350,7 +3350,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2100,
+        2180,
         -360
       ],
       "id": "4c42d43c-f939-4d58-a0c6-1159bfec510e",
@@ -3360,7 +3360,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       },
       "onError": "continueRegularOutput"
@@ -3387,7 +3387,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2300,
+        2360,
         -360
       ],
       "id": "d52ccc01-cee7-4b3d-a052-19e7f35dc6e2",
@@ -3396,7 +3396,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       },
       "onError": "continueRegularOutput"
@@ -3424,7 +3424,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2140,
+        2180,
         -1040
       ],
       "id": "361d365f-6371-4343-b505-e9ee97e665db",
@@ -3435,7 +3435,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       },
       "onError": "continueRegularOutput"
@@ -4036,8 +4036,8 @@
       "name": "Write Channels",
       "credentials": {
         "airtableTokenApi": {
-          "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
         }
       }
     },
@@ -4048,7 +4048,7 @@
           "__rl": true,
           "value": "appXgzD7mFshr94K3",
           "mode": "list",
-          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
+          "cachedResultName": "CGP_Input",
           "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
         },
         "table": {
@@ -4533,8 +4533,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "airtableTokenApi": {
-          "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
         }
       },
       "onError": "continueRegularOutput"
@@ -5018,14 +5018,14 @@
       "typeVersion": 2.1,
       "position": [
         3740,
-        -20
+        -120
       ],
       "id": "6e275a4c-40f7-4c78-98d4-91c20882b8cd",
       "name": "Update_Videos",
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       }
     },
@@ -5255,14 +5255,14 @@
       "typeVersion": 2.1,
       "position": [
         2340,
-        960
+        840
       ],
       "id": "0e81ef80-5f01-4590-9778-daa1d5fa6b24",
       "name": "Write_Comments",
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       }
     },
@@ -5333,8 +5333,8 @@
       "name": "Anthropic Chat Model1",
       "credentials": {
         "anthropicApi": {
-          "id": "cOFFr7FB6SAc7Hl2",
-          "name": "Anthropic"
+          "id": "dcLqo62duKhDxGrw",
+          "name": "Anthropic account"
         }
       }
     },
@@ -5345,8 +5345,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        2520,
-        680
+        2440,
+        540
       ],
       "id": "212a9e76-5205-42d3-832c-fbfe2c1cc167",
       "name": "Anthropic Chat Model2",
@@ -5375,7 +5375,7 @@
       "typeVersion": 3.4,
       "position": [
         2940,
-        500
+        380
       ],
       "id": "caedf46d-01ac-4711-a6ce-48077008bcf1",
       "name": "positive"
@@ -5398,7 +5398,7 @@
       "typeVersion": 3.4,
       "position": [
         2940,
-        640
+        520
       ],
       "id": "31c5db33-828f-401b-b98e-1bef6593a412",
       "name": "neutral"
@@ -5421,7 +5421,7 @@
       "typeVersion": 3.4,
       "position": [
         2940,
-        780
+        660
       ],
       "id": "8cc9bda8-4017-4710-ad0f-7e9d24978ef7",
       "name": "negative"
@@ -5486,7 +5486,7 @@
       "typeVersion": 3.4,
       "position": [
         3900,
-        280
+        160
       ],
       "id": "07558453-935e-4374-91ae-cbe7bcec784d",
       "name": "Sentiment Stats"
@@ -5533,7 +5533,7 @@
       "typeVersion": 3.4,
       "position": [
         3900,
-        800
+        360
       ],
       "id": "5da55f0d-ec56-401b-9ded-b25ae0002f62",
       "name": "html_document"
@@ -5558,8 +5558,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        3820,
-        1080
+        3900,
+        560
       ],
       "id": "fb3af9bb-04ba-424e-9238-155ca95a26c5",
       "name": "html_summary"
@@ -6208,7 +6208,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       },
       "onError": "continueRegularOutput"
@@ -6244,7 +6244,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2520,
+        2540,
         -360
       ],
       "id": "2e43d363-fa11-447b-8c63-372796d87113",
@@ -6314,8 +6314,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2500,
-        280
+        2520,
+        160
       ],
       "id": "06ed91f3-1c60-4503-9559-a2a3487fe097",
       "name": "If zero comments"
@@ -6327,8 +6327,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        4040,
-        1200
+        4120,
+        680
       ],
       "id": "6676a6ef-f4da-4b7b-b438-bb55ff84dead",
       "name": "html_summary_audio"
@@ -6341,8 +6341,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        4040,
-        1040
+        4120,
+        520
       ],
       "id": "0902ee65-5ceb-48be-866f-8a3682c65ff1",
       "name": "Google Docs",
@@ -6364,7 +6364,7 @@
       "typeVersion": 1,
       "position": [
         3520,
-        640
+        520
       ],
       "id": "0be3c11a-a69d-4dec-a034-2152328c0081",
       "name": "Aggregate"
@@ -6849,7 +6849,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "0k6jxJu0tQwdczzt",
-          "name": "n8nToken_20250128"
+          "name": "USDB_Airtable_logs"
         }
       }
     },
@@ -6896,6 +6896,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-19T22:18:56.000Z",
-  "versionId": "b4ae3dbf-51cb-4e79-aa8c-6735f14046f2"
+  "updatedAt": "2025-04-24T22:10:28.000Z",
+  "versionId": "3acfcf29-d90a-4038-80ab-245acb978eb0"
 }
