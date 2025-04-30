@@ -218,6 +218,11 @@
             "node": "Prompts",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Read_Videos",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -286,9 +291,9 @@
       "main": [
         [
           {
-            "node": "Summary Agent",
+            "node": "Merge4",
             "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -449,7 +454,7 @@
       "main": [
         [
           {
-            "node": "Read_Videos",
+            "node": "Merge4",
             "type": "main",
             "index": 0
           }
@@ -496,13 +501,7 @@
     },
     "Update_Videos": {
       "main": [
-        [
-          {
-            "node": "Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Anthropic Chat Model": {
@@ -688,6 +687,17 @@
     "Ignore Already Seen2": {
       "main": [
         []
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "Summary Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -3144,7 +3154,7 @@
         "url": "={{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\":[\"{{ $('Read_Videos').item.json.Video_Url }}\"]\n}\n\n",
+        "jsonBody": "={\n    \"startUrls\":[\"{{ $('Read_Videos').items.json.Video_Url }}\"]\n}\n\n",
         "options": {
           "batching": {
             "batch": {
@@ -3159,8 +3169,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1200,
-        2980
+        1140,
+        3100
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -3223,8 +3233,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        1360,
-        2980
+        1480,
+        3000
       ],
       "id": "0d160591-b411-4b8e-a0ea-7ac3dbc446de",
       "name": "Summary Agent",
@@ -3258,8 +3268,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        480,
-        3220
+        420,
+        3120
       ],
       "id": "cff3f180-17fe-4fc7-a013-12983b565482",
       "name": "Schedule Trigger"
@@ -3668,8 +3678,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2100,
-        3200
+        2120,
+        3240
       ],
       "id": "ada8a28a-57ef-4be3-abdc-0c4d7279edd2",
       "name": "Merge3",
@@ -3698,8 +3708,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        660,
-        3220
+        780,
+        2980
       ],
       "id": "6aca2d89-7ca2-4666-bcdc-23199537459c",
       "name": "Prompts",
@@ -3736,8 +3746,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        840,
-        3220
+        780,
+        3240
       ],
       "id": "e6db8a80-5a51-4589-90eb-2cd47327fb82",
       "name": "Read_Videos",
@@ -5384,8 +5394,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2260,
-        3200
+        2300,
+        3240
       ],
       "id": "0cfb5310-2f17-48ef-b7e4-5006277d6feb",
       "name": "Update_Videos",
@@ -5641,7 +5651,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1420,
+        1540,
         3140
       ],
       "id": "d206f4a8-1b51-4645-8166-099aaf28a93b",
@@ -5661,7 +5671,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1740,
+        1820,
         3140
       ],
       "id": "3b4c0d46-b564-487d-b777-d6e845e5bc46",
@@ -5916,8 +5926,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1020,
-        3220
+        980,
+        3240
       ],
       "id": "07db19d5-0560-49b8-a846-de1c73f44ceb",
       "name": "Process_video",
@@ -5951,8 +5961,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        1680,
-        2980
+        1780,
+        3000
       ],
       "id": "9f104df5-6ed5-491f-a513-bf51681a9521",
       "name": "Classifier",
@@ -6112,8 +6122,8 @@
       "name": "Ignore Already Seen",
       "type": "n8n-nodes-base.removeDuplicates",
       "position": [
-        0,
-        0
+        660,
+        2060
       ],
       "typeVersion": 2
     },
@@ -6129,8 +6139,8 @@
       "name": "Ignore Already Seen1",
       "type": "n8n-nodes-base.removeDuplicates",
       "position": [
-        80,
-        80
+        740,
+        2140
       ],
       "typeVersion": 2
     },
@@ -6150,6 +6160,26 @@
         2220
       ],
       "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1300,
+        3000
+      ],
+      "id": "91eabb25-b530-43b0-9c6f-5aad3970d6cf",
+      "name": "Merge4",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -6159,6 +6189,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-30T05:55:41.000Z",
-  "versionId": "50a92d9a-d64c-4177-8382-4426ac4d4e7a"
+  "updatedAt": "2025-04-30T19:17:00.000Z",
+  "versionId": "3e5f5a2b-518b-409d-b38a-ba14a5190c59"
 }
