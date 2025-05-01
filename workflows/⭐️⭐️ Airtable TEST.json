@@ -1,0 +1,1000 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Read_Channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Read_Channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "to Process": {
+      "main": [
+        [
+          {
+            "node": "APIfy_YT_Scrap",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "APIfy_YT_Scrap": {
+      "main": [
+        [
+          {
+            "node": "Store Run ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read_Channels": {
+      "main": [
+        [
+          {
+            "node": "Initial Channel Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write_Videos": {
+      "main": [
+        []
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Run Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Status": {
+      "main": [
+        [
+          {
+            "node": "Is Run Complete?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Run ID": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Run Complete?": {
+      "main": [
+        [
+          {
+            "node": "Get Channel Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Channels": {
+      "main": [
+        []
+      ]
+    },
+    "Get Channel Metadata": {
+      "main": [
+        [
+          {
+            "node": "Channel Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channel Data": {
+      "main": [
+        [
+          {
+            "node": "Update Channels",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Write_Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial Channel Data": {
+      "main": [
+        [
+          {
+            "node": "to Process",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-01T16:27:31.212Z",
+  "id": "B6gqxbkdjMphAUW8",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "⭐️⭐️ Airtable TEST",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1f549a77-8dfd-4f6a-a60a-51a4cb868113",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        340,
+        2720
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        340,
+        2540
+      ],
+      "id": "466fecec-eef8-4367-a881-ab31a8fe09b3",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
+              "leftValue": "={{ $('Read_Channels').item.json.processChannel }}",
+              "rightValue": "TRUE",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1020,
+        2540
+      ],
+      "id": "5af2eec8-8278-455e-a371-b9e8553a3a56",
+      "name": "to Process",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startUrls\": [\n    { \n      \"url\": \"{{ $('Read_Channels').item.json.channelURL }}\" \n    }\n  ],\n  \"maxResults\": 100\n}\n\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 20,
+              "batchInterval": 10000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1260,
+        2520
+      ],
+      "id": "3e33cc61-0ecf-487c-b141-3cd1a443ee69",
+      "name": "APIfy_YT_Scrap",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appR5EaAeG2YmJsoz",
+          "mode": "list",
+          "cachedResultName": "YT_Content [AAA]",
+          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblmB1yGomABObnxm",
+          "mode": "list",
+          "cachedResultName": "Channels",
+          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz/tblmB1yGomABObnxm"
+        },
+        "filterByFormula": "{processChannel} = 1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        560,
+        2540
+      ],
+      "id": "a7536155-3e77-4b1d-b719-da1eec8f943d",
+      "name": "Read_Channels",
+      "executeOnce": false,
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appR5EaAeG2YmJsoz",
+          "mode": "list",
+          "cachedResultName": "YT_Content [AAA]",
+          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblf7rdEZnWmhKHds",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tblf7rdEZnWmhKHds"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "processVideo": true,
+            "videoID": "={{ $json.id }}",
+            "Title": "={{ $json.title }}",
+            "videoURL": "={{ $json.url }}",
+            "dateProcessed": "={{ $now.format('yyyy-MM-dd T')}}"
+          },
+          "matchingColumns": [
+            "videoID"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "videoID",
+              "displayName": "videoID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "videoURL",
+              "displayName": "videoURL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "vid#",
+              "displayName": "vid#",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "viewCount",
+              "displayName": "viewCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Likes",
+              "displayName": "Likes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "thumbnailUrl",
+              "displayName": "thumbnailUrl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "dateProcessed",
+              "displayName": "dateProcessed",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "In progress",
+                  "value": "In progress"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "processVideo",
+              "displayName": "processVideo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "channelName (from Channel)",
+              "displayName": "channelName (from Channel)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "channelURL (from Channel)",
+              "displayName": "channelURL (from Channel)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ch# (from Channel)",
+              "displayName": "ch# (from Channel)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Comments",
+              "displayName": "Comments",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Comments 2",
+              "displayName": "Comments 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": false,
+          "updateAllMatches": false
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2740,
+        2680
+      ],
+      "id": "49d22c74-2c54-4e1b-b7e2-ce6f6d5c5db6",
+      "name": "Write_Videos",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "content": "## Process Channels\nOldestPostDate: \"2024-01-01\"",
+        "height": 480,
+        "width": 2680,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        280,
+        2400
+      ],
+      "typeVersion": 1,
+      "id": "26dea80a-29be-4ce9-8a66-201b01001503",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        2700
+      ],
+      "id": "edb61d79-88d1-4bc1-b850-78a101c5c627",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1660,
+        2520
+      ],
+      "id": "cab154fb-9a28-4201-b74c-b00dcd023a34",
+      "name": "Wait",
+      "webhookId": "be486a5f-21af-47de-8ae7-d8aad76ee32c"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Store Run ID').item.json.data.id }}?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1860,
+        2520
+      ],
+      "id": "61a1baec-55c6-43e3-b138-17b05461071e",
+      "name": "Run Status"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2453d745-17ff-41cf-8d67-afd8f766549c",
+              "leftValue": "={{ $json.data.status }}",
+              "rightValue": "={{\"SUCCEEDED\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2040,
+        2520
+      ],
+      "id": "df1d2ede-060f-435d-adbb-14887ac2340f",
+      "name": "Is Run Complete?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6e77484-81dd-41ff-87cc-6fa42100caee",
+              "name": "data.id",
+              "value": "={{ $json.data.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        2520
+      ],
+      "id": "f7f8e442-6e0f-43f2-b2e4-d64f2a6dfb87",
+      "name": "Store Run ID"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appR5EaAeG2YmJsoz",
+          "mode": "list",
+          "cachedResultName": "YT_Content [AAA]",
+          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbljDPUtbpDgyTagP",
+          "mode": "list",
+          "cachedResultName": "Channels",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tbljDPUtbpDgyTagP"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "processChannel": "={{ true }}",
+            "channelName": "={{ $json.channelName }}",
+            "channelURL": "={{ $('Get Channel Metadata').item.json.channelUrl }}",
+            "numSubscribers": "={{ $('Get Channel Metadata').item.json.aboutChannelInfo.numberOfSubscribers }}",
+            "processDate": "={{ $now.format('yyyy-MM-dd T') }}",
+            "channelDescription": "={{ $('Get Channel Metadata').item.json.channelDescription }}"
+          },
+          "matchingColumns": [
+            "channelName"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "channelName",
+              "displayName": "channelName",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ch#",
+              "displayName": "ch#",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "channelID",
+              "displayName": "channelID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "channelURL",
+              "displayName": "channelURL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "processChannel",
+              "displayName": "processChannel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "channelDescription",
+              "displayName": "channelDescription",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "numSubscribers",
+              "displayName": "numSubscribers",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "processDate",
+              "displayName": "processDate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Videos",
+              "displayName": "Videos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2740,
+        2460
+      ],
+      "id": "d1482566-90a6-494e-87ba-414ea5d66c2c",
+      "name": "Update Channels",
+      "executeOnce": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs/last/dataset/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2300,
+        2560
+      ],
+      "id": "eb0b75bc-bdde-42c2-b0c0-4753a12c4c61",
+      "name": "Get Channel Metadata"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d56f4b0-25a2-4768-80da-6f45f4dae325",
+              "name": "channelId",
+              "value": "={{ $json.channelId }}",
+              "type": "string"
+            },
+            {
+              "id": "6d5e3838-1a17-466e-92b7-08969be178d3",
+              "name": "channelName",
+              "value": "={{ $json.channelName }}",
+              "type": "string"
+            },
+            {
+              "id": "a8dc6a24-7660-48bc-95bb-865471976e49",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "3c623765-1180-468f-a190-d99d24faffa5",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "735776b4-cddc-4731-a623-a43ac50eb5ec",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2520,
+        2560
+      ],
+      "id": "38438743-75f1-4ce3-87e0-1c7b53ee4671",
+      "name": "Channel Data",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "295f3269-0310-4f40-a5b5-ce79dfa811ec",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ee62a5ec-b104-44fc-b487-1326fba8dd73",
+              "name": "channelName",
+              "value": "={{ $json.channelName }}",
+              "type": "string"
+            },
+            {
+              "id": "ef1e4a11-fa6f-48ca-90e6-0c76ed382f9d",
+              "name": "ch#",
+              "value": "={{ $json[\"ch#\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        2540
+      ],
+      "id": "598ee7cc-570f-434a-b299-a7e0091e5b5a",
+      "name": "Initial Channel Data"
+    },
+    {
+      "parameters": {
+        "content": "# APIfy\n1. For Channel Information:\nYou can use the \"Fast YouTube Channel Scraper\" which extracts channel data including:\n\nChannel URL\nChannel descriptions\nLinks in description\nNumber of subscribers\nTotal views\nVideo count Apify\n\nThis scraper functions as an alternative YouTube Data API with no quotas or limits, making it ideal for collecting comprehensive channel statistics. Apify\n2. For Video Information:\nThe \"YouTube Scraper\" is a versatile tool that allows you to scrape video data by:\n\nSearch term\nDirect URL of videos\nPlaylists\nChannels\n\nIt extracts information such as:\n\nVideo titles\nView counts\nLike counts\nNumber of comments\nPublication dates\nChannel information Apify\n\n3. For Comments Information:\nThe \"YouTube Comments Scraper\" lets you easily collect comment data by simply providing video URLs. It extracts:\n\nComment text\nAuthor names\nPosting dates\nLike counts\nReply counts\nInformation on whether comments received a creator's heart\nWhether the author is the channel owner Apify\n\nThis scraper is efficient, processing approximately 100 comments in 30 seconds and 1000 comments in about 5 minutes. Apify",
+        "height": 1000,
+        "width": 760
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3000,
+        2400
+      ],
+      "id": "4f70dee9-cad1-4809-b7a6-abdbf87d543e",
+      "name": "Sticky Note2"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-01T16:47:47.000Z",
+  "versionId": "9316d81f-696f-4ae7-a6fa-adf50b311770"
+}
