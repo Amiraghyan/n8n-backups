@@ -210,7 +210,12 @@
       "main": [
         [
           {
-            "node": "Read_Channels",
+            "node": "Prompts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Read_Videos",
             "type": "main",
             "index": 0
           }
@@ -293,17 +298,6 @@
         [
           {
             "node": "sNPS",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Summary Agent": {
-      "main": [
-        [
-          {
-            "node": "Classifier",
             "type": "main",
             "index": 0
           }
@@ -482,7 +476,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "Summary Agent",
+            "node": "Summarization Chain",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -662,7 +656,7 @@
       "main": [
         [
           {
-            "node": "Summary Agent",
+            "node": "Summarization Chain",
             "type": "main",
             "index": 0
           }
@@ -722,13 +716,7 @@
     },
     "Update Channels": {
       "main": [
-        [
-          {
-            "node": "Write_Videos",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Get Channel Metadata": {
@@ -749,6 +737,11 @@
             "node": "Update Channels",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Write_Videos",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -758,6 +751,17 @@
         [
           {
             "node": "to Process",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarization Chain": {
+      "main": [
+        [
+          {
+            "node": "Classifier",
             "type": "main",
             "index": 0
           }
@@ -3233,7 +3237,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1140,
+        1120,
         3100
       ],
       "alwaysOutputData": true,
@@ -3279,32 +3283,6 @@
       "id": "f64cd3b0-89bb-467e-8d9f-814edf4e8c73",
       "name": "Merge",
       "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Prompts').item.json.Summary }}",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "AIMessagePromptTemplate",
-              "message": "={{ $('Prompts').item.json.Transcript }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.5,
-      "position": [
-        1480,
-        3000
-      ],
-      "id": "0d160591-b411-4b8e-a0ea-7ac3dbc446de",
-      "name": "Summary Agent",
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "maxTries": 5,
       "onError": "continueRegularOutput"
     },
     {
@@ -3367,7 +3345,7 @@
           "conditions": [
             {
               "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
-              "leftValue": "={{ $('Read_Channels').item.json.Process_channel }}",
+              "leftValue": "={{ $('Read_Channels').item.json.processChannel }}",
               "rightValue": "TRUE",
               "operator": {
                 "type": "boolean",
@@ -3400,7 +3378,7 @@
         "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"startUrls\": [\n    { \n      \"url\": \"{{ $('Read_Channels').item.json.channelUrl }}\" \n    }\n  ],\n  \"maxResults\": 100\n}\n\n",
+        "jsonBody": "={\n  \"startUrls\": [\n    { \n      \"url\": \"{{ $('Read_Channels').item.json.channelURL }}\" \n    }\n  ],\n  \"maxResults\": 100\n}\n\n",
         "options": {
           "batching": {
             "batch": {
@@ -3530,19 +3508,19 @@
         "operation": "search",
         "base": {
           "__rl": true,
-          "value": "appR5EaAeG2YmJsoz",
+          "value": "appB1AKJ8GWAWKjku",
           "mode": "list",
-          "cachedResultName": "YT_Content [AAA]",
-          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz"
+          "cachedResultName": "Youtube Content_2505",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku"
         },
         "table": {
           "__rl": true,
-          "value": "tblpRHrnM7h0Hvrjb",
+          "value": "tblf7rdEZnWmhKHds",
           "mode": "list",
           "cachedResultName": "Videos",
-          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz/tblpRHrnM7h0Hvrjb"
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tblf7rdEZnWmhKHds"
         },
-        "filterByFormula": "{Process_video} = 1",
+        "filterByFormula": "{processVideo} = 1",
         "options": {}
       },
       "type": "n8n-nodes-base.airtable",
@@ -3613,31 +3591,22 @@
         },
         "table": {
           "__rl": true,
-          "value": "tblpRHrnM7h0Hvrjb",
+          "value": "tblf7rdEZnWmhKHds",
           "mode": "list",
           "cachedResultName": "Videos",
-          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz/tblpRHrnM7h0Hvrjb"
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tblf7rdEZnWmhKHds"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Video_Url": "={{ $('Get Channel Metadata').item.json.input }}",
-            "Duration": "={{ $('Get Channel Metadata').item.json.duration }}",
-            "Likes": "=",
-            "Viewcount": "={{ $('Get Channel Metadata').item.json.viewCount }}",
-            "Video_Id": "={{ $json.id }}",
-            "Date_processed": "={{$now.format('yyyy-MM-dd hh:mm:ss')}}",
-            "Description": "={{ $('Get Channel Metadata').item.json.channelDescription }}",
-            "Title": "={{ $('Get Channel Metadata').item.json.title }}",
-            "Date": "={{ $now.format('yyyy-MM-dd T')}}",
-            "Process_Video": "={{ \"1\" }}",
-            "sNPS": 0,
-            "Channeltotalvideos": "={{ $('Get Channel Metadata').item.json.channelTotalVideos }}",
-            "Channeltotalviews": "={{ $('Get Channel Metadata').item.json.channelTotalViews }}",
-            "Numberofsubscribers": "={{ $('Get Channel Metadata').item.json.numberOfSubscribers }}"
+            "processVideo": true,
+            "videoID": "={{ $json.id }}",
+            "Title": "={{ $json.title }}",
+            "videoURL": "={{ $json.url }}",
+            "dateProcessed": "={{ $now.format('yyyy-MM-dd T')}}"
           },
           "matchingColumns": [
-            "Video_Id"
+            "videoID"
           ],
           "schema": [
             {
@@ -3651,8 +3620,30 @@
               "removed": false
             },
             {
-              "id": "Video_Id",
-              "displayName": "Video_Id",
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "videoID",
+              "displayName": "videoID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "videoURL",
+              "displayName": "videoURL",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -3670,90 +3661,7 @@
               "display": true,
               "type": "string",
               "readOnly": true,
-              "removed": false
-            },
-            {
-              "id": "Notes",
-              "displayName": "Notes",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
               "removed": true
-            },
-            {
-              "id": "Classified",
-              "displayName": "Classified",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Process_Video",
-              "displayName": "Process_Video",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "boolean",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Date_processed",
-              "displayName": "Date_processed",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Channel_Updated",
-              "displayName": "Channel_Updated",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "KB_Approved",
-              "displayName": "KB_Approved",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "options",
-              "options": [
-                {
-                  "name": "",
-                  "value": ""
-                }
-              ],
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Title",
-              "displayName": "Title",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
             },
             {
               "id": "Description",
@@ -3764,29 +3672,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Transcript",
-              "displayName": "Transcript",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Summary",
-              "displayName": "Summary",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Duration",
@@ -3795,31 +3681,20 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Type",
-              "displayName": "Type",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
+              "type": "number",
               "readOnly": false,
               "removed": true
             },
             {
-              "id": "Viewcount",
-              "displayName": "Viewcount",
+              "id": "viewCount",
+              "displayName": "viewCount",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Likes",
@@ -3830,33 +3705,11 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
-              "id": "sNPS",
-              "displayName": "sNPS",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Video_Url",
-              "displayName": "Video_Url",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Thumbnailurl",
-              "displayName": "Thumbnailurl",
+              "id": "thumbnailUrl",
+              "displayName": "thumbnailUrl",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -3866,37 +3719,51 @@
               "removed": true
             },
             {
-              "id": "Date",
-              "displayName": "Date",
+              "id": "dateProcessed",
+              "displayName": "dateProcessed",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "dateTime",
               "readOnly": false,
               "removed": false
             },
             {
-              "id": "Commentsturnedoff",
-              "displayName": "Commentsturnedoff",
+              "id": "Status",
+              "displayName": "Status",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "In progress",
+                  "value": "In progress"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
-              "id": "Channelname",
-              "displayName": "Channelname",
+              "id": "processVideo",
+              "displayName": "processVideo",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "boolean",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Channel",
@@ -3905,119 +3772,42 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
+              "type": "array",
               "readOnly": false,
               "removed": true
             },
             {
-              "id": "Channel_Id",
-              "displayName": "Channel_Id",
+              "id": "channelName (from Channel)",
+              "displayName": "channelName (from Channel)",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
-              "readOnly": false,
+              "readOnly": true,
               "removed": true
             },
             {
-              "id": "Channeltotalvideos",
-              "displayName": "Channeltotalvideos",
+              "id": "channelURL (from Channel)",
+              "displayName": "channelURL (from Channel)",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "number",
-              "readOnly": false,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ch# (from Channel)",
+              "displayName": "ch# (from Channel)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
-            },
-            {
-              "id": "Channeltotalviews",
-              "displayName": "Channeltotalviews",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Location",
-              "displayName": "Location",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Numberofsubscribers",
-              "displayName": "Numberofsubscribers",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Ischannelverified",
-              "displayName": "Ischannelverified",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Inputchannelurl",
-              "displayName": "Inputchannelurl",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Isagerestricted",
-              "displayName": "Isagerestricted",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Text",
-              "displayName": "Text",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Subtitles",
-              "displayName": "Subtitles",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
             },
             {
               "id": "Comments",
@@ -4031,57 +3821,13 @@
               "removed": true
             },
             {
-              "id": "Fromyturl",
-              "displayName": "Fromyturl",
+              "id": "Comments 2",
+              "displayName": "Comments 2",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Ismonetized",
-              "displayName": "Ismonetized",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Hashtags",
-              "displayName": "Hashtags",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Formats",
-              "displayName": "Formats",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Input",
-              "displayName": "Input",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
+              "type": "array",
               "readOnly": false,
               "removed": true
             }
@@ -4090,23 +3836,23 @@
           "convertFieldsToString": false
         },
         "options": {
-          "typecast": true,
-          "updateAllMatches": true
+          "typecast": false,
+          "updateAllMatches": false
         }
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2980,
-        2600
+        2740,
+        2680
       ],
       "id": "3b701643-559d-4a26-8e85-d30230f0e276",
       "name": "Write_Videos",
       "alwaysOutputData": true,
       "credentials": {
         "airtableTokenApi": {
-          "id": "qyFxe22Z4fHSPHn3",
-          "name": "Airtable Access Token✔️️"
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
         }
       },
       "onError": "continueRegularOutput"
@@ -4846,7 +4592,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1540,
+        1500,
         3140
       ],
       "id": "d206f4a8-1b51-4645-8166-099aaf28a93b",
@@ -5103,7 +4849,7 @@
           "conditions": [
             {
               "id": "e22ea465-92e5-4eb3-bd45-3ba45dd8bab8",
-              "leftValue": "={{ $json.Process_video }}",
+              "leftValue": "={{ $json.processVideo }}",
               "rightValue": 1,
               "operator": {
                 "type": "number",
@@ -5121,7 +4867,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        980,
+        960,
         3240
       ],
       "id": "07db19d5-0560-49b8-a846-de1c73f44ceb",
@@ -5316,7 +5062,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1300,
+        1260,
         3000
       ],
       "id": "91eabb25-b530-43b0-9c6f-5aad3970d6cf",
@@ -5434,7 +5180,7 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "processChannel": false,
+            "processChannel": "={{ true }}",
             "channelName": "={{ $json.channelName }}",
             "channelURL": "={{ $('Get Channel Metadata').item.json.channelUrl }}",
             "numSubscribers": "={{ $('Get Channel Metadata').item.json.aboutChannelInfo.numberOfSubscribers }}",
@@ -5576,16 +5322,16 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2720,
-        2600
+        2740,
+        2460
       ],
       "id": "c7030c8c-a637-4e52-b095-4ef61142825d",
       "name": "Update Channels",
-      "executeOnce": false,
+      "executeOnce": true,
       "credentials": {
         "airtableTokenApi": {
-          "id": "qyFxe22Z4fHSPHn3",
-          "name": "Airtable Access Token✔️️"
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
         }
       }
     },
@@ -5598,7 +5344,7 @@
       "typeVersion": 4.2,
       "position": [
         2300,
-        2600
+        2560
       ],
       "id": "56661b39-02fc-4ed1-a1cb-a8ed4ade2363",
       "name": "Get Channel Metadata"
@@ -5618,6 +5364,24 @@
               "name": "channelName",
               "value": "={{ $json.channelName }}",
               "type": "string"
+            },
+            {
+              "id": "a8dc6a24-7660-48bc-95bb-865471976e49",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "3c623765-1180-468f-a190-d99d24faffa5",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "735776b4-cddc-4731-a623-a43ac50eb5ec",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
             }
           ]
         },
@@ -5627,7 +5391,7 @@
       "typeVersion": 3.4,
       "position": [
         2520,
-        2600
+        2560
       ],
       "id": "d645ea77-5c38-4954-b590-d813cce2df6a",
       "name": "Channel Data",
@@ -5650,12 +5414,6 @@
               "type": "string"
             },
             {
-              "id": "1fedbe67-fd46-405e-b894-dd161f779054",
-              "name": "channelId",
-              "value": "={{ $json.channelId }}",
-              "type": "string"
-            },
-            {
               "id": "ef1e4a11-fa6f-48ca-90e6-0c76ed382f9d",
               "name": "ch#",
               "value": "={{ $json[\"ch#\"] }}",
@@ -5673,6 +5431,34 @@
       ],
       "id": "fcdd9e5c-fb3b-4c22-bce3-904d18a1c193",
       "name": "Initial Channel Data"
+    },
+    {
+      "parameters": {
+        "content": "# APIfy\n1. For Channel Information:\nYou can use the \"Fast YouTube Channel Scraper\" which extracts channel data including:\n\nChannel URL\nChannel descriptions\nLinks in description\nNumber of subscribers\nTotal views\nVideo count Apify\n\nThis scraper functions as an alternative YouTube Data API with no quotas or limits, making it ideal for collecting comprehensive channel statistics. Apify\n2. For Video Information:\nThe \"YouTube Scraper\" is a versatile tool that allows you to scrape video data by:\n\nSearch term\nDirect URL of videos\nPlaylists\nChannels\n\nIt extracts information such as:\n\nVideo titles\nView counts\nLike counts\nNumber of comments\nPublication dates\nChannel information Apify\n\n3. For Comments Information:\nThe \"YouTube Comments Scraper\" lets you easily collect comment data by simply providing video URLs. It extracts:\n\nComment text\nAuthor names\nPosting dates\nLike counts\nReply counts\nInformation on whether comments received a creator's heart\nWhether the author is the channel owner Apify\n\nThis scraper is efficient, processing approximately 100 comments in 30 seconds and 1000 comments in about 5 minutes. Apify",
+        "height": 1680,
+        "width": 760
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2560,
+        2920
+      ],
+      "id": "78ad5716-36e2-4c02-b562-daa082a78556",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        3000
+      ],
+      "id": "7863dab0-136c-4f8e-be02-95ddcca89eef",
+      "name": "Summarization Chain"
     }
   ],
   "pinData": {},
@@ -5682,6 +5468,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-01T07:40:51.000Z",
-  "versionId": "3949fd97-c8bd-4e76-bf04-37fbf56157ba"
+  "updatedAt": "2025-05-01T14:58:39.000Z",
+  "versionId": "490c595f-fda0-4747-8c1a-bf93837e8b6c"
 }
