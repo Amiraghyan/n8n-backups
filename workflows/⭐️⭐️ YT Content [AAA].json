@@ -282,17 +282,6 @@
         ]
       ]
     },
-    "Youtube Transcript": {
-      "main": [
-        [
-          {
-            "node": "Merge4",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
     "Merge": {
       "main": [
         [
@@ -472,28 +461,6 @@
         []
       ]
     },
-    "Anthropic Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Summarization Chain",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Anthropic Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Classifier",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Anthropic Chat Model2": {
       "ai_languageModel": [
         [
@@ -580,25 +547,7 @@
       "main": [
         [
           {
-            "node": "Youtube Transcript",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Merge3",
-            "type": "main",
-            "index": 2
-          }
-        ]
-      ]
-    },
-    "Classifier": {
-      "main": [
-        [
-          {
-            "node": "Merge3",
+            "node": "YT Transcript",
             "type": "main",
             "index": 0
           }
@@ -610,6 +559,13 @@
             "index": 1
           }
         ]
+      ]
+    },
+    "Classifier": {
+      "main": [
+        [],
+        [],
+        []
       ]
     },
     "If zero comments": {
@@ -761,8 +717,35 @@
       "main": [
         [
           {
-            "node": "Classifier",
+            "node": "Merge3",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "YT Transcript": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -3116,7 +3099,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-comments-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n\n\n// https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Process_video').item.json.Video_Url }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 240\n} ",
@@ -3215,33 +3198,6 @@
       ],
       "id": "531b613e-a785-4cdc-b26a-a25f2ee6f301",
       "name": "Negative"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\":[\"{{ $('Read_Videos').items.json.Video_Url }}\"]\n}\n\n",
-        "options": {
-          "batching": {
-            "batch": {
-              "batchSize": 10,
-              "batchInterval": 5000
-            }
-          }
-        }
-      },
-      "id": "7676ba8c-b7db-4565-b095-06a17e2262d6",
-      "name": "Youtube Transcript",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1120,
-        3100
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -3382,8 +3338,7 @@
         "options": {
           "batching": {
             "batch": {
-              "batchSize": 20,
-              "batchInterval": 10000
+              "batchSize": 20
             }
           }
         }
@@ -3450,7 +3405,6 @@
       "parameters": {
         "mode": "combine",
         "combineBy": "combineByPosition",
-        "numberInputs": 3,
         "options": {
           "includeUnpaired": true
         }
@@ -3458,7 +3412,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2120,
+        1960,
         3240
       ],
       "id": "ada8a28a-57ef-4be3-abdc-0c4d7279edd2",
@@ -3471,24 +3425,24 @@
         "operation": "search",
         "base": {
           "__rl": true,
-          "value": "appR5EaAeG2YmJsoz",
+          "value": "appB1AKJ8GWAWKjku",
           "mode": "list",
-          "cachedResultName": "YT_Content [AAA]",
-          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz"
+          "cachedResultName": "Youtube Content_2505",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku"
         },
         "table": {
           "__rl": true,
-          "value": "tblQVGiDUAOgPPOzp",
+          "value": "tblVcENlilgFt9UJg",
           "mode": "list",
-          "cachedResultName": "Prompt samples",
-          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz/tblQVGiDUAOgPPOzp"
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tblVcENlilgFt9UJg"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        780,
+        840,
         2980
       ],
       "id": "6aca2d89-7ca2-4666-bcdc-23199537459c",
@@ -3497,8 +3451,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "airtableTokenApi": {
-          "id": "qyFxe22Z4fHSPHn3",
-          "name": "Airtable Access Token✔️️"
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
         }
       },
       "onError": "continueRegularOutput"
@@ -3521,12 +3475,24 @@
           "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tblf7rdEZnWmhKHds"
         },
         "filterByFormula": "{processVideo} = 1",
-        "options": {}
+        "options": {
+          "fields": [
+            "vid#",
+            "videoURL",
+            "id",
+            "processVideo",
+            "Title",
+            "Duration",
+            "Likes",
+            "Status",
+            "channelName (from Channel)"
+          ]
+        }
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        780,
+        840,
         3240
       ],
       "id": "e6db8a80-5a51-4589-90eb-2cd47327fb82",
@@ -3534,8 +3500,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "airtableTokenApi": {
-          "id": "qyFxe22Z4fHSPHn3",
-          "name": "Airtable Access Token✔️️"
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
         }
       },
       "onError": "continueRegularOutput"
@@ -3603,7 +3569,8 @@
             "videoID": "={{ $json.id }}",
             "Title": "={{ $json.title }}",
             "videoURL": "={{ $json.url }}",
-            "dateProcessed": "={{ $now.format('yyyy-MM-dd T')}}"
+            "dateProcessed": "={{ $now.format('yyyy-MM-dd T')}}",
+            "Status": "Todo"
           },
           "matchingColumns": [
             "videoID"
@@ -3614,6 +3581,17 @@
               "displayName": "id",
               "required": false,
               "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": true,
@@ -3628,6 +3606,17 @@
               "display": true,
               "type": "string",
               "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "vid#",
+              "displayName": "vid#",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
             },
             {
@@ -3653,15 +3642,26 @@
               "removed": false
             },
             {
-              "id": "vid#",
-              "displayName": "vid#",
+              "id": "processVideo",
+              "displayName": "processVideo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "dateProcessed",
+              "displayName": "dateProcessed",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
-              "readOnly": true,
-              "removed": true
+              "readOnly": false,
+              "removed": false
             },
             {
               "id": "Description",
@@ -3719,17 +3719,6 @@
               "removed": true
             },
             {
-              "id": "dateProcessed",
-              "displayName": "dateProcessed",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "dateTime",
-              "readOnly": false,
-              "removed": false
-            },
-            {
               "id": "Status",
               "displayName": "Status",
               "required": false,
@@ -3755,17 +3744,6 @@
               "removed": false
             },
             {
-              "id": "processVideo",
-              "displayName": "processVideo",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "boolean",
-              "readOnly": false,
-              "removed": false
-            },
-            {
               "id": "Channel",
               "displayName": "Channel",
               "required": false,
@@ -3785,7 +3763,7 @@
               "display": true,
               "type": "string",
               "readOnly": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "channelURL (from Channel)",
@@ -3859,13 +3837,13 @@
     },
     {
       "parameters": {
-        "operation": "update",
+        "operation": "upsert",
         "base": {
           "__rl": true,
-          "value": "appR5EaAeG2YmJsoz",
+          "value": "appB1AKJ8GWAWKjku",
           "mode": "list",
-          "cachedResultName": "YT_Content [AAA]",
-          "cachedResultUrl": "https://airtable.com/appR5EaAeG2YmJsoz"
+          "cachedResultName": "Youtube Content_2505",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku"
         },
         "table": {
           "__rl": true,
@@ -3877,16 +3855,14 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Video_Url": "={{ $json.Video_Url }}",
-            "Video_Id": "={{ $json.Video_Id }}",
-            "Transcript": "=",
+            "Video_Url": "={{ $('Process_video').first().json.videoURL }}",
             "Date_processed": "={{$now}}",
-            "Summary": "={{ $('Summary Agent').first().json.text }}",
-            "sNPS": "={{ $json.sNPS }}",
-            "Classified": "={{ $('Classifier').first().json.text }}"
+            "Summary": "={{ $('Summarization Chain').item.json.response.output_text }}",
+            "id": "={{ $('Process_video').first().json.id }}",
+            "Transcript": "={{ $('Summarization Chain').item.json.response.output_text }}"
           },
           "matchingColumns": [
-            "Video_Url"
+            "id"
           ],
           "schema": [
             {
@@ -3908,7 +3884,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Classified",
@@ -3919,7 +3895,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Process_video",
@@ -4068,7 +4044,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Notes",
@@ -4079,7 +4055,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Video_Url",
@@ -4335,15 +4311,15 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2300,
+        2140,
         3240
       ],
       "id": "0cfb5310-2f17-48ef-b7e4-5006277d6feb",
       "name": "Update_Videos",
       "credentials": {
         "airtableTokenApi": {
-          "id": "qyFxe22Z4fHSPHn3",
-          "name": "Airtable Access Token✔️️"
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
         }
       }
     },
@@ -4352,10 +4328,10 @@
         "operation": "upsert",
         "base": {
           "__rl": true,
-          "value": "appXgzD7mFshr94K3",
+          "value": "appB1AKJ8GWAWKjku",
           "mode": "list",
-          "cachedResultName": "Blue&_ Content Generation Platform - Content Input.csv",
-          "cachedResultUrl": "https://airtable.com/appXgzD7mFshr94K3"
+          "cachedResultName": "Youtube Content_2505",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku"
         },
         "table": {
           "__rl": true,
@@ -4579,48 +4555,8 @@
       "name": "Write_Comments",
       "credentials": {
         "airtableTokenApi": {
-          "id": "0k6jxJu0tQwdczzt",
-          "name": "USDB_Airtable_logs"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "model": "claude-3-5-sonnet-20241022",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-      "typeVersion": 1.2,
-      "position": [
-        1500,
-        3140
-      ],
-      "id": "d206f4a8-1b51-4645-8166-099aaf28a93b",
-      "name": "Anthropic Chat Model",
-      "credentials": {
-        "anthropicApi": {
-          "id": "dcLqo62duKhDxGrw",
-          "name": "Anthropic account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "model": "claude-3-5-sonnet-20241022",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-      "typeVersion": 1.2,
-      "position": [
-        1820,
-        3140
-      ],
-      "id": "3b4c0d46-b564-487d-b777-d6e845e5bc46",
-      "name": "Anthropic Chat Model1",
-      "credentials": {
-        "anthropicApi": {
-          "id": "dcLqo62duKhDxGrw",
-          "name": "Anthropic account"
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
         }
       }
     },
@@ -4867,7 +4803,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        960,
+        1000,
         3240
       ],
       "id": "07db19d5-0560-49b8-a846-de1c73f44ceb",
@@ -4877,7 +4813,7 @@
     },
     {
       "parameters": {
-        "inputText": "={{ $('Youtube Transcript').item.json.transcript || '[null]' }}",
+        "inputText": "={{ $('YT Transcript').first().json.transcript || '[null]' }}",
         "categories": {
           "categories": [
             {
@@ -4895,19 +4831,20 @@
           ]
         },
         "options": {
-          "systemPromptTemplate": "={{ $('Prompts').item.json.Advertising }}",
+          "systemPromptTemplate": "={{ $('Prompts').first().json.Advertising }}",
           "enableAutoFixing": true
         }
       },
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        1780,
-        3000
+        2140,
+        2920
       ],
       "id": "9f104df5-6ed5-491f-a513-bf51681a9521",
       "name": "Classifier",
       "alwaysOutputData": true,
+      "disabled": true,
       "onError": "continueRegularOutput"
     },
     {
@@ -5062,7 +4999,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1260,
+        1280,
         3000
       ],
       "id": "91eabb25-b530-43b0-9c6f-5aad3970d6cf",
@@ -5142,7 +5079,13 @@
         "assignments": {
           "assignments": [
             {
-              "id": "f6e77484-81dd-41ff-87cc-6fa42100caee",
+              "id": "53ad640e-4011-4501-a3cb-6f0ac2e01ca6",
+              "name": "id",
+              "value": "={{ $('Read_Channels').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "37df7a9c-5e04-4925-b0b9-7697fb70ac59",
               "name": "data.id",
               "value": "={{ $json.data.id }}",
               "type": "string"
@@ -5185,10 +5128,12 @@
             "channelURL": "={{ $('Get Channel Metadata').item.json.channelUrl }}",
             "numSubscribers": "={{ $('Get Channel Metadata').item.json.aboutChannelInfo.numberOfSubscribers }}",
             "processDate": "={{ $now.format('yyyy-MM-dd T') }}",
-            "channelDescription": "={{ $('Get Channel Metadata').item.json.channelDescription }}"
+            "channelDescription": "={{ $('Get Channel Metadata').item.json.channelDescription }}",
+            "channelID": "={{ $json.channelId }}",
+            "id": "={{ $json.id }}"
           },
           "matchingColumns": [
-            "channelName"
+            "id"
           ],
           "schema": [
             {
@@ -5367,7 +5312,7 @@
             },
             {
               "id": "a8dc6a24-7660-48bc-95bb-865471976e49",
-              "name": "id",
+              "name": "videoId",
               "value": "={{ $json.id }}",
               "type": "string"
             },
@@ -5381,6 +5326,48 @@
               "id": "735776b4-cddc-4731-a623-a43ac50eb5ec",
               "name": "url",
               "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "f4a74eb2-b75f-4cab-a23b-352f0892b9ee",
+              "name": "datePosted",
+              "value": "={{ $json.date }}",
+              "type": "string"
+            },
+            {
+              "id": "b735a90a-95cc-4f91-8c83-ee8c9f4e4c1e",
+              "name": "channelDescription",
+              "value": "={{ $json.channelDescription }}",
+              "type": "string"
+            },
+            {
+              "id": "1605bfff-9dfe-45b9-9f1f-8fa18b6e5063",
+              "name": "channelJoinedDate",
+              "value": "={{ $json.channelJoinedDate }}",
+              "type": "string"
+            },
+            {
+              "id": "e65695cb-8976-439f-90c4-67ee7b048ddc",
+              "name": "channelTotalVideos",
+              "value": "={{ $json.channelTotalVideos }}",
+              "type": "number"
+            },
+            {
+              "id": "8ec8b2f2-dae2-433a-99a2-6658cb813077",
+              "name": "channelTotalViews",
+              "value": "={{ $json.channelTotalViews }}",
+              "type": "number"
+            },
+            {
+              "id": "4d28da69-f2d1-432f-a1bb-c78a3ff86ef8",
+              "name": "numberOfSubscribers",
+              "value": "={{ $json.numberOfSubscribers }}",
+              "type": "number"
+            },
+            {
+              "id": "4a6fd469-697b-4f4c-baf7-326c35b54f36",
+              "name": "id",
+              "value": "={{ $('Store Run ID').item.json.id }}",
               "type": "string"
             }
           ]
@@ -5434,7 +5421,7 @@
     },
     {
       "parameters": {
-        "content": "# APIfy\n1. For Channel Information:\nYou can use the \"Fast YouTube Channel Scraper\" which extracts channel data including:\n\nChannel URL\nChannel descriptions\nLinks in description\nNumber of subscribers\nTotal views\nVideo count Apify\n\nThis scraper functions as an alternative YouTube Data API with no quotas or limits, making it ideal for collecting comprehensive channel statistics. Apify\n2. For Video Information:\nThe \"YouTube Scraper\" is a versatile tool that allows you to scrape video data by:\n\nSearch term\nDirect URL of videos\nPlaylists\nChannels\n\nIt extracts information such as:\n\nVideo titles\nView counts\nLike counts\nNumber of comments\nPublication dates\nChannel information Apify\n\n3. For Comments Information:\nThe \"YouTube Comments Scraper\" lets you easily collect comment data by simply providing video URLs. It extracts:\n\nComment text\nAuthor names\nPosting dates\nLike counts\nReply counts\nInformation on whether comments received a creator's heart\nWhether the author is the channel owner Apify\n\nThis scraper is efficient, processing approximately 100 comments in 30 seconds and 1000 comments in about 5 minutes. Apify",
+        "content": "# APIfy\n1. For Channel Information:\nYou can use the \"Fast YouTube Channel Scraper\" which extracts channel data including:\n- Channel URL\n- Channel descriptions\n- Links in description\n- Number of subscribers\n- Total views\n- Video count Apify\nThis scraper functions as an alternative YouTube Data API with no quotas or limits, making it ideal for collecting comprehensive channel statistics. Apify\n\n2. For Video Information:\nThe \"YouTube Scraper\" is a versatile tool that allows you to scrape video data by:\n- Search term\n- Direct URL of videos\n- Playlists\n- Channels\nIt extracts information such as:\n- Video titles\n- View counts\n- Like counts\n- Number of comments\n- Publication dates\n- Channel information Apify\n\n3. For Comments Information:\nThe \"YouTube Comments Scraper\" lets you easily collect comment data by simply providing video URLs. It extracts:\n\n- Comment text\n- Author names\n- Posting dates\n- Like counts\n- Reply counts\n- Information on whether comments received a creator's heart\n- Whether the author is the channel owner \n\nApify\nThis scraper is efficient, processing approximately 100 comments in 30 seconds and 1000 comments in about 5 minutes    ",
         "height": 1680,
         "width": 760
       },
@@ -5449,16 +5436,95 @@
     },
     {
       "parameters": {
-        "options": {}
+        "options": {
+          "summarizationMethodAndPrompts": {
+            "values": {
+              "summarizationMethod": "refine",
+              "refineQuestionPrompt": "=Write a concise summary of the following:\n\"{{ $json.Transcript }}\"\n\n\nCONCISE SUMMARY: "
+            }
+          }
+        }
       },
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        1440,
+        1620,
         3000
       ],
       "id": "7863dab0-136c-4f8e-be02-95ddcca89eef",
       "name": "Summarization Chain"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        1420,
+        3140
+      ],
+      "id": "d206f4a8-1b51-4645-8166-099aaf28a93b",
+      "name": "Anthropic",
+      "credentials": {
+        "anthropicApi": {
+          "id": "dcLqo62duKhDxGrw",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ \"https://api.apify.com/v2/acts/streamers~youtube-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}\n\n//https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n\n\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"startUrls\":[\"{{ $json.videoURL }}\"]\n}\n\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 10,
+              "batchInterval": 5000
+            }
+          }
+        }
+      },
+      "id": "7676ba8c-b7db-4565-b095-06a17e2262d6",
+      "name": "YT Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        3100
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1540,
+        3140
+      ],
+      "id": "48d8130a-d600-4913-854b-eea29eb9347e",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -5468,6 +5534,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-01T14:58:39.000Z",
-  "versionId": "490c595f-fda0-4747-8c1a-bf93837e8b6c"
+  "updatedAt": "2025-05-01T23:50:07.000Z",
+  "versionId": "cd2f246d-dae2-4fac-b4f7-9358bc90d1b8"
 }
