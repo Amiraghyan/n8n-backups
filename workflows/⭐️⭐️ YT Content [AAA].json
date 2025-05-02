@@ -615,6 +615,11 @@
             "node": "Summarization Chain",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Summarization Chain2",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -747,6 +752,236 @@
             "node": "Summarization Chain",
             "type": "ai_languageModel",
             "index": 0
+          }
+        ]
+      ]
+    },
+    "youtube": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Wait4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "youtube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sentiment Analysis",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        []
+      ]
+    },
+    "Summarization Chain1": {
+      "main": [
+        [
+          {
+            "node": "Wait5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "Sentiment Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive1": {
+      "main": [
+        [
+          {
+            "node": "Create Document1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Document1": {
+      "main": [
+        [
+          {
+            "node": "Google Docs2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "Update File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rewrite Content1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Document1": {
+      "main": [
+        [
+          {
+            "node": "Update Tweets Doc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs2": {
+      "main": [
+        [
+          {
+            "node": "Rewrite Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update File1": {
+      "main": [
+        [
+          {
+            "node": "Update Record2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Tweets Doc": {
+      "main": [
+        [
+          {
+            "node": "Update Airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait4": {
+      "main": [
+        [
+          {
+            "node": "Summarization Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait5": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarization Chain2": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 2
           }
         ]
       ]
@@ -3405,6 +3640,7 @@
       "parameters": {
         "mode": "combine",
         "combineBy": "combineByPosition",
+        "numberInputs": 3,
         "options": {
           "includeUnpaired": true
         }
@@ -3837,7 +4073,7 @@
     },
     {
       "parameters": {
-        "operation": "upsert",
+        "operation": "update",
         "base": {
           "__rl": true,
           "value": "appB1AKJ8GWAWKjku",
@@ -3857,9 +4093,9 @@
           "value": {
             "Video_Url": "={{ $('Process_video').first().json.videoURL }}",
             "Date_processed": "={{$now}}",
-            "Summary": "={{ $('Summarization Chain').item.json.response.output_text }}",
+            "Summary": "={{ $('Summarization Chain').first().json.response.output_text }}",
             "id": "={{ $('Process_video').first().json.id }}",
-            "Transcript": "={{ $('Summarization Chain').item.json.response.output_text }}"
+            "Transcript": "={{ $('Summarization Chain').first().json.response.output_text }}"
           },
           "matchingColumns": [
             "id"
@@ -4838,8 +5074,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        2140,
-        2920
+        2160,
+        3040
       ],
       "id": "9f104df5-6ed5-491f-a513-bf51681a9521",
       "name": "Classifier",
@@ -5440,7 +5676,7 @@
           "summarizationMethodAndPrompts": {
             "values": {
               "summarizationMethod": "refine",
-              "refineQuestionPrompt": "=Write a concise summary of the following:\n\"{{ $json.Transcript }}\"\n\n\nCONCISE SUMMARY: "
+              "refineQuestionPrompt": "=Write a concise summary of the following:\n\"{{ $json.Transcript }}\"\n\nCONCISE SUMMARY: "
             }
           }
         }
@@ -5477,7 +5713,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "={{ \"https://api.apify.com/v2/acts/streamers~youtube-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}\n\n//https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n\n\n",
+        "url": "=\n\n{{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}\n",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n    \"startUrls\":[\"{{ $json.videoURL }}\"]\n}\n\n",
@@ -5525,6 +5761,1195 @@
           "name": "Research Assistant"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f65549c2-c23d-4885-8b98-c7dd99770b01",
+              "name": "URL",
+              "value": "={{ $json['Youtube URL:'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f5535439-ae17-441d-8bb6-7f56a86d4846",
+      "name": "youtube",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2180,
+        1860
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"startUrls\": [\n        \"{{ $json.URL }}\"\n    ]\n}",
+        "options": {}
+      },
+      "id": "9e462012-10f1-4328-965c-f14019e26193",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1940,
+        1860
+      ]
+    },
+    {
+      "parameters": {
+        "formTitle": "Youtube Video: Summary",
+        "formDescription": "Enter the URL for a YouTube video and you will receive a Summary of its content.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Youtube URL:",
+              "placeholder": "https://www.youtube.com/watch?v=asldfalsdjfasl",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "3478e0dd-d011-4a21-acb9-39c0f7d5c974",
+      "name": "On form submission",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -2380,
+        1860
+      ],
+      "webhookId": "f684c0e3-8782-4e74-b065-7b3cb6df70aa",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e8e1e3dd-8264-4394-89bf-a5aace698666",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -1400,
+        1680
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d2c8e775-a9e5-4201-b83e-693b9087c747",
+      "name": "OpenAI Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -1400,
+        2020
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.transcript }}",
+        "options": {}
+      },
+      "id": "ea604709-2f23-4365-b115-c161e233855f",
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1,
+      "position": [
+        -1500,
+        1520
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "80323419-7cbb-47cc-89a2-4d916b40a41e",
+              "name": "Audio",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "de4383a7-48c4-4eb9-b3ad-40431ddca048",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -740,
+        1860
+      ]
+    },
+    {
+      "parameters": {
+        "options": {
+          "summarizationMethodAndPrompts": {
+            "values": {
+              "combineMapPrompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY: ",
+              "prompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY:"
+            }
+          }
+        }
+      },
+      "id": "4d3082d8-410a-4c6d-b3dc-f3bafbdb5942",
+      "name": "Summarization Chain1",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        -1480,
+        1860
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "db58aeb1-0c90-4532-802f-4b4c64d35e02",
+      "name": "Wait3",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -1720,
+        1520
+      ],
+      "webhookId": "9e8186f7-9628-4224-8cf4-59c26344616c"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "={{ $json.response.text }}",
+        "voice": "onyx",
+        "options": {
+          "response_format": "aac",
+          "binaryPropertyOutput": "Summary Audio"
+        }
+      },
+      "id": "893a1370-e3eb-4420-a5cd-9d26266d74b0",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        -940,
+        1860
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $json[\"Content ID\"] }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.variables.GOOGLE_FOLDER_ROOT_ID }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -2340,
+        2360
+      ],
+      "id": "902c7354-d725-4cbc-b161-7c0dafb31d1e",
+      "name": "Google Drive1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appNBecTA2cBhh0T8",
+          "mode": "list",
+          "cachedResultName": "Content Gen 🔥 [AAA]",
+          "cachedResultUrl": "https://airtable.com/appNBecTA2cBhh0T8"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCR8yF9HHQlDij1",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/appin81xOzyEgT9qQ/tblCR8yF9HHQlDij1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Airtable').item.json.id }}",
+            "Folder URL": "=https://drive.google.com/drive/folders/{{ $('Google Drive1').item.json.id }}",
+            "Text URL": "=https://docs.google.com/document/d/{{ $('Create Document1').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Content ID",
+              "displayName": "Content ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Queued",
+                  "value": "Queued"
+                },
+                {
+                  "name": "In-Progress",
+                  "value": "In-Progress"
+                },
+                {
+                  "name": "Needs Review",
+                  "value": "Needs Review"
+                },
+                {
+                  "name": "Approved",
+                  "value": "Approved"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "AUTO_ID",
+              "displayName": "AUTO_ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record ID",
+              "displayName": "Record ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Publish Date",
+              "displayName": "Publish Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Text",
+              "displayName": "Text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Text URL",
+              "displayName": "Text URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Text Document",
+              "displayName": "Text Document",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "📥 Image",
+              "displayName": "📥 Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "📥 Video",
+              "displayName": "📥 Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Rate",
+              "displayName": "Rate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Folder URL",
+              "displayName": "Folder URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Folder",
+              "displayName": "Folder",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Initialized",
+              "displayName": "Initialized",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Action",
+              "displayName": "Action",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "AUTO_ID (from Action)",
+              "displayName": "AUTO_ID (from Action)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Webhook URL (from Action)",
+              "displayName": "Webhook URL (from Action)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Doc ID",
+              "displayName": "Doc ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Publish URL",
+              "displayName": "Publish URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Published",
+              "displayName": "Published",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -1740,
+        2360
+      ],
+      "id": "f4c13d9a-b69c-46c8-a27d-e4de699de502",
+      "name": "Update Airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "={{ $('Airtable').item.json['Doc ID'] }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -2340,
+        2720
+      ],
+      "id": "33aa531b-74b6-4459-8fbb-964287fc6ac9",
+      "name": "Get Document1",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "message.content",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -1400,
+        2720
+      ],
+      "id": "04c81a61-10ac-44bc-af69-82226eb7bae4",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a professional editorial writer helping transform raw transcripts into well-structured, engaging articles. You have deep understanding of tone, structure, and style. Use the following creative brief to guide your decisions on voice, tone, perspective, formatting, and audience alignment.\n\n{{ $json.content }}\n\nAlways prioritize clarity, flow, and natural language. Remove filler words, tangents, and spoken redundancies. Reorganize the content if needed for logical progression. Highlight any key takeaways, insights, or arguments. Maintain the intent and meaning, but elevate the language and format to suit a published article.",
+              "role": "system"
+            },
+            {
+              "content": "=Here is the transcript that needs to be rewritten into an article:\n\n{{ $('Get Document1').item.json.content }}\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1800,
+        2720
+      ],
+      "id": "637f70ec-ad2a-4424-81d9-74b5d5bebf05",
+      "name": "Rewrite Content1",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "driveId": "0ABBHIKXt5zJhUk9PVA",
+        "folderId": "={{ $json.id }}",
+        "title": "={{ $json.name }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -2140,
+        2360
+      ],
+      "id": "07808597-202e-4541-86bd-e486b521ce56",
+      "name": "Create Document1",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "={{ $('Webhook').item.json.body.variables.BRAND_VOICE }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -2140,
+        2720
+      ],
+      "id": "282eca81-afeb-4560-ba9d-163a4f9eb59d",
+      "name": "Google Docs2",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appNBecTA2cBhh0T8",
+          "mode": "list",
+          "cachedResultName": "Content Gen 🔥 [AAA]",
+          "cachedResultUrl": "https://airtable.com/appNBecTA2cBhh0T8"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCR8yF9HHQlDij1",
+          "mode": "list",
+          "cachedResultName": "Content",
+          "cachedResultUrl": "https://airtable.com/appin81xOzyEgT9qQ/tblCR8yF9HHQlDij1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Airtable').item.json.id }}",
+            "Text": "={{ $('Rewrite Content1').item.json.message.content }}",
+            "Status": "Needs Review"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Content ID",
+              "displayName": "Content ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Queued",
+                  "value": "Queued"
+                },
+                {
+                  "name": "In-Progress",
+                  "value": "In-Progress"
+                },
+                {
+                  "name": "Needs Review",
+                  "value": "Needs Review"
+                },
+                {
+                  "name": "Approved",
+                  "value": "Approved"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "AUTO_ID",
+              "displayName": "AUTO_ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record ID",
+              "displayName": "Record ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Publish Date",
+              "displayName": "Publish Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Text",
+              "displayName": "Text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Text URL",
+              "displayName": "Text URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Text Document",
+              "displayName": "Text Document",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "📥 Image",
+              "displayName": "📥 Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "📥 Video",
+              "displayName": "📥 Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Rate",
+              "displayName": "Rate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Folder URL",
+              "displayName": "Folder URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Folder",
+              "displayName": "Folder",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Initialized",
+              "displayName": "Initialized",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Action",
+              "displayName": "Action",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "AUTO_ID (from Action)",
+              "displayName": "AUTO_ID (from Action)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Webhook URL (from Action)",
+              "displayName": "Webhook URL (from Action)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Doc ID",
+              "displayName": "Doc ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Publish URL",
+              "displayName": "Publish URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Published",
+              "displayName": "Published",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -980,
+        2720
+      ],
+      "id": "cfeb1457-8e65-48fa-acb7-a0deb6c51a72",
+      "name": "Update Record2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "qyFxe22Z4fHSPHn3",
+          "name": "Airtable Access Token✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Get Document1').item.json.documentId }}",
+          "mode": "id"
+        },
+        "changeFileContent": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1180,
+        2720
+      ],
+      "id": "910a0aa7-1ef2-443a-a8d8-de45276d12ab",
+      "name": "Update File1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "mxnJ7cDmvt2V0Z0J",
+          "name": "Google Drive"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Rewrite Content",
+        "height": 320,
+        "width": 2020,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2400,
+        2620
+      ],
+      "typeVersion": 1,
+      "id": "46acfaf5-a2db-4ea7-a9b2-136b3a4ce0d9",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## Initialize Content",
+        "height": 320,
+        "width": 2020
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2400,
+        2260
+      ],
+      "typeVersion": 1,
+      "id": "4d328cf8-36d8-49a7-9b57-605b13bd14d6",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $('Airtable').item.json.Text ?? \"Insert your content text here.\"}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -1940,
+        2360
+      ],
+      "id": "e56973f1-1c88-444b-8ba3-3a303d96d86a",
+      "name": "Update Tweets Doc",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "88287535-c1d0-44c4-bdea-af24884c0c77",
+      "name": "Wait4",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -1700,
+        1860
+      ],
+      "webhookId": "9e8186f7-9628-4224-8cf4-59c26344616c"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "b8f2a780-7063-4008-b6a2-34702c2c96bd",
+      "name": "Wait5",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -1140,
+        1860
+      ],
+      "webhookId": "9e8186f7-9628-4224-8cf4-59c26344616c"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "767152bc-b172-4404-9524-cf907ad5c7dc",
+      "name": "OpenAI Chat Model3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        2880
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "summarizationMethodAndPrompts": {
+            "values": {
+              "combineMapPrompt": "=Write a concise summary of the following:\n\n\"{{ $json.transcript }}\"\n\nCONCISE SUMMARY: ",
+              "prompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY:"
+            }
+          }
+        }
+      },
+      "id": "e9dbb4ff-b588-4b5f-ad0b-091cbed174f6",
+      "name": "Summarization Chain2",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        2860
+      ]
     }
   ],
   "pinData": {},
@@ -5534,6 +6959,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-01T23:50:07.000Z",
-  "versionId": "cd2f246d-dae2-4fac-b4f7-9358bc90d1b8"
+  "updatedAt": "2025-05-02T15:25:31.000Z",
+  "versionId": "7ff8c04c-c0f7-4092-a851-95814a4d5547"
 }
