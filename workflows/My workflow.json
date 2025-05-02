@@ -1,38 +1,22 @@
 {
   "active": false,
   "connections": {
-    "Read Channels from Airtable": {
+    "AI Agent": {
       "main": [
         [
           {
-            "node": "Channel Scraper",
+            "node": "Query MsSQL Database",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Channel Scraper": {
+    "Query MsSQL Database": {
       "main": [
         [
           {
-            "node": "Create/Update Channel Metadata",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Video Metadata and Transcript Scraper",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Video Metadata and Transcript Scraper": {
-      "main": [
-        [
-          {
-            "node": "Update Video Table",
+            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
@@ -40,136 +24,42 @@
       ]
     }
   },
-  "createdAt": "2025-05-02T05:55:46.068Z",
-  "id": "CQFSUy0TbMpNQ4WI",
+  "createdAt": "2025-05-02T06:00:13.281Z",
+  "id": "ny56Uv1o3KzZxCKU",
   "meta": null,
   "name": "My workflow",
   "nodes": [
     {
       "id": "1",
-      "name": "Read Channels from Airtable",
-      "type": "n8n-nodes-base.airtable",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1,
       "position": [
-        200,
+        400,
         300
       ],
       "parameters": {
-        "operation": "list",
-        "applicationId": "{{ myAirtableCredentials.applicationId }}",
-        "baseUrl": "https://api.airtable.com/v0/",
-        "table": "Channels",
-        "additionalFields": {}
-      },
-      "credentials": {
-        "airtableApi": "myAirtableCredentials"
+        "model": "chatgpt-4o-latest",
+        "promptType": "define",
+        "responseFormat": "json_object",
+        "memory": true
       }
     },
     {
       "id": "2",
-      "name": "Channel Scraper",
-      "type": "n8n-nodes-base.httpRequest",
+      "name": "Query MsSQL Database",
+      "type": "n8n-nodes-base.crud",
       "typeVersion": 1,
       "position": [
-        500,
+        700,
         300
       ],
       "parameters": {
-        "url": "https://api.apify.com/v2/acts/Apify~youtube-channel-scraper/run-sync-get-dataset-items",
-        "method": "POST",
-        "options": {},
-        "bodyParameters": {
-          "json": {
-            "channelUrls": "{{$node['Read Channels from Airtable'].json['channel_url']}}"
-          }
-        },
-        "headers": {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer {{ myApifyApiKey }}"
-        }
-      }
-    },
-    {
-      "id": "3",
-      "name": "Create/Update Channel Metadata",
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 1,
-      "position": [
-        800,
-        300
-      ],
-      "parameters": {
-        "operation": "upsert",
-        "applicationId": "{{ myAirtableCredentials.applicationId }}",
-        "baseUrl": "https://api.airtable.com/v0/",
-        "table": "Channels",
-        "updateKey": "channel_url",
-        "additionalFields": {
-          "fields": {
-            "Name": "{{$json['name']}}",
-            "Description": "{{$json['description']}}",
-            "Subscribers": "{{$json['subscribers']}}"
-          }
-        }
+        "operation": "executeQuery",
+        "query": "SELECT * FROM DEALERS WHERE 1=1;"
       },
       "credentials": {
-        "airtableApi": {
-          "id": null,
-          "name": "myAirtableCredentials"
-        }
-      }
-    },
-    {
-      "id": "4",
-      "name": "Video Metadata and Transcript Scraper",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 1,
-      "position": [
-        1100,
-        500
-      ],
-      "parameters": {
-        "url": "https://api.apify.com/v2/acts/Apify~youtube-transcript-scraper/run-sync-get-dataset-items",
-        "method": "POST",
-        "options": {},
-        "bodyParameters": {
-          "json": {
-            "videoUrls": "{{$json['videos[].url']}}"
-          }
-        },
-        "headers": {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer {{ myApifyApiKey }}"
-        }
-      }
-    },
-    {
-      "id": "5",
-      "name": "Update Video Table",
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 1,
-      "position": [
-        1400,
-        500
-      ],
-      "parameters": {
-        "operation": "append",
-        "applicationId": "{{ myAirtableCredentials.applicationId }}",
-        "baseUrl": "https://api.airtable.com/v0/",
-        "table": "Videos",
-        "additionalFields": {
-          "fields": {
-            "Video URL": "{{$node['Video Metadata and Transcript Scraper'].json['videoUrl']}}",
-            "Transcript": "{{$node['Video Metadata and Transcript Scraper'].json['transcript']}}",
-            "Title": "{{$node['Video Metadata and Transcript Scraper'].json['title']}}"
-          }
-        }
-      },
-      "credentials": {
-        "airtableApi": {
-          "id": null,
-          "name": "myAirtableCredentials"
-        }
+        "mssql": "USDB"
       }
     }
   ],
@@ -178,6 +68,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-02T05:55:46.068Z",
-  "versionId": "5a2d7d21-48a7-4880-b7c0-b0b5452ae2fd"
+  "updatedAt": "2025-05-02T06:00:13.281Z",
+  "versionId": "65cefebe-8f49-4a28-891b-804783c2e64a"
 }
