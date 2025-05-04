@@ -469,7 +469,13 @@
         1720,
         860
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     },
     {
       "parameters": {
@@ -880,7 +886,13 @@
         2300,
         600
       ],
-      "typeVersion": 1.6
+      "typeVersion": 1.6,
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     },
     {
       "parameters": {
@@ -1382,7 +1394,13 @@
         2820,
         600
       ],
-      "typeVersion": 1.6
+      "typeVersion": 1.6,
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
     },
     {
       "parameters": {
@@ -1424,6 +1442,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-29T18:16:25.000Z",
-  "versionId": "02557381-d1d7-4fdf-b27d-0646cd462138"
+  "updatedAt": "2025-05-04T03:00:10.000Z",
+  "versionId": "d0205cb0-e437-4d9f-8b39-c5e133f8f8ae"
 }
