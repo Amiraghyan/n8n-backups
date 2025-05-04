@@ -1,0 +1,195 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Validate JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate JSON": {
+      "main": [
+        [
+          {
+            "node": "CREATE - Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-02T05:49:21.082Z",
+  "id": "EbdtSkejOArNTtCn",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Agent to generated n8n Workflows",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.output || $json.message || $json.text;\n\nif (!raw) {\n  throw new Error(\"Missing AI output text.\");\n}\n\nconst match = raw.match(/```json\\s*([\\s\\S]*?)```/);\nif (!match) {\n  throw new Error(\"No ```json code block found.\");\n}\n\nconst jsonString = match[1].trim();\n\ntry {\n  const parsed = JSON.parse(jsonString);\n\n  // ✅ Return as a proper n8n item\n  return [{ json: parsed }];\n} catch (err) {\n  throw new Error(\"Workflow JSON parse failed: \" + err.message);\n}\n"
+      },
+      "id": "d7092133-4044-49ae-bf1e-ef9b047086d4",
+      "name": "Validate JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📌 This workflow allows users to submit a workflow request to automatically generate it in their n8n instance. ",
+        "height": 260,
+        "width": 380,
+        "color": 3
+      },
+      "id": "32fd013a-d268-46da-bfe0-363a4390fd14",
+      "name": "Sticky Note - Documentation",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a professional n8n Workflow Creator.\n\nYour job is to generate complete, import-ready n8n workflow JSONs based on user input. Prioritize decisive action and intelligent assumptions. Do not delay by asking unnecessary clarifying questions — only pause if the request is too vague to proceed.\n\nYou have access to:\n- The full n8n Cheat Sheet Guide with node structures, tool configurations, and integration best practices\n\nBuild workflows confidently using the most likely logic unless told otherwise.\n\nWorkflow Requirements:\n- All nodes must include `id`, `name`, `type`, `typeVersion`, `position`, `parameters`, and be linked via `connections`\n- Use expressions like `{{$node[\"NodeName\"].json[\"field\"]}}` to pass data between nodes\n- Avoid placeholders like `\"API_KEY_HERE\"` — use `{{ myCredentials }}`\n- Include `try/catch` in Function or Code nodes\n- Output only the full JSON inside a ```json code block — no extra commentary, screenshots, or Markdown outside the block\n\nIf the use case clearly involves AI reasoning, include an AI Agent node using:\n- `@n8n/n8n-nodes-langchain.agent`\n- `model`: `chatgpt-4o-latest` (fallback: `o1-mini`)\n- `promptType`: `\"define\"`\n- `responseFormat`: `\"json_object\"` for structured replies\n- Add memory and tool nodes where applicable\n\nIf the use case involves automation (e.g., Slack, Airtable, HTTP, Notion), structure the logic with appropriate trigger and integration nodes. Use examples from your internal references to shape node structure and configuration.\n\nOnly ask the user follow-up questions when you cannot make a reasonable assumption.\n\nBe bold. Be accurate. Build workflows.\n\nOnce you generate the complete workflow JSON, return it as the final output so it can be validated by the next node. Do not hold it internally or summarize it — return the full JSON inside a single ```json code block.\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        1100,
+        460
+      ],
+      "id": "356443c0-99a1-440a-8eb2-b9351404dc8e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        900,
+        460
+      ],
+      "id": "d7838428-1e38-4792-b3b6-796ef94a8464",
+      "name": "When chat message received",
+      "webhookId": "10a2ebbe-bed4-40b8-88fa-b3ae8c036749"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1100,
+        700
+      ],
+      "id": "63922b37-d6ef-49b9-8fa6-a905bc9ae374",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1280,
+        700
+      ],
+      "id": "696fbf59-0d52-4399-a547-98f4dd8ee7ae",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "workflowObject": "={{ $json.toJsonString() }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        460
+      ],
+      "id": "31a5e36b-9e34-482b-87ec-2b65adde0a91",
+      "name": "CREATE - Workflow",
+      "notesInFlow": false,
+      "credentials": {
+        "n8nApi": {
+          "id": "mUPEoqKL7hiSAjmX",
+          "name": "n8n account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-04T04:18:07.000Z",
+  "versionId": "00a3ce7b-c40c-48e4-b254-c042d50f5936"
+}
