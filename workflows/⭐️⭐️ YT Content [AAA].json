@@ -210,12 +210,7 @@
       "main": [
         [
           {
-            "node": "Prompts",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Read_Videos",
+            "node": "Read_Channels",
             "type": "main",
             "index": 0
           }
@@ -453,7 +448,13 @@
     },
     "Write_Videos": {
       "main": [
-        []
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
       ]
     },
     "Update_Videos": {
@@ -612,11 +613,6 @@
       "main": [
         [
           {
-            "node": "Summarization Chain",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Summarization Chain2",
             "type": "main",
             "index": 0
@@ -677,7 +673,13 @@
     },
     "Update Channels": {
       "main": [
-        []
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Get Channel Metadata": {
@@ -720,13 +722,7 @@
     },
     "Summarization Chain": {
       "main": [
-        [
-          {
-            "node": "Merge3",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Anthropic": {
@@ -981,7 +977,34 @@
           {
             "node": "Merge3",
             "type": "main",
-            "index": 2
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "Prompts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Read_Videos",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -3349,8 +3372,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1200,
-        3540
+        620,
+        3700
       ],
       "alwaysOutputData": true
     },
@@ -3501,8 +3524,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        420,
-        3120
+        580,
+        3240
       ],
       "id": "cff3f180-17fe-4fc7-a013-12983b565482",
       "name": "Schedule Trigger"
@@ -3640,7 +3663,6 @@
       "parameters": {
         "mode": "combine",
         "combineBy": "combineByPosition",
-        "numberInputs": 3,
         "options": {
           "includeUnpaired": true
         }
@@ -4058,7 +4080,7 @@
       "typeVersion": 2.1,
       "position": [
         2740,
-        2680
+        2700
       ],
       "id": "3b701643-559d-4a26-8e85-d30230f0e276",
       "name": "Write_Videos",
@@ -4073,7 +4095,7 @@
     },
     {
       "parameters": {
-        "operation": "update",
+        "operation": "upsert",
         "base": {
           "__rl": true,
           "value": "appB1AKJ8GWAWKjku",
@@ -4095,7 +4117,9 @@
             "Date_processed": "={{$now}}",
             "Summary": "={{ $('Summarization Chain').first().json.response.output_text }}",
             "id": "={{ $('Process_video').first().json.id }}",
-            "Transcript": "={{ $('Summarization Chain').first().json.response.output_text }}"
+            "Transcript": "={{ $('Summarization Chain').first().json.response.output_text }}",
+            "Viewcount": 0,
+            "Likes": 0
           },
           "matchingColumns": [
             "id"
@@ -4203,7 +4227,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Transcript",
@@ -4236,7 +4260,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Type",
@@ -4258,7 +4282,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Likes",
@@ -4269,7 +4293,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "sNPS",
@@ -4511,7 +4535,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Formats",
@@ -5074,8 +5098,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        2160,
-        3040
+        3480,
+        3300
       ],
       "id": "9f104df5-6ed5-491f-a513-bf51681a9521",
       "name": "Classifier",
@@ -5110,8 +5134,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1380,
-        3540
+        800,
+        3700
       ],
       "id": "ad55e94a-25ef-4591-a22f-1bcd3f96875a",
       "name": "If zero comments"
@@ -5684,8 +5708,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        1620,
-        3000
+        3480,
+        2920
       ],
       "id": "7863dab0-136c-4f8e-be02-95ddcca89eef",
       "name": "Summarization Chain"
@@ -5698,8 +5722,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        1420,
-        3140
+        3660,
+        3100
       ],
       "id": "d206f4a8-1b51-4645-8166-099aaf28a93b",
       "name": "Anthropic",
@@ -5713,7 +5737,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=\n\n{{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}\n",
+        "url": "=]{{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}\n",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n    \"startUrls\":[\"{{ $json.videoURL }}\"]\n}\n\n",
@@ -5750,8 +5774,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1540,
-        3140
+        3500,
+        3100
       ],
       "id": "48d8130a-d600-4913-854b-eea29eb9347e",
       "name": "OpenAI Chat Model",
@@ -6921,8 +6945,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1560,
-        2880
+        1500,
+        3140
       ],
       "credentials": {
         "openAiApi": {
@@ -6947,9 +6971,49 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        1760,
-        2860
+        1580,
+        3000
       ]
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "=Article to edit:\n {{ $json.article }}\n\nProvide polished output in html format. ",
+        "options": {
+          "systemMessage": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized article with proper citation management.\n\nContent Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief and project requirements.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\nCitation Management Instructions:\nPreserve all inline citations from the original writers in the format: [Source: Publication Name].\nEnsure all inline citations are hyperlinked by embedding the publication name in the citation with the corresponding URL. Example: [Source: [Publication Name](URL)].\nIdentify and remove any duplicate citations across different sections.\nStandardize citation formats if writers used different styles.\nVerify that all cited claims are properly attributed.\nEnsure citations don't disrupt the flow of reading.\nCross-reference all inline citations with their corresponding source links.\n\nUnified Source Documentation Format:\nCreate ONE \"Sources\" section at the very end of the article (after the conclusions section).\n\nFormat each source entry consistently using HTML list items:\n\nhtml\n\n<li><a href=\"[URL]\">[Publication Name] - [Article Title]</a></li>\nInclude for each source:\n\nPublication Name\nArticle Title (if available)\nComplete URL\nDate Accessed (if available)\nEnsure all source entries are hyperlinked properly.\n\nOrganize all sources alphabetically by publication name.\n\nRemove any duplicate entries.\n\nVerify all links are functional.\n\nSEO and Formatting Guidelines:\nMaintain proper HTML formatting throughout.\nEnsure citations and hyperlinks don't interfere with keyword optimization.\nFormat the \"Sources\" section with proper HTML tags.\nUse appropriate heading tags (<h1>, <h2>, <h3>) for structure.\nInclude proper meta descriptions and title tags if required.\nOutput Format:\nThe edited article should be structured as follows:\n\nMain content with inline citations (hyperlinked).\n\"Sources\" section at the end of the article with all reference links. There should only be one \"Sources\" section.\n\nAdditional Requirements:\nMaintain academic integrity while ensuring readability.\nBalance SEO optimization with proper citation practices.\nEnsure all writers' contributions are properly attributed.\nPreserve the original meaning and intent of cited material.\nCreate smooth transitions between sections from different writers.\n\nToday's date is: {{ $now }}"
+        }
+      },
+      "id": "0c8ef576-8b7b-4537-8e4a-9b053aa596f4",
+      "name": "Editor",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        3480,
+        3540
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        2980,
+        2680
+      ],
+      "id": "3cdf47b4-2ec2-4257-8f85-20da408b6f5a",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        580,
+        2980
+      ],
+      "id": "ee9b4a74-965a-4f72-8922-28717790bce4",
+      "name": "No Operation, do nothing1"
     }
   ],
   "pinData": {},
@@ -6959,6 +7023,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-02T15:25:31.000Z",
-  "versionId": "7ff8c04c-c0f7-4092-a851-95814a4d5547"
+  "updatedAt": "2025-05-04T06:27:11.000Z",
+  "versionId": "47c8f71a-6cc7-43d5-b3af-8e5bd9419cbe"
 }
