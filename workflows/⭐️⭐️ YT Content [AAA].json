@@ -210,7 +210,12 @@
       "main": [
         [
           {
-            "node": "Read_Channels",
+            "node": "Prompts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Read_Videos",
             "type": "main",
             "index": 0
           }
@@ -344,7 +349,7 @@
       "main": [
         [
           {
-            "node": "APIfy_YT_Scrap",
+            "node": "YT_Channels",
             "type": "main",
             "index": 0
           }
@@ -352,17 +357,6 @@
         [
           {
             "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "APIfy_YT_Scrap": {
-      "main": [
-        [
-          {
-            "node": "Store Run ID",
             "type": "main",
             "index": 0
           }
@@ -619,18 +613,7 @@
       "main": [
         [
           {
-            "node": "Summarization Chain2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Run Status",
+            "node": "Videos Run ID",
             "type": "main",
             "index": 0
           }
@@ -641,36 +624,7 @@
       "main": [
         [
           {
-            "node": "Is Run Complete?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Store Run ID": {
-      "main": [
-        [
-          {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Is Run Complete?": {
-      "main": [
-        [
-          {
-            "node": "Get Channel Metadata",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Wait",
+            "node": "CH Run Complete?",
             "type": "main",
             "index": 0
           }
@@ -682,17 +636,6 @@
         [
           {
             "node": "Merge1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get Channel Metadata": {
-      "main": [
-        [
-          {
-            "node": "Channel Data",
             "type": "main",
             "index": 0
           }
@@ -966,17 +909,6 @@
         ]
       ]
     },
-    "OpenAI Chat Model3": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Summarization Chain2",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Summarization Chain2": {
       "main": [
         [
@@ -990,25 +922,138 @@
     },
     "Merge1": {
       "main": [
+        []
+      ]
+    },
+    "Run Status1": {
+      "main": [
         [
           {
-            "node": "No Operation, do nothing1",
+            "node": "VID Run Complete?",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "No Operation, do nothing1": {
+    "Transcript w/TS": {
       "main": [
         [
           {
-            "node": "Prompts",
+            "node": "Summarization Chain2",
             "type": "main",
             "index": 0
-          },
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "ai_languageModel": [
+        [
           {
-            "node": "Read_Videos",
+            "node": "Summarization Chain2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channels Run ID": {
+      "main": [
+        [
+          {
+            "node": "Channels Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Videos Run ID": {
+      "main": [
+        [
+          {
+            "node": "Videos Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YT_Channels": {
+      "main": [
+        [
+          {
+            "node": "Channels Run ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channels Wait": {
+      "main": [
+        [
+          {
+            "node": "Run Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Videos Wait": {
+      "main": [
+        [
+          {
+            "node": "Run Status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channel Metadata": {
+      "main": [
+        [
+          {
+            "node": "Channel Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CH Run Complete?": {
+      "main": [
+        [
+          {
+            "node": "Channel Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Channels Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VID Run Complete?": {
+      "main": [
+        [
+          {
+            "node": "Transcript w/TS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Videos Wait",
             "type": "main",
             "index": 0
           }
@@ -3356,14 +3401,14 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        340,
-        2720
+        600,
+        2980
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://api.apify.com/v2/acts/streamers~youtube-comments-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n\n\n// https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Process_video').item.json.Video_Url }}\",\n      \"method\": \"POST\"\n    }\n  ],\n  \"total_comments\": 240\n} ",
@@ -3378,8 +3423,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        620,
-        3700
+        860,
+        3560
       ],
       "alwaysOutputData": true
     },
@@ -3391,8 +3436,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        620,
-        3920
+        680,
+        3800
       ],
       "id": "4dea25b9-95ff-433b-93ae-2b2d5cdca7f0",
       "name": "Split Out"
@@ -3413,8 +3458,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        1200,
-        3800
+        1260,
+        3680
       ],
       "id": "7383fcb7-a4dc-4fe2-828e-d8ce75baaa1f",
       "name": "Positive"
@@ -3435,8 +3480,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        1200,
-        3940
+        1260,
+        3820
       ],
       "id": "e45b91da-9662-40f2-b79b-abd4ab3c37c8",
       "name": "Neutral"
@@ -3457,8 +3502,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        1200,
-        4080
+        1260,
+        3960
       ],
       "id": "531b613e-a785-4cdc-b26a-a25f2ee6f301",
       "name": "Negative"
@@ -3478,8 +3523,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        2260,
-        4360
+        2320,
+        4240
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -3497,8 +3542,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1600,
-        3940
+        1660,
+        3820
       ],
       "id": "f64cd3b0-89bb-467e-8d9f-814edf4e8c73",
       "name": "Merge",
@@ -3515,8 +3560,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        800,
-        3920
+        860,
+        3800
       ]
     },
     {
@@ -3530,8 +3575,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        580,
-        3240
+        600,
+        3220
       ],
       "id": "cff3f180-17fe-4fc7-a013-12983b565482",
       "name": "Schedule Trigger"
@@ -3594,41 +3639,13 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"startUrls\": [\n    { \n      \"url\": \"{{ $('Read_Channels').item.json.channelURL }}\" \n    }\n  ],\n  \"maxResults\": 100\n}\n\n",
-        "options": {
-          "batching": {
-            "batch": {
-              "batchSize": 20
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1260,
-        2520
-      ],
-      "id": "7a07ec57-96b6-4a85-9da0-d5098b085c9e",
-      "name": "APIfy_YT_Scrap",
-      "alwaysOutputData": true,
-      "retryOnFail": true,
-      "waitBetweenTries": 5000,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "jsCode": "// Debugging to see if nodes have been executed and data is available\nconsole.log('Positive Node Data:', $('Positive').first());\nconsole.log('Negative Node Data:', $('Negative').first());\nconsole.log('Neutral Node Data:', $('Neutral').first());\n\n// Get the counts from input items\nconst positive = $('Positive').first()?.json.count_sentimentAnalysis || 0;\nconst negative = $('Negative').first()?.json.count_sentimentAnalysis || 0; \nconst neutral = $('Neutral').first()?.json.count_sentimentAnalysis || 0;\n\n// Calculate total comments\nconst total_comments = positive + neutral + negative;\nif (total_comments === 0) {\n  return { json: { snps: 0, details: { positive_percent: \"0%\", negative_percent: \"0%\", total_comments: total_comments } } };\n}\n\nconst percentPositive = (positive / total_comments) * 100;\nconst percentNegative = (negative / total_comments) * 100;\nconst snps = (percentPositive - percentNegative).toFixed(2);\n\nreturn {\n  json: {\n    snps: snps,\n    details: {\n      positive_percent: percentPositive.toFixed(2) + '%',\n      negative_percent: percentNegative.toFixed(2) + '%',\n      total_comments: total_comments\n    }\n  }\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1780,
-        3940
+        1840,
+        3820
       ],
       "id": "00c1c5e7-6c6a-4f20-9c9b-327856a4271a",
       "name": "sNPS",
@@ -3644,8 +3661,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        2060,
-        4360
+        2120,
+        4240
       ],
       "id": "019b9d4f-902b-4930-bf82-6d2c552e360a",
       "name": "Markdown"
@@ -3657,8 +3674,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2080,
-        3700
+        2140,
+        3560
       ],
       "id": "b5eca34e-ef8b-4c8a-8fb1-044ad9b2def3",
       "name": "Merge2",
@@ -3676,8 +3693,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1960,
-        3240
+        2820,
+        3220
       ],
       "id": "ada8a28a-57ef-4be3-abdc-0c4d7279edd2",
       "name": "Merge3",
@@ -3706,7 +3723,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        840,
+        860,
         2980
       ],
       "id": "6aca2d89-7ca2-4666-bcdc-23199537459c",
@@ -3756,8 +3773,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        840,
-        3240
+        860,
+        3220
       ],
       "id": "e6db8a80-5a51-4589-90eb-2cd47327fb82",
       "name": "Read_Videos",
@@ -4085,7 +4102,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2740,
+        2800,
         2700
       ],
       "id": "3b701643-559d-4a26-8e85-d30230f0e276",
@@ -4121,9 +4138,9 @@
           "value": {
             "Video_Url": "={{ $('Process_video').first().json.videoURL }}",
             "Date_processed": "={{$now}}",
-            "Summary": "={{ $('Summarization Chain').first().json.response.output_text }}",
+            "Summary": "={{ $('Summarization Chain2').first().json.response.output_text }}",
             "id": "={{ $('Process_video').first().json.id }}",
-            "Transcript": "={{ $('Summarization Chain').first().json.response.output_text }}",
+            "Transcript": "={{ $('Transcript w/TS').item.json.transcript }}",
             "Viewcount": 0,
             "Likes": 0
           },
@@ -4577,8 +4594,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2140,
-        3240
+        3000,
+        3220
       ],
       "id": "0cfb5310-2f17-48ef-b7e4-5006277d6feb",
       "name": "Update_Videos",
@@ -4814,8 +4831,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        880,
-        4260
+        940,
+        4140
       ],
       "id": "24597935-c3bc-4ac3-a06a-38f21ece1c68",
       "name": "Write_Comments",
@@ -4833,8 +4850,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        880,
-        4080
+        940,
+        3960
       ],
       "id": "a311aa4a-4e22-4aef-8776-f6ddf7dab412",
       "name": "Anthropic Chat Model2",
@@ -4862,8 +4879,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1380,
-        3800
+        1440,
+        3680
       ],
       "id": "2d2c590d-4647-440d-b1b9-ad9b432017bd",
       "name": "positive"
@@ -4885,8 +4902,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1380,
-        3940
+        1440,
+        3820
       ],
       "id": "0cf2f648-b218-4db2-ba6a-c6e7d61698ef",
       "name": "neutral"
@@ -4908,8 +4925,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1380,
-        4080
+        1440,
+        3960
       ],
       "id": "1684471a-a3f6-4c29-92ba-9bdbf5e3e1e9",
       "name": "negative"
@@ -4973,8 +4990,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2260,
-        3700
+        2320,
+        3560
       ],
       "id": "88cf0934-027a-42a9-a63d-6b4adbc3b871",
       "name": "Sentiment Stats"
@@ -5020,8 +5037,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2260,
-        3960
+        2320,
+        3840
       ],
       "id": "58f1fdad-820a-4692-875e-be41fdd3b6c8",
       "name": "html_document"
@@ -5033,8 +5050,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        1640,
-        4240
+        1700,
+        4120
       ],
       "id": "8d02a0de-3192-4803-835c-cbf7f4b002f8",
       "name": "html_summary"
@@ -5069,8 +5086,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1000,
-        3240
+        1040,
+        3220
       ],
       "id": "07db19d5-0560-49b8-a846-de1c73f44ceb",
       "name": "Process_video",
@@ -5104,8 +5121,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        3480,
-        3300
+        4140,
+        3320
       ],
       "id": "9f104df5-6ed5-491f-a513-bf51681a9521",
       "name": "Classifier",
@@ -5140,8 +5157,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        800,
-        3700
+        1020,
+        3560
       ],
       "id": "ad55e94a-25ef-4591-a22f-1bcd3f96875a",
       "name": "If zero comments"
@@ -5153,8 +5170,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        1860,
-        4360
+        1920,
+        4240
       ],
       "id": "38d6ee1b-2125-42f1-b22a-730ea74e78d6",
       "name": "html_summary_audio"
@@ -5169,8 +5186,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1960,
-        3940
+        2020,
+        3820
       ],
       "id": "074c252b-ced9-40a8-b8cd-f044bd9a8cd3",
       "name": "Aggregate"
@@ -5179,14 +5196,14 @@
       "parameters": {
         "content": "## Comments Sentiment Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Score Ranges:\n-100 to +100 possible range\nAbove 0: Generally positive sentiment\nAbove 30: Considered good\nAbove 50: Excellent\nAbove 70: Exceptional/Industry leading\n\n## Interpretation Guidelines:\nBelow -20: Critical issues need addressing\n-20 to 0: Room for significant improvement\n0 to 30: Average/Acceptable\n30 to 50: Strong positive sentiment\n50+: Outstanding sentiment\n\n\n\n",
         "height": 1140,
-        "width": 2240,
+        "width": 3040,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
         280,
-        3460
+        3480
       ],
       "id": "4015be65-f4a4-42cf-a894-4812573af7c0",
       "name": "Sticky Note9"
@@ -5199,8 +5216,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1860,
-        4200
+        1920,
+        4080
       ],
       "id": "1db75641-52b4-4919-8a5d-2106d0ef7541",
       "name": "Google Docs1",
@@ -5231,13 +5248,13 @@
       "parameters": {
         "content": "## Process Videos",
         "height": 480,
-        "width": 2240,
+        "width": 3040,
         "color": 2
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         280,
-        2920
+        2940
       ],
       "typeVersion": 1,
       "id": "30d26e13-7cc5-4a1a-a8a9-6541f2919eb8",
@@ -5265,7 +5282,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1280,
+        1360,
         3000
       ],
       "id": "91eabb25-b530-43b0-9c6f-5aad3970d6cf",
@@ -5275,21 +5292,7 @@
     },
     {
       "parameters": {
-        "amount": 10
-      },
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        1660,
-        2520
-      ],
-      "id": "6d58d88f-d6fb-4173-8047-629db60e013f",
-      "name": "Wait",
-      "webhookId": "fa9e3fef-7712-49d5-9b79-394dd1f0e8c4"
-    },
-    {
-      "parameters": {
-        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Store Run ID').item.json.data.id }}?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Channels Run ID').item.json.data.id }}?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -5301,73 +5304,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1860,
+        1920,
         2520
       ],
       "id": "daa62cbe-1703-487b-8148-3921296474d9",
       "name": "Run Status"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "2453d745-17ff-41cf-8d67-afd8f766549c",
-              "leftValue": "={{ $json.data.status }}",
-              "rightValue": "={{\"SUCCEEDED\"}}",
-              "operator": {
-                "type": "string",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        2040,
-        2520
-      ],
-      "id": "1a44a7ac-0f2b-470d-9dbd-85740322cbf9",
-      "name": "Is Run Complete?"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "53ad640e-4011-4501-a3cb-6f0ac2e01ca6",
-              "name": "id",
-              "value": "={{ $('Read_Channels').item.json.id }}",
-              "type": "string"
-            },
-            {
-              "id": "37df7a9c-5e04-4925-b0b9-7697fb70ac59",
-              "name": "data.id",
-              "value": "={{ $json.data.id }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        1460,
-        2520
-      ],
-      "id": "5a74684f-6a83-44da-b158-0629344825f4",
-      "name": "Store Run ID"
     },
     {
       "parameters": {
@@ -5391,10 +5332,10 @@
           "value": {
             "processChannel": "={{ true }}",
             "channelName": "={{ $json.channelName }}",
-            "channelURL": "={{ $('Get Channel Metadata').item.json.channelUrl }}",
-            "numSubscribers": "={{ $('Get Channel Metadata').item.json.aboutChannelInfo.numberOfSubscribers }}",
+            "channelURL": "={{ $('Channel Metadata').item.json.channelUrl }}",
+            "numSubscribers": "={{ $('Channel Metadata').item.json.aboutChannelInfo.numberOfSubscribers }}",
             "processDate": "={{ $now.format('yyyy-MM-dd T') }}",
-            "channelDescription": "={{ $('Get Channel Metadata').item.json.channelDescription }}",
+            "channelDescription": "={{ $('Channel Metadata').item.json.channelDescription }}",
             "channelID": "={{ $json.channelId }}",
             "id": "={{ $json.id }}"
           },
@@ -5533,7 +5474,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2740,
+        2800,
         2460
       ],
       "id": "c7030c8c-a637-4e52-b095-4ef61142825d",
@@ -5545,20 +5486,6 @@
           "name": "Airtable YT_Content_2505"
         }
       }
-    },
-    {
-      "parameters": {
-        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs/last/dataset/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2300,
-        2560
-      ],
-      "id": "56661b39-02fc-4ed1-a1cb-a8ed4ade2363",
-      "name": "Get Channel Metadata"
     },
     {
       "parameters": {
@@ -5633,7 +5560,7 @@
             {
               "id": "4a6fd469-697b-4f4c-baf7-326c35b54f36",
               "name": "id",
-              "value": "={{ $('Store Run ID').item.json.id }}",
+              "value": "={{ $('Channels Run ID').item.json.id }}",
               "type": "string"
             }
           ]
@@ -5694,8 +5621,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2560,
-        2920
+        3340,
+        2880
       ],
       "id": "78ad5716-36e2-4c02-b562-daa082a78556",
       "name": "Sticky Note2"
@@ -5714,8 +5641,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        3480,
-        2920
+        4140,
+        2940
       ],
       "id": "7863dab0-136c-4f8e-be02-95ddcca89eef",
       "name": "Summarization Chain"
@@ -5728,8 +5655,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        3660,
-        3100
+        4320,
+        3120
       ],
       "id": "d206f4a8-1b51-4645-8166-099aaf28a93b",
       "name": "Anthropic",
@@ -5743,10 +5670,12 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=]{{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}\n",
+        "url": "={{ \"https://api.apify.com/v2/acts/topaz_sharingan~youtube-transcript-scraper-1/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\" }}\n\n\n\n\n\n",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\":[\"{{ $json.videoURL }}\"]\n}\n\n",
+        "jsonBody": "={\n    \"startUrls\": [\"{{ $('Read_Videos').item.json.videoURL }}\"],\n    \"includeTimestamps\": \"Yes\"\n}",
         "options": {
           "batching": {
             "batch": {
@@ -5761,10 +5690,20 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1140,
-        3100
+        1200,
+        3120
       ],
       "alwaysOutputData": true,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "vgcd9ZdNpKG5x1Th",
+          "name": "Transcript.io Bearer"
+        },
+        "httpBasicAuth": {
+          "id": "Sy8rCzVDp2cjROAQ",
+          "name": "Unnamed credential"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -5780,8 +5719,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        3500,
-        3100
+        4160,
+        3120
       ],
       "id": "48d8130a-d600-4913-854b-eea29eb9347e",
       "name": "OpenAI Chat Model",
@@ -6944,25 +6883,6 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "id": "767152bc-b172-4404-9524-cf907ad5c7dc",
-      "name": "OpenAI Chat Model3",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        1500,
-        3140
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "pZ4IJBXWzhYzZfRs",
-          "name": "OpenAi _Blue&"
-        }
-      }
-    },
-    {
-      "parameters": {
         "options": {
           "summarizationMethodAndPrompts": {
             "values": {
@@ -6977,8 +6897,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        1580,
-        3000
+        2520,
+        2980
       ]
     },
     {
@@ -6994,8 +6914,8 @@
       "name": "Editor",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        3480,
-        3540
+        4140,
+        3560
       ],
       "typeVersion": 1.6
     },
@@ -7004,22 +6924,297 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.1,
       "position": [
-        2980,
+        3000,
         2680
       ],
       "id": "3cdf47b4-2ec2-4257-8f85-20da408b6f5a",
       "name": "Merge1"
     },
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.fulltext }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Please analyze the given text and create a structured summary following these guidelines:\n\n1. Insert what is requested in a json in the \"text\" variable and also generate a title that will be inserted in the \"title\" variable of the response json.\n2. Under each header:\n   - List only the most essential concepts and key points\n   - Use bullet points for clarity\n   - Keep explanations concise\n   - Preserve technical accuracy\n   - Highlight key terms in bold\n3. Organize the information in this sequence:\n   - Definition/Background\n   - Main characteristics\n   - Implementation details\n   - Advantages/Disadvantages\n4. Format requirements:\n   - Use markdown formatting\n   - Keep bullet points simple (no nesting)\n   - Bold important terms \n   - Use tables for comparisons\n   - Include relevant technical details\n\nPlease provide a clear, structured summarythat captures the core concepts while maintaining technical accuracy."
+            }
+          ]
+        }
+      },
+      "id": "ff456bfa-9e23-44dd-b1c3-f94564bb998f",
+      "name": "Analyze LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "position": [
-        580,
+        4160,
+        3840
+      ],
+      "typeVersion": 1.5
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-r1:free",
+        "options": {}
+      },
+      "id": "60ba96ac-0532-4d10-b820-71b3434748b2",
+      "name": "OpenRouter Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "position": [
+        4160,
+        2700
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openRouterApi": {
+          "id": "ru25OpA66L1ExedM",
+          "name": "OpenRouter"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Videos Run ID').item.json.data.id }}?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        3000
+      ],
+      "id": "2e77d6e4-5d4c-4ca7-ac46-82c4a155343c",
+      "name": "Run Status1"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-scraper/runs/last?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"startUrls\": \"[{{ $('Process_video').first().json.videoURL }}]\",\n    \"includeTimestamps\": \"Yes\"\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2340,
         2980
       ],
-      "id": "ee9b4a74-965a-4f72-8922-28717790bce4",
-      "name": "No Operation, do nothing1"
+      "id": "7061da68-ca9b-4f1e-924d-2ee55470b8b3",
+      "name": "Transcript w/TS"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "767152bc-b172-4404-9524-cf907ad5c7dc",
+      "name": "OpenAI2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        3120
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "pZ4IJBXWzhYzZfRs",
+          "name": "OpenAi _Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53ad640e-4011-4501-a3cb-6f0ac2e01ca6",
+              "name": "id",
+              "value": "={{ $('Read_Channels').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "37df7a9c-5e04-4925-b0b9-7697fb70ac59",
+              "name": "data.id",
+              "value": "={{ $json.data.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        2520
+      ],
+      "id": "5a74684f-6a83-44da-b158-0629344825f4",
+      "name": "Channels Run ID"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37df7a9c-5e04-4925-b0b9-7697fb70ac59",
+              "name": "data.id",
+              "value": "={{ $json.data.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        3000
+      ],
+      "id": "27894393-d30a-4592-802b-1c1f8bb078df",
+      "name": "Videos Run ID"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startUrls\": [\n    { \n      \"url\": \"{{ $('Read_Channels').item.json.channelURL }}\" \n    }\n  ],\n  \"maxResults\": 100\n}\n\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 20
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1260,
+        2520
+      ],
+      "id": "7a07ec57-96b6-4a85-9da0-d5098b085c9e",
+      "name": "YT_Channels",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1740,
+        2520
+      ],
+      "id": "6d58d88f-d6fb-4173-8047-629db60e013f",
+      "name": "Channels Wait",
+      "webhookId": "fa9e3fef-7712-49d5-9b79-394dd1f0e8c4"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1740,
+        3000
+      ],
+      "id": "1377281f-703f-4e09-8721-d227d109a6ad",
+      "name": "Videos Wait",
+      "webhookId": "fa9e3fef-7712-49d5-9b79-394dd1f0e8c4"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs/last/dataset/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2340,
+        2560
+      ],
+      "id": "56661b39-02fc-4ed1-a1cb-a8ed4ade2363",
+      "name": "Channel Metadata"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2453d745-17ff-41cf-8d67-afd8f766549c",
+              "leftValue": "={{ $json.data.status }}",
+              "rightValue": "={{\"SUCCEEDED\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2120,
+        2520
+      ],
+      "id": "1a44a7ac-0f2b-470d-9dbd-85740322cbf9",
+      "name": "CH Run Complete?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2453d745-17ff-41cf-8d67-afd8f766549c",
+              "leftValue": "={{ $json.data.status }}",
+              "rightValue": "={{\"SUCCEEDED\"}}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2120,
+        3000
+      ],
+      "id": "10a92b5f-bd40-4323-869b-bd95700544b6",
+      "name": "VID Run Complete?"
     }
   ],
   "pinData": {},
@@ -7029,6 +7224,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-04T17:52:36.000Z",
-  "versionId": "26559d01-9d59-4ad6-974b-8f856d5f3279"
+  "updatedAt": "2025-05-05T04:45:21.000Z",
+  "versionId": "6e046ce3-91b4-4f82-9a07-92b51aa2193e"
 }
