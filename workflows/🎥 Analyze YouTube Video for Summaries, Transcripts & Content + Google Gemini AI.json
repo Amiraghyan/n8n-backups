@@ -162,12 +162,6 @@
         "assignments": {
           "assignments": [
             {
-              "id": "24e9b1c3-2955-4e0b-9b4b-a6b9d046fb72",
-              "name": "google_api_key",
-              "type": "string",
-              "value": "={{ $env.GOOGLE_API_KEY }}"
-            },
-            {
               "id": "b6600a42-1b8d-486a-a51d-0868bc45452e",
               "name": "youtube_url",
               "type": "string",
@@ -737,7 +731,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Define the base URL for the YouTube Data API\nconst BASE_URL = 'https://www.googleapis.com/youtube/v3/videos';\n\n// Get the first input item\nconst item = $input.first();\n\n// Extract the videoId and google_api_key from the input JSON\nconst VIDEO_ID = item.json.video_id;\nconst GOOGLE_API_KEY = item.json.google_api_key; // Dynamically retrieve API key\n\nif (!VIDEO_ID) {\n  throw new Error('The video ID parameter is empty.');\n}\n\nif (!GOOGLE_API_KEY) {\n  throw new Error('The Google API Key is missing.');\n}\n\n// Construct the API URL with the video ID and dynamically retrieved API key\nconst youtubeUrl = `${BASE_URL}?part=snippet,contentDetails,status,statistics,player,topicDetails&id=${VIDEO_ID}&key=${GOOGLE_API_KEY}`;\n\n// Return the constructed URL\nreturn [\n  {\n    json: {\n      youtubeUrl: youtubeUrl,\n    },\n  },\n];\n"
+        "jsCode": "// Define the base URL for the YouTube Data API\nconst BASE_URL = 'https://www.googleapis.com/youtube/v3/videos';\n\n// Get the first input item\nconst item = $input.first();\n\n// Extract the videoId and google_api_key from the input JSON\nconst VIDEO_ID = item.json.video_id;\nconst GOOGLE_API_KEY = \"AIzaSyC3uyYEX6lFaUPc8o6rigi5ffgthDLA5e8\"; // Dynamically retrieve API key\n\nif (!VIDEO_ID) {\n  throw new Error('The video ID parameter is empty.');\n}\n\nif (!GOOGLE_API_KEY) {\n  throw new Error('The Google API Key is missing.');\n}\n\n// Construct the API URL with the video ID and dynamically retrieved API key\nconst youtubeUrl = `${BASE_URL}?part=snippet,contentDetails,status,statistics,player,topicDetails&id=${VIDEO_ID}&key=${GOOGLE_API_KEY}`;\n\n// Return the constructed URL\nreturn [\n  {\n    json: {\n      youtubeUrl: youtubeUrl,\n    },\n  },\n];\n"
       },
       "id": "c63d236c-99d5-43f6-825e-836ddd41ad6f",
       "name": "Create YouTube API URL",
@@ -817,6 +811,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-04T04:23:23.000Z",
-  "versionId": "a7148355-db2c-4676-a67a-b740bc3d9fbc"
+  "updatedAt": "2025-05-05T04:58:45.000Z",
+  "versionId": "1e05118b-415d-444c-8f5c-2566fce2d97d"
 }
