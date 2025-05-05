@@ -218,6 +218,11 @@
             "node": "Read_Videos",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Read_Channels",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -3401,7 +3406,7 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        600,
+        360,
         2980
       ]
     },
@@ -5292,7 +5297,7 @@
     },
     {
       "parameters": {
-        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Channels Run ID').item.json.data.id }}?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "url": "=https://api.apify.com/v2/actor-runs/{{$node['Channels Run ID'].json.data.id}}/dataset/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -7039,9 +7044,27 @@
               "type": "string"
             },
             {
-              "id": "37df7a9c-5e04-4925-b0b9-7697fb70ac59",
-              "name": "data.id",
-              "value": "={{ $json.data.id }}",
+              "id": "976fb3e3-ac3f-45b5-ac00-52fbbf5f8712",
+              "name": "channelName",
+              "value": "={{ $('Read_Channels').item.json.channelName }}",
+              "type": "string"
+            },
+            {
+              "id": "18739061-002c-437a-9cc2-60fe1e3a4879",
+              "name": "channelURL",
+              "value": "={{ $('Read_Channels').item.json.channelURL }}",
+              "type": "string"
+            },
+            {
+              "id": "789664ad-c268-414e-ad09-1534263893d3",
+              "name": "ch#",
+              "value": "={{ $('Read_Channels').item.json['ch#'] }}",
+              "type": "number"
+            },
+            {
+              "id": "29b8b0fa-6bbb-4e8a-9c76-1f1b4aec9cd6",
+              "name": "ch_id",
+              "value": "={{ $('Read_Channels').item.json.ch_id }}",
               "type": "string"
             }
           ]
@@ -7083,14 +7106,21 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
+        "url": "=https://api.apify.com/v2/acts/streamers~youtube-channel-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n\n",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"startUrls\": [\n    { \n      \"url\": \"{{ $('Read_Channels').item.json.channelURL }}\" \n    }\n  ],\n  \"maxResults\": 100\n}\n\n",
+        "jsonBody": "={\n  \"channelUrls\": [\"{{ $(\\\"Read_Channels\\\").item.json.channelURL }}\"],\n  \"maxVideos\": 50,\n  \"proxyConfiguration\": {\n    \"useApifyProxy\": true\n  }\n}",
         "options": {
-          "batching": {
-            "batch": {
-              "batchSize": 20
+          "redirect": {
+            "redirect": {
+              "maxRedirects": 5
+            }
+          },
+          "response": {
+            "response": {
+              "fullResponse": true
             }
           }
         }
@@ -7106,6 +7136,12 @@
       "alwaysOutputData": true,
       "retryOnFail": true,
       "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Kd8YAdUFTsh7AnkS",
+          "name": "APIfy Header Auth"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -7224,6 +7260,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-05T04:45:21.000Z",
-  "versionId": "6e046ce3-91b4-4f82-9a07-92b51aa2193e"
+  "updatedAt": "2025-05-05T18:56:06.000Z",
+  "versionId": "9fb1bb4b-819c-41b2-9922-9d5fc17f4ebb"
 }
