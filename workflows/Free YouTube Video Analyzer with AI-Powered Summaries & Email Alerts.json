@@ -69,11 +69,6 @@
     },
     "OpenAI Chat Model": {
       "ai_languageModel": [
-        []
-      ]
-    },
-    "DeepSeek Chat Model": {
-      "ai_languageModel": [
         [
           {
             "node": "Analyze LLM Chain",
@@ -81,6 +76,11 @@
             "index": 0
           }
         ]
+      ]
+    },
+    "DeepSeek Chat Model": {
+      "ai_languageModel": [
+        []
       ]
     },
     "Generate transcript": {
@@ -166,8 +166,8 @@
       "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        1980,
-        540
+        1960,
+        380
       ],
       "typeVersion": 1.2,
       "credentials": {
@@ -206,8 +206,8 @@
       "name": "DeepSeek Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
       "position": [
-        1980,
-        360
+        2240,
+        700
       ],
       "typeVersion": 1
     },
@@ -242,6 +242,8 @@
     },
     {
       "parameters": {
+        "fromEmail": "fausto_ramirez@mac.com",
+        "toEmail": "fausto@sellyourcar.ai",
         "subject": "={{ $json.output.title }}",
         "emailFormat": "text",
         "text": "={{ $json.output.text }}",
@@ -267,8 +269,6 @@
       "parameters": {
         "method": "POST",
         "url": "=https://www.youtube-transcript.io/api/transcripts",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -290,13 +290,7 @@
         1060,
         240
       ],
-      "typeVersion": 4.2,
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "fQaPmY6oVBw9CXvd",
-          "name": "VAPI Header Auth"
-        }
-      }
+      "typeVersion": 4.2
     },
     {
       "parameters": {
@@ -362,7 +356,7 @@
               "id": "3ee42e4c-3cee-4934-97e7-64c96b5691ed",
               "name": "youtubeUrl",
               "type": "string",
-              "value": "=https://youtu.be/VIDEOID"
+              "value": "=https://www.youtube.com/watch?v=v6hi4TlYnbw"
             }
           ]
         },
@@ -526,11 +520,17 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Test workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
   "settings": {},
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-04T04:01:15.000Z",
-  "versionId": "c9cd2f5e-5aac-4812-9ea3-4f3471520522"
+  "updatedAt": "2025-05-04T19:52:17.000Z",
+  "versionId": "6e04d8db-767b-407f-aa19-5c06403e99a2"
 }
