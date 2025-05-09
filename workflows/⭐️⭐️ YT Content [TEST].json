@@ -192,22 +192,21 @@
         ]
       ]
     },
-    "YT Transcript1": {
-      "main": [
-        [
-          {
-            "node": "Videos Run ID1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Videos Run ID1": {
       "main": [
         [
           {
-            "node": "Classifier",
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Summarization Chain1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Video - More",
             "type": "main",
             "index": 0
           }
@@ -218,7 +217,7 @@
       "main": [
         [
           {
-            "node": "YT Transcript1",
+            "node": "YT Transcript Ninja",
             "type": "main",
             "index": 0
           }
@@ -284,7 +283,7 @@
       "main": [
         [
           {
-            "node": "sNPS",
+            "node": "Aggregate",
             "type": "main",
             "index": 0
           }
@@ -316,17 +315,6 @@
         ]
       ]
     },
-    "sNPS": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Markdown": {
       "main": [
         [
@@ -340,7 +328,13 @@
     },
     "Merge2": {
       "main": [
-        []
+        [
+          {
+            "node": "gather_doc_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "positive": {
@@ -381,17 +375,6 @@
         []
       ]
     },
-    "html_document": {
-      "main": [
-        [
-          {
-            "node": "html_summary",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "html_summary": {
       "main": [
         [
@@ -405,13 +388,7 @@
     },
     "If zero comments": {
       "main": [
-        [
-          {
-            "node": "Merge2",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "Split Out",
@@ -438,7 +415,7 @@
           {
             "node": "Merge2",
             "type": "main",
-            "index": 1
+            "index": 2
           }
         ]
       ]
@@ -480,7 +457,7 @@
       "main": [
         [
           {
-            "node": "Comments",
+            "node": "Merge2",
             "type": "main",
             "index": 0
           }
@@ -507,24 +484,7 @@
       "main": [
         [],
         [],
-        [
-          {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Summarization Chain1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Anthropic": {
@@ -536,7 +496,7 @@
       "main": [
         [
           {
-            "node": "YT Transcript1",
+            "node": "YT Transcript Ninja",
             "type": "main",
             "index": 0
           }
@@ -560,6 +520,61 @@
           {
             "node": "Comments Sentiment Analysis Agent",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YT Transcript Ninja": {
+      "main": [
+        [
+          {
+            "node": "Videos Run ID1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comments - more": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Video - More": {
+      "main": [
+        [
+          {
+            "node": "Video - More1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "gather_doc_data": {
+      "main": [
+        [
+          {
+            "node": "html_summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video - More1": {
+      "main": [
+        [
+          {
+            "node": "Comments - more",
+            "type": "main",
             "index": 0
           }
         ]
@@ -2235,45 +2250,8 @@
     },
     {
       "parameters": {
-        "url": "https://api.apify.com/v2/datasets/9PPh3FVGsPLtVqWLb/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"dateFilter\": \"year\",\n  \"downloadSubtitles\": true,\n  \"hasCC\": false,\n  \"hasLocation\": false,\n  \"hasSubtitles\": true,\n  \"is360\": false,\n  \"is3D\": false,\n  \"is4K\": false,\n  \"isBought\": false,\n  \"isHD\": false,\n  \"isHDR\": false,\n  \"isLive\": false,\n  \"isVR180\": false,\n  \"maxResultStreams\": 0,\n  \"maxResults\": 100,\n  \"maxResultsShorts\": 0,\n  \"preferAutoGeneratedSubtitles\": false,\n  \"saveSubsToKVS\": false,\n  \"scrapeLastNDays\": 400,\n  \"searchQueries\": [\n    \"https://www.youtube.com/watch?v=Q13QOgwoF0E\"\n  ],\n  \"sortVideosBy\": \"NEWEST\",\n  \"startUrls\": [\n    {\n      \"url\": \"https://www.youtube.com/watch?v=qV7xOEKEBDA\",\n      \"method\": \"GET\"\n    }\n  ],\n  \"subtitlesLanguage\": \"en\",\n  \"subtitlesFormat\": \"srt\"\n}",
-        "options": {
-          "batching": {
-            "batch": {
-              "batchSize": 10
-            }
-          },
-          "response": {
-            "response": {
-              "fullResponse": true,
-              "responseFormat": "json"
-            }
-          }
-        }
-      },
-      "id": "49c1f4f6-a43c-4547-b29c-94317e704522",
-      "name": "YT Transcript1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2520,
-        2360
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
-            {
-              "id": "db3c2b19-76d5-42ea-959e-ffb7986c6199",
-              "name": "body.data.status",
-              "value": "={{ $json.body.data.status }}",
-              "type": "string"
-            },
             {
               "id": "b67cb44a-aa48-46f7-b8c0-14dfb2af8a5b",
               "name": "body",
@@ -2307,7 +2285,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2720,
+        2680,
         2360
       ],
       "id": "d51c0d8e-20cc-4f81-b40a-824c0c523e3e",
@@ -2375,10 +2353,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3520,
-        2400
+        3200,
+        2760
       ],
-      "alwaysOutputData": true
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2390,8 +2369,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3620,
-        2700
+        3820,
+        2780
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2401,10 +2380,11 @@
         "fieldsToSummarize": {
           "values": [
             {
-              "field": "sentimentAnalysis"
+              "field": "sentimentAnalysis.category"
             }
           ]
         },
+        "fieldsToSplitBy": " sentimentAnalysis.category",
         "options": {
           "continueIfFieldNotFound": true
         }
@@ -2412,8 +2392,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        4180,
-        2640
+        4400,
+        2720
       ],
       "id": "d7279ba5-15f2-447a-ae89-05e95e81fae5",
       "name": "Positive"
@@ -2423,19 +2403,21 @@
         "fieldsToSummarize": {
           "values": [
             {
-              "field": "sentimentAnalysis"
+              "field": " sentimentAnalysis.category",
+              "includeEmpty": true
             }
           ]
         },
+        "fieldsToSplitBy": " sentimentAnalysis.category",
         "options": {
-          "continueIfFieldNotFound": true
+          "outputFormat": "singleItem"
         }
       },
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        4180,
-        2800
+        4400,
+        2880
       ],
       "id": "8773f985-6f7d-42c4-bb2e-580c053c0368",
       "name": "Neutral"
@@ -2445,10 +2427,12 @@
         "fieldsToSummarize": {
           "values": [
             {
-              "field": "sentimentAnalysis"
+              "field": " sentimentAnalysis.category",
+              "includeEmpty": true
             }
           ]
         },
+        "fieldsToSplitBy": " sentimentAnalysis.category",
         "options": {
           "continueIfFieldNotFound": true
         }
@@ -2456,8 +2440,8 @@
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1,
       "position": [
-        4180,
-        2960
+        4400,
+        3040
       ],
       "id": "31f19fa4-35f6-4e8a-8e51-7f7699a2d936",
       "name": "Negative"
@@ -2496,8 +2480,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        4580,
-        2700
+        4800,
+        2780
       ],
       "id": "8c0a3363-ea43-42c6-ac89-4a3a31b2e046",
       "name": "Merge",
@@ -2519,24 +2503,9 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        3800,
-        2700
+        4020,
+        2780
       ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Debugging to see if nodes have been executed and data is available\nconsole.log('Positive Node Data:', $('Positive').first());\nconsole.log('Negative Node Data:', $('Negative').first());\nconsole.log('Neutral Node Data:', $('Neutral').first());\n\n// Get the counts from input items\nconst positive = $('Positive').first()?.json.count_sentimentAnalysis || 0;\nconst negative = $('Negative').first()?.json.count_sentimentAnalysis || 0; \nconst neutral = $('Neutral').first()?.json.count_sentimentAnalysis || 0;\n\n// Calculate total comments\nconst total_comments = positive + neutral + negative;\nif (total_comments === 0) {\n  return { json: { snps: 0, details: { positive_percent: \"0%\", negative_percent: \"0%\", total_comments: total_comments } } };\n}\n\nconst percentPositive = (positive / total_comments) * 100;\nconst percentNegative = (negative / total_comments) * 100;\nconst snps = (percentPositive - percentNegative).toFixed(2);\n\nreturn {\n  json: {\n    snps: snps,\n    details: {\n      positive_percent: percentPositive.toFixed(2) + '%',\n      negative_percent: percentNegative.toFixed(2) + '%',\n      total_comments: total_comments\n    }\n  }\n};"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4760,
-        2700
-      ],
-      "id": "a9575fc7-55dd-4415-acc2-e3cbc84fc8ea",
-      "name": "sNPS",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2554,12 +2523,17 @@
       "name": "Markdown"
     },
     {
-      "parameters": {},
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {}
+      },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        5100,
-        2400
+        5120,
+        2380
       ],
       "id": "b8ef0c2d-86f1-4577-bbff-cb4bdd52e64b",
       "name": "Merge2",
@@ -2583,8 +2557,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4360,
-        2640
+        4580,
+        2720
       ],
       "id": "915e958e-0945-4fb3-9a16-dfe55c92ab00",
       "name": "positive"
@@ -2606,8 +2580,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4360,
-        2800
+        4580,
+        2880
       ],
       "id": "25801949-b3e5-43bb-9127-dc41a31ecb5a",
       "name": "neutral"
@@ -2629,8 +2603,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4360,
-        2960
+        4580,
+        3040
       ],
       "id": "873f660e-44f3-4ac1-af0c-6e30ef22e3ee",
       "name": "negative"
@@ -2702,60 +2676,13 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "82ebf343-e69a-4d27-8c4e-6af3040f8139",
-              "name": "html_title",
-              "value": "<h2>{{ $('Youtube Transcript').first().json.videoTitle }}</h2>",
-              "type": "string"
-            },
-            {
-              "id": "0c93ecc9-d54e-48be-ad71-c60485cfad7a",
-              "name": "html_head",
-              "value": "<head>\n<style>\nbody { font-family: Arial, sans-serif; padding: 20px; }\nimg { max-width: 100%; height: auto; }\n.key-points { margin: 20px 0; }\n.metadata { color: #888; }\n.separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n</style>\n</head>",
-              "type": "string"
-            },
-            {
-              "id": "8009ccb4-770e-4d95-b10e-13a807c1333b",
-              "name": "html_metadata",
-              "value": "<style>\nbody { font-family: Arial, sans-serif; padding: 20px; }\nimg { max-width: 100%; height: auto; }\n.key-points { margin: 20px 0; }\n.metadata { color: #888; }\nhr {\n    border: 0;\n    height: 1px;\n    background-color: #ddd;\n     margin: 20px 0;\n    }\n</style>",
-              "type": "string"
-            },
-            {
-              "id": "5e5bd01f-738d-4c03-b082-58edec4ff66b",
-              "name": "html_summary",
-              "value": "<h3>Summary</h3>\n<p>{{ $('Summary Agent').first().json.text }}</p>\n",
-              "type": "string"
-            },
-            {
-              "id": "8e0a7b60-ff72-44c1-9c89-b3481f57b74a",
-              "name": "html_transcript",
-              "value": "<h3>Transcript</h3> \n<p>{{ $('Youtube Transcript').first().json.transcript }}</p>",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        5620,
-        2400
-      ],
-      "id": "226d8396-8bad-4d26-b14f-1a9e8c03039f",
-      "name": "html_document"
-    },
-    {
-      "parameters": {
-        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    <h2>{{ $('Sentiment Stats').item.json.title }}</h2>\n    <h3>Summary</h3>\n    <p>{{ $('Summary Agent').first().json.text }}</p>\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Read_Videos').first().json.Channelname }}</li>\n        <li>Link: <a href=\"{{ $('Read_Videos').first().json.Video_Url }}\" target=\"_blank\">{{ $('Read_Videos').first().json.Video_Url }}</a></li>\n        <li>Published: {{ $now.format('yyyy-MMM-dd') }} </li>\n        <li>Duration: {{ $('Read_Videos').first().json.Duration}}</li>\n        <li>Views: {{ $('Read_Videos').first().json.Viewcount }}</li>\n        <li>Likes: {{ $('Read_Videos').first().json.Likes }}</li></ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>sNPS: {{ $('Sentiment Stats').item.json.snps }} %</li>\n        <li>Positive: {{ $('Positive').first().json.count_sentimentAnalysis }}</li>\n        <li>Neutral:  {{ $('Neutral').first().json.count_sentimentAnalysis }}</li>\n        <li>Negative: {{ $('Negative').first().json.count_sentimentAnalysis }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
+        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    {{ $json.html_title }}\n//    <h3>Summary</h3>\n    {{ $json.html_summary }}\n//    <p>{{ $json.html_summary }}</p>\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Videos Run ID1').item.json.body[0].channelName }}</li>\n        <li>Link: <a href=\"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\" target=\"_blank\">{{ $('Videos Run ID1').item.json.body[0].url }}</a></li>\n        <li>Published: {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} </li>\n        <li>Duration: ???</li>\n        <li>Views: {{ $('Videos Run ID1').item.json.body[0].views }}</li>\n        <li>Likes: {{ \"?\" }}</li></ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>Comments: {{ $('Comments - more').item.json.commentsCount }}</li>\n        <li>Positive: {{ $('positive').item.json.count_sentimentAnalysis }}</li>\n        <li>Neutral:  {{ $('neutral').item.json.count_sentimentAnalysis }}</li>\n        <li>Negative: {{ $('negative').item.json.count_sentimentAnalysis }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
       },
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        5280,
-        2640
+        5580,
+        2360
       ],
       "id": "7bfa2210-0b2d-43ef-bc77-194bcda01a09",
       "name": "html_summary"
@@ -2787,8 +2714,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3940,
-        2400
+        3520,
+        2760
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
       "name": "If zero comments"
@@ -2814,8 +2741,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        5620,
-        2640
+        5740,
+        2360
       ],
       "id": "fdd27649-12cf-404a-88d9-33a071e1f0db",
       "name": "Google Docs",
@@ -2829,18 +2756,17 @@
     {
       "parameters": {
         "aggregate": "aggregateAllItemData",
-        "destinationFieldName": "Comments",
-        "include": "specifiedFields",
         "options": {}
       },
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4940,
-        2700
+        4980,
+        2780
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
-      "name": "Aggregate"
+      "name": "Aggregate",
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2911,8 +2837,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2900,
-        2560
+        3200,
+        2140
       ],
       "credentials": {
         "openAiApi": {
@@ -2927,7 +2853,7 @@
           "summarizationMethodAndPrompts": {
             "values": {
               "summarizationMethod": "stuff",
-              "prompt": "=Write a concise summary of the following:\n\n\" {{ $('YT Transcript1').item.json.body[0].transcript }}\""
+              "prompt": "=Write a concise summary of the following:\n\n\" {{ $('YT Transcript Ninja').item.json.body[0].transcript }}\""
             }
           }
         }
@@ -2935,8 +2861,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        2980,
-        2700
+        4020,
+        2360
       ],
       "id": "765a86f5-a1a9-4a93-b8a7-625abd3aaf94",
       "name": "Summarization Chain1"
@@ -2968,8 +2894,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        2980,
-        2420
+        3080,
+        2000
       ],
       "id": "270480b1-6dff-48f5-ae6d-e5e39ab0d62f",
       "name": "Classifier",
@@ -2990,7 +2916,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
         3180,
-        3260
+        3340
       ],
       "typeVersion": 1.6
     },
@@ -3008,18 +2934,6 @@
       "name": "Simple Memory"
     },
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        2720,
-        2700
-      ],
-      "id": "9f941ccb-e958-4df3-8fa1-d1b2e5167620",
-      "name": "Wait",
-      "webhookId": "467f23d1-6ff9-4b8f-8a6d-c26aabc08637"
-    },
-    {
       "parameters": {
         "model": "claude-3-5-haiku-20241022",
         "options": {}
@@ -3028,7 +2942,7 @@
       "typeVersion": 1.2,
       "position": [
         2960,
-        3300
+        3380
       ],
       "id": "17e22339-c25a-4400-adb2-9173e25e07bf",
       "name": "Anthropic",
@@ -3074,8 +2988,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2940,
-        2860
+        3880,
+        2460
       ],
       "credentials": {
         "openAiApi": {
@@ -3096,8 +3010,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3780,
-        2880
+        4000,
+        2960
       ],
       "credentials": {
         "openAiApi": {
@@ -3105,6 +3019,167 @@
           "name": "Content Generation"
         }
       }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/9PPh3FVGsPLtVqWLb/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startUrls\": [\n    \"{{ $json['Youtube Video URL'] }}\"\n  ]\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 10
+            }
+          },
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "49c1f4f6-a43c-4547-b29c-94317e704522",
+      "name": "YT Transcript Ninja",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2480,
+        2360
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"videoUrls\": [\n    \"<{{ $json.body[0].url }}>\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4020,
+        2580
+      ],
+      "id": "2e3069df-e0b9-4ba5-9f1a-cc91e75cabc5",
+      "name": "Comments - more"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"proxy\": {\n    \"useApifyProxy\": true,\n    \"apifyProxyGroups\": [\n      \"RESIDENTIAL\"\n    ],\n    \"apifyProxyCountry\": \"US\"\n  },\n  \"startUrls\": [\n    \"{{ $json.body[0].url }}\"\n  ],\n  \"maxConcurrency\": 10,\n  \"minConcurrency\": 1,\n  \"maxRequestRetries\": 10\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3200,
+        2580
+      ],
+      "id": "c7731f9a-1dcf-4ded-92df-dcbfbb69a703",
+      "name": "Video - More"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "82ebf343-e69a-4d27-8c4e-6af3040f8139",
+              "name": "html_title",
+              "value": "=<h2><{{ $('Videos Run ID1').item.json.body[0].videoTitle }}/h2> ",
+              "type": "string"
+            },
+            {
+              "id": "5e5bd01f-738d-4c03-b082-58edec4ff66b",
+              "name": "html_summary",
+              "value": "=<h3>Summary</h3>\n<p> {{ $('Summarization Chain1').item.json.response.text }}</p>\n",
+              "type": "string"
+            },
+            {
+              "id": "8e0a7b60-ff72-44c1-9c89-b3481f57b74a",
+              "name": "html_transcript",
+              "value": "=<h3>Transcript</h3> |<p>{{ $('Videos Run ID1').item.json.body[0].transcript }}</p> ",
+              "type": "string"
+            },
+            {
+              "id": "cf97b29c-dab0-4f7c-b3c3-38e1636f355c",
+              "name": "html_channelName",
+              "value": "={{ $('Videos Run ID1').item.json.body[0].channelName }}",
+              "type": "string"
+            },
+            {
+              "id": "2de8ce8b-0299-439c-9afe-1cda9a8a2006",
+              "name": "html_views",
+              "value": "={{ $('YT Transcript Ninja').item.json.body[0].views || 0 }}",
+              "type": "string"
+            },
+            {
+              "id": "539b48e2-841a-41e6-98e9-f34495f6b916",
+              "name": "html_videoPostDate",
+              "value": "={{ $('YT Transcript Ninja').item.json.body[0].videoPostDate }}",
+              "type": "string"
+            },
+            {
+              "id": "ba9117b6-99b9-4793-9069-ac02f855b3a7",
+              "name": "html_commentsCount",
+              "value": "={{ $('Comments - more').item.json.commentsCount || 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "fae2b893-fc1a-4536-9011-f5793dc0be63",
+              "name": "html_positive_comments",
+              "value": "={{ $('positive').item.json.count_sentimentAnalysis || 0 }}",
+              "type": "string"
+            },
+            {
+              "id": "7301525b-266d-44d7-a6b9-c2f683143160",
+              "name": "html_neutral_comments",
+              "value": "={{ $('neutral').item.json.count_sentimentAnalysis_category || 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "0196fbb4-bb9a-4928-ab57-60463f04db63",
+              "name": "html_negative_comments",
+              "value": "={{ $('negative').item.json.count_sentimentAnalysis_category || 0 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5320,
+        2380
+      ],
+      "id": "226d8396-8bad-4d26-b14f-1a9e8c03039f",
+      "name": "gather_doc_data",
+      "alwaysOutputData": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/easyapi~youtube-video-metadata-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"videoUrls\": [\"https://www.youtube.com/watch?{{ $json.videoId }}\"]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3620,
+        2580
+      ],
+      "id": "d8660fc5-4d95-4de4-9af3-56ef6e888ba3",
+      "name": "Video - More1"
     }
   ],
   "pinData": {},
@@ -3114,6 +3189,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-08T17:48:25.000Z",
-  "versionId": "3c0f5ac3-2f76-4aeb-adc8-ae9b598280d4"
+  "updatedAt": "2025-05-09T07:16:14.000Z",
+  "versionId": "8c362616-7475-465e-a36c-0e2d5339f982"
 }
