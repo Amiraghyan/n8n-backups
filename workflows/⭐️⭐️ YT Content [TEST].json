@@ -246,40 +246,7 @@
         ]
       ]
     },
-    "Positive": {
-      "main": [
-        [
-          {
-            "node": "positive",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Neutral": {
-      "main": [
-        [
-          {
-            "node": "neutral",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Negative": {
-      "main": [
-        [
-          {
-            "node": "negative",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge": {
+    "Comments Sentiment Analysis Agent": {
       "main": [
         [
           {
@@ -287,28 +254,17 @@
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Comments Sentiment Analysis Agent": {
-      "main": [
+        ],
         [
           {
-            "node": "Positive",
+            "node": "Aggregate",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Neutral",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Negative",
+            "node": "Aggregate",
             "type": "main",
             "index": 0
           }
@@ -335,44 +291,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "positive": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "neutral": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "negative": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 2
-          }
-        ]
-      ]
-    },
-    "Sentiment Stats": {
-      "main": [
-        []
       ]
     },
     "html_summary": {
@@ -413,9 +331,9 @@
       "main": [
         [
           {
-            "node": "Merge2",
+            "node": "Sentiment Results",
             "type": "main",
-            "index": 2
+            "index": 0
           }
         ]
       ]
@@ -457,7 +375,7 @@
       "main": [
         [
           {
-            "node": "Merge2",
+            "node": "Editor",
             "type": "main",
             "index": 0
           }
@@ -466,15 +384,10 @@
     },
     "Editor": {
       "main": [
-        []
-      ]
-    },
-    "Simple Memory": {
-      "ai_memory": [
         [
           {
-            "node": "Editor",
-            "type": "ai_memory",
+            "node": "Merge2",
+            "type": "main",
             "index": 0
           }
         ]
@@ -484,11 +397,6 @@
       "main": [
         [],
         [],
-        []
-      ]
-    },
-    "Anthropic": {
-      "ai_languageModel": [
         []
       ]
     },
@@ -575,6 +483,28 @@
           {
             "node": "Comments - more",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sentiment Results": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "OpenAI5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Editor",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -2369,82 +2299,11 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3820,
-        2780
+        3680,
+        2880
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
-    },
-    {
-      "parameters": {
-        "fieldsToSummarize": {
-          "values": [
-            {
-              "field": "sentimentAnalysis.category"
-            }
-          ]
-        },
-        "fieldsToSplitBy": " sentimentAnalysis.category",
-        "options": {
-          "continueIfFieldNotFound": true
-        }
-      },
-      "type": "n8n-nodes-base.summarize",
-      "typeVersion": 1,
-      "position": [
-        4400,
-        2720
-      ],
-      "id": "d7279ba5-15f2-447a-ae89-05e95e81fae5",
-      "name": "Positive"
-    },
-    {
-      "parameters": {
-        "fieldsToSummarize": {
-          "values": [
-            {
-              "field": " sentimentAnalysis.category",
-              "includeEmpty": true
-            }
-          ]
-        },
-        "fieldsToSplitBy": " sentimentAnalysis.category",
-        "options": {
-          "outputFormat": "singleItem"
-        }
-      },
-      "type": "n8n-nodes-base.summarize",
-      "typeVersion": 1,
-      "position": [
-        4400,
-        2880
-      ],
-      "id": "8773f985-6f7d-42c4-bb2e-580c053c0368",
-      "name": "Neutral"
-    },
-    {
-      "parameters": {
-        "fieldsToSummarize": {
-          "values": [
-            {
-              "field": " sentimentAnalysis.category",
-              "includeEmpty": true
-            }
-          ]
-        },
-        "fieldsToSplitBy": " sentimentAnalysis.category",
-        "options": {
-          "continueIfFieldNotFound": true
-        }
-      },
-      "type": "n8n-nodes-base.summarize",
-      "typeVersion": 1,
-      "position": [
-        4400,
-        3040
-      ],
-      "id": "31f19fa4-35f6-4e8a-8e51-7f7699a2d936",
-      "name": "Negative"
     },
     {
       "parameters": {
@@ -2475,27 +2334,12 @@
     },
     {
       "parameters": {
-        "numberInputs": 3
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3,
-      "position": [
-        4800,
-        2780
-      ],
-      "id": "8c0a3363-ea43-42c6-ac89-4a3a31b2e046",
-      "name": "Merge",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "inputText": "={{ $json.comment }}",
         "options": {
           "categories": "Positive, Neutral, Negative",
           "systemPromptTemplate": "You are highly intelligent and accurate sentiment analyzer. Analyze the sentiment of the provided text. Categorize it into one of the following: {categories}. Use the provided formatting instructions. Only output the JSON.",
-          "includeDetailedResults": true,
-          "enableAutoFixing": true
+          "includeDetailedResults": false,
+          "enableAutoFixing": false
         }
       },
       "id": "c848fc0b-ee7a-4c97-bac1-31ce0fc90a1d",
@@ -2503,9 +2347,10 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        4020,
-        2780
-      ]
+        3880,
+        2880
+      ],
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -2532,7 +2377,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        5120,
+        4720,
         2380
       ],
       "id": "b8ef0c2d-86f1-4577-bbff-cb4bdd52e64b",
@@ -2542,147 +2387,13 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "bea5ace9-a62e-4938-835d-48533431edb1",
-              "name": "count_sentimentAnalysis",
-              "value": "={{ $json.count_sentimentAnalysis }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4580,
-        2720
-      ],
-      "id": "915e958e-0945-4fb3-9a16-dfe55c92ab00",
-      "name": "positive"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "2f0e3601-7039-4375-af37-82ee7453268e",
-              "name": "count_sentimentAnalysis",
-              "value": "={{ $json.count_sentimentAnalysis }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4580,
-        2880
-      ],
-      "id": "25801949-b3e5-43bb-9127-dc41a31ecb5a",
-      "name": "neutral"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "73cd0307-aa7d-4b4f-ade4-e1ab45960efe",
-              "name": "count_sentimentAnalysis",
-              "value": "={{ $json.count_sentimentAnalysis }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4580,
-        3040
-      ],
-      "id": "873f660e-44f3-4ac1-af0c-6e30ef22e3ee",
-      "name": "negative"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "10a84aa5-e16c-4c20-b216-c90da570e159",
-              "name": "count_sentimentAnalysis",
-              "value": "={{ $('positive').first().json.count_sentimentAnalysis }}",
-              "type": "number"
-            },
-            {
-              "id": "eeaecbdc-cb93-43ce-8867-c872b635d9cc",
-              "name": "count_sentimentAnalysis",
-              "value": "={{ $('neutral').first().json.count_sentimentAnalysis }}",
-              "type": "number"
-            },
-            {
-              "id": "9bbc55d8-9abc-4f3c-9fbf-e14e94dbffe1",
-              "name": "count_sentimentAnalysis",
-              "value": "={{ $('negative').first().json.count_sentimentAnalysis }}",
-              "type": "number"
-            },
-            {
-              "id": "5cf10c59-e72f-44bd-953f-d1e938b0fc08",
-              "name": "details.total_comments",
-              "value": "={{ $('Comments').item.json.commentsCount }}",
-              "type": "number"
-            },
-            {
-              "id": "60581bc7-5d4f-4c97-a1fe-235f6718a754",
-              "name": "details.positive_percent",
-              "value": "={{ $('sNPS').item.json.details.positive_percent }}",
-              "type": "string"
-            },
-            {
-              "id": "bda841c7-8343-47ed-9f5e-ff90505ad3e6",
-              "name": "details.negative_percent",
-              "value": "={{ $('sNPS').item.json.details.negative_percent }}",
-              "type": "string"
-            },
-            {
-              "id": "4a7bcfaa-e06e-4b1b-a296-5910d885dc3d",
-              "name": "snps",
-              "value": "={{ $('sNPS').item.json.snps }}",
-              "type": "number"
-            },
-            {
-              "id": "8aec8c3b-a40c-4edc-aba9-31b803d303cd",
-              "name": "title",
-              "value": "={{ $('Comments').first().json.title }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        5780,
-        2020
-      ],
-      "id": "7ca4cc57-43fa-424a-ad64-a8f7c22dbb60",
-      "name": "Sentiment Stats"
-    },
-    {
-      "parameters": {
-        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    {{ $json.html_title }}\n//    <h3>Summary</h3>\n    {{ $json.html_summary }}\n//    <p>{{ $json.html_summary }}</p>\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Videos Run ID1').item.json.body[0].channelName }}</li>\n        <li>Link: <a href=\"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\" target=\"_blank\">{{ $('Videos Run ID1').item.json.body[0].url }}</a></li>\n        <li>Published: {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} </li>\n        <li>Duration: ???</li>\n        <li>Views: {{ $('Videos Run ID1').item.json.body[0].views }}</li>\n        <li>Likes: {{ \"?\" }}</li></ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>Comments: {{ $('Comments - more').item.json.commentsCount }}</li>\n        <li>Positive: {{ $('positive').item.json.count_sentimentAnalysis }}</li>\n        <li>Neutral:  {{ $('neutral').item.json.count_sentimentAnalysis }}</li>\n        <li>Negative: {{ $('negative').item.json.count_sentimentAnalysis }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
+        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    {{ $json.html_title }}\n    {{ $json.html_summary }}\n\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Videos Run ID1').item.json.body[0].channelName }}</li>\n        <li>Link: <a href=\"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\" target=\"_blank\">{{ $('Videos Run ID1').item.json.body[0].url }}</a></li>\n        <li>Published: {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} </li>\n        <li>Duration: ???</li>\n        <li>Views: {{ $('Videos Run ID1').item.json.body[0].views }}</li>\n        <li>Likes: {{ \"?\" }}</li></ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>Comments: {{ $json.html_commentsCount }}</li>\n        <li>Positive: {{ $json.html_positive_comments }}</li>\n        <li>Neutral:  {{ $json.html_neutral_comments }}</li>\n        <li>Negative: {{ $json.html_negative_comments }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
       },
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        5580,
-        2360
+        5160,
+        2380
       ],
       "id": "7bfa2210-0b2d-43ef-bc77-194bcda01a09",
       "name": "html_summary"
@@ -2714,7 +2425,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3520,
+        3420,
         2760
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
@@ -2736,13 +2447,13 @@
     {
       "parameters": {
         "folderId": "1gSu4CuUtNEuoqfguuBZw5YCloEjKf9VH",
-        "title": "=Sum_{{ $('Read_Videos').item.json.Title }}"
+        "title": "={{ $('gather_doc_data').item.json.html_title }}"
       },
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        5740,
-        2360
+        5400,
+        2380
       ],
       "id": "fdd27649-12cf-404a-88d9-33a071e1f0db",
       "name": "Google Docs",
@@ -2756,13 +2467,14 @@
     {
       "parameters": {
         "aggregate": "aggregateAllItemData",
+        "include": "specifiedFields",
         "options": {}
       },
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4980,
-        2780
+        4300,
+        2880
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2837,8 +2549,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3200,
-        2140
+        4540,
+        2120
       ],
       "credentials": {
         "openAiApi": {
@@ -2861,7 +2573,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        4020,
+        3380,
         2360
       ],
       "id": "765a86f5-a1a9-4a93-b8a7-625abd3aaf94",
@@ -2894,8 +2606,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        3080,
-        2000
+        4420,
+        1980
       ],
       "id": "270480b1-6dff-48f5-ae6d-e5e39ab0d62f",
       "name": "Classifier",
@@ -2906,52 +2618,20 @@
       "parameters": {
         "agent": "conversationalAgent",
         "promptType": "define",
-        "text": "=Article to edit:\n {{ $json.article }}\n\nProvide polished output in html format. ",
+        "text": "=Video Summary to edit:\n{{ $json.response.text }}\n\nProvide polished output in html format. ",
+        "hasOutputParser": true,
         "options": {
-          "systemMessage": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized article with proper citation management.\n\nContent Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\nCitation Management Instructions:\nPreserve all inline citations from the original writers in the format: [Source: Publication Name].\nEnsure all inline citations are hyperlinked by embedding the publication name in the citation with the corresponding URL. Example: [Source: [Publication Name](URL)].\nIdentify and remove any duplicate citations across different sections.\nStandardize citation formats if writers used different styles.\nVerify that all cited claims are properly attributed.\nEnsure citations don't disrupt the flow of reading.\nCross-reference all inline citations with their corresponding source links.\n\nUnified Source Documentation Format:\nCreate ONE \"Sources\" section at the very end of the article (after the conclusions section).\n\nFormat each source entry consistently using HTML list items:\n\nhtml\n\n<li><a href=\"[URL]\">[Publication Name] - [Article Title]</a></li>\nInclude for each source:\n\nPublication Name\nArticle Title (if available)\nComplete URL\nDate Accessed (if available)\nEnsure all source entries are hyperlinked properly.\n\nOrganize all sources alphabetically by publication name.\n\nRemove any duplicate entries.\n\nVerify all links are functional.\n\nSEO and Formatting Guidelines:\nMaintain proper HTML formatting throughout.\nEnsure citations and hyperlinks don't interfere with keyword optimization.\nFormat the \"Sources\" section with proper HTML tags.\nUse appropriate heading tags (<h1>, <h2>, <h3>) for structure.\nInclude proper meta descriptions and title tags if required.\nOutput Format:\nThe edited article should be structured as follows:\n\nMain content with inline citations (hyperlinked).\n\"Sources\" section at the end of the article with all reference links. There should only be one \"Sources\" section.\n\nAdditional Requirements:\nMaintain academic integrity while ensuring readability.\nBalance SEO optimization with proper citation practices.\nEnsure all writers' contributions are properly attributed.\nPreserve the original meaning and intent of cited material.\nCreate smooth transitions between sections from different writers.\n\nToday's date is: {{ $now }}"
+          "systemMessage": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized summary with proper citation management.\n\n## Content Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\n## Citation Management Instructions:\nPreserve all inline citations from the original writers in the format: [Source: Publication Name].\nEnsure all inline citations are hyperlinked by embedding the publication name in the citation with the corresponding URL. Example: [Source: [Publication Name](URL)].\nIdentify and remove any duplicate citations across different sections.\nStandardize citation formats if writers used different styles.\nVerify that all cited claims are properly attributed.\nEnsure citations don't disrupt the flow of reading.\nCross-reference all inline citations with their corresponding source links.\n\n## Unified Source Documentation Format:\nCreate ONE \"Sources\" section at the very end of the summary (after the conclusions section).\n\nFormat each source entry consistently using HTML list items:\n\n### html\n<li><a href=\"[URL]\">[Publication Name] - [Summary Title]</a></li>\n\nInclude for each source:\n- Publication Name\n- Summary Title (if available)\n- Complete URL\n- Date Accessed (if available)\n\nEnsure all source entries are hyperlinked properly.\nOrganize all sources alphabetically by publication name.\nRemove any duplicate entries.\nVerify all links are functional.\n\n## SEO and Formatting Guidelines:\nMaintain proper HTML formatting throughout.\nEnsure citations and hyperlinks don't interfere with keyword optimization.\nFormat the \"Sources\" section with proper HTML tags.\nUse appropriate heading tags (<h1>, <h2>, <h3>) for structure.\nInclude proper meta descriptions and title tags if required.\n\n### Output Format:\nThe edited summary should be structured as follows:\n\nMain content with inline citations (hyperlinked).\nThe \"Sources\" section at the end of the summary has all reference links. There should only be one \"Sources\" section.\n\nAdditional Requirements:\nMaintain academic integrity while ensuring readability.\nBalance SEO optimization with proper citation practices.\nEnsure all writers' contributions are properly attributed.\nPreserve the original meaning and intent of cited material.\nCreate smooth transitions between sections from different writers.\n\nToday's date is: {{ $now }}"
         }
       },
       "id": "b0233104-fc0d-4fed-b1d0-a5dc8fb0a8a7",
       "name": "Editor",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        3180,
-        3340
+        3800,
+        2360
       ],
       "typeVersion": 1.6
-    },
-    {
-      "parameters": {
-        "contextWindowLength": 10
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        3240,
-        3480
-      ],
-      "id": "7ac7ae83-d982-4493-aea3-3dc5592f6725",
-      "name": "Simple Memory"
-    },
-    {
-      "parameters": {
-        "model": "claude-3-5-haiku-20241022",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-      "typeVersion": 1.2,
-      "position": [
-        2960,
-        3380
-      ],
-      "id": "17e22339-c25a-4400-adb2-9173e25e07bf",
-      "name": "Anthropic",
-      "credentials": {
-        "anthropicApi": {
-          "id": "dcLqo62duKhDxGrw",
-          "name": "Anthropic account"
-        }
-      }
     },
     {
       "parameters": {
@@ -2988,8 +2668,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3880,
-        2460
+        3460,
+        2500
       ],
       "credentials": {
         "openAiApi": {
@@ -3010,8 +2690,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        4000,
-        2960
+        3940,
+        3020
       ],
       "credentials": {
         "openAiApi": {
@@ -3062,8 +2742,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4020,
-        2580
+        4300,
+        2620
       ],
       "id": "2e3069df-e0b9-4ba5-9f1a-cc91e75cabc5",
       "name": "Comments - more"
@@ -3079,8 +2759,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3200,
-        2580
+        3680,
+        2620
       ],
       "id": "c7731f9a-1dcf-4ded-92df-dcbfbb69a703",
       "name": "Video - More"
@@ -3134,19 +2814,19 @@
             {
               "id": "fae2b893-fc1a-4536-9011-f5793dc0be63",
               "name": "html_positive_comments",
-              "value": "={{ $('positive').item.json.count_sentimentAnalysis || 0 }}",
+              "value": "={{ $json.summary.positive.count || 0 }}",
               "type": "string"
             },
             {
               "id": "7301525b-266d-44d7-a6b9-c2f683143160",
               "name": "html_neutral_comments",
-              "value": "={{ $('neutral').item.json.count_sentimentAnalysis_category || 0 }}",
+              "value": "={{ $json.summary.neutral.count || 0 }}",
               "type": "number"
             },
             {
               "id": "0196fbb4-bb9a-4928-ab57-60463f04db63",
               "name": "html_negative_comments",
-              "value": "={{ $('negative').item.json.count_sentimentAnalysis_category || 0 }}",
+              "value": "={{ $json.summary.negative.count || 0 }}",
               "type": "number"
             }
           ]
@@ -3156,13 +2836,12 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5320,
+        4920,
         2380
       ],
       "id": "226d8396-8bad-4d26-b14f-1a9e8c03039f",
       "name": "gather_doc_data",
-      "alwaysOutputData": true,
-      "onError": "continueErrorOutput"
+      "alwaysOutputData": false
     },
     {
       "parameters": {
@@ -3175,11 +2854,46 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3620,
-        2580
+        4020,
+        2620
       ],
       "id": "d8660fc5-4d95-4de4-9af3-56ef6e888ba3",
       "name": "Video - More1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize counters for each sentiment category\nlet positiveCount = 0;\nlet neutralCount = 0;\nlet negativeCount = 0;\n\n// Get the data from the Aggregate node\nconst aggregateData = $input.first().json;\n\n// Check if we have data array\nif (aggregateData && aggregateData.data && Array.isArray(aggregateData.data)) {\n  const dataItems = aggregateData.data;\n  const totalComments = dataItems.length;\n  \n  // Loop through each data item\n  dataItems.forEach(item => {\n    // Access the sentiment category from the sentimentAnalysis field\n    if (item.sentimentAnalysis && item.sentimentAnalysis.category) {\n      const category = item.sentimentAnalysis.category.toLowerCase();\n      \n      // Count based on sentiment category\n      if (category.includes('positive')) {\n        positiveCount++;\n      } else if (category.includes('negative')) {\n        negativeCount++;\n      } else if (category.includes('neutral')) {\n        neutralCount++;\n      }\n    }\n  });\n  \n  // Calculate percentages\n  const percentPositive = totalComments > 0 ? (positiveCount / totalComments * 100).toFixed(1) : 0;\n  const percentNeutral = totalComments > 0 ? (neutralCount / totalComments * 100).toFixed(1) : 0;\n  const percentNegative = totalComments > 0 ? (negativeCount / totalComments * 100).toFixed(1) : 0;\n  \n  // Return the summary\n  return {\n    json: {\n      summary: {\n        totalComments,\n        positive: {\n          count: positiveCount,\n          percentage: parseFloat(percentPositive)\n        },\n        neutral: {\n          count: neutralCount,\n          percentage: parseFloat(percentNeutral)\n        },\n        negative: {\n          count: negativeCount,\n          percentage: parseFloat(percentNegative)\n        }\n      }\n    }\n  };\n} else {\n  // Handle case where there's no data\n  return {\n    json: {\n      summary: {\n        totalComments: 0,\n        positive: { count: 0, percentage: 0 },\n        neutral: { count: 0, percentage: 0 },\n        negative: { count: 0, percentage: 0 }\n      }\n    }\n  };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4520,
+        2880
+      ],
+      "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
+      "name": "Sentiment Results"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseFormat": "text",
+          "timeout": 15000
+        }
+      },
+      "id": "6f2e2e10-7e78-4ae0-a6cb-21b520f29733",
+      "name": "OpenAI5",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3760,
+        2500
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "7lpyAVssSQvwtkjO",
+          "name": "Content Generation"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -3189,6 +2903,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-09T07:16:14.000Z",
-  "versionId": "8c362616-7475-465e-a36c-0e2d5339f982"
+  "updatedAt": "2025-05-09T15:19:51.000Z",
+  "versionId": "b01dc813-287d-4643-af50-d2f9baccf37d"
 }
