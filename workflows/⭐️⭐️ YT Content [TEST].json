@@ -196,11 +196,6 @@
       "main": [
         [
           {
-            "node": "Comments",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Video #1",
             "type": "main",
             "index": 0
@@ -279,24 +274,7 @@
     },
     "Merge2": {
       "main": [
-        [
-          {
-            "node": "gather_data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "html_summary": {
-      "main": [
-        [
-          {
-            "node": "Google Docs",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "If zero comments": {
@@ -326,7 +304,7 @@
       "main": [
         [
           {
-            "node": "Top Comments",
+            "node": "Sentiment Results",
             "type": "main",
             "index": 0
           }
@@ -361,17 +339,6 @@
           {
             "node": "Classifier",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Editor": {
-      "main": [
-        [
-          {
-            "node": "Tscripts Excerpts",
-            "type": "main",
             "index": 0
           }
         ]
@@ -421,19 +388,8 @@
       "main": [
         [
           {
-            "node": "Merge2",
+            "node": "markdown_report",
             "type": "main",
-            "index": 2
-          }
-        ]
-      ]
-    },
-    "OpenAI5": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Editor",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -483,17 +439,6 @@
         ]
       ]
     },
-    "gather_data": {
-      "main": [
-        [
-          {
-            "node": "html_summary",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "cSummary": {
       "main": [
         [
@@ -527,7 +472,28 @@
         ]
       ]
     },
-    "Tscripts Excerpts": {
+    "Top Comments": {
+      "main": [
+        []
+      ]
+    },
+    "cRecommendations": {
+      "main": [
+        []
+      ]
+    },
+    "Editor": {
+      "main": [
+        [
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcript Excerpts": {
       "main": [
         [
           {
@@ -538,24 +504,90 @@
         ]
       ]
     },
-    "Top Comments": {
+    "Google Docs": {
       "main": [
         [
           {
-            "node": "Sentiment Results",
+            "node": "Google Docs1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "cRecommendations": {
+    "Markdown1": {
       "main": [
         [
           {
-            "node": "Merge2",
+            "node": "Google Docs",
             "type": "main",
-            "index": 1
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "markdown_report": {
+      "main": [
+        [
+          {
+            "node": "Markdown1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "set_fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set_fields": {
+      "main": [
+        [
+          {
+            "node": "Prepare_Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare_Request": {
+      "main": [
+        [
+          {
+            "node": "CreateGoogleDoc1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -2333,8 +2365,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2880,
-        2300
+        2780,
+        2900
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2349,8 +2381,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3320,
-        2320
+        3200,
+        2920
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2370,8 +2402,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        5720,
-        2880
+        5180,
+        2800
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -2397,8 +2429,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        3520,
-        2320
+        3400,
+        2920
       ],
       "alwaysOutputData": true
     },
@@ -2411,8 +2443,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        5520,
-        2880
+        4980,
+        2800
       ],
       "id": "8f6fe8ff-adf8-4e24-9e9a-5a396dfea5dc",
       "name": "Markdown"
@@ -2421,32 +2453,18 @@
       "parameters": {
         "mode": "combine",
         "combineBy": "combineByPosition",
-        "numberInputs": 3,
         "options": {}
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        4720,
-        2380
+        4940,
+        2260
       ],
       "id": "b8ef0c2d-86f1-4577-bbff-cb4bdd52e64b",
       "name": "Merge2",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "html": "<html>\n  <head>\n    <style>\n      body { font-family: Arial, sans-serif; padding: 20px; }\n      img { max-width: 100%; height: auto; }\n      .key-points { margin: 20px 0; }\n      .metadata { color: #888; }\n      .separator {border-bottom: 1px solid #ccc; margin: 20px 0;}\n    </style>\n  </head>\n  <body>\n    {{ $json.html_title }}\n    {{ $json.html_summary }}\n\n    <hr></hr>          \n    <div class=\"metadata\">             \n      <h4>Video Information</h4>\n      <ul>               \n        <li>Channel: {{ $('Videos Run ID1').item.json.body[0].channelName }}</li>\n        <li>Link: <a href=\"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\" target=\"_blank\">{{ $('Videos Run ID1').item.json.body[0].url }}</a></li>\n        <li>Published: {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} </li>\n        <li>Duration: ???</li>\n        <li>Views: {{ $('Videos Run ID1').item.json.body[0].views }}</li>\n        <li>Likes: {{ \"?\" }}</li></ul>\n    </div>            \n    <div class=\"metadata\">\n      <h4>Comment Sentiment Analysis</h4>\n      <ul>\n        <li>Comments: {{ $json.html_commentsCount }}</li>\n        <li>Positive: {{ $json.html_positive_comments }}</li>\n        <li>Neutral:  {{ $json.html_neutral_comments }}</li>\n        <li>Negative: {{ $json.html_negative_comments }}</li>\n      </ul>\n    </div>\n    <hr></hr>\n  </body>\n</html>"
-      },
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1.2,
-      "position": [
-        5160,
-        2380
-      ],
-      "id": "7bfa2210-0b2d-43ef-bc77-194bcda01a09",
-      "name": "html_summary"
     },
     {
       "parameters": {
@@ -2475,8 +2493,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3080,
-        2300
+        3000,
+        2900
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
       "name": "If zero comments"
@@ -2488,8 +2506,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        5280,
-        2880
+        4800,
+        2800
       ],
       "id": "bc4d00f9-3c8e-4058-8b71-b02a74442f8a",
       "name": "html_summary_audio"
@@ -2497,13 +2515,13 @@
     {
       "parameters": {
         "folderId": "1gSu4CuUtNEuoqfguuBZw5YCloEjKf9VH",
-        "title": "={{ $('gather_data').item.json.html_title }}"
+        "title": "={{ $('Video #1').item.json.videoId }}"
       },
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        5400,
-        2380
+        5220,
+        2500
       ],
       "id": "fdd27649-12cf-404a-88d9-33a071e1f0db",
       "name": "Google Docs",
@@ -2523,8 +2541,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3880,
-        2320
+        3820,
+        2920
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2546,8 +2564,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        160,
-        20
+        6800,
+        2400
       ]
     },
     {
@@ -2561,8 +2579,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        0,
-        0
+        6640,
+        2380
       ],
       "id": "06252a93-395a-494e-9873-1c8306b24344",
       "name": "Transcript w/TS"
@@ -2576,8 +2594,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        180,
-        200
+        6820,
+        2580
       ],
       "credentials": {
         "openAiApi": {
@@ -2599,7 +2617,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        4540,
+        6380,
         2140
       ],
       "credentials": {
@@ -2636,32 +2654,13 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        4420,
+        6100,
         1980
       ],
       "id": "270480b1-6dff-48f5-ae6d-e5e39ab0d62f",
       "name": "Classifier",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "agent": "conversationalAgent",
-        "promptType": "define",
-        "text": "=Video Summary to edit:\n{{ $json.message.content }}\n\nProvide polished output in html format. ",
-        "hasOutputParser": true,
-        "options": {
-          "systemMessage": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized summary with proper citation management.\n\n## Content Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\n## Citation Management Instructions:\nPreserve all inline citations from the original writers in the format: [Source: Publication Name].\nEnsure all inline citations are hyperlinked by embedding the publication name in the citation with the corresponding URL. Example: [Source: [Publication Name](URL)].\nIdentify and remove any duplicate citations across different sections.\nStandardize citation formats if writers used different styles.\nVerify that all cited claims are properly attributed.\nEnsure citations don't disrupt the flow of reading.\nCross-reference all inline citations with their corresponding source links.\n\n## Unified Source Documentation Format:\nCreate ONE \"Sources\" section at the very end of the summary (after the conclusions section).\n\nFormat each source entry consistently using HTML list items:\n\n### html\n<li><a href=\"[URL]\">[Publication Name] - [Summary Title]</a></li>\n\nInclude for each source:\n- Publication Name\n- Summary Title (if available)\n- Complete URL\n- Date Accessed (if available)\n\nEnsure all source entries are hyperlinked properly.\nOrganize all sources alphabetically by publication name.\nRemove any duplicate entries.\nVerify all links are functional.\n\n## SEO and Formatting Guidelines:\nMaintain proper HTML formatting throughout.\nEnsure citations and hyperlinks don't interfere with keyword optimization.\nFormat the \"Sources\" section with proper HTML tags.\nUse appropriate heading tags (<h1>, <h2>, <h3>) for structure.\nInclude proper meta descriptions and title tags if required.\n\n### Output Format:\nThe edited summary should be structured as follows:\n\nMain content with inline citations (hyperlinked).\nThe \"Sources\" section at the end of the summary has all reference links. There should only be one \"Sources\" section.\n\nAdditional Requirements:\nMaintain academic integrity while ensuring readability.\nBalance SEO optimization with proper citation practices.\nEnsure all writers' contributions are properly attributed.\nPreserve the original meaning and intent of cited material.\nCreate smooth transitions between sections from different writers.\n\nToday's date is: {{ $now }}"
-        }
-      },
-      "id": "b0233104-fc0d-4fed-b1d0-a5dc8fb0a8a7",
-      "name": "Editor",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "position": [
-        4200,
-        2680
-      ],
-      "typeVersion": 1.6
     },
     {
       "parameters": {
@@ -2698,8 +2697,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3620,
-        2480
+        3380,
+        3080
       ],
       "credentials": {
         "openAiApi": {
@@ -2746,33 +2745,12 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4560,
-        2320
+        4140,
+        2920
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
-      "name": "Sentiment Results"
-    },
-    {
-      "parameters": {
-        "options": {
-          "responseFormat": "text",
-          "timeout": 15000
-        }
-      },
-      "id": "6f2e2e10-7e78-4ae0-a6cb-21b520f29733",
-      "name": "OpenAI5",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        4120,
-        2800
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+      "name": "Sentiment Results",
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -2785,8 +2763,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2920,
-        2680
+        2960,
+        2360
       ],
       "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
       "name": "Video #1"
@@ -2802,8 +2780,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3140,
-        2680
+        3160,
+        2360
       ],
       "id": "cc8a6f5a-1237-40cb-a04c-d728f70d8b09",
       "name": "Video #2"
@@ -2819,8 +2797,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3360,
-        2680
+        3340,
+        2360
       ],
       "id": "240f3002-e256-490b-8928-959d6a5e883d",
       "name": "Video #3"
@@ -2836,27 +2814,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3560,
-        2680
+        3540,
+        2360
       ],
       "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
       "name": "Comments - more1"
-    },
-    {
-      "parameters": {
-        "mode": "raw",
-        "jsonOutput": "={\n  \"videoId\": \"{{ $('Video #1').item.json.videoId }}\",\n  \"videoTitle\": \"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\",\n  \"videoUrl\": \"{{ $('Videos Run ID1').item.json.body[0].url }}\",\n  \"publishDate\": \"{{ $('Videos Run ID1').item.json.body[0].videoPostDate }}\",\n  \"videoDuration\": \"{{ $('Video #3').item.json.lengthInSeconds }}\",\n  \"viewCount\": {{ $('Videos Run ID1').item.json.body[0].views }},\n  \"likeCount\": {{ $('Video #3').item.json.likeCount }},\n  \"commentCount\": {{ $('Video #3').item.json.commentCount }},\n  \"channelName\": \"{{ $('Videos Run ID1').item.json.body[0].channelName }}\",\n  \"channelUrl\": \"{{ $('Video #3').item.json.channelURL }}\",\n  \"subscriberCount\": \"{{ $('Video #3').item.json.channelSubscribers }}\",\n  \"videoDescription\": \"{{ $('Video #3').item.json.description }}\",\n  \"videoTags\": [{{ $('Video #3').item.json.tags }}],\n  \"reportDate\": {{$now.format('yyyy-MM-dd hh:mm:ss')}},\n  \"likesToViewsRatio\": {{$json[\"likeCount\"] / $json[\"viewCount\"]}},\n  \"commentsToViewsRatio\": {{$json[\"commentCount\"] / $json[\"viewCount\"]}},\n  \"contentSummary\": \"{{ $('Editor').item.json.output }}\",\n  \"topComments\": [\n    {\n      \"user\": \"UserTechEnthusiast\",\n      \"comment\": \"This is the most comprehensive overview of AI content tools I've seen. The section on voice synthesis was particularly eye-opening. Thanks for the balanced approach to the ethical considerations too!\"\n    },\n    {\n      \"user\": \"ContentCreator2025\",\n      \"comment\": \"I've been using some of these AI editing tools for the past month and can confirm they've cut my editing time by about 60%. Great breakdown of the options available!\"\n    },\n    {\n      \"user\": \"AIResearcher\",\n      \"comment\": \"As someone who works in AI development, I appreciate how accurately you portrayed the current capabilities and limitations of these technologies. One small correction though: the voice synthesis watermarking standards are actually still in development, not finalized as mentioned at 11:45.\"\n    },\n    {\n      \"user\": \"NewCreator\",\n      \"comment\": \"This video convinced me to finally try some AI tools in my workflow. The before/after examples really helped me understand the practical benefits. Any chance you could do a follow-up with more beginner-friendly tutorial content?\"\n    },\n    {\n      \"user\": \"TechEthicist\",\n      \"comment\": \"I wish the ethical considerations section had gone deeper into the employment implications for editors and writers. Otherwise, fantastic overview of the technology landscape.\"\n    }\n  ],\n  \"transcriptExcerpts\": [\n    {\n      \"time\": \"0:00\",\n      \"text\": \"Welcome to Tech Creators! I'm Alex, and today we're diving deep into how artificial intelligence is transforming content creation in 2025.\"\n    },\n    {\n      \"time\": \"0:15\",\n      \"text\": \"If you've been creating content for any amount of time, you've probably noticed the rapid acceleration of AI tools in our industry over the past year.\"\n    },\n    {\n      \"time\": \"2:15\",\n      \"text\": \"First up, AI video editing tools. This is perhaps the area that's seen the most dramatic improvements over the past year.\"\n    },\n    {\n      \"time\": \"6:48\",\n      \"text\": \"Now let's talk about script generation with AI. This technology has come a long way from the early days of generic, templated content.\"\n    },\n    {\n      \"time\": \"10:22\",\n      \"text\": \"Moving on to voice synthesis technology, which might be the most controversial advancement we're discussing today.\"\n    },\n    {\n      \"time\": \"14:05\",\n      \"text\": \"This brings us to the ethical considerations around AI in content creation. With great power comes great responsibility, and these tools certainly give creators unprecedented capabilities.\"\n    },\n    {\n      \"time\": \"17:30\",\n      \"text\": \"To conclude, AI is transforming content creation in ways we could only imagine a few years ago. These tools can dramatically improve efficiency and potentially the quality of our content.\"\n    }\n  ],\n  \"contentStrengths\": [\n    \"Comprehensive Coverage: The video thoroughly explores multiple AI applications in content creation, covering the full spectrum of tools available to creators.\",\n    \"Practical Demonstrations: Visual before/after examples effectively illustrate the real-world impact of AI tools, making abstract concepts concrete and accessible.\",\n    \"Balanced Perspective: The content thoughtfully addresses both the benefits and ethical concerns of AI technologies, enhancing credibility and audience trust.\",\n    \"Clear Structure: Well-organized sections with logical progression make complex technical information easy to follow, regardless of viewer expertise level.\",\n    \"Production Quality: Professional presentation with high-quality visuals and audio reinforces expertise and enhances viewer retention.\"\n  ],\n  \"contentOpportunities\": [\n    \"Ethical Depth: Several comments indicate viewer interest in a more thorough examination of employment implications and creative attribution issues.\",\n    \"Beginner Resources: Comments suggest demand for entry-level tutorials covering specific AI tools with step-by-step implementation guidance.\",\n    \"Technical Clarifications: Expert feedback highlights minor inaccuracies regarding standards development that could be addressed for improved authority.\",\n    \"Tool Affordability: Current focus appears to skew toward premium options; expanding coverage of accessible alternatives would broaden audience appeal.\",\n    \"Companion Resources: Adding downloadable guides or tool comparison charts would enhance practical value and extend engagement beyond the video.\"\n  ],\n  \"recommendations\": [\n    \"Create Follow-Up Tutorial Series: Develop a series of beginner-friendly tutorial videos for each AI tool category mentioned, with step-by-step guidance and downloadable resources. This directly addresses frequent viewer requests and extends the value of your expertise.\",\n    \"Produce an Ethics Deep-Dive: Create a dedicated video examining the ethical implications of AI in content creation, particularly focusing on employment impacts and attribution issues. The high engagement on ethical topics indicates significant audience interest in this area.\",\n    \"Develop Budget-Friendly Alternatives Guide: Compile a comparison guide of affordable AI tools alongside premium options to serve creators at all budget levels. This expands your audience reach while maintaining your authority on the full spectrum of available tools.\",\n    \"Implement Interactive Elements: Add polls, quizzes, or community challenges related to AI content creation to boost engagement and build a stronger community around this topic. The high comment ratio indicates an engaged audience ready for more interaction.\",\n    \"Collaborate with AI Developers: Partner with AI tool developers for exclusive demos or behind-the-scenes content. This would provide unique value to your audience while potentially opening new channel partnership opportunities.\"\n  ]\n} ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4920,
-        2380
-      ],
-      "id": "226d8396-8bad-4d26-b14f-1a9e8c03039f",
-      "name": "gather_data",
-      "alwaysOutputData": false
     },
     {
       "parameters": {
@@ -2879,8 +2841,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3840,
-        2680
+        3720,
+        2360
       ],
       "id": "9cd21e03-08f1-40c8-8a1a-7ab72a3d9b90",
       "name": "cSummary",
@@ -2912,8 +2874,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3420,
-        2940
+        3000,
+        2620
       ],
       "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
       "name": "cStrengths",
@@ -2945,8 +2907,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3840,
-        2940
+        3360,
+        2620
       ],
       "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
       "name": "cOpportunities",
@@ -2978,11 +2940,77 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        4200,
-        2940
+        3720,
+        2620
       ],
       "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
       "name": "cRecommendations",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Generate 5 realistic YouTube comments for a video titled \"{{ $('Video #3').item.json.title }}\" with description \"{{ $('Video #3').item.json.description }}\".\n\nThe video has {{ $('Video #3').item.json.viewCount }} views, {{ $('Video #3').item.json.likeCount }} likes, and {{ $('Video #3').item.json.commentCount }} comments, suggesting it's a popular video with good engagement.\n\nCreate comments that:\n1. Reflect diverse viewer perspectives (positive feedback, constructive criticism, expert insights, beginner questions, etc.)\n2. Reference specific content that would likely be in the video based on its title and description\n3. Include reasonable usernames that match the likely audience for this content\n4. Show varying levels of detail and engagement with the content\n5. Include at least one comment that mentions a minor correction or suggestion for improvement\n\nFormat each comment as a JSON object with \"user\" and \"comment\" properties. The comments should be highly realistic and specific to this video's content.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        4080,
+        2620
+      ],
+      "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
+      "name": "Top Comments",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized summary with proper citation management.\n\n## Content Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\nToday's date is: {{ $now }}\n\n{{ $json.message.content }}",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        4060,
+        2360
+      ],
+      "id": "63828795-63b7-4fad-a7b4-efde33781da6",
+      "name": "Editor",
       "credentials": {
         "openAiApi": {
           "id": "dbsbEP9NpcetZP6N",
@@ -3011,11 +3039,11 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2980,
-        2940
+        2640,
+        2620
       ],
       "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
-      "name": "Tscripts Excerpts",
+      "name": "Transcript Excerpts",
       "credentials": {
         "openAiApi": {
           "id": "dbsbEP9NpcetZP6N",
@@ -3025,36 +3053,282 @@
     },
     {
       "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "gpt-4o-mini",
-          "mode": "list",
-          "cachedResultName": "GPT-4O-MINI"
-        },
-        "messages": {
-          "values": [
+        "mode": "raw",
+        "jsonOutput": "={\n  \"videoId\": \"{{ $('Video #1').item.json.videoId }}\",\n  \"videoTitle\": \"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\",\n  \"videoUrl\": \"{{ $('Videos Run ID1').item.json.body[0].url }}\",\n  \"publishDate\": \"{{ $('Videos Run ID1').item.json.body[0].videoPostDate }}\",\n  \"videoDuration\": \"{{ $('Video #3').item.json.lengthInSeconds }}\",\n  \"viewCount\": {{ $('Videos Run ID1').item.json.body[0].views }},\n  \"likeCount\": {{ $('Video #3').item.json.likeCount }},\n  \"commentCount\": {{ $('Video #3').item.json.commentCount }},\n  \"channelName\": \"{{ $('Videos Run ID1').item.json.body[0].channelName }}\",\n  \"channelUrl\": \"{{ $('Video #3').item.json.channelURL }}\",\n  \"subscriberCount\": \"{{ $('Video #3').item.json.channelSubscribers }}\",\n  \"videoDescription\": \"{{ $('Video #3').item.json.description }}\",\n  \"videoTags\": [{{ $('Video #3').item.json.tags }}],\n  \"reportDate\": {{$now.format('yyyy-MM-dd hh:mm:ss')}},\n  \"contentSummary\": \"{{ $('Editor').item.json.message.content }}\",\n\n  \"transcriptExcerpts\": [\n    {\n    {{ $('Transcript Excerpts').item.json.message.content }}\n    }\n  ],\n  \"contentStrengths\": [\n    {{ $('cStrengths').item.json.message.content }}\n  ],\n  \"contentOpportunities\": [\n   {{ $('cOpportunities').item.json.message.content }}\n  ],\n  \"recommendations\": [\n    {{ $('cRecommendations').item.json.message.content }}\n  ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5180,
+        2240
+      ],
+      "id": "e03e917e-df9b-466e-9eb1-ed5bd612d504",
+      "name": "gather_data1",
+      "alwaysOutputData": false,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "html": "# YouTube Video Analysis Report\n\n**Report Date:** {{$now.format('yyyy-MM-dd')}}\n\n---\n\n## Video Overview\n\n| | |\n|------------|-------------|\n| **Title** | {{ $('Videos Run ID1').item.json.body[0].videoTitle }} |\n| **URL** | {{ $('Videos Run ID1').item.json.body[0].url }} |\n| **Published** | {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} |\n| **Duration** | {{ $('Video #3').item.json.lengthInSeconds/60 }} min |\n| **Channel** | [{{ $('Video #3').item.json.channelURL }}) |\n| **Subscribers** | {{ $('Video #3').item.json.channelSubscribers }} |\n\n![Video Thumbnail]({{$node[\"Set\"].json[\"thumbnailUrl\"]}})\n\n---\n\n## Performance Metrics\n\n| Metric | Count | Ratio | Assessment |\n|--------|-------|-------|------------|\n| **Views** | {{ $('Video #3').item.json.viewCount }} | - | {% if $node[\"Set\"].json[\"viewCount\"] > 100000 %}Strong{% elif $node[\"Set\"].json[\"viewCount\"] > 10000 %}Good{% else %}Moderate{% endif %} |\n| **Likes** | {{ $('Video #3').item.json.likeCount }} |  | {% if $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.08 %}Above Average{% elif $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.05 %}Average{% else %}Below Average{% endif %} |\n| **Comments** | {{ $('Video #3').item.json.commentCount }} | % of views | {% if $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.005 %}High Engagement{% elif $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.002 %}Average Engagement{% else %}Low Engagement{% endif %} |\n\n---\n\n## Content Analysis\n\n### Video Description\n{{ $('Video #3').item.json.description }}\n\n### Tags\n{% for tag in $node[\"Set\"].json[\"videoTags\"] %}#{{ $('Video #3').item.json.tags }} {% endfor %}\n\n### Content Summary\n\n{{ $('Editor').item.json.message.content }}\n\n---\n\n## Audience Engagement\n\n### Top Comments\n\n{% for comment in $node[\"Set\"].json[\"topComments\"] %}\n> **{{comment.user}}:** \"{{comment.comment}}\"\n\n{% endfor %}\n\n### Key Transcript Moments\n\n{% for excerpt in $node[\"Set\"].json[\"transcriptExcerpts\"] %}\n**{{excerpt.time}}**: {{excerpt.text}}\n\n{% endfor %}\n\n---\n\n## SWOT Analysis\n\n### Content Strengths\n\n{% for strength in $node[\"Set\"].json[\"contentStrengths\"] %}\n**{{strength.split(':')[0]}}**: {{strength.split(':')[1]}}\n\n{% endfor %}\n\n### Content Opportunities\n\n{% for opportunity in $node[\"Set\"].json[\"contentOpportunities\"] %}\n**{{opportunity.split(':')[0]}}**: {{opportunity.split(':')[1]}}\n\n{% endfor %}\n\n---\n\n## Recommendations\n\n{% for rec in $node[\"Set\"].json[\"recommendations\"] %}\n### {{loop.index}}. {{rec.split(':')[0]}}\n{{rec.split(':')[1]}}\n\n{% endfor %}\n\n---\n\n*This report is based solely on publicly available information and estimated metrics. Advanced analytics like watch time, retention rates, and demographic data are only available to the channel owner.*"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        5740,
+        1980
+      ],
+      "id": "6d929b78-323d-4955-ba1f-ac8e76fb9949",
+      "name": "html_summary1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "simple": false,
+        "actionsUi": {
+          "actionFields": [
             {
-              "content": "=Given the YouTube video title \"{{videoTitle}}\" about {{videoTags[0]}}, generate 7 realistic transcript excerpts that would appear throughout an educational video on this topic.\n\nEach excerpt should:\n1. Include a timestamp (starting with 0:00 and ending near the video duration of {{videoDuration}})\n2. Reflect natural speaking patterns of an educational content creator\n3. Represent key moments in the video's narrative structure\n4. Include an introduction, key points for each major section, and a conclusion\n5. Match the tone and style suggested by the video description: \"{{videoDescription}}\"\n\nFormat each excerpt as a JSON object with \"time\" and \"text\" properties.",
-              "role": "system"
+              "action": "insert",
+              "text": "={{ $('markdown_report').item.json.html }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        5440,
+        2500
+      ],
+      "id": "0d8e6329-9d50-4d0c-9af0-6b0bd09c327a",
+      "name": "Google Docs1",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.html }}",
+        "destinationKey": "html",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        5020,
+        2500
+      ],
+      "id": "d8954a4d-baba-499c-9d22-792ce51a8dee",
+      "name": "Markdown1"
+    },
+    {
+      "parameters": {
+        "html": "# YouTube Video Analysis Report\n\n**Report Date:** {{$now.format('yyyy-MM-dd')}}\n\n---\n\n## Video Overview\n\n| | |\n|------------|-------------|\n| **Title** | {{ $('Videos Run ID1').item.json.body[0].videoTitle }} |\n| **URL** | {{ $('Videos Run ID1').item.json.body[0].url }} |\n| **Published** | {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} |\n| **Duration** | {{ $('Video #3').item.json.lengthInSeconds/60 }} min |\n| **Channel** | [{{ $('Video #3').item.json.channelURL }}) |\n| **Subscribers** | {{ $('Video #3').item.json.channelSubscribers }} |\n\n\n---\n\n## Performance Metrics\n\n| Metric | Count | Ratio | Assessment |\n|--------|-------|-------|------------|\n| **Views** | {{ $('Video #3').item.json.viewCount }} | - | {% if $node[\"Set\"].json[\"viewCount\"] > 100000 %}Strong{% elif $node[\"Set\"].json[\"viewCount\"] > 10000 %}Good{% else %}Moderate{% endif %} |\n| **Likes** | {{ $('Video #3').item.json.likeCount }} |  | {% if $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.08 %}Above Average{% elif $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.05 %}Average{% else %}Below Average{% endif %} |\n| **Comments** | {{ $('Video #3').item.json.commentCount }} | % of views | {% if $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.005 %}High Engagement{% elif $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.002 %}Average Engagement{% else %}Low Engagement{% endif %} |\n\n---\n\n## Content Analysis\n\n### Video Description\n{{ $('Video #3').item.json.description }}\n\n### Tags\n{% for tag in $node[\"Set\"].json[\"videoTags\"] %}#{{ $('Video #3').item.json.tags }} {% endfor %}\n\n### Content Summary\n\n{{ $('Editor').item.json.message.content }}\n\n---\n\n*This report is based solely on publicly available information and estimated metrics. Advanced analytics like watch time, retention rates, and demographic data are only available to the channel owner.*"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        4820,
+        2500
+      ],
+      "id": "7bfa2210-0b2d-43ef-bc77-194bcda01a09",
+      "name": "markdown_report"
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/upload/drive/v3/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDocsOAuth2Api",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "uploadType",
+              "value": "multipart"
+            },
+            {
+              "name": "Filename",
+              "value": "={{ $('Video #3').item.json.id }}"
+            },
+            {
+              "name": "output",
+              "value": "={{ $json.html }}"
             }
           ]
         },
         "options": {}
       },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.8,
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [
-        4080,
-        2320
+        5340,
+        1960
       ],
-      "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
-      "name": "Top Comments",
+      "id": "02b72ee4-57a9-46fb-a23c-26f36cec501f",
+      "name": "HTTP Request",
       "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
         }
       }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        2080,
+        3460
+      ],
+      "id": "dca0bcdb-67d8-468a-adbf-6d26fe0aa324",
+      "name": "When chat message received",
+      "webhookId": "11daa23e-a970-42e5-8253-60f1366faded",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.googleapis.com/upload/drive/v3/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "uploadType",
+              "value": "multipart"
+            },
+            {
+              "name": "supportsAllDrives",
+              "value": "true"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "multipart/related; boundary=divider",
+        "body": "={{ $json.rawData }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2700,
+        3460
+      ],
+      "id": "ea688345-20de-4b00-9fdc-113b2e5f778b",
+      "name": "CreateGoogleDoc1",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7ee03ac-13e3-4fca-a7bc-57c8fc56dc42",
+              "name": "document_name",
+              "value": "=testfile",
+              "type": "string"
+            },
+            {
+              "id": "48a07ef2-ae46-4bfc-aa7e-d92a74ef46d6",
+              "name": "html_content",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "22b02fba-ba72-423a-b92f-1191a183a554",
+              "name": "drive_folder_id",
+              "value": "1qFasd7qnWYMG5DuH9_QL6z47RJszAJRX",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        3460
+      ],
+      "id": "cdb5c739-964a-48c9-901c-4f325faab631",
+      "name": "set_fields",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const boundary = 'divider';\nconst docName = $input.first().json.document_name;\nconst folderId = $input.first().json.drive_folder_id;\nconst htmlContent = $input.first().json.html_content;\n\nconst metadata = JSON.stringify({\n  name: docName,\n  mimeType: \"application/vnd.google-apps.document\",\n  parents: [folderId]\n});\n\nconst htmlWithStyles = `\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <style>\n    /* Add bottom margin to block elements for spacing */\n    p,\n    ul,\n    ol,\n    table,\n    h1,\n    h2,\n    h3,\n    h4,\n    h5,\n    h6 {\n      margin-bottom: 10pt;\n    }\n\n    h2 {\n      margin-top: 20pt;\n    }\n\n    /* Prevent margin collapse issues or excessive space inside lists */\n    li {\n       margin-bottom: 2pt; /* Optional: small space between list items */\n    }\n\n    /* Remove margin from the last child within common containers if needed */\n    /* This might be overly aggressive, test without it first */\n    /*\n    body > *:last-child,\n    li > *:last-child {\n       margin-bottom: 0;\n    }\n    */\n  </style>\n</head>\n<body>\n  ${htmlContent}\n</body>\n</html>\n`;\n\n// Construct the body with literal \\r\\n ONLY\nlet body = `--${boundary}\\r\\n`;\nbody += `Content-Type: application/json; charset=UTF-8\\r\\n`;\nbody += `\\r\\n`; // Blank line\nbody += `${metadata}\\r\\n`;\nbody += `--${boundary}\\r\\n`;\nbody += `Content-Type: text/html\\r\\n`;\nbody += `\\r\\n`; // Blank line\nbody += `${htmlWithStyles}\\r\\n`; // Add the HTML content\nbody += `--${boundary}--\\r\\n`; // Final boundary\n\nreturn {\n  rawData: body \n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2480,
+        3460
+      ],
+      "id": "ac584ff7-657f-4351-9d7d-102afe18779a",
+      "name": "Prepare_Request"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "fileId": {
+          "__rl": true,
+          "value": "1GsIi37YAY-24DI8xQVBWJpSMSze_OQE73e9lv7X_dEI",
+          "mode": "list",
+          "cachedResultName": "62SA_YwUg5Q",
+          "cachedResultUrl": "https://docs.google.com/document/d/1GsIi37YAY-24DI8xQVBWJpSMSze_OQE73e9lv7X_dEI/edit?usp=drivesdk"
+        },
+        "changeFileContent": true,
+        "inputDataFieldName": "=data {{ $('markdown_report').item.json.html }}",
+        "newUpdatedFileName": "={{ $('Google Docs').item.json.name }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        5860,
+        2500
+      ],
+      "id": "8c744a5e-f9c4-4e88-8bc0-282ea4856b8a",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "html",
+        "binaryPropertyName": "={{ $('markdown_report').item.json.html }}",
+        "options": {
+          "fileName": "={{ $('Google Docs').item.json.name }}"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        5660,
+        2500
+      ],
+      "id": "16102fe4-ed36-4260-81ff-261f4d6502bc",
+      "name": "Convert to File"
     }
   ],
   "pinData": {},
@@ -3064,6 +3338,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-12T07:21:07.000Z",
-  "versionId": "3ae9e4db-266b-42e1-9a23-b3fa74f6bb17"
+  "updatedAt": "2025-05-12T16:52:09.000Z",
+  "versionId": "3222da6b-d827-4850-bccc-7f006484dfca"
 }
