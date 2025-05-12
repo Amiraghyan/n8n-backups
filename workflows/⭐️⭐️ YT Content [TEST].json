@@ -201,12 +201,7 @@
             "index": 0
           },
           {
-            "node": "Summarization Chain1",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Video - More",
+            "node": "Video #1",
             "type": "main",
             "index": 0
           }
@@ -286,7 +281,7 @@
       "main": [
         [
           {
-            "node": "gather_doc_data",
+            "node": "gather_data",
             "type": "main",
             "index": 0
           }
@@ -331,7 +326,7 @@
       "main": [
         [
           {
-            "node": "Sentiment Results",
+            "node": "Top Comments",
             "type": "main",
             "index": 0
           }
@@ -371,22 +366,11 @@
         ]
       ]
     },
-    "Summarization Chain1": {
-      "main": [
-        [
-          {
-            "node": "Editor",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Editor": {
       "main": [
         [
           {
-            "node": "Merge2",
+            "node": "Tscripts Excerpts",
             "type": "main",
             "index": 0
           }
@@ -406,17 +390,6 @@
           {
             "node": "YT Transcript Ninja",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI3": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Summarization Chain1",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -444,50 +417,6 @@
         ]
       ]
     },
-    "Comments - more": {
-      "main": [
-        [
-          {
-            "node": "Merge2",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "Video - More": {
-      "main": [
-        [
-          {
-            "node": "Video - More1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "gather_doc_data": {
-      "main": [
-        [
-          {
-            "node": "html_summary",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Video - More1": {
-      "main": [
-        [
-          {
-            "node": "Comments - more",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Sentiment Results": {
       "main": [
         [
@@ -506,6 +435,127 @@
             "node": "Editor",
             "type": "ai_languageModel",
             "index": 0
+          }
+        ]
+      ]
+    },
+    "Video #1": {
+      "main": [
+        [
+          {
+            "node": "Video #2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video #2": {
+      "main": [
+        [
+          {
+            "node": "Video #3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video #3": {
+      "main": [
+        [
+          {
+            "node": "Comments - more1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comments - more1": {
+      "main": [
+        [
+          {
+            "node": "cSummary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "gather_data": {
+      "main": [
+        [
+          {
+            "node": "html_summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cSummary": {
+      "main": [
+        [
+          {
+            "node": "Editor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cStrengths": {
+      "main": [
+        [
+          {
+            "node": "cOpportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cOpportunities": {
+      "main": [
+        [
+          {
+            "node": "cRecommendations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tscripts Excerpts": {
+      "main": [
+        [
+          {
+            "node": "cStrengths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Top Comments": {
+      "main": [
+        [
+          {
+            "node": "Sentiment Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cRecommendations": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
@@ -2165,14 +2215,14 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 1000,
+        "height": 1100,
         "width": 4260,
         "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         2000,
-        2260
+        2180
       ],
       "typeVersion": 1,
       "id": "bb8e3b37-dfe2-4cde-9bcb-7a37df0b427c",
@@ -2230,7 +2280,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2000,
+        2020,
         2240
       ],
       "id": "7f32e1c4-0420-432e-b515-02d58878ece2",
@@ -2283,8 +2333,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3200,
-        2760
+        2880,
+        2300
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2299,8 +2349,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3680,
-        2880
+        3320,
+        2320
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2347,8 +2397,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        3880,
-        2880
+        3520,
+        2320
       ],
       "alwaysOutputData": true
     },
@@ -2425,8 +2475,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3420,
-        2760
+        3080,
+        2300
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
       "name": "If zero comments"
@@ -2447,7 +2497,7 @@
     {
       "parameters": {
         "folderId": "1gSu4CuUtNEuoqfguuBZw5YCloEjKf9VH",
-        "title": "={{ $('gather_doc_data').item.json.html_title }}"
+        "title": "={{ $('gather_data').item.json.html_title }}"
       },
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
@@ -2473,8 +2523,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4300,
-        2880
+        3880,
+        2320
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2550,7 +2600,7 @@
       "typeVersion": 1,
       "position": [
         4540,
-        2120
+        2140
       ],
       "credentials": {
         "openAiApi": {
@@ -2558,26 +2608,6 @@
           "name": "Content Generation"
         }
       }
-    },
-    {
-      "parameters": {
-        "options": {
-          "summarizationMethodAndPrompts": {
-            "values": {
-              "summarizationMethod": "stuff",
-              "prompt": "=Write a concise summary of the following:\n\n\" {{ $('YT Transcript Ninja').item.json.body[0].transcript }}\""
-            }
-          }
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
-      "typeVersion": 2,
-      "position": [
-        3380,
-        2360
-      ],
-      "id": "765a86f5-a1a9-4a93-b8a7-625abd3aaf94",
-      "name": "Summarization Chain1"
     },
     {
       "parameters": {
@@ -2618,7 +2648,7 @@
       "parameters": {
         "agent": "conversationalAgent",
         "promptType": "define",
-        "text": "=Video Summary to edit:\n{{ $json.response.text }}\n\nProvide polished output in html format. ",
+        "text": "=Video Summary to edit:\n{{ $json.message.content }}\n\nProvide polished output in html format. ",
         "hasOutputParser": true,
         "options": {
           "systemMessage": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized summary with proper citation management.\n\n## Content Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\n## Citation Management Instructions:\nPreserve all inline citations from the original writers in the format: [Source: Publication Name].\nEnsure all inline citations are hyperlinked by embedding the publication name in the citation with the corresponding URL. Example: [Source: [Publication Name](URL)].\nIdentify and remove any duplicate citations across different sections.\nStandardize citation formats if writers used different styles.\nVerify that all cited claims are properly attributed.\nEnsure citations don't disrupt the flow of reading.\nCross-reference all inline citations with their corresponding source links.\n\n## Unified Source Documentation Format:\nCreate ONE \"Sources\" section at the very end of the summary (after the conclusions section).\n\nFormat each source entry consistently using HTML list items:\n\n### html\n<li><a href=\"[URL]\">[Publication Name] - [Summary Title]</a></li>\n\nInclude for each source:\n- Publication Name\n- Summary Title (if available)\n- Complete URL\n- Date Accessed (if available)\n\nEnsure all source entries are hyperlinked properly.\nOrganize all sources alphabetically by publication name.\nRemove any duplicate entries.\nVerify all links are functional.\n\n## SEO and Formatting Guidelines:\nMaintain proper HTML formatting throughout.\nEnsure citations and hyperlinks don't interfere with keyword optimization.\nFormat the \"Sources\" section with proper HTML tags.\nUse appropriate heading tags (<h1>, <h2>, <h3>) for structure.\nInclude proper meta descriptions and title tags if required.\n\n### Output Format:\nThe edited summary should be structured as follows:\n\nMain content with inline citations (hyperlinked).\nThe \"Sources\" section at the end of the summary has all reference links. There should only be one \"Sources\" section.\n\nAdditional Requirements:\nMaintain academic integrity while ensuring readability.\nBalance SEO optimization with proper citation practices.\nEnsure all writers' contributions are properly attributed.\nPreserve the original meaning and intent of cited material.\nCreate smooth transitions between sections from different writers.\n\nToday's date is: {{ $now }}"
@@ -2628,8 +2658,8 @@
       "name": "Editor",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        3800,
-        2360
+        4200,
+        2680
       ],
       "typeVersion": 1.6
     },
@@ -2663,35 +2693,13 @@
           "timeout": 15000
         }
       },
-      "id": "018785f0-2fb0-47a7-83a4-c8fdf064e20d",
-      "name": "OpenAI3",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        3460,
-        2500
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "7lpyAVssSQvwtkjO",
-          "name": "Content Generation"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {
-          "responseFormat": "text",
-          "timeout": 15000
-        }
-      },
       "id": "ccac1282-79b3-4de7-b22c-68c8c1a65478",
       "name": "OpenAI4",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3940,
-        3020
+        3620,
+        2480
       ],
       "credentials": {
         "openAiApi": {
@@ -2733,142 +2741,13 @@
     },
     {
       "parameters": {
-        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"videoUrls\": [\n    \"<{{ $json.body[0].url }}>\"\n  ]\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        4300,
-        2620
-      ],
-      "id": "2e3069df-e0b9-4ba5-9f1a-cc91e75cabc5",
-      "name": "Comments - more"
-    },
-    {
-      "parameters": {
-        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"proxy\": {\n    \"useApifyProxy\": true,\n    \"apifyProxyGroups\": [\n      \"RESIDENTIAL\"\n    ],\n    \"apifyProxyCountry\": \"US\"\n  },\n  \"startUrls\": [\n    \"{{ $json.body[0].url }}\"\n  ],\n  \"maxConcurrency\": 10,\n  \"minConcurrency\": 1,\n  \"maxRequestRetries\": 10\n} ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        3680,
-        2620
-      ],
-      "id": "c7731f9a-1dcf-4ded-92df-dcbfbb69a703",
-      "name": "Video - More"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "82ebf343-e69a-4d27-8c4e-6af3040f8139",
-              "name": "html_title",
-              "value": "=<h2><{{ $('Videos Run ID1').item.json.body[0].videoTitle }}/h2> ",
-              "type": "string"
-            },
-            {
-              "id": "5e5bd01f-738d-4c03-b082-58edec4ff66b",
-              "name": "html_summary",
-              "value": "=<h3>Summary</h3>\n<p> {{ $('Summarization Chain1').item.json.response.text }}</p>\n",
-              "type": "string"
-            },
-            {
-              "id": "8e0a7b60-ff72-44c1-9c89-b3481f57b74a",
-              "name": "html_transcript",
-              "value": "=<h3>Transcript</h3> |<p>{{ $('Videos Run ID1').item.json.body[0].transcript }}</p> ",
-              "type": "string"
-            },
-            {
-              "id": "cf97b29c-dab0-4f7c-b3c3-38e1636f355c",
-              "name": "html_channelName",
-              "value": "={{ $('Videos Run ID1').item.json.body[0].channelName }}",
-              "type": "string"
-            },
-            {
-              "id": "2de8ce8b-0299-439c-9afe-1cda9a8a2006",
-              "name": "html_views",
-              "value": "={{ $('YT Transcript Ninja').item.json.body[0].views || 0 }}",
-              "type": "string"
-            },
-            {
-              "id": "539b48e2-841a-41e6-98e9-f34495f6b916",
-              "name": "html_videoPostDate",
-              "value": "={{ $('YT Transcript Ninja').item.json.body[0].videoPostDate }}",
-              "type": "string"
-            },
-            {
-              "id": "ba9117b6-99b9-4793-9069-ac02f855b3a7",
-              "name": "html_commentsCount",
-              "value": "={{ $('Comments - more').item.json.commentsCount || 0 }}",
-              "type": "number"
-            },
-            {
-              "id": "fae2b893-fc1a-4536-9011-f5793dc0be63",
-              "name": "html_positive_comments",
-              "value": "={{ $json.summary.positive.count || 0 }}",
-              "type": "string"
-            },
-            {
-              "id": "7301525b-266d-44d7-a6b9-c2f683143160",
-              "name": "html_neutral_comments",
-              "value": "={{ $json.summary.neutral.count || 0 }}",
-              "type": "number"
-            },
-            {
-              "id": "0196fbb4-bb9a-4928-ab57-60463f04db63",
-              "name": "html_negative_comments",
-              "value": "={{ $json.summary.negative.count || 0 }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4920,
-        2380
-      ],
-      "id": "226d8396-8bad-4d26-b14f-1a9e8c03039f",
-      "name": "gather_doc_data",
-      "alwaysOutputData": false
-    },
-    {
-      "parameters": {
-        "url": "https://api.apify.com/v2/acts/easyapi~youtube-video-metadata-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"videoUrls\": [\"https://www.youtube.com/watch?{{ $json.videoId }}\"]\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        4020,
-        2620
-      ],
-      "id": "d8660fc5-4d95-4de4-9af3-56ef6e888ba3",
-      "name": "Video - More1"
-    },
-    {
-      "parameters": {
         "jsCode": "// Initialize counters for each sentiment category\nlet positiveCount = 0;\nlet neutralCount = 0;\nlet negativeCount = 0;\n\n// Get the data from the Aggregate node\nconst aggregateData = $input.first().json;\n\n// Check if we have data array\nif (aggregateData && aggregateData.data && Array.isArray(aggregateData.data)) {\n  const dataItems = aggregateData.data;\n  const totalComments = dataItems.length;\n  \n  // Loop through each data item\n  dataItems.forEach(item => {\n    // Access the sentiment category from the sentimentAnalysis field\n    if (item.sentimentAnalysis && item.sentimentAnalysis.category) {\n      const category = item.sentimentAnalysis.category.toLowerCase();\n      \n      // Count based on sentiment category\n      if (category.includes('positive')) {\n        positiveCount++;\n      } else if (category.includes('negative')) {\n        negativeCount++;\n      } else if (category.includes('neutral')) {\n        neutralCount++;\n      }\n    }\n  });\n  \n  // Calculate percentages\n  const percentPositive = totalComments > 0 ? (positiveCount / totalComments * 100).toFixed(1) : 0;\n  const percentNeutral = totalComments > 0 ? (neutralCount / totalComments * 100).toFixed(1) : 0;\n  const percentNegative = totalComments > 0 ? (negativeCount / totalComments * 100).toFixed(1) : 0;\n  \n  // Return the summary\n  return {\n    json: {\n      summary: {\n        totalComments,\n        positive: {\n          count: positiveCount,\n          percentage: parseFloat(percentPositive)\n        },\n        neutral: {\n          count: neutralCount,\n          percentage: parseFloat(percentNeutral)\n        },\n        negative: {\n          count: negativeCount,\n          percentage: parseFloat(percentNegative)\n        }\n      }\n    }\n  };\n} else {\n  // Handle case where there's no data\n  return {\n    json: {\n      summary: {\n        totalComments: 0,\n        positive: { count: 0, percentage: 0 },\n        neutral: { count: 0, percentage: 0 },\n        negative: { count: 0, percentage: 0 }\n      }\n    }\n  };\n}"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4520,
-        2880
+        4560,
+        2320
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
       "name": "Sentiment Results"
@@ -2885,13 +2764,295 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3760,
-        2500
+        4120,
+        2800
       ],
       "credentials": {
         "openAiApi": {
-          "id": "7lpyAVssSQvwtkjO",
-          "name": "Content Generation"
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"proxy\": {\n    \"useApifyProxy\": true,\n    \"apifyProxyGroups\": [\n      \"RESIDENTIAL\"\n    ],\n    \"apifyProxyCountry\": \"US\"\n  },\n  \"startUrls\": [\n    \"{{ $json.body[0].url }}\"\n  ],\n  \"maxConcurrency\": 10,\n  \"minConcurrency\": 1,\n  \"maxRequestRetries\": 10\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2920,
+        2680
+      ],
+      "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
+      "name": "Video #1"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/easyapi~youtube-video-metadata-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"videoUrls\": [\"https://www.youtube.com/watch?{{ $json.videoId }}\"]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3140,
+        2680
+      ],
+      "id": "cc8a6f5a-1237-40cb-a04c-d728f70d8b09",
+      "name": "Video #2"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/xZZCnxEXR5Igzeds2/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"proxy\": {\n    \"useApifyProxy\": true,\n    \"apifyProxyGroups\": [\n      \"RESIDENTIAL\"\n    ],\n    \"apifyProxyCountry\": \"US\"\n  },\n  \"startUrls\": [\n    \"{{ $('Videos Run ID1').first().json.body[0].url }}\"\n  ],\n  \"maxConcurrency\": 10,\n  \"minConcurrency\": 1,\n  \"maxRequestRetries\": 10\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3360,
+        2680
+      ],
+      "id": "240f3002-e256-490b-8928-959d6a5e883d",
+      "name": "Video #3"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"videoUrls\": [\n    \"<{{ $json.body[0].url }}>\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3560,
+        2680
+      ],
+      "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
+      "name": "Comments - more1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"videoId\": \"{{ $('Video #1').item.json.videoId }}\",\n  \"videoTitle\": \"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\",\n  \"videoUrl\": \"{{ $('Videos Run ID1').item.json.body[0].url }}\",\n  \"publishDate\": \"{{ $('Videos Run ID1').item.json.body[0].videoPostDate }}\",\n  \"videoDuration\": \"{{ $('Video #3').item.json.lengthInSeconds }}\",\n  \"viewCount\": {{ $('Videos Run ID1').item.json.body[0].views }},\n  \"likeCount\": {{ $('Video #3').item.json.likeCount }},\n  \"commentCount\": {{ $('Video #3').item.json.commentCount }},\n  \"channelName\": \"{{ $('Videos Run ID1').item.json.body[0].channelName }}\",\n  \"channelUrl\": \"{{ $('Video #3').item.json.channelURL }}\",\n  \"subscriberCount\": \"{{ $('Video #3').item.json.channelSubscribers }}\",\n  \"videoDescription\": \"{{ $('Video #3').item.json.description }}\",\n  \"videoTags\": [{{ $('Video #3').item.json.tags }}],\n  \"reportDate\": {{$now.format('yyyy-MM-dd hh:mm:ss')}},\n  \"likesToViewsRatio\": {{$json[\"likeCount\"] / $json[\"viewCount\"]}},\n  \"commentsToViewsRatio\": {{$json[\"commentCount\"] / $json[\"viewCount\"]}},\n  \"contentSummary\": \"{{ $('Editor').item.json.output }}\",\n  \"topComments\": [\n    {\n      \"user\": \"UserTechEnthusiast\",\n      \"comment\": \"This is the most comprehensive overview of AI content tools I've seen. The section on voice synthesis was particularly eye-opening. Thanks for the balanced approach to the ethical considerations too!\"\n    },\n    {\n      \"user\": \"ContentCreator2025\",\n      \"comment\": \"I've been using some of these AI editing tools for the past month and can confirm they've cut my editing time by about 60%. Great breakdown of the options available!\"\n    },\n    {\n      \"user\": \"AIResearcher\",\n      \"comment\": \"As someone who works in AI development, I appreciate how accurately you portrayed the current capabilities and limitations of these technologies. One small correction though: the voice synthesis watermarking standards are actually still in development, not finalized as mentioned at 11:45.\"\n    },\n    {\n      \"user\": \"NewCreator\",\n      \"comment\": \"This video convinced me to finally try some AI tools in my workflow. The before/after examples really helped me understand the practical benefits. Any chance you could do a follow-up with more beginner-friendly tutorial content?\"\n    },\n    {\n      \"user\": \"TechEthicist\",\n      \"comment\": \"I wish the ethical considerations section had gone deeper into the employment implications for editors and writers. Otherwise, fantastic overview of the technology landscape.\"\n    }\n  ],\n  \"transcriptExcerpts\": [\n    {\n      \"time\": \"0:00\",\n      \"text\": \"Welcome to Tech Creators! I'm Alex, and today we're diving deep into how artificial intelligence is transforming content creation in 2025.\"\n    },\n    {\n      \"time\": \"0:15\",\n      \"text\": \"If you've been creating content for any amount of time, you've probably noticed the rapid acceleration of AI tools in our industry over the past year.\"\n    },\n    {\n      \"time\": \"2:15\",\n      \"text\": \"First up, AI video editing tools. This is perhaps the area that's seen the most dramatic improvements over the past year.\"\n    },\n    {\n      \"time\": \"6:48\",\n      \"text\": \"Now let's talk about script generation with AI. This technology has come a long way from the early days of generic, templated content.\"\n    },\n    {\n      \"time\": \"10:22\",\n      \"text\": \"Moving on to voice synthesis technology, which might be the most controversial advancement we're discussing today.\"\n    },\n    {\n      \"time\": \"14:05\",\n      \"text\": \"This brings us to the ethical considerations around AI in content creation. With great power comes great responsibility, and these tools certainly give creators unprecedented capabilities.\"\n    },\n    {\n      \"time\": \"17:30\",\n      \"text\": \"To conclude, AI is transforming content creation in ways we could only imagine a few years ago. These tools can dramatically improve efficiency and potentially the quality of our content.\"\n    }\n  ],\n  \"contentStrengths\": [\n    \"Comprehensive Coverage: The video thoroughly explores multiple AI applications in content creation, covering the full spectrum of tools available to creators.\",\n    \"Practical Demonstrations: Visual before/after examples effectively illustrate the real-world impact of AI tools, making abstract concepts concrete and accessible.\",\n    \"Balanced Perspective: The content thoughtfully addresses both the benefits and ethical concerns of AI technologies, enhancing credibility and audience trust.\",\n    \"Clear Structure: Well-organized sections with logical progression make complex technical information easy to follow, regardless of viewer expertise level.\",\n    \"Production Quality: Professional presentation with high-quality visuals and audio reinforces expertise and enhances viewer retention.\"\n  ],\n  \"contentOpportunities\": [\n    \"Ethical Depth: Several comments indicate viewer interest in a more thorough examination of employment implications and creative attribution issues.\",\n    \"Beginner Resources: Comments suggest demand for entry-level tutorials covering specific AI tools with step-by-step implementation guidance.\",\n    \"Technical Clarifications: Expert feedback highlights minor inaccuracies regarding standards development that could be addressed for improved authority.\",\n    \"Tool Affordability: Current focus appears to skew toward premium options; expanding coverage of accessible alternatives would broaden audience appeal.\",\n    \"Companion Resources: Adding downloadable guides or tool comparison charts would enhance practical value and extend engagement beyond the video.\"\n  ],\n  \"recommendations\": [\n    \"Create Follow-Up Tutorial Series: Develop a series of beginner-friendly tutorial videos for each AI tool category mentioned, with step-by-step guidance and downloadable resources. This directly addresses frequent viewer requests and extends the value of your expertise.\",\n    \"Produce an Ethics Deep-Dive: Create a dedicated video examining the ethical implications of AI in content creation, particularly focusing on employment impacts and attribution issues. The high engagement on ethical topics indicates significant audience interest in this area.\",\n    \"Develop Budget-Friendly Alternatives Guide: Compile a comparison guide of affordable AI tools alongside premium options to serve creators at all budget levels. This expands your audience reach while maintaining your authority on the full spectrum of available tools.\",\n    \"Implement Interactive Elements: Add polls, quizzes, or community challenges related to AI content creation to boost engagement and build a stronger community around this topic. The high comment ratio indicates an engaged audience ready for more interaction.\",\n    \"Collaborate with AI Developers: Partner with AI tool developers for exclusive demos or behind-the-scenes content. This would provide unique value to your audience while potentially opening new channel partnership opportunities.\"\n  ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4920,
+        2380
+      ],
+      "id": "226d8396-8bad-4d26-b14f-1a9e8c03039f",
+      "name": "gather_data",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Analyze this YouTube video information and create a concise, professional summary (250-300 words) that describes:\n\n1. The main topic and purpose of the video\n2. The key points or sections covered \n3. The presenter's communication approach\n4. 3-4 specific notable insights from the content\n5. Who would benefit most from this video\n\nUse only the information provided: \nTitle: \"{{ $('Video #3').item.json.title }}\", \nDescription: \"{{ $('Video #3').item.json.description }}\", \nTags: {{ $('Video #3').item.json.tags }}, \nand these transcript excerpts: {{ $('Videos Run ID1').item.json.body[0].transcript }}\n\nFormat your response as a neutral, analytical paragraph without using first-person language.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        3840,
+        2680
+      ],
+      "id": "9cd21e03-08f1-40c8-8a1a-7ab72a3d9b90",
+      "name": "cSummary",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Analyze this YouTube video information and generate 5 specific content strengths for a video titled \"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\" with these details:\n- Description: \"{{ $('Video #3').item.json.description }}\"\n- Tags: {{ $('Video #3').item.json.tags }}\n- Duration: {{ $('Video #3').item.json.lengthInSeconds }}\n- Top comments: {{topComments}}\n\nFor each strength:\n1. Identify a specific aspect of the content that appears to be executed well\n2. Format as \"Category: Detailed explanation\" (e.g., \"Visual Presentation: High-quality graphics with clear annotations make complex concepts easy to understand.\")\n3. Focus on content quality, structure, presentation style, information value, or audience engagement\n4. Base your analysis on the video's topic, structure, and audience reception\n5. Provide specific, substantive analysis rather than generic praise\n\nEnsure each strength is distinct and focuses on a different aspect of the content.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        3420,
+        2940
+      ],
+      "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
+      "name": "cStrengths",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Based on this YouTube video information, identify 5 specific improvement opportunities for a video titled \"\" with:\n- Description: \"{{ $('Video #3').item.json.description }}\"\n- Tags: {{ $('Video #3').item.json.tags }}\n- View-to-like ratio: {{$json[\"likesToViewsRatio\"]}}\n- Comments: {{topComments}}\n\nFor each opportunity:\n1. Identify a specific aspect that could be enhanced or expanded\n2. Format as \"Area: Detailed explanation\" (e.g., \"Technical Depth: The encryption section could benefit from more detailed examples showing practical implementation.\")\n3. Base your suggestions on viewer feedback in comments and content gaps based on the topic\n4. Be constructive and specific rather than critical\n5. Focus on content expansion, audience engagement, technical clarifications, or additional value-add elements\n\nEach opportunity should offer actionable insight that would meaningfully improve the video content.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        3840,
+        2940
+      ],
+      "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
+      "name": "cOpportunities",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Create 5 strategic, actionable recommendations for a YouTube creator to improve and expand upon their video \"{{ $('Video #3').item.json.title }}\" based on this data:\n- Video metrics: {{ $('Video #3').item.json.viewCount }} views, {{ $('Video #3').item.json.likeCount }} likes, {{ $('Video #3').item.json.commentCount }} comments\n- Description: \"\"\n- Tags: {{ $('Video #3').item.json.tags }}\n- Content strengths: {{ $('cStrengths').item.json.message.content }}\n- Content opportunities: {{ $json.message.content }}\n- Top comments: {{topComments}}\n\nEach recommendation should:\n1. Start with a clear, action-oriented title (e.g., \"Develop Series Extension:\")\n2. Include a detailed, specific explanation (approximately 30-50 words)\n3. Address a strategic opportunity to increase engagement, viewership, or content value\n4. Connect directly to insights from the data provided\n5. Include a specific potential outcome or benefit\n\nFormat each as \"Action Title: Detailed explanation with strategic rationale.\"\n\nRecommendations should be tailored to this specific video and channel context, not generic YouTube advice.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        4200,
+        2940
+      ],
+      "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
+      "name": "cRecommendations",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Given the YouTube video title \"{{ $('Video #3').item.json.title }}\" about {{ $('Video #3').item.json.tags }}, generate 7 realistic transcript excerpts that would appear throughout an educational video on this topic.\n\nEach excerpt should:\n1. Include a timestamp (starting with 0:00 and ending near the video duration of {{ $('Video #3').item.json.lengthInSeconds,\"seconds\"}})\n2. Reflect natural speaking patterns of an educational content creator\n3. Represent key moments in the video's narrative structure\n4. Include an introduction, key points for each major section, and a conclusion\n5. Match the tone and style suggested by the video description: \n\"{{ $('Video #3').item.json.description }}\"\n\nFormat each excerpt as a JSON object with \"time\" and \"text\" properties.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        2980,
+        2940
+      ],
+      "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
+      "name": "Tscripts Excerpts",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Given the YouTube video title \"{{videoTitle}}\" about {{videoTags[0]}}, generate 7 realistic transcript excerpts that would appear throughout an educational video on this topic.\n\nEach excerpt should:\n1. Include a timestamp (starting with 0:00 and ending near the video duration of {{videoDuration}})\n2. Reflect natural speaking patterns of an educational content creator\n3. Represent key moments in the video's narrative structure\n4. Include an introduction, key points for each major section, and a conclusion\n5. Match the tone and style suggested by the video description: \"{{videoDescription}}\"\n\nFormat each excerpt as a JSON object with \"time\" and \"text\" properties.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        4080,
+        2320
+      ],
+      "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
+      "name": "Top Comments",
+      "credentials": {
+        "openAiApi": {
+          "id": "dbsbEP9NpcetZP6N",
+          "name": "Research Assistant"
         }
       }
     }
@@ -2903,6 +3064,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-09T21:53:22.000Z",
-  "versionId": "b572489e-4f45-4b24-bd50-19a615fa5559"
+  "updatedAt": "2025-05-12T07:21:07.000Z",
+  "versionId": "3ae9e4db-266b-42e1-9a23-b3fa74f6bb17"
 }
