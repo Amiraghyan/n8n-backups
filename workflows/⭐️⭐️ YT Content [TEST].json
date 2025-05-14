@@ -272,11 +272,6 @@
         ]
       ]
     },
-    "Merge2": {
-      "main": [
-        []
-      ]
-    },
     "If zero comments": {
       "main": [
         [],
@@ -388,7 +383,7 @@
       "main": [
         [
           {
-            "node": "markdown_report",
+            "node": "Set Fields",
             "type": "main",
             "index": 0
           }
@@ -504,39 +499,6 @@
         ]
       ]
     },
-    "Google Docs": {
-      "main": [
-        [
-          {
-            "node": "Google Docs1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Markdown1": {
-      "main": [
-        [
-          {
-            "node": "Google Docs",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "markdown_report": {
-      "main": [
-        [
-          {
-            "node": "Markdown1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When chat message received": {
       "main": [
         [
@@ -570,22 +532,87 @@
         ]
       ]
     },
-    "Google Docs1": {
+    "Convert to File": {
+      "main": [
+        []
+      ]
+    },
+    "Report Fields": {
+      "main": [
+        []
+      ]
+    },
+    "Create GDoc Report": {
       "main": [
         [
           {
-            "node": "Convert to File",
+            "node": "Set Update",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Convert to File": {
+    "Data Preparation": {
       "main": [
         [
           {
-            "node": "Google Drive",
+            "node": "htmlContent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update GDoc Content": {
+      "main": [
+        [
+          {
+            "node": "Share Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "htmlContent": {
+      "main": [
+        [
+          {
+            "node": "Create GDoc Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Update": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Update GDoc Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields": {
+      "main": [
+        [
+          {
+            "node": "Data Preparation",
             "type": "main",
             "index": 0
           }
@@ -2451,23 +2478,6 @@
     },
     {
       "parameters": {
-        "mode": "combine",
-        "combineBy": "combineByPosition",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3,
-      "position": [
-        4940,
-        2260
-      ],
-      "id": "b8ef0c2d-86f1-4577-bbff-cb4bdd52e64b",
-      "name": "Merge2",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -2511,26 +2521,6 @@
       ],
       "id": "bc4d00f9-3c8e-4058-8b71-b02a74442f8a",
       "name": "html_summary_audio"
-    },
-    {
-      "parameters": {
-        "folderId": "1gSu4CuUtNEuoqfguuBZw5YCloEjKf9VH",
-        "title": "={{ $('Video #1').item.json.videoId }}"
-      },
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        5220,
-        2500
-      ],
-      "id": "fdd27649-12cf-404a-88d9-33a071e1f0db",
-      "name": "Google Docs",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
-        }
-      }
     },
     {
       "parameters": {
@@ -3006,7 +2996,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        4060,
+        4080,
         2360
       ],
       "id": "63828795-63b7-4fad-a7b4-efde33781da6",
@@ -3048,133 +3038,6 @@
         "openAiApi": {
           "id": "dbsbEP9NpcetZP6N",
           "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "mode": "raw",
-        "jsonOutput": "={\n  \"videoId\": \"{{ $('Video #1').item.json.videoId }}\",\n  \"videoTitle\": \"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\",\n  \"videoUrl\": \"{{ $('Videos Run ID1').item.json.body[0].url }}\",\n  \"publishDate\": \"{{ $('Videos Run ID1').item.json.body[0].videoPostDate }}\",\n  \"videoDuration\": \"{{ $('Video #3').item.json.lengthInSeconds }}\",\n  \"viewCount\": {{ $('Videos Run ID1').item.json.body[0].views }},\n  \"likeCount\": {{ $('Video #3').item.json.likeCount }},\n  \"commentCount\": {{ $('Video #3').item.json.commentCount }},\n  \"channelName\": \"{{ $('Videos Run ID1').item.json.body[0].channelName }}\",\n  \"channelUrl\": \"{{ $('Video #3').item.json.channelURL }}\",\n  \"subscriberCount\": \"{{ $('Video #3').item.json.channelSubscribers }}\",\n  \"videoDescription\": \"{{ $('Video #3').item.json.description }}\",\n  \"videoTags\": [{{ $('Video #3').item.json.tags }}],\n  \"reportDate\": {{$now.format('yyyy-MM-dd hh:mm:ss')}},\n  \"contentSummary\": \"{{ $('Editor').item.json.message.content }}\",\n\n  \"transcriptExcerpts\": [\n    {\n    {{ $('Transcript Excerpts').item.json.message.content }}\n    }\n  ],\n  \"contentStrengths\": [\n    {{ $('cStrengths').item.json.message.content }}\n  ],\n  \"contentOpportunities\": [\n   {{ $('cOpportunities').item.json.message.content }}\n  ],\n  \"recommendations\": [\n    {{ $('cRecommendations').item.json.message.content }}\n  ]\n} ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        5180,
-        2240
-      ],
-      "id": "e03e917e-df9b-466e-9eb1-ed5bd612d504",
-      "name": "gather_data1",
-      "alwaysOutputData": false,
-      "executeOnce": true
-    },
-    {
-      "parameters": {
-        "html": "# YouTube Video Analysis Report\n\n**Report Date:** {{$now.format('yyyy-MM-dd')}}\n\n---\n\n## Video Overview\n\n| | |\n|------------|-------------|\n| **Title** | {{ $('Videos Run ID1').item.json.body[0].videoTitle }} |\n| **URL** | {{ $('Videos Run ID1').item.json.body[0].url }} |\n| **Published** | {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} |\n| **Duration** | {{ $('Video #3').item.json.lengthInSeconds/60 }} min |\n| **Channel** | [{{ $('Video #3').item.json.channelURL }}) |\n| **Subscribers** | {{ $('Video #3').item.json.channelSubscribers }} |\n\n![Video Thumbnail]({{$node[\"Set\"].json[\"thumbnailUrl\"]}})\n\n---\n\n## Performance Metrics\n\n| Metric | Count | Ratio | Assessment |\n|--------|-------|-------|------------|\n| **Views** | {{ $('Video #3').item.json.viewCount }} | - | {% if $node[\"Set\"].json[\"viewCount\"] > 100000 %}Strong{% elif $node[\"Set\"].json[\"viewCount\"] > 10000 %}Good{% else %}Moderate{% endif %} |\n| **Likes** | {{ $('Video #3').item.json.likeCount }} |  | {% if $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.08 %}Above Average{% elif $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.05 %}Average{% else %}Below Average{% endif %} |\n| **Comments** | {{ $('Video #3').item.json.commentCount }} | % of views | {% if $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.005 %}High Engagement{% elif $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.002 %}Average Engagement{% else %}Low Engagement{% endif %} |\n\n---\n\n## Content Analysis\n\n### Video Description\n{{ $('Video #3').item.json.description }}\n\n### Tags\n{% for tag in $node[\"Set\"].json[\"videoTags\"] %}#{{ $('Video #3').item.json.tags }} {% endfor %}\n\n### Content Summary\n\n{{ $('Editor').item.json.message.content }}\n\n---\n\n## Audience Engagement\n\n### Top Comments\n\n{% for comment in $node[\"Set\"].json[\"topComments\"] %}\n> **{{comment.user}}:** \"{{comment.comment}}\"\n\n{% endfor %}\n\n### Key Transcript Moments\n\n{% for excerpt in $node[\"Set\"].json[\"transcriptExcerpts\"] %}\n**{{excerpt.time}}**: {{excerpt.text}}\n\n{% endfor %}\n\n---\n\n## SWOT Analysis\n\n### Content Strengths\n\n{% for strength in $node[\"Set\"].json[\"contentStrengths\"] %}\n**{{strength.split(':')[0]}}**: {{strength.split(':')[1]}}\n\n{% endfor %}\n\n### Content Opportunities\n\n{% for opportunity in $node[\"Set\"].json[\"contentOpportunities\"] %}\n**{{opportunity.split(':')[0]}}**: {{opportunity.split(':')[1]}}\n\n{% endfor %}\n\n---\n\n## Recommendations\n\n{% for rec in $node[\"Set\"].json[\"recommendations\"] %}\n### {{loop.index}}. {{rec.split(':')[0]}}\n{{rec.split(':')[1]}}\n\n{% endfor %}\n\n---\n\n*This report is based solely on publicly available information and estimated metrics. Advanced analytics like watch time, retention rates, and demographic data are only available to the channel owner.*"
-      },
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1.2,
-      "position": [
-        5740,
-        1980
-      ],
-      "id": "6d929b78-323d-4955-ba1f-ac8e76fb9949",
-      "name": "html_summary1"
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "={{ $json.id }}",
-        "simple": false,
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "={{ $('markdown_report').item.json.html }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        5440,
-        2500
-      ],
-      "id": "0d8e6329-9d50-4d0c-9af0-6b0bd09c327a",
-      "name": "Google Docs1",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "mode": "markdownToHtml",
-        "markdown": "={{ $json.html }}",
-        "destinationKey": "html",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.markdown",
-      "typeVersion": 1,
-      "position": [
-        5020,
-        2500
-      ],
-      "id": "d8954a4d-baba-499c-9d22-792ce51a8dee",
-      "name": "Markdown1"
-    },
-    {
-      "parameters": {
-        "html": "# YouTube Video Analysis Report\n\n**Report Date:** {{$now.format('yyyy-MM-dd')}}\n\n---\n\n## Video Overview\n\n| | |\n|------------|-------------|\n| **Title** | {{ $('Videos Run ID1').item.json.body[0].videoTitle }} |\n| **URL** | {{ $('Videos Run ID1').item.json.body[0].url }} |\n| **Published** | {{ $('Videos Run ID1').item.json.body[0].videoPostDate }} |\n| **Duration** | {{ $('Video #3').item.json.lengthInSeconds/60 }} min |\n| **Channel** | [{{ $('Video #3').item.json.channelURL }}) |\n| **Subscribers** | {{ $('Video #3').item.json.channelSubscribers }} |\n\n\n---\n\n## Performance Metrics\n\n| Metric | Count | Ratio | Assessment |\n|--------|-------|-------|------------|\n| **Views** | {{ $('Video #3').item.json.viewCount }} | - | {% if $node[\"Set\"].json[\"viewCount\"] > 100000 %}Strong{% elif $node[\"Set\"].json[\"viewCount\"] > 10000 %}Good{% else %}Moderate{% endif %} |\n| **Likes** | {{ $('Video #3').item.json.likeCount }} |  | {% if $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.08 %}Above Average{% elif $node[\"Set\"].json[\"likesToViewsRatio\"] > 0.05 %}Average{% else %}Below Average{% endif %} |\n| **Comments** | {{ $('Video #3').item.json.commentCount }} | % of views | {% if $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.005 %}High Engagement{% elif $node[\"Set\"].json[\"commentsToViewsRatio\"] > 0.002 %}Average Engagement{% else %}Low Engagement{% endif %} |\n\n---\n\n## Content Analysis\n\n### Video Description\n{{ $('Video #3').item.json.description }}\n\n### Tags\n{% for tag in $node[\"Set\"].json[\"videoTags\"] %}#{{ $('Video #3').item.json.tags }} {% endfor %}\n\n### Content Summary\n\n{{ $('Editor').item.json.message.content }}\n\n---\n\n*This report is based solely on publicly available information and estimated metrics. Advanced analytics like watch time, retention rates, and demographic data are only available to the channel owner.*"
-      },
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1.2,
-      "position": [
-        4820,
-        2500
-      ],
-      "id": "7bfa2210-0b2d-43ef-bc77-194bcda01a09",
-      "name": "markdown_report"
-    },
-    {
-      "parameters": {
-        "url": "https://www.googleapis.com/upload/drive/v3/files",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "googleDocsOAuth2Api",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "uploadType",
-              "value": "multipart"
-            },
-            {
-              "name": "Filename",
-              "value": "={{ $('Video #3').item.json.id }}"
-            },
-            {
-              "name": "output",
-              "value": "={{ $json.html }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        5340,
-        1960
-      ],
-      "id": "02b72ee4-57a9-46fb-a23c-26f36cec501f",
-      "name": "HTTP Request",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
         }
       }
     },
@@ -3285,59 +3148,346 @@
     },
     {
       "parameters": {
-        "operation": "update",
-        "fileId": {
-          "__rl": true,
-          "value": "1GsIi37YAY-24DI8xQVBWJpSMSze_OQE73e9lv7X_dEI",
-          "mode": "list",
-          "cachedResultName": "62SA_YwUg5Q",
-          "cachedResultUrl": "https://docs.google.com/document/d/1GsIi37YAY-24DI8xQVBWJpSMSze_OQE73e9lv7X_dEI/edit?usp=drivesdk"
-        },
-        "changeFileContent": true,
-        "inputDataFieldName": "=data {{ $('markdown_report').item.json.html }}",
-        "newUpdatedFileName": "={{ $('Google Docs').item.json.name }}",
+        "operation": "toBinary",
+        "binaryPropertyName": "={{ $('markdown_report').item.json.html }}",
         "options": {}
       },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
       "position": [
-        5860,
+        6580,
+        2580
+      ],
+      "id": "16102fe4-ed36-4260-81ff-261f4d6502bc",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process all items and output as required by Split Out Items node.\nreturn $input.all().map(item => {\n  const inputData = item.json;\n  return {\n    json: {\n      videoTitle: inputData.title || inputData.videoTitle || \"YouTube Video Analysis\",\n      videoUrl: inputData.url || inputData.videoUrl || \"\"\n      // ... add remaining fields as in previous code\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4800,
+        2260
+      ],
+      "id": "2753f94d-763f-43a8-9425-7685235dfa0f",
+      "name": "Report Fields"
+    },
+    {
+      "parameters": {
+        "url": "=\"=https://www.googleapis.com/drive/v3/files/{{$node[\\\"Create Google Doc\\\"].json.documentId}}/permissions\"",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n    \"role\": \"reader\",\n    \"type\": \"anyone\"\n  }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        6560,
         2500
       ],
-      "id": "8c744a5e-f9c4-4e88-8bc0-282ea4856b8a",
-      "name": "Google Drive",
+      "id": "535e2176-a134-475f-9ef2-d1c4a79e24ea",
+      "name": "Share Link"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://docs.googleapis.com/v1/documents",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDocsOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"title\": \"Test Template: {{$json.videoTitle}}\" }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5380,
+        2500
+      ],
+      "id": "d5cfe3f3-029c-4469-a7cc-7203cba73c09",
+      "name": "Create GDoc Report",
       "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "HR5Tk4YDcaNJda9N",
-          "name": "Google Drive Sergio"
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
         }
       }
     },
     {
       "parameters": {
-        "operation": "html",
-        "binaryPropertyName": "={{ $('markdown_report').item.json.html }}",
-        "options": {
-          "fileName": "={{ $('Google Docs').item.json.name }}"
-        }
+        "jsCode": "// Map over all input items and process each one\nreturn $input.all().map(item => {\n  // You can modify item.json or add new properties as needed\n  return item;\n});"
       },
-      "type": "n8n-nodes-base.convertToFile",
-      "typeVersion": 1.1,
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
       "position": [
-        5660,
+        4980,
         2500
       ],
-      "id": "16102fe4-ed36-4260-81ff-261f4d6502bc",
-      "name": "Convert to File"
+      "id": "fb9515e5-f44f-4af7-8f57-14fd5b1d159b",
+      "name": "Data Preparation"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Function to generate YouTube report with data\nmodule.exports = function() {\n  // Get input data\n  const inputData = $input.item.json;\n  \n  // Calculate additional metrics\n  const viewCount = Number(inputData.viewCount) || 0;\n  const likeCount = Number(inputData.likeCount) || 0;\n  const commentCount = Number(inputData.commentCount) || 0;\n  \n  const likesToViewsRatio = viewCount > 0 ? likeCount / viewCount : 0;\n  const commentsToViewsRatio = viewCount > 0 ? commentCount / viewCount : 0;\n  \n  // Format duration from seconds\n  const formatDuration = (seconds) => {\n    if (!seconds) return \"00:00\";\n    const totalSeconds = Number(seconds);\n    if (isNaN(totalSeconds)) return \"00:00\";\n    \n    const hours = Math.floor(totalSeconds / 3600);\n    const minutes = Math.floor((totalSeconds % 3600) / 60);\n    const secs = Math.floor(totalSeconds % 60);\n    \n    if (hours > 0) {\n      return `${hours}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;\n    } else {\n      return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;\n    }\n  };\n  \n  // Format date (if it's in ISO format)\n  const formatDate = (dateString) => {\n    if (!dateString) return \"\";\n    \n    // Check if dateString is in ISO format\n    if (dateString.includes('T')) {\n      return dateString.split('T')[0];\n    }\n    return dateString;\n  };\n  \n  // Prepare data object with all required values\n  const data = {\n    reportDate: inputData.reportDate || new Date().toLocaleDateString('en-US', {\n      day: '2-digit',\n      month: 'short',\n      year: '2-digit'\n    }),\n    videoTitle: inputData.videoTitle || inputData.title || \"Untitled Video\",\n    channelName: inputData.channelName || inputData.channelDisplayName || \"\",\n    publishDate: formatDate(inputData.publishDate || inputData.uploadDatetime || \"\"),\n    viewCount: viewCount.toLocaleString(),\n    likeCount: likeCount.toLocaleString(),\n    commentCount: commentCount.toLocaleString(),\n    likesToViewsRatio: likesToViewsRatio,\n    commentsToViewsRatio: commentsToViewsRatio,\n    videoUrl: inputData.videoUrl || inputData.url || \"\",\n    videoDuration: formatDuration(inputData.lengthInSeconds),\n    channelUrl: inputData.channelUrl || inputData.channelURL || \"\",\n    subscriberCount: inputData.subscriberCount || inputData.channelSubscribers || \"0\",\n    videoDescription: inputData.videoDescription || inputData.description || \"\",\n    videoTags: Array.isArray(inputData.videoTags || inputData.tags) ? \n               (inputData.videoTags || inputData.tags) : [],\n    contentSummary: inputData.contentSummary || \"\"\n  };\n  \n  // Generate the report content\n  const reportContent = `# YouTube Video Analysis Report\n\n**Report Date:** ${data.reportDate}\n\n---\n\n## Executive Summary\n\nThis report analyzes the YouTube video \"${data.videoTitle}\" published by ${data.channelName} on ${data.publishDate}. The video has received ${data.viewCount} views, ${data.likeCount} likes, and ${data.commentCount} comments since publication.\n\nKey performance indicators show **${data.likesToViewsRatio > 0.08 ? \"above average\" : data.likesToViewsRatio > 0.05 ? \"average\" : \"below average\"}** engagement based on like-to-view ratio (${(data.likesToViewsRatio * 100).toFixed(1)}%), with a comment-to-view ratio of ${(data.commentsToViewsRatio * 100).toFixed(2)}% indicating **${data.commentsToViewsRatio > 0.005 ? \"high\" : data.commentsToViewsRatio > 0.002 ? \"average\" : \"low\"}** audience interaction.\n\n---\n\n## Video Overview\n\n| | |\n|------------|-------------|\n| **Title** | ${data.videoTitle} |\n| **URL** | ${data.videoUrl} |\n| **Published** | ${data.publishDate} |\n| **Duration** | ${data.videoDuration} |\n| **Channel** | ${data.channelName} |\n| **Subscribers** | ${data.subscriberCount} |\n\n---\n\n## Performance Metrics\n\n| Metric | Count | Ratio | Assessment |\n|--------|-------|-------|------------|\n| **Views** | ${data.viewCount} | - | ${viewCount > 100000 ? \"Strong\" : viewCount > 10000 ? \"Good\" : \"Moderate\"} |\n| **Likes** | ${data.likeCount} | ${(data.likesToViewsRatio * 100).toFixed(1)}% of views | ${data.likesToViewsRatio > 0.08 ? \"Above Average\" : data.likesToViewsRatio > 0.05 ? \"Average\" : \"Below Average\"} |\n| **Comments** | ${data.commentCount} | ${(data.commentsToViewsRatio * 100).toFixed(2)}% of views | ${data.commentsToViewsRatio > 0.005 ? \"High Engagement\" : data.commentsToViewsRatio > 0.002 ? \"Average Engagement\" : \"Low Engagement\"} |\n\n---\n\n## Content Analysis\n\n### Video Description\n\n\\`\\`\\`\n${data.videoDescription}\n\\`\\`\\`\n\n### Tags\n${data.videoTags.map(tag => `#${tag}`).join(' ')}\n\n### Content Summary\n\n${data.contentSummary}\n\n---\n\n## SWOT Analysis\n\n### Content Strengths\n\n- **Industry Expertise:** Deep knowledge of automotive retail digital landscape\n- **Practical Insights:** Actionable recommendations for dealers and OEMs\n- **Candid Discussion:** Honest assessment of industry challenges\n- **Structured Format:** Clear organization of complex topics\n- **Authority Positioning:** Establishes thought leadership in automotive technology\n\n### Content Opportunities\n\n- **Audience Growth:** Channel has potential to reach more industry professionals\n- **Visual Elements:** Could benefit from graphics and data visualization\n- **Content Segmentation:** Long interview could be split into topic-focused clips\n- **SEO Optimization:** Additional industry keywords could improve discoverability\n- **Call-to-Action:** More specific viewer prompts could increase engagement\n\n---\n\n## Strategic Recommendations\n\n### 1. Create Topic-Specific Clips\nExtract 3-5 minute segments on key topics for higher shareability and to reach new audiences through more digestible content. Focus on creating standalone clips that provide value even without watching the full interview.\n\n### 2. Develop Follow-Up Content\nCreate dedicated episodes on specific subtopics mentioned in this interview, particularly around data privacy compliance and website optimization for conversions. This can establish a content series that builds on viewer interest.\n\n### 3. Enhance SEO Strategy\nOptimize with industry-specific keywords for better discoverability. Consider adding timestamps in the description for key topics to improve user experience and search visibility.\n\n### 4. Implement Visual Elements\nAdd simple graphics, statistics, or text overlays to emphasize key points during lengthy explanations. This improves information retention and creates more shareable moments.\n\n### 5. Cross-Promote Content\nLeverage connections with featured guests to expand distribution through their networks and platforms, particularly through LinkedIn and industry-specific communities.\n\n---\n\n## Action Items\n\nBased on this analysis, here are the suggested next steps:\n\n1. **Create Topic-Specific Clips** - Begin implementation within 7 days\n2. **Develop Follow-Up Content** - Plan within 14 days\n3. **Address Audience Growth** - In next content creation cycle\n4. **Leverage Industry Expertise** - Across channel content\n\n---\n\n*This report was automatically generated on ${data.reportDate} based on publicly available data. For more detailed analytics including audience retention, demographics, and traffic sources, please refer to YouTube Studio analytics.*`;\n\n  // Google Doc format conversion - Convert markdown to Google Doc format\n  // This creates a structured array of requests for the Google Docs API\n  function convertMarkdownToGoogleDocsRequests(markdown) {\n    const requests = [];\n    let currentIndex = 1; // Start after title\n    \n    // Helper function to add text and track position\n    function appendText(text, style = null) {\n      if (!text) return;\n      \n      const textLength = text.length;\n      \n      // Insert the text\n      requests.push({\n        insertText: {\n          location: { index: currentIndex },\n          text: text\n        }\n      });\n      \n      // Apply style if specified\n      if (style) {\n        requests.push({\n          updateParagraphStyle: {\n            range: {\n              startIndex: currentIndex,\n              endIndex: currentIndex + textLength\n            },\n            paragraphStyle: style,\n            fields: \"namedStyleType\"\n          }\n        });\n      }\n      \n      // Update position\n      currentIndex += textLength;\n    }\n    \n    // Split markdown into lines\n    const lines = markdown.split('\\n');\n    \n    // Process each line\n    for (let i = 0; i < lines.length; i++) {\n      const line = lines[i];\n      \n      // Process headers\n      if (line.startsWith('# ')) {\n        appendText(line.substring(2) + '\\n\\n', { namedStyleType: \"HEADING_1\" });\n      } \n      else if (line.startsWith('## ')) {\n        appendText(line.substring(3) + '\\n\\n', { namedStyleType: \"HEADING_2\" });\n      } \n      else if (line.startsWith('### ')) {\n        appendText(line.substring(4) + '\\n\\n', { namedStyleType: \"HEADING_3\" });\n      }\n      // Process horizontal rules\n      else if (line.startsWith('---')) {\n        appendText('─────────────────────────────────────────────────\\n\\n');\n      }\n      // Process bold text (simplified approach)\n      else if (line.includes('**')) {\n        // This is a simplified approach - in a real implementation,\n        // you would need more complex parsing for mixed formatting\n        appendText(line + '\\n\\n');\n      }\n      // Process tables (simplified)\n      else if (line.includes('|')) {\n        // In a real implementation, you'd use the insertTable request type\n        // for Google Docs API, but this is more complex\n        appendText(line + '\\n');\n      }\n      // Process code blocks\n      else if (line.startsWith('```')) {\n        // For code blocks, continue appending lines until we hit the closing ```\n        let codeBlock = '';\n        i++; // Skip the opening ```\n        while (i < lines.length && !lines[i].startsWith('```')) {\n          codeBlock += lines[i] + '\\n';\n          i++;\n        }\n        appendText(codeBlock + '\\n\\n');\n      }\n      // Process bullet points\n      else if (line.trim().startsWith('- ')) {\n        appendText(line + '\\n');\n      }\n      // Process numbered lists\n      else if (/^\\d+\\.\\s/.test(line.trim())) {\n        appendText(line + '\\n');\n      }\n      // Standard paragraph\n      else {\n        appendText(line + '\\n');\n      }\n    }\n    \n    return requests;\n  }\n  \n  // Convert the markdown to Google Docs API requests\n  const docRequests = convertMarkdownToGoogleDocsRequests(reportContent);\n  \n  // Add fields to each input item, or just pass through existing items\n  return $input.all().map(item => ({\n    json: {\n      ...item.json,\n      customField: 'Your Value Here' // Add any data you want to each item\n    }\n  }));\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6300,
+        2500
+      ],
+      "id": "87ea5a0f-1cda-4424-b144-12f3e4896cd4",
+      "name": "Update GDoc Content"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8a1e4f7a-943b-49b6-89db-06ee47d85b1e",
+              "name": "htmlContent",
+              "value": "=<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">     <title>YouTube Analysis Test Template</title>     <style>         body {             font-family: Arial, sans-serif;             line-height: 1.6;             max-width: 800px;             margin: 0 auto;             padding: 20px;         }         h1 {             color: #c00;             border-bottom: 1px solid #ccc;             padding-bottom: 10px;         }         .section {             margin-bottom: 20px;             padding: 15px;             background-color: #f9f9f9;             border-radius: 5px;         }         .field {             margin-bottom: 10px;         }         .label {             font-weight: bold;             display: inline-block;             width: 150px;         }         .value {             display: inline-block;         }         .highlight {             background-color: #ffffcc;             padding: 2px 5px;             border-radius: 3px;         }     </style> </head> <body>     <h1>YouTube Analysis Test Template</h1>          <div class=\"section\">         <h2>Basic Information</h2>         <div class=\"field\">             <span class=\"label\">Title:</span>             <span class=\"value highlight\">{{ $json.title }}</span>         </div>         <div class=\"field\">             <span class=\"label\">URL:</span>             <span class=\"value\">{{ $json.url }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Publish Date:</span>             <span class=\"value highlight\">{{ $json.publishedDate }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Duration:</span>             <span class=\"value\">{{$json.lengthInSeconds}} seconds</span>         </div>     </div>      <div class=\"section\">         <h2>Channel Information</h2>         <div class=\"field\">             <span class=\"label\">Channel Name:</span>             <span class=\"value highlight\">{{ $json.channelDisplayName }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Channel URL:</span>             <span class=\"value\">{{ $json.channelURL }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Subscribers:</span>             <span class=\"value highlight\">{{ $json.channelSubscribers }}</span>         </div>     </div>      <div class=\"section\">         <h2>Performance Metrics</h2>         <div class=\"field\">             <span class=\"label\">Views:</span>             <span class=\"value highlight\">{{$json.viewCount}}</span>         </div>         <div class=\"field\">             <span class=\"label\">Likes:</span>             <span class=\"value highlight\">{{$json.likeCount}}</span>         </div>         <div class=\"field\">             <span class=\"label\">Comments:</span>             <span class=\"value highlight\">{{$json.commentCount}}</span>         </div>     </div>      <div class=\"section\">         <h2>Content</h2>         <div class=\"field\">             <div class=\"label\">Tags:</div>             <div class=\"value\">{{ $json.tags }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Description:</div>             <div class=\"value\" style=\"white-space: pre-wrap;\">{{ $json.description }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Content Summary:</div>             <div class=\"value highlight\" style=\"white-space: pre-wrap;\">{{ $json['cSummary - refined'] }}</div>         </div>     </div>      <div class=\"section\">         <h2>Report Information</h2>         <div class=\"field\">             <span class=\"label\">Report Date:</span>             <span class=\"value highlight\">{{$json.reportDate}}</span>         </div>         <div class=\"field\">             <span class=\"label\">Document ID:</span>             <span class=\"value\">{{$node[\"Create GDoc Report\"].json.documentId}}</span>         </div>     </div>  </body> </html>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5200,
+        2500
+      ],
+      "id": "0b2c4302-39c7-42c1-84d8-eadce22577b7",
+      "name": "htmlContent"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"documentId\": \"{{$json.documentId}}\",\n  \"requests\": [\n    {\n      \"insertText\": {\n        \"location\": { \"index\": 1 },\n        \"text\": \"{{$json.htmlContent}}\"\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5600,
+        2500
+      ],
+      "id": "cb97f669-b62c-4200-b351-6292951e01b1",
+      "name": "Set Update"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://docs.googleapis.com/v1/documents/{{$json.documentId}}:batchUpdate",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDocsOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"requests\": {{$json.requests}} }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5820,
+        2500
+      ],
+      "id": "21467832-ee6a-4bf1-9763-3ff7a86a756e",
+      "name": "HTTP Request",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a6d2bb42-9851-4bcf-88c9-a0a64a8b1a66",
+              "name": "id",
+              "value": "={{ $('Video #3').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "98d5d864-30b2-479f-821c-5c6e84f44816",
+              "name": "url",
+              "value": "={{ $('Video #3').item.json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "d5b69112-36aa-4f73-a9c8-ff36a3a0186c",
+              "name": "title",
+              "value": "={{ $('Video #3').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "6f0044dc-6c54-4486-a987-baffd687be72",
+              "name": "description",
+              "value": "={{ $('Video #3').item.json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "76cd2bb4-ae7b-4b04-b100-5571b4916f5b",
+              "name": "lengthInSeconds",
+              "value": "={{ $('Video #3').item.json.lengthInSeconds }}",
+              "type": "number"
+            },
+            {
+              "id": "082eafe5-86dc-4b37-9a56-4b49d76c169d",
+              "name": "publishedDate",
+              "value": "={{ $('Video #3').item.json.uploadDatetime }}",
+              "type": "string"
+            },
+            {
+              "id": "583cc54a-d6da-48b6-af3f-24ef690c1471",
+              "name": "category",
+              "value": "={{ $('Video #3').item.json.category }}",
+              "type": "string"
+            },
+            {
+              "id": "6de1dd9c-9212-42a0-af77-469a0d99bf37",
+              "name": "tags",
+              "value": "={{ $('Video #3').item.json.tags }}",
+              "type": "array"
+            },
+            {
+              "id": "2813f62a-2330-43f9-a373-8735f6e57355",
+              "name": "channelID",
+              "value": "={{ $('Video #3').item.json.channelID }}",
+              "type": "string"
+            },
+            {
+              "id": "1c10857e-9efe-412f-9c5c-9a5bbaa540fe",
+              "name": "channelURL",
+              "value": "={{ $('Video #3').item.json.channelURL }}",
+              "type": "string"
+            },
+            {
+              "id": "d1a68eda-757d-441a-bfae-e78ace8d8a7b",
+              "name": "channelUsername",
+              "value": "={{ $('Video #3').item.json.channelUsername }}",
+              "type": "string"
+            },
+            {
+              "id": "a4b1921f-dfcd-4ff8-80eb-25909ae19a52",
+              "name": "channelDisplayName",
+              "value": "={{ $('Video #3').item.json.channelDisplayName }}",
+              "type": "string"
+            },
+            {
+              "id": "56394597-3c6b-4a42-988d-72970969f034",
+              "name": "channelSubscribers",
+              "value": "={{ $('Video #3').item.json.channelSubscribers }}",
+              "type": "string"
+            },
+            {
+              "id": "f7e4fae0-3b3d-422b-85dc-c8519bb72021",
+              "name": "viewCount",
+              "value": "={{ $('Video #3').item.json.viewCount }}",
+              "type": "number"
+            },
+            {
+              "id": "f64b2963-d190-41bf-8c83-62f9cff210c0",
+              "name": "likeCount",
+              "value": "={{ $('Video #3').item.json.likeCount }}",
+              "type": "number"
+            },
+            {
+              "id": "e1254a80-e9e5-4c3a-97ca-98cce0e3a1e6",
+              "name": "commentCount",
+              "value": "={{ $('Video #3').item.json.commentCount }}",
+              "type": "number"
+            },
+            {
+              "id": "6499b86b-0002-42df-9fc4-7420739c6258",
+              "name": "transcripts",
+              "value": "={{ $('Video #3').item.json.transcripts }}",
+              "type": "array"
+            },
+            {
+              "id": "41e5ff5b-6816-4282-9e3c-ad9d8a168162",
+              "name": "category",
+              "value": "={{ $('Video #3').item.json.category }}",
+              "type": "string"
+            },
+            {
+              "id": "c7d901d4-7479-48b7-87f4-2b2c15d463ef",
+              "name": "description",
+              "value": "={{ $('Video #3').item.json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "22500735-332c-4b2d-994a-9cf5cb8f2c09",
+              "name": "cSummary - raw",
+              "value": "={{ $('cSummary').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "1acd37c0-e6de-44d8-8a59-6c784f94dc2d",
+              "name": "cSummary - refined",
+              "value": "={{ $('Editor').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "542c07d2-2c39-4c73-ac6d-e7bddd68b516",
+              "name": "summary.positive",
+              "value": "={{ $json.summary.positive }}",
+              "type": "object"
+            },
+            {
+              "id": "f79122c8-7a71-4b98-8b8d-0f8ddff3f0d7",
+              "name": "summary.neutral",
+              "value": "={{ $json.summary.neutral }}",
+              "type": "object"
+            },
+            {
+              "id": "71042534-79be-421c-8b25-81d3e3d68745",
+              "name": "summary.negative",
+              "value": "={{ $json.summary.negative }}",
+              "type": "object"
+            },
+            {
+              "id": "a7069bcd-90e3-45d5-88b2-e012075ea0dc",
+              "name": "reportDate",
+              "value": "={{ \"$now.format('yyyy-MM-dd')\" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4800,
+        2500
+      ],
+      "id": "7610fa39-e707-4745-9865-23118c93f9de",
+      "name": "Set Fields"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Test workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-12T16:52:09.000Z",
-  "versionId": "3222da6b-d827-4850-bccc-7f006484dfca"
+  "updatedAt": "2025-05-14T07:33:35.000Z",
+  "versionId": "df4d14ed-15a2-4ba6-a7fb-d8e5e71a8d17"
 }
