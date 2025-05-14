@@ -499,61 +499,12 @@
         ]
       ]
     },
-    "When chat message received": {
-      "main": [
-        [
-          {
-            "node": "set_fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "set_fields": {
-      "main": [
-        [
-          {
-            "node": "Prepare_Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Prepare_Request": {
-      "main": [
-        [
-          {
-            "node": "CreateGoogleDoc1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Convert to File": {
-      "main": [
-        []
-      ]
-    },
     "Report Fields": {
       "main": [
         []
       ]
     },
     "Create GDoc Report": {
-      "main": [
-        [
-          {
-            "node": "Set Update",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Data Preparation": {
       "main": [
         [
           {
@@ -564,18 +515,7 @@
         ]
       ]
     },
-    "Update GDoc Content": {
-      "main": [
-        [
-          {
-            "node": "Share Link",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "htmlContent": {
+    "Data Preparation": {
       "main": [
         [
           {
@@ -584,6 +524,16 @@
             "index": 0
           }
         ]
+      ]
+    },
+    "Update GDoc Content": {
+      "main": [
+        []
+      ]
+    },
+    "htmlContent": {
+      "main": [
+        []
       ]
     },
     "Set Update": {
@@ -599,20 +549,96 @@
     },
     "HTTP Request": {
       "main": [
-        [
-          {
-            "node": "Update GDoc Content",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Set Fields": {
       "main": [
         [
           {
-            "node": "Data Preparation",
+            "node": "Copy Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        []
+      ]
+    },
+    "Client Details": {
+      "main": [
+        [
+          {
+            "node": "Set Value",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Value": {
+      "main": [
+        [
+          {
+            "node": "Make a copy of template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make a copy of template": {
+      "main": [
+        [
+          {
+            "node": "Edit the Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit the Template": {
+      "main": [
+        [
+          {
+            "node": "Share",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Share": {
+      "main": [
+        [
+          {
+            "node": "Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Copy Template": {
+      "main": [
+        [
+          {
+            "node": "VarToValues",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VarToValues": {
+      "main": [
+        [
+          {
+            "node": "Share Link",
             "type": "main",
             "index": 0
           }
@@ -2570,7 +2596,7 @@
       "typeVersion": 4.2,
       "position": [
         6640,
-        2380
+        2400
       ],
       "id": "06252a93-395a-494e-9873-1c8306b24344",
       "name": "Transcript w/TS"
@@ -3043,21 +3069,6 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        2080,
-        3460
-      ],
-      "id": "dca0bcdb-67d8-468a-adbf-6d26fe0aa324",
-      "name": "When chat message received",
-      "webhookId": "11daa23e-a970-42e5-8253-60f1366faded",
-      "disabled": true
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "https://www.googleapis.com/upload/drive/v3/files",
         "authentication": "predefinedCredentialType",
@@ -3084,8 +3095,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2700,
-        3460
+        6420,
+        2620
       ],
       "id": "ea688345-20de-4b00-9fdc-113b2e5f778b",
       "name": "CreateGoogleDoc1",
@@ -3099,97 +3110,16 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "e7ee03ac-13e3-4fca-a7bc-57c8fc56dc42",
-              "name": "document_name",
-              "value": "=testfile",
-              "type": "string"
-            },
-            {
-              "id": "48a07ef2-ae46-4bfc-aa7e-d92a74ef46d6",
-              "name": "html_content",
-              "value": "={{ $json.chatInput }}",
-              "type": "string"
-            },
-            {
-              "id": "22b02fba-ba72-423a-b92f-1191a183a554",
-              "name": "drive_folder_id",
-              "value": "1qFasd7qnWYMG5DuH9_QL6z47RJszAJRX",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2280,
-        3460
-      ],
-      "id": "cdb5c739-964a-48c9-901c-4f325faab631",
-      "name": "set_fields",
-      "notesInFlow": true
-    },
-    {
-      "parameters": {
-        "jsCode": "const boundary = 'divider';\nconst docName = $input.first().json.document_name;\nconst folderId = $input.first().json.drive_folder_id;\nconst htmlContent = $input.first().json.html_content;\n\nconst metadata = JSON.stringify({\n  name: docName,\n  mimeType: \"application/vnd.google-apps.document\",\n  parents: [folderId]\n});\n\nconst htmlWithStyles = `\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <style>\n    /* Add bottom margin to block elements for spacing */\n    p,\n    ul,\n    ol,\n    table,\n    h1,\n    h2,\n    h3,\n    h4,\n    h5,\n    h6 {\n      margin-bottom: 10pt;\n    }\n\n    h2 {\n      margin-top: 20pt;\n    }\n\n    /* Prevent margin collapse issues or excessive space inside lists */\n    li {\n       margin-bottom: 2pt; /* Optional: small space between list items */\n    }\n\n    /* Remove margin from the last child within common containers if needed */\n    /* This might be overly aggressive, test without it first */\n    /*\n    body > *:last-child,\n    li > *:last-child {\n       margin-bottom: 0;\n    }\n    */\n  </style>\n</head>\n<body>\n  ${htmlContent}\n</body>\n</html>\n`;\n\n// Construct the body with literal \\r\\n ONLY\nlet body = `--${boundary}\\r\\n`;\nbody += `Content-Type: application/json; charset=UTF-8\\r\\n`;\nbody += `\\r\\n`; // Blank line\nbody += `${metadata}\\r\\n`;\nbody += `--${boundary}\\r\\n`;\nbody += `Content-Type: text/html\\r\\n`;\nbody += `\\r\\n`; // Blank line\nbody += `${htmlWithStyles}\\r\\n`; // Add the HTML content\nbody += `--${boundary}--\\r\\n`; // Final boundary\n\nreturn {\n  rawData: body \n};"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2480,
-        3460
-      ],
-      "id": "ac584ff7-657f-4351-9d7d-102afe18779a",
-      "name": "Prepare_Request"
-    },
-    {
-      "parameters": {
-        "operation": "toBinary",
-        "binaryPropertyName": "={{ $('markdown_report').item.json.html }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.convertToFile",
-      "typeVersion": 1.1,
-      "position": [
-        6580,
-        2580
-      ],
-      "id": "16102fe4-ed36-4260-81ff-261f4d6502bc",
-      "name": "Convert to File"
-    },
-    {
-      "parameters": {
         "jsCode": "// Process all items and output as required by Split Out Items node.\nreturn $input.all().map(item => {\n  const inputData = item.json;\n  return {\n    json: {\n      videoTitle: inputData.title || inputData.videoTitle || \"YouTube Video Analysis\",\n      videoUrl: inputData.url || inputData.videoUrl || \"\"\n      // ... add remaining fields as in previous code\n    }\n  };\n});"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4800,
-        2260
+        6420,
+        2780
       ],
       "id": "2753f94d-763f-43a8-9425-7685235dfa0f",
       "name": "Report Fields"
-    },
-    {
-      "parameters": {
-        "url": "=\"=https://www.googleapis.com/drive/v3/files/{{$node[\\\"Create Google Doc\\\"].json.documentId}}/permissions\"",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n    \"role\": \"reader\",\n    \"type\": \"anyone\"\n  }",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        6560,
-        2500
-      ],
-      "id": "535e2176-a134-475f-9ef2-d1c4a79e24ea",
-      "name": "Share Link"
     },
     {
       "parameters": {
@@ -3199,14 +3129,14 @@
         "nodeCredentialType": "googleDocsOAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={ \"title\": \"Test Template: {{$json.videoTitle}}\" }",
+        "jsonBody": "={ \"title\": \"Test: {{ $json.id }}\" }",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5380,
-        2500
+        7100,
+        2600
       ],
       "id": "d5cfe3f3-029c-4469-a7cc-7203cba73c09",
       "name": "Create GDoc Report",
@@ -3224,8 +3154,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4980,
-        2500
+        6960,
+        2600
       ],
       "id": "fb9515e5-f44f-4af7-8f57-14fd5b1d159b",
       "name": "Data Preparation"
@@ -3237,8 +3167,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        6300,
-        2500
+        6680,
+        2780
       ],
       "id": "87ea5a0f-1cda-4424-b144-12f3e4896cd4",
       "name": "Update GDoc Content"
@@ -3250,7 +3180,7 @@
             {
               "id": "8a1e4f7a-943b-49b6-89db-06ee47d85b1e",
               "name": "htmlContent",
-              "value": "=<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">     <title>YouTube Analysis Test Template</title>     <style>         body {             font-family: Arial, sans-serif;             line-height: 1.6;             max-width: 800px;             margin: 0 auto;             padding: 20px;         }         h1 {             color: #c00;             border-bottom: 1px solid #ccc;             padding-bottom: 10px;         }         .section {             margin-bottom: 20px;             padding: 15px;             background-color: #f9f9f9;             border-radius: 5px;         }         .field {             margin-bottom: 10px;         }         .label {             font-weight: bold;             display: inline-block;             width: 150px;         }         .value {             display: inline-block;         }         .highlight {             background-color: #ffffcc;             padding: 2px 5px;             border-radius: 3px;         }     </style> </head> <body>     <h1>YouTube Analysis Test Template</h1>          <div class=\"section\">         <h2>Basic Information</h2>         <div class=\"field\">             <span class=\"label\">Title:</span>             <span class=\"value highlight\">{{ $json.title }}</span>         </div>         <div class=\"field\">             <span class=\"label\">URL:</span>             <span class=\"value\">{{ $json.url }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Publish Date:</span>             <span class=\"value highlight\">{{ $json.publishedDate }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Duration:</span>             <span class=\"value\">{{$json.lengthInSeconds}} seconds</span>         </div>     </div>      <div class=\"section\">         <h2>Channel Information</h2>         <div class=\"field\">             <span class=\"label\">Channel Name:</span>             <span class=\"value highlight\">{{ $json.channelDisplayName }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Channel URL:</span>             <span class=\"value\">{{ $json.channelURL }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Subscribers:</span>             <span class=\"value highlight\">{{ $json.channelSubscribers }}</span>         </div>     </div>      <div class=\"section\">         <h2>Performance Metrics</h2>         <div class=\"field\">             <span class=\"label\">Views:</span>             <span class=\"value highlight\">{{$json.viewCount}}</span>         </div>         <div class=\"field\">             <span class=\"label\">Likes:</span>             <span class=\"value highlight\">{{$json.likeCount}}</span>         </div>         <div class=\"field\">             <span class=\"label\">Comments:</span>             <span class=\"value highlight\">{{$json.commentCount}}</span>         </div>     </div>      <div class=\"section\">         <h2>Content</h2>         <div class=\"field\">             <div class=\"label\">Tags:</div>             <div class=\"value\">{{ $json.tags }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Description:</div>             <div class=\"value\" style=\"white-space: pre-wrap;\">{{ $json.description }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Content Summary:</div>             <div class=\"value highlight\" style=\"white-space: pre-wrap;\">{{ $json['cSummary - refined'] }}</div>         </div>     </div>      <div class=\"section\">         <h2>Report Information</h2>         <div class=\"field\">             <span class=\"label\">Report Date:</span>             <span class=\"value highlight\">{{$json.reportDate}}</span>         </div>         <div class=\"field\">             <span class=\"label\">Document ID:</span>             <span class=\"value\">{{$node[\"Create GDoc Report\"].json.documentId}}</span>         </div>     </div>  </body> </html>",
+              "value": "=<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">     <title>YouTube Analysis Test Template</title>     <style>         body {             font-family: Arial, sans-serif;             line-height: 1.6;             max-width: 800px;             margin: 0 auto;             padding: 20px;         }         h1 {             color: #c00;             border-bottom: 1px solid #ccc;             padding-bottom: 10px;         }         .section {             margin-bottom: 20px;             padding: 15px;             background-color: #f9f9f9;             border-radius: 5px;         }         .field {             margin-bottom: 10px;         }         .label {             font-weight: bold;             display: inline-block;             width: 150px;         }         .value {             display: inline-block;         }         .highlight {             background-color: #ffffcc;             padding: 2px 5px;             border-radius: 3px;         }     </style> </head> <body>     <h1>YouTube Analysis Test Template</h1>          <div class=\"section\">         <h2>Basic Information</h2>         <div class=\"field\">             <span class=\"label\">Title:</span>             <span class=\"value highlight\">{{ $json.title }}</span>         </div>         <div class=\"field\">             <span class=\"label\">URL:</span>             <span class=\"value\">{{ $('Data Preparation').item.json.url }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Publish Date:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.publishedDate }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Duration:</span>             <span class=\"value\">{{ $('Data Preparation').item.json.lengthInSeconds }} seconds</span>         </div>     </div>      <div class=\"section\">         <h2>Channel Information</h2>         <div class=\"field\">             <span class=\"label\">Channel Name:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.channelDisplayName }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Channel URL:</span>             <span class=\"value\">{{ $('Data Preparation').item.json.channelURL }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Subscribers:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.channelSubscribers }}</span>         </div>     </div>      <div class=\"section\">         <h2>Performance Metrics</h2>         <div class=\"field\">             <span class=\"label\">Views:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.viewCount }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Likes:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.likeCount }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Comments:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.commentCount }}</span>         </div>     </div>      <div class=\"section\">         <h2>Content</h2>         <div class=\"field\">             <div class=\"label\">Tags:</div>             <div class=\"value\">{{ $('Data Preparation').item.json.tags }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Description:</div>             <div class=\"value\" style=\"white-space: pre-wrap;\">{{ $('Data Preparation').item.json.description }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Content Summary:</div>             <div class=\"value highlight\" style=\"white-space: pre-wrap;\">{{ $('Data Preparation').item.json['cSummary - refined'] }}</div>         </div>     </div>      <div class=\"section\">         <h2>Report Information</h2>         <div class=\"field\">             <span class=\"label\">Report Date:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.reportDate }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Document ID:</span>             <span class=\"value\">{{$node[\"Create GDoc Report\"].json.documentId}}</span>         </div>     </div>  </body> </html>",
               "type": "string"
             }
           ]
@@ -3260,8 +3190,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5200,
-        2500
+        7220,
+        2600
       ],
       "id": "0b2c4302-39c7-42c1-84d8-eadce22577b7",
       "name": "htmlContent"
@@ -3275,8 +3205,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5600,
-        2500
+        6680,
+        2940
       ],
       "id": "cb97f669-b62c-4200-b351-6292951e01b1",
       "name": "Set Update"
@@ -3289,14 +3219,14 @@
         "nodeCredentialType": "googleDocsOAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={ \"requests\": {{$json.requests}} }",
+        "jsonBody": "={ \"\"requests\": {{ JSON.stringify($json.requests) }}\" }",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5820,
-        2500
+        6880,
+        2940
       ],
       "id": "21467832-ee6a-4bf1-9763-3ff7a86a756e",
       "name": "HTTP Request",
@@ -3342,9 +3272,15 @@
               "type": "number"
             },
             {
+              "id": "4b37d727-0d53-435c-bf34-2ab80c300d3b",
+              "name": "duration",
+              "value": "=\"videoDuration\": \"={{   (function() {     const seconds = Number($('Video #3').item.json.lengthInSeconds);     if (isNaN(seconds)) return '00:00';          const hours = Math.floor(seconds / 3600);     const minutes = Math.floor((seconds % 3600) / 60);     const secs = Math.floor(seconds % 60);          if (hours > 0) {       return hours + ':' + String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     } else {       return String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     }   })() }}\"",
+              "type": "string"
+            },
+            {
               "id": "082eafe5-86dc-4b37-9a56-4b49d76c169d",
               "name": "publishedDate",
-              "value": "={{ $('Video #3').item.json.uploadDatetime }}",
+              "value": "={{ $('Video #3').item.json.uploadDatetime.toDateTime().format('LLL/dd/yy') }}",
               "type": "string"
             },
             {
@@ -3356,8 +3292,8 @@
             {
               "id": "6de1dd9c-9212-42a0-af77-469a0d99bf37",
               "name": "tags",
-              "value": "={{ $('Video #3').item.json.tags }}",
-              "type": "array"
+              "value": "={{ $('Video #3').item.json.tags ? $('Video #3').item.json.tags.map(tag => '#' + tag).join(' ') : '' }}",
+              "type": "string"
             },
             {
               "id": "2813f62a-2330-43f9-a373-8735f6e57355",
@@ -3473,6 +3409,455 @@
       ],
       "id": "7610fa39-e707-4745-9865-23118c93f9de",
       "name": "Set Fields"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $('Create GDoc Report').item.json.documentId }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $('htmlContent').item.json.htmlContent }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        6420,
+        2940
+      ],
+      "id": "fac92561-51af-4478-a3ee-ebf4875fd769",
+      "name": "Google Docs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "Proposal Details",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Client.FirstName",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Client.LastName",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "CompanyName",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Meetings",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "SetupFee",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "LeadFee",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "ClientEmail",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        6440,
+        3160
+      ],
+      "id": "e7a303ca-249c-4d7c-8da1-c1cc8f460be9",
+      "name": "Client Details",
+      "webhookId": "24582563-0d0e-456e-a3ea-74cb7f364221",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a076bf92-ee5f-4467-8ce6-be20ae5a7d21",
+              "name": "TotalLeadFee",
+              "value": "={{$json.LeadFee * $json.Meetings}}",
+              "type": "number"
+            },
+            {
+              "id": "278d0a44-30c1-49d9-9a50-3c7edd6857aa",
+              "name": "SubTotal",
+              "value": "={{ (Number($json.LeadFee) * Number($json.Meetings)) + Number($json.SetupFee) }}",
+              "type": "number"
+            },
+            {
+              "id": "f3b3db10-4e73-4b31-83f1-495958de2ee5",
+              "name": "Client.FirstName",
+              "value": "={{ $json['Client.FirstName'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7d0a3a72-4e56-4eda-92bd-5997bf9ec443",
+              "name": "Client.LastName",
+              "value": "={{ $json['Client.LastName'] }}",
+              "type": "string"
+            },
+            {
+              "id": "3139c8d4-67b0-42bb-9019-b6ed2be45ec6",
+              "name": "CompanyName",
+              "value": "={{ $json.CompanyName }}",
+              "type": "string"
+            },
+            {
+              "id": "f4cfd5d4-c315-4dd7-a4d2-42da90a08030",
+              "name": "Meetings",
+              "value": "={{ $json.Meetings }}",
+              "type": "string"
+            },
+            {
+              "id": "fce63286-2afb-438d-b29b-5bded1a8b997",
+              "name": "SetupFee",
+              "value": "={{ $json.SetupFee }}",
+              "type": "string"
+            },
+            {
+              "id": "3663adbb-1ecd-4787-9475-c4176e7bba29",
+              "name": "LeadFee",
+              "value": "={{ $json.LeadFee }}",
+              "type": "string"
+            },
+            {
+              "id": "523b7d58-e8b4-440b-9b79-f5aa4d724b4e",
+              "name": "ClientEmail",
+              "value": "={{ $json.ClientEmail }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6640,
+        3160
+      ],
+      "id": "510abfa4-1285-4e4d-8fa5-40cbeb51f4a3",
+      "name": "Set Value"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1ZLWmujYBSu-zMB4MHR9Iju6PnmvH0I1Q-RKIMUFrHn0",
+          "mode": "id"
+        },
+        "name": "=Proposal: myBoringProcess - {{ $json.Client.FirstName }} {{ $json.Client.LastName }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        6840,
+        3160
+      ],
+      "id": "8d73dd86-feb3-4937-bbd4-96dfd977a80c",
+      "name": "Make a copy of template",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{Client.FirstName}}",
+              "replaceText": "={{ $('Set Value').item.json.Client.FirstName }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{Client.LastName}} ",
+              "replaceText": "={{ $('Set Value').item.json.Client.LastName }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": " {{CompanyName}}",
+              "replaceText": "={{ $('Set Value').item.json.CompanyName }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{SetupFee}}",
+              "replaceText": "={{ $('Set Value').item.json.SetupFee.toString() }}\n"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{LeadFee}}",
+              "replaceText": "={{ $('Set Value').item.json.LeadFee.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": " {{TotalLeadFee}}",
+              "replaceText": "={{ $('Set Value').item.json.TotalLeadFee.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{SubTotal}}",
+              "replaceText": "={{ $('Set Value').item.json.SubTotal.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{meetings}}",
+              "replaceText": "={{ $('Set Value').item.json.Meetings.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{TotalLeadFee}}",
+              "replaceText": "={{ $('Set Value').item.json.TotalLeadFee.toString() }}\n"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        7040,
+        3160
+      ],
+      "id": "2bc9a1f6-04fc-4574-931e-904904e8b6ee",
+      "name": "Edit the Template"
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.documentId }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        7240,
+        3160
+      ],
+      "id": "415a31c0-3579-4d40-960f-ef22ea9a723e",
+      "name": "Share"
+    },
+    {
+      "parameters": {
+        "sendTo": "arun.worc@gmail.com",
+        "subject": "=Proposal for {{ $('Client Details').item.json['Client.FirstName'] }} {{ $('Client Details').item.json['Client.LastName'] }}",
+        "emailType": "text",
+        "message": "=https://docs.google.com/document/d/{{ $('Edit the Template').item.json.documentId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        7440,
+        3160
+      ],
+      "id": "dcf82359-aba2-47ce-b10f-f5e05ad9614a",
+      "name": "Send",
+      "webhookId": "2a52c1df-0c61-4937-a5bf-0cf528f4fcff"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1nzSNHzpkJb0GDUSjANnSd_vg-C2hwj3zc-Nbc6x6k58",
+          "mode": "id"
+        },
+        "name": "=Youtube.{{ $json.id }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "17dincwYmqZk4qVU-GQIy-lcmgZIBXzSs",
+          "mode": "list",
+          "cachedResultName": "zCONTENT TEST",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/17dincwYmqZk4qVU-GQIy-lcmgZIBXzSs"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4980,
+        2500
+      ],
+      "id": "6ada38c8-9a56-4d41-8c22-387fd7a43106",
+      "name": "Copy Template",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.documentId }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        5340,
+        2500
+      ],
+      "id": "d9403ff0-9a18-48c1-b93b-067bfa9cdcc1",
+      "name": "Share Link",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{videoID}}",
+              "replaceText": "={{ $('Set Fields').item.json.id }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoTitle}}",
+              "replaceText": "={{ $('Set Fields').item.json.title }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{reportDate}}",
+              "replaceText": "={{ $('Set Fields').item.json.reportDate }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{viewCount}}",
+              "replaceText": "={{ $('Set Fields').item.json.viewCount.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{likeCount}}",
+              "replaceText": "={{ $('Set Fields').item.json.likeCount.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{commentCount}}",
+              "replaceText": "={{ $('Set Fields').item.json.commentCount.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoUrl}}",
+              "replaceText": "={{ $('Set Fields').item.json.url }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{publishDate}}",
+              "replaceText": "={{ $('Set Fields').item.json.publishedDate }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoDuration}}",
+              "replaceText": "={{ $('Set Fields').item.json.lengthInSeconds.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{channelName}}",
+              "replaceText": "={{ $('Set Fields').item.json.channelDisplayName }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{channelCategory}}",
+              "replaceText": "={{ $('Set Fields').item.json.category }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{subscriberCount}}",
+              "replaceText": "={{ $('Set Fields').item.json.channelSubscribers.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoDescription}}",
+              "replaceText": "={{ $('Set Fields').item.json.description }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{#each videoTags}}#{{this}} {{/each}}",
+              "replaceText": "={{ $('Set Fields').item.json.tags.toJsonString()}}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentSummary}}",
+              "replaceText": "={{ $('Set Fields').item.json['cSummary - refined'] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        5160,
+        2500
+      ],
+      "id": "e834e35a-27c3-4ddb-9e33-c1ce8eb6d308",
+      "name": "VarToValues",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
     }
   ],
   "pinData": {
@@ -3488,6 +3873,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-14T07:33:35.000Z",
-  "versionId": "df4d14ed-15a2-4ba6-a7fb-d8e5e71a8d17"
+  "updatedAt": "2025-05-14T19:03:07.000Z",
+  "versionId": "dceef259-9ffe-44e5-86f8-cbc9d74855ee"
 }
