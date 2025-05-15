@@ -263,13 +263,7 @@
     },
     "Markdown": {
       "main": [
-        [
-          {
-            "node": "Text → Audio",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "If zero comments": {
@@ -301,28 +295,6 @@
           {
             "node": "Sentiment Results",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Transcript w/TS": {
-      "main": [
-        [
-          {
-            "node": "Summarization Chain2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI2": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Summarization Chain2",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -469,19 +441,31 @@
     },
     "Top Comments": {
       "main": [
-        []
+        [
+          {
+            "node": "Transcript Excerpts",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "cRecommendations": {
       "main": [
-        []
+        [
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Editor": {
       "main": [
         [
           {
-            "node": "Comments",
+            "node": "Top Comments",
             "type": "main",
             "index": 0
           }
@@ -499,124 +483,11 @@
         ]
       ]
     },
-    "Report Fields": {
-      "main": [
-        []
-      ]
-    },
-    "Create GDoc Report": {
-      "main": [
-        [
-          {
-            "node": "htmlContent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Data Preparation": {
-      "main": [
-        [
-          {
-            "node": "Create GDoc Report",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Update GDoc Content": {
-      "main": [
-        []
-      ]
-    },
-    "htmlContent": {
-      "main": [
-        []
-      ]
-    },
-    "Set Update": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request": {
-      "main": [
-        []
-      ]
-    },
     "Set Fields": {
       "main": [
         [
           {
             "node": "Copy Template",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Docs": {
-      "main": [
-        []
-      ]
-    },
-    "Client Details": {
-      "main": [
-        [
-          {
-            "node": "Set Value",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set Value": {
-      "main": [
-        [
-          {
-            "node": "Make a copy of template",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Make a copy of template": {
-      "main": [
-        [
-          {
-            "node": "Edit the Template",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Edit the Template": {
-      "main": [
-        [
-          {
-            "node": "Share",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Share": {
-      "main": [
-        [
-          {
-            "node": "Send",
             "type": "main",
             "index": 0
           }
@@ -643,6 +514,33 @@
             "index": 0
           }
         ]
+      ]
+    },
+    "Share Link": {
+      "main": [
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        [
+          {
+            "node": "Text → Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text → Audio": {
+      "main": [
+        []
       ]
     }
   },
@@ -2300,8 +2198,8 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 1100,
-        "width": 4260,
+        "height": 1020,
+        "width": 3700,
         "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -2350,7 +2248,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2680,
+        2700,
         2360
       ],
       "id": "d51c0d8e-20cc-4f81-b40a-824c0c523e3e",
@@ -2418,8 +2316,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2780,
-        2900
+        2640,
+        2840
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2434,8 +2332,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3200,
-        2920
+        3160,
+        2860
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2443,11 +2341,10 @@
     {
       "parameters": {
         "resource": "audio",
-        "input": "={{ $json.Markdown }}",
-        "voice": "nova",
+        "input": "={{ $json.content }}",
         "options": {
-          "response_format": "aac",
-          "binaryPropertyOutput": "audio"
+          "response_format": "mp3",
+          "binaryPropertyOutput": ""
         }
       },
       "id": "e779edb7-a666-42ad-beed-51fd1942694e",
@@ -2455,14 +2352,14 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        5180,
-        2800
+        4980,
+        2760
       ],
       "alwaysOutputData": true,
       "credentials": {
         "openAiApi": {
-          "id": "n6jJpStEewoZQA9T",
-          "name": "OpenAi account 6"
+          "id": "7lpyAVssSQvwtkjO",
+          "name": "Content Generation"
         }
       },
       "onError": "continueRegularOutput"
@@ -2482,8 +2379,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        3400,
-        2920
+        3360,
+        2860
       ],
       "alwaysOutputData": true
     },
@@ -2496,8 +2393,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        4980,
-        2800
+        4960,
+        2020
       ],
       "id": "8f6fe8ff-adf8-4e24-9e9a-5a396dfea5dc",
       "name": "Markdown"
@@ -2529,8 +2426,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3000,
-        2900
+        2920,
+        2840
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
       "name": "If zero comments"
@@ -2542,8 +2439,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        4800,
-        2800
+        4780,
+        2020
       ],
       "id": "bc4d00f9-3c8e-4058-8b71-b02a74442f8a",
       "name": "html_summary_audio"
@@ -2557,68 +2454,12 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3820,
-        2920
+        3880,
+        2860
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "options": {
-          "summarizationMethodAndPrompts": {
-            "values": {
-              "combineMapPrompt": "=Write a concise summary of the following:\n\n\"{{ $json.transcript }}\"\n\nCONCISE SUMMARY: ",
-              "prompt": "=Write a concise summary of the following:\n\n\n\"{{ $json.transcript }}\"\n\n\nCONCISE SUMMARY:"
-            }
-          }
-        }
-      },
-      "id": "f1308e54-d451-4980-ba40-8ba0124b6257",
-      "name": "Summarization Chain2",
-      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
-      "typeVersion": 2,
-      "position": [
-        6800,
-        2400
-      ]
-    },
-    {
-      "parameters": {
-        "url": "=https://api.apify.com/v2/acts/streamers~youtube-scraper/runs/last?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n    \"startUrls\": \"[{{ $('Process_video').first().json.videoURL }}]\",\n    \"includeTimestamps\": \"Yes\"\n} ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        6640,
-        2400
-      ],
-      "id": "06252a93-395a-494e-9873-1c8306b24344",
-      "name": "Transcript w/TS"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "f617cd27-847a-4c21-89e7-21ebfe83d8aa",
-      "name": "OpenAI2",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1,
-      "position": [
-        6820,
-        2580
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "pZ4IJBXWzhYzZfRs",
-          "name": "OpenAi _Blue&"
-        }
-      }
     },
     {
       "parameters": {
@@ -2714,7 +2555,7 @@
       "typeVersion": 1,
       "position": [
         3380,
-        3080
+        3020
       ],
       "credentials": {
         "openAiApi": {
@@ -2748,7 +2589,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2480,
+        2500,
         2360
       ],
       "alwaysOutputData": true,
@@ -2761,8 +2602,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4140,
-        2920
+        4240,
+        2860
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
       "name": "Sentiment Results",
@@ -2779,7 +2620,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2960,
+        2900,
         2360
       ],
       "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
@@ -2796,7 +2637,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3160,
+        3100,
         2360
       ],
       "id": "cc8a6f5a-1237-40cb-a04c-d728f70d8b09",
@@ -2813,7 +2654,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3340,
+        3300,
         2360
       ],
       "id": "240f3002-e256-490b-8928-959d6a5e883d",
@@ -2830,7 +2671,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3540,
+        3500,
         2360
       ],
       "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
@@ -2890,8 +2731,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3000,
-        2620
+        3360,
+        2600
       ],
       "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
       "name": "cStrengths",
@@ -2923,8 +2764,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3360,
-        2620
+        3720,
+        2600
       ],
       "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
       "name": "cOpportunities",
@@ -2956,8 +2797,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3720,
-        2620
+        4080,
+        2600
       ],
       "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
       "name": "cRecommendations",
@@ -2989,8 +2830,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        4080,
-        2620
+        2640,
+        2600
       ],
       "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
       "name": "Top Comments",
@@ -3055,8 +2896,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2640,
-        2620
+        3000,
+        2600
       ],
       "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
       "name": "Transcript Excerpts",
@@ -3064,176 +2905,6 @@
         "openAiApi": {
           "id": "dbsbEP9NpcetZP6N",
           "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://www.googleapis.com/upload/drive/v3/files",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "googleDriveOAuth2Api",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "uploadType",
-              "value": "multipart"
-            },
-            {
-              "name": "supportsAllDrives",
-              "value": "true"
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "raw",
-        "rawContentType": "multipart/related; boundary=divider",
-        "body": "={{ $json.rawData }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        6420,
-        2620
-      ],
-      "id": "ea688345-20de-4b00-9fdc-113b2e5f778b",
-      "name": "CreateGoogleDoc1",
-      "notesInFlow": true,
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "HR5Tk4YDcaNJda9N",
-          "name": "Google Drive Sergio"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process all items and output as required by Split Out Items node.\nreturn $input.all().map(item => {\n  const inputData = item.json;\n  return {\n    json: {\n      videoTitle: inputData.title || inputData.videoTitle || \"YouTube Video Analysis\",\n      videoUrl: inputData.url || inputData.videoUrl || \"\"\n      // ... add remaining fields as in previous code\n    }\n  };\n});"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6420,
-        2780
-      ],
-      "id": "2753f94d-763f-43a8-9425-7685235dfa0f",
-      "name": "Report Fields"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://docs.googleapis.com/v1/documents",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "googleDocsOAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={ \"title\": \"Test: {{ $json.id }}\" }",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        7100,
-        2600
-      ],
-      "id": "d5cfe3f3-029c-4469-a7cc-7203cba73c09",
-      "name": "Create GDoc Report",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "// Map over all input items and process each one\nreturn $input.all().map(item => {\n  // You can modify item.json or add new properties as needed\n  return item;\n});"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6960,
-        2600
-      ],
-      "id": "fb9515e5-f44f-4af7-8f57-14fd5b1d159b",
-      "name": "Data Preparation"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Function to generate YouTube report with data\nmodule.exports = function() {\n  // Get input data\n  const inputData = $input.item.json;\n  \n  // Calculate additional metrics\n  const viewCount = Number(inputData.viewCount) || 0;\n  const likeCount = Number(inputData.likeCount) || 0;\n  const commentCount = Number(inputData.commentCount) || 0;\n  \n  const likesToViewsRatio = viewCount > 0 ? likeCount / viewCount : 0;\n  const commentsToViewsRatio = viewCount > 0 ? commentCount / viewCount : 0;\n  \n  // Format duration from seconds\n  const formatDuration = (seconds) => {\n    if (!seconds) return \"00:00\";\n    const totalSeconds = Number(seconds);\n    if (isNaN(totalSeconds)) return \"00:00\";\n    \n    const hours = Math.floor(totalSeconds / 3600);\n    const minutes = Math.floor((totalSeconds % 3600) / 60);\n    const secs = Math.floor(totalSeconds % 60);\n    \n    if (hours > 0) {\n      return `${hours}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;\n    } else {\n      return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;\n    }\n  };\n  \n  // Format date (if it's in ISO format)\n  const formatDate = (dateString) => {\n    if (!dateString) return \"\";\n    \n    // Check if dateString is in ISO format\n    if (dateString.includes('T')) {\n      return dateString.split('T')[0];\n    }\n    return dateString;\n  };\n  \n  // Prepare data object with all required values\n  const data = {\n    reportDate: inputData.reportDate || new Date().toLocaleDateString('en-US', {\n      day: '2-digit',\n      month: 'short',\n      year: '2-digit'\n    }),\n    videoTitle: inputData.videoTitle || inputData.title || \"Untitled Video\",\n    channelName: inputData.channelName || inputData.channelDisplayName || \"\",\n    publishDate: formatDate(inputData.publishDate || inputData.uploadDatetime || \"\"),\n    viewCount: viewCount.toLocaleString(),\n    likeCount: likeCount.toLocaleString(),\n    commentCount: commentCount.toLocaleString(),\n    likesToViewsRatio: likesToViewsRatio,\n    commentsToViewsRatio: commentsToViewsRatio,\n    videoUrl: inputData.videoUrl || inputData.url || \"\",\n    videoDuration: formatDuration(inputData.lengthInSeconds),\n    channelUrl: inputData.channelUrl || inputData.channelURL || \"\",\n    subscriberCount: inputData.subscriberCount || inputData.channelSubscribers || \"0\",\n    videoDescription: inputData.videoDescription || inputData.description || \"\",\n    videoTags: Array.isArray(inputData.videoTags || inputData.tags) ? \n               (inputData.videoTags || inputData.tags) : [],\n    contentSummary: inputData.contentSummary || \"\"\n  };\n  \n  // Generate the report content\n  const reportContent = `# YouTube Video Analysis Report\n\n**Report Date:** ${data.reportDate}\n\n---\n\n## Executive Summary\n\nThis report analyzes the YouTube video \"${data.videoTitle}\" published by ${data.channelName} on ${data.publishDate}. The video has received ${data.viewCount} views, ${data.likeCount} likes, and ${data.commentCount} comments since publication.\n\nKey performance indicators show **${data.likesToViewsRatio > 0.08 ? \"above average\" : data.likesToViewsRatio > 0.05 ? \"average\" : \"below average\"}** engagement based on like-to-view ratio (${(data.likesToViewsRatio * 100).toFixed(1)}%), with a comment-to-view ratio of ${(data.commentsToViewsRatio * 100).toFixed(2)}% indicating **${data.commentsToViewsRatio > 0.005 ? \"high\" : data.commentsToViewsRatio > 0.002 ? \"average\" : \"low\"}** audience interaction.\n\n---\n\n## Video Overview\n\n| | |\n|------------|-------------|\n| **Title** | ${data.videoTitle} |\n| **URL** | ${data.videoUrl} |\n| **Published** | ${data.publishDate} |\n| **Duration** | ${data.videoDuration} |\n| **Channel** | ${data.channelName} |\n| **Subscribers** | ${data.subscriberCount} |\n\n---\n\n## Performance Metrics\n\n| Metric | Count | Ratio | Assessment |\n|--------|-------|-------|------------|\n| **Views** | ${data.viewCount} | - | ${viewCount > 100000 ? \"Strong\" : viewCount > 10000 ? \"Good\" : \"Moderate\"} |\n| **Likes** | ${data.likeCount} | ${(data.likesToViewsRatio * 100).toFixed(1)}% of views | ${data.likesToViewsRatio > 0.08 ? \"Above Average\" : data.likesToViewsRatio > 0.05 ? \"Average\" : \"Below Average\"} |\n| **Comments** | ${data.commentCount} | ${(data.commentsToViewsRatio * 100).toFixed(2)}% of views | ${data.commentsToViewsRatio > 0.005 ? \"High Engagement\" : data.commentsToViewsRatio > 0.002 ? \"Average Engagement\" : \"Low Engagement\"} |\n\n---\n\n## Content Analysis\n\n### Video Description\n\n\\`\\`\\`\n${data.videoDescription}\n\\`\\`\\`\n\n### Tags\n${data.videoTags.map(tag => `#${tag}`).join(' ')}\n\n### Content Summary\n\n${data.contentSummary}\n\n---\n\n## SWOT Analysis\n\n### Content Strengths\n\n- **Industry Expertise:** Deep knowledge of automotive retail digital landscape\n- **Practical Insights:** Actionable recommendations for dealers and OEMs\n- **Candid Discussion:** Honest assessment of industry challenges\n- **Structured Format:** Clear organization of complex topics\n- **Authority Positioning:** Establishes thought leadership in automotive technology\n\n### Content Opportunities\n\n- **Audience Growth:** Channel has potential to reach more industry professionals\n- **Visual Elements:** Could benefit from graphics and data visualization\n- **Content Segmentation:** Long interview could be split into topic-focused clips\n- **SEO Optimization:** Additional industry keywords could improve discoverability\n- **Call-to-Action:** More specific viewer prompts could increase engagement\n\n---\n\n## Strategic Recommendations\n\n### 1. Create Topic-Specific Clips\nExtract 3-5 minute segments on key topics for higher shareability and to reach new audiences through more digestible content. Focus on creating standalone clips that provide value even without watching the full interview.\n\n### 2. Develop Follow-Up Content\nCreate dedicated episodes on specific subtopics mentioned in this interview, particularly around data privacy compliance and website optimization for conversions. This can establish a content series that builds on viewer interest.\n\n### 3. Enhance SEO Strategy\nOptimize with industry-specific keywords for better discoverability. Consider adding timestamps in the description for key topics to improve user experience and search visibility.\n\n### 4. Implement Visual Elements\nAdd simple graphics, statistics, or text overlays to emphasize key points during lengthy explanations. This improves information retention and creates more shareable moments.\n\n### 5. Cross-Promote Content\nLeverage connections with featured guests to expand distribution through their networks and platforms, particularly through LinkedIn and industry-specific communities.\n\n---\n\n## Action Items\n\nBased on this analysis, here are the suggested next steps:\n\n1. **Create Topic-Specific Clips** - Begin implementation within 7 days\n2. **Develop Follow-Up Content** - Plan within 14 days\n3. **Address Audience Growth** - In next content creation cycle\n4. **Leverage Industry Expertise** - Across channel content\n\n---\n\n*This report was automatically generated on ${data.reportDate} based on publicly available data. For more detailed analytics including audience retention, demographics, and traffic sources, please refer to YouTube Studio analytics.*`;\n\n  // Google Doc format conversion - Convert markdown to Google Doc format\n  // This creates a structured array of requests for the Google Docs API\n  function convertMarkdownToGoogleDocsRequests(markdown) {\n    const requests = [];\n    let currentIndex = 1; // Start after title\n    \n    // Helper function to add text and track position\n    function appendText(text, style = null) {\n      if (!text) return;\n      \n      const textLength = text.length;\n      \n      // Insert the text\n      requests.push({\n        insertText: {\n          location: { index: currentIndex },\n          text: text\n        }\n      });\n      \n      // Apply style if specified\n      if (style) {\n        requests.push({\n          updateParagraphStyle: {\n            range: {\n              startIndex: currentIndex,\n              endIndex: currentIndex + textLength\n            },\n            paragraphStyle: style,\n            fields: \"namedStyleType\"\n          }\n        });\n      }\n      \n      // Update position\n      currentIndex += textLength;\n    }\n    \n    // Split markdown into lines\n    const lines = markdown.split('\\n');\n    \n    // Process each line\n    for (let i = 0; i < lines.length; i++) {\n      const line = lines[i];\n      \n      // Process headers\n      if (line.startsWith('# ')) {\n        appendText(line.substring(2) + '\\n\\n', { namedStyleType: \"HEADING_1\" });\n      } \n      else if (line.startsWith('## ')) {\n        appendText(line.substring(3) + '\\n\\n', { namedStyleType: \"HEADING_2\" });\n      } \n      else if (line.startsWith('### ')) {\n        appendText(line.substring(4) + '\\n\\n', { namedStyleType: \"HEADING_3\" });\n      }\n      // Process horizontal rules\n      else if (line.startsWith('---')) {\n        appendText('─────────────────────────────────────────────────\\n\\n');\n      }\n      // Process bold text (simplified approach)\n      else if (line.includes('**')) {\n        // This is a simplified approach - in a real implementation,\n        // you would need more complex parsing for mixed formatting\n        appendText(line + '\\n\\n');\n      }\n      // Process tables (simplified)\n      else if (line.includes('|')) {\n        // In a real implementation, you'd use the insertTable request type\n        // for Google Docs API, but this is more complex\n        appendText(line + '\\n');\n      }\n      // Process code blocks\n      else if (line.startsWith('```')) {\n        // For code blocks, continue appending lines until we hit the closing ```\n        let codeBlock = '';\n        i++; // Skip the opening ```\n        while (i < lines.length && !lines[i].startsWith('```')) {\n          codeBlock += lines[i] + '\\n';\n          i++;\n        }\n        appendText(codeBlock + '\\n\\n');\n      }\n      // Process bullet points\n      else if (line.trim().startsWith('- ')) {\n        appendText(line + '\\n');\n      }\n      // Process numbered lists\n      else if (/^\\d+\\.\\s/.test(line.trim())) {\n        appendText(line + '\\n');\n      }\n      // Standard paragraph\n      else {\n        appendText(line + '\\n');\n      }\n    }\n    \n    return requests;\n  }\n  \n  // Convert the markdown to Google Docs API requests\n  const docRequests = convertMarkdownToGoogleDocsRequests(reportContent);\n  \n  // Add fields to each input item, or just pass through existing items\n  return $input.all().map(item => ({\n    json: {\n      ...item.json,\n      customField: 'Your Value Here' // Add any data you want to each item\n    }\n  }));\n};"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6680,
-        2780
-      ],
-      "id": "87ea5a0f-1cda-4424-b144-12f3e4896cd4",
-      "name": "Update GDoc Content"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "8a1e4f7a-943b-49b6-89db-06ee47d85b1e",
-              "name": "htmlContent",
-              "value": "=<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">     <title>YouTube Analysis Test Template</title>     <style>         body {             font-family: Arial, sans-serif;             line-height: 1.6;             max-width: 800px;             margin: 0 auto;             padding: 20px;         }         h1 {             color: #c00;             border-bottom: 1px solid #ccc;             padding-bottom: 10px;         }         .section {             margin-bottom: 20px;             padding: 15px;             background-color: #f9f9f9;             border-radius: 5px;         }         .field {             margin-bottom: 10px;         }         .label {             font-weight: bold;             display: inline-block;             width: 150px;         }         .value {             display: inline-block;         }         .highlight {             background-color: #ffffcc;             padding: 2px 5px;             border-radius: 3px;         }     </style> </head> <body>     <h1>YouTube Analysis Test Template</h1>          <div class=\"section\">         <h2>Basic Information</h2>         <div class=\"field\">             <span class=\"label\">Title:</span>             <span class=\"value highlight\">{{ $json.title }}</span>         </div>         <div class=\"field\">             <span class=\"label\">URL:</span>             <span class=\"value\">{{ $('Data Preparation').item.json.url }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Publish Date:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.publishedDate }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Duration:</span>             <span class=\"value\">{{ $('Data Preparation').item.json.lengthInSeconds }} seconds</span>         </div>     </div>      <div class=\"section\">         <h2>Channel Information</h2>         <div class=\"field\">             <span class=\"label\">Channel Name:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.channelDisplayName }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Channel URL:</span>             <span class=\"value\">{{ $('Data Preparation').item.json.channelURL }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Subscribers:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.channelSubscribers }}</span>         </div>     </div>      <div class=\"section\">         <h2>Performance Metrics</h2>         <div class=\"field\">             <span class=\"label\">Views:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.viewCount }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Likes:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.likeCount }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Comments:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.commentCount }}</span>         </div>     </div>      <div class=\"section\">         <h2>Content</h2>         <div class=\"field\">             <div class=\"label\">Tags:</div>             <div class=\"value\">{{ $('Data Preparation').item.json.tags }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Description:</div>             <div class=\"value\" style=\"white-space: pre-wrap;\">{{ $('Data Preparation').item.json.description }}</div>         </div>         <div class=\"field\">             <div class=\"label\">Content Summary:</div>             <div class=\"value highlight\" style=\"white-space: pre-wrap;\">{{ $('Data Preparation').item.json['cSummary - refined'] }}</div>         </div>     </div>      <div class=\"section\">         <h2>Report Information</h2>         <div class=\"field\">             <span class=\"label\">Report Date:</span>             <span class=\"value highlight\">{{ $('Data Preparation').item.json.reportDate }}</span>         </div>         <div class=\"field\">             <span class=\"label\">Document ID:</span>             <span class=\"value\">{{$node[\"Create GDoc Report\"].json.documentId}}</span>         </div>     </div>  </body> </html>",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        7220,
-        2600
-      ],
-      "id": "0b2c4302-39c7-42c1-84d8-eadce22577b7",
-      "name": "htmlContent"
-    },
-    {
-      "parameters": {
-        "mode": "raw",
-        "jsonOutput": "{\n  \"documentId\": \"{{$json.documentId}}\",\n  \"requests\": [\n    {\n      \"insertText\": {\n        \"location\": { \"index\": 1 },\n        \"text\": \"{{$json.htmlContent}}\"\n      }\n    }\n  ]\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        6680,
-        2940
-      ],
-      "id": "cb97f669-b62c-4200-b351-6292951e01b1",
-      "name": "Set Update"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://docs.googleapis.com/v1/documents/{{$json.documentId}}:batchUpdate",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "googleDocsOAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={ \"\"requests\": {{ JSON.stringify($json.requests) }}\" }",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        6880,
-        2940
-      ],
-      "id": "21467832-ee6a-4bf1-9763-3ff7a86a756e",
-      "name": "HTTP Request",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
         }
       }
     },
@@ -3274,13 +2945,19 @@
             {
               "id": "4b37d727-0d53-435c-bf34-2ab80c300d3b",
               "name": "duration",
-              "value": "=\"videoDuration\": \"={{   (function() {     const seconds = Number($('Video #3').item.json.lengthInSeconds);     if (isNaN(seconds)) return '00:00';          const hours = Math.floor(seconds / 3600);     const minutes = Math.floor((seconds % 3600) / 60);     const secs = Math.floor(seconds % 60);          if (hours > 0) {       return hours + ':' + String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     } else {       return String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     }   })() }}\"",
+              "value": "=\"{{   (function() {     const seconds = Number($('Video #3').item.json.lengthInSeconds);     if (isNaN(seconds)) return '00:00';          const hours = Math.floor(seconds / 3600);     const minutes = Math.floor((seconds % 3600) / 60);     const secs = Math.floor(seconds % 60);          if (hours > 0) {       return hours + ':' + String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     } else {       return String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     }   })() }}\"",
               "type": "string"
             },
             {
               "id": "082eafe5-86dc-4b37-9a56-4b49d76c169d",
               "name": "publishedDate",
-              "value": "={{ $('Video #3').item.json.uploadDatetime.toDateTime().format('LLL/dd/yy') }}",
+              "value": "={{ $('Video #3').item.json.uploadDatetime.toDateTime().format('LLL dd,yy') }}",
+              "type": "string"
+            },
+            {
+              "id": "a7069bcd-90e3-45d5-88b2-e012075ea0dc",
+              "name": "reportDate",
+              "value": "={{ $now.format('LLL dd,yyyy') }}",
               "type": "string"
             },
             {
@@ -3392,9 +3069,33 @@
               "type": "object"
             },
             {
-              "id": "a7069bcd-90e3-45d5-88b2-e012075ea0dc",
-              "name": "reportDate",
-              "value": "={{ \"$now.format('yyyy-MM-dd')\" }}",
+              "id": "46ac712c-59b9-475d-8af3-1f5679496a16",
+              "name": "content.Strengths",
+              "value": "={{ $('cStrengths').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "dda1fd3f-e35d-4b87-bcb1-260c1754e3c6",
+              "name": "content.Opportunities",
+              "value": "={{ $('cOpportunities').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "efc7ebd4-ec40-4a86-9b9e-7648cd1b583d",
+              "name": "=content.Recommendations",
+              "value": "={{ $('cRecommendations').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "b9120961-31a6-4669-8083-838c51eef96b",
+              "name": "=content.Tscripts",
+              "value": "={{\n  (function() {\n    try {\n      // Parse the JSON string from message.content\n      let content = $('Transcript Excerpts').item.json.message.content;\n      \n      // Clean up any escape characters or formatting issues\n      content = content.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n      \n      // Try to extract time-text pairs using regex\n      const timeTextMatches = content.match(/\"time\":\\s*\"([^\"]+)\",\\s*\"text\":\\s*\"([^\"]+)\"/g);\n      \n      if (timeTextMatches && timeTextMatches.length > 0) {\n        return timeTextMatches.map(match => {\n          const time = match.match(/\"time\":\\s*\"([^\"]+)\"/)[1];\n          const text = match.match(/\"text\":\\s*\"([^\"]+)\"/)[1];\n          return `**${time}**: ${text}`;\n        }).join('\\n\\n');\n      }\n      \n      return 'Could not extract transcript excerpts';\n    } catch (error) {\n      return 'Error processing transcript excerpts';\n    }\n  })()\n}}",
+              "type": "string"
+            },
+            {
+              "id": "285d5aa0-ca5c-48d9-9ec7-5ff2fc1d0780",
+              "name": "=content.TopComments",
+              "value": "={{\n  (function() {\n    try {\n      // Get the content string\n      let content = $('Top Comments').item.json.message.content;\n      \n      // Regular expression to match user-comment pairs\n      const regex = /\"user\":\\s*\"([^\"]+)\",\\s*\"comment\":\\s*\"([^\"]+)\"/g;\n      const matches = [];\n      let match;\n      \n      // Find all matches\n      while ((match = regex.exec(content)) !== null) {\n        if (match.length >= 3) {\n          matches.push({\n            user: match[1],\n            comment: match[2]\n          });\n        }\n      }\n      \n      // If we found matches, format them\n      if (matches.length > 0) {\n        return matches.map(m => `**${m.user}:** \"${m.comment}\"`).join('\\n\\n');\n      }\n      \n      // Alternative method if the regex approach doesn't work\n      const userRegex = /\"user\":\\s*\"([^\"]+)\"/g;\n      const commentRegex = /\"comment\":\\s*\"([^\"]+)\"/g;\n      \n      const users = [];\n      const comments = [];\n      \n      while ((match = userRegex.exec(content)) !== null) {\n        users.push(match[1]);\n      }\n      \n      while ((match = commentRegex.exec(content)) !== null) {\n        comments.push(match[1]);\n      }\n      \n      if (users.length === comments.length && users.length > 0) {\n        return users.map((user, i) => \n          `**${user}:** \"${comments[i]}\"`\n        ).join('\\n\\n');\n      }\n      \n      return 'No comments available';\n    } catch (error) {\n      return 'Error processing comments';\n    }\n  })()\n}}",
               "type": "string"
             }
           ]
@@ -3409,285 +3110,6 @@
       ],
       "id": "7610fa39-e707-4745-9865-23118c93f9de",
       "name": "Set Fields"
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "={{ $('Create GDoc Report').item.json.documentId }}",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "={{ $('htmlContent').item.json.htmlContent }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        6420,
-        2940
-      ],
-      "id": "fac92561-51af-4478-a3ee-ebf4875fd769",
-      "name": "Google Docs",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "formTitle": "Proposal Details",
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "Client.FirstName",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Client.LastName",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "CompanyName",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Meetings",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "SetupFee",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "LeadFee",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "ClientEmail",
-              "requiredField": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.formTrigger",
-      "typeVersion": 2.2,
-      "position": [
-        6440,
-        3160
-      ],
-      "id": "e7a303ca-249c-4d7c-8da1-c1cc8f460be9",
-      "name": "Client Details",
-      "webhookId": "24582563-0d0e-456e-a3ea-74cb7f364221",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "a076bf92-ee5f-4467-8ce6-be20ae5a7d21",
-              "name": "TotalLeadFee",
-              "value": "={{$json.LeadFee * $json.Meetings}}",
-              "type": "number"
-            },
-            {
-              "id": "278d0a44-30c1-49d9-9a50-3c7edd6857aa",
-              "name": "SubTotal",
-              "value": "={{ (Number($json.LeadFee) * Number($json.Meetings)) + Number($json.SetupFee) }}",
-              "type": "number"
-            },
-            {
-              "id": "f3b3db10-4e73-4b31-83f1-495958de2ee5",
-              "name": "Client.FirstName",
-              "value": "={{ $json['Client.FirstName'] }}",
-              "type": "string"
-            },
-            {
-              "id": "7d0a3a72-4e56-4eda-92bd-5997bf9ec443",
-              "name": "Client.LastName",
-              "value": "={{ $json['Client.LastName'] }}",
-              "type": "string"
-            },
-            {
-              "id": "3139c8d4-67b0-42bb-9019-b6ed2be45ec6",
-              "name": "CompanyName",
-              "value": "={{ $json.CompanyName }}",
-              "type": "string"
-            },
-            {
-              "id": "f4cfd5d4-c315-4dd7-a4d2-42da90a08030",
-              "name": "Meetings",
-              "value": "={{ $json.Meetings }}",
-              "type": "string"
-            },
-            {
-              "id": "fce63286-2afb-438d-b29b-5bded1a8b997",
-              "name": "SetupFee",
-              "value": "={{ $json.SetupFee }}",
-              "type": "string"
-            },
-            {
-              "id": "3663adbb-1ecd-4787-9475-c4176e7bba29",
-              "name": "LeadFee",
-              "value": "={{ $json.LeadFee }}",
-              "type": "string"
-            },
-            {
-              "id": "523b7d58-e8b4-440b-9b79-f5aa4d724b4e",
-              "name": "ClientEmail",
-              "value": "={{ $json.ClientEmail }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        6640,
-        3160
-      ],
-      "id": "510abfa4-1285-4e4d-8fa5-40cbeb51f4a3",
-      "name": "Set Value"
-    },
-    {
-      "parameters": {
-        "operation": "copy",
-        "fileId": {
-          "__rl": true,
-          "value": "1ZLWmujYBSu-zMB4MHR9Iju6PnmvH0I1Q-RKIMUFrHn0",
-          "mode": "id"
-        },
-        "name": "=Proposal: myBoringProcess - {{ $json.Client.FirstName }} {{ $json.Client.LastName }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        6840,
-        3160
-      ],
-      "id": "8d73dd86-feb3-4937-bbd4-96dfd977a80c",
-      "name": "Make a copy of template",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "HR5Tk4YDcaNJda9N",
-          "name": "Google Drive Sergio"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "={{ $json.id }}",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "replaceAll",
-              "text": "{{Client.FirstName}}",
-              "replaceText": "={{ $('Set Value').item.json.Client.FirstName }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{Client.LastName}} ",
-              "replaceText": "={{ $('Set Value').item.json.Client.LastName }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": " {{CompanyName}}",
-              "replaceText": "={{ $('Set Value').item.json.CompanyName }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{SetupFee}}",
-              "replaceText": "={{ $('Set Value').item.json.SetupFee.toString() }}\n"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{LeadFee}}",
-              "replaceText": "={{ $('Set Value').item.json.LeadFee.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": " {{TotalLeadFee}}",
-              "replaceText": "={{ $('Set Value').item.json.TotalLeadFee.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{SubTotal}}",
-              "replaceText": "={{ $('Set Value').item.json.SubTotal.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{meetings}}",
-              "replaceText": "={{ $('Set Value').item.json.Meetings.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{TotalLeadFee}}",
-              "replaceText": "={{ $('Set Value').item.json.TotalLeadFee.toString() }}\n"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        7040,
-        3160
-      ],
-      "id": "2bc9a1f6-04fc-4574-931e-904904e8b6ee",
-      "name": "Edit the Template"
-    },
-    {
-      "parameters": {
-        "operation": "share",
-        "fileId": {
-          "__rl": true,
-          "value": "={{ $json.documentId }}",
-          "mode": "id"
-        },
-        "permissionsUi": {
-          "permissionsValues": {
-            "role": "reader",
-            "type": "anyone"
-          }
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        7240,
-        3160
-      ],
-      "id": "415a31c0-3579-4d40-960f-ef22ea9a723e",
-      "name": "Share"
-    },
-    {
-      "parameters": {
-        "sendTo": "arun.worc@gmail.com",
-        "subject": "=Proposal for {{ $('Client Details').item.json['Client.FirstName'] }} {{ $('Client Details').item.json['Client.LastName'] }}",
-        "emailType": "text",
-        "message": "=https://docs.google.com/document/d/{{ $('Edit the Template').item.json.documentId }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        7440,
-        3160
-      ],
-      "id": "dcf82359-aba2-47ce-b10f-f5e05ad9614a",
-      "name": "Send",
-      "webhookId": "2a52c1df-0c61-4937-a5bf-0cf528f4fcff"
     },
     {
       "parameters": {
@@ -3838,7 +3260,32 @@
             {
               "action": "replaceAll",
               "text": "{{contentSummary}}",
-              "replaceText": "={{ $('Set Fields').item.json['cSummary - refined'] }}"
+              "replaceText": "={{ $('cSummary').item.json.message.content }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentStrengths}}",
+              "replaceText": "={{ $('Set Fields').item.json.content.Strengths }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentOpportunities}}",
+              "replaceText": "={{ $('Set Fields').item.json.content.Opportunities }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentRecommendations}}",
+              "replaceText": "={{ $('Set Fields').item.json.content.Recommendations }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentTscripts}}",
+              "replaceText": "={{ $('Set Fields').item.json.content.Tscripts }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentTopComments}}",
+              "replaceText": "={{ $('Set Fields').item.json.content.TopComments }}"
             }
           ]
         }
@@ -3858,6 +3305,40 @@
           "name": "Google Docs ✔️️"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "={{ $('VarToValues').item.json.documentId }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        4780,
+        2760
+      ],
+      "id": "d0010bc1-65e2-442b-a0ec-93cb1d9ab2e1",
+      "name": "Google Docs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        6320,
+        2540
+      ],
+      "id": "03b8f446-d112-4feb-ac80-83a4e3fb82ae",
+      "name": "Convert to File"
     }
   ],
   "pinData": {
@@ -3873,6 +3354,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-14T19:03:07.000Z",
-  "versionId": "dceef259-9ffe-44e5-86f8-cbc9d74855ee"
+  "updatedAt": "2025-05-15T02:54:22.000Z",
+  "versionId": "7c4ba75f-8683-4f51-a9a3-dc13a1fe3779"
 }
