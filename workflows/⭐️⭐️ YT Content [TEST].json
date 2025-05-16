@@ -244,7 +244,7 @@
         ],
         [
           {
-            "node": "Split Out",
+            "node": "Get Comments",
             "type": "main",
             "index": 0
           }
@@ -366,7 +366,7 @@
       "main": [
         [
           {
-            "node": "Get Comments",
+            "node": "If zero comments",
             "type": "main",
             "index": 0
           }
@@ -453,7 +453,7 @@
       "main": [
         [
           {
-            "node": "If zero comments",
+            "node": "Split Out",
             "type": "main",
             "index": 0
           }
@@ -2265,7 +2265,8 @@
         2860,
         2940
       ],
-      "alwaysOutputData": true
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2279,7 +2280,7 @@
           "conditions": [
             {
               "id": "adad4ab3-6a87-493b-8a65-98afd8ff7ca7",
-              "leftValue": "={{ $json.commentsCount }}",
+              "leftValue": "={{ $('Video #streamers').item.json.commentsCount }}",
               "rightValue": "={{0}}",
               "operator": {
                 "type": "number",
@@ -2294,7 +2295,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2480,
+        2260,
         2840
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
@@ -3114,10 +3115,12 @@
         "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('YT Transcript Ninja').item.json.body[0].url }}\",\n      \"method\": \"GET\"\n    }\n  ]\n}",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video #streamers').item.json.url }}\"\n    }\n  ]\n}\n",
         "options": {
           "batching": {
-            "batch": {}
+            "batch": {
+              "batchSize": 200
+            }
           }
         }
       },
@@ -3126,8 +3129,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2280,
-        2840
+        2500,
+        2940
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -3137,7 +3140,7 @@
         "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"videoUrls\": [\n    \"<{{ $json.body[0].url }}>\"\n  ]\n}",
+        "jsonBody": "={\n  \"videoUrls\": [\n    \"{{ $json.url }}\"\n  ]\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -3199,6 +3202,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-16T01:14:52.000Z",
-  "versionId": "7263764c-97ff-41a7-ad4c-4e92ca715527"
+  "updatedAt": "2025-05-16T19:06:44.000Z",
+  "versionId": "6d702612-e1c0-4deb-9bef-6d2634a27389"
 }
