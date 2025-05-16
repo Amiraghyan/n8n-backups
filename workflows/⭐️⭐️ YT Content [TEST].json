@@ -186,17 +186,6 @@
         ]
       ]
     },
-    "Videos Run ID1": {
-      "main": [
-        [
-          {
-            "node": "Video #1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "On form submission": {
       "main": [
         [
@@ -248,7 +237,7 @@
       "main": [
         [
           {
-            "node": "Sentiment Results",
+            "node": "Merge",
             "type": "main",
             "index": 0
           }
@@ -266,9 +255,9 @@
       "main": [
         [
           {
-            "node": "Sentiment Results",
+            "node": "Merge",
             "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -311,7 +300,7 @@
       "main": [
         [
           {
-            "node": "Videos Run ID1",
+            "node": "Video #streamers",
             "type": "main",
             "index": 0
           }
@@ -329,44 +318,11 @@
         ]
       ]
     },
-    "Video #1": {
-      "main": [
-        [
-          {
-            "node": "Video #2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Video #2": {
-      "main": [
-        [
-          {
-            "node": "Video #3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Video #3": {
-      "main": [
-        [
-          {
-            "node": "Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "cSummary": {
       "main": [
         [
           {
-            "node": "Editor",
+            "node": "Top Comments",
             "type": "main",
             "index": 0
           }
@@ -411,17 +367,6 @@
         [
           {
             "node": "Get Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Editor": {
-      "main": [
-        [
-          {
-            "node": "Top Comments",
             "type": "main",
             "index": 0
           }
@@ -525,6 +470,28 @@
           }
         ]
       ]
+    },
+    "Video #streamers": {
+      "main": [
+        [
+          {
+            "node": "Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Sentiment Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-05-07T22:59:14.687Z",
@@ -542,7 +509,7 @@
       "typeVersion": 1,
       "position": [
         2120,
-        1640
+        1680
       ],
       "disabled": true
     },
@@ -581,7 +548,7 @@
       "typeVersion": 2.1,
       "position": [
         2320,
-        1640
+        1680
       ],
       "id": "f3dd61c4-46c0-438d-ae6f-e99b9c39e6f1",
       "name": "Read_Videos",
@@ -1081,7 +1048,7 @@
       "typeVersion": 2.2,
       "position": [
         2520,
-        1640
+        1680
       ],
       "id": "5c87f4cd-80d4-4eac-80c8-b39665b1e1af",
       "name": "Process_video",
@@ -1092,7 +1059,7 @@
       "parameters": {
         "content": "## Process Channels\nOldestPostDate: \"2024-01-01\"",
         "height": 480,
-        "width": 3140,
+        "width": 2680,
         "color": 6
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -1107,8 +1074,8 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 480,
-        "width": 3140,
+        "height": 560,
+        "width": 2680,
         "color": 2
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -1487,7 +1454,7 @@
       "typeVersion": 4.2,
       "position": [
         2760,
-        1540
+        1580
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1641,7 +1608,7 @@
       "typeVersion": 3.4,
       "position": [
         2960,
-        1540
+        1580
       ],
       "id": "6c0f2dad-8127-4911-b542-0004d441df2f",
       "name": "Videos Run ID"
@@ -1674,7 +1641,7 @@
       "typeVersion": 2.2,
       "position": [
         3160,
-        1540
+        1580
       ],
       "id": "901d6051-b313-41fb-b3a2-ca08555d063a",
       "name": "VID SUCCEED"
@@ -1710,7 +1677,7 @@
       "typeVersion": 4.2,
       "position": [
         3400,
-        1500
+        1540
       ],
       "id": "3ff3db22-55d0-4d1d-9511-9c628a7948a8",
       "name": "Video Results",
@@ -2089,7 +2056,7 @@
       "typeVersion": 2.1,
       "position": [
         4100,
-        1440
+        1480
       ],
       "id": "41075a45-34f9-434c-9777-62cfa88e38ea",
       "name": "Update_Videos1",
@@ -2108,7 +2075,7 @@
       "typeVersion": 1,
       "position": [
         2800,
-        1740
+        1780
       ],
       "id": "21011ccd-af3f-4aaf-8595-fbb2e9f38b7d",
       "name": "not Processed"
@@ -2119,7 +2086,7 @@
       "typeVersion": 1,
       "position": [
         3400,
-        1660
+        1700
       ],
       "id": "9958cd9c-f4fc-4bc7-93d0-c356a23cfd4f",
       "name": "Not SUCCEEDED"
@@ -2132,7 +2099,7 @@
       "typeVersion": 1,
       "position": [
         3680,
-        1440
+        1480
       ],
       "id": "8d8236e3-8f31-4e39-b2da-ca51f0186956",
       "name": "Limit"
@@ -2174,7 +2141,7 @@
       "typeVersion": 3.4,
       "position": [
         3900,
-        1440
+        1480
       ],
       "id": "c427be34-1c72-41e8-b40d-ec0d0114575a",
       "name": "Fields for Video Update"
@@ -2182,8 +2149,8 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 1220,
-        "width": 3140,
+        "height": 1160,
+        "width": 2680,
         "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -2194,49 +2161,6 @@
       "typeVersion": 1,
       "id": "bb8e3b37-dfe2-4cde-9bcb-7a37df0b427c",
       "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b67cb44a-aa48-46f7-b8c0-14dfb2af8a5b",
-              "name": "body",
-              "value": "={{ $json.body }}",
-              "type": "object"
-            },
-            {
-              "id": "e704ae40-ffbf-4427-8aa1-8e1fd8a09456",
-              "name": "statusCode",
-              "value": "={{ $json.statusCode }}",
-              "type": "number"
-            },
-            {
-              "id": "ab90113f-21e7-46f0-801f-4846c7c27303",
-              "name": "statusMessage",
-              "value": "={{ $json.statusMessage }}",
-              "type": "string"
-            },
-            {
-              "id": "87393c60-0308-4e9a-8ec3-add12a01fed4",
-              "name": "headers",
-              "value": "={{ $json.headers }}",
-              "type": "object"
-            }
-          ]
-        },
-        "options": {
-          "ignoreConversionErrors": true
-        }
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2520,
-        2360
-      ],
-      "id": "d51c0d8e-20cc-4f81-b40a-824c0c523e3e",
-      "name": "Videos Run ID1"
     },
     {
       "parameters": {
@@ -2274,7 +2198,7 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.2,
       "position": [
-        2100,
+        2220,
         2360
       ],
       "id": "9b21b368-2fb1-4ded-a7e6-8ff41212be6d",
@@ -2291,8 +2215,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2980,
-        2980
+        2680,
+        2940
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2338,8 +2262,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        3180,
-        2980
+        2860,
+        2940
       ],
       "alwaysOutputData": true
     },
@@ -2370,7 +2294,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2740,
+        2480,
         2840
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
@@ -2385,8 +2309,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3780,
-        2980
+        3200,
+        2940
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2467,8 +2391,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1840,
-        2000
+        1820,
+        2040
       ],
       "id": "287b5c8e-0b85-4926-8a7d-f06a25480741",
       "name": "Edit Fields"
@@ -2485,8 +2409,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3200,
-        3140
+        2920,
+        3100
       ],
       "credentials": {
         "openAiApi": {
@@ -2521,7 +2445,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2320,
+        2420,
         2360
       ],
       "alwaysOutputData": true,
@@ -2534,63 +2458,12 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4120,
-        2820
+        3560,
+        2840
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
       "name": "Sentiment Results",
       "executeOnce": true
-    },
-    {
-      "parameters": {
-        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"proxy\": {\n    \"useApifyProxy\": true,\n    \"apifyProxyGroups\": [\n      \"RESIDENTIAL\"\n    ],\n    \"apifyProxyCountry\": \"US\"\n  },\n  \"startUrls\": [\n    \"{{ $json.body[0].url }}\"\n  ],\n  \"maxConcurrency\": 10,\n  \"minConcurrency\": 1,\n  \"maxRequestRetries\": 10\n} ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2720,
-        2360
-      ],
-      "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
-      "name": "Video #1"
-    },
-    {
-      "parameters": {
-        "url": "https://api.apify.com/v2/acts/easyapi~youtube-video-metadata-scraper/runs?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"videoUrls\": [\"https://www.youtube.com/watch?{{ $json.videoId }}\"]\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2920,
-        2360
-      ],
-      "id": "cc8a6f5a-1237-40cb-a04c-d728f70d8b09",
-      "name": "Video #2"
-    },
-    {
-      "parameters": {
-        "url": "https://api.apify.com/v2/datasets/xZZCnxEXR5Igzeds2/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"proxy\": {\n    \"useApifyProxy\": true,\n    \"apifyProxyGroups\": [\n      \"RESIDENTIAL\"\n    ],\n    \"apifyProxyCountry\": \"US\"\n  },\n  \"startUrls\": [\n    \"{{ $('Videos Run ID1').first().json.body[0].url }}\"\n  ],\n  \"maxConcurrency\": 10,\n  \"minConcurrency\": 1,\n  \"maxRequestRetries\": 10\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        3120,
-        2360
-      ],
-      "id": "240f3002-e256-490b-8928-959d6a5e883d",
-      "name": "Video #3"
     },
     {
       "parameters": {
@@ -2603,7 +2476,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Analyze this YouTube video information and create a concise, professional summary (250-300 words) that describes:\n\n1. The main topic and purpose of the video\n2. The key points or sections covered \n3. The presenter's communication approach\n4. 3-4 specific notable insights from the content\n5. Who would benefit most from this video\n\nUse only the information provided: \nTitle: \"{{ $('Video #3').item.json.title }}\", \nDescription: \"{{ $('Video #3').item.json.description }}\", \nTags: {{ $('Video #3').item.json.tags }}, \nand these transcript excerpts: {{ $('Videos Run ID1').item.json.body[0].transcript }}\n\nFormat your response as a neutral, analytical paragraph without using first-person language.\n",
+              "content": "=Analyze this YouTube video information and create a concise, professional summary (250-300 words) that describes:\n\n1. The main topic and purpose of the video\n2. The key points or sections covered \n3. The presenter's communication approach\n4. 3-4 specific notable insights from the content\n5. Who would benefit most from this video\n\nUse only the information provided: \nTitle: \"{{ $('YT Transcript Ninja').item.json.body[0].videoTitle }}, \nDescription: {{ $('Video #streamers').item.json.text }}, \nTags: {{ $('Video #streamers').item.json.hashtags }}, \nand these transcript excerpts: {{ $('YT Transcript Ninja').item.json.body[0].transcript }}\n\nFormat your response as a neutral, analytical paragraph without using first-person language. Do not be verbose. Keep in mind that this content is part of a report where the user has become familiar with the Title of the video, and other metadata. Get right into topic not making introductions like \"The analysis on the video called The 30-Day Mindset is killing your dealership with Don Hall\" just get straight into the analysis.\n",
               "role": "system"
             }
           ]
@@ -2613,8 +2486,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3540,
-        2360
+        2260,
+        2600
       ],
       "id": "9cd21e03-08f1-40c8-8a1a-7ab72a3d9b90",
       "name": "cSummary",
@@ -2636,7 +2509,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Analyze this YouTube video information and generate 5 specific content strengths for a video titled \"{{ $('Videos Run ID1').item.json.body[0].videoTitle }}\" with these details:\n- Description: \"{{ $('Video #3').item.json.description }}\"\n- Tags: {{ $('Video #3').item.json.tags }}\n- Duration: {{ $('Video #3').item.json.lengthInSeconds }}\n- Top comments: {{topComments}}\n\nFor each strength:\n1. Identify a specific aspect of the content that appears to be executed well\n2. Format as \"Category: Detailed explanation\" (e.g., \"Visual Presentation: High-quality graphics with clear annotations make complex concepts easy to understand.\")\n3. Focus on content quality, structure, presentation style, information value, or audience engagement\n4. Base your analysis on the video's topic, structure, and audience reception\n5. Provide specific, substantive analysis rather than generic praise\n\nEnsure each strength is distinct and focuses on a different aspect of the content.",
+              "content": "=Analyze this YouTube video information and generate 5 specific content strengths for a video titled \"{{ $('YT Transcript Ninja').item.json.body[0].videoTitle }}\" with these details:\n- Description: \"{{ $('Video #streamers').item.json.text }}\"\n- Tags: {{ $('Video #streamers').item.json.hashtags }}\n- Duration: {{ $('Video #streamers').item.json.duration }}\n- Top comments: {{ $('Top Comments').item.json.message.content }}\n\nFor each strength:\n1. Identify a specific aspect of the content that appears to be executed well\n2. Format as \"Category: Detailed explanation\" (e.g., \"Visual Presentation: High-quality graphics with clear annotations make complex concepts easy to understand.\")\n3. Focus on content quality, structure, presentation style, information value, or audience engagement\n4. Base your analysis on the video's topic, structure, and audience reception\n5. Provide specific, substantive analysis rather than generic praise\n\nEnsure each strength is distinct and focuses on a different aspect of the content.\nDeliver response in plain style. No ** markdown for bold.",
               "role": "system"
             }
           ]
@@ -2646,7 +2519,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3180,
+        3360,
         2600
       ],
       "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
@@ -2669,7 +2542,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Based on this YouTube video information, identify 5 specific improvement opportunities for a video titled \"\" with:\n- Description: \"{{ $('Video #3').item.json.description }}\"\n- Tags: {{ $('Video #3').item.json.tags }}\n- View-to-like ratio: {{$json[\"likesToViewsRatio\"]}}\n- Comments: {{topComments}}\n\nFor each opportunity:\n1. Identify a specific aspect that could be enhanced or expanded\n2. Format as \"Area: Detailed explanation\" (e.g., \"Technical Depth: The encryption section could benefit from more detailed examples showing practical implementation.\")\n3. Base your suggestions on viewer feedback in comments and content gaps based on the topic\n4. Be constructive and specific rather than critical\n5. Focus on content expansion, audience engagement, technical clarifications, or additional value-add elements\n\nEach opportunity should offer actionable insight that would meaningfully improve the video content.",
+              "content": "=Based on this YouTube video information, identify 5 specific improvement opportunities for a video titled \"\" with:\n- Description: \"{{ $('Video #streamers').item.json.text }}\"\n- Tags: {{ $('Video #streamers').item.json.hashtags }}\n- View-to-like ratio: {{$json[\"likesToViewsRatio\"]}}\n- Comments: {{ $('Top Comments').item.json.message.content }}\n\nFor each opportunity:\n1. Identify a specific aspect that could be enhanced or expanded\n2. Format as \"Area: Detailed explanation\" (e.g., \"Technical Depth: The encryption section could benefit from more detailed examples showing practical implementation.\")\n3. Base your suggestions on viewer feedback in comments and content gaps based on the topic\n4. Be constructive and specific rather than critical\n5. Focus on content expansion, audience engagement, technical clarifications, or additional value-add elements\n\nEach opportunity should offer actionable insight that would meaningfully improve the video content.\nDeliver response in plain style. No ** markdown for bold.",
               "role": "system"
             }
           ]
@@ -2679,7 +2552,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3540,
+        3740,
         2600
       ],
       "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
@@ -2702,7 +2575,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Create 5 strategic, actionable recommendations for a YouTube creator to improve and expand upon their video \"{{ $('Video #3').item.json.title }}\" based on this data:\n- Video metrics: {{ $('Video #3').item.json.viewCount }} views, {{ $('Video #3').item.json.likeCount }} likes, {{ $('Video #3').item.json.commentCount }} comments\n- Description: \"\"\n- Tags: {{ $('Video #3').item.json.tags }}\n- Content strengths: {{ $('cStrengths').item.json.message.content }}\n- Content opportunities: {{ $json.message.content }}\n- Top comments: {{topComments}}\n\nEach recommendation should:\n1. Start with a clear, action-oriented title (e.g., \"Develop Series Extension:\")\n2. Include a detailed, specific explanation (approximately 30-50 words)\n3. Address a strategic opportunity to increase engagement, viewership, or content value\n4. Connect directly to insights from the data provided\n5. Include a specific potential outcome or benefit\n\nFormat each as \"Action Title: Detailed explanation with strategic rationale.\"\n\nRecommendations should be tailored to this specific video and channel context, not generic YouTube advice.",
+              "content": "=Create 5 strategic, actionable recommendations for a YouTube creator to improve and expand upon their video \"{{ $('YT Transcript Ninja').item.json.body[0].videoTitle }}\" based on this data:\n- Video metrics: {{ $('Video #streamers').item.json.viewCount }} views, {{ $('Video #streamers').item.json.likes }} likes, {{ $('Video #streamers').item.json.commentsCount }} comments\n- Description: \"{{ $('Video #streamers').item.json.text }}\"\n- Tags: {{ $('Video #streamers').item.json.hashtags }}\n- Content strengths: {{ $('cStrengths').item.json.message.content }}\n- Content opportunities: {{ $json.message.content }}\n- Top comments: {{ $('Top Comments').item.json.message.content }}\n\nEach recommendation should:\n1. Start with a clear, action-oriented title (e.g., Develop Series Extension:)\n2. Include a detailed, specific explanation (approximately 30-50 words)\n3. Address a strategic opportunity to increase engagement, viewership, or content value\n4. Connect directly to insights from the data provided\n5. Include a specific potential outcome or benefit\n\nFormat each as \n\nAction Title: Detailed explanation with strategic rationale.\nDo not include the workds \"Action Title:\"\n\n\nRecommendations should be tailored to this specific video and channel context, not generic YouTube advice.\nDeliver response in plain style. No ** markdown for bold.",
               "role": "system"
             }
           ]
@@ -2712,7 +2585,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3900,
+        4120,
         2600
       ],
       "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
@@ -2735,7 +2608,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Generate 5 realistic YouTube comments for a video titled \"{{ $('Video #3').item.json.title }}\" with description \"{{ $('Video #3').item.json.description }}\".\n\nThe video has {{ $('Video #3').item.json.viewCount }} views, {{ $('Video #3').item.json.likeCount }} likes, and {{ $('Video #3').item.json.commentCount }} comments, suggesting it's a popular video with good engagement.\n\nCreate comments that:\n1. Reflect diverse viewer perspectives (positive feedback, constructive criticism, expert insights, beginner questions, etc.)\n2. Reference specific content that would likely be in the video based on its title and description\n3. Include reasonable usernames that match the likely audience for this content\n4. Show varying levels of detail and engagement with the content\n5. Include at least one comment that mentions a minor correction or suggestion for improvement\n\nFormat each comment as a JSON object with \"user\" and \"comment\" properties. The comments should be highly realistic and specific to this video's content.",
+              "content": "=Generate 5 realistic YouTube comments for a video titled \"{{ $('Video #streamers').item.json.title }}\" with description \"{{ $('Video #streamers').item.json.text }}\".\n\nThe video has {{ $('Video #streamers').item.json.viewCount }} views, {{ $('Video #streamers').item.json.likes }} likes, and {{ $('Video #streamers').item.json.commentsCount }} comments, suggesting it's a popular video with good engagement.\n\nCreate comments that:\n1. Reflect diverse viewer perspectives (positive feedback, constructive criticism, expert insights, beginner questions, etc.)\n2. Reference specific content that would likely be in the video based on its title and description\n3. Include reasonable usernames that match the likely audience for this content\n4. Show varying levels of detail and engagement with the content\n5. Include at least one comment that mentions a minor correction or suggestion for improvement\n\nFormat each comment as a JSON object with \"user\" and \"comment\" properties. The comments should be highly realistic and specific to this video's content.",
               "role": "system"
             }
           ]
@@ -2745,7 +2618,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2460,
+        2620,
         2600
       ],
       "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
@@ -2768,7 +2641,7 @@
         "messages": {
           "values": [
             {
-              "content": "=You are an expert Editor specializing in refining and polishing content to ensure it meets the highest quality standards. Your role is to review and improve the written material produced by multiple Writers while maintaining academic integrity and proper source attribution. Your task is to provide a highly polished, SEO-optimized summary with proper citation management.\n\n## Content Review Instructions:\nCarefully read the entire content piece.\nCheck for grammar, spelling, and punctuation errors.\nEnsure consistency in tone, style, and voice throughout the piece.\nVerify that the content aligns with the original brief.\nImprove sentence structure and flow for better readability.\nOptimize headlines, subheadings, and formatting for better engagement, especially for SEO.\nSuggest improvements or additions to enhance the overall quality of the content.\n\nToday's date is: {{ $now }}\n\n{{ $json.message.content }}",
+              "content": "=Given the YouTube video title \"{{ $('Video #streamers').item.json.title }}\" about {{ $('Video #streamers').item.json.hashtags }}, generate 7 realistic transcript excerpts that would appear throughout an educational video on this topic.\n\nEach excerpt should:\n1. Include a timestamp (starting with 0:00 and ending near the video duration of {{ $('Video #streamers').item.json.duration }})\n2. Reflect natural speaking patterns of an educational content creator\n3. Represent key moments in the video's narrative structure\n4. Include an introduction, key points for each major section, and a conclusion\n5. Match the tone and style suggested by the video description: \n\"{{ $('Video #streamers').item.json.text }}\"\n\nFormat each excerpt as a JSON object with \"time\" and \"text\" properties. \nKeep the time and text plain style.",
               "role": "system"
             }
           ]
@@ -2778,40 +2651,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3900,
-        2360
-      ],
-      "id": "63828795-63b7-4fad-a7b4-efde33781da6",
-      "name": "Editor",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "gpt-4o-mini",
-          "mode": "list",
-          "cachedResultName": "GPT-4O-MINI"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=Given the YouTube video title \"{{ $('Video #3').item.json.title }}\" about {{ $('Video #3').item.json.tags }}, generate 7 realistic transcript excerpts that would appear throughout an educational video on this topic.\n\nEach excerpt should:\n1. Include a timestamp (starting with 0:00 and ending near the video duration of {{ $('Video #3').item.json.lengthInSeconds,\"seconds\"}})\n2. Reflect natural speaking patterns of an educational content creator\n3. Represent key moments in the video's narrative structure\n4. Include an introduction, key points for each major section, and a conclusion\n5. Match the tone and style suggested by the video description: \n\"{{ $('Video #3').item.json.description }}\"\n\nFormat each excerpt as a JSON object with \"time\" and \"text\" properties.",
-              "role": "system"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.8,
-      "position": [
-        2820,
+        2980,
         2600
       ],
       "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
@@ -2830,43 +2670,43 @@
             {
               "id": "a6d2bb42-9851-4bcf-88c9-a0a64a8b1a66",
               "name": "id",
-              "value": "={{ $('Video #3').item.json.id }}",
+              "value": "={{ $('Video #streamers').item.json.id }}",
               "type": "string"
             },
             {
               "id": "98d5d864-30b2-479f-821c-5c6e84f44816",
               "name": "url",
-              "value": "={{ $('Video #3').item.json.url }}",
+              "value": "={{ $('Video #streamers').item.json.url }}",
               "type": "string"
             },
             {
               "id": "d5b69112-36aa-4f73-a9c8-ff36a3a0186c",
               "name": "title",
-              "value": "={{ $('Video #3').item.json.title }}",
+              "value": "={{ $('Video #streamers').item.json.title }}",
               "type": "string"
             },
             {
               "id": "6f0044dc-6c54-4486-a987-baffd687be72",
               "name": "description",
-              "value": "={{ $('Video #3').item.json.description }}",
+              "value": "={{ $('Video #streamers').item.json.text }}",
               "type": "string"
             },
             {
               "id": "76cd2bb4-ae7b-4b04-b100-5571b4916f5b",
               "name": "lengthInSeconds",
-              "value": "={{ $('Video #3').item.json.lengthInSeconds }}",
-              "type": "number"
+              "value": "={{ $('Video #streamers').item.json.duration }}",
+              "type": "string"
             },
             {
               "id": "4b37d727-0d53-435c-bf34-2ab80c300d3b",
               "name": "duration",
-              "value": "=\"{{   (function() {     const seconds = Number($('Video #3').item.json.lengthInSeconds);     if (isNaN(seconds)) return '00:00';          const hours = Math.floor(seconds / 3600);     const minutes = Math.floor((seconds % 3600) / 60);     const secs = Math.floor(seconds % 60);          if (hours > 0) {       return hours + ':' + String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     } else {       return String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');     }   })() }}\"",
+              "value": "={{ $('Video #streamers').item.json.duration }}",
               "type": "string"
             },
             {
               "id": "082eafe5-86dc-4b37-9a56-4b49d76c169d",
               "name": "publishedDate",
-              "value": "={{ $('Video #3').item.json.uploadDatetime.toDateTime().format('LLL dd,yy') }}",
+              "value": "={{ $('Video #streamers').item.json.date }}",
               "type": "string"
             },
             {
@@ -2876,93 +2716,69 @@
               "type": "string"
             },
             {
-              "id": "583cc54a-d6da-48b6-af3f-24ef690c1471",
-              "name": "category",
-              "value": "={{ $('Video #3').item.json.category }}",
-              "type": "string"
-            },
-            {
               "id": "6de1dd9c-9212-42a0-af77-469a0d99bf37",
               "name": "tags",
-              "value": "={{ $('Video #3').item.json.tags ? $('Video #3').item.json.tags.map(tag => '#' + tag).join(' ') : '' }}",
+              "value": "={{ $('Video #streamers').item.json.hashtags }}",
               "type": "string"
             },
             {
               "id": "2813f62a-2330-43f9-a373-8735f6e57355",
               "name": "channelID",
-              "value": "={{ $('Video #3').item.json.channelID }}",
+              "value": "={{ $('Video #streamers').item.json.channelId }}",
               "type": "string"
             },
             {
               "id": "1c10857e-9efe-412f-9c5c-9a5bbaa540fe",
               "name": "channelURL",
-              "value": "={{ $('Video #3').item.json.channelURL }}",
+              "value": "={{ $('Video #streamers').item.json.channelUrl }}",
               "type": "string"
             },
             {
               "id": "d1a68eda-757d-441a-bfae-e78ace8d8a7b",
               "name": "channelUsername",
-              "value": "={{ $('Video #3').item.json.channelUsername }}",
+              "value": "={{ $('Video #streamers').item.json.channelUsername }}",
               "type": "string"
             },
             {
               "id": "a4b1921f-dfcd-4ff8-80eb-25909ae19a52",
               "name": "channelDisplayName",
-              "value": "={{ $('Video #3').item.json.channelDisplayName }}",
+              "value": "={{ $('Video #streamers').item.json.channelName }}",
               "type": "string"
             },
             {
               "id": "56394597-3c6b-4a42-988d-72970969f034",
               "name": "channelSubscribers",
-              "value": "={{ $('Video #3').item.json.channelSubscribers }}",
+              "value": "={{ $('Video #streamers').item.json.numberOfSubscribers }}",
               "type": "string"
             },
             {
               "id": "f7e4fae0-3b3d-422b-85dc-c8519bb72021",
               "name": "viewCount",
-              "value": "={{ $('Video #3').item.json.viewCount }}",
+              "value": "={{ $('Video #streamers').item.json.viewCount }}",
               "type": "number"
             },
             {
               "id": "f64b2963-d190-41bf-8c83-62f9cff210c0",
               "name": "likeCount",
-              "value": "={{ $('Video #3').item.json.likeCount }}",
+              "value": "={{ $('Video #streamers').item.json.likes }}",
               "type": "number"
             },
             {
               "id": "e1254a80-e9e5-4c3a-97ca-98cce0e3a1e6",
-              "name": "commentCount",
-              "value": "={{ $('Video #3').item.json.commentCount }}",
+              "name": "commentsCount",
+              "value": "={{ $('Video #streamers').item.json.commentsCount }}",
               "type": "number"
-            },
-            {
-              "id": "6499b86b-0002-42df-9fc4-7420739c6258",
-              "name": "transcripts",
-              "value": "={{ $('Video #3').item.json.transcripts }}",
-              "type": "array"
-            },
-            {
-              "id": "41e5ff5b-6816-4282-9e3c-ad9d8a168162",
-              "name": "category",
-              "value": "={{ $('Video #3').item.json.category }}",
-              "type": "string"
             },
             {
               "id": "c7d901d4-7479-48b7-87f4-2b2c15d463ef",
               "name": "description",
-              "value": "={{ $('Video #3').item.json.description }}",
+              "value": "={{ $('Video #streamers').item.json.text }}",
               "type": "string"
             },
             {
               "id": "22500735-332c-4b2d-994a-9cf5cb8f2c09",
               "name": "cSummary - raw",
               "value": "={{ $('cSummary').item.json.message.content }}",
-              "type": "string"
-            },
-            {
-              "id": "1acd37c0-e6de-44d8-8a59-6c784f94dc2d",
-              "name": "cSummary - refined",
-              "value": "={{ $('Editor').item.json.message.content }}",
               "type": "string"
             },
             {
@@ -3004,13 +2820,13 @@
             {
               "id": "b9120961-31a6-4669-8083-838c51eef96b",
               "name": "=content.Tscripts",
-              "value": "={{\n  (function() {\n    try {\n      // Parse the JSON string from message.content\n      let content = $('Transcript Excerpts').item.json.message.content;\n      \n      // Clean up any escape characters or formatting issues\n      content = content.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n      \n      // Try to extract time-text pairs using regex\n      const timeTextMatches = content.match(/\"time\":\\s*\"([^\"]+)\",\\s*\"text\":\\s*\"([^\"]+)\"/g);\n      \n      if (timeTextMatches && timeTextMatches.length > 0) {\n        return timeTextMatches.map(match => {\n          const time = match.match(/\"time\":\\s*\"([^\"]+)\"/)[1];\n          const text = match.match(/\"text\":\\s*\"([^\"]+)\"/)[1];\n          return `**${time}**: ${text}`;\n        }).join('\\n\\n');\n      }\n      \n      return 'Could not extract transcript excerpts';\n    } catch (error) {\n      return 'Error processing transcript excerpts';\n    }\n  })()\n}}",
+              "value": "={{\n  (function() {\n    try {\n      // Parse the JSON string from message.content\n      let content = $('Transcript Excerpts').item.json.message.content;\n      \n      // Clean up any escape characters or formatting issues\n      content = content.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n      \n      // Try to extract time-text pairs using regex\n      const timeTextMatches = content.match(/\"time\":\\s*\"([^\"]+)\",\\s*\"text\":\\s*\"([^\"]+)\"/g);\n      \n      if (timeTextMatches && timeTextMatches.length > 0) {\n        return timeTextMatches.map(match => {\n          const time = match.match(/\"time\":\\s*\"([^\"]+)\"/)[1];\n          const text = match.match(/\"text\":\\s*\"([^\"]+)\"/)[1];\n          return `${time}:\n${text}`;\n        }).join('\\n\\n');\n      }\n      \n      return 'Could not extract transcript excerpts';\n    } catch (error) {\n      return 'Error processing transcript excerpts';\n    }\n  })()\n}}",
               "type": "string"
             },
             {
               "id": "285d5aa0-ca5c-48d9-9ec7-5ff2fc1d0780",
               "name": "=content.TopComments",
-              "value": "={{\n  (function() {\n    try {\n      // Get the content string\n      let content = $('Top Comments').item.json.message.content;\n      \n      // Regular expression to match user-comment pairs\n      const regex = /\"user\":\\s*\"([^\"]+)\",\\s*\"comment\":\\s*\"([^\"]+)\"/g;\n      const matches = [];\n      let match;\n      \n      // Find all matches\n      while ((match = regex.exec(content)) !== null) {\n        if (match.length >= 3) {\n          matches.push({\n            user: match[1],\n            comment: match[2]\n          });\n        }\n      }\n      \n      // If we found matches, format them\n      if (matches.length > 0) {\n        return matches.map(m => `**${m.user}:** \"${m.comment}\"`).join('\\n\\n');\n      }\n      \n      // Alternative method if the regex approach doesn't work\n      const userRegex = /\"user\":\\s*\"([^\"]+)\"/g;\n      const commentRegex = /\"comment\":\\s*\"([^\"]+)\"/g;\n      \n      const users = [];\n      const comments = [];\n      \n      while ((match = userRegex.exec(content)) !== null) {\n        users.push(match[1]);\n      }\n      \n      while ((match = commentRegex.exec(content)) !== null) {\n        comments.push(match[1]);\n      }\n      \n      if (users.length === comments.length && users.length > 0) {\n        return users.map((user, i) => \n          `**${user}:** \"${comments[i]}\"`\n        ).join('\\n\\n');\n      }\n      \n      return 'No comments available';\n    } catch (error) {\n      return 'Error processing comments';\n    }\n  })()\n}}",
+              "value": "={{\n  (function() {\n    try {\n      // Get the content string\n      let content = $('Top Comments').item.json.message.content;\n      \n      // Regular expression to match user-comment pairs\n      const regex = /\"user\":\\s*\"([^\"]+)\",\\s*\"comment\":\\s*\"([^\"]+)\"/g;\n      const matches = [];\n      let match;\n      \n      // Find all matches\n      while ((match = regex.exec(content)) !== null) {\n        if (match.length >= 3) {\n          matches.push({\n            user: match[1],\n            comment: match[2]\n          });\n        }\n      }\n      \n      // If we found matches, format them\n      if (matches.length > 0) {\n        return matches.map(m => `${m.user}: \n\"${m.comment}\"`).join('\\n\\n');\n      }\n      \n      // Alternative method if the regex approach doesn't work\n      const userRegex = /\"user\":\\s*\"([^\"]+)\"/g;\n      const commentRegex = /\"comment\":\\s*\"([^\"]+)\"/g;\n      \n      const users = [];\n      const comments = [];\n      \n      while ((match = userRegex.exec(content)) !== null) {\n        users.push(match[1]);\n      }\n      \n      while ((match = commentRegex.exec(content)) !== null) {\n        comments.push(match[1]);\n      }\n      \n      if (users.length === comments.length && users.length > 0) {\n        return users.map((user, i) => \n          `**${user}:** \"${comments[i]}\"`\n        ).join('\\n\\n');\n      }\n      \n      return 'No comments available';\n    } catch (error) {\n      return 'Error processing comments';\n    }\n  })()\n}}",
               "type": "string"
             }
           ]
@@ -3020,8 +2836,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4300,
-        2360
+        3740,
+        2840
       ],
       "id": "7610fa39-e707-4745-9865-23118c93f9de",
       "name": "Set Fields"
@@ -3034,7 +2850,7 @@
           "value": "1nzSNHzpkJb0GDUSjANnSd_vg-C2hwj3zc-Nbc6x6k58",
           "mode": "id"
         },
-        "name": "=Youtube.{{ $json.id }}",
+        "name": "={{ $json.id }}.Youtube.{{ $now.format('yymmdd-HHmmss') }}",
         "sameFolder": false,
         "driveId": {
           "__rl": true,
@@ -3053,8 +2869,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4500,
-        2360
+        3920,
+        2840
       ],
       "id": "6ada38c8-9a56-4d41-8c22-387fd7a43106",
       "name": "Copy Template",
@@ -3084,8 +2900,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4900,
-        2360
+        4280,
+        2840
       ],
       "id": "d9403ff0-9a18-48c1-b93b-067bfa9cdcc1",
       "name": "Share Link",
@@ -3130,7 +2946,7 @@
             {
               "action": "replaceAll",
               "text": "{{commentCount}}",
-              "replaceText": "={{ $('Set Fields').item.json.commentCount.toString() }}"
+              "replaceText": "={{ String($(\"Video #streamers\").item.json.commentCount || 0) }}"
             },
             {
               "action": "replaceAll",
@@ -3140,7 +2956,7 @@
             {
               "action": "replaceAll",
               "text": "{{publishDate}}",
-              "replaceText": "={{ $('Set Fields').item.json.publishedDate }}"
+              "replaceText": "={{ $('Set Fields').item.json.publishedDate.toDateTime().format('LLL dd,yyyy') }}"
             },
             {
               "action": "replaceAll",
@@ -3151,11 +2967,6 @@
               "action": "replaceAll",
               "text": "{{channelName}}",
               "replaceText": "={{ $('Set Fields').item.json.channelDisplayName }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{channelCategory}}",
-              "replaceText": "={{ $('Set Fields').item.json.category }}"
             },
             {
               "action": "replaceAll",
@@ -3170,7 +2981,7 @@
             {
               "action": "replaceAll",
               "text": "{{#each videoTags}}#{{this}} {{/each}}",
-              "replaceText": "={{ $('Set Fields').item.json.tags.toJsonString()}}"
+              "replaceText": "={{ $('Set Fields').item.json.tags && $('Set Fields').item.json.tags.length > 0 \n   ? $('Set Fields').item.json.tags.map(tag => `#${tags}`).join(' ') \n   : \"No tags available\" }}"
             },
             {
               "action": "replaceAll",
@@ -3208,8 +3019,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        4700,
-        2360
+        4100,
+        2840
       ],
       "id": "e834e35a-27c3-4ddb-9e33-c1ce8eb6d308",
       "name": "VarToValues",
@@ -3303,7 +3114,7 @@
         "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Videos Run ID1').item.json.body[0].url }}\",\n      \"method\": \"GET\"\n    }\n  ]\n}",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('YT Transcript Ninja').item.json.body[0].url }}\",\n      \"method\": \"GET\"\n    }\n  ]\n}",
         "options": {
           "batching": {
             "batch": {}
@@ -3315,7 +3126,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2460,
+        2280,
         2840
       ],
       "alwaysOutputData": true,
@@ -3332,11 +3143,47 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3320,
+        2820,
         2360
       ],
       "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
       "name": "Comments"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"dateFilter\": \"year\",\n    \"downloadSubtitles\": true,\n    \"hasCC\": false,\n    \"hasLocation\": false,\n    \"hasSubtitles\": true,\n    \"is360\": false,\n    \"is3D\": false,\n    \"is4K\": false,\n    \"isBought\": false,\n    \"isHD\": false,\n    \"isHDR\": false,\n    \"isLive\": false,\n    \"isVR180\": false,\n    \"maxResultStreams\": 0,\n    \"maxResults\": 100,\n    \"maxResultsShorts\": 0,\n    \"preferAutoGeneratedSubtitles\": false,\n    \"saveSubsToKVS\": false,\n    \"scrapeLastNDays\": 400,\n    \"sortVideosBy\": \"NEWEST\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.body[0].url }}\",\n            \"method\": \"GET\"\n        }\n    ],\n    \"subtitlesLanguage\": \"en\"\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2620,
+        2360
+      ],
+      "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
+      "name": "Video #streamers"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        3380,
+        2840
+      ],
+      "id": "25b61b4b-2c09-43f4-a717-f286f29fda92",
+      "name": "Merge"
     }
   ],
   "pinData": {
@@ -3352,6 +3199,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-15T16:40:49.000Z",
-  "versionId": "c2d703fa-a886-4e26-a1ed-0b72b86080e6"
+  "updatedAt": "2025-05-16T01:14:52.000Z",
+  "versionId": "7263764c-97ff-41a7-ad4c-4e92ca715527"
 }
