@@ -3112,16 +3112,22 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://api.apify.com/v2/acts/insight_api_labs~youtube-comments-1-month---reliable-efficient/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "url": "=https://api.apify.com/v2/actor-tasks/sergio_kno~youtube-comments-1-month---reliable-efficient-task/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video #streamers').item.json.url }}\"\n    }\n  ]\n}\n",
         "options": {
-          "batching": {
-            "batch": {
-              "batchSize": 200
+          "response": {
+            "response": {
+              "responseFormat": "json"
             }
-          }
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "off"
+            }
+          },
+          "timeout": 36000
         }
       },
       "id": "9f6b403c-48ee-49c8-814d-17eecd8473a9",
@@ -3202,6 +3208,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-16T19:06:44.000Z",
-  "versionId": "6d702612-e1c0-4deb-9bef-6d2634a27389"
+  "updatedAt": "2025-05-16T19:26:52.000Z",
+  "versionId": "b96323d8-be61-4b76-854f-88d27c20a38d"
 }
