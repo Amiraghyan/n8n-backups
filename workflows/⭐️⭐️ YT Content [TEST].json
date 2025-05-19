@@ -2149,8 +2149,8 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 1160,
-        "width": 2680,
+        "height": 1020,
+        "width": 2800,
         "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -2198,8 +2198,8 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.2,
       "position": [
-        2220,
-        2360
+        2360,
+        2280
       ],
       "id": "9b21b368-2fb1-4ded-a7e6-8ff41212be6d",
       "name": "On form submission",
@@ -2215,8 +2215,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2680,
-        2940
+        2820,
+        2860
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2235,8 +2235,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        5520,
-        3120
+        5060,
+        2800
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -2262,8 +2262,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2860,
-        2940
+        3000,
+        2860
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2295,8 +2295,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2260,
-        2840
+        2400,
+        2760
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
       "name": "If zero comments"
@@ -2310,8 +2310,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3200,
-        2940
+        3340,
+        2860
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2330,8 +2330,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        6120,
-        2480
+        4840,
+        2440
       ],
       "credentials": {
         "openAiApi": {
@@ -2367,8 +2367,8 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        6180,
-        2320
+        4900,
+        2280
       ],
       "id": "270480b1-6dff-48f5-ae6d-e5e39ab0d62f",
       "name": "Classifier",
@@ -2392,8 +2392,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1820,
-        2040
+        4860,
+        3020
       ],
       "id": "287b5c8e-0b85-4926-8a7d-f06a25480741",
       "name": "Edit Fields"
@@ -2410,8 +2410,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2920,
-        3100
+        3060,
+        3020
       ],
       "credentials": {
         "openAiApi": {
@@ -2446,8 +2446,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2420,
-        2360
+        2560,
+        2280
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2459,8 +2459,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3560,
-        2840
+        3700,
+        2760
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
       "name": "Sentiment Results",
@@ -2487,8 +2487,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2260,
-        2600
+        2400,
+        2520
       ],
       "id": "9cd21e03-08f1-40c8-8a1a-7ab72a3d9b90",
       "name": "cSummary",
@@ -2520,8 +2520,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3360,
-        2600
+        3500,
+        2520
       ],
       "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
       "name": "cStrengths",
@@ -2553,8 +2553,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3740,
-        2600
+        3880,
+        2520
       ],
       "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
       "name": "cOpportunities",
@@ -2586,8 +2586,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        4120,
-        2600
+        4260,
+        2520
       ],
       "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
       "name": "cRecommendations",
@@ -2619,8 +2619,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2620,
-        2600
+        2760,
+        2520
       ],
       "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
       "name": "Top Comments",
@@ -2652,8 +2652,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2980,
-        2600
+        3120,
+        2520
       ],
       "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
       "name": "Transcript Excerpts",
@@ -2837,8 +2837,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3740,
-        2840
+        3880,
+        2760
       ],
       "id": "7610fa39-e707-4745-9865-23118c93f9de",
       "name": "Set Fields"
@@ -2870,8 +2870,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3920,
-        2840
+        4060,
+        2760
       ],
       "id": "6ada38c8-9a56-4d41-8c22-387fd7a43106",
       "name": "Copy Template",
@@ -2901,8 +2901,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4280,
-        2840
+        4420,
+        2760
       ],
       "id": "d9403ff0-9a18-48c1-b93b-067bfa9cdcc1",
       "name": "Share Link",
@@ -2982,7 +2982,7 @@
             {
               "action": "replaceAll",
               "text": "{{#each videoTags}}#{{this}} {{/each}}",
-              "replaceText": "={{ $('Set Fields').item.json.tags && $('Set Fields').item.json.tags.length > 0 \n   ? $('Set Fields').item.json.tags.map(tag => `#${tags}`).join(' ') \n   : \"No tags available\" }}"
+              "replaceText": "={{ $('Set Fields').item.json.tags }}"
             },
             {
               "action": "replaceAll",
@@ -3020,8 +3020,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        4100,
-        2840
+        4240,
+        2760
       ],
       "id": "e834e35a-27c3-4ddb-9e33-c1ce8eb6d308",
       "name": "VarToValues",
@@ -3041,8 +3041,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        5320,
-        3120
+        4860,
+        2800
       ],
       "id": "d0010bc1-65e2-442b-a0ec-93cb1d9ab2e1",
       "name": "Google Docs",
@@ -3076,8 +3076,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5280,
-        2580
+        4840,
+        2600
       ],
       "id": "8ac36932-da46-483f-99fe-46a5bd6164db",
       "name": "Prepare Content"
@@ -3103,8 +3103,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5480,
-        2580
+        5040,
+        2600
       ],
       "id": "810885b3-3973-4590-b2fe-78bd752d06ee",
       "name": "Eleven Labs"
@@ -3127,7 +3127,7 @@
               "paginationMode": "off"
             }
           },
-          "timeout": 36000
+          "timeout": 480000
         }
       },
       "id": "9f6b403c-48ee-49c8-814d-17eecd8473a9",
@@ -3135,8 +3135,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2500,
-        2940
+        2640,
+        2860
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -3152,8 +3152,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2820,
-        2360
+        2960,
+        2280
       ],
       "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
       "name": "Comments"
@@ -3173,8 +3173,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2620,
-        2360
+        2760,
+        2280
       ],
       "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
       "name": "Video #streamers"
@@ -3188,11 +3188,13 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.1,
       "position": [
-        3380,
-        2840
+        3520,
+        2760
       ],
       "id": "25b61b4b-2c09-43f4-a717-f286f29fda92",
-      "name": "Merge"
+      "name": "Merge",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {
@@ -3208,6 +3210,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-16T19:26:52.000Z",
-  "versionId": "b96323d8-be61-4b76-854f-88d27c20a38d"
+  "updatedAt": "2025-05-19T16:50:43.000Z",
+  "versionId": "2a40011b-0b62-4279-84f8-e820d7cc7752"
 }
