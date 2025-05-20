@@ -184,11 +184,6 @@
             "node": "Read_Videos",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Read_Channels",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -631,23 +626,12 @@
       "main": [
         [
           {
-            "node": "Update Channels",
+            "node": "Split Out Videos",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Split Out1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out1": {
-      "main": [
-        [
-          {
-            "node": "Write_Videos",
+            "node": "Update Channels",
             "type": "main",
             "index": 0
           }
@@ -771,29 +755,147 @@
     },
     "Video Results": {
       "main": [
-        [
-          {
-            "node": "Video Result",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Video Result": {
-      "main": [
-        [
-          {
-            "node": "Update_Videos1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Code": {
       "main": [
         []
+      ]
+    },
+    "Update Channels": {
+      "main": [
+        []
+      ]
+    },
+    "Update_Videos1": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out Videos": {
+      "main": [
+        [
+          {
+            "node": "Write_Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Comments": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out Comments": {
+      "main": [
+        [
+          {
+            "node": "Write_VidComment_Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Comments Sentiment Analysis Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Comments Sentiment Analysis Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comments Sentiment Analysis Agent1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If zero comments1": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Comments1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get Comments1": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "Sentiment Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -3020,7 +3122,7 @@
       "typeVersion": 4.2,
       "position": [
         2580,
-        2040
+        2060
       ],
       "alwaysOutputData": true
     },
@@ -3033,7 +3135,7 @@
       "typeVersion": 1,
       "position": [
         2400,
-        2280
+        2300
       ],
       "id": "4471d764-74cd-4daf-bcad-9020efa4ecba",
       "name": "Split Out"
@@ -3055,7 +3157,7 @@
       "typeVersion": 1,
       "position": [
         2980,
-        2160
+        2180
       ],
       "id": "752f53fa-d6d3-4f04-8d21-b63cae351d25",
       "name": "Positive"
@@ -3077,7 +3179,7 @@
       "typeVersion": 1,
       "position": [
         2980,
-        2300
+        2320
       ],
       "id": "03fc4f78-11fb-42a5-be75-476260ac6bba",
       "name": "Neutral"
@@ -3099,7 +3201,7 @@
       "typeVersion": 1,
       "position": [
         2980,
-        2440
+        2460
       ],
       "id": "b4d31f07-e680-48c4-b5cf-5230cbdd503b",
       "name": "Negative"
@@ -3119,8 +3221,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        4040,
-        2720
+        3940,
+        2740
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -3139,7 +3241,7 @@
       "typeVersion": 3,
       "position": [
         3380,
-        2300
+        2320
       ],
       "id": "3707ee75-fb94-4f0e-8f17-fa07d470a12c",
       "name": "Merge",
@@ -3157,7 +3259,7 @@
       "typeVersion": 1,
       "position": [
         2580,
-        2280
+        2300
       ]
     },
     {
@@ -3202,7 +3304,7 @@
       "typeVersion": 2,
       "position": [
         3560,
-        2300
+        2320
       ],
       "id": "200c70c3-4a1d-4d52-af15-88e70d9912de",
       "name": "sNPS",
@@ -3218,8 +3320,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        3840,
-        2720
+        3760,
+        2740
       ],
       "id": "37e9c32c-397d-405a-b6f2-434fb69b1d6f",
       "name": "Markdown"
@@ -3232,7 +3334,7 @@
       "typeVersion": 3,
       "position": [
         3860,
-        2040
+        2060
       ],
       "id": "55f35f0a-6423-4690-8694-152c57fd025a",
       "name": "Merge2",
@@ -3275,19 +3377,8 @@
           "cachedResultName": "Videos",
           "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tblf7rdEZnWmhKHds"
         },
-        "options": {
-          "fields": [
-            "vid#",
-            "videoURL",
-            "vid_id",
-            "processVideo",
-            "dateProcessed",
-            "commentCount",
-            "channel",
-            "channelName (from Channel)",
-            "channelURL (from Channel)"
-          ]
-        }
+        "filterByFormula": "{Process_Video}= true",
+        "options": {}
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
@@ -3369,17 +3460,12 @@
             "Title": "={{ $json.title }}",
             "videoURL": "={{ $json.url }}",
             "dateProcessed": "={{ $now.format('yyyy-MM-dd T')}}",
-            "Status": "Todo",
             "Duration": "={{ $json.duration }}",
             "viewCount": "={{ $json.viewCount }}",
             "publishDate": "={{ $json.date }}",
             "id": "={{ $json.id }}",
-            "positive": 0,
-            "neutral": 0,
-            "negative": 0,
             "thumbnailUrl": "={{ $json.thumbnailUrl }}",
-            "Likes": 0,
-            "commentCount": 0
+            "channel": "={{ $json.channelId }}"
           },
           "matchingColumns": [
             "id"
@@ -3514,7 +3600,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "commentCount",
@@ -3525,7 +3611,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "thumbnailUrl",
@@ -3545,10 +3631,9 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "array",
-              "options": [],
+              "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "contentType",
@@ -3557,27 +3642,9 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "options",
-              "options": [
-                {
-                  "name": "wordless",
-                  "value": "wordless"
-                },
-                {
-                  "name": "advertising",
-                  "value": "advertising"
-                },
-                {
-                  "name": "content",
-                  "value": "content"
-                },
-                {
-                  "name": "",
-                  "value": ""
-                }
-              ],
+              "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Status",
@@ -3586,23 +3653,9 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "options",
-              "options": [
-                {
-                  "name": "Todo",
-                  "value": "Todo"
-                },
-                {
-                  "name": "In progress",
-                  "value": "In progress"
-                },
-                {
-                  "name": "Done",
-                  "value": "Done"
-                }
-              ],
+              "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "summary",
@@ -3613,7 +3666,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "transcriptURL",
@@ -3624,7 +3677,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "docURL",
@@ -3635,7 +3688,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "positive",
@@ -3646,7 +3699,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "neutral",
@@ -3657,7 +3710,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "negative",
@@ -3668,7 +3721,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "channel",
@@ -3988,7 +4041,7 @@
       "typeVersion": 2.1,
       "position": [
         2660,
-        2620
+        2640
       ],
       "id": "c3939508-25f9-437d-9aab-b9421df1345c",
       "name": "Write_Comments",
@@ -4007,7 +4060,7 @@
       "typeVersion": 1.2,
       "position": [
         2660,
-        2440
+        2460
       ],
       "id": "7a553242-1e0b-49be-bdc8-11d93439ec2c",
       "name": "Anthropic Chat Model2",
@@ -4036,7 +4089,7 @@
       "typeVersion": 3.4,
       "position": [
         3160,
-        2160
+        2180
       ],
       "id": "84406c00-d043-414d-8e7b-0203cbccf12e",
       "name": "positive"
@@ -4059,7 +4112,7 @@
       "typeVersion": 3.4,
       "position": [
         3160,
-        2300
+        2320
       ],
       "id": "2d158982-36e0-42c3-b525-7964da58e3b6",
       "name": "neutral"
@@ -4082,7 +4135,7 @@
       "typeVersion": 3.4,
       "position": [
         3160,
-        2440
+        2460
       ],
       "id": "f509d232-78b9-456b-9ddc-3047f6c6aad9",
       "name": "negative"
@@ -4147,7 +4200,7 @@
       "typeVersion": 3.4,
       "position": [
         4040,
-        2040
+        2060
       ],
       "id": "b668d11b-e95a-46d7-a6b6-bd90b833aeda",
       "name": "Sentiment Stats"
@@ -4194,7 +4247,7 @@
       "typeVersion": 3.4,
       "position": [
         4040,
-        2320
+        2340
       ],
       "id": "b6b859a6-70a9-47eb-a51d-31e77957f355",
       "name": "html_document"
@@ -4206,8 +4259,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        3420,
-        2600
+        3380,
+        2620
       ],
       "id": "0deb9913-f01c-4807-84a6-dec70d5c02f7",
       "name": "html_summary"
@@ -4277,7 +4330,7 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        5860,
+        6380,
         1800
       ],
       "id": "4e243097-655e-4df1-9e6d-669e30e55b7d",
@@ -4314,7 +4367,7 @@
       "typeVersion": 2.2,
       "position": [
         2740,
-        2040
+        2060
       ],
       "id": "6525adcd-b3f0-44bf-9a86-b311aaddabe0",
       "name": "If zero comments"
@@ -4326,8 +4379,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        3640,
-        2720
+        3560,
+        2740
       ],
       "id": "965499da-b6b6-4d5b-b66b-4d1a9a1fba48",
       "name": "html_summary_audio"
@@ -4343,7 +4396,7 @@
       "typeVersion": 1,
       "position": [
         3740,
-        2300
+        2320
       ],
       "id": "61e13ded-734a-4756-9b30-66396c38df30",
       "name": "Aggregate"
@@ -4352,14 +4405,14 @@
       "parameters": {
         "content": "## Comments Sentiment Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Score Ranges:\n-100 to +100 possible range\nAbove 0: Generally positive sentiment\nAbove 30: Considered good\nAbove 50: Excellent\nAbove 70: Exceptional/Industry leading\n\n## Interpretation Guidelines:\nBelow -20: Critical issues need addressing\n-20 to 0: Room for significant improvement\n0 to 30: Average/Acceptable\n30 to 50: Strong positive sentiment\n50+: Outstanding sentiment\n\n\n\n",
         "height": 980,
-        "width": 3040,
+        "width": 3280,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
         2000,
-        1960
+        1940
       ],
       "id": "dd14bc5d-ee6c-4fa4-82d1-a6b121ea1f11",
       "name": "Sticky Note9"
@@ -4372,8 +4425,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        3640,
-        2560
+        3560,
+        2580
       ],
       "id": "469ede71-859e-47bb-bbaf-898b64c28164",
       "name": "Google Docs1",
@@ -4387,14 +4440,14 @@
     {
       "parameters": {
         "content": "## Process Channels\nOldestPostDate: \"2024-01-01\"",
-        "height": 480,
-        "width": 3040,
+        "height": 520,
+        "width": 3260,
         "color": 6
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         2000,
-        880
+        840
       ],
       "typeVersion": 1,
       "id": "65cbaa33-2be8-4c9f-951c-71e2fe276159",
@@ -4403,13 +4456,13 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 480,
+        "height": 500,
         "width": 3040,
         "color": 2
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2000,
+        -860,
         1420
       ],
       "typeVersion": 1,
@@ -4760,14 +4813,14 @@
     {
       "parameters": {
         "content": "# APIfy\n1. For Channel Information:\nYou can use the \"Fast YouTube Channel Scraper\" which extracts channel data including:\n- Channel URL\n- Channel descriptions\n- Links in description\n- Number of subscribers\n- Total views\n- Video count Apify\nThis scraper functions as an alternative YouTube Data API with no quotas or limits, making it ideal for collecting comprehensive channel statistics. Apify\n\n2. For Video Information:\nThe \"YouTube Scraper\" is a versatile tool that allows you to scrape video data by:\n- Search term\n- Direct URL of videos\n- Playlists\n- Channels\nIt extracts information such as:\n- Video titles\n- View counts\n- Like counts\n- Number of comments\n- Publication dates\n- Channel information Apify\n\n3. For Comments Information:\nThe \"YouTube Comments Scraper\" lets you easily collect comment data by simply providing video URLs. It extracts:\n\n- Comment text\n- Author names\n- Posting dates\n- Like counts\n- Reply counts\n- Information on whether comments received a creator's heart\n- Whether the author is the channel owner \n\nApify\nThis scraper is efficient, processing approximately 100 comments in 30 seconds and 1000 comments in about 5 minutes    ",
-        "height": 1580,
-        "width": 760
+        "height": 1660,
+        "width": 720
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        5060,
-        1360
+        5600,
+        1400
       ],
       "id": "3219cabf-0a75-409e-a0b6-d924a79ea938",
       "name": "Sticky Note2"
@@ -4786,7 +4839,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "typeVersion": 2,
       "position": [
-        5860,
+        6380,
         1420
       ],
       "id": "fa435a0d-f533-4743-9d93-a77d19a6fe1d",
@@ -4800,7 +4853,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        6040,
+        6560,
         1600
       ],
       "id": "ed2d4579-b7b7-474d-b823-3ce2b8f706a5",
@@ -4838,7 +4891,7 @@
       "typeVersion": 4.2,
       "position": [
         2760,
-        1540
+        1560
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -4856,7 +4909,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        5880,
+        6400,
         1600
       ],
       "id": "d6e7cb54-a7b4-4694-a520-1adbf8c504c1",
@@ -5801,7 +5854,7 @@
       "name": "Editor",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        5860,
+        6380,
         2040
       ],
       "typeVersion": 1.6
@@ -5834,7 +5887,7 @@
       "name": "Analyze LLM Chain",
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "position": [
-        5880,
+        6400,
         2320
       ],
       "typeVersion": 1.5
@@ -5848,7 +5901,7 @@
       "name": "OpenRouter Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "position": [
-        5880,
+        6400,
         1180
       ],
       "typeVersion": 1,
@@ -5900,20 +5953,6 @@
       "retryOnFail": true,
       "waitBetweenTries": 5000,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "fieldToSplitOut": "body",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
-      "position": [
-        3260,
-        1100
-      ],
-      "id": "6f74605f-2757-4cd3-8687-359fc7462209",
-      "name": "Split Out1"
     },
     {
       "parameters": {
@@ -6390,7 +6429,7 @@
       "typeVersion": 3.4,
       "position": [
         2960,
-        1540
+        1560
       ],
       "id": "5f864e5e-4253-455c-85a6-aafca50bb8c8",
       "name": "Videos Run ID"
@@ -6436,8 +6475,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3100,
-        540
+        2840,
+        460
       ],
       "id": "0ba27ad5-5b66-4621-9ff9-f4e179851b69",
       "name": "VID Run Complete?"
@@ -6563,7 +6602,7 @@
       "typeVersion": 2.2,
       "position": [
         3160,
-        1540
+        1560
       ],
       "id": "da0dc6f7-f6b9-4034-889a-b584ebc7b793",
       "name": "VID SUCCEED"
@@ -6599,7 +6638,7 @@
       "typeVersion": 4.2,
       "position": [
         3400,
-        1500
+        1440
       ],
       "id": "fdcc4bf6-ff3b-4196-93dc-88b1818a2832",
       "name": "Video Results",
@@ -6623,35 +6662,6 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "c307199c-d512-4afc-86a7-0489a0eddb21",
-              "name": "id",
-              "value": "={{ $json.body[0].id }}",
-              "type": "string"
-            },
-            {
-              "id": "86e9da00-c8bd-4a10-be5b-2df360086db8",
-              "name": "fields",
-              "value": "={{ $json.body[0] }}",
-              "type": "object"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        3660,
-        1440
-      ],
-      "id": "63d0dbbe-7a7e-41e6-97b7-95595e1c5ed1",
-      "name": "Video Result"
-    },
-    {
-      "parameters": {
         "operation": "update",
         "base": {
           "__rl": true,
@@ -6670,23 +6680,13 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "processVideo": true,
-            "Title": "={{ $('Video Results').item.json.body[0].title }}",
-            "videoURL": "={{ $('Video Results').item.json.body[0].url }}",
-            "dateProcessed": "={{ $now.format('yyyy-MM-dd T')}}",
-            "Status": "vid-info",
-            "Duration": "={{ $('Video Results').item.json.body[0].duration }}",
-            "viewCount": "={{ $('Video Results').item.json.body[0].viewCount }}",
-            "publishDate": "={{ $('Video Results').item.json.body[0].date }}",
-            "id": "={{ $('Video Results').item.json.body[0].id }}",
-            "thumbnailUrl": "={{ $('Video Results').item.json.body[0].thumbnailUrl }}",
-            "Likes": "={{ $('Video Results').item.json.body[0].likes }}",
-            "commentCount": "={{ $('Video Results').item.json.body[0].commentsCount }}",
-            "Description": "={{ $('Video Results').item.json.body[0].text }}",
-            "contentType": "={{ $('Video Results').item.json.body[0].type }}",
-            "hashtags": "={{ $('Video Results').item.json.body[0].hashtags }}",
-            "transcriptURL": "={{ $('Video Results').item.json.body[0].subtitles }}",
-            "channel": "={{ [$json.channelName] }}"
+            "processVideo": false,
+            "viewCount": 0,
+            "Likes": 0,
+            "commentCount": 0,
+            "positive": 0,
+            "neutral": 0,
+            "negative": 0
           },
           "matchingColumns": [
             "id"
@@ -6711,7 +6711,7 @@
               "display": true,
               "type": "string",
               "readOnly": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "vid#",
@@ -6722,7 +6722,7 @@
               "display": true,
               "type": "string",
               "readOnly": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Title",
@@ -6887,7 +6887,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "transcriptURL",
@@ -6909,7 +6909,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "positive",
@@ -6920,7 +6920,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "neutral",
@@ -6931,7 +6931,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "negative",
@@ -6942,7 +6942,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "channel",
@@ -7008,22 +7008,19 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": true
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
           "convertFieldsToString": false
         },
-        "options": {
-          "typecast": false,
-          "updateAllMatches": false
-        }
+        "options": {}
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3860,
-        1440
+        5260,
+        1620
       ],
       "id": "798e06f4-9da3-4b0a-897f-dbf3072ec4c0",
       "name": "Update_Videos1",
@@ -7065,11 +7062,617 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        5240,
+        5760,
         1020
       ],
       "id": "0abd354a-77b7-4686-94b9-ba467ca42f2f",
       "name": "Code"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "body",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        1100
+      ],
+      "id": "6f74605f-2757-4cd3-8687-359fc7462209",
+      "name": "Split Out Videos"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appB1AKJ8GWAWKjku",
+          "mode": "list",
+          "cachedResultName": "Youtube Content_2505",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblf7rdEZnWmhKHds",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appB1AKJ8GWAWKjku/tblf7rdEZnWmhKHds"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "processVideo": false,
+            "Likes": "={{ $json.likes }}",
+            "commentCount": "={{ $json.commentsCount }}",
+            "viewCount": 0,
+            "positive": 0,
+            "neutral": 0,
+            "negative": 0
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "vid_id",
+              "displayName": "vid_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "vid#",
+              "displayName": "vid#",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "videoURL",
+              "displayName": "videoURL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "processVideo",
+              "displayName": "processVideo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "dateProcessed",
+              "displayName": "dateProcessed",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "publishDate",
+              "displayName": "publishDate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "viewCount",
+              "displayName": "viewCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Likes",
+              "displayName": "Likes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "commentCount",
+              "displayName": "commentCount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "thumbnailUrl",
+              "displayName": "thumbnailUrl",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "hashtags",
+              "displayName": "hashtags",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "contentType",
+              "displayName": "contentType",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "transcriptURL",
+              "displayName": "transcriptURL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "docURL",
+              "displayName": "docURL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "positive",
+              "displayName": "positive",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "neutral",
+              "displayName": "neutral",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "negative",
+              "displayName": "negative",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "channelName (from Channel)",
+              "displayName": "channelName (from Channel)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "channelURL (from Channel)",
+              "displayName": "channelURL (from Channel)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ch# (from Channel)",
+              "displayName": "ch# (from Channel)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Comments",
+              "displayName": "Comments",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Comments 2",
+              "displayName": "Comments 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": false,
+          "updateAllMatches": false
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        6040,
+        1180
+      ],
+      "id": "df7ddbaa-8beb-45bb-b3e0-87eed678f190",
+      "name": "Write_VidComment_Metadata",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "xoP12Z5DLomkSebw",
+          "name": "Airtable YT_Content_2505"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/actor-tasks/sergio_kno~youtube-comments-1-month---reliable-efficient-task/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $json.body[0].url }}\"\n    }\n  ]\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "off"
+            }
+          },
+          "timeout": 480000
+        }
+      },
+      "id": "5dfb5fd2-e2ec-4da4-8033-f36945353e16",
+      "name": "Get Comments",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5640,
+        1180
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "body",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        5840,
+        1180
+      ],
+      "id": "97883951-e1c3-4ed3-aa5a-3705d0689830",
+      "name": "Split Out Comments"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseFormat": "text",
+          "timeout": 15000
+        }
+      },
+      "id": "b8769fb0-f006-4c59-af58-36e0a8189ced",
+      "name": "OpenAI4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        4300,
+        1680
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "7lpyAVssSQvwtkjO",
+          "name": "Content Generation"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize counters for each sentiment category\nlet positiveCount = 0;\nlet neutralCount = 0;\nlet negativeCount = 0;\n\n// Get the data from the Aggregate node\nconst aggregateData = $input.first().json;\n\n// Check if we have data array\nif (aggregateData && aggregateData.data && Array.isArray(aggregateData.data)) {\n  const dataItems = aggregateData.data;\n  const totalComments = dataItems.length;\n  \n  // Loop through each data item\n  dataItems.forEach(item => {\n    // Access the sentiment category from the sentimentAnalysis field\n    if (item.sentimentAnalysis && item.sentimentAnalysis.category) {\n      const category = item.sentimentAnalysis.category.toLowerCase();\n      \n      // Count based on sentiment category\n      if (category.includes('positive')) {\n        positiveCount++;\n      } else if (category.includes('negative')) {\n        negativeCount++;\n      } else if (category.includes('neutral')) {\n        neutralCount++;\n      }\n    }\n  });\n  \n  // Calculate percentages\n  const percentPositive = totalComments > 0 ? (positiveCount / totalComments * 100).toFixed(1) : 0;\n  const percentNeutral = totalComments > 0 ? (neutralCount / totalComments * 100).toFixed(1) : 0;\n  const percentNegative = totalComments > 0 ? (negativeCount / totalComments * 100).toFixed(1) : 0;\n  \n  // Return the summary\n  return {\n    json: {\n      summary: {\n        totalComments,\n        positive: {\n          count: positiveCount,\n          percentage: parseFloat(percentPositive)\n        },\n        neutral: {\n          count: neutralCount,\n          percentage: parseFloat(percentNeutral)\n        },\n        negative: {\n          count: negativeCount,\n          percentage: parseFloat(percentNegative)\n        }\n      }\n    }\n  };\n} else {\n  // Handle case where there's no data\n  return {\n    json: {\n      summary: {\n        totalComments: 0,\n        positive: { count: 0, percentage: 0 },\n        neutral: { count: 0, percentage: 0 },\n        negative: { count: 0, percentage: 0 }\n      }\n    }\n  };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4940,
+        1420
+      ],
+      "id": "0fe4a02d-5edf-4eea-a7bb-e905e32ac6f0",
+      "name": "Sentiment Results",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "pageUrl, comment",
+        "options": {
+          "destinationFieldName": ""
+        }
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        4040,
+        1520
+      ],
+      "id": "bb7f9126-2c70-40d1-a8e6-76eacebec686",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.comment }}",
+        "options": {
+          "categories": "Positive, Neutral, Negative",
+          "systemPromptTemplate": "You are highly intelligent and accurate sentiment analyzer. Analyze the sentiment of the provided text. Categorize it into one of the following: {categories}. Use the provided formatting instructions. Only output the JSON.",
+          "includeDetailedResults": false,
+          "enableAutoFixing": false
+        }
+      },
+      "id": "8f699adb-8170-41d8-8451-572b70308a42",
+      "name": "Comments Sentiment Analysis Agent1",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1,
+      "position": [
+        4240,
+        1520
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "adad4ab3-6a87-493b-8a65-98afd8ff7ca7",
+              "leftValue": "={{ $json.body[0].commentsCount }}",
+              "rightValue": "={{0}}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3640,
+        1420
+      ],
+      "id": "33341177-bc74-423f-a938-a1048fdd13b7",
+      "name": "If zero comments1"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "include": "specifiedFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        4580,
+        1520
+      ],
+      "id": "2cbbcaa2-91e9-4a3f-97c0-da48ebfeeb5d",
+      "name": "Aggregate1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/actor-tasks/sergio_kno~youtube-comments-1-month---reliable-efficient-task/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $json.body[0].url }}\"\n    }\n  ]\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "off"
+            }
+          },
+          "timeout": 480000
+        }
+      },
+      "id": "8a81ee09-2db5-45be-8f03-cc8869b94092",
+      "name": "Get Comments1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3840,
+        1520
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        4760,
+        1420
+      ],
+      "id": "8ce37877-f29c-45c3-925b-ba828d90b622",
+      "name": "Merge4",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {},
@@ -7079,6 +7682,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-19T19:10:50.000Z",
-  "versionId": "81ca3747-fe79-4b6e-ac78-38eab450040b"
+  "updatedAt": "2025-05-19T21:49:54.000Z",
+  "versionId": "efa42fe2-cfae-478a-ab83-5f4f58012493"
 }
