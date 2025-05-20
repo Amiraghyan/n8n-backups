@@ -311,7 +311,7 @@
       "main": [
         [
           {
-            "node": "Set Fields",
+            "node": "Comment Fields",
             "type": "main",
             "index": 0
           }
@@ -366,7 +366,7 @@
       "main": [
         [
           {
-            "node": "If zero comments",
+            "node": "Video Fields",
             "type": "main",
             "index": 0
           }
@@ -384,49 +384,11 @@
         ]
       ]
     },
-    "Set Fields": {
-      "main": [
-        [
-          {
-            "node": "Copy Template",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Prepare Content",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Copy Template": {
-      "main": [
-        [
-          {
-            "node": "VarToValues",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "VarToValues": {
-      "main": [
-        [
-          {
-            "node": "Share Link",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Share Link": {
       "main": [
         [
           {
-            "node": "Update_Videos",
+            "node": "Update-Comments",
             "type": "main",
             "index": 0
           }
@@ -498,6 +460,77 @@
         [
           {
             "node": "Sentiment Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Fields": {
+      "main": [
+        [
+          {
+            "node": "Copy Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comment Fields": {
+      "main": [
+        [
+          {
+            "node": "Prepare Content",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Var2Val-Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Copy Template": {
+      "main": [
+        [
+          {
+            "node": "Var2Val-Vid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Share GDoc": {
+      "main": [
+        [
+          {
+            "node": "If zero comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Var2Val-Comments": {
+      "main": [
+        [
+          {
+            "node": "Share Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Var2Val-Vid": {
+      "main": [
+        [
+          {
+            "node": "Share GDoc",
             "type": "main",
             "index": 0
           }
@@ -2160,7 +2193,7 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 1020,
+        "height": 1180,
         "width": 2800,
         "color": 3
       },
@@ -2226,8 +2259,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2820,
-        2860
+        2780,
+        3060
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2273,8 +2306,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        3000,
-        2860
+        2940,
+        3060
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2307,7 +2340,7 @@
       "typeVersion": 2.2,
       "position": [
         2460,
-        2760
+        2960
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
       "name": "If zero comments"
@@ -2321,8 +2354,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3360,
-        2860
+        3300,
+        3060
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2421,8 +2454,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        3060,
-        3020
+        2940,
+        3220
       ],
       "credentials": {
         "openAiApi": {
@@ -2470,8 +2503,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3700,
-        2760
+        3640,
+        2960
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
       "name": "Sentiment Results",
@@ -2531,7 +2564,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3540,
+        3480,
         2520
       ],
       "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
@@ -2564,7 +2597,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3900,
+        3820,
         2520
       ],
       "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
@@ -2597,7 +2630,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        4260,
+        4160,
         2520
       ],
       "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
@@ -2630,7 +2663,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2820,
+        2800,
         2520
       ],
       "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
@@ -2663,7 +2696,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3180,
+        3140,
         2520
       ],
       "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
@@ -2674,6 +2707,361 @@
           "name": "Research Assistant"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.documentId }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4200,
+        2960
+      ],
+      "id": "d9403ff0-9a18-48c1-b93b-067bfa9cdcc1",
+      "name": "Share Link",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "={{ $('Var2Val-Comments').item.json.documentId }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        4860,
+        2800
+      ],
+      "id": "d0010bc1-65e2-442b-a0ec-93cb1d9ab2e1",
+      "name": "Google Docs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "63380b27-9b81-4f59-b317-5746933ad65b",
+              "name": "voiceId",
+              "value": "={{ \"21m00Tcm4TlvDq8ikWAM\" }}",
+              "type": "string"
+            },
+            {
+              "id": "f020f5ac-79f7-4568-882b-aafee8062c6a",
+              "name": "speechContent",
+              "value": "={{ $json.title }}\n\"\nSummary\"\n{{ $json['cSummary - raw'] }}\n\"Content Analysis\"\n\"\nStrengths\"\n{{ $json.content.Strengths }}\n\"Opportunities\"\n{{ $json.content.Opportunities }}\n\"Recommendations\"\n{{ $json.content.Recommendations }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4020,
+        3120
+      ],
+      "id": "8ac36932-da46-483f-99fe-46a5bd6164db",
+      "name": "Prepare Content"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.elevenlabs.io/v1/text-to-speech/{{$node[\"Prepare Content\"].json.voiceId}}/stream",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "=sk_6027c7e548a7926601e152fae73061cf6fcb6c73fdbfaa6f"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\nJSON.stringify({\ntext: $json.speechContent,\nmodel_id: \"eleven_monolingual_v1\",\nvoice_settings: {\nstability: 0.5,\nsimilarity_boost: 0.75\n}\n})\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4200,
+        3120
+      ],
+      "id": "810885b3-3973-4590-b2fe-78bd752d06ee",
+      "name": "Eleven Labs"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/actor-tasks/sergio_kno~youtube-comments-1-month---reliable-efficient-task/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video #streamers').item.json.url }}\"\n    }\n  ]\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "off"
+            }
+          },
+          "timeout": 480000
+        }
+      },
+      "id": "9f6b403c-48ee-49c8-814d-17eecd8473a9",
+      "name": "Get Comments",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2620,
+        3060
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"videoUrls\": [\n    \"{{ $json.url }}\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2960,
+        2280
+      ],
+      "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
+      "name": "Comments"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"dateFilter\": \"year\",\n    \"downloadSubtitles\": true,\n    \"hasCC\": false,\n    \"hasLocation\": false,\n    \"hasSubtitles\": true,\n    \"is360\": false,\n    \"is3D\": false,\n    \"is4K\": false,\n    \"isBought\": false,\n    \"isHD\": false,\n    \"isHDR\": false,\n    \"isLive\": false,\n    \"isVR180\": false,\n    \"maxResultStreams\": 0,\n    \"maxResults\": 100,\n    \"maxResultsShorts\": 0,\n    \"preferAutoGeneratedSubtitles\": false,\n    \"saveSubsToKVS\": false,\n    \"scrapeLastNDays\": 400,\n    \"sortVideosBy\": \"NEWEST\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.body[0].url }}\",\n            \"method\": \"GET\"\n        }\n    ],\n    \"subtitlesLanguage\": \"en\"\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2760,
+        2280
+      ],
+      "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
+      "name": "Video #streamers"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        3460,
+        2960
+      ],
+      "id": "25b61b4b-2c09-43f4-a717-f286f29fda92",
+      "name": "Merge",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a6d2bb42-9851-4bcf-88c9-a0a64a8b1a66",
+              "name": "id",
+              "value": "={{ $('Video #streamers').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "98d5d864-30b2-479f-821c-5c6e84f44816",
+              "name": "url",
+              "value": "={{ $('Video #streamers').item.json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "d5b69112-36aa-4f73-a9c8-ff36a3a0186c",
+              "name": "title",
+              "value": "={{ $('Video #streamers').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "6f0044dc-6c54-4486-a987-baffd687be72",
+              "name": "description",
+              "value": "={{ $('Video #streamers').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "76cd2bb4-ae7b-4b04-b100-5571b4916f5b",
+              "name": "lengthInSeconds",
+              "value": "={{ $('Video #streamers').item.json.duration }}",
+              "type": "string"
+            },
+            {
+              "id": "4b37d727-0d53-435c-bf34-2ab80c300d3b",
+              "name": "duration",
+              "value": "={{ $('Video #streamers').item.json.duration }}",
+              "type": "string"
+            },
+            {
+              "id": "082eafe5-86dc-4b37-9a56-4b49d76c169d",
+              "name": "publishedDate",
+              "value": "={{ $('Video #streamers').item.json.date }}",
+              "type": "string"
+            },
+            {
+              "id": "a7069bcd-90e3-45d5-88b2-e012075ea0dc",
+              "name": "reportDate",
+              "value": "={{ $now.format('LLL dd,yyyy') }}",
+              "type": "string"
+            },
+            {
+              "id": "6de1dd9c-9212-42a0-af77-469a0d99bf37",
+              "name": "tags",
+              "value": "={{ $('Video #streamers').item.json.hashtags }}",
+              "type": "string"
+            },
+            {
+              "id": "2813f62a-2330-43f9-a373-8735f6e57355",
+              "name": "channelID",
+              "value": "={{ $('Video #streamers').item.json.channelId }}",
+              "type": "string"
+            },
+            {
+              "id": "1c10857e-9efe-412f-9c5c-9a5bbaa540fe",
+              "name": "channelURL",
+              "value": "={{ $('Video #streamers').item.json.channelUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "d1a68eda-757d-441a-bfae-e78ace8d8a7b",
+              "name": "channelUsername",
+              "value": "={{ $('Video #streamers').item.json.channelUsername }}",
+              "type": "string"
+            },
+            {
+              "id": "a4b1921f-dfcd-4ff8-80eb-25909ae19a52",
+              "name": "channelDisplayName",
+              "value": "={{ $('Video #streamers').item.json.channelName }}",
+              "type": "string"
+            },
+            {
+              "id": "56394597-3c6b-4a42-988d-72970969f034",
+              "name": "channelSubscribers",
+              "value": "={{ $('Video #streamers').item.json.numberOfSubscribers }}",
+              "type": "string"
+            },
+            {
+              "id": "f7e4fae0-3b3d-422b-85dc-c8519bb72021",
+              "name": "viewCount",
+              "value": "={{ $('Video #streamers').item.json.viewCount }}",
+              "type": "number"
+            },
+            {
+              "id": "f64b2963-d190-41bf-8c83-62f9cff210c0",
+              "name": "likeCount",
+              "value": "={{ $('Video #streamers').item.json.likes }}",
+              "type": "number"
+            },
+            {
+              "id": "e1254a80-e9e5-4c3a-97ca-98cce0e3a1e6",
+              "name": "commentsCount",
+              "value": "={{ $('Comments').item.json.commentsCount }}",
+              "type": "number"
+            },
+            {
+              "id": "c7d901d4-7479-48b7-87f4-2b2c15d463ef",
+              "name": "description",
+              "value": "={{ $('Video #streamers').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "22500735-332c-4b2d-994a-9cf5cb8f2c09",
+              "name": "cSummary - raw",
+              "value": "={{ $('cSummary').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "46ac712c-59b9-475d-8af3-1f5679496a16",
+              "name": "content.Strengths",
+              "value": "={{ $('cStrengths').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "dda1fd3f-e35d-4b87-bcb1-260c1754e3c6",
+              "name": "content.Opportunities",
+              "value": "={{ $('cOpportunities').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "efc7ebd4-ec40-4a86-9b9e-7648cd1b583d",
+              "name": "=content.Recommendations",
+              "value": "={{ $('cRecommendations').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "b9120961-31a6-4669-8083-838c51eef96b",
+              "name": "=content.Tscripts",
+              "value": "={{\n  (function() {\n    try {\n      // Parse the JSON string from message.content\n      let content = $('Transcript Excerpts').item.json.message.content;\n      \n      // Clean up any escape characters or formatting issues\n      content = content.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n      \n      // Try to extract time-text pairs using regex\n      const timeTextMatches = content.match(/\"time\":\\s*\"([^\"]+)\",\\s*\"text\":\\s*\"([^\"]+)\"/g);\n      \n      if (timeTextMatches && timeTextMatches.length > 0) {\n        return timeTextMatches.map(match => {\n          const time = match.match(/\"time\":\\s*\"([^\"]+)\"/)[1];\n          const text = match.match(/\"text\":\\s*\"([^\"]+)\"/)[1];\n          return `${time}:\n${text}`;\n        }).join('\\n\\n');\n      }\n      \n      return 'Could not extract transcript excerpts';\n    } catch (error) {\n      return 'Error processing transcript excerpts';\n    }\n  })()\n}}",
+              "type": "string"
+            },
+            {
+              "id": "285d5aa0-ca5c-48d9-9ec7-5ff2fc1d0780",
+              "name": "=content.TopComments",
+              "value": "={{\n  (function() {\n    try {\n      // Get the content string\n      let content = $('Top Comments').item.json.message.content;\n      \n      // Regular expression to match user-comment pairs\n      const regex = /\"user\":\\s*\"([^\"]+)\",\\s*\"comment\":\\s*\"([^\"]+)\"/g;\n      const matches = [];\n      let match;\n      \n      // Find all matches\n      while ((match = regex.exec(content)) !== null) {\n        if (match.length >= 3) {\n          matches.push({\n            user: match[1],\n            comment: match[2]\n          });\n        }\n      }\n      \n      // If we found matches, format them\n      if (matches.length > 0) {\n        return matches.map(m => `${m.user}: \n\"${m.comment}\"`).join('\\n\\n');\n      }\n      \n      // Alternative method if the regex approach doesn't work\n      const userRegex = /\"user\":\\s*\"([^\"]+)\"/g;\n      const commentRegex = /\"comment\":\\s*\"([^\"]+)\"/g;\n      \n      const users = [];\n      const comments = [];\n      \n      while ((match = userRegex.exec(content)) !== null) {\n        users.push(match[1]);\n      }\n      \n      while ((match = commentRegex.exec(content)) !== null) {\n        comments.push(match[1]);\n      }\n      \n      if (users.length === comments.length && users.length > 0) {\n        return users.map((user, i) => \n          `**${user}:** \"${comments[i]}\"`\n        ).join('\\n\\n');\n      }\n      \n      return 'No comments available';\n    } catch (error) {\n      return 'Error processing comments';\n    }\n  })()\n}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2460,
+        2740
+      ],
+      "id": "3ec9dda3-ac32-4ee6-86db-2e5c0a4c4cfd",
+      "name": "Video Fields"
     },
     {
       "parameters": {
@@ -2848,364 +3236,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3880,
-        2760
+        3820,
+        2960
       ],
       "id": "7610fa39-e707-4745-9865-23118c93f9de",
-      "name": "Set Fields"
-    },
-    {
-      "parameters": {
-        "operation": "copy",
-        "fileId": {
-          "__rl": true,
-          "value": "1nzSNHzpkJb0GDUSjANnSd_vg-C2hwj3zc-Nbc6x6k58",
-          "mode": "id"
-        },
-        "name": "={{ $json.id }}.Youtube.{{ $now.format('yyMMdd-HHmmss') }}",
-        "sameFolder": false,
-        "driveId": {
-          "__rl": true,
-          "mode": "list",
-          "value": "My Drive"
-        },
-        "folderId": {
-          "__rl": true,
-          "value": "17dincwYmqZk4qVU-GQIy-lcmgZIBXzSs",
-          "mode": "list",
-          "cachedResultName": "zCONTENT TEST",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/17dincwYmqZk4qVU-GQIy-lcmgZIBXzSs"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        4060,
-        2760
-      ],
-      "id": "6ada38c8-9a56-4d41-8c22-387fd7a43106",
-      "name": "Copy Template",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "HR5Tk4YDcaNJda9N",
-          "name": "Google Drive Sergio"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "share",
-        "fileId": {
-          "__rl": true,
-          "value": "={{ $json.documentId }}",
-          "mode": "id"
-        },
-        "permissionsUi": {
-          "permissionsValues": {
-            "role": "reader",
-            "type": "anyone"
-          }
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        4420,
-        2760
-      ],
-      "id": "d9403ff0-9a18-48c1-b93b-067bfa9cdcc1",
-      "name": "Share Link",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "HR5Tk4YDcaNJda9N",
-          "name": "Google Drive Sergio"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "={{ $json.id }}",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "replaceAll",
-              "text": "{{videoID}}",
-              "replaceText": "={{ $('Set Fields').item.json.id }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{videoTitle}}",
-              "replaceText": "={{ $('Set Fields').item.json.title }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{reportDate}}",
-              "replaceText": "={{ $('Set Fields').item.json.reportDate }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{viewCount}}",
-              "replaceText": "={{ $('Set Fields').item.json.viewCount.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{likeCount}}",
-              "replaceText": "={{ $('Set Fields').item.json.likeCount.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{commentCount}}",
-              "replaceText": "={{ String($(\"Video #streamers\").item.json.commentCount || 0) }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{videoUrl}}",
-              "replaceText": "={{ $('Set Fields').item.json.url }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{publishDate}}",
-              "replaceText": "={{ $('Set Fields').item.json.publishedDate.toDateTime().format('LLL dd,yyyy') }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{videoDuration}}",
-              "replaceText": "={{ $('Set Fields').item.json.lengthInSeconds.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{channelName}}",
-              "replaceText": "={{ $('Set Fields').item.json.channelDisplayName }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{subscriberCount}}",
-              "replaceText": "={{ $('Set Fields').item.json.channelSubscribers.toString() }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{videoDescription}}",
-              "replaceText": "={{ $('Set Fields').item.json.description }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{#each videoTags}}#{{this}} {{/each}}",
-              "replaceText": "={{ \n  (function() {\n    const tags = $('Set Fields').item.json.tags;\n    if (!tags || !Array.isArray(tags) || tags.length === 0) {\n      return \"No tags available\";\n    }\n    return tags.map(tag => `#${tag}`).join(' ');\n  })()\n}}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{contentSummary}}",
-              "replaceText": "={{ $('cSummary').item.json.message.content }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{contentStrengths}}",
-              "replaceText": "={{ $('Set Fields').item.json.content.Strengths }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{contentOpportunities}}",
-              "replaceText": "={{ $('Set Fields').item.json.content.Opportunities }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{contentRecommendations}}",
-              "replaceText": "={{ $('Set Fields').item.json.content.Recommendations }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{contentTscripts}}",
-              "replaceText": "={{ $('Set Fields').item.json.content.Tscripts }}"
-            },
-            {
-              "action": "replaceAll",
-              "text": "{{contentTopComments}}",
-              "replaceText": "={{ $('Set Fields').item.json.content.TopComments }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        4240,
-        2760
-      ],
-      "id": "e834e35a-27c3-4ddb-9e33-c1ce8eb6d308",
-      "name": "VarToValues",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "documentURL": "={{ $('VarToValues').item.json.documentId }}"
-      },
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        4860,
-        2800
-      ],
-      "id": "d0010bc1-65e2-442b-a0ec-93cb1d9ab2e1",
-      "name": "Google Docs",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "63380b27-9b81-4f59-b317-5746933ad65b",
-              "name": "voiceId",
-              "value": "={{ \"21m00Tcm4TlvDq8ikWAM\" }}",
-              "type": "string"
-            },
-            {
-              "id": "f020f5ac-79f7-4568-882b-aafee8062c6a",
-              "name": "speechContent",
-              "value": "={{ $json.title }}\n\"\nSummary\"\n{{ $json['cSummary - raw'] }}\n\"Content Analysis\"\n\"\nStrengths\"\n{{ $json.content.Strengths }}\n\"Opportunities\"\n{{ $json.content.Opportunities }}\n\"Recommendations\"\n{{ $json.content.Recommendations }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4060,
-        2940
-      ],
-      "id": "8ac36932-da46-483f-99fe-46a5bd6164db",
-      "name": "Prepare Content"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://api.elevenlabs.io/v1/text-to-speech/{{$node[\"Prepare Content\"].json.voiceId}}/stream",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "xi-api-key",
-              "value": "=sk_6027c7e548a7926601e152fae73061cf6fcb6c73fdbfaa6f"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{\nJSON.stringify({\ntext: $json.speechContent,\nmodel_id: \"eleven_monolingual_v1\",\nvoice_settings: {\nstability: 0.5,\nsimilarity_boost: 0.75\n}\n})\n}}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        4260,
-        2940
-      ],
-      "id": "810885b3-3973-4590-b2fe-78bd752d06ee",
-      "name": "Eleven Labs"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://api.apify.com/v2/actor-tasks/sergio_kno~youtube-comments-1-month---reliable-efficient-task/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video #streamers').item.json.url }}\"\n    }\n  ]\n}\n",
-        "options": {
-          "response": {
-            "response": {
-              "responseFormat": "json"
-            }
-          },
-          "pagination": {
-            "pagination": {
-              "paginationMode": "off"
-            }
-          },
-          "timeout": 480000
-        }
-      },
-      "id": "9f6b403c-48ee-49c8-814d-17eecd8473a9",
-      "name": "Get Comments",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2640,
-        2860
-      ],
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"videoUrls\": [\n    \"{{ $json.url }}\"\n  ]\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2960,
-        2280
-      ],
-      "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
-      "name": "Comments"
-    },
-    {
-      "parameters": {
-        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m\n",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n    \"dateFilter\": \"year\",\n    \"downloadSubtitles\": true,\n    \"hasCC\": false,\n    \"hasLocation\": false,\n    \"hasSubtitles\": true,\n    \"is360\": false,\n    \"is3D\": false,\n    \"is4K\": false,\n    \"isBought\": false,\n    \"isHD\": false,\n    \"isHDR\": false,\n    \"isLive\": false,\n    \"isVR180\": false,\n    \"maxResultStreams\": 0,\n    \"maxResults\": 100,\n    \"maxResultsShorts\": 0,\n    \"preferAutoGeneratedSubtitles\": false,\n    \"saveSubsToKVS\": false,\n    \"scrapeLastNDays\": 400,\n    \"sortVideosBy\": \"NEWEST\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.body[0].url }}\",\n            \"method\": \"GET\"\n        }\n    ],\n    \"subtitlesLanguage\": \"en\"\n}",
-        "options": {
-          "redirect": {
-            "redirect": {}
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2760,
-        2280
-      ],
-      "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
-      "name": "Video #streamers"
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "combineBy": "combineByPosition",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.1,
-      "position": [
-        3520,
-        2760
-      ],
-      "id": "25b61b4b-2c09-43f4-a717-f286f29fda92",
-      "name": "Merge",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
+      "name": "Comment Fields"
     },
     {
       "parameters": {
@@ -3566,11 +3601,11 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4600,
-        2760
+        4380,
+        2960
       ],
       "id": "5527346c-ce79-49f1-8d42-e10ac04832e0",
-      "name": "Update_Videos",
+      "name": "Update-Comments",
       "alwaysOutputData": true,
       "credentials": {
         "airtableTokenApi": {
@@ -3579,6 +3614,231 @@
         }
       },
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1nzSNHzpkJb0GDUSjANnSd_vg-C2hwj3zc-Nbc6x6k58",
+          "mode": "id"
+        },
+        "name": "={{ $json.id }}.Youtube.{{ $now.format('yyMMdd-HHmmss') }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "17dincwYmqZk4qVU-GQIy-lcmgZIBXzSs",
+          "mode": "list",
+          "cachedResultName": "zCONTENT TEST",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/17dincwYmqZk4qVU-GQIy-lcmgZIBXzSs"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2640,
+        2740
+      ],
+      "id": "965c7ee1-c811-4a76-8d8f-73249ce3353e",
+      "name": "Copy Template",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.documentId }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3000,
+        2740
+      ],
+      "id": "85df8fb1-330b-47e8-9289-7706308b35b4",
+      "name": "Share GDoc",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "HR5Tk4YDcaNJda9N",
+          "name": "Google Drive Sergio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $('Var2Val-Vid').item.json.documentId }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{contentSummary}}",
+              "replaceText": "={{ $('cSummary').item.json.message.content }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentTopComments}}",
+              "replaceText": "={{ $('Comment Fields').item.json.content.TopComments }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        4020,
+        2960
+      ],
+      "id": "e834e35a-27c3-4ddb-9e33-c1ce8eb6d308",
+      "name": "Var2Val-Comments",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{videoID}}",
+              "replaceText": "={{ $('Video Fields').item.json.id }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoTitle}}",
+              "replaceText": "={{ $('Video Fields').item.json.title }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{reportDate}}",
+              "replaceText": "={{ $('Video Fields').item.json.reportDate }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{viewCount}}",
+              "replaceText": "={{ $('Video Fields').item.json.viewCount.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{likeCount}}",
+              "replaceText": "={{ $('Video Fields').item.json.likeCount.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{commentCount}}",
+              "replaceText": "={{ String($(\"Video #streamers\").item.json.commentCount || 0) }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoUrl}}",
+              "replaceText": "={{ $('Video Fields').item.json.url }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{publishDate}}",
+              "replaceText": "={{ $('Video Fields').item.json.publishedDate.toDateTime().format('LLL dd,yyyy') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoDuration}}",
+              "replaceText": "={{ $('Video Fields').item.json.lengthInSeconds.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{channelName}}",
+              "replaceText": "={{ $('Video Fields').item.json.channelDisplayName }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{subscriberCount}}",
+              "replaceText": "={{ $('Video Fields').item.json.channelSubscribers.toString() }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{videoDescription}}",
+              "replaceText": "={{ $('Video Fields').item.json.description }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{#each videoTags}}#{{this}} {{/each}}",
+              "replaceText": "={{ \n  (function() {\n    const tags = $('Video Fields').item.json.tags;\n    if (!tags || !Array.isArray(tags) || tags.length === 0) {\n      return \"No tags available\";\n    }\n    return tags.map(tag => `#${tag}`).join(' ');\n  })()\n}}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentSummary}}",
+              "replaceText": "={{ $('cSummary').item.json.message.content }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentStrengths}}",
+              "replaceText": "={{ $('Video Fields').item.json.content.Strengths }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentOpportunities}}",
+              "replaceText": "={{ $('Video Fields').item.json.content.Opportunities }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentRecommendations}}",
+              "replaceText": "={{ $('Video Fields').item.json.content.Recommendations }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentTscripts}}",
+              "replaceText": "={{ $('Video Fields').item.json.content.Tscripts }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{contentTopComments}}",
+              "replaceText": "={{ $('Video Fields').item.json.content.TopComments }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        2820,
+        2740
+      ],
+      "id": "f935ae42-f398-47e2-bb59-89e0ed62f2a8",
+      "name": "Var2Val-Vid",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Nhb6bAORRuLk5B72",
+          "name": "Google Docs ✔️️"
+        }
+      }
     }
   ],
   "pinData": {
@@ -3594,6 +3854,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-19T23:54:02.000Z",
-  "versionId": "425acba1-afdd-4c30-9eee-863c137a53e1"
+  "updatedAt": "2025-05-20T17:05:28.000Z",
+  "versionId": "5404dfe3-0f16-4ebc-b075-99fd5397a149"
 }
