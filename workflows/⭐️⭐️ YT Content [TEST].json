@@ -2192,8 +2192,8 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.2,
       "position": [
-        2320,
-        2180
+        2080,
+        2300
       ],
       "id": "9b21b368-2fb1-4ded-a7e6-8ff41212be6d",
       "name": "On form submission",
@@ -2209,8 +2209,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3820,
-        2640
+        3720,
+        2560
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
@@ -2230,8 +2230,8 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        4000,
-        2640
+        3900,
+        2560
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2245,8 +2245,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4340,
-        2640
+        4240,
+        2560
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2322,8 +2322,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        4100,
-        2760
+        4000,
+        2680
       ],
       "credentials": {
         "openAiApi": {
@@ -2358,8 +2358,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2520,
-        2180
+        2280,
+        2300
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2371,8 +2371,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3640,
-        2880
+        3540,
+        2780
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
       "name": "Sentiment Results",
@@ -2399,8 +2399,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2300,
-        2420
+        2080,
+        2520
       ],
       "id": "9cd21e03-08f1-40c8-8a1a-7ab72a3d9b90",
       "name": "cSummary",
@@ -2432,8 +2432,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2300,
-        2660
+        2100,
+        2900
       ],
       "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
       "name": "cStrengths",
@@ -2465,8 +2465,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2640,
-        2660
+        2440,
+        2900
       ],
       "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
       "name": "cOpportunities",
@@ -2498,8 +2498,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2980,
-        2660
+        2780,
+        2900
       ],
       "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
       "name": "cRecommendations",
@@ -2531,8 +2531,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2640,
-        2420
+        2420,
+        2520
       ],
       "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
       "name": "Top Comments",
@@ -2564,8 +2564,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2980,
-        2420
+        2760,
+        2520
       ],
       "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
       "name": "Transcript Excerpts",
@@ -2597,8 +2597,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3640,
-        3060
+        3520,
+        2980
       ],
       "id": "810885b3-3973-4590-b2fe-78bd752d06ee",
       "name": "Eleven Labs"
@@ -2629,8 +2629,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3640,
-        2640
+        3540,
+        2560
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2646,8 +2646,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2920,
-        2180
+        2680,
+        2300
       ],
       "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
       "name": "Comments"
@@ -2667,8 +2667,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2720,
-        2180
+        2480,
+        2300
       ],
       "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
       "name": "Video #streamers"
@@ -2828,8 +2828,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3460,
-        2460
+        3360,
+        2360
       ],
       "id": "3ec9dda3-ac32-4ee6-86db-2e5c0a4c4cfd",
       "name": "Video Fields"
@@ -3007,8 +3007,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3820,
-        2880
+        3720,
+        2780
       ],
       "id": "7610fa39-e707-4745-9865-23118c93f9de",
       "name": "Comment Fields"
@@ -3372,8 +3372,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4180,
-        2880
+        4080,
+        2780
       ],
       "id": "5527346c-ce79-49f1-8d42-e10ac04832e0",
       "name": "Update-Comments",
@@ -3413,8 +3413,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3640,
-        2460
+        3540,
+        2360
       ],
       "id": "965c7ee1-c811-4a76-8d8f-73249ce3353e",
       "name": "Copy Template",
@@ -3444,8 +3444,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4000,
-        2460
+        3900,
+        2360
       ],
       "id": "85df8fb1-330b-47e8-9289-7706308b35b4",
       "name": "Share GDoc",
@@ -3478,8 +3478,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        4000,
-        2880
+        3900,
+        2780
       ],
       "id": "e834e35a-27c3-4ddb-9e33-c1ce8eb6d308",
       "name": "Var2Val-Comments",
@@ -3598,8 +3598,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        3820,
-        2460
+        3720,
+        2360
       ],
       "id": "f935ae42-f398-47e2-bb59-89e0ed62f2a8",
       "name": "Var2Val-Vid",
@@ -3634,8 +3634,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3460,
-        3060
+        3340,
+        2980
       ],
       "id": "8ac36932-da46-483f-99fe-46a5bd6164db",
       "name": "Audio Fields"
@@ -3667,8 +3667,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3460,
-        2660
+        3360,
+        2580
       ],
       "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
       "name": "Have comments"
@@ -3687,6 +3687,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-21T06:44:55.000Z",
-  "versionId": "c2502a17-7688-4708-a942-df1ecbcb2049"
+  "updatedAt": "2025-05-21T07:28:33.000Z",
+  "versionId": "0d8d47f4-7429-4f33-a1f6-cfa326655bc9"
 }
