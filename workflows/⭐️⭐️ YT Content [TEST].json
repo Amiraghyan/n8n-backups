@@ -233,31 +233,13 @@
         ]
       ]
     },
-    "If zero comments": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Get Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Aggregate": {
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Sentiment Results",
             "type": "main",
-            "index": 1
+            "index": 0
           }
         ]
       ]
@@ -277,11 +259,6 @@
       "main": [
         [],
         [],
-        []
-      ]
-    },
-    "Edit Fields": {
-      "main": [
         []
       ]
     },
@@ -369,6 +346,16 @@
             "node": "Video Fields",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Have comments",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Audio Fields",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -378,44 +365,6 @@
         [
           {
             "node": "cStrengths",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Share Link": {
-      "main": [
-        [
-          {
-            "node": "Update-Comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Docs": {
-      "main": [
-        [
-          {
-            "node": "Text → Audio",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Text → Audio": {
-      "main": [
-        []
-      ]
-    },
-    "Prepare Content": {
-      "main": [
-        [
-          {
-            "node": "Eleven Labs",
             "type": "main",
             "index": 0
           }
@@ -455,17 +404,6 @@
         ]
       ]
     },
-    "Merge": {
-      "main": [
-        [
-          {
-            "node": "Sentiment Results",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Video Fields": {
       "main": [
         [
@@ -480,11 +418,6 @@
     "Comment Fields": {
       "main": [
         [
-          {
-            "node": "Prepare Content",
-            "type": "main",
-            "index": 0
-          },
           {
             "node": "Var2Val-Comments",
             "type": "main",
@@ -506,20 +439,14 @@
     },
     "Share GDoc": {
       "main": [
-        [
-          {
-            "node": "If zero comments",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Var2Val-Comments": {
       "main": [
         [
           {
-            "node": "Share Link",
+            "node": "Update-Comments",
             "type": "main",
             "index": 0
           }
@@ -535,6 +462,29 @@
             "index": 0
           }
         ]
+      ]
+    },
+    "Audio Fields": {
+      "main": [
+        [
+          {
+            "node": "Eleven Labs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Have comments": {
+      "main": [
+        [
+          {
+            "node": "Get Comments",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
       ]
     }
   },
@@ -2193,14 +2143,14 @@
     {
       "parameters": {
         "content": "## Process Videos",
-        "height": 1180,
-        "width": 2800,
+        "height": 1300,
+        "width": 2680,
         "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         2000,
-        2180
+        2060
       ],
       "typeVersion": 1,
       "id": "bb8e3b37-dfe2-4cde-9bcb-7a37df0b427c",
@@ -2216,7 +2166,7 @@
       "typeVersion": 1,
       "position": [
         2020,
-        2240
+        2120
       ],
       "id": "7f32e1c4-0420-432e-b515-02d58878ece2",
       "name": "Sticky Note11"
@@ -2242,8 +2192,8 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.2,
       "position": [
-        2360,
-        2280
+        2320,
+        2180
       ],
       "id": "9b21b368-2fb1-4ded-a7e6-8ff41212be6d",
       "name": "On form submission",
@@ -2259,37 +2209,11 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2780,
-        3060
+        3820,
+        2640
       ],
       "id": "f385b36c-6e5a-49d7-846d-2b57b9c97f86",
       "name": "Split Out"
-    },
-    {
-      "parameters": {
-        "resource": "audio",
-        "input": "={{ $json.content }}",
-        "options": {
-          "response_format": "mp3",
-          "binaryPropertyOutput": ""
-        }
-      },
-      "id": "e779edb7-a666-42ad-beed-51fd1942694e",
-      "name": "Text → Audio",
-      "type": "@n8n/n8n-nodes-langchain.openAi",
-      "typeVersion": 1.6,
-      "position": [
-        5060,
-        2800
-      ],
-      "alwaysOutputData": true,
-      "credentials": {
-        "openAiApi": {
-          "id": "7lpyAVssSQvwtkjO",
-          "name": "Content Generation"
-        }
-      },
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2306,44 +2230,11 @@
       "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
       "typeVersion": 1,
       "position": [
-        2940,
-        3060
+        4000,
+        2640
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "adad4ab3-6a87-493b-8a65-98afd8ff7ca7",
-              "leftValue": "={{ $('Video #streamers').item.json.commentsCount }}",
-              "rightValue": "={{0}}",
-              "operator": {
-                "type": "number",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        2460,
-        2960
-      ],
-      "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
-      "name": "If zero comments"
     },
     {
       "parameters": {
@@ -2354,8 +2245,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3300,
-        3060
+        4340,
+        2640
       ],
       "id": "ec0a1a80-0674-4237-a38c-05e21f5cc72a",
       "name": "Aggregate",
@@ -2374,7 +2265,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        4840,
+        5180,
         2440
       ],
       "credentials": {
@@ -2411,36 +2302,13 @@
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1,
       "position": [
-        4900,
+        5240,
         2280
       ],
       "id": "270480b1-6dff-48f5-ae6d-e5e39ab0d62f",
       "name": "Classifier",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "3d87a111-84f3-4e45-a964-fcb18f319790",
-              "name": "Youtube Video URL",
-              "value": "https://www.youtube.com/watch?v=62SA_YwUg5Q",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4860,
-        3020
-      ],
-      "id": "287b5c8e-0b85-4926-8a7d-f06a25480741",
-      "name": "Edit Fields"
     },
     {
       "parameters": {
@@ -2454,8 +2322,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        2940,
-        3220
+        4100,
+        2760
       ],
       "credentials": {
         "openAiApi": {
@@ -2490,8 +2358,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2560,
-        2280
+        2520,
+        2180
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2504,7 +2372,7 @@
       "typeVersion": 2,
       "position": [
         3640,
-        2960
+        2880
       ],
       "id": "1c51a485-7d5d-4fdd-95a9-60f09fdf416d",
       "name": "Sentiment Results",
@@ -2531,8 +2399,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2460,
-        2520
+        2300,
+        2420
       ],
       "id": "9cd21e03-08f1-40c8-8a1a-7ab72a3d9b90",
       "name": "cSummary",
@@ -2564,8 +2432,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3480,
-        2520
+        2300,
+        2660
       ],
       "id": "0fe073b2-bb89-464b-9dee-cf7c638d2ecd",
       "name": "cStrengths",
@@ -2597,8 +2465,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3820,
-        2520
+        2640,
+        2660
       ],
       "id": "c7e54c0d-7f68-43e1-9bea-bee97c83f325",
       "name": "cOpportunities",
@@ -2630,8 +2498,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        4160,
-        2520
+        2980,
+        2660
       ],
       "id": "75305522-c594-4eba-9c71-d76bfef2a4bf",
       "name": "cRecommendations",
@@ -2663,8 +2531,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        2800,
-        2520
+        2640,
+        2420
       ],
       "id": "857b9872-0b43-48f6-a159-5ebe202f7387",
       "name": "Top Comments",
@@ -2696,8 +2564,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        3140,
-        2520
+        2980,
+        2420
       ],
       "id": "a8f0d78e-7ba0-4b76-89e1-37ac528970c7",
       "name": "Transcript Excerpts",
@@ -2710,88 +2578,8 @@
     },
     {
       "parameters": {
-        "operation": "share",
-        "fileId": {
-          "__rl": true,
-          "value": "={{ $json.documentId }}",
-          "mode": "id"
-        },
-        "permissionsUi": {
-          "permissionsValues": {
-            "role": "reader",
-            "type": "anyone"
-          }
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        4200,
-        2960
-      ],
-      "id": "d9403ff0-9a18-48c1-b93b-067bfa9cdcc1",
-      "name": "Share Link",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "HR5Tk4YDcaNJda9N",
-          "name": "Google Drive Sergio"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "documentURL": "={{ $('Var2Val-Comments').item.json.documentId }}"
-      },
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        4860,
-        2800
-      ],
-      "id": "d0010bc1-65e2-442b-a0ec-93cb1d9ab2e1",
-      "name": "Google Docs",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "Nhb6bAORRuLk5B72",
-          "name": "Google Docs ✔️️"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "63380b27-9b81-4f59-b317-5746933ad65b",
-              "name": "voiceId",
-              "value": "={{ \"21m00Tcm4TlvDq8ikWAM\" }}",
-              "type": "string"
-            },
-            {
-              "id": "f020f5ac-79f7-4568-882b-aafee8062c6a",
-              "name": "speechContent",
-              "value": "={{ $json.title }}\n\"\nSummary\"\n{{ $json['cSummary - raw'] }}\n\"Content Analysis\"\n\"\nStrengths\"\n{{ $json.content.Strengths }}\n\"Opportunities\"\n{{ $json.content.Opportunities }}\n\"Recommendations\"\n{{ $json.content.Recommendations }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        4020,
-        3120
-      ],
-      "id": "8ac36932-da46-483f-99fe-46a5bd6164db",
-      "name": "Prepare Content"
-    },
-    {
-      "parameters": {
         "method": "POST",
-        "url": "=https://api.elevenlabs.io/v1/text-to-speech/{{$node[\"Prepare Content\"].json.voiceId}}/stream",
+        "url": "=https://api.elevenlabs.io/v1/text-to-speech/{{$node[\"Audio Fields\"].json.voiceId}}/stream",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -2809,8 +2597,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4200,
-        3120
+        3640,
+        3060
       ],
       "id": "810885b3-3973-4590-b2fe-78bd752d06ee",
       "name": "Eleven Labs"
@@ -2821,7 +2609,7 @@
         "url": "=https://api.apify.com/v2/actor-tasks/sergio_kno~youtube-comments-1-month---reliable-efficient-task/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video #streamers').item.json.url }}\"\n    }\n  ]\n}\n",
+        "jsonBody": "={\n  \"video_urls\": [\n    {\n      \"url\": \"{{ $('Video #streamers').item.json.url }}\"\n    }\n  ]\n}",
         "options": {
           "response": {
             "response": {
@@ -2841,25 +2629,25 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2620,
-        3060
+        3640,
+        2640
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "url": "https://api.apify.com/v2/datasets/YQXlKJnfTu8laRipB/items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items?token=apify_api_JhKdeVu3pgj83fvoqQyz4BPOAM2o222xmV0m",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"videoUrls\": [\n    \"{{ $json.url }}\"\n  ]\n}",
+        "jsonBody": "={\n    \"dateFilter\": \"year\",\n    \"downloadSubtitles\": true,\n    \"hasCC\": false,\n    \"hasLocation\": false,\n    \"hasSubtitles\": true,\n    \"is360\": false,\n    \"is3D\": false,\n    \"is4K\": false,\n    \"isBought\": false,\n    \"isHD\": false,\n    \"isHDR\": false,\n    \"isLive\": false,\n    \"isVR180\": false,\n    \"maxResultStreams\": 0,\n    \"maxResults\": 100,\n    \"maxResultsShorts\": 0,\n    \"preferAutoGeneratedSubtitles\": false,\n    \"saveSubsToKVS\": false,\n    \"scrapeLastNDays\": 400,\n    \"sortVideosBy\": \"NEWEST\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.url }}\",\n            \"method\": \"GET\"\n        }\n    ],\n    \"subtitlesLanguage\": \"en\"\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2960,
-        2280
+        2920,
+        2180
       ],
       "id": "d29ae456-9652-46c2-845a-b7ff20b7af8e",
       "name": "Comments"
@@ -2879,28 +2667,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2760,
-        2280
+        2720,
+        2180
       ],
       "id": "b5a62cff-4e91-476d-94c2-0a31f3696da6",
       "name": "Video #streamers"
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "combineBy": "combineByPosition",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.1,
-      "position": [
-        3460,
-        2960
-      ],
-      "id": "25b61b4b-2c09-43f4-a717-f286f29fda92",
-      "name": "Merge",
-      "alwaysOutputData": true,
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -3057,8 +2828,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2460,
-        2740
+        3460,
+        2460
       ],
       "id": "3ec9dda3-ac32-4ee6-86db-2e5c0a4c4cfd",
       "name": "Video Fields"
@@ -3237,7 +3008,7 @@
       "typeVersion": 3.4,
       "position": [
         3820,
-        2960
+        2880
       ],
       "id": "7610fa39-e707-4745-9865-23118c93f9de",
       "name": "Comment Fields"
@@ -3601,8 +3372,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4380,
-        2960
+        4180,
+        2880
       ],
       "id": "5527346c-ce79-49f1-8d42-e10ac04832e0",
       "name": "Update-Comments",
@@ -3642,8 +3413,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        2640,
-        2740
+        3640,
+        2460
       ],
       "id": "965c7ee1-c811-4a76-8d8f-73249ce3353e",
       "name": "Copy Template",
@@ -3673,8 +3444,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3000,
-        2740
+        4000,
+        2460
       ],
       "id": "85df8fb1-330b-47e8-9289-7706308b35b4",
       "name": "Share GDoc",
@@ -3707,8 +3478,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        4020,
-        2960
+        4000,
+        2880
       ],
       "id": "e834e35a-27c3-4ddb-9e33-c1ce8eb6d308",
       "name": "Var2Val-Comments",
@@ -3827,8 +3598,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        2820,
-        2740
+        3820,
+        2460
       ],
       "id": "f935ae42-f398-47e2-bb59-89e0ed62f2a8",
       "name": "Var2Val-Vid",
@@ -3839,6 +3610,68 @@
           "name": "Google Docs ✔️️"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "63380b27-9b81-4f59-b317-5746933ad65b",
+              "name": "voiceId",
+              "value": "={{ \"21m00Tcm4TlvDq8ikWAM\" }}",
+              "type": "string"
+            },
+            {
+              "id": "f020f5ac-79f7-4568-882b-aafee8062c6a",
+              "name": "speechContent",
+              "value": "={{ $('YT Transcript Ninja').item.json.body[0].videoTitle }}\n\"\nSummary\"\n{{ $('cSummary').item.json.message.content }}\n\"\n\nContent Analysis\nThe following key areas are as follows:\n\nStrengths\"\n{{ $('cStrengths').item.json.message.content }}\n\n\"Opportunities\"\n{{ $('cOpportunities').item.json.message.content }}\n\n\"Recommendations\"\n{{ $('cRecommendations').item.json.message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3460,
+        3060
+      ],
+      "id": "8ac36932-da46-483f-99fe-46a5bd6164db",
+      "name": "Audio Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "adad4ab3-6a87-493b-8a65-98afd8ff7ca7",
+              "leftValue": "={{ $('Comments').item.json.commentsCount }}",
+              "rightValue": "={{0}}",
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3460,
+        2660
+      ],
+      "id": "81ab854e-61de-4cb0-a1bc-594f652799b3",
+      "name": "Have comments"
     }
   ],
   "pinData": {
@@ -3854,6 +3687,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-20T17:05:28.000Z",
-  "versionId": "5404dfe3-0f16-4ebc-b075-99fd5397a149"
+  "updatedAt": "2025-05-21T06:44:55.000Z",
+  "versionId": "c2502a17-7688-4708-a942-df1ecbcb2049"
 }
