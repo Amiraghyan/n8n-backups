@@ -1,0 +1,2133 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Operation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Operation": {
+      "main": [
+        [
+          {
+            "node": "Apify Youtube Search",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Apify Youtube Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Usage Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Search": {
+      "main": [
+        [
+          {
+            "node": "Simplify Search Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Search Results": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Search Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Transcripts": {
+      "main": [
+        [
+          {
+            "node": "Simplify Transcript Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Transcript Results": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Transcript Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Limits": {
+      "main": [
+        [
+          {
+            "node": "Simplify Usage Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Metrics": {
+      "main": [
+        [
+          {
+            "node": "Get Usage Limits",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Operation1": {
+      "main": [
+        [
+          {
+            "node": "Apify Youtube Search1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Apify Youtube Transcripts1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Usage Metrics1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Search1": {
+      "main": [
+        [
+          {
+            "node": "Simplify Search Results1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Search Results1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Search Results1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Transcripts1": {
+      "main": [
+        [
+          {
+            "node": "Simplify Transcript Results1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Transcript Results1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Transcript Results1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Limits1": {
+      "main": [
+        [
+          {
+            "node": "Simplify Usage Metrics1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Metrics1": {
+      "main": [
+        [
+          {
+            "node": "Get Usage Limits1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Metrics2": {
+      "main": [
+        [
+          {
+            "node": "Get Usage Limits2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Limits2": {
+      "main": [
+        [
+          {
+            "node": "Simplify Usage Metrics2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Transcript Results2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Transcript Results2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Transcripts2": {
+      "main": [
+        [
+          {
+            "node": "Simplify Transcript Results2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Search Results2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Search Results2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Search2": {
+      "main": [
+        [
+          {
+            "node": "Simplify Search Results2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Operation2": {
+      "main": [
+        [
+          {
+            "node": "Apify Youtube Search2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Apify Youtube Transcripts2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Usage Metrics2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Metrics3": {
+      "main": [
+        [
+          {
+            "node": "Get Usage Limits3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Usage Limits3": {
+      "main": [
+        [
+          {
+            "node": "Simplify Usage Metrics3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Transcript Results3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Transcript Results3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Transcripts3": {
+      "main": [
+        [
+          {
+            "node": "Simplify Transcript Results3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simplify Search Results3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Search Results3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Youtube Search3": {
+      "main": [
+        [
+          {
+            "node": "Simplify Search Results3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Operation3": {
+      "main": [
+        [
+          {
+            "node": "Apify Youtube Search3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Apify Youtube Transcripts3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Usage Metrics3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-23T16:12:04.435Z",
+  "id": "IL6SzZgLRelPLng8",
+  "isArchived": false,
+  "meta": {
+    "templateId": "3770"
+  },
+  "name": "Build your own N8N Workflows MCP Server 2",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "operation"
+            },
+            {
+              "name": "query"
+            },
+            {
+              "name": "urls"
+            }
+          ]
+        }
+      },
+      "id": "6a47367c-c961-44b2-b0f9-bff16c2856a8",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        4340,
+        1820
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "81b134bc-d671-4493-b3ad-8df9be3f49a6",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_search"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Search"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "8d57914f-6587-4fb3-88e0-aa1de6ba56c1",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_transcripts"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Transcripts"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "7c38f238-213a-46ec-aefe-22e0bcb8dffc",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "usage_metrics"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Usage Metrics"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d72356c2-d1a4-4861-9f81-65b26e11a2d1",
+      "name": "Operation",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        4580,
+        1820
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "content": "## 2. [APIFY.com](https://www.apify.com?fpr=414q6) for Easy Youtube Search and Transcripts\n[Sign up for Apify.com using 20JIMLEUK for 20% discount](https://www.apify.com?fpr=414q6)\n\nI've used Apify's Youtube scrapers a couple of times already and I find them quite fast and dependable for production use-cases.\nI particularly like that my workflows don't break when I inevitably hit the official Youtube rate limits which are quite low.\nFor this MCP server, I'm using the following youtube scraper for search and downloading transcripts: [https://apify.com/streamers/youtube-scraper](https://apify.com/streamers/youtube-scraper?fpr=414q6)",
+        "height": 820,
+        "width": 1240,
+        "color": 7
+      },
+      "id": "760e99f3-6989-450b-9361-7c30e46ab331",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        4260,
+        1420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"searchQueries\": [$json.query],\n  \"maxResultStreams\": 0,\n  \"maxResults\": 5\n}\n}}",
+        "options": {}
+      },
+      "id": "68e0bc28-edbb-4b71-b085-d3630b1d4e8f",
+      "name": "Apify Youtube Search",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        4860,
+        1620
+      ],
+      "executeOnce": true,
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9d1db837-e256-4124-80d1-8b103dbbefbb",
+              "name": "channelName",
+              "type": "string",
+              "value": "={{ $json.channelName }}"
+            },
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "de8ae3e0-685d-4e40-839f-13c798d4e5e2",
+              "name": "description",
+              "type": "string",
+              "value": "={{ $json.text.substr(0,2_000) }}"
+            },
+            {
+              "id": "e933cbca-486c-45c9-8ed0-89a3d1efe003",
+              "name": "viewCount",
+              "type": "number",
+              "value": "={{ $json.viewCount }}"
+            },
+            {
+              "id": "417846bb-5e8c-42af-b1dc-8b1de9fa426c",
+              "name": "likes",
+              "type": "number",
+              "value": "={{ $json.likes }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fff1e550-e7d0-4614-b434-9817b682db4e",
+      "name": "Simplify Search Results",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        5060,
+        1620
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"downloadSubtitles\": true,\n  \"hasCC\": false,\n  \"hasLocation\": false,\n  \"hasSubtitles\": false,\n  \"is360\": false,\n  \"is3D\": false,\n  \"is4K\": false,\n  \"isBought\": false,\n  \"isHD\": false,\n  \"isHDR\": false,\n  \"isLive\": false,\n  \"isVR180\": false,\n  \"maxResultStreams\": 0,\n  \"maxResults\": 1,\n  \"maxResultsShorts\": 0,\n  \"preferAutoGeneratedSubtitles\": false,\n  \"saveSubsToKVS\": false,\n  \"startUrls\": $json.urls.split(',').map(url => ({\n    \"url\": url,\n    \"method\": \"GET\"\n  })),\n  \"subtitlesFormat\": \"plaintext\",\n  \"subtitlesLanguage\": \"en\"\n}\n}}",
+        "options": {}
+      },
+      "id": "c982232f-2683-4b2e-92eb-670e5e7a5ce2",
+      "name": "Apify Youtube Transcripts",
+      "type": "n8n-nodes-base.httpRequest",
+      "maxTries": 2,
+      "position": [
+        4860,
+        1820
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "7501fe60-f43d-42fe-9087-6f70a1cf12af",
+              "name": "transcript",
+              "type": "string",
+              "value": "={{ $json.subtitles[0].plaintext }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bd0b1431-3f38-44aa-9ac4-c1ef1ed1973c",
+      "name": "Simplify Transcript Results",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        5060,
+        1820
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "fa582782-b199-4b8b-aa4d-9822e00b6e53",
+      "name": "Aggregate Search Results",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        5260,
+        1620
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "080f43c0-9f61-4cb7-8451-eec8964816a6",
+      "name": "Aggregate Transcript Results",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        5260,
+        1820
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff43aa98-4e32-478d-9e43-619b7b808948",
+              "name": "monthlyUsageCycle_startAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.startAt }}"
+            },
+            {
+              "id": "145eefd3-5248-40e9-a988-9e0e578d930a",
+              "name": "monthlyUsageCycle_endAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.endAt }}"
+            },
+            {
+              "id": "020d1e4f-d7ec-4d69-b9be-b6c4ba5971eb",
+              "name": "monthlyUsageUsd",
+              "type": "string",
+              "value": "={{ $json.data.current.monthlyUsageUsd.toFixed(2) }} of {{ $json.data.limits.maxMonthlyUsageUsd.toFixed(2) }}"
+            },
+            {
+              "id": "112fb245-b35b-45ce-ad29-e05d0f352010",
+              "name": "ACTOR_COMPUTE_UNITS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.ACTOR_COMPUTE_UNITS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "4b451afb-eba7-49c6-8c3c-7279fb315ec6",
+              "name": "DATASET_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.DATASET_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "c002234c-955e-41f4-a27f-7f031ae6111e",
+              "name": "DATASET_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.DATASET_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "0108085d-1bb4-44c5-bc3b-845a7206abfe",
+              "name": "DATASET_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.DATASET_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "df993499-7410-450c-b5b1-50052e6d061e",
+              "name": "DATA_TRANSFER_EXTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.DATA_TRANSFER_EXTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "1627a2dd-15a6-4b69-b480-4e1b792c403d",
+              "name": "DATA_TRANSFER_INTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.DATA_TRANSFER_INTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "73037e97-e43d-4ecd-bb7e-6c5ce4740e4d",
+              "name": "KEY_VALUE_STORE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5de9ba3b-bf62-4525-9cd9-5008bafe73c5",
+              "name": "KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "6d1997f2-46c0-468b-b50f-fc37512417d2",
+              "name": "KEY_VALUE_STORE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "b579cb9e-d18f-4877-b808-a177195a364a",
+              "name": "PAID_ACTORS_PER_DATASET_ITEM",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.PAID_ACTORS_PER_DATASET_ITEM.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5c69831c-3c62-421d-afff-bd8cfb68fb29",
+              "name": "REQUEST_QUEUE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "21d54d4d-515b-4fa7-b099-c8b193fc4436",
+              "name": "=REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "68168fc6-0052-4fa6-b631-942d972af340",
+              "name": "REQUEST_QUEUE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_WRITES.amountAfterVolumeDiscountUsd }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2ba26e7f-8351-4611-b79e-7e37a0245cb1",
+      "name": "Simplify Usage Metrics",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        5260,
+        2020
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/limits",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "3de24ef2-4e6d-49e9-bb98-89602c7fe2a6",
+      "name": "Get Usage Limits",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        5060,
+        2020
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/usage/monthly",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "0039c608-ddb7-4408-b03d-979be2353174",
+      "name": "Get Usage Metrics",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        4860,
+        2020
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "81b134bc-d671-4493-b3ad-8df9be3f49a6",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_search"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Search"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "8d57914f-6587-4fb3-88e0-aa1de6ba56c1",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_transcripts"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Transcripts"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "7c38f238-213a-46ec-aefe-22e0bcb8dffc",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "usage_metrics"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Usage Metrics"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "af3c5353-8966-4a1f-8cd9-f2cd785cd8fd",
+      "name": "Operation1",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -1075800,
+        -513020
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "content": "## 2. [APIFY.com](https://www.apify.com?fpr=414q6) for Easy Youtube Search and Transcripts\n[Sign up for Apify.com using 20JIMLEUK for 20% discount](https://www.apify.com?fpr=414q6)\n\nI've used Apify's Youtube scrapers a couple of times already and I find them quite fast and dependable for production use-cases.\nI particularly like that my workflows don't break when I inevitably hit the official Youtube rate limits which are quite low.\nFor this MCP server, I'm using the following youtube scraper for search and downloading transcripts: [https://apify.com/streamers/youtube-scraper](https://apify.com/streamers/youtube-scraper?fpr=414q6)",
+        "height": 820,
+        "width": 1240,
+        "color": 7
+      },
+      "id": "dfc064af-d3ed-4e86-b283-a50abdabc2cf",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1076120,
+        -513420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"searchQueries\": [$json.query],\n  \"maxResultStreams\": 0,\n  \"maxResults\": 5\n}\n}}",
+        "options": {}
+      },
+      "id": "f61997fb-2ad8-4ad2-b95e-04569fad7152",
+      "name": "Apify Youtube Search1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -1075520,
+        -513220
+      ],
+      "executeOnce": true,
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9d1db837-e256-4124-80d1-8b103dbbefbb",
+              "name": "channelName",
+              "type": "string",
+              "value": "={{ $json.channelName }}"
+            },
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "de8ae3e0-685d-4e40-839f-13c798d4e5e2",
+              "name": "description",
+              "type": "string",
+              "value": "={{ $json.text.substr(0,2_000) }}"
+            },
+            {
+              "id": "e933cbca-486c-45c9-8ed0-89a3d1efe003",
+              "name": "viewCount",
+              "type": "number",
+              "value": "={{ $json.viewCount }}"
+            },
+            {
+              "id": "417846bb-5e8c-42af-b1dc-8b1de9fa426c",
+              "name": "likes",
+              "type": "number",
+              "value": "={{ $json.likes }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a166284e-8d64-4cff-97a0-ad3590ed0551",
+      "name": "Simplify Search Results1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1075320,
+        -513220
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"downloadSubtitles\": true,\n  \"hasCC\": false,\n  \"hasLocation\": false,\n  \"hasSubtitles\": false,\n  \"is360\": false,\n  \"is3D\": false,\n  \"is4K\": false,\n  \"isBought\": false,\n  \"isHD\": false,\n  \"isHDR\": false,\n  \"isLive\": false,\n  \"isVR180\": false,\n  \"maxResultStreams\": 0,\n  \"maxResults\": 1,\n  \"maxResultsShorts\": 0,\n  \"preferAutoGeneratedSubtitles\": false,\n  \"saveSubsToKVS\": false,\n  \"startUrls\": $json.urls.split(',').map(url => ({\n    \"url\": url,\n    \"method\": \"GET\"\n  })),\n  \"subtitlesFormat\": \"plaintext\",\n  \"subtitlesLanguage\": \"en\"\n}\n}}",
+        "options": {}
+      },
+      "id": "ec378db8-35e3-40dc-8470-423e8fd2b2ed",
+      "name": "Apify Youtube Transcripts1",
+      "type": "n8n-nodes-base.httpRequest",
+      "maxTries": 2,
+      "position": [
+        -1075520,
+        -513020
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "7501fe60-f43d-42fe-9087-6f70a1cf12af",
+              "name": "transcript",
+              "type": "string",
+              "value": "={{ $json.subtitles[0].plaintext }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e898d45c-43aa-4eb1-9faa-10a0642f90aa",
+      "name": "Simplify Transcript Results1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1075320,
+        -513020
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "0ea70647-251f-4138-8b13-6dc11d3de9bc",
+      "name": "Aggregate Search Results1",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -1075120,
+        -513220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "3591cc63-8414-47b2-9031-2b20f2dcee1d",
+      "name": "Aggregate Transcript Results1",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -1075120,
+        -513020
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff43aa98-4e32-478d-9e43-619b7b808948",
+              "name": "monthlyUsageCycle_startAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.startAt }}"
+            },
+            {
+              "id": "145eefd3-5248-40e9-a988-9e0e578d930a",
+              "name": "monthlyUsageCycle_endAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.endAt }}"
+            },
+            {
+              "id": "020d1e4f-d7ec-4d69-b9be-b6c4ba5971eb",
+              "name": "monthlyUsageUsd",
+              "type": "string",
+              "value": "={{ $json.data.current.monthlyUsageUsd.toFixed(2) }} of {{ $json.data.limits.maxMonthlyUsageUsd.toFixed(2) }}"
+            },
+            {
+              "id": "112fb245-b35b-45ce-ad29-e05d0f352010",
+              "name": "ACTOR_COMPUTE_UNITS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.ACTOR_COMPUTE_UNITS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "4b451afb-eba7-49c6-8c3c-7279fb315ec6",
+              "name": "DATASET_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.DATASET_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "c002234c-955e-41f4-a27f-7f031ae6111e",
+              "name": "DATASET_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.DATASET_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "0108085d-1bb4-44c5-bc3b-845a7206abfe",
+              "name": "DATASET_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.DATASET_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "df993499-7410-450c-b5b1-50052e6d061e",
+              "name": "DATA_TRANSFER_EXTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.DATA_TRANSFER_EXTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "1627a2dd-15a6-4b69-b480-4e1b792c403d",
+              "name": "DATA_TRANSFER_INTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.DATA_TRANSFER_INTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "73037e97-e43d-4ecd-bb7e-6c5ce4740e4d",
+              "name": "KEY_VALUE_STORE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5de9ba3b-bf62-4525-9cd9-5008bafe73c5",
+              "name": "KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "6d1997f2-46c0-468b-b50f-fc37512417d2",
+              "name": "KEY_VALUE_STORE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "b579cb9e-d18f-4877-b808-a177195a364a",
+              "name": "PAID_ACTORS_PER_DATASET_ITEM",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.PAID_ACTORS_PER_DATASET_ITEM.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5c69831c-3c62-421d-afff-bd8cfb68fb29",
+              "name": "REQUEST_QUEUE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "21d54d4d-515b-4fa7-b099-c8b193fc4436",
+              "name": "=REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "68168fc6-0052-4fa6-b631-942d972af340",
+              "name": "REQUEST_QUEUE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics1').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_WRITES.amountAfterVolumeDiscountUsd }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "acfa00fb-3054-499f-b983-f0f577325e06",
+      "name": "Simplify Usage Metrics1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1075120,
+        -512820
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/limits",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "dba91336-93a7-4fa8-bfbd-5ba6cd3cff4c",
+      "name": "Get Usage Limits1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -1075320,
+        -512820
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/usage/monthly",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "1bea9dd5-bd20-4f3a-9824-52a411d1ad44",
+      "name": "Get Usage Metrics1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -1075520,
+        -512820
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/usage/monthly",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "7171a8e3-2125-4323-ba54-fab1c6c7386b",
+      "name": "Get Usage Metrics2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -2008520,
+        -690040
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/limits",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "977490e8-df18-4bea-b0e9-eeb15ba4aee3",
+      "name": "Get Usage Limits2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -2008320,
+        -690040
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff43aa98-4e32-478d-9e43-619b7b808948",
+              "name": "monthlyUsageCycle_startAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.startAt }}"
+            },
+            {
+              "id": "145eefd3-5248-40e9-a988-9e0e578d930a",
+              "name": "monthlyUsageCycle_endAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.endAt }}"
+            },
+            {
+              "id": "020d1e4f-d7ec-4d69-b9be-b6c4ba5971eb",
+              "name": "monthlyUsageUsd",
+              "type": "string",
+              "value": "={{ $json.data.current.monthlyUsageUsd.toFixed(2) }} of {{ $json.data.limits.maxMonthlyUsageUsd.toFixed(2) }}"
+            },
+            {
+              "id": "112fb245-b35b-45ce-ad29-e05d0f352010",
+              "name": "ACTOR_COMPUTE_UNITS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.ACTOR_COMPUTE_UNITS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "4b451afb-eba7-49c6-8c3c-7279fb315ec6",
+              "name": "DATASET_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.DATASET_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "c002234c-955e-41f4-a27f-7f031ae6111e",
+              "name": "DATASET_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.DATASET_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "0108085d-1bb4-44c5-bc3b-845a7206abfe",
+              "name": "DATASET_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.DATASET_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "df993499-7410-450c-b5b1-50052e6d061e",
+              "name": "DATA_TRANSFER_EXTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.DATA_TRANSFER_EXTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "1627a2dd-15a6-4b69-b480-4e1b792c403d",
+              "name": "DATA_TRANSFER_INTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.DATA_TRANSFER_INTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "73037e97-e43d-4ecd-bb7e-6c5ce4740e4d",
+              "name": "KEY_VALUE_STORE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5de9ba3b-bf62-4525-9cd9-5008bafe73c5",
+              "name": "KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "6d1997f2-46c0-468b-b50f-fc37512417d2",
+              "name": "KEY_VALUE_STORE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "b579cb9e-d18f-4877-b808-a177195a364a",
+              "name": "PAID_ACTORS_PER_DATASET_ITEM",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.PAID_ACTORS_PER_DATASET_ITEM.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5c69831c-3c62-421d-afff-bd8cfb68fb29",
+              "name": "REQUEST_QUEUE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "21d54d4d-515b-4fa7-b099-c8b193fc4436",
+              "name": "=REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "68168fc6-0052-4fa6-b631-942d972af340",
+              "name": "REQUEST_QUEUE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics2').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_WRITES.amountAfterVolumeDiscountUsd }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5086047b-3bf1-4bbc-9d7f-d781e2e52341",
+      "name": "Simplify Usage Metrics2",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -2008120,
+        -690040
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "916cbc0b-8ee0-4e70-b4c3-5cfb5c8f2afe",
+      "name": "Aggregate Transcript Results2",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -2008120,
+        -690240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "5a83b820-467e-4354-9efb-cebebe8811e1",
+      "name": "Aggregate Search Results2",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -2008120,
+        -690440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "7501fe60-f43d-42fe-9087-6f70a1cf12af",
+              "name": "transcript",
+              "type": "string",
+              "value": "={{ $json.subtitles[0].plaintext }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8c61de44-d01b-4ab2-9737-4629725648e7",
+      "name": "Simplify Transcript Results2",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -2008320,
+        -690240
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"downloadSubtitles\": true,\n  \"hasCC\": false,\n  \"hasLocation\": false,\n  \"hasSubtitles\": false,\n  \"is360\": false,\n  \"is3D\": false,\n  \"is4K\": false,\n  \"isBought\": false,\n  \"isHD\": false,\n  \"isHDR\": false,\n  \"isLive\": false,\n  \"isVR180\": false,\n  \"maxResultStreams\": 0,\n  \"maxResults\": 1,\n  \"maxResultsShorts\": 0,\n  \"preferAutoGeneratedSubtitles\": false,\n  \"saveSubsToKVS\": false,\n  \"startUrls\": $json.urls.split(',').map(url => ({\n    \"url\": url,\n    \"method\": \"GET\"\n  })),\n  \"subtitlesFormat\": \"plaintext\",\n  \"subtitlesLanguage\": \"en\"\n}\n}}",
+        "options": {}
+      },
+      "id": "959a3e07-4feb-42c6-9e30-44c0a91a78ae",
+      "name": "Apify Youtube Transcripts2",
+      "type": "n8n-nodes-base.httpRequest",
+      "maxTries": 2,
+      "position": [
+        -2008520,
+        -690240
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9d1db837-e256-4124-80d1-8b103dbbefbb",
+              "name": "channelName",
+              "type": "string",
+              "value": "={{ $json.channelName }}"
+            },
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "de8ae3e0-685d-4e40-839f-13c798d4e5e2",
+              "name": "description",
+              "type": "string",
+              "value": "={{ $json.text.substr(0,2_000) }}"
+            },
+            {
+              "id": "e933cbca-486c-45c9-8ed0-89a3d1efe003",
+              "name": "viewCount",
+              "type": "number",
+              "value": "={{ $json.viewCount }}"
+            },
+            {
+              "id": "417846bb-5e8c-42af-b1dc-8b1de9fa426c",
+              "name": "likes",
+              "type": "number",
+              "value": "={{ $json.likes }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "886a1f40-96a4-4f4b-8373-ebd85cae07dd",
+      "name": "Simplify Search Results2",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -2008320,
+        -690440
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"searchQueries\": [$json.query],\n  \"maxResultStreams\": 0,\n  \"maxResults\": 5\n}\n}}",
+        "options": {}
+      },
+      "id": "8e9d63b5-c1ca-4403-9dbc-44e7d214861d",
+      "name": "Apify Youtube Search2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -2008520,
+        -690440
+      ],
+      "executeOnce": true,
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "81b134bc-d671-4493-b3ad-8df9be3f49a6",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_search"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Search"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "8d57914f-6587-4fb3-88e0-aa1de6ba56c1",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_transcripts"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Transcripts"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "7c38f238-213a-46ec-aefe-22e0bcb8dffc",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "usage_metrics"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Usage Metrics"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b0ab8f13-d6ac-4a05-b367-b78031d7a837",
+      "name": "Operation2",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -2008800,
+        -690240
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/usage/monthly",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "ca05e114-0c49-4f89-8a25-11cb04a42b6f",
+      "name": "Get Usage Metrics3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -3764000,
+        -591160
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/users/me/limits",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "8872dc32-b3b3-4283-bbdd-67d6c72e90cf",
+      "name": "Get Usage Limits3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -3763800,
+        -591160
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff43aa98-4e32-478d-9e43-619b7b808948",
+              "name": "monthlyUsageCycle_startAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.startAt }}"
+            },
+            {
+              "id": "145eefd3-5248-40e9-a988-9e0e578d930a",
+              "name": "monthlyUsageCycle_endAt",
+              "type": "string",
+              "value": "={{ $json.data.monthlyUsageCycle.endAt }}"
+            },
+            {
+              "id": "020d1e4f-d7ec-4d69-b9be-b6c4ba5971eb",
+              "name": "monthlyUsageUsd",
+              "type": "string",
+              "value": "={{ $json.data.current.monthlyUsageUsd.toFixed(2) }} of {{ $json.data.limits.maxMonthlyUsageUsd.toFixed(2) }}"
+            },
+            {
+              "id": "112fb245-b35b-45ce-ad29-e05d0f352010",
+              "name": "ACTOR_COMPUTE_UNITS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.ACTOR_COMPUTE_UNITS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "4b451afb-eba7-49c6-8c3c-7279fb315ec6",
+              "name": "DATASET_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.DATASET_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "c002234c-955e-41f4-a27f-7f031ae6111e",
+              "name": "DATASET_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.DATASET_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "0108085d-1bb4-44c5-bc3b-845a7206abfe",
+              "name": "DATASET_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.DATASET_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "df993499-7410-450c-b5b1-50052e6d061e",
+              "name": "DATA_TRANSFER_EXTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.DATA_TRANSFER_EXTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "1627a2dd-15a6-4b69-b480-4e1b792c403d",
+              "name": "DATA_TRANSFER_INTERNAL_GBYTES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.DATA_TRANSFER_INTERNAL_GBYTES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "73037e97-e43d-4ecd-bb7e-6c5ce4740e4d",
+              "name": "KEY_VALUE_STORE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5de9ba3b-bf62-4525-9cd9-5008bafe73c5",
+              "name": "KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "6d1997f2-46c0-468b-b50f-fc37512417d2",
+              "name": "KEY_VALUE_STORE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.KEY_VALUE_STORE_WRITES.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "b579cb9e-d18f-4877-b808-a177195a364a",
+              "name": "PAID_ACTORS_PER_DATASET_ITEM",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.PAID_ACTORS_PER_DATASET_ITEM.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "5c69831c-3c62-421d-afff-bd8cfb68fb29",
+              "name": "REQUEST_QUEUE_READS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_READS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "21d54d4d-515b-4fa7-b099-c8b193fc4436",
+              "name": "=REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_TIMED_STORAGE_GBYTE_HOURS.amountAfterVolumeDiscountUsd }}"
+            },
+            {
+              "id": "68168fc6-0052-4fa6-b631-942d972af340",
+              "name": "REQUEST_QUEUE_WRITES",
+              "type": "number",
+              "value": "={{ $('Get Usage Metrics3').item.json.data.monthlyServiceUsage.REQUEST_QUEUE_WRITES.amountAfterVolumeDiscountUsd }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1d913586-47d9-4124-84cc-b6f6c1690b70",
+      "name": "Simplify Usage Metrics3",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -3763600,
+        -591160
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "94158eff-753e-4919-9d84-c09f5cf293c8",
+      "name": "Aggregate Transcript Results3",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -3763600,
+        -591360
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "response",
+        "options": {}
+      },
+      "id": "40c1c87f-fd86-4a54-ae36-e43c49b43754",
+      "name": "Aggregate Search Results3",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -3763600,
+        -591560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "7501fe60-f43d-42fe-9087-6f70a1cf12af",
+              "name": "transcript",
+              "type": "string",
+              "value": "={{ $json.subtitles[0].plaintext }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cbd8f754-910a-404a-9764-bccefd8c1ef6",
+      "name": "Simplify Transcript Results3",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -3763800,
+        -591360
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"downloadSubtitles\": true,\n  \"hasCC\": false,\n  \"hasLocation\": false,\n  \"hasSubtitles\": false,\n  \"is360\": false,\n  \"is3D\": false,\n  \"is4K\": false,\n  \"isBought\": false,\n  \"isHD\": false,\n  \"isHDR\": false,\n  \"isLive\": false,\n  \"isVR180\": false,\n  \"maxResultStreams\": 0,\n  \"maxResults\": 1,\n  \"maxResultsShorts\": 0,\n  \"preferAutoGeneratedSubtitles\": false,\n  \"saveSubsToKVS\": false,\n  \"startUrls\": $json.urls.split(',').map(url => ({\n    \"url\": url,\n    \"method\": \"GET\"\n  })),\n  \"subtitlesFormat\": \"plaintext\",\n  \"subtitlesLanguage\": \"en\"\n}\n}}",
+        "options": {}
+      },
+      "id": "2986719d-9f37-484a-97e3-4fe07ee8b465",
+      "name": "Apify Youtube Transcripts3",
+      "type": "n8n-nodes-base.httpRequest",
+      "maxTries": 2,
+      "position": [
+        -3764000,
+        -591360
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9d1db837-e256-4124-80d1-8b103dbbefbb",
+              "name": "channelName",
+              "type": "string",
+              "value": "={{ $json.channelName }}"
+            },
+            {
+              "id": "94cebccb-b499-4fab-a1ff-187179dcd5ce",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "id": "cc68698a-221a-49b8-a349-d16ad4fa746c",
+              "name": "url",
+              "type": "string",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "id": "de8ae3e0-685d-4e40-839f-13c798d4e5e2",
+              "name": "description",
+              "type": "string",
+              "value": "={{ $json.text.substr(0,2_000) }}"
+            },
+            {
+              "id": "e933cbca-486c-45c9-8ed0-89a3d1efe003",
+              "name": "viewCount",
+              "type": "number",
+              "value": "={{ $json.viewCount }}"
+            },
+            {
+              "id": "417846bb-5e8c-42af-b1dc-8b1de9fa426c",
+              "name": "likes",
+              "type": "number",
+              "value": "={{ $json.likes }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8362e4c9-c7e2-4988-b2f6-6f85c5b45d04",
+      "name": "Simplify Search Results3",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -3763800,
+        -591560
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  \"searchQueries\": [$json.query],\n  \"maxResultStreams\": 0,\n  \"maxResults\": 5\n}\n}}",
+        "options": {}
+      },
+      "id": "5dc6a867-310f-4098-800b-3b32a608745b",
+      "name": "Apify Youtube Search3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -3764000,
+        -591560
+      ],
+      "executeOnce": true,
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OMXFhLPI4nBsb2SS",
+          "name": " Apify Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "81b134bc-d671-4493-b3ad-8df9be3f49a6",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_search"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Search"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "8d57914f-6587-4fb3-88e0-aa1de6ba56c1",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "youtube_transcripts"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube Transcripts"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "7c38f238-213a-46ec-aefe-22e0bcb8dffc",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "usage_metrics"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Usage Metrics"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "95d1e34f-62c5-47c1-967c-58867bcd47a2",
+      "name": "Operation3",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -3764280,
+        -591360
+      ],
+      "typeVersion": 3.2
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-23T16:54:35.000Z",
+  "versionId": "6221af2b-7c3a-477d-9954-5e8c64a82ee1"
+}
