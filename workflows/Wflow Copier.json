@@ -1,0 +1,505 @@
+{
+  "active": false,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Project": {
+      "main": [
+        [
+          {
+            "node": "SET Project ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SET Project ID": {
+      "main": [
+        [
+          {
+            "node": "PUT - Workflow in Project",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET - Workflows": {
+      "main": [
+        [
+          {
+            "node": "Split Out Workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "CREATE - Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Workflows": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CREATE - Workflow": {
+      "main": [
+        [
+          {
+            "node": "n8n - GET - Projects",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Projects": {
+      "main": [
+        [
+          {
+            "node": "Filter Project",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Workflows": {
+      "main": [
+        [
+          {
+            "node": "Merge Workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Workflows1": {
+      "main": [
+        [
+          {
+            "node": "Merge Workflows",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "n8n - GET - Projects": {
+      "main": [
+        [
+          {
+            "node": "Split Out Projects",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PUT - Workflow in Project": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET - Destination Workflows": {
+      "main": [
+        [
+          {
+            "node": "Split Out Workflows1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "GET - Workflows",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET - Destination Workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-22T06:37:36.951Z",
+  "id": "BIEcgarZ6FhLRAIE",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Wflow Copier",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "75c0e9e5-61ee-47ff-a1cb-f97aa061d079",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -980,
+        60
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "id": "d231bfba-c110-49ec-964a-523ccd44e661",
+      "name": "GET - Workflows",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        -720,
+        -80
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "hGnKeqSjTjAPQW8t",
+          "name": "n8n SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "workflowObject": "={\n  \"name\": \"{{ $json.name }}\",\n  \"nodes\": {{ JSON.stringify($json[\"nodes\"]) }},\n  \"connections\": {{ JSON.stringify($json[\"connections\"] || {}) }}\n}\n",
+        "requestOptions": {}
+      },
+      "id": "2438d766-e9de-4381-928a-4d117ec3c44a",
+      "name": "CREATE - Workflow",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        300,
+        160
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "AOkZodGDUTHPBw6V",
+          "name": "n8n blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://n8n-ent.alexk1919.com/api/v1/projects",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "n8nApi",
+        "options": {}
+      },
+      "id": "da7c70b7-dd76-4ae3-af0e-e8dd920d9f7d",
+      "name": "n8n - GET - Projects",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        500,
+        160
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "n8nApi": {
+          "id": "hGnKeqSjTjAPQW8t",
+          "name": "n8n SYC"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ba45511-cf1b-42e6-b711-b9abd33ed7e3",
+              "name": "data.id",
+              "type": "string",
+              "value": "={{ $json.data.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "40577d2d-f809-42a9-b72b-50c3b701aa63",
+      "name": "SET Project ID",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1100,
+        160
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://n8n-ent.alexk1919.com/api/v1/workflows/{{ $('CREATE - Workflow').item.json.id }}/transfer",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "n8nApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "destinationProjectId",
+              "value": "={{ $json.data.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "111f721b-3cb2-421e-8126-e8d98b0aa922",
+      "name": "PUT - Workflow in Project",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1300,
+        160
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "n8nApi": {
+          "id": "AOkZodGDUTHPBw6V",
+          "name": "n8n blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 5,
+        "options": {}
+      },
+      "id": "1940fd89-b91f-4658-8b2b-c17e93cd642a",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        100,
+        60
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "content": "### Change the Destination Project by changing the Project Name",
+        "width": 220,
+        "color": 3
+      },
+      "id": "6afec977-484e-4ffc-942a-e659e94b193a",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        840,
+        20
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Change the Source n8n Instance by changing the Credential",
+        "width": 220,
+        "color": 3
+      },
+      "id": "90a80201-edb0-4762-84c3-e8eb93d9a468",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -780,
+        -220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Change the Destination n8n Instance by changing the Credential",
+        "width": 220,
+        "color": 3
+      },
+      "id": "54c5daee-b96e-41cf-b729-20aba706dd45",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -780,
+        100
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "returnAll": false,
+        "limit": 200,
+        "filters": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {}
+          }
+        }
+      },
+      "id": "ba6fb479-e2d6-43c5-8af1-f8221e1431d6",
+      "name": "GET - Destination Workflows",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        -720,
+        240
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "AOkZodGDUTHPBw6V",
+          "name": "n8n blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $json;\nconsole.log(\"Merged Output:\", data);\nreturn [data];\n"
+      },
+      "id": "6b65e5a1-4c06-40da-ba18-cf0e9de9a43a",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        -100,
+        60
+      ],
+      "typeVersion": 2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "id",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "id": "afd3a71e-8533-4ad3-a07d-c2527ddc55f4",
+      "name": "Split Out Workflows",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        -520,
+        -80
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "id",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "id": "06315e5c-9049-4480-8cc8-1571cce9fb81",
+      "name": "Split Out Workflows1",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        -520,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql",
+        "query": "SELECT input1.name, input1.createdAt, input1.updatedAt, input1.active, input1.nodes, input1.settings, input1.connections, input1.pinData, input1.tags, input1.id\nFROM input1\nLEFT JOIN input2 \nON input1.name = input2.name\nWHERE input2.name IS NULL\n"
+      },
+      "id": "73f057db-3d6a-435f-a844-05426eb61c58",
+      "name": "Merge Workflows",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        -300,
+        60
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "id": "4874cd71-e802-4a0a-a88b-11b2a0364ad2",
+      "name": "Split Out Projects",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        700,
+        160
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "74ca2595-359b-4e17-988b-799306f748cf",
+              "operator": {
+                "name": "filter.operator.equals",
+                "type": "string",
+                "operation": "equals"
+              },
+              "leftValue": "={{ $json.data.name }}",
+              "rightValue": "z Original n8n Workflows from AlexK1919"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "24062acf-e593-412c-a4bd-d182fb08334b",
+      "name": "Filter Project",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        900,
+        160
+      ],
+      "typeVersion": 2.2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-24T18:59:16.000Z",
+  "versionId": "a7f3202b-6afd-458d-bdc0-930aa1c45f67"
+}
