@@ -1,0 +1,19 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-05-27T19:11:51.846Z",
+  "id": "FGroxvDQ3gx2L3wk",
+  "isArchived": false,
+  "meta": null,
+  "name": "Jira",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-27T19:11:51.000Z",
+  "versionId": "d57069b1-2142-4261-9639-658046a3f1d2"
+}
