@@ -16,7 +16,9 @@
   "createdAt": "2025-05-26T05:18:50.103Z",
   "id": "aKTU9mtBvAQaLbMv",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "My workflow",
   "nodes": [
     {
@@ -42,6 +44,25 @@
       ],
       "id": "7049bfa2-904f-4d72-9854-3600a8890ee5",
       "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        80,
+        80
+      ],
+      "id": "3fcc31fc-b164-45c2-b6a7-59baa554df1d",
+      "name": "Twilio",
+      "credentials": {
+        "twilioApi": {
+          "id": "ldueMNPP9YBqCrW8",
+          "name": "Twilio"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -51,6 +72,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-26T05:18:50.103Z",
-  "versionId": "2236e0bc-07f7-45bc-b3c3-34ed3eb2cdfc"
+  "updatedAt": "2025-05-27T15:59:05.000Z",
+  "versionId": "02934b30-77e5-4111-95d2-c9fc9744900c"
 }
