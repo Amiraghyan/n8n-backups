@@ -1,0 +1,436 @@
+{
+  "active": false,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "InfraNodus GraphRAG Summary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "URL to Markdown with Firecrawl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Analytics": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Google Analytics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InfraNodus Save to Graph": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InfraNodus GraphRAG Summary": {
+      "main": [
+        [
+          {
+            "node": "Form",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "URL to Markdown with Firecrawl": {
+      "main": [
+        [
+          {
+            "node": "InfraNodus Save to Graph",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-23T06:43:18.914Z",
+  "id": "DDjTs15DyBtU3w5G",
+  "isArchived": false,
+  "meta": null,
+  "name": "Analyze and Optimize Top Website Content using Google Analytics, Firecrawl and InfraNodus",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://infranodus.com/api/v1/graphAndStatements?doNotSave=false&includeGraph=false&includeGraphSummary=true&includeGraph=false",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "top_support_pages"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.data.markdown }}"
+            },
+            {
+              "name": "=categories",
+              "value": "=[filename: {{ $('Loop Over Items').item.json.pagePath .slice(0,16)}}]"
+            },
+            {
+              "name": "contextSettings",
+              "value": "={{{ \"squareBracketsProcessing\":\"IGNORE_BRACKETS\"} }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ed3ff4b4-ec57-4b58-b874-c8940128a4fc",
+      "name": "InfraNodus Save to Graph",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        720,
+        1100
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "propertyId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "367609797",
+          "cachedResultUrl": "https://analytics.google.com/analytics/web/#/p367609797/",
+          "cachedResultName": "NodusLabs Support - GA4"
+        },
+        "dateRange": "last30days",
+        "metricsGA4": {
+          "metricValues": [
+            {
+              "listName": "screenPageViews"
+            }
+          ]
+        },
+        "dimensionsGA4": {
+          "dimensionValues": [
+            {
+              "listName": "other",
+              "name": "pagePath"
+            }
+          ]
+        },
+        "limit": 30,
+        "additionalFields": {}
+      },
+      "id": "4e48afd8-6904-4f0b-afbd-0b5c41b89d28",
+      "name": "Google Analytics",
+      "type": "n8n-nodes-base.googleAnalytics",
+      "position": [
+        -280,
+        1000
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.fullUrl = \"https://support.noduslabs.com\" + item.json.pagePath\n}\n\nreturn $input.all();"
+      },
+      "id": "d37318fb-3a99-40e9-b01e-17f96c1efe9b",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        -80,
+        1020
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "af29fda0-4c42-471c-b88e-3a3afe7e7164",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        160,
+        1020
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://infranodus.com/api/v1/graphAndAdvice?doNotSave=true&includeGraph=false&includeGraphSummary=true",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "top_support_pages"
+            },
+            {
+              "name": "requestMode",
+              "value": "=summary"
+            },
+            {
+              "name": "aiTopics",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aa5f8dbc-4d55-4429-a4a1-605d1ef878c4",
+      "name": "InfraNodus GraphRAG Summary",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        440,
+        580
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "respondWith": "showText",
+        "responseText": "=<br>\n<h1>Top Content Summary</h1>\n<h3>{{ $json.aiAdvice[0].text }}</h3>\n<br>\n<h1>Main Topics</h1>\n<h3>{{ $json.graphSummary }}</h3>"
+      },
+      "id": "3da73732-678b-48bc-970f-e4a11db3824c",
+      "name": "Form",
+      "type": "n8n-nodes-base.form",
+      "position": [
+        720,
+        580
+      ],
+      "webhookId": "87fe6592-cad6-44a2-bf6a-a7fed7e36b10",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Optimize Your Top Performing Website Content\n\n## What are the main topics your customers are interested in? \n## What new content could you create for them?\n\n### 1. Gets the top pages from your Google Analytics account\n### 2. Extracts text from them using Firecrawl API\n### 3. Generates a knowledge graph with [InfraNodus](https://infranodus.com) for all the pages\n### 4. Extracts the main topical clusters from the knowledge graph\n### 5. Finds the gaps between the clusters = opportunities for new content\n\n![https://infranodus.com/images/front/infranodus-overview@.jpg](https://infranodus.com/images/front/infranodus-overview@2x.jpg)",
+        "height": 820,
+        "width": 720,
+        "color": 4
+      },
+      "id": "2a4e5107-6fc4-4a60-ad15-45db87282cb5",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -580,
+        -180
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 1. Trigger the workflow",
+        "height": 280,
+        "width": 200
+      },
+      "id": "29d681a2-e0cd-417b-a854-9afa1ade506b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -580,
+        680
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "formTitle": "Launch Analysis",
+        "formDescription": "This workflow will analyze top visited pages in a Google Analytics property you select and reveal the main topics inside.",
+        "options": {}
+      },
+      "id": "7f475cef-cde8-4000-b1cb-5b5320975df9",
+      "name": "On form submission",
+      "type": "n8n-nodes-base.formTrigger",
+      "position": [
+        -540,
+        800
+      ],
+      "webhookId": "b1dd1744-90bb-4bdd-bc1e-f9f78256435e",
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "content": "## 2. Get top pages from your Google Analytics account\n\n🚨 Specify and connect your Google Analytics account here",
+        "height": 480,
+        "width": 200
+      },
+      "id": "22665663-3531-4119-95a4-f9f41b00a3f8",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -340,
+        680
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 3. Fix analytics links\n\n🚨 Add the website name as a prefix to extracted links from Analytics",
+        "height": 480,
+        "width": 200
+      },
+      "id": "e8c33fbb-a5de-427f-8c20-7aeb59c1c0ee",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -120,
+        680
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 4. Loop through each URL page",
+        "height": 480,
+        "width": 200
+      },
+      "id": "fe49948c-6e86-4bda-a1b8-b1d6c86a4cd0",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        120,
+        680
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 5. Scrape and extract text from each URL\n\n🚨 Add your [Firecrawl API key](firecrawl.dev) here",
+        "height": 400,
+        "width": 200
+      },
+      "id": "0efb04dd-a8c8-4a43-832e-7310366d44dc",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url",
+              "value": "={{ $json.fullUrl }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4cd0799a-133e-44ae-98a5-8b13bd656363",
+      "name": "URL to Markdown with Firecrawl",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        420,
+        1120
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "content": "## 6. Save Text to InfraNodus Knowledge Graph\n\n🚨 Add your [InfraNodus](https://infranodus.com) key and specify the graph to save to",
+        "height": 480,
+        "width": 200
+      },
+      "id": "c10e53ed-f78b-4445-9735-f7e24aaf0c32",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        660,
+        840
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 7. Get the main topics from the graph\n\n🚨 Add your [InfraNodus](https://infranodus.com) key and specify the same graph name as in Step 6",
+        "height": 540,
+        "width": 200
+      },
+      "id": "366a37bf-ca6b-45d5-aa3d-73ced6f12f5a",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        280
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 8. Display the final result\n\n### Optionally: you can send the result to your Slack channel or via email. Or link it to a content creation workflow.",
+        "height": 520,
+        "width": 200
+      },
+      "id": "89810f2e-3aca-4ee2-818f-159cedac3bcb",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        660,
+        280
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-23T06:44:19.000Z",
+  "versionId": "16ee82d3-e3d0-4920-a5ea-a7d295889e2a"
+}
