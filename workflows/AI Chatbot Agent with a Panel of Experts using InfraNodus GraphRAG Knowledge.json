@@ -1,0 +1,340 @@
+{
+  "active": false,
+  "connections": {
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EightOS Expert": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Polysingularity Expert": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-23T06:46:55.879Z",
+  "id": "cTJXLuAEAdgali8G",
+  "isArchived": false,
+  "meta": null,
+  "name": "AI Chatbot Agent with a Panel of Experts using InfraNodus GraphRAG Knowledge",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "470b3696-3056-4075-81d7-98f7b820410e",
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        -100,
+        360
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Get an advice based on EightOS and Polysingularity frameworks. Ask your question and I will provide a response based on InfraNodus GraphRAG analysis of those discourses.",
+        "options": {
+          "loadPreviousSession": "manually",
+          "subtitle": "Let's find a solution to any issue you have",
+          "title": "EightOS Polysingularity Consilium"
+        }
+      },
+      "id": "255fca5b-c190-4c86-b54c-c61ccc6ef7ff",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        -500,
+        80
+      ],
+      "webhookId": "8925672f-55c8-4c09-b0d9-ba8e87af8807",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "content": "## AI Chatbot Agent with Experts\n\n### Uses the InfraNodus knowledge graphs and its Graph RAG to retrieve relevant information.\n\nUse your [InfraNodus graph](https://infranodus.com) as the knowledge base for your AI chatbot. \n\nUpload any data to InfraNodus, generate separate knowledge graphs, then connect them as tools to the agent, so it can decide which \"expert\" to use. InfraNodus' Graph RAG will provide high-quality responses that will augment the chatbot's answers.\n\nVideo demo: [https://www.youtube.com/watch?v=kS0QTUvcH6E](https://www.youtube.com/watch?v=kS0QTUvcH6E)\n\nDetailed description: [Nodus Labs support portal](https://support.noduslabs.com/hc/en-us/articles/20174217658396-Using-InfraNodus-Knowledge-Graphs-as-Experts-for-AI-Chatbot-Agents-in-n8n)\n\nInfraNodus API key can be obtained at [InfraNodus.Com](https://infranodus.com/use-case/ai-knowledge-graphs)",
+        "height": 400,
+        "width": 460,
+        "color": 6
+      },
+      "id": "362ef59b-2da8-426b-9f86-bc3166637923",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -620,
+        -360
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Expert #2\n\nAdd your InfraNodus graph here via the HTTP node using its name in the `body.name` field.\n\nDescribe what the expert does in the Description of the tool. You can use auto-generated Graph RAG summary from InfraNodus > Graph > Project Notes",
+        "height": 540,
+        "width": 200
+      },
+      "id": "89b82fd5-c5b0-4ca8-8b3a-23e3584e6bf6",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        340,
+        340
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Expert #3\n\nYou can add more experts here. Just make to give them descriptive names, so the agent knows which one to connect to when it has a question. ",
+        "height": 540,
+        "width": 200
+      },
+      "id": "7e70fa24-f345-432b-b63c-d9ef9b78cd9c",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        560,
+        340
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Chat Memory\n\nWe use the Simple Memory node to track the conversation's context so that the user can refer to previous messages as they converse with the model.",
+        "height": 540,
+        "width": 200
+      },
+      "id": "3cfe0285-7ab5-4eb8-b050-1eb59e5e9b81",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 2. AI Agent\n\n### Chooses which tool (expert) to use, depending on the user's message. \n\nMake sure you describe the tools available well both in the Agent's System Prompt and in the tools' descriptions. ",
+        "height": 360,
+        "width": 460
+      },
+      "id": "a29ac7d9-fafd-4231-b61f-060f4c2d77c0",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -100,
+        -140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## 1. Chat Trigger\n\nYou can use this chat inside n8n or you can make it available via a public URL and then use that link or embed it to any website.",
+        "height": 540,
+        "width": 220
+      },
+      "id": "68f42060-760c-477d-93b0-48bb0bad9f29",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -480,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 3. Chat Response\n\n### When the answer is produced, it's sent back to the user. \n\nYou can also choose to do something else to the response — e.g. save it to a Google sheet or Airtable to keep logs of the conversation. ",
+        "height": 360,
+        "width": 220
+      },
+      "id": "dafe6fc9-9d1b-416e-b569-0072a86a646d",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        400,
+        -140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Always use either EightOS or Polysingularity tool before sending a response to the model. You have to use at least one of them, the one that think is more suitable. Or both if both can provide some help. \nIf you used both tools and received responses from both of them, combine them in one response making sure you merge both perspectives. Ask for specific, actionable advice."
+        }
+      },
+      "id": "092cab9f-9fbb-4c1b-961d-bc76cf5f26d0",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        -60,
+        100
+      ],
+      "typeVersion": 1.9
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "id": "46069f37-0262-4886-bc55-0c027e2bfa98",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        -300,
+        360
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Expert #1\n\nAdd your InfraNodus graph here via the HTTP node using its name in the `body.name` field.\n\nDescribe what the expert does in the Description of the tool. You can use auto-generated Graph RAG summary from InfraNodus > Graph > Project Notes",
+        "height": 540,
+        "width": 200
+      },
+      "id": "6aebbb97-cbfc-4667-b172-7034daac05cf",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        120,
+        340
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "toolDescription": "You are an EightOS specialist who is well-versed in the questions of variability, movement, physical development, adaptivity, resilience. \n\nThe main topics of your expertise are:\n<MainTopics> \n1. Dynamic States: state dynamic fractal change hrv recovery movement regeneration \n2. Idea Scale: focus idea scale small specific gap bring sensitive \n3. Ecological Variability: variability stage thinking panarchy schema infranodus bias system \n4. Breath Count: breath give count time result concrete silence effort \n5. Knowledge Structure: structure highly graph influence knowledge ai text network \n6. Biased Discourse: stay discourse long steer objective short term shifting \n</MainTopics>",
+        "method": "POST",
+        "url": "https://infranodus.com/api/v1/graphAndAdvice?doNotSave=true&addStats=true&optimize=develop&includeStatements=true&includeGraphSummary=true&includeGraph=false",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "panarchy_eightos"
+            },
+            {
+              "name": "requestMode",
+              "value": "response"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', `User query to send to the expert`, 'string') }}"
+            },
+            {
+              "name": "aiTopics",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0fb30681-a9ba-4812-bdce-3d271c0f88f2",
+      "name": "EightOS Expert",
+      "type": "n8n-nodes-base.httpRequestTool",
+      "position": [
+        180,
+        380
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "toolDescription": "You are an expert in Polysingularity. You provide responses in the field of multiplicity, networks, seeing multiple points etc. \n\nThe main topics of your expertise are:\n<MainTopics> \n1. Community Dynamics: multiple moment time change state position specific community \n2. Cognitive Practice: polysingularity practice singularity cognitive world social polysingular mind \n3. Network Perception: network make affordance choice perceive constant environmental constantly \n4. Interaction Capacity: capacity human interaction situation node possibility concept describe \n5. Space Creation: condition space form shifting emerge attractor life center \n6. Equation Analysis: find risk fully committed equation sentence rule finding \n7. Process Multiplicity: process multiplicity exist dynamic behavior part show define \n8. Idea Connectivity: ensure diversity metastable idea encounter order connectivity unfold \n9. Directed Evolution: evolution distinct directed kind \n</MainTopics>",
+        "method": "POST",
+        "url": "https://infranodus.com/api/v1/graphAndAdvice?doNotSave=true&addStats=true&optimize=develop&includeStatements=true&includeGraphSummary=true&includeGraph=false",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "polysingularity_overview"
+            },
+            {
+              "name": "requestMode",
+              "value": "response"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', `User query to send to the expert`, 'string') }}"
+            },
+            {
+              "name": "aiTopics",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8cad436d-afaa-47e6-821b-995a052f9419",
+      "name": "Polysingularity Expert",
+      "type": "n8n-nodes-base.httpRequestTool",
+      "position": [
+        400,
+        380
+      ],
+      "typeVersion": 4.2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-23T06:47:02.000Z",
+  "versionId": "c2a5e751-b41b-4dc3-a8d4-1d8680ba3af2"
+}
