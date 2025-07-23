@@ -1,0 +1,395 @@
+{
+  "active": false,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Convert binary files to PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare for InfraNodus": {
+      "main": [
+        [
+          {
+            "node": "InfraNodus GraphRAG AI Advice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert binary files to PDF": {
+      "main": [
+        [
+          {
+            "node": "Extract text from PDF files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract text from PDF files": {
+      "main": [
+        [
+          {
+            "node": "Prepare for InfraNodus",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "InfraNodus GraphRAG AI Advice": {
+      "main": [
+        [
+          {
+            "node": "Display on the Form to the User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-23T06:36:06.988Z",
+  "id": "0T0xMwgmJO2l0XGb",
+  "isArchived": false,
+  "meta": null,
+  "name": "Generate Content Ideas from PDFs with InfraNodus GraphRAG and AI Gap Analysis",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://v2.convertapi.com/convert/pdf/to/txt",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/octet-stream"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "id": "ef16904b-12af-46c7-8d77-ec9de511f532",
+      "name": "Convert File to PDF",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1380,
+        120
+      ],
+      "notesInFlow": true,
+      "typeVersion": 4.2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Optional: Better PDF Conversion\n\n### Standard Map PDF to Text node will split your PDF files into very short chunks, which deteriorates retrieval. \n\nUse can use [ConvertAPI](https://convertapi.com?ref=4l54n) which is a high-quality convertor that will respect the layout of the original document and not cut the paragraphs into short chunks. \n\nHere is an HTTP node that makes a request to their API to convert the PDF into text. If you have a ConvertAPI account, you can replace the \"Extract Text from PDF\" node in Step 3 with this node. \n\nNote that you will need to map the text output from this node correctly in the Step 4 after.\n",
+        "height": 820,
+        "width": 360,
+        "color": 2
+      },
+      "id": "f4454038-99c8-4975-8799-b12d4c829c29",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1340,
+        -460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "formTitle": "Find Content Gaps in Your PDF Files",
+        "formDescription": "Upload the files you'd like to analyze and we will extract content gaps and interesting questions based on them.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Add Your Files",
+              "fieldType": "file",
+              "acceptFileTypes": ".pdf"
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "dc7c4ddb-3718-47dc-bb5a-874d546379fe",
+      "name": "On form submission",
+      "type": "n8n-nodes-base.formTrigger",
+      "position": [
+        -880,
+        -120
+      ],
+      "webhookId": "baea8339-e0c0-43e1-acdf-d41bb25b2b85",
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://infranodus.com/api/v1/graphAndAdvice?doNotSave=true&optimize=develop&includeGraph=false&includeGraphSummary=true&gapDepth={{ $json.randomNum }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "aiTopics",
+              "value": "true"
+            },
+            {
+              "name": "requestMode",
+              "value": "question"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "be2e0e47-cc29-46d5-acb4-e55908bc3541",
+      "name": "InfraNodus AI Questions",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        460,
+        140
+      ],
+      "typeVersion": 4.2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "let results = [];\n\nfor (let item of items) {\n    if (item.binary) {\n        // If there's binary data in the item, process each binary file\n        for (let key in item.binary) {\n            // Use the key as the file name\n            let binaryKey = key.replace(/\\s/g, '_'); // Replace spaces with underscores for the key\n            results.push({\n                json: {\n                    fileName: binaryKey\n                },\n                binary: {\n                    [binaryKey]: item.binary[key] // Use the modified key for the binary data\n                }\n            });\n        }\n    }\n}\n\nreturn results;\n"
+      },
+      "id": "6c8e10ba-ba37-4684-818d-39a26395317e",
+      "name": "Convert binary files to PDF",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        -560,
+        -120
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "={{ $json.fileName }}",
+        "options": {}
+      },
+      "id": "5b9f39a0-aae8-40f6-b7d7-094f91143c05",
+      "name": "Extract text from PDF files",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -220,
+        -120
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "jsCode": "\nlet plainText = '' // we send plain text from all the PDFs to InfraNodus for analysis\n\nconst randomNum = Math.floor(Math.random() * 3); // replace this with a 0 if you'd like to address the biggest gap in the knowledge graph\n\nfor (let item of items) {\n   plainText += item.json.text + '\\n\\n'  \n}\n\n\nreturn {text: plainText, randomNum};"
+      },
+      "id": "ec7412a0-aec5-4239-93d7-c567dbf3385f",
+      "name": "Prepare for InfraNodus",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        80,
+        -120
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "respondWith": "showText",
+        "responseText": "=<br>\n<h3>{{ $json.aiAdvice[0].text }}</h3>\n<br>\n"
+      },
+      "id": "52f8cba2-f9b5-4794-8aa3-a9304d56ee95",
+      "name": "Display on the Form to the User",
+      "type": "n8n-nodes-base.form",
+      "position": [
+        880,
+        -120
+      ],
+      "webhookId": "05cde493-a003-4979-9bf0-2b09c77a4044",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://infranodus.com/api/v1/graphAndAdvice?doNotSave=true&optimize=develop&includeGraph=false&includeGraphSummary=true&gapDepth={{ $json.randomNum }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "aiTopics",
+              "value": "true"
+            },
+            {
+              "name": "requestMode",
+              "value": "idea"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "918b28d8-34af-45f9-8e4b-6e8079a6a879",
+      "name": "InfraNodus GraphRAG AI Advice",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        460,
+        -60
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "content": "## Step 1: User uploads the PDF files for analysis\n\n### You can expose this endpoint and make it publicly available via a URL to your organization.",
+        "height": 520
+      },
+      "id": "7f28ab4a-12ce-4271-86a5-2df84df6190b",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -920,
+        -460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Step 2: Convert uploaded binaries into PDF files\n\n### We need to convert the binaries uploaded to the PDF files so we can extract text from them.",
+        "height": 520,
+        "width": 280
+      },
+      "id": "0028b19c-1e97-4bda-9711-74b56ce21dcb",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -620,
+        -460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Step 3: Extract plain text from PDF files\n\n### For better quality text extraction, you can use the optional [ConvertAPI](https://convertapi.com?ref=4l54n) node to the right, which respects the files' original formatting.",
+        "height": 520,
+        "width": 220
+      },
+      "id": "f548fee7-5508-41a9-bf07-71ab2e01ccf9",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -280,
+        -460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Step 4: Combine extracted text into a text string\n\n### Prepare data for InfraNodus: combine all the extracted text into a text string and also tell InfraNodus the gap depth it should use when generating advice",
+        "height": 520,
+        "width": 220
+      },
+      "id": "bad7e914-e6ed-49ff-a7c9-c598c8a9d747",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        20,
+        -460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Step 5: Use InfraNodus GraphRAG to Find a Content Gap and Generate Advice\n\n### Optionally, you can use the node below to generate questions (AI prompts) instead of ready-made ideas. These may be more interesting if you'd like to integrate this template into your existing research workflow.\n\n🚨 PROVIDE YOUR INFRANODUS API KEY HERE",
+        "height": 820,
+        "width": 380
+      },
+      "id": "1c148ce7-3a82-4d64-a8d9-863b12cbaae6",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        320,
+        -460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Step 6: Show advice / question / prompt to the user\n\n### Optionally, you can feed the response to your other n8n workflow or expose it via a webhook and show it in your own app using an iframe.",
+        "height": 820,
+        "width": 380
+      },
+      "id": "851cc202-f3ae-4b29-81cb-9ef93606d400",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        780,
+        -460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Find content gaps in PDF documents using the InfraNodus GraphRAG\n\n## How does the [InfraNodus](https://infranodus.com) GraphRAG work?\n\n### 1. It represents your text as a network of concepts and relations\n\n### 2. It then identifies the clusters that are furthest apart from each other — they appear in the same context (your texts) but are not well connected\n\n### 3. InfraNodus will then use the AI to generate an idea / question / prompt that bridges this gap — touching upon relevant topics but connecting them in a new way\n\n![structural gap infranodus](https://infranodus.com/images/front/infranodus-structural-gaps-ideas.jpg)",
+        "height": 1000,
+        "width": 1160,
+        "color": 5
+      },
+      "id": "e1cdefe9-acb2-4d84-b3a4-3587af22d5a7",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -920,
+        120
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-23T06:36:34.000Z",
+  "versionId": "5a1ad64a-e5cd-4122-aaa8-57d168578ae0"
+}
