@@ -1,0 +1,518 @@
+{
+  "active": false,
+  "connections": {
+    "Pinecone Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector Store Retriever",
+            "type": "ai_vectorStore",
+            "index": 0
+          },
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Fields_Mappings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fields_Mappings": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Question and Answer Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Question and Answer Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Question and Answer Chain": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vector Store Retriever": {
+      "ai_retriever": [
+        [
+          {
+            "node": "Question and Answer Chain",
+            "type": "ai_retriever",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Answer questions with a vector store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-24T15:43:01.853Z",
+  "id": "2n6AxfpOp8ToUQ3B",
+  "isArchived": false,
+  "meta": null,
+  "name": "AI-Powered Upwork Cover Letter Generator – n8n Workflow + MacOS Shortcut",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Fields_Mappings').item.json.job_description }}",
+        "options": {
+          "systemMessage": "=Role: You are an expert marketing manager with a decade of experience crafting high-impact, tailored cover letters. You specialize in synthesizing job descriptions, company research, and candidate profiles to create letters that resonate with hiring managers and ATS systems. Provide only cover letter, No other text.\n\nToday is {{ $now }}\n\nHere are few details about candidate.\n{{ $json.response.text }}\n\nTools & Methodology:\n\nSerpAPI: Extract insights about the company’s mission, culture, recent news, and industry trends. Identify keywords/phrases from the job description.\n\nVector_Store_Tool: If there is some missing details about candidate then use this tool to get it from vector store.\n\nOutput Requirements:\n\nStructure:\n\nHeader: Candidate name, contact info, date, hiring manager/company address (if available).\n\nGreeting: Personalized to the hiring manager/team (e.g., “Dear [Hiring Manager Name]”).\n\nOpening Paragraph: Hook with enthusiasm, role alignment, and a standout achievement (e.g., “As a [Job Title] with [X years] of experience in [key skill], I [quantifiable achievement] at [Company]…”).\n\nBody:\n\nKey Qualifications: 2-3 concise bullet points aligning candidate strengths with job requirements (use keywords).\n\nRelevant Experience: 2-3 project examples with metrics, technologies used, and URLs. Focus on leadership, problem-solving, and results (e.g., “Led migration of [X] pages to Drupal 9, improving load speed by 40%”).\n\nClosing: Express interest in company values (reference research), call to action (e.g., interview request), and gratitude.\n\nStyle:\n\nTone: Adjust based on company culture (e.g., innovative startups = conversational; law firms = formal).\n\nKeywords: Mirror language from the job description (e.g., “CI/CD pipelines” → “optimized CI/CD workflows”).\n\nAvoid Clichés: Replace “team player” with “collaborated cross-functionally to [specific outcome]”.\n\nNon-Negotiables:\n\nInclude candidate name, project URLs, and dates.\n\nQuantify achievements (e.g., “Boosted user engagement by 25%”).\n\nUse active voice and industry-specific jargon.\n\nExample Output:\n\n[Candidate Name]\n[Email] | [Phone] | [LinkedIn/Portfolio URL]\n[Date]\n\n[Hiring Manager Name]\n[Company Name]\n[Address]\n\nDear [Hiring Manager Name],\n\nAs a Full Stack Developer with 5+ years of experience in enterprise-level Drupal migrations, I accelerated Rider University’s site performance by 40% post-migration and reduced downtime by 15% through optimized CI/CD workflows. The opportunity to leverage similar strategies for [Company Name]’s upcoming Drupal 10 projects excites me, particularly given your focus on scalable EdTech solutions.\n\nWhy I’m a Strong Fit:\n\nDrupal Expertise: Migrated 500+ pages for Yale University to Drupal 9, integrating AI-driven search (OpenAI) to improve user retention by 30%.\n\nFull-Cycle Development: Delivered 15+ modules for healthcare clients, including a HIPAA-compliant patient portal (PHP, React) praised for 99.9% uptime.\n\nCollaboration: Partnered with UX teams at Rider University to prototype a Vue.js dashboard, cutting design-to-development time by 25%.\n\nHighlighted Projects:\n\nYale University Campus Map (https://www.yale.edu): Architected backend using Drupal, reducing API latency by 50%.\n\nOpenAI Text Classifier (https://www.drupal.org/project/openai_text_classifier): Built a CKEditor 5 plugin now used by 500+ sites.\n\nI’m eager to bring my passion for [specific company value, e.g., “democratizing education through tech”] to your team. Let’s discuss how I can contribute to [specific project/goal from job description].\n\nThank you for your time,\n\nBest regards,\n[Candidate Name]"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        820,
+        -220
+      ],
+      "id": "67c659e5-9979-467d-a0b9-e888841e5ab6",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "google-docs-ant",
+          "mode": "list",
+          "cachedResultName": "google-docs-ant"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        300,
+        200
+      ],
+      "id": "7feb00ce-8eea-438c-af8f-0407fedddb58",
+      "name": "Pinecone Vector Store"
+    },
+    {
+      "parameters": {
+        "modelName": "models/text-embedding-004"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        400,
+        400
+      ],
+      "id": "3fc550a8-6b59-45e9-9cf3-5d65fcaf8cd5",
+      "name": "Embeddings Google Gemini"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "coverletter",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -520,
+        -220
+      ],
+      "id": "f0905976-2046-4368-a9b7-e22e7cc6e012",
+      "name": "Webhook",
+      "webhookId": "87466a6e-2c70-4862-865c-5fdd1313557c"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Fields_Mappings').item.json.time }}",
+        "contextWindowLength": 100
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        800,
+        0
+      ],
+      "id": "48dda2a3-b38e-4f0a-b4c5-35487b8d9b53",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "model": "qwen-qwq-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        680,
+        0
+      ],
+      "id": "5611db2f-975f-480b-9641-0862717b34fc",
+      "name": "Groq Chat Model"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.html_output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1640,
+        -220
+      ],
+      "id": "24bc7147-cf99-4c6f-9c73-3ea8177d02e0",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.output }}",
+        "destinationKey": "html_output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        -220
+      ],
+      "id": "c826b626-bd34-4e9e-b7ca-f2dcf08b5623",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4b1235a4-ab7f-4602-b86a-ace5ea5a9a80",
+              "name": "job_description",
+              "value": "={{ $json.body.text }}",
+              "type": "string"
+            },
+            {
+              "id": "ef5a418a-1821-4792-bd6f-d4b183bc763e",
+              "name": "id",
+              "value": "={{ $json.headers[\"cf-ray\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7df8b05e-23f7-4d64-85da-5c1749f5c96c",
+              "name": "=time",
+              "value": "={{ $now.format('x') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -300,
+        -220
+      ],
+      "id": "1a34cacf-6d92-43f3-bdf7-6a530b6dd436",
+      "name": "Fields_Mappings"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.job_description }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an expert in talent acquisition and AI-driven candidate profiling. Generate a structured set of questions to extract precise candidate information from a vector database for crafting a tailored cover letter. Prioritize alignment with the job description, focusing on:\n\nPersonal & Contact Information: Full name, location, email, phone.\n\nWork Experience & Technical Skills: Total years of experience; proficiency/years with Java, PHP, CSS, HTML, Acquia Cloud; security best practices, troubleshooting, Agile, CI/CD, version control.\n\nCertifications: Acquia Certified Developer - D10, Acquia Certified Cloud Pro (include dates), and other certifications.\n\nEducation: Degree (major, institution, graduation year).\n\nAdditional Qualifications: Government project experience (scope/role), Drupal theming, accessibility compliance (e.g., WCAG), motivation for applying.\n\nPast Projects: Relevant past projects with job responsibilities, tasks achieved, and project URLs.\n\nCraft concise, specific questions to highlight the candidate’s strengths and job fit. Avoid redundancy and ensure clarity. Output only the numbered questions, no other text."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -80,
+        -220
+      ],
+      "id": "eeea02a5-fb5e-410e-8cdd-f46f46fc3b3c",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        20,
+        0
+      ],
+      "id": "f22561e8-1ba5-40ed-a279-60483a6f6b2e",
+      "name": "Groq Chat Model1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "typeVersion": 1.4,
+      "position": [
+        300,
+        -220
+      ],
+      "id": "1845a24e-773a-4d09-af83-72ab997f5a45",
+      "name": "Question and Answer Chain"
+    },
+    {
+      "parameters": {
+        "topK": 8
+      },
+      "type": "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+      "typeVersion": 1,
+      "position": [
+        300,
+        0
+      ],
+      "id": "0bd00c69-a1df-44f6-8cde-945d9faf5fa3",
+      "name": "Vector Store Retriever"
+    },
+    {
+      "parameters": {
+        "name": "Vector_Store_Tool",
+        "description": "This tool enables the AI Agent to perform efficient similarity searches on a Pinecone vector store. It retrieves the most relevant stored vectors based on an input query, allowing the LLM to access relevant documents, knowledge, or context for enhanced responses. Ideal for retrieval-augmented generation (RAG) and AI-powered search applications.",
+        "topK": 8
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        920,
+        20
+      ],
+      "id": "170a6ef7-d2ad-46b0-9622-d13385bf33f5",
+      "name": "Answer questions with a vector store"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        0
+      ],
+      "id": "e67f3620-547f-4704-b994-d3450373d5c8",
+      "name": "SerpAPI"
+    },
+    {
+      "parameters": {
+        "content": "## Questionnaire\n### Prepare a questionnaire based on the job description.\n",
+        "height": 660,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        -460
+      ],
+      "id": "54b6439e-806c-4b8f-a399-de8bc0dc5887",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Build context\n### Retrieve the answer to the question from the vector store; this will serve as the content for the AI agent.",
+        "height": 1000,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        260,
+        -460
+      ],
+      "id": "95991c9e-dd11-4905-8841-17994d9d0591",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Prepare cover letter\n### Using the job description and contextual information, develop a personalized cover letter. Integrate SerpAPI and a Question-and-Answer tool to retrieve additional relevant information from the vector store to enhance the cover letter content.",
+        "height": 660,
+        "width": 680
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        -460
+      ],
+      "id": "20584752-7879-4294-a0be-b893408f5df7",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Convert to HTML\n#### Convert to HTML and send webhook response.",
+        "height": 660,
+        "width": 480
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        -460
+      ],
+      "id": "4afec520-fa7d-4236-8d99-a88c503b27ec",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Start\n### Received the job description and prepared the variables.",
+        "height": 660,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        -460
+      ],
+      "id": "eaa3a9c1-ce66-457b-b6df-0f09dce517df",
+      "name": "Sticky Note4"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-24T15:43:15.000Z",
+  "versionId": "d1478f13-173c-4581-bc67-d807a61ea3e0"
+}
