@@ -97,13 +97,7 @@
     },
     "Get Labels": {
       "ai_tool": [
-        [
-          {
-            "node": "Email Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Label Emails": {
@@ -239,79 +233,32 @@
     },
     "YouTube Agent": {
       "ai_tool": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "GPT 4.1-mini": {
       "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "GPT 4.1-mini1": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Email Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "GPT 4.1-mini2": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Calendar Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "GPT 4.1-mini3": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Contact Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "GPT 4.1-mini4": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Web Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "GPT 4.1-mini5": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "YouTube Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "AI Agent": {
@@ -466,13 +413,7 @@
     },
     "GPT 4.1-mini6": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Tasks Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Tasks Agent": {
@@ -480,50 +421,6 @@
         [
           {
             "node": "AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create Google Task": {
-      "ai_tool": [
-        [
-          {
-            "node": "Tasks Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Update a task in Google Tasks": {
-      "ai_tool": [
-        [
-          {
-            "node": "Tasks Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get a Google Task": {
-      "ai_tool": [
-        [
-          {
-            "node": "Tasks Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many Google Tasks": {
-      "ai_tool": [
-        [
-          {
-            "node": "Tasks Agent",
             "type": "ai_tool",
             "index": 0
           }
@@ -541,12 +438,108 @@
         ]
       ]
     },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Email Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Calendar Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Contact Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Tasks Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "YouTube Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Web Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Get a file": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
       "main": [
         [
           {
             "node": "Transcribe Audio",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a GTask": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tasks Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create GTask": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tasks Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update  GTask": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tasks Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many GTasks": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tasks Agent",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -571,8 +564,8 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.1,
       "position": [
-        3776,
-        -496
+        800,
+        800
       ],
       "webhookId": "99eab1a0-569d-4f0f-a49e-578a02abfe63",
       "disabled": true
@@ -584,7 +577,7 @@
             {
               "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
               "name": "text",
-              "value": "={{ $json.message.text }}",
+              "value": "={{ $json.blocks[0].elements[0].elements[1].text }}",
               "type": "string"
             }
           ]
@@ -596,8 +589,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2208,
-        -176
+        2416,
+        -192
       ]
     },
     {
@@ -610,8 +603,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        3792,
-        -320
+        816,
+        976
       ],
       "webhookId": "c0b376b1-7b63-41b6-8063-0b3096b8333d",
       "disabled": true
@@ -619,7 +612,7 @@
     {
       "parameters": {
         "resource": "audio",
-        "operation": "transcribe",
+        "operation": "translate",
         "options": {}
       },
       "id": "948dc7e1-2a21-47bd-947c-af844f58e4a9",
@@ -627,7 +620,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        2304,
+        2976,
         -352
       ],
       "credentials": {
@@ -651,13 +644,14 @@
                 },
                 "conditions": [
                   {
-                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "leftValue": "={{ $json.files[0].url_private_download }}",
                     "rightValue": "",
                     "operator": {
                       "type": "string",
                       "operation": "exists",
                       "singleValue": true
-                    }
+                    },
+                    "id": "57a77a52-4be8-4a26-b430-71a394060d18"
                   }
                 ],
                 "combinator": "and"
@@ -676,7 +670,7 @@
                 "conditions": [
                   {
                     "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
-                    "leftValue": "={{ $json.message.text }}",
+                    "leftValue": "={{ $json.text }}",
                     "rightValue": "",
                     "operator": {
                       "type": "string",
@@ -699,8 +693,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1968,
-        -192
+        2176,
+        -208
       ]
     },
     {
@@ -708,14 +702,14 @@
         "promptType": "define",
         "text": "={{ $json.input }}",
         "options": {
-          "systemMessage": "=# Overview\nYou are the ultimate personal assistant. Your job is to send the user's query to the correct tool. You should never be writing emails or creating summaries — your sole responsibility is to call the correct tool.\n\n## Tools\n- **Think**: Use this to think deeply or if you get stuck\n- **emailAgent**: Use this tool to take action in email\n- **calendarAgent**: Use this tool to take action in calendar\n- **contactAgent**: Use this tool to get, update, or add contacts\n- **contentCreator**: Use this tool to create blog posts\n- **webAgent**: Use this tool to perform deeper web research or get current weather info\n- **youtubeAgent**: Use this tool to find high-performing videos or manage video ideas\n\n## Rules\n- Some actions require you to look up contact information first. For the following actions, you must get contact information and send that to the agent who needs it:\n  - sending emails\n  - drafting emails\n  - creating calendar event with attendee\n\n## Instructions\n1) Call the necessary tools based on the user's request\n2) Use the **Think** tool to verify you took the right steps. This tool should be called every time.\n\n## Examples\n1) \n- Input: send an email to nate herkelman asking him what time he wants to leave  \n  - Action: Use **contactAgent** to get Nate Herkelman's email  \n  - Action: Use **emailAgent** to send the email. You will pass the tool a query like:  \n    \"send Nate Herkelman an email to ask what time he wants to leave. here is his email: [email address]\"\n- Output: The email has been sent to Nate Herkelman. Anything else I can help you with?\n\n## Final Reminders\nHere is the current date/time: {{ $now }}\n",
+          "systemMessage": "=# Overview\nYou are the ultimate personal assistant. Your job is to send the user's query to the correct tool. You should never be writing emails or creating summaries — your sole responsibility is to call the correct tool.\n\n## Tools\n- **Think**: Use this to think deeply or if you get stuck\n- **emailAgent**: Use this tool to take action in email\n- **calendarAgent**: Use this tool to take action in calendar\n- **contactAgent**: Use this tool to get, update, or add contacts\n- **contentCreator**: Use this tool to create blog posts\n- **webAgent**: Use this tool to perform deeper web research or get current weather info\n- **youtubeAgent**: Use this tool to find high-performing videos or manage video ideas\n\n## Rules\n- Some actions require you to look up contact information first. For the following actions, you must get contact information and send that to the agent who needs it:\n  - sending emails\n  - drafting emails\n  - creating calendar event with attendee\n\n## Instructions\n1) Call the necessary tools based on the user's request\n2) Use the **Think** tool to verify you took the right steps. This tool should be called every time.\n\n## Examples\n1) \n- Input: send an email to nate herkelman asking him what time he wants to leave  \n  - Action: Use **contactAgent** to get Nate Herkelman's email  \n  - Action: Use **emailAgent** to send the email. You will pass the tool a query like:  \n    \"send Nate Herkelman an email to ask what time he wants to leave. here is his email: [email address]\" and you will provide an Output like: \" The email has been sent to Nate Herkelman.\"\n\n## Final Reminders\nHere is the current date/time: {{ $now }}\nKeep your responses concise and do not preface them with \"Output:\"\n",
           "returnIntermediateSteps": true
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.1,
       "position": [
-        2640,
+        3264,
         -192
       ],
       "id": "7976d32a-850c-4987-9241-cf5304f30153",
@@ -734,16 +728,16 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        2480,
-        368
+        2656,
+        400
       ],
       "id": "44865913-3c04-41e0-97e1-1d5a1e458b1c",
       "name": "Send Email",
       "webhookId": "86c8c4b1-13bb-4ebe-acb9-30e1d7082d55",
       "credentials": {
         "gmailOAuth2": {
-          "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "id": "KQ2bL39dJJ1P9hoA",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -760,16 +754,16 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        2096,
-        368
+        2256,
+        400
       ],
       "id": "3322aa7f-2fda-4606-8fb6-fe3f7629ccb2",
       "name": "Get Emails",
       "webhookId": "af4b3298-9037-44b0-aa12-2acbfbb5e66f",
       "credentials": {
         "gmailOAuth2": {
-          "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "id": "KQ2bL39dJJ1P9hoA",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -787,16 +781,16 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        2480,
-        224
+        2656,
+        256
       ],
       "id": "f49cd3b2-ea36-4064-973d-ebb999d63161",
       "name": "Create Draft",
       "webhookId": "17016bce-d7d7-428a-a56c-f6ea122db8be",
       "credentials": {
         "gmailOAuth2": {
-          "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "id": "KQ2bL39dJJ1P9hoA",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -812,16 +806,16 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        2224,
-        224
+        2384,
+        256
       ],
       "id": "f7724b01-9d42-45e3-a504-63c5867536c8",
       "name": "Email Reply",
       "webhookId": "114785e6-a859-432b-81b4-c490c1c35b1c",
       "credentials": {
         "gmailOAuth2": {
-          "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "id": "KQ2bL39dJJ1P9hoA",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -833,16 +827,16 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        2224,
-        368
+        2384,
+        400
       ],
       "id": "420fce62-21f3-4087-b0e4-3a184d5a32a0",
       "name": "Get Labels",
       "webhookId": "9e08b59e-792d-4566-83f1-9263c9ad86ae",
       "credentials": {
         "gmailOAuth2": {
-          "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "id": "KQ2bL39dJJ1P9hoA",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -855,8 +849,8 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        2352,
-        224
+        2528,
+        256
       ],
       "id": "078cdee2-d155-48f7-a5e6-61f7f23d4cd5",
       "name": "Label Emails",
@@ -864,7 +858,7 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "KQ2bL39dJJ1P9hoA",
-          "name": "Gmail account"
+          "name": "fausto@AAA"
         }
       }
     },
@@ -876,16 +870,16 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.1,
       "position": [
-        2352,
-        368
+        2528,
+        400
       ],
       "id": "cf4c4a6c-7a52-4436-bdca-4d3daf4bd3fa",
       "name": "Mark Unread",
       "webhookId": "a35af9d8-f67d-4ff9-803f-59ec6356e795",
       "credentials": {
         "gmailOAuth2": {
-          "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "id": "KQ2bL39dJJ1P9hoA",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -900,8 +894,8 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        2288,
-        48
+        2448,
+        80
       ],
       "id": "8b87b44b-a610-49ac-8c7b-78575c3e7881",
       "name": "Email Agent"
@@ -926,7 +920,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        2880,
+        3504,
         368
       ],
       "id": "c7a216d5-9543-4a38-a274-8867525b10ca",
@@ -934,7 +928,7 @@
       "credentials": {
         "googleCalendarOAuth2Api": {
           "id": "PBTNuRkCpAQk1X2D",
-          "name": "Google Calendar account"
+          "name": "fausto@AAA"
         }
       }
     },
@@ -956,7 +950,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        2624,
+        3248,
         368
       ],
       "id": "e620c43c-f406-445f-8618-5f1554e393dd",
@@ -964,7 +958,7 @@
       "credentials": {
         "googleCalendarOAuth2Api": {
           "id": "PBTNuRkCpAQk1X2D",
-          "name": "Google Calendar account"
+          "name": "fausto@AAA"
         }
       }
     },
@@ -973,9 +967,9 @@
         "operation": "getAll",
         "calendar": {
           "__rl": true,
-          "value": "nateherk88@gmail.com",
+          "value": "fausto@autoacquireai.com",
           "mode": "list",
-          "cachedResultName": "nateherk88@gmail.com"
+          "cachedResultName": "Fausto@AAA"
         },
         "timeMin": "={{ $fromAI(\"dayBefore\",\"the day before the date the user requested\") }}",
         "timeMax": "={{ $fromAI(\"dayAfter\",\"the day after the date the user requested\") }}",
@@ -984,7 +978,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        2880,
+        3504,
         224
       ],
       "id": "a85bb7d3-2fc8-4d9f-bdfe-c50b5899d550",
@@ -992,7 +986,7 @@
       "credentials": {
         "googleCalendarOAuth2Api": {
           "id": "PBTNuRkCpAQk1X2D",
-          "name": "Google Calendar account"
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1011,7 +1005,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        2752,
+        3376,
         224
       ],
       "id": "3f88a532-d52f-4b0f-b4ad-40fe80d23965",
@@ -1019,7 +1013,7 @@
       "credentials": {
         "googleCalendarOAuth2Api": {
           "id": "PBTNuRkCpAQk1X2D",
-          "name": "Google Calendar account"
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1041,7 +1035,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        2752,
+        3376,
         368
       ],
       "id": "363e0a98-c51b-4f7d-ba61-b884d312c9b4",
@@ -1049,7 +1043,7 @@
       "credentials": {
         "googleCalendarOAuth2Api": {
           "id": "PBTNuRkCpAQk1X2D",
-          "name": "Google Calendar account"
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1064,7 +1058,7 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        2640,
+        3264,
         48
       ],
       "id": "77d6efb1-5801-4eb3-aff6-91f846fdbb79",
@@ -1081,7 +1075,7 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        2992,
+        3616,
         48
       ],
       "id": "dc8fe1a9-576d-484c-b0b6-ef0d28870b13",
@@ -1103,8 +1097,8 @@
       "type": "n8n-nodes-base.perplexityTool",
       "typeVersion": 1,
       "position": [
-        3760,
-        608
+        1360,
+        944
       ],
       "id": "103166f5-baf3-48cb-b0f2-45626c77d775",
       "name": "Perplexity",
@@ -1125,8 +1119,8 @@
       "type": "n8n-nodes-base.openWeatherMapTool",
       "typeVersion": 1,
       "position": [
-        3632,
-        608
+        1232,
+        944
       ],
       "id": "fe28c818-06a4-4303-adba-63ca39567f77",
       "name": "OpenWeatherMap",
@@ -1143,7 +1137,7 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        3056,
+        3952,
         608
       ],
       "id": "556b9b5a-1483-4c2c-9597-99645e944394",
@@ -1159,8 +1153,8 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        2576,
-        608
+        3232,
+        592
       ],
       "id": "29d813a6-6018-45f5-8a85-ef2d0ce75df5",
       "name": "YouTube Agent"
@@ -1172,15 +1166,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1888,
-        48
+        992,
+        816
       ],
       "id": "d1cb70bb-6ded-41c6-adef-5eb78906af23",
       "name": "GPT 4.1-mini",
       "credentials": {
         "openRouterApi": {
-          "id": "Q4uOkW9C7Gpn8XvT",
-          "name": "n8n-OpenRouter"
+          "id": "j40d4jqkJN6S4zym",
+          "name": "OpenRouter account"
         }
       }
     },
@@ -1191,15 +1185,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        2096,
-        224
+        1104,
+        816
       ],
       "id": "542b2708-5e20-4331-9e4e-6055165d5575",
       "name": "GPT 4.1-mini1",
       "credentials": {
         "openRouterApi": {
           "id": "Q4uOkW9C7Gpn8XvT",
-          "name": "n8n-OpenRouter"
+          "name": "n8n-OpenRouter OLD"
         }
       }
     },
@@ -1210,15 +1204,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        2624,
-        224
+        1232,
+        816
       ],
       "id": "8894219a-3acf-42b3-b1a0-bd48cb34ae4b",
       "name": "GPT 4.1-mini2",
       "credentials": {
         "openRouterApi": {
           "id": "Q4uOkW9C7Gpn8XvT",
-          "name": "n8n-OpenRouter"
+          "name": "n8n-OpenRouter OLD"
         }
       }
     },
@@ -1229,15 +1223,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        2992,
-        208
+        1344,
+        816
       ],
       "id": "9a69b725-7f42-4ef5-b6c4-b50d905379c6",
       "name": "GPT 4.1-mini3",
       "credentials": {
         "openRouterApi": {
           "id": "Q4uOkW9C7Gpn8XvT",
-          "name": "n8n-OpenRouter"
+          "name": "n8n-OpenRouter OLD"
         }
       }
     },
@@ -1248,34 +1242,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        3072,
-        768
+        1584,
+        816
       ],
       "id": "967524de-27c6-4ef9-9dcd-aeda81e46c45",
       "name": "GPT 4.1-mini4",
       "credentials": {
         "openRouterApi": {
           "id": "Q4uOkW9C7Gpn8XvT",
-          "name": "n8n-OpenRouter"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-      "typeVersion": 1,
-      "position": [
-        2576,
-        768
-      ],
-      "id": "056bf0b0-01ce-43b1-b784-5e33426d91e5",
-      "name": "GPT 4.1-mini5",
-      "credentials": {
-        "openRouterApi": {
-          "id": "Q4uOkW9C7Gpn8XvT",
-          "name": "n8n-OpenRouter"
+          "name": "n8n-OpenRouter OLD"
         }
       }
     },
@@ -1286,7 +1261,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3008,
+        3632,
         -352
       ],
       "id": "800bdfe0-d0df-4089-9f32-fe5250e01030",
@@ -1297,28 +1272,28 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "144h5vN3d_SsZMNkZncQAKMrwJ3wkceUEq47dO7FwLyA",
+          "value": "1cyDZ4-68fhA1q-9YGZLLynrxFOQV1CnGCkQ_BXhJkbk",
           "mode": "list",
-          "cachedResultName": "Agent Logs",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/144h5vN3d_SsZMNkZncQAKMrwJ3wkceUEq47dO7FwLyA/edit?usp=drivesdk"
+          "cachedResultName": "Assistant Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cyDZ4-68fhA1q-9YGZLLynrxFOQV1CnGCkQ_BXhJkbk/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/144h5vN3d_SsZMNkZncQAKMrwJ3wkceUEq47dO7FwLyA/edit#gid=0"
+          "cachedResultName": "Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cyDZ4-68fhA1q-9YGZLLynrxFOQV1CnGCkQ_BXhJkbk/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Timestamp": "={{ $now.format('yyyy-MM-dd hh:m a') }}",
-            "Workflow": "={{ $workflow.name }}",
-            "Input": "={{ $('Input').item.json.input }}",
-            "Output": "={{ $('AI Agent').item.json.output }}",
-            "Actions": "={{ JSON.stringify($json.steps, null, 2) }}",
-            "Tokens": "={{ JSON.stringify($json.tokens, null, 2) }}",
-            "Total Tokens": "={{ $json.total_tokens }}"
+            "Total Tokens": "={{ $json.tokens[0].total_tokens }}",
+            "Tokens": "={{ $json.tokens[0].prompt_tokens }} | {{ $json.tokens[0].completion_tokens }}",
+            "Actions": "={{ $json.steps[0].observation }}",
+            "Output": "={{ $json.steps[0].observation }}",
+            "Input": "={{ $json.steps[0].toolInput.Prompt__User_Message_ }}",
+            "Workflow": "={{ $json.steps[0].tool }}",
+            "Timestamp": "={{ DateTime.now().toFormat('yyyy-MM-dd HH:mm:ss') }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -1383,8 +1358,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -1395,15 +1369,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        3152,
+        3776,
         -352
       ],
       "id": "5d0ceff3-b866-4b9d-a55f-16761d1f9475",
       "name": "Append row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "f0EK8GS1JVMgDnr2",
-          "name": "Google Sheets account"
+          "id": "DpjFyRT28IqtmwWz",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1428,8 +1402,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        2800,
-        768
+        3456,
+        752
       ],
       "id": "0052b7b5-ac98-483b-a9a2-cd35bd8f40e5",
       "name": "Get Ideas",
@@ -1492,8 +1466,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        2912,
-        768
+        3568,
+        752
       ],
       "id": "75a1e204-6f86-4d88-812e-395fd4d52cb6",
       "name": "Add Idea",
@@ -1526,8 +1500,8 @@
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.2,
       "position": [
-        2688,
-        768
+        3344,
+        752
       ],
       "id": "b33d6dd1-d18e-4486-a1be-34101a67f6c3",
       "name": "YouTube Videos"
@@ -1537,7 +1511,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolThink",
       "typeVersion": 1,
       "position": [
-        2000,
+        3136,
         48
       ],
       "id": "39cbe3ca-89e7-495b-b5e8-d5ad5aa8350d",
@@ -1546,12 +1520,12 @@
     {
       "parameters": {
         "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}"
+        "sessionKey": "=client_msg_id"
       },
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        2128,
+        3024,
         48
       ],
       "id": "3e359501-28c6-44e5-adae-134965d389d8",
@@ -1568,8 +1542,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        3600,
-        -336
+        624,
+        960
       ],
       "id": "118ed765-3004-4034-9654-df3e31baeecd",
       "name": "Error Message",
@@ -1587,8 +1561,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        3600,
-        -512
+        624,
+        784
       ],
       "id": "8d204d50-56af-46e7-8d62-a112e3448cb0",
       "name": "Response",
@@ -1612,7 +1586,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2480,
+        3104,
         -192
       ],
       "id": "e6a00856-3dce-435d-a906-1c95f2963166",
@@ -1640,7 +1614,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        3216,
+        4112,
         768
       ],
       "id": "bf71076f-e36f-4bfc-b294-ddf18832ded6",
@@ -1661,15 +1635,15 @@
       "type": "n8n-nodes-base.googleContactsTool",
       "typeVersion": 1,
       "position": [
-        3120,
+        3744,
         208
       ],
       "id": "e1b54b5a-0500-4783-9e17-834a7c11190d",
       "name": "Create contact",
       "credentials": {
         "googleContactsOAuth2Api": {
-          "id": "76CkZ5n1DniHG8FQ",
-          "name": "GContacts f@animistic"
+          "id": "2K8GfWhHbEEUCZgn",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1683,15 +1657,15 @@
       "type": "n8n-nodes-base.googleContactsTool",
       "typeVersion": 1,
       "position": [
-        3232,
+        3856,
         208
       ],
       "id": "1f0a1cef-87d2-460a-9e92-8bd0eb96d048",
       "name": "Update contact",
       "credentials": {
         "googleContactsOAuth2Api": {
-          "id": "76CkZ5n1DniHG8FQ",
-          "name": "GContacts f@animistic"
+          "id": "2K8GfWhHbEEUCZgn",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1704,15 +1678,15 @@
       "type": "n8n-nodes-base.googleContactsTool",
       "typeVersion": 1,
       "position": [
-        3120,
+        3744,
         352
       ],
       "id": "4a7b5ed0-7fbc-425c-bee0-7a7ab6f2e4b2",
       "name": "Get contact",
       "credentials": {
         "googleContactsOAuth2Api": {
-          "id": "76CkZ5n1DniHG8FQ",
-          "name": "GContacts f@animistic"
+          "id": "2K8GfWhHbEEUCZgn",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1732,8 +1706,8 @@
       "name": "Get many Contacts",
       "credentials": {
         "googleContactsOAuth2Api": {
-          "id": "76CkZ5n1DniHG8FQ",
-          "name": "GContacts f@animistic"
+          "id": "2K8GfWhHbEEUCZgn",
+          "name": "fausto@AAA"
         }
       }
     },
@@ -1744,15 +1718,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        3376,
-        208
+        1472,
+        816
       ],
       "id": "308de28d-fd1d-42f5-8e50-6c4c5f6e98c6",
       "name": "GPT 4.1-mini6",
       "credentials": {
         "openRouterApi": {
           "id": "Q4uOkW9C7Gpn8XvT",
-          "name": "n8n-OpenRouter"
+          "name": "n8n-OpenRouter OLD"
         }
       }
     },
@@ -1767,7 +1741,7 @@
       "type": "@n8n/n8n-nodes-langchain.agentTool",
       "typeVersion": 2.2,
       "position": [
-        3376,
+        4000,
         48
       ],
       "id": "19584f0d-6cb4-4c45-8b28-dc9acf88c3f5",
@@ -1775,92 +1749,6 @@
     },
     {
       "parameters": {
-        "task": "MDI5ODEyNDczOTQzNTAzOTU5NjQ6MDow",
-        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.googleTasksTool",
-      "typeVersion": 1,
-      "position": [
-        3520,
-        208
-      ],
-      "id": "8350d2ae-e020-4c2c-9d1e-023abe3d6a05",
-      "name": "Create Google Task",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "PbgkdEdMjNThWUXA",
-          "name": "Google Tasks account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "task": "MDI5ODEyNDczOTQzNTAzOTU5NjQ6MDow",
-        "taskId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Task_ID', ``, 'string') }}",
-        "updateFields": {}
-      },
-      "type": "n8n-nodes-base.googleTasksTool",
-      "typeVersion": 1,
-      "position": [
-        3680,
-        208
-      ],
-      "id": "39779251-3f30-4abc-a3d4-56c30816808e",
-      "name": "Update a task in Google Tasks",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "PbgkdEdMjNThWUXA",
-          "name": "Google Tasks account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "task": "MDI5ODEyNDczOTQzNTAzOTU5NjQ6MDow",
-        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.googleTasksTool",
-      "typeVersion": 1,
-      "position": [
-        3520,
-        368
-      ],
-      "id": "d753e5da-0f2a-44ab-8ad6-ad23ab8c6429",
-      "name": "Get a Google Task",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "PbgkdEdMjNThWUXA",
-          "name": "Google Tasks account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "task": "MDI5ODEyNDczOTQzNTAzOTU5NjQ6MDow",
-        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.googleTasksTool",
-      "typeVersion": 1,
-      "position": [
-        3680,
-        368
-      ],
-      "id": "a4c3cb00-ab5e-457a-96d8-cc92a9c72161",
-      "name": "Get many Google Tasks",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "PbgkdEdMjNThWUXA",
-          "name": "Google Tasks account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -1868,30 +1756,30 @@
           "mode": "list",
           "cachedResultName": "alfred"
         },
-        "text": "={{ \"Hi\" }}",
+        "text": "={{ $('AI Agent').item.json.output }}",
         "otherOptions": {
-          "includeLinkToWorkflow": false
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false
         }
       },
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        3328,
+        3952,
         -352
       ],
       "id": "bf7cfc96-d603-4482-867b-1c607a34e314",
       "name": "Slack Response",
       "webhookId": "46933380-384e-42ea-ab4c-691a1aa5ff33",
       "credentials": {
-        "slackOAuth2Api": {
-          "id": "7HLcXssX7whlAvYo",
-          "name": "Blue&_Alfred"
+        "slackApi": {
+          "id": "IGKQrsQI0If27Bgl",
+          "name": "Blue&_Alfred_BotOauthToken"
         }
       }
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -1899,7 +1787,7 @@
           "mode": "list",
           "cachedResultName": "alfred"
         },
-        "text": "={{\"Hi\"}}",
+        "text": "={{\"ERROR: \"}}",
         "otherOptions": {
           "includeLinkToWorkflow": false
         }
@@ -1907,54 +1795,82 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        3040,
+        3664,
         -176
       ],
       "id": "4555d3c2-5dca-4398-b23c-6c5572ef5cb3",
       "name": "Error Message1",
       "webhookId": "46933380-384e-42ea-ab4c-691a1aa5ff33",
       "credentials": {
-        "slackOAuth2Api": {
-          "id": "7HLcXssX7whlAvYo",
-          "name": "Blue&_Alfred"
+        "slackApi": {
+          "id": "IGKQrsQI0If27Bgl",
+          "name": "Blue&_Alfred_BotOauthToken"
         }
       }
     },
     {
       "parameters": {
         "trigger": [
-          "message"
+          "any_event"
         ],
-        "watchWorkspace": true,
+        "channelId": {
+          "__rl": true,
+          "value": "C098UC3MSKX",
+          "mode": "list",
+          "cachedResultName": "alfred"
+        },
         "options": {}
       },
       "type": "n8n-nodes-base.slackTrigger",
       "typeVersion": 1,
       "position": [
-        1792,
-        -192
+        2000,
+        -208
       ],
       "id": "6563a92f-2719-4ed5-a8bc-9b56e5517bfe",
       "name": "Slack Trigger",
       "webhookId": "66fc8598-e7de-45a0-bbd4-0bacdbef3948",
       "credentials": {
         "slackApi": {
-          "id": "bWiM17hS95CTUcWc",
-          "name": "Assistant"
+          "id": "IGKQrsQI0If27Bgl",
+          "name": "Blue&_Alfred_BotOauthToken"
         }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
       },
-      "disabled": true
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2928,
+        480
+      ],
+      "id": "6ab542c7-94d7-4b38-aaa4-fb7b383f4d83",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "WYRQt22D3Ej2FW2r",
+          "name": "OpenAi Blue&"
+        }
+      }
     },
     {
       "parameters": {
         "resource": "file",
         "operation": "get",
-        "fileId": "={{ $json.message.voice.file_id }}"
+        "fileId": "={{ $json.files[0].id }}"
       },
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        2144,
+        2320,
         -352
       ],
       "id": "30c37e97-1cc2-4942-b210-8b3bad4152bf",
@@ -1962,8 +1878,115 @@
       "webhookId": "e14947c2-617d-4adb-b22b-4941a225c02b",
       "credentials": {
         "slackApi": {
-          "id": "bWiM17hS95CTUcWc",
-          "name": "Assistant"
+          "id": "IGKQrsQI0If27Bgl",
+          "name": "Blue&_Alfred_BotOauthToken"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.aac }}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2528,
+        -352
+      ],
+      "id": "03c43d18-81fc-41e4-ab0a-d4b433910743",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "task": "MDE3OTUxNTE2MTE1ODAzNjg1MDY6MDow",
+        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        4144,
+        368
+      ],
+      "id": "d753e5da-0f2a-44ab-8ad6-ad23ab8c6429",
+      "name": "Get a GTask",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "PbgkdEdMjNThWUXA",
+          "name": "fausto@AAA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "task": "MDE3OTUxNTE2MTE1ODAzNjg1MDY6MDow",
+        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        4144,
+        208
+      ],
+      "id": "8350d2ae-e020-4c2c-9d1e-023abe3d6a05",
+      "name": "Create GTask",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "PbgkdEdMjNThWUXA",
+          "name": "fausto@AAA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "task": "MDE3OTUxNTE2MTE1ODAzNjg1MDY6MDow",
+        "taskId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Task_ID', ``, 'string') }}",
+        "updateFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        4304,
+        208
+      ],
+      "id": "39779251-3f30-4abc-a3d4-56c30816808e",
+      "name": "Update  GTask",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "PbgkdEdMjNThWUXA",
+          "name": "fausto@AAA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "task": "MDE3OTUxNTE2MTE1ODAzNjg1MDY6MDow",
+        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        4304,
+        368
+      ],
+      "id": "a4c3cb00-ab5e-457a-96d8-cc92a9c72161",
+      "name": "Get many GTasks",
+      "credentials": {
+        "googleTasksOAuth2Api": {
+          "id": "PbgkdEdMjNThWUXA",
+          "name": "fausto@AAA"
         }
       }
     }
@@ -1975,6 +1998,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-04T19:40:39.000Z",
-  "versionId": "357676a9-821e-47f9-8638-4153ea56de46"
+  "updatedAt": "2025-08-05T07:56:32.000Z",
+  "versionId": "16ccce98-804f-439f-ad9b-d66fa0b323ac"
 }
