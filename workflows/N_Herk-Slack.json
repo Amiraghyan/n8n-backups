@@ -1759,7 +1759,7 @@
         "text": "={{ $('AI Agent').item.json.output }}",
         "otherOptions": {
           "includeLinkToWorkflow": false,
-          "mrkdwn": false
+          "mrkdwn": true
         }
       },
       "type": "n8n-nodes-base.slack",
@@ -1998,6 +1998,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-05T07:56:32.000Z",
-  "versionId": "16ccce98-804f-439f-ad9b-d66fa0b323ac"
+  "updatedAt": "2025-08-05T07:59:40.000Z",
+  "versionId": "9875792d-90d9-472e-a016-c2007ad6d9f2"
 }
