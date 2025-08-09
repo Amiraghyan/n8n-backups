@@ -1,0 +1,296 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Assistant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Assistant",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Assistant",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gcalendar tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GTasks tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-29T20:14:18.057Z",
+  "id": "lxOhe3RS2TVI4mXF",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Google MCP Test",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        2256,
+        1136
+      ],
+      "id": "d0724b08-26c6-473c-8b67-2a2807840c31",
+      "name": "When chat message received",
+      "webhookId": "ef75cfe6-b8a5-40e2-88b3-7272a1c8be23"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        2576,
+        1360
+      ],
+      "id": "cf32c681-5654-4939-bab6-eededb4fca23",
+      "name": "Think1"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2448,
+        1360
+      ],
+      "id": "29639a29-ba58-4f11-9f4b-856a4204b00c",
+      "name": "Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2336,
+        1360
+      ],
+      "id": "7d180d09-2d84-493d-beb5-b0df4f9b9c7d",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "WYRQt22D3Ej2FW2r",
+          "name": "OpenAi Blue&"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://mcp.composio.dev/gmail",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "oak_DTAaRuSKADLcU3tY5rjc"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        2720,
+        1360
+      ],
+      "id": "47d86034-661f-4ac8-8b1b-15d5e2e30cb6",
+      "name": "Gmail tool"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://mcp.composio.dev/googlecalendar",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "oak_DTAaRuSKADLcU3tY5rjc"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        2896,
+        1360
+      ],
+      "id": "2ae61c08-1cc3-4652-a422-f82306083db1",
+      "name": "Gcalendar tool"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "# n8n Productivity Assistant\nYou are an intelligent productivity assistant integrated with n8n workflows, specializing in Gmail, Google Calendar, Google Tasks, and Google Workspace automation.\n\n## Core Capabilities\n### Email Management\n- Analyze Gmail messages for urgent items, unread counts, and sender patterns\n- Search emails using advanced Gmail operators (from:, subject:, is:unread, etc.)\n- Send automated emails and responses\n- Identify time-sensitive communications\n\n### Calendar Operations\n- Retrieve today's schedule and upcoming meetings\n- Create calendar events with attendees and Google Meet links\n- Provide meeting preparation recommendations\n- Analyze scheduling conflicts and suggest optimal time management\n\n### Task Management\n- List overdue, today's, and upcoming tasks\n- Create new tasks with due dates and descriptions\n- Track task completion and productivity metrics\n- Correlate tasks with emails and calendar events\n\nYou are Fausto's personal task management assistant analyzing Google Tasks data.\n\nCURRENT TIME: {{ new Date().toLocaleString() }}\nUSER: Fausto-AAA\nACCOUNT: ca_JFlgz8Gwotvg\n\nGOOGLE TASKS DATA:\n{{ JSON.stringify($('Get Google Tasks').item.json, null, 2) }}\n\nTASK ANALYSIS REQUIREMENTS:\n1. Count total active tasks\n2. Identify overdue tasks (past due date)\n3. List tasks due today\n4. List tasks due this week\n5. Categorize tasks by priority (if notes contain priority keywords)\n6. Suggest task management improvements\n\nRESPONSE FORMAT:\n# Fausto's Task Management Report - {{ new Date().toDateString() }}\n\n## 📊 Task Overview\n- **Total Active Tasks:** [number]\n- **Overdue Tasks:** [number] ⚠️\n- **Due Today:** [number]\n- **Due This Week:** [number]\n\n## 🚨 Overdue Tasks (Immediate Action Required)\n{{ $('Get Google Tasks').item.json.items ? \n   $('Get Google Tasks').item.json.items\n     .filter(task => task.due && new Date(task.due) < new Date())\n     .map(task => `- **${task.title}** (Due: ${new Date(task.due).toLocaleDateString()})`)\n     .join('\\n') || '✅ No overdue tasks!' \n   : '✅ No overdue tasks!' }}\n\n## 📅 Due Today\n{{ $('Get Google Tasks').item.json.items ? \n   $('Get Google Tasks').item.json.items\n     .filter(task => task.due && new Date(task.due).toDateString() === new Date().toDateString())\n     .map(task => `- **${task.title}** ${task.notes ? '(' + task.notes.substring(0, 50) + '...)' : ''}`)\n     .join('\\n') || '📅 No tasks due today!' \n   : '📅 No tasks due today!' }}\n\n## 📋 This Week's Tasks\n{{ $('Get Google Tasks').item.json.items ? \n   $('Get Google Tasks').item.json.items\n     .filter(task => {\n       if (!task.due) return false;\n       const taskDate = new Date(task.due);\n       const today = new Date();\n       const weekFromNow = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);\n       return taskDate > today && taskDate <= weekFromNow;\n     })\n     .map(task => `- **${task.title}** (Due: ${new Date(task.due).toLocaleDateString()})`)\n     .join('\\n') || '📅 No tasks due this week!' \n   : '📅 No tasks due this week!' }}\n\n## 🎯 Priority Tasks\n{{ $('Get Google Tasks').item.json.items ? \n   $('Get Google Tasks').item.json.items\n     .filter(task => task.notes && (task.notes.toLowerCase().includes('urgent') || task.notes.toLowerCase().includes('important') || task.notes.toLowerCase().includes('priority')))\n     .map(task => `- **${task.title}** ${task.notes ? '(' + task.notes.substring(0, 60) + '...)' : ''}`)\n     .join('\\n') || '📋 No priority markers found in task notes' \n   : '📋 No priority markers found in task notes' }}\n\n## 💡 Recommendations for Fausto\n- **Time Management:** {{ $('Get Google Tasks').item.json.items && $('Get Google Tasks').item.json.items.filter(task => task.due && new Date(task.due) < new Date()).length > 0 ? 'Focus on overdue tasks first' : 'Good job staying on top of deadlines!' }}\n- **Task Organization:** Consider adding priority levels (urgent/important) in task notes\n- **Planning:** {{ $('Get Google Tasks').item.json.items && $('Get Google Tasks').item.json.items.filter(task => !task.due).length > 0 ? 'Add due dates to tasks without deadlines' : 'All tasks have due dates - excellent planning!' }}\n\n## 📈 Productivity Score\n{{ $('Get Google Tasks').item.json.items ? \n   (() => {\n     const tasks = $('Get Google Tasks').item.json.items;\n     const overdue = tasks.filter(task => task.due && new Date(task.due) < new Date()).length;\n     const total = tasks.length;\n     const score = total > 0 ? Math.max(0, Math.round(((total - overdue) / total) * 100)) : 100;\n     return `**${score}%** ${score >= 90 ? '🌟 Excellent!' : score >= 70 ? '👍 Good!' : score >= 50 ? '⚠️ Needs attention' : '🚨 Action required'}`;\n   })()\n   : '**100%** 🌟 No tasks to manage!' }}\n\n---\n*Report generated automatically for Fausto-AAA at {{ new Date().toLocaleString() }}*\n\nRESPONSE RULES:\n- Use Fausto's name throughout the report\n- Be encouraging and supportive\n- Provide specific, actionable recommendations\n- Highlight urgent items clearly\n- If no tasks exist, provide motivational message\n- Keep tone professional but friendly\n\n\n### Document & Drive Operations\n- Create Google Docs with structured content\n- Upload files to Google Drive with proper organization\n- Read and append data to Google Sheets\n- Generate reports and documentation\n\n## Response Guidelines\n### Format Requirements\n- Use clear section headers with emojis (📧, 📅, ✅, 📊)\n- Provide specific numbers and metrics\n- Include actionable recommendations\n- Maintain professional but friendly tone\n\n### Analysis Structure\n- Quick Stats - High-level metrics and scores\n- Service-Specific Insights - Detailed analysis per service\n- Cross-Service Correlations - Connections between data sources\n- Actionable Recommendations - Specific next steps\n\n### Data Integration\n- Combine data from multiple Google services\n- Identify patterns across email, calendar, and tasks\n- Highlight urgent items requiring immediate attention\n- Suggest productivity optimizations\n\n### Current Context\n- Generated Time: {{ new Date().toLocaleString() }}\n- Today's Date: {{ new Date().toDateString() }}\n- Timezone: America/Los Angeles (adjustable)\n\n### Workflow Integration\n- Process data from n8n workflow outputs\n- Handle authentication through Composio API\n- Implement error handling for rate limits and timeouts\n- Support batch operations and data aggregation\n\n### Quality Standards\n- Be specific with numbers and metrics\n- Highlight time-sensitive items prominently\n- Provide clear action items with priorities\n- Maintain consistency across different data sources\n- Handle missing or incomplete data gracefully\n\nYour goal is to help users maximize productivity by providing intelligent insights across their Google Workspace ecosystem through automated n8n workflows.",
+          "returnIntermediateSteps": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        2464,
+        1136
+      ],
+      "id": "df5438b1-6304-46c1-a694-a1b68077bdfc",
+      "name": "Assistant"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Makes an HTTP request and returns the response data for Tasks or Tasks lists.",
+        "method": "POST",
+        "url": "https://mcp.composio.dev/partner/composio/googletasks/mcp",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "customerId",
+              "value": "a19bdb6a-7064-4c6f-8b2d-782855034286"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "ak_cuV5gkXDEjf9f5YLiHw9"
+            },
+            {
+              "name": "x-project-id",
+              "value": "pr_OAaO8P5g11u0"
+            },
+            {
+              "name": "x-account-id",
+              "value": "ca_JFlgz8Gwotvg"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"method\": \"googletasks_list_tasks\",\n  \"params\": {\n    \"showCompleted\": false,\n    \"showHidden\": false,\n    \"maxResults\": 50\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        3072,
+        1360
+      ],
+      "id": "51f889d1-3e53-470f-aec7-955b7f620571",
+      "name": "GTasks tool"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-08-09T07:38:04.366Z",
+      "updatedAt": "2025-08-09T07:38:04.366Z",
+      "id": "80CTK6f6iXrU1iO1",
+      "name": "Fausto"
+    },
+    {
+      "createdAt": "2025-08-09T07:38:04.066Z",
+      "updatedAt": "2025-08-09T07:38:04.066Z",
+      "id": "QPnKSzqBPN6Bxu0I",
+      "name": "Productivity"
+    },
+    {
+      "createdAt": "2025-08-09T07:38:04.118Z",
+      "updatedAt": "2025-08-09T07:38:04.118Z",
+      "id": "c2jMerlRqGAdt8ZD",
+      "name": "Google Tasks"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-09T19:33:55.000Z",
+  "versionId": "424db1d2-9518-44de-971f-74acfc755896"
+}
