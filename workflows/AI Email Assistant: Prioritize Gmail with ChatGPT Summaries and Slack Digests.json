@@ -169,10 +169,11 @@
       "typeVersion": 1.2,
       "credentials": {
         "gmailOAuth2": {
-          "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "id": "KQ2bL39dJJ1P9hoA",
+          "name": "fausto@AAA"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -185,7 +186,7 @@
         "messages": {
           "values": [
             {
-              "content": "=You're an email assistant for a busy startup founder. Classify the email content into the following fields and return **only raw JSON** (no markdown):\n\n{\n  \"summary\": [Short summary of the email in 1 sentence],\n  \"urgency\": [High, Medium, Low],\n  \"category\": [Investor, Customer Lead, Support, Spam, Other],\n  \"intent\": [Short phrase, like \"Request for call\", \"Feature request\", \"Follow-up\"]\n}\n\nAnalyze the following email:\n\nSubject: {{ $json.Subject }}\nBody: {{ $json.snippet }}\n\nReturn only valid JSON with no extra formatting.\n"
+              "content": "=You're an email assistant for a busy startup founder. Classify the email content into the following fields and return **only raw JSON** (no markdown):\n\n{\n  \"summary\": [Short summary of the email in 1 sentence],\n  \"urgency\": [High, Medium, Low],\n  \"category\": [Investor, Customer Lead, Support, Spam, Other],\n  \"intent\": [Short phrase, like \"Request for call\", \"Feature request\", \"Follow-up\"]\n}\n\nAnalyze the following email:\n\nSubject: {{ $json.subject }}\nBody: {{ $json.text }}\n\nReturn only valid JSON with no extra formatting.\n"
             }
           ]
         },
@@ -269,11 +270,11 @@
         "select": "channel",
         "channelId": {
           "__rl": true,
+          "value": "C098UC3MSKX",
           "mode": "list",
-          "value": "C093BMY0ESX",
-          "cachedResultName": "alerts"
+          "cachedResultName": "alfred"
         },
-        "text": "=📬 *Important Email Detected*  *Summary:* {{ $('Code').item.json.summary }} *Urgency:*  {{ $('Code').item.json.urgency }} 📥 From: {{ $('Gmail Trigger').item.json.From }}",
+        "text": "=📬 *Important Email Detected*  *Summary:* {{ $('Code').item.json.summary }} *Urgency:*  {{ $('Code').item.json.urgency }} 📥 From: {{ $('Email Trigger (IMAP)').item.json.headers.from }}",
         "otherOptions": {}
       },
       "id": "353b70b5-eaad-4636-9bed-23aec2556d47",
@@ -287,8 +288,8 @@
       "typeVersion": 2.3,
       "credentials": {
         "slackOAuth2Api": {
-          "id": "Ojnfp4ngN5xuzLIl",
-          "name": "SYCn8n"
+          "id": "7HLcXssX7whlAvYo",
+          "name": "Blue&_Alfred"
         }
       }
     },
@@ -312,17 +313,14 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "name": "fausto@animistic"
         }
       }
     },
     {
       "parameters": {
         "operation": "addLabels",
-        "messageId": "={{ $node[\"Gmail Trigger\"].json[\"id\"] }}",
-        "labelIds": [
-          "Label_4585164412428469148"
-        ]
+        "messageId": "={{ $('Email Trigger (IMAP)').item.json.headers['x-apple-uuid'] }}"
       },
       "id": "f1109948-ab40-4f82-84f7-23fdbfc40d6b",
       "name": "Add label to message1",
@@ -336,7 +334,7 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "PYWxtfY8Jt8O3raD",
-          "name": "Gmail fausto@animistic"
+          "name": "fausto@animistic"
         }
       }
     },
@@ -639,7 +637,6 @@
     },
     {
       "parameters": {
-        "postProcessAction": "nothing",
         "format": "resolved",
         "options": {}
       },
@@ -670,7 +667,8 @@
         16
       ],
       "id": "c7c06fd1-ea41-4426-97e5-bba9c367d588",
-      "name": "AI/ML Chat Completion"
+      "name": "AI/ML Chat Completion",
+      "disabled": true
     },
     {
       "parameters": {
@@ -684,7 +682,8 @@
       ],
       "id": "ae914c6b-492a-4bfb-8403-3cd23fe8029c",
       "name": "Send email",
-      "webhookId": "c7da1141-8450-43af-876f-8e772bb9ba28"
+      "webhookId": "c7da1141-8450-43af-876f-8e772bb9ba28",
+      "disabled": true
     }
   ],
   "pinData": {},
@@ -692,6 +691,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-04T19:01:06.000Z",
-  "versionId": "10003aee-df54-4936-8056-82183bb263d4"
+  "updatedAt": "2025-08-11T02:39:52.000Z",
+  "versionId": "ea3e0358-ec59-4122-b8bb-e14b62041bea"
 }
