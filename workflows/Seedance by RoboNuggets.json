@@ -237,7 +237,7 @@
       "typeVersion": 2,
       "position": [
         1200,
-        520
+        528
       ],
       "id": "8682a83f-d6d2-44e3-947d-7ae7df70b48f",
       "name": "Unbundle Prompts"
@@ -264,8 +264,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1320,
-        660
+        1328,
+        672
       ],
       "id": "a7b64386-f7bc-448a-abcc-9389edb43297",
       "name": "Create Sounds",
@@ -286,8 +286,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1720,
-        660
+        1728,
+        672
       ],
       "id": "5991baa8-9448-4c00-9f8f-8cd62d6043b6",
       "name": "Get Sounds",
@@ -306,7 +306,7 @@
       "typeVersion": 1.1,
       "position": [
         1520,
-        660
+        672
       ],
       "id": "5172e6af-d0c9-46bd-83b8-cd8e0c1d2560",
       "name": "Wait for Sounds",
@@ -347,7 +347,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1320,
+        1328,
         800
       ],
       "id": "679ea226-721c-4a4b-9b95-0c06747308c5",
@@ -369,7 +369,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1720,
+        1728,
         800
       ],
       "id": "ce03256f-2071-4683-a048-d3ae57e84ba9",
@@ -400,7 +400,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolThink",
       "typeVersion": 1,
       "position": [
-        1860,
+        1872,
         240
       ],
       "id": "065d6896-2356-4114-bc79-ef8fb660e9cb",
@@ -418,8 +418,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.9,
       "position": [
-        1240,
-        380
+        1248,
+        384
       ],
       "id": "0a48e4ad-47a3-4310-b2fe-be46e31cfbbc",
       "name": "Ideas AI Agent"
@@ -461,8 +461,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.9,
       "position": [
-        1640,
-        380
+        1648,
+        384
       ],
       "id": "0941fd17-11c1-46d1-bdb9-09feef74fe72",
       "name": "Prompts AI Agent"
@@ -475,7 +475,7 @@
       "typeVersion": 1.2,
       "position": [
         1680,
-        220
+        224
       ],
       "id": "ba16025c-8bad-478c-a070-6254b9f3ae70",
       "name": "Parser"
@@ -491,8 +491,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        1100,
-        380
+        1104,
+        384
       ],
       "id": "65038903-c6c3-4982-bbe1-7551ad076cd7",
       "name": "Schedule Trigger1"
@@ -602,7 +602,7 @@
       "typeVersion": 4.5,
       "position": [
         1520,
-        940
+        944
       ],
       "id": "270f93b5-562d-4207-b161-431257ba3897",
       "name": "Log Final Video",
@@ -637,7 +637,7 @@
       "typeVersion": 1.2,
       "position": [
         1360,
-        220
+        224
       ],
       "id": "77b0f034-8b53-4646-8e0e-f2c41759a8d3",
       "name": "Parser2"
@@ -664,8 +664,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1320,
-        520
+        1328,
+        528
       ],
       "id": "a2c740e2-d48e-4cad-8195-e7cb87cc2a31",
       "name": "Create Clips",
@@ -684,7 +684,7 @@
       "typeVersion": 1.1,
       "position": [
         1520,
-        520
+        528
       ],
       "id": "9253e603-ea23-46e5-9b2f-3529ff58b024",
       "name": "Wait for Clips",
@@ -700,8 +700,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1720,
-        520
+        1728,
+        528
       ],
       "id": "b6ef7880-337d-4233-a3a5-aa2048f0a01a",
       "name": "Get Clips",
@@ -717,27 +717,29 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1kFbUjSCOJNYqTxJJqRN0Wgv7gNycia8_8WhHcNkr4Ro",
+          "value": "1g3L0mA1nfOX-b521cIMv7xom-1MKLdKhanjwAWCILAY",
           "mode": "list",
-          "cachedResultName": "Seedance",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kFbUjSCOJNYqTxJJqRN0Wgv7gNycia8_8WhHcNkr4Ro/edit?usp=drivesdk"
+          "cachedResultName": "n7 | Seedance in n8n by RoboNuggets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1g3L0mA1nfOX-b521cIMv7xom-1MKLdKhanjwAWCILAY/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kFbUjSCOJNYqTxJJqRN0Wgv7gNycia8_8WhHcNkr4Ro/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1g3L0mA1nfOX-b521cIMv7xom-1MKLdKhanjwAWCILAY/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
             "idea": "={{ $json.output[0].Idea }}",
             "sound_prompt": "={{ $json.output[0].Sound }}",
-            "caption": "={{ $json.output[0].Caption }}",
-            "environment_prompt": "={{ $json.output[0].Environment }}"
+            "environment_prompt": "={{ $json.output[0].Environment }}",
+            "caption": "={{ $json.output[0].Caption }}"
           },
-          "matchingColumns": [],
+          "matchingColumns": [
+            "id"
+          ],
           "schema": [
             {
               "id": "id",
@@ -747,7 +749,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "idea",
@@ -756,8 +758,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "caption",
@@ -766,8 +767,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "production",
@@ -776,8 +776,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
+              "canBeUsedToMatch": true
             },
             {
               "id": "environment_prompt",
@@ -786,8 +785,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "sound_prompt",
@@ -796,8 +794,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "final_output",
@@ -806,8 +803,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
+              "canBeUsedToMatch": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -819,14 +815,14 @@
       "typeVersion": 4.5,
       "position": [
         1520,
-        380
+        384
       ],
       "id": "e003fc9b-a2c5-46c6-8466-40f97b00d807",
       "name": "Log the Idea",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "f0EK8GS1JVMgDnr2",
-          "name": "Google Sheets account"
+          "id": "enPLj41zFJf8eBLK",
+          "name": "far.fr@gmail"
         }
       }
     },
@@ -840,8 +836,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        680,
-        520
+        688,
+        528
       ],
       "id": "0339c467-5cda-4438-ac6f-887a39e3bf4d",
       "name": "Sticky Note10"
@@ -856,8 +852,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        740,
-        660
+        752,
+        672
       ],
       "id": "79a9ec5b-4aa0-40fc-bcf7-39dbf0129a49",
       "name": "Sticky Note13"
@@ -872,8 +868,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        580,
-        380
+        592,
+        384
       ],
       "id": "2552c512-1900-4e34-aec3-3e4adc7d4e88",
       "name": "Sticky Note14"
@@ -888,8 +884,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        980,
-        940
+        992,
+        944
       ],
       "id": "60818b89-dbcb-43b9-8e43-4cda823e4729",
       "name": "Sticky Note9"
@@ -904,7 +900,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        820,
+        832,
         800
       ],
       "id": "d832c443-8de4-4a51-9643-804564907d96",
@@ -918,6 +914,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-07-24T01:33:50.000Z",
-  "versionId": "4bb34d1e-f5b4-4bd0-94fc-99c333b48d3c"
+  "updatedAt": "2025-08-18T16:40:02.000Z",
+  "versionId": "9531a5df-b3cf-4885-a337-8ed5a719b703"
 }
