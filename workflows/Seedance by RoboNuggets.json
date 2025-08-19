@@ -271,8 +271,8 @@
       "name": "Create Sounds",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "OMXFhLPI4nBsb2SS",
-          "name": " Apify Header Auth"
+          "id": "IfGN1DiuZiRxptDN",
+          "name": "FAL Header Auth"
         }
       }
     },
@@ -293,8 +293,8 @@
       "name": "Get Sounds",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "OMXFhLPI4nBsb2SS",
-          "name": " Apify Header Auth"
+          "id": "IfGN1DiuZiRxptDN",
+          "name": "FAL Header Auth"
         }
       }
     },
@@ -320,7 +320,7 @@
       "typeVersion": 2,
       "position": [
         1200,
-        800
+        816
       ],
       "id": "6619bad9-90fb-4476-81ca-985f14dabc30",
       "name": "List Elements"
@@ -348,14 +348,14 @@
       "typeVersion": 4.2,
       "position": [
         1328,
-        800
+        816
       ],
       "id": "679ea226-721c-4a4b-9b95-0c06747308c5",
       "name": "Sequence Video",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "OMXFhLPI4nBsb2SS",
-          "name": " Apify Header Auth"
+          "id": "IfGN1DiuZiRxptDN",
+          "name": "FAL Header Auth"
         }
       }
     },
@@ -370,14 +370,14 @@
       "typeVersion": 4.2,
       "position": [
         1728,
-        800
+        816
       ],
       "id": "ce03256f-2071-4683-a048-d3ae57e84ba9",
       "name": "Get Final Video",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "OMXFhLPI4nBsb2SS",
-          "name": " Apify Header Auth"
+          "id": "IfGN1DiuZiRxptDN",
+          "name": "FAL Header Auth"
         }
       }
     },
@@ -389,7 +389,7 @@
       "typeVersion": 1.1,
       "position": [
         1520,
-        800
+        816
       ],
       "id": "db6b18ae-d95a-49af-8385-649ec777e8da",
       "name": "Wait for Final Video",
@@ -602,14 +602,14 @@
       "typeVersion": 4.5,
       "position": [
         1520,
-        944
+        960
       ],
       "id": "270f93b5-562d-4207-b161-431257ba3897",
       "name": "Log Final Video",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "f0EK8GS1JVMgDnr2",
-          "name": "Google Sheets account"
+          "id": "enPLj41zFJf8eBLK",
+          "name": "far.fr@gmail"
         }
       }
     },
@@ -672,7 +672,7 @@
       "credentials": {
         "httpHeaderAuth": {
           "id": "OMXFhLPI4nBsb2SS",
-          "name": " Apify Header Auth"
+          "name": "Wavespeed Header Auth"
         }
       }
     },
@@ -708,7 +708,7 @@
       "credentials": {
         "httpHeaderAuth": {
           "id": "OMXFhLPI4nBsb2SS",
-          "name": " Apify Header Auth"
+          "name": "Wavespeed Header Auth"
         }
       }
     },
@@ -749,7 +749,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "idea",
@@ -776,7 +776,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "environment_prompt",
@@ -803,7 +804,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -885,7 +887,7 @@
       "typeVersion": 1,
       "position": [
         992,
-        944
+        960
       ],
       "id": "60818b89-dbcb-43b9-8e43-4cda823e4729",
       "name": "Sticky Note9"
@@ -901,7 +903,7 @@
       "typeVersion": 1,
       "position": [
         832,
-        800
+        816
       ],
       "id": "d832c443-8de4-4a51-9643-804564907d96",
       "name": "Sticky Note"
@@ -914,6 +916,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-18T16:40:02.000Z",
-  "versionId": "9531a5df-b3cf-4885-a337-8ed5a719b703"
+  "updatedAt": "2025-08-19T15:49:43.000Z",
+  "versionId": "02ffcb9b-4a4d-402c-8a71-754276703f41"
 }
