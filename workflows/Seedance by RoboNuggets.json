@@ -236,7 +236,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1200,
+        1184,
         528
       ],
       "id": "8682a83f-d6d2-44e3-947d-7ae7df70b48f",
@@ -245,13 +245,29 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://queue.fal.run/fal-ai/mmaudio-v2 ",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
+        "url": "https://queue.fal.run/fal-ai/qwen-image-edit",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key c09a8de9-cdc6-4210-ab5a-cd082a116b21:65be56c540f218ea1adfe2c114bcf7b9"
+            }
+          ]
+        },
         "sendBody": true,
-        "contentType": "raw",
-        "rawContentType": "application/json",
-        "body": "= {\n        \"prompt\": \"ASMR Soothing sound effects. {{ $('Prompts AI Agent').item.json.output.Sound }}\",\n        \"duration\": 10,\n        \"video_url\": \"{{ $json.data.outputs[0] }}\"\n  }\n",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "prompt",
+              "value": "Change bag to apple macbook"
+            },
+            {
+              "name": "image_url",
+              "value": "https://v3.fal.media/files/koala/oei_-iPIYFnhdB8SxojND_qwen-edit-res.png"
+            }
+          ]
+        },
         "options": {
           "batching": {
             "batch": {
@@ -268,13 +284,7 @@
         672
       ],
       "id": "a7b64386-f7bc-448a-abcc-9389edb43297",
-      "name": "Create Sounds",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "IfGN1DiuZiRxptDN",
-          "name": "FAL Header Auth"
-        }
-      }
+      "name": "Create Sounds"
     },
     {
       "parameters": {
@@ -314,12 +324,12 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  {\n    video_urls: items.map(item => item.json.video.url)\n  }\n];"
+        "jsCode": "return [\n  {\n    video_urls: items.map(item => item.json.video?.url ?? null)\n  }\n];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1200,
+        1184,
         816
       ],
       "id": "6619bad9-90fb-4476-81ca-985f14dabc30",
@@ -602,7 +612,7 @@
       "typeVersion": 4.5,
       "position": [
         1520,
-        960
+        976
       ],
       "id": "270f93b5-562d-4207-b161-431257ba3897",
       "name": "Log Final Video",
@@ -832,13 +842,13 @@
       "parameters": {
         "content": "## | Step 1: Generate Clips",
         "height": 100,
-        "width": 500,
+        "width": 436,
         "color": 2
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        688,
+        704,
         528
       ],
       "id": "0339c467-5cda-4438-ac6f-887a39e3bf4d",
@@ -854,7 +864,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        752,
+        704,
         672
       ],
       "id": "79a9ec5b-4aa0-40fc-bcf7-39dbf0129a49",
@@ -864,13 +874,13 @@
       "parameters": {
         "content": "## INPUT: Starting Idea",
         "height": 100,
-        "width": 500,
+        "width": 388,
         "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        592,
+        704,
         384
       ],
       "id": "2552c512-1900-4e34-aec3-3e4adc7d4e88",
@@ -886,8 +896,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        992,
-        960
+        928,
+        976
       ],
       "id": "60818b89-dbcb-43b9-8e43-4cda823e4729",
       "name": "Sticky Note9"
@@ -902,7 +912,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        832,
+        752,
         816
       ],
       "id": "d832c443-8de4-4a51-9643-804564907d96",
@@ -916,6 +926,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-19T15:49:43.000Z",
-  "versionId": "02ffcb9b-4a4d-402c-8a71-754276703f41"
+  "updatedAt": "2025-08-20T07:56:10.000Z",
+  "versionId": "9edf7295-4d12-4616-9aa1-08a2f85573fd"
 }
