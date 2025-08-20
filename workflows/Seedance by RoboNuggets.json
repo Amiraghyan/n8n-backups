@@ -310,7 +310,7 @@
     },
     {
       "parameters": {
-        "amount": 60
+        "amount": 120
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
@@ -393,7 +393,7 @@
     },
     {
       "parameters": {
-        "amount": 60
+        "amount": 120
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
@@ -926,6 +926,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-20T07:56:10.000Z",
-  "versionId": "9edf7295-4d12-4616-9aa1-08a2f85573fd"
+  "updatedAt": "2025-08-20T08:36:55.000Z",
+  "versionId": "129bef2f-b77d-4ac3-b690-310f4af62044"
 }
