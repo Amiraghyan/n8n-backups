@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "Scrape url",
             "type": "main",
             "index": 0
           }
@@ -36,18 +36,7 @@
     },
     "AI Agent": {
       "main": [
-        [
-          {
-            "node": "Map website",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Scrape url",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Map website": {
@@ -82,7 +71,7 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.3,
       "position": [
-        208,
+        560,
         0
       ],
       "id": "088ad0a0-e812-462a-93f8-d28d377e46f9",
@@ -96,8 +85,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
-        416,
-        0
+        -288,
+        32
       ],
       "id": "5edca78a-7038-467c-bd37-63a7c79abded",
       "name": "AI Agent"
@@ -114,8 +103,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        288,
-        208
+        -416,
+        240
       ],
       "id": "e819e7ff-549d-4bab-8658-38c41bbd9eaf",
       "name": "OpenAI Chat Model",
@@ -131,8 +120,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        432,
-        208
+        -272,
+        240
       ],
       "id": "3aceff0f-eb63-4e83-9fc4-9b566ea2c380",
       "name": "Simple Memory"
@@ -146,8 +135,8 @@
       "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
       "typeVersion": 1,
       "position": [
-        768,
-        -160
+        0,
+        32
       ],
       "id": "a792b490-c6a1-451b-8191-a7579c527e3f",
       "name": "Map website",
@@ -206,8 +195,8 @@
       "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
       "typeVersion": 1,
       "position": [
-        1008,
-        112
+        1312,
+        128
       ],
       "id": "73b57810-aa77-466c-86b6-a63f3185a8c3",
       "name": "Extract Data",
@@ -226,8 +215,8 @@
       "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
       "typeVersion": 1.1,
       "position": [
-        480,
-        304
+        -112,
+        240
       ],
       "id": "f5823934-342f-40bd-a5f7-6a604f4a8295",
       "name": "MCP Client"
@@ -240,6 +229,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-19T15:33:20.000Z",
-  "versionId": "4dfd8669-aef2-469c-b8d0-a73e280e7ceb"
+  "updatedAt": "2025-08-20T16:44:56.000Z",
+  "versionId": "5db4d6ff-9ac4-41b1-afa7-b3afb3bead72"
 }
