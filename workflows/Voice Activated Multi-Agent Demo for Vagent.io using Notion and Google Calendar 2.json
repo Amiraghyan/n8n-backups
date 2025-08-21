@@ -1,33 +1,33 @@
 {
   "active": false,
   "connections": {
-    "Webhook": {
-      "main": [
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
         [
           {
-            "node": "Map Fields",
-            "type": "main",
+            "node": "Main Agent",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
       ]
     },
-    "Settings": {
-      "main": [
+    "calendarAgent": {
+      "ai_tool": [
         [
           {
-            "node": "Notion Task Agent",
-            "type": "main",
+            "node": "Main Agent",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "Settings1": {
+    "When chat message received": {
       "main": [
         [
           {
-            "node": "Google Calendar Agent",
+            "node": "Map Fields1",
             "type": "main",
             "index": 0
           }
@@ -45,12 +45,12 @@
         ]
       ]
     },
-    "Main Agent": {
-      "main": [
+    "Window Buffer Memory": {
+      "ai_memory": [
         [
           {
-            "node": "Exclude Previews from Speech",
-            "type": "main",
+            "node": "Main Agent",
+            "type": "ai_memory",
             "index": 0
           }
         ]
@@ -78,44 +78,22 @@
         ]
       ]
     },
-    "HTTP Request": {
-      "ai_tool": [
-        [
-          {
-            "node": "Notion Task Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "calendarAgent": {
-      "ai_tool": [
-        [
-          {
-            "node": "Main Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Book appointment": {
-      "ai_tool": [
-        [
-          {
-            "node": "Google Calendar Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Notion Task Agent": {
+    "Exclude Previews from Speech": {
       "main": [
         [
           {
-            "node": "Format output",
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Agent": {
+      "main": [
+        [
+          {
+            "node": "Exclude Previews from Speech",
             "type": "main",
             "index": 0
           }
@@ -133,44 +111,33 @@
         ]
       ]
     },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
+    "HTTP Request": {
+      "ai_tool": [
         [
           {
-            "node": "Google Calendar Agent",
-            "type": "ai_languageModel",
+            "node": "Notion Task Agent",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "OpenAI Chat Model2": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Main Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Window Buffer Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "Main Agent",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Calendar Agent": {
+    "Settings": {
       "main": [
         [
           {
-            "node": "Format output1",
+            "node": "Notion Task Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion Task Agent": {
+      "main": [
+        [
+          {
+            "node": "Format output",
             "type": "main",
             "index": 0
           }
@@ -188,17 +155,6 @@
         ]
       ]
     },
-    "Window Buffer Memory2": {
-      "ai_memory": [
-        [
-          {
-            "node": "Google Calendar Agent",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Get calendar availability": {
       "ai_tool": [
         [
@@ -210,22 +166,66 @@
         ]
       ]
     },
-    "When chat message received": {
+    "Book appointment": {
+      "ai_tool": [
+        [
+          {
+            "node": "Google Calendar Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar Agent": {
       "main": [
         [
           {
-            "node": "Map Fields1",
+            "node": "Format output1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Exclude Previews from Speech": {
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Google Calendar Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Settings1": {
       "main": [
         [
           {
-            "node": "Respond to Webhook",
+            "node": "Google Calendar Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "Google Calendar Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Map Fields",
             "type": "main",
             "index": 0
           }
@@ -233,11 +233,10 @@
       ]
     }
   },
-  "createdAt": "2025-04-19T20:41:19.487Z",
-  "id": "COlBpOkfEx7JtzM1",
-  "meta": {
-    "templateId": "2446"
-  },
+  "createdAt": "2025-08-21T00:15:56.928Z",
+  "id": "BtUbz83ys15WJZaP",
+  "isArchived": false,
+  "meta": null,
   "name": "Voice Activated Multi-Agent Demo for Vagent.io using Notion and Google Calendar 2",
   "nodes": [
     {
@@ -248,12 +247,12 @@
           "temperature": 0
         }
       },
-      "id": "af0765f4-75b5-445c-80d7-51b0aa180fe5",
+      "id": "986e4ae7-0ca9-4c33-b35f-7adcee97f829",
       "name": "OpenAI Chat Model2",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        820,
-        620
+        448,
+        384
       ],
       "typeVersion": 1
     },
@@ -261,12 +260,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "497c534e-e117-4592-b76f-bef424a7fd5a",
+      "id": "8303a84c-e023-499d-a853-ca576d8b332a",
       "name": "Respond to Webhook",
       "type": "n8n-nodes-base.respondToWebhook",
       "position": [
-        1500,
-        400
+        1120,
+        160
       ],
       "typeVersion": 1.1
     },
@@ -294,12 +293,12 @@
           ]
         }
       },
-      "id": "5b358850-cbc3-4a8c-b2b8-12e3b7aa1e44",
+      "id": "ec0cc804-0b84-41c1-b325-d8bb31bb2ed1",
       "name": "calendarAgent",
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "position": [
-        1060,
-        620
+        688,
+        384
       ],
       "typeVersion": 1.2
     },
@@ -308,12 +307,12 @@
         "public": true,
         "options": {}
       },
-      "id": "8bcc4b27-59b9-4ce3-8525-34221c10f11a",
+      "id": "580452ab-78fe-49d0-84a1-f42c71a371f4",
       "name": "When chat message received",
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "position": [
-        460,
-        480
+        80,
+        240
       ],
       "webhookId": "96e410fe-ef91-4767-aa9a-bf95ba50f972",
       "typeVersion": 1.1
@@ -342,12 +341,12 @@
           ]
         }
       },
-      "id": "0aa8e0ff-7ed3-4fef-9b7c-f2caa8f85612",
+      "id": "b907d2c7-5bc4-4260-b5fe-fbfd440de10f",
       "name": "taskAgent",
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "position": [
-        1180,
-        620
+        800,
+        384
       ],
       "typeVersion": 1.2
     },
@@ -357,12 +356,12 @@
         "sessionKey": "={{ $json.sessionId }}",
         "contextWindowLength": 15
       },
-      "id": "b46f4ed0-6de6-44ab-8b91-521b011d7869",
+      "id": "7baeaa6b-e045-42a1-8ee5-e27796e020ae",
       "name": "Window Buffer Memory",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        940,
-        620
+        560,
+        384
       ],
       "typeVersion": 1.2
     },
@@ -386,12 +385,12 @@
         },
         "options": {}
       },
-      "id": "e778c2bf-1681-418d-a434-d1a0cdeaa5d7",
+      "id": "c96af0fa-f2c9-4a89-8345-18feefb8b19a",
       "name": "Map Fields",
       "type": "n8n-nodes-base.set",
       "position": [
-        680,
-        320
+        304,
+        80
       ],
       "typeVersion": 3.4
     },
@@ -415,12 +414,12 @@
         },
         "options": {}
       },
-      "id": "c54d0fab-b25c-48fc-b027-dcdf78dd2b09",
+      "id": "5482259d-6228-48de-a343-434c4527a14f",
       "name": "Map Fields1",
       "type": "n8n-nodes-base.set",
       "position": [
-        680,
-        480
+        304,
+        240
       ],
       "typeVersion": 3.4
     },
@@ -444,12 +443,12 @@
         },
         "options": {}
       },
-      "id": "cefe6cc8-4a87-47c8-a518-c0bf06f96a2a",
+      "id": "c997a2ca-0720-4afd-9240-486334d6dbc8",
       "name": "Exclude Previews from Speech",
       "type": "n8n-nodes-base.set",
       "position": [
-        1280,
-        400
+        896,
+        160
       ],
       "typeVersion": 3.4
     },
@@ -461,12 +460,12 @@
           "systemMessage": "=# Role:\nYou are a helpful assistant. Your sole responsibility is to determine which tool to forward the original chat input to. Do not process, modify, or interpret the input or output in any way. Only route it to the correct tool.\n\n# Behavior:\nBe clear, very concise, and accurate in tool routing. Do not modify, interpret, or analyze the incoming input or the tool's response. If the request is ambiguous, ask for clarification regarding tool selection only.\n\n# Command:\nRoute all incoming requests to the available tools if they match their description.\nCheck the memory to route ongoing conversations correctly — only choose another tool if a new task has been requested or the context clearly has been switched. If the context has changed (e.g. you were asked to create a task before, but now the user asks to create an event), forget everything before the context switch.\n\nOnly call one tool at a time.\n\nDo not modify or alter the input before sending it to the tool or the output after receiving it from the tool. Simply pass through both input and output as they are.\n\n# Format:\nPass every response of each tool in raw format to the output. Do not modify, interpret, or add any information at all."
         }
       },
-      "id": "815eb1a4-ef2d-430d-8884-217164214440",
+      "id": "08bb6981-9faa-434b-a961-696c80b7d3fe",
       "name": "Main Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        900,
-        400
+        528,
+        160
       ],
       "typeVersion": 1.6
     },
@@ -477,12 +476,12 @@
           "temperature": 0
         }
       },
-      "id": "07b6d7e2-ab73-4f23-8dca-7c8b0309574c",
+      "id": "08dd9eae-cbed-4c1e-8f24-a9a584d763aa",
       "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        1520,
-        1100
+        1136,
+        864
       ],
       "typeVersion": 1
     },
@@ -516,12 +515,12 @@
           ]
         }
       },
-      "id": "882a93d8-886e-465d-9c81-cc8069abd281",
+      "id": "eb1c7f37-da13-4bf6-b60f-8e1fc64fa371",
       "name": "HTTP Request",
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "position": [
-        1760,
-        1100
+        1376,
+        864
       ],
       "typeVersion": 1.1
     },
@@ -551,12 +550,12 @@
         },
         "options": {}
       },
-      "id": "e19aad2c-132e-454f-a091-334f128b0636",
+      "id": "84358bb9-3906-49fe-9a4d-7a6d1ba34fa4",
       "name": "Settings",
       "type": "n8n-nodes-base.set",
       "position": [
-        1320,
-        880
+        944,
+        640
       ],
       "typeVersion": 3.4
     },
@@ -574,12 +573,12 @@
         },
         "options": {}
       },
-      "id": "0fe6aa57-7a64-40f4-af2d-30f4286b8aee",
+      "id": "ba950f73-eb14-47ca-9aee-d5750a56f3c8",
       "name": "Format output",
       "type": "n8n-nodes-base.set",
       "position": [
-        1920,
-        880
+        1536,
+        640
       ],
       "typeVersion": 3.4
     },
@@ -589,12 +588,12 @@
           "systemMessage": "=# Role:\nYou are a helpful assistant. Your job is to create Tasks in Notion.\n\n# Behavior:\nBe clear, very concise, efficient, and accurate in responses. If the request is ambiguous, ask for clarification.\n\n# Command:\nYou create tasks in Notion. Each task consists of the mandatory fields title, description and priority. Priority is an enum value consisting of 'do first', 'important' and 'urgent'.\n\n# Ask questions:\nIf required information is missing, ask the user about the missing information and only the missing ones. Ask priority as last.\n\nIf the user only describes the task within a few words, use that as the title. In that case, ask the user, if he wants to add a more detailed description. If he responds with \"No\", leave the description empty when creating the task.\nOn the other hand if the user describes the task more detailed from the beginning, use that as the description and create a short meaningful title for that. \n\nIf you have all the required information, ask for approval, before creating the task. In that case, always return a draft, containing the title, description and priority.\n\n# Format:\nThe output of the draft for approval should always be in markdown and in this format (placeholders in angle brackets):\n\nHere is the drafted task. Shall I create it?\n\n> **<title>**  \n> *<priority>*  \n>  \n> <description (optional)>\n\n# Responses:\nAfter successfully created event, only respond with \"Okay, done.\""
         }
       },
-      "id": "b2170997-5ebb-4261-92ce-70b33d68931f",
+      "id": "9da66277-4037-4f7f-97bf-dec5c23698e1",
       "name": "Notion Task Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        1540,
-        880
+        1168,
+        640
       ],
       "typeVersion": 1.6
     },
@@ -604,12 +603,12 @@
         "sessionKey": "={{ $json.sessionId }}-{{ $workflow.id }}",
         "contextWindowLength": 15
       },
-      "id": "a83fdec9-8c0e-45d0-8439-41c23440a21e",
+      "id": "9d9182df-0c05-44d1-b24e-0f1e2f232cf9",
       "name": "Window Buffer Memory1",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        1640,
-        1100
+        1264,
+        864
       ],
       "typeVersion": 1.2
     },
@@ -624,12 +623,12 @@
         "specifyBody": "json",
         "jsonBody": "={\n  \"timeMin\": \"{timeMin}\",\n  \"timeMax\": \"{timeMax}\",\n  \"timeZone\": \"{{ $json.timeZone }}\",\n  \"groupExpansionMax\": 20,\n  \"calendarExpansionMax\": 10,\n  \"items\": [\n    {\n      \"id\": \"{{ $json.calendarID }}\"\n    }\n  ]\n}"
       },
-      "id": "80ae1a6f-5811-407a-a287-5150b8ecba22",
+      "id": "1e3605c9-1e45-437f-b10e-3d754445cb23",
       "name": "Get calendar availability",
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "position": [
-        820,
-        1100
+        448,
+        864
       ],
       "typeVersion": 1
     },
@@ -660,12 +659,12 @@
           ]
         }
       },
-      "id": "1d44a1eb-1b14-4ce8-b874-673db7be482c",
+      "id": "d2876644-a691-44dc-817d-91068efb8abf",
       "name": "Book appointment",
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "position": [
-        940,
-        1100
+        560,
+        864
       ],
       "typeVersion": 1
     },
@@ -675,12 +674,12 @@
           "systemMessage": "=# Role:\nYou are a helpful assistant. Your job is to schedule Google Calendar Events.\n\n# Behavior:\nBe clear, very concise, efficient, and accurate in responses. If the request is ambiguous, ask for clarification.\n\n# Command:\nYou create Google Calendar events. Each event requires a title, date and time. The default duration - if not provided by the user - is 1 hour.\n\nBefore creating even showing a draft of the event, use the provided tool to check for the availibilty in the calendar. If there are any conflicts, tell the user about the timespans which are blocked, propose another time slot close by and ask the user if he would like to change the time to that.\n\n# Ask questions:\nIf required information is missing, ask the user about the missing information and only the missing ones.\n\nIf you have all the required information, ask for approval, before creating the event. In that case, always return a draft, containing the title, date and time.\n\n# Format:\nThe output of the draft for approval should always be in markdown and in this format (placeholders in angle brackets):\n\nHere is the event. Shall I create it?\n\n> **<title>**  \n> <date e.g., September 15, 2024>  \n> <time e.g., 10am-12pm>\n\n# Responses:\nAfter successfully created event, only respond with \"You are all set.\"\n\n# Additional Guidelines:\nToday’s date is {{ $now.setZone($json.timeZone).format('dd LLL yyyy') }}.\n"
         }
       },
-      "id": "d814abe2-fe6f-43ba-99b7-8380ed78dd26",
+      "id": "d81ee236-8a64-42c6-bd5b-994e430ef44e",
       "name": "Google Calendar Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        660,
-        880
+        288,
+        640
       ],
       "typeVersion": 1.6
     },
@@ -690,12 +689,12 @@
           "temperature": 0
         }
       },
-      "id": "9c4738b9-c7bc-4e90-9dc3-7f99822a19ca",
+      "id": "18734fd3-94fa-473b-9374-7a5c769b8611",
       "name": "OpenAI Chat Model1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        580,
-        1100
+        208,
+        864
       ],
       "typeVersion": 1
     },
@@ -731,12 +730,12 @@
         },
         "options": {}
       },
-      "id": "40b9b4e0-0e84-43fa-a4bc-a5eb99988cbd",
+      "id": "661dd770-889a-42c1-a38f-75fd0f71b9d5",
       "name": "Settings1",
       "type": "n8n-nodes-base.set",
       "position": [
-        440,
-        880
+        64,
+        640
       ],
       "typeVersion": 3.4
     },
@@ -754,12 +753,12 @@
         },
         "options": {}
       },
-      "id": "4bafef7b-3474-42c0-9f21-5c0c02cd9e73",
+      "id": "cf426717-3325-4574-b88e-8d9841dff02c",
       "name": "Format output1",
       "type": "n8n-nodes-base.set",
       "position": [
-        1040,
-        880
+        656,
+        640
       ],
       "typeVersion": 3.4
     },
@@ -769,12 +768,12 @@
         "sessionKey": "={{ $json.sessionId }}-{{ $workflow.id }}",
         "contextWindowLength": 15
       },
-      "id": "6ebcf3cd-8ff2-4605-b4b6-69155918b290",
+      "id": "c76fc386-0b25-40d1-9b7b-6135a85a386a",
       "name": "Window Buffer Memory2",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        700,
-        1100
+        320,
+        864
       ],
       "typeVersion": 1.2
     },
@@ -784,12 +783,12 @@
         "height": 469.7141529250314,
         "width": 857.6171119733089
       },
-      "id": "1269083c-aac7-4a4f-9b3b-bb82a670ff94",
+      "id": "c0691fee-efb3-4cd9-9a2e-2d5d03fa34e3",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        800
+        0,
+        560
       ],
       "typeVersion": 1
     },
@@ -799,12 +798,12 @@
         "height": 469.7141529250314,
         "width": 859.4283058500632
       },
-      "id": "48df65e9-4628-4b5d-bbad-a8a68289d8b8",
+      "id": "eedf15e4-96fe-4368-82e9-eeace707253f",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1260,
-        800
+        880,
+        560
       ],
       "typeVersion": 1
     },
@@ -814,12 +813,12 @@
         "height": 537.6599060701709,
         "width": 1323.0939382992326
       },
-      "id": "48f050ec-3bda-4105-a859-e8f2039abe8e",
+      "id": "dbbd6380-b597-4452-abe6-d9684cafed04",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        0,
+        0
       ],
       "typeVersion": 1
     },
@@ -830,12 +829,12 @@
         "width": 398.5850611544016,
         "color": 5
       },
-      "id": "c768a760-9511-4543-b3ea-f1d83c263098",
+      "id": "eb25821e-cc4c-4eba-bb79-e01863cb1bde",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1720,
-        240
+        1344,
+        0
       ],
       "typeVersion": 1
     },
@@ -847,12 +846,12 @@
         "responseMode": "responseNode",
         "options": {}
       },
-      "id": "42abacd3-02ba-466e-a8d4-f1c2f5c96c00",
+      "id": "1f3bb764-dd71-4c29-af6f-8b2b008887f1",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "position": [
-        460,
-        320
+        80,
+        80
       ],
       "webhookId": "46116445-3b13-48c0-9a38-cd034bee92ac",
       "typeVersion": 2
@@ -862,9 +861,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T00:15:56.932Z",
+      "updatedAt": "2025-08-21T00:15:56.932Z",
+      "role": "workflow:owner",
+      "workflowId": "BtUbz83ys15WJZaP",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:25:23.000Z",
-  "versionId": "96a7a4fd-3dcc-4756-9abf-b44150d28715"
+  "updatedAt": "2025-08-21T00:15:56.000Z",
+  "versionId": "7f3221e1-8967-4a80-b58c-45a59862abc0"
 }
