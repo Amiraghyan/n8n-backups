@@ -1,0 +1,242 @@
+{
+  "active": false,
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Scrape using HTML API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Extract All Meeting Rows": {
+      "main": [
+        [
+          {
+            "node": "3. Split Into Individual Rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3. Split Into Individual Rows": {
+      "main": [
+        [
+          {
+            "node": "4. Filter Out Header Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4. Filter Out Header Row": {
+      "main": [
+        [
+          {
+            "node": "5. Extract Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5. Extract Clean Data": {
+      "main": [
+        [
+          {
+            "node": "6. Append to Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape using HTML API": {
+      "main": [
+        [
+          {
+            "node": "2. Extract All Meeting Rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-18T16:57:56.921Z",
+  "id": "6yxknyRwt3BNd8kG",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ScrapeBee",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v2/scrape",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "=json",
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "jsonBody": "={\n    \"url\": \"https://aaphoenix.org/meetings/\",\n    \"pageOptions\": {\n        \"includeHtml\": true\n    }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        0
+      ],
+      "id": "6c33114d-33ac-41df-b5c2-94f6adb18fb9",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "pcPE5FrGKPAwXIfT",
+          "name": "FireCrawl Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "16da9e23-aaf0-4a84-ba22-886bd5bfedf4",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        832,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "sourceData": "property",
+        "options": {}
+      },
+      "id": "5a5307e3-d56a-4990-8310-9062ddbb1bd4",
+      "name": "2. Extract All Meeting Rows",
+      "type": "n8n-nodes-base.htmlExtract",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ $json.rows }}",
+        "options": {}
+      },
+      "id": "fc2b11eb-945a-43e7-afb8-1ae24fc0b025",
+      "name": "3. Split Into Individual Rows",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 2,
+      "position": [
+        1792,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.html }}",
+              "operation": "notContains",
+              "value2": "<th"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "98b9af62-4e75-47e8-b2b1-0ca36a8cf54a",
+      "name": "4. Filter Out Header Row",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        2032,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "sourceData": "property",
+        "options": {}
+      },
+      "id": "3bacf9bd-9291-492b-8978-1cc580e0fe5a",
+      "name": "5. Extract Clean Data",
+      "type": "n8n-nodes-base.htmlExtract",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": "",
+        "sheetName": ""
+      },
+      "id": "cec51a93-3e39-4f20-a186-fc16ccebd284",
+      "name": "6. Append to Google Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        2480,
+        368
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "https://aaphoenix.org/meetings/",
+        "additionalFields": {
+          "renderJs": true
+        }
+      },
+      "type": "n8n-nodes-scrapingbee.ScrapingBee",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        368
+      ],
+      "id": "87b304dd-560d-4484-b268-20f08aa5bebd",
+      "name": "Scrape using HTML API",
+      "credentials": {
+        "ScrapingBeeApi": {
+          "id": "efhAkVEy1UFx2Soj",
+          "name": "ScrapingBee API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-08-18T16:57:56.926Z",
+      "updatedAt": "2025-08-18T16:57:56.926Z",
+      "role": "workflow:owner",
+      "workflowId": "6yxknyRwt3BNd8kG",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-21T04:17:14.000Z",
+  "versionId": "355bf1ae-c595-48b6-966b-05e8058af3a7"
+}
