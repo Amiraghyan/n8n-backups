@@ -1,12 +1,100 @@
 {
   "active": false,
   "connections": {
+    "Email Trigger (IMAP)": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Email Summarization Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek R1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Email Summarization Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qdrant Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Write email",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Summarization Chain": {
+      "main": [
+        [
+          {
+            "node": "Set Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write email": {
+      "main": [
+        [
+          {
+            "node": "Send Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "OpenAI": {
       "ai_languageModel": [
         [
           {
             "node": "Write email",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Email": {
+      "main": [
+        [
+          {
+            "node": "Write email",
+            "type": "main",
             "index": 0
           }
         ]
@@ -30,28 +118,6 @@
         ]
       ]
     },
-    "Markdown": {
-      "main": [
-        [
-          {
-            "node": "Email Summarization Chain",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set Email": {
-      "main": [
-        [
-          {
-            "node": "Write email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Send Draft": {
       "main": [
         [
@@ -62,91 +128,24 @@
           }
         ]
       ]
-    },
-    "DeepSeek R1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Email Summarization Chain",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Write email": {
-      "main": [
-        [
-          {
-            "node": "Send Draft",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Embeddings OpenAI": {
-      "ai_embedding": [
-        [
-          {
-            "node": "Qdrant Vector Store",
-            "type": "ai_embedding",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Qdrant Vector Store": {
-      "ai_tool": [
-        [
-          {
-            "node": "Write email",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Email Trigger (IMAP)": {
-      "main": [
-        [
-          {
-            "node": "Markdown",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Email Summarization Chain": {
-      "main": [
-        [
-          {
-            "node": "Set Email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
-  "createdAt": "2025-05-04T03:16:16.055Z",
-  "id": "aRg4GSiLXWxbqMLd",
-  "meta": {
-    "templateId": "2861"
-  },
+  "createdAt": "2025-08-21T01:11:10.457Z",
+  "id": "5NvsKzoyDRVrdlNz",
+  "isArchived": false,
+  "meta": null,
   "name": "AI-powered email processing autoresponder and response approval (Yes/No)",
   "nodes": [
     {
       "parameters": {
         "options": {}
       },
-      "id": "06a098db-160b-45f7-aeac-a73ef868148e",
+      "id": "6ec32b66-0002-4096-9431-8c2f2fda4be2",
       "name": "Email Trigger (IMAP)",
       "type": "n8n-nodes-base.emailReadImap",
       "position": [
-        420,
-        820
+        -672,
+        432
       ],
       "typeVersion": 2
     },
@@ -155,12 +154,12 @@
         "html": "={{ $json.textHtml }}",
         "options": {}
       },
-      "id": "9589443b-efb7-4e0d-bafc-0be9858a4755",
+      "id": "b246221d-a0eb-4e15-9467-cc3ef1b597f6",
       "name": "Markdown",
       "type": "n8n-nodes-base.markdown",
       "position": [
-        640,
-        820
+        -464,
+        432
       ],
       "typeVersion": 1
     },
@@ -174,12 +173,12 @@
         },
         "options": {}
       },
-      "id": "8de7b2f3-bf75-4f3c-a1ee-eec047a7b82e",
+      "id": "d26d3963-83f4-4889-aafc-9671f7d8d3c3",
       "name": "DeepSeek R1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        840,
-        1000
+        -256,
+        608
       ],
       "typeVersion": 1.2
     },
@@ -191,12 +190,12 @@
         "html": "={{ $('Write email').item.json.output }}",
         "options": {}
       },
-      "id": "babf37dc-99ca-439a-b094-91c52799b8df",
+      "id": "9d6bafa1-5f1a-48f0-ac98-c5f1ea256bb9",
       "name": "Send Email",
       "type": "n8n-nodes-base.emailSend",
       "position": [
-        2440,
-        800
+        1344,
+        400
       ],
       "webhookId": "f84fcde7-6aac-485a-9a08-96a35955af49",
       "typeVersion": 2.1
@@ -214,12 +213,12 @@
         "includeDocumentMetadata": false,
         "options": {}
       },
-      "id": "ebeb986d-053a-420d-8482-ee00e75f2f10",
+      "id": "abd2e559-474c-4657-b4f8-983d7275ee81",
       "name": "Qdrant Vector Store",
       "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
       "position": [
-        1780,
-        1120
+        688,
+        720
       ],
       "typeVersion": 1
     },
@@ -227,12 +226,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "ccc3d026-bfa3-4fda-be0a-ef70bf831aa7",
+      "id": "4977dbac-3672-4b05-a1d5-98e8981e7547",
       "name": "Embeddings OpenAI",
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "position": [
-        1780,
-        1300
+        688,
+        912
       ],
       "typeVersion": 1.2
     },
@@ -249,12 +248,12 @@
           }
         }
       },
-      "id": "1726aac9-a77d-4f19-8c07-70b032c3abeb",
+      "id": "b3351c9a-aae2-42d4-a2e2-6d04d47b5aec",
       "name": "Email Summarization Chain",
       "type": "@n8n/n8n-nodes-langchain.chainSummarization",
       "position": [
-        860,
-        820
+        -240,
+        432
       ],
       "typeVersion": 2
     },
@@ -267,12 +266,12 @@
           "systemMessage": "You are an expert at answering emails. You need to answer them professionally based on the information you have. This is a business email. Be concise and never exceed 100 words. Only the body of the email, not create the subject.\n\nIt must be in HTML format and you can insert (if you think it is appropriate) only HTML characters such as <br>, <b>, <i>, <p> where necessary."
         }
       },
-      "id": "81b889d0-e724-4c1f-9ce3-7593c796aaaf",
+      "id": "73a411e2-4493-43b9-89be-f0943bb0011d",
       "name": "Write email",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        1580,
-        820
+        480,
+        432
       ],
       "typeVersion": 1.7
     },
@@ -286,12 +285,12 @@
         },
         "options": {}
       },
-      "id": "cf38e319-59b3-490e-b841-579afc9fbc02",
+      "id": "fca3c5a2-f145-451b-8bee-4dcc5f372c54",
       "name": "OpenAI",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        1580,
-        1120
+        480,
+        720
       ],
       "typeVersion": 1.2
     },
@@ -309,12 +308,12 @@
         },
         "options": {}
       },
-      "id": "19842e5f-c372-4dfd-b860-87dc5f00b1af",
+      "id": "63a6a7fb-ab6a-4471-95a6-ac29d67a0d1c",
       "name": "Set Email",
       "type": "n8n-nodes-base.set",
       "position": [
-        1360,
-        820
+        256,
+        432
       ],
       "typeVersion": 3.4
     },
@@ -345,12 +344,12 @@
           "ignoreCase": false
         }
       },
-      "id": "2cf7a9af-c5e8-45dd-bda5-01c562a0defb",
+      "id": "921e1b9a-2f28-412f-b50f-99e4e51b1539",
       "name": "Approve?",
       "type": "n8n-nodes-base.if",
       "position": [
-        2160,
-        820
+        1056,
+        432
       ],
       "typeVersion": 2.2
     },
@@ -361,12 +360,12 @@
         "width": 580,
         "color": 3
       },
-      "id": "08cabec6-9840-4214-8315-b877c86794bf",
+      "id": "36312dd6-e1f2-468f-8fb5-6467b75fbd8d",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -720,
+        -160
       ],
       "typeVersion": 1
     },
@@ -375,12 +374,12 @@
         "content": "Convert email to Markdown format for better understanding of LLM models",
         "height": 240
       },
-      "id": "80692c8f-e236-43ac-aad2-91bd90f40065",
+      "id": "00d971c3-d698-415f-bdfe-a8a1f80dfe5e",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        560,
-        740
+        -544,
+        352
       ],
       "typeVersion": 1
     },
@@ -390,12 +389,12 @@
         "height": 240,
         "width": 320
       },
-      "id": "e6957fde-bf05-4b67-aa0e-44c575fca04d",
+      "id": "7ae264c2-6e40-4c91-b6a8-dda3244dc622",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        840,
-        740
+        -256,
+        352
       ],
       "typeVersion": 1
     },
@@ -405,12 +404,12 @@
         "height": 240,
         "width": 340
       },
-      "id": "7cfba59f-83ce-4f0b-b54a-b2c11d58fd82",
+      "id": "a13cdc28-2956-4b6a-b1df-950d5f4e22cd",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1540,
-        740
+        448,
+        352
       ],
       "typeVersion": 1
     },
@@ -427,12 +426,12 @@
         },
         "options": {}
       },
-      "id": "28c4bd00-6a47-422f-a50a-935f3724ba01",
+      "id": "d183e78e-6c52-4e21-a095-2271a5525b66",
       "name": "Send Draft",
       "type": "n8n-nodes-base.gmail",
       "position": [
-        1940,
-        820
+        848,
+        432
       ],
       "webhookId": "d6dd2e7c-90ea-4b65-9c64-523d2541a054",
       "typeVersion": 2.1
@@ -443,12 +442,12 @@
         "height": 360,
         "color": 4
       },
-      "id": "0aae1689-cee7-403a-8640-396db32eceed",
+      "id": "48e8ef17-0280-4818-8712-e0cb6a6d9746",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1900,
-        620
+        800,
+        224
       ],
       "typeVersion": 1
     }
@@ -457,9 +456,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T01:11:10.460Z",
+      "updatedAt": "2025-08-21T01:11:10.460Z",
+      "role": "workflow:owner",
+      "workflowId": "5NvsKzoyDRVrdlNz",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-04T04:08:46.000Z",
-  "versionId": "a0be5f66-2436-4adc-8aaf-9d74311ccd8d"
+  "updatedAt": "2025-08-21T01:12:29.000Z",
+  "versionId": "107d941d-33d3-4537-9997-8ad5b2861e3e"
 }
