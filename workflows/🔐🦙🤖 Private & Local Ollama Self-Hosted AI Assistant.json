@@ -1,216 +1,818 @@
 {
   "active": false,
   "connections": {
-    "Ollama Model": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
       "ai_languageModel": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "LLM Chain - Step 1",
             "type": "ai_languageModel",
             "index": 0
           }
         ]
       ]
     },
-    "JSON to Object": {
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Chain - Step 2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Chain - Step 3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Chain - Step 4",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
       "main": [
         [
           {
-            "node": "Structured Response",
+            "node": "All LLM steps here - sequentially",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge output with initial prompts1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Basic LLM Chain": {
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "All LLM steps here - sequentially",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean memory",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean memory": {
       "main": [
         [
           {
-            "node": "JSON to Object",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Error Response",
+            "node": "Initial prompts",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "When chat message received": {
+    "Initial prompts": {
       "main": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Reshape",
             "type": "main",
             "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Reshape": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "All LLM steps here - sequentially",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "LLM steps - parallel",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge output with initial prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain4",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CONNECT ME": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Step 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CONNECT ME1": {
+      "main": [
+        [
+          {
+            "node": "Clean memory",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CONNECT ME2": {
+      "main": [
+        [
+          {
+            "node": "Initial prompts1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial prompts1": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Chain - Step 1": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Step 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Chain - Step 2": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Step 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Chain - Step 3": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Step 4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "All LLM steps here - sequentially": {
+      "main": [
+        [
+          {
+            "node": "Merge output with initial prompts1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "LLM steps - parallel": {
+      "main": [
+        [
+          {
+            "node": "Merge output with initial prompts",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
     }
   },
-  "createdAt": "2025-05-04T03:41:07.548Z",
-  "id": "4nG2zwdpoBjGV7Ty",
-  "meta": {
-    "templateId": "2729"
-  },
+  "createdAt": "2025-08-21T00:06:33.481Z",
+  "id": "8Q2DG0uZ4Fz65tjt",
+  "isArchived": false,
+  "meta": null,
   "name": "🔐🦙🤖 Private & Local Ollama Self-Hosted AI Assistant",
   "nodes": [
     {
+      "parameters": {},
+      "id": "5f10316b-35bd-4ae7-aa3e-b53532e22efd",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -752,
+        832
+      ],
+      "typeVersion": 1
+    },
+    {
       "parameters": {
+        "url": "https://blog.n8n.io/",
         "options": {}
       },
-      "id": "9560e89b-ea08-49dc-924e-ec8b83477340",
-      "name": "When chat message received",
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "id": "67196bce-b29c-4e43-ac6b-7c53a9064bd0",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
       "position": [
-        1040,
-        680
+        -560,
+        832
       ],
-      "webhookId": "4d06a912-2920-489c-a33c-0e3ea0b66745",
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.data }}",
+        "destinationKey": "markdown",
+        "options": {}
+      },
+      "id": "c9ef4fa7-d49f-4fc1-9a6c-19bf244fb53a",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "position": [
+        -352,
+        832
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Connect to one of the blue sections -->\n## This can be anything:\n- Chat input\n- Trigger from external system\n- CRON-scheduled event",
+        "height": 360,
+        "width": 700,
+        "color": 4
+      },
+      "id": "63478a73-b4f4-48aa-884c-4a64b9091ab2",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -800,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {
+          "temperature": 0.5
+        }
+      },
+      "id": "5682a734-f8e8-4638-b7a7-379907c0d3dc",
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "position": [
+        496,
+        272
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {
+          "temperature": 0.5
+        }
+      },
+      "id": "0e875a6f-0b34-40b8-982a-6dc35d13cd10",
+      "name": "Anthropic Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "position": [
+        864,
+        272
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {
+          "temperature": 0.5
+        }
+      },
+      "id": "621a9e5f-7418-4822-993e-d0a8c7dc9209",
+      "name": "Anthropic Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "position": [
+        1216,
+        272
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {
+          "temperature": 0.5
+        }
+      },
+      "id": "e1439848-4d76-4030-91da-d81b16fa7011",
+      "name": "Anthropic Chat Model3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "position": [
+        1584,
+        272
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "id": "353b43f7-bd72-4086-8fe5-f28aabae80b1",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1488,
+        672
+      ],
+      "typeVersion": 3.1
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "fixed_session",
+        "contextWindowLength": 10
+      },
+      "id": "48229af6-f28d-455b-ad9a-e58beac4eadf",
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        1728,
+        1088
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "id": "b67c96c2-a9b5-4032-ab49-6280a37ec713",
+      "name": "Clean memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "position": [
+        544,
+        784
+      ],
       "typeVersion": 1.1
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "=Provide the users prompt and response as a JSON object with two fields:\n- Prompt\n- Response\n\nAvoid any preample or further explanation.\n\nThis is the question: {{ $json.chatInput }}"
-      },
-      "id": "c7919677-233f-4c48-ba01-ae923aef511e",
-      "name": "Basic LLM Chain",
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "position": [
-        1400,
-        680
-      ],
-      "typeVersion": 1.5,
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "model": "llama3.2:latest",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84a50c9c-2265-4dd6-a774-efc852615862",
+              "name": "system_prompt",
+              "type": "string",
+              "value": "You are a helpful assistant"
+            },
+            {
+              "id": "559f19f7-042c-465e-b85f-ab52cfbab04a",
+              "name": "step1",
+              "type": "string",
+              "value": "What is on this page?"
+            },
+            {
+              "id": "6791cd09-c5f7-48c8-b753-8d383db6863f",
+              "name": "step2",
+              "type": "string",
+              "value": "List all authors on this page"
+            },
+            {
+              "id": "1f92ac04-e5dd-4161-afde-14562aea454c",
+              "name": "step3",
+              "type": "string",
+              "value": "List all posts on this page"
+            },
+            {
+              "id": "ad8ee0b0-fa7d-4f4a-85a8-82d0d0dc0a40",
+              "name": "step4",
+              "type": "string",
+              "value": "Make a bold funny joke based on the content on this page"
+            }
+          ]
+        },
         "options": {}
       },
-      "id": "b9676a8b-f790-4661-b8b9-3056c969bdf5",
-      "name": "Ollama Model",
-      "type": "@n8n/n8n-nodes-langchain.lmOllama",
+      "id": "84a5065a-2cc2-4a4c-850a-8644c61ccdf5",
+      "name": "Initial prompts",
+      "type": "n8n-nodes-base.set",
       "position": [
-        1500,
-        960
+        928,
+        784
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "system_prompt",
+        "options": {}
+      },
+      "id": "d2c49d2b-bcf9-4b92-8979-0fa810c8796f",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        1280,
+        784
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "# 🦙 Ollama Chat Workflow\n\nA simple N8N workflow that integrates Ollama LLM for chat message processing and returns a structured JSON object.\n\n## Overview\nThis workflow creates a chat interface that processes messages using the Llama 3.2 model through Ollama. When a chat message is received, it gets processed through a basic LLM chain and returns a response.\n\n## Components\n- **Trigger Node**\n- **Processing Node**\n- **Model Node**\n- **JSON to Object Node**\n- **Structured Response Node**\n- **Error Response Node**\n\n## Workflow Structure\n1. The chat trigger node receives incoming messages\n2. Messages are passed to the Basic LLM Chain\n3. The Ollama Model processes the input using Llama 3.2\n4. Responses are returned through the chain\n\n## Prerequisites\n- N8N installation\n- Ollama setup with Llama 3.2 model\n- Valid Ollama API credentials\n\n## Configuration\n1. Set up the Ollama API credentials in N8N\n2. Ensure the Llama 3.2 model is available in your Ollama installation\n\n",
-        "height": 860,
-        "width": 520,
-        "color": 4
+        "mode": "raw",
+        "jsonOutput": "={ \"data\" : {{ Object.entries($json).filter(([key]) => key !== \"system_prompt\").map(([key, value]) => ({ step: key, instruction: value })) }}\n}",
+        "includeOtherFields": true,
+        "include": "selected",
+        "includeFields": "system_prompt",
+        "options": {}
       },
-      "id": "61dfcda5-083c-43ff-8451-b2417f1e4be4",
-      "name": "Sticky Note",
-      "type": "n8n-nodes-base.stickyNote",
+      "id": "791ed393-4069-4b8c-953e-ac723f5a7536",
+      "name": "Reshape",
+      "type": "n8n-nodes-base.set",
       "position": [
-        380,
-        240
+        1104,
+        784
       ],
-      "typeVersion": 1
+      "typeVersion": 3.4
     },
     {
       "parameters": {
-        "content": "## Model Node\n- Name: Ollama Model\n- Type: LangChain Ollama Integration\n- Model: llama3.2:latest\n- Purpose: Provides the language model capabilities",
-        "height": 200,
-        "width": 560
+        "content": "# An array of prompts here",
+        "height": 240,
+        "width": 540
       },
-      "id": "64f60ee1-7870-461e-8fac-994c9c08b3f9",
+      "id": "bfedf126-a150-439e-87a1-24a5a8b5ea98",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1100,
-        900
+        880,
+        704
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "## Trigger Node\n- Name: When chat message received\n- Type: Chat Trigger\n- Purpose: Initiates the workflow when a new chat message arrives",
-        "height": 400,
-        "width": 280,
-        "color": 6
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {
+          "temperature": 0.5,
+          "thinking": false
+        }
       },
-      "id": "bb46210d-450c-405b-a451-42458b3af4ae",
+      "id": "b33350ce-1cc0-4bbc-adab-cb7517feabd6",
+      "name": "Anthropic Chat Model4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "position": [
+        1648,
+        912
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "49bff323-7c08-46aa-a6db-02454d0793aa",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        896,
+        1424
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "content": "## Make sure URL matches\n### ⚠️ Cloud users!\nReplace `{{ $env.WEBHOOK_URL }}` \nwith your n8n instance URL",
+        "height": 520,
+        "width": 320
+      },
+      "id": "2bb8abd7-9425-44d9-8a39-97604a0b0ec6",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        960,
-        460
+        1088,
+        1328
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "## Processing Node\n- Name: Basic LLM Chain\n- Type: LangChain LLM Chain\n- Purpose: Handles the processing of messages through the language model and returns a structured JSON object.\n\n",
-        "height": 620,
-        "width": 500,
-        "color": 3
+        "promptType": "define",
+        "text": "={{ $json.body.userprompt }}\n\nHere's page data:\n~~~~\n{{ $json.body.markdown }}\n~~~~"
       },
-      "id": "7f21b9e6-6831-4117-a2e2-9c9fb6edc492",
+      "id": "b6faef35-08c7-4623-a8c2-f3d26fcc1d36",
+      "name": "Basic LLM Chain4",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "position": [
+        1488,
+        1600
+      ],
+      "typeVersion": 1.5
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "userprompt",
+        "options": {}
+      },
+      "id": "0f3a2614-aabf-43a5-bd2c-e866ba4c17d4",
+      "name": "Split Out1",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        720,
+        1648
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {
+          "temperature": 0.5,
+          "thinking": false
+        }
+      },
+      "id": "aac53de5-9292-4fd7-8c13-0fd03e4e8fac",
+      "name": "Anthropic Chat Model5",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "position": [
+        1456,
+        1760
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "58d2b899-e09c-45bf-b59b-961a5d7a2470",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "cf839bbf-ca4c-4eb1-97e4-ef823cb354eb",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        1184,
+        1712
+      ],
+      "webhookId": "58d2b899-e09c-45bf-b59b-961a5d7a2470",
+      "typeVersion": 2
+    },
+    {
+      "parameters": {},
+      "id": "29fc54d2-5426-4f19-9ad6-91a04eaf1719",
+      "name": "CONNECT ME",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        288,
+        80
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "c3b6ee08-3983-4699-ab4a-abd3909ff081",
+      "name": "CONNECT ME1",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        320,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "ba7d1d8b-f33a-4051-9869-0dc41ec0ff0d",
+      "name": "CONNECT ME2",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        320,
+        1408
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# 1 - Naive Chaining\n### PROs:\n- Easy to setup\n- Beginner-friendly\n\n### CONs\n- Not scalable\n- Hard to maintain long chains\n- SLOOOW!",
+        "height": 440,
+        "width": 1980,
+        "color": 5
+      },
+      "id": "9bace526-a888-4c51-9d2a-d92702287634",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1280,
-        240
+        0,
+        0
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "### Prompt (Change this for your use case)\nProvide the users prompt and response as a JSON object with two fields:\n- Prompt\n- Response\n\n\nAvoid any preample or further explanation.\nThis is the question: {{ $json.chatInput }}",
-        "height": 200,
-        "width": 420,
-        "color": 7
+        "content": "# 2 - Iterative Agent Processing\n\n### PROs:\n- Scalable\n- All inputs & outputs in a single node\n- Supports Agent memory\n\n### CONs\n- Still Slow!",
+        "height": 660,
+        "width": 2160,
+        "color": 5
       },
-      "id": "871bac4e-002f-4a1d-b3f9-0b7d309db709",
+      "id": "dc9096b2-6fe4-41ff-af40-d9b33cb7c834",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1320,
-        420
+        0,
+        544
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "## JSON to Object Node\n- Type: Set Node\n- Purpose: A node designed to transform and structure response data in a specific format before sending it through the workflow. It operates in manual mapping mode to allow precise control over the response format.\n\n**Key Features**\n- Manual field mapping capabilities\n- Object transformation and restructuring\n- Support for JSON data formatting\n- Field-to-field value mapping\n- Includes option to add additional input fields\n",
-        "height": 520,
-        "width": 420,
+        "content": "# 3 - Parallel Processing\n\n### PROs:\n- Scalable\n- All inputs & outputs in a single place\n- FAST!\n\n### CONs\n- Independent requests\n  (no Agent memory)",
+        "height": 600,
+        "width": 1880,
         "color": 5
       },
-      "id": "c9e1b2af-059b-4330-a194-45ae0161aa1c",
+      "id": "690dc222-5520-4d77-b4a8-c2936d4acf8b",
       "name": "Sticky Note5",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1820,
-        340
+        0,
+        1312
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "content": "## Structured Response Node\n- Type: Set Node\n- Purpose: Controls how the workflow responds to users chat prompt.\n\n**Response Mode**\n- Manual Mapping: Allows custom formatting of response data\n- Fields to Set: Specify which data fields to include in response\n\n",
-        "height": 420,
-        "width": 460,
-        "color": 6
+        "content": "# Array of prompts here",
+        "height": 240,
+        "width": 400
       },
-      "id": "3fb912b8-86ac-42f7-a19c-45e59898a62e",
+      "id": "4ce4167b-218b-4107-95f6-6a1f61d0b013",
       "name": "Sticky Note6",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2280,
-        440
+        464,
+        1568
       ],
       "typeVersion": 1
     },
@@ -219,94 +821,190 @@
         "assignments": {
           "assignments": [
             {
-              "id": "13c4058d-2d50-46b7-a5a6-c788828a1764",
-              "name": "text",
-              "type": "string",
-              "value": "=Your prompt was: {{ $json.response.Prompt }}\n\nMy response is: {{ $json.response.Response }}\n\nThis is the JSON object:\n\n{{ $('Basic LLM Chain').item.json.text }}"
+              "id": "ed7f1cc6-99d3-481c-b5fb-d9900d6ee0f6",
+              "name": "userprompt",
+              "type": "array",
+              "value": "=[\n\"What is on this page?\",\n\"List all authors on this page\",\n\"List all posts on this page\",\n\"Make a bold funny joke based on the content on this page\"\n]"
             }
           ]
         },
         "options": {}
       },
-      "id": "fdfd1a5c-e1a6-4390-9807-ce665b96b9ae",
-      "name": "Structured Response",
+      "id": "41592405-6d21-428b-948f-cf398b67b195",
+      "name": "Initial prompts1",
       "type": "n8n-nodes-base.set",
       "position": [
-        2460,
-        680
+        496,
+        1648
       ],
       "typeVersion": 3.4
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
+        "promptType": "define",
+        "text": "={{ $('Markdown').first().json.markdown }}",
+        "messages": {
+          "messageValues": [
             {
-              "id": "13c4058d-2d50-46b7-a5a6-c788828a1764",
-              "name": "text",
-              "type": "string",
-              "value": "=There was an error."
+              "message": "What is on this page?"
             }
           ]
-        },
-        "options": {}
+        }
       },
-      "id": "76baa6fc-72dd-41f9-aef9-4fd718b526df",
-      "name": "Error Response",
-      "type": "n8n-nodes-base.set",
+      "id": "2a9ab3a4-7cbb-453d-b69d-450733409685",
+      "name": "LLM Chain - Step 1",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "position": [
-        2220,
-        1280
+        544,
+        80
       ],
-      "typeVersion": 3.4
+      "typeVersion": 1.6
     },
     {
       "parameters": {
-        "content": "## Error Response Node\n- Type: Set Node\n- Purpose: Handles error cases when the Basic LLM Chain fails to process the chat message properly. It provides a fallback response mechanism to ensure the workflow remains robust.\n\n**Key Features**\n- Provides default error messaging\n- Maintains consistent response structure\n- Connects to the error output branch of the LLM Chain\n- Ensures graceful failure handling\n\nThe Error Response node activates when the main processing chain encounters issues, ensuring users always receive feedback even when errors occur in the language model processing.\n",
-        "height": 560,
-        "width": 540,
-        "color": 2
-      },
-      "id": "bde3b9df-af55-451b-b287-1b5038f9936c",
-      "name": "Sticky Note7",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        2000,
-        900
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
+        "promptType": "define",
+        "text": "={{ $('Markdown').first().json.markdown }}",
+        "messages": {
+          "messageValues": [
             {
-              "id": "12af1a54-62a2-44c3-9001-95bb0d7c769d",
-              "name": "response",
-              "type": "object",
-              "value": "={{ $json.text }}"
+              "message": "List all authors on this page"
             }
           ]
-        },
+        }
+      },
+      "id": "ea39ba6b-e9ae-4be7-9420-5c25de09f2f3",
+      "name": "LLM Chain - Step 2",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "position": [
+        896,
+        80
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Markdown').first().json.markdown }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "List all posts on this page"
+            }
+          ]
+        }
+      },
+      "id": "f067ca00-e853-47f6-81d2-1d6191947335",
+      "name": "LLM Chain - Step 3",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "position": [
+        1264,
+        80
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Markdown').first().json.markdown }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Make a bold funny joke based on the content on this page"
+            }
+          ]
+        }
+      },
+      "id": "1307cc02-0e23-4c41-92fe-9bb4aca181b7",
+      "name": "LLM Chain - Step 4",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "position": [
+        1616,
+        80
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.markdown || \"\" }}\n{{ `Your task: ${$json.data.step}. ${$json.data.instruction}` }}",
+        "options": {
+          "systemMessage": "={{ $json.system_prompt }}"
+        }
+      },
+      "id": "79b8bcff-5aec-459e-a8f0-0f8ed3086502",
+      "name": "All LLM steps here - sequentially",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1680,
+        848
+      ],
+      "typeVersion": 1.8
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.WEBHOOK_URL }}webhook/58d2b899-e09c-45bf-b59b-961a5d7a2470",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
         "options": {}
       },
-      "id": "b9b2ab8d-9bea-457a-b7bf-51c8ef0de69f",
-      "name": "JSON to Object",
-      "type": "n8n-nodes-base.set",
+      "id": "12d31cb7-9f39-49f9-8e98-b6f9a4c7f3d7",
+      "name": "LLM steps - parallel",
+      "type": "n8n-nodes-base.httpRequest",
       "position": [
-        1980,
-        680
+        1184,
+        1552
       ],
-      "typeVersion": 3.4
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "60bb22be-4596-4d53-a9bf-ccd6bbff15b2",
+      "name": "Merge output with initial prompts",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1488,
+        1440
+      ],
+      "typeVersion": 3.1
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "2ddf3be2-2c6c-4d5e-8c61-f3b1617d79c4",
+      "name": "Merge output with initial prompts1",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        2048,
+        688
+      ],
+      "typeVersion": 3.1
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T00:06:33.485Z",
+      "updatedAt": "2025-08-21T00:06:33.485Z",
+      "role": "workflow:owner",
+      "workflowId": "8Q2DG0uZ4Fz65tjt",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-04T04:18:56.000Z",
-  "versionId": "91989bc9-93d4-4b0b-88f2-96a1717974f6"
+  "updatedAt": "2025-08-21T00:06:33.000Z",
+  "versionId": "24782c7c-1e65-4765-8312-36735b811b9c"
 }
