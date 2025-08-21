@@ -46,12 +46,10 @@
       ]
     }
   },
-  "createdAt": "2024-10-27T18:37:05.221Z",
-  "id": "BNfuKTiFv07ApzNq",
-  "meta": {
-    "templateCredsSetupCompleted": true,
-    "templateId": "1750"
-  },
+  "createdAt": "2025-08-21T00:11:01.677Z",
+  "id": "CkMfGesjCfeKoW43",
+  "isArchived": false,
+  "meta": null,
   "name": "Tool: Perplexity API",
   "nodes": [
     {
@@ -60,12 +58,12 @@
         "height": 336.1200845582968,
         "width": 1146.3766723034269
       },
-      "id": "20ab53b4-c8bb-4516-8d05-98553b0357d1",
+      "id": "f2ba16d4-48c2-4f38-a755-8c3049e24c06",
       "name": "Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -912,
+        -16
       ],
       "typeVersion": 1
     },
@@ -75,12 +73,12 @@
         "responseBody": "=The URL of the Google search query for the term \"{{$node[\"Webhook\"].json[\"query\"][\"first_name\"]}} {{$node[\"Webhook\"].json[\"query\"][\"last_name\"]}}\" is: {{$json[\"product\"]}}",
         "options": {}
       },
-      "id": "637b4a8c-e682-4014-8dbd-517d66051779",
+      "id": "a6579dda-6828-472e-bace-f762592367f8",
       "name": "Respond to Webhook",
       "type": "n8n-nodes-base.respondToWebhook",
       "position": [
-        1280,
-        380
+        -16,
+        144
       ],
       "typeVersion": 1
     },
@@ -117,12 +115,12 @@
           "dotNotation": false
         }
       },
-      "id": "03ee5037-7773-4b85-8a32-bed82d7f83fc",
+      "id": "b8bec8dc-de11-48f4-9705-e8d20c654848",
       "name": "Create URL string",
       "type": "n8n-nodes-base.set",
       "position": [
-        620,
-        380
+        -672,
+        144
       ],
       "typeVersion": 1
     },
@@ -132,12 +130,12 @@
         "height": 363.31678487740135,
         "width": 1146.3766723034255
       },
-      "id": "c4603567-aa53-4dd2-9f9f-88984cb2d87c",
+      "id": "15b37a1b-eb7e-44db-95e0-db18f1606dbe",
       "name": "Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        573.6467828801929
+        -912,
+        336
       ],
       "typeVersion": 1
     },
@@ -146,13 +144,13 @@
         "url": "={{ $('Webhook').item.json.body.user }}",
         "options": {}
       },
-      "id": "29dfde32-9bd6-46fd-8584-504b5633060b",
+      "id": "2a945860-ca1e-467b-adf2-ba9e8ed2115c",
       "name": "Get Article",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        840,
-        380
+        -448,
+        144
       ]
     },
     {
@@ -175,13 +173,13 @@
           "timeout": 30000
         }
       },
-      "id": "f725d8af-56bd-439d-bcde-2d453e27218b",
+      "id": "617cda39-320f-4859-806b-9992a19dfffc",
       "name": "call Perplexity",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1060,
-        380
+        -224,
+        144
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -195,12 +193,12 @@
           "rawBody": true
         }
       },
-      "id": "20d510f4-5653-4cca-97e1-8c168181a000",
+      "id": "f93345b5-73c0-40e6-948d-611449925d9c",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "position": [
-        400,
-        380
+        -896,
+        144
       ],
       "webhookId": "093e981e-9016-40bf-b28f-58f73f3da248",
       "typeVersion": 1
@@ -210,16 +208,18 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
-  "tags": [
+  "shared": [
     {
-      "createdAt": "2024-10-27T18:37:00.202Z",
-      "updatedAt": "2025-04-29T18:25:09.562Z",
-      "id": "NBpM1Zip3YxyIXLc",
-      "name": "hook"
+      "createdAt": "2025-08-21T00:11:01.684Z",
+      "updatedAt": "2025-08-21T00:11:01.684Z",
+      "role": "workflow:owner",
+      "workflowId": "CkMfGesjCfeKoW43",
+      "projectId": "yxFGV0GmdwTIiKaD"
     }
   ],
-  "triggerCount": 1,
-  "updatedAt": "2025-04-20T06:15:29.000Z",
-  "versionId": "981e1425-4a48-49f0-ac2b-83e2a015e42b"
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-21T00:11:09.000Z",
+  "versionId": "d7c8d920-a445-4dc8-a4cd-55b3f182a805"
 }
