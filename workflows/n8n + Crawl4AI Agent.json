@@ -12,11 +12,6 @@
         ]
       ]
     },
-    "HTTP Request": {
-      "main": [
-        []
-      ]
-    },
     "XML": {
       "main": [
         [
@@ -246,20 +241,21 @@
       ]
     }
   },
-  "createdAt": "2025-03-19T20:49:49.302Z",
-  "id": "dmgKhxr8OzYEVKx1",
+  "createdAt": "2025-08-21T00:56:55.631Z",
+  "id": "7ti9Lx9SyBdcvfmR",
+  "isArchived": false,
   "meta": null,
   "name": "n8n + Crawl4AI Agent",
   "nodes": [
     {
       "parameters": {},
-      "id": "c9ff5cdd-3eb0-4652-bfe9-debd41982bf3",
+      "id": "da70e958-8e81-4d24-ae53-43a771d8a472",
       "name": "When clicking ‘Test workflow’",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        140,
-        800
+        -832,
+        480
       ]
     },
     {
@@ -267,26 +263,26 @@
         "url": "https://ai.pydantic.dev/sitemap.xml",
         "options": {}
       },
-      "id": "25516bdb-5dfe-461d-9702-e2a1be8ddf64",
+      "id": "667087e3-50b8-40d6-aacd-cb5e89e380a6",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        320,
-        1060
+        -656,
+        752
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "f285d900-6cf6-42c0-b5b9-4386bea3e293",
+      "id": "59ec1eef-3268-41ad-b6e1-0595540ec036",
       "name": "XML",
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        500,
-        800
+        -464,
+        480
       ]
     },
     {
@@ -294,37 +290,37 @@
         "fieldToSplitOut": "urlset.url",
         "options": {}
       },
-      "id": "300756c0-3263-465a-858b-b8c7d6391209",
+      "id": "076dc381-bd8c-44fc-a1c9-8836948cb5e5",
       "name": "Split Out",
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        660,
-        800
+        -304,
+        480
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "3125d7df-eecb-48a8-ad61-7dfdfee6cf4e",
+      "id": "106766af-2586-4b0d-81a6-cce9f5b4ee39",
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        900,
-        800
+        -64,
+        480
       ]
     },
     {
       "parameters": {},
-      "id": "0f1ed69c-8a36-46a9-8835-9c342ba4ecaf",
+      "id": "2da6445d-5b7b-4eba-a1c1-10fc3790b0d6",
       "name": "Wait",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1320,
-        800
+        352,
+        480
       ],
       "webhookId": "9af87c5e-b07f-48dc-9ca8-61b471a24cad"
     },
@@ -349,20 +345,14 @@
         },
         "options": {}
       },
-      "id": "78b45c15-cca4-4040-8c67-9243298b8454",
+      "id": "8ab75de9-a63b-4aba-9a0c-28d00553c960",
       "name": "HTTP Request1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1120,
-        800
-      ],
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "fQaPmY6oVBw9CXvd",
-          "name": "VAPI Header Auth"
-        }
-      }
+        144,
+        480
+      ]
     },
     {
       "parameters": {
@@ -373,13 +363,13 @@
           "timeout": 5000
         }
       },
-      "id": "9af78e98-011f-457b-aa68-752803dfb52a",
+      "id": "4ecfcc87-65cb-4d1c-ad1b-3b75eb2b07d5",
       "name": "HTTP Request2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1540,
-        800
+        576,
+        480
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000
@@ -408,13 +398,13 @@
         },
         "options": {}
       },
-      "id": "77f9eb8c-44fc-409f-aa94-6b0b1c37c393",
+      "id": "826dc92c-9a27-4a1c-8b2b-31a4b26d3446",
       "name": "If",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1760,
-        800
+        784,
+        480
       ]
     },
     {
@@ -432,46 +422,40 @@
           }
         }
       },
-      "id": "bd51c660-59fa-4822-9c07-3266e329e594",
+      "id": "f5a5878f-6f42-453a-ae7e-55799a23e51c",
       "name": "Default Data Loader",
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1,
       "position": [
-        2380,
-        1260
+        1408,
+        944
       ]
     },
     {
       "parameters": {
         "chunkSize": 5000
       },
-      "id": "3eb3b0da-6d7e-41c7-9981-4aa77760e5db",
+      "id": "42eea559-6f3f-42e9-84b9-681ef851d4fa",
       "name": "Character Text Splitter",
       "type": "@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter",
       "typeVersion": 1,
       "position": [
-        2220,
-        1260
+        1248,
+        944
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "53eb02f0-ed97-47fe-83a6-e782cf7c2ee1",
+      "id": "ef99e667-8232-4d25-af3c-0b1e78a9dbdf",
       "name": "Embeddings OpenAI",
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.1,
       "position": [
-        2060,
-        1260
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+        1088,
+        944
+      ]
     },
     {
       "parameters": {
@@ -487,26 +471,26 @@
         },
         "options": {}
       },
-      "id": "234a7fb3-66c4-495a-8a89-24de3b03d507",
+      "id": "7483f438-c1da-4db9-8874-a78b28f959f5",
       "name": "Edit Fields",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1940,
-        1000
+        976,
+        688
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "6f4d49c7-55f2-4699-ae6f-6b1e2b89fc82",
+      "id": "9a5e0106-abec-4421-870c-0ee163a6f389",
       "name": "When chat message received",
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        900,
-        140
+        -64,
+        -176
       ],
       "webhookId": "0949763f-f3f7-46bf-8676-c050d92e6966"
     },
@@ -514,30 +498,24 @@
       "parameters": {
         "options": {}
       },
-      "id": "0f9b6dd6-9b6d-4c34-a0df-37db4df4557a",
+      "id": "c3c93cf2-b9be-4321-ba4f-08eb4e9dcfae",
       "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1060,
-        360
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+        96,
+        48
+      ]
     },
     {
       "parameters": {},
-      "id": "45dd00b8-dc3d-478a-a7e9-5525aeb85a83",
+      "id": "71eaeccf-c3d3-4141-9ca0-892b68de302c",
       "name": "Postgres Chat Memory",
       "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
       "typeVersion": 1.3,
       "position": [
-        1200,
-        360
+        224,
+        48
       ]
     },
     {
@@ -545,52 +523,40 @@
         "name": "pydantic_ai_docs",
         "description": "Retrieves data related to Pydantic AI using their documentation."
       },
-      "id": "8b30d8e4-435c-4fca-b7f4-486c96e62cca",
+      "id": "be19a89a-9e2b-4776-88ec-fdf1f5b0f3db",
       "name": "Vector Store Tool",
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "typeVersion": 1,
       "position": [
-        1540,
-        260
+        576,
+        -48
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "a1d4088a-ca10-40d6-b3ba-830d20ba9f0b",
+      "id": "ae0782f9-0530-40c8-b4ea-e519b7ce6b7e",
       "name": "Embeddings OpenAI1",
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.1,
       "position": [
-        1300,
-        540
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+        336,
+        224
+      ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "d7bfe939-56fe-44e3-8a1b-26d4afbf4f05",
+      "id": "97bb9a83-4b93-4e62-ab41-f00f142bad99",
       "name": "OpenAI Chat Model1",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1680,
-        440
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+        704,
+        128
+      ]
     },
     {
       "parameters": {
@@ -605,26 +571,26 @@
           "queryName": "match_documents"
         }
       },
-      "id": "f9ed40b7-5d11-46a3-9935-4acf932b65c8",
+      "id": "6af27ca5-a1c5-4cc2-af9d-7c7ecdea7d95",
       "name": "Supabase Vector Store",
       "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
       "typeVersion": 1,
       "position": [
-        2220,
-        1040
+        1248,
+        720
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "ba267b88-4b97-4946-a121-60e1fd376ca6",
+      "id": "04067146-c384-4a00-906d-f5b798e4dc7c",
       "name": "AI Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1160,
-        140
+        192,
+        -176
       ]
     },
     {
@@ -639,13 +605,13 @@
           "queryName": "match_documents"
         }
       },
-      "id": "5881d485-948a-4ed4-b0e9-9a365062560a",
+      "id": "f0329282-62e0-4be9-ac77-72de1e40de6a",
       "name": "Supabase Vector Store1",
       "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
       "typeVersion": 1,
       "position": [
-        1340,
-        420
+        368,
+        112
       ]
     },
     {
@@ -655,13 +621,13 @@
         "width": 590,
         "color": 6
       },
-      "id": "c2c8ac53-ee36-4935-baa5-d0c0c8d92bd4",
+      "id": "714a26d7-8112-4b89-8d8d-e33d090b9527",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        120,
-        120
+        -848,
+        -192
       ]
     },
     {
@@ -669,13 +635,13 @@
         "url": "https://www.aa.org/sitemap.xml",
         "options": {}
       },
-      "id": "41ba31a9-7984-40d2-97e8-e91cd0c99ac0",
+      "id": "f716cc45-6271-49d9-8d22-f7fee3430f0f",
       "name": "AA.org",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        320,
-        800
+        -656,
+        480
       ]
     }
   ],
@@ -683,9 +649,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T00:56:55.634Z",
+      "updatedAt": "2025-08-21T00:56:55.634Z",
+      "role": "workflow:owner",
+      "workflowId": "7ti9Lx9SyBdcvfmR",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-19T22:18:26.000Z",
-  "versionId": "0e96c2e6-7944-4873-9219-bbe2c7de8efb"
+  "updatedAt": "2025-08-21T00:58:20.000Z",
+  "versionId": "5a01f502-7def-4a83-ba1d-33f5f56e68f5"
 }
