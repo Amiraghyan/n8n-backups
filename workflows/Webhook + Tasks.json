@@ -166,6 +166,17 @@
         ]
       ]
     },
+    "Get All Tasks": {
+      "main": [
+        [
+          {
+            "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Switch": {
       "main": [
         [
@@ -252,22 +263,22 @@
         ]
       ]
     },
-    "Google Tasks1": {
+    "Get List IDs1": {
       "main": [
         [
           {
-            "node": "If Task Matches",
+            "node": "Code2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Get List IDs1": {
+    "Google Tasks1": {
       "main": [
         [
           {
-            "node": "Code2",
+            "node": "If Task Matches",
             "type": "main",
             "index": 0
           }
@@ -461,17 +472,6 @@
         ]
       ]
     },
-    "Get All Tasks": {
-      "main": [
-        [
-          {
-            "node": "Set Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Set Fields": {
       "main": [
         [
@@ -484,11 +484,10 @@
       ]
     }
   },
-  "createdAt": "2025-02-05T18:19:04.863Z",
-  "id": "pWZyfC1KkNHLR0YV",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2025-08-21T01:14:46.804Z",
+  "id": "VYLjBsTqaszbYk4i",
+  "isArchived": false,
+  "meta": null,
   "name": "Webhook + Tasks",
   "nodes": [
     {
@@ -498,10 +497,10 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -1220,
-        2780
+        -608,
+        2336
       ],
-      "id": "b4e32551-9a5a-4133-84ca-45827efe79cd",
+      "id": "d1dd156a-76ac-421c-87b0-9fe399f9a2ea",
       "name": "When chat message received",
       "webhookId": "14cbe5b9-2e8c-44e7-8921-7755e77b399c"
     },
@@ -515,10 +514,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -1480,
-        360
+        -880,
+        -80
       ],
-      "id": "1b98202a-a4aa-44c1-853e-f87991c21513",
+      "id": "a2362061-1e6e-4158-a0bf-27418f20ecfd",
       "name": "Webhook",
       "webhookId": "97dbae67-2675-48b4-bc25-de17ba6860b1"
     },
@@ -531,10 +530,10 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        -780,
-        360
+        -176,
+        -80
       ],
-      "id": "207bb771-70b8-4a63-a609-b78fbc8dcd3a",
+      "id": "5d33fb64-5020-44f6-a864-4c602ad022ed",
       "name": "Respond to Webhook"
     },
     {
@@ -544,17 +543,11 @@
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "typeVersion": 1,
       "position": [
-        -1340,
-        640
+        -736,
+        192
       ],
-      "id": "a445e630-52ab-4d64-bbdb-a96428dfd365",
-      "name": "SerpAPI",
-      "credentials": {
-        "serpApi": {
-          "id": "1Tzl11P6LGX6jXlo",
-          "name": "SerpAPI account"
-        }
-      }
+      "id": "6eb0f6bc-6d03-4a13-8128-d98ba9425de8",
+      "name": "SerpAPI"
     },
     {
       "parameters": {
@@ -563,10 +556,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
       "typeVersion": 1,
       "position": [
-        -720,
-        560
+        -112,
+        112
       ],
-      "id": "a24206b6-a6da-4ff0-813b-18ddd0a34360",
+      "id": "b0634c45-723a-4c24-b8fc-feb9d310e8c1",
       "name": "Vector Store Tool"
     },
     {
@@ -582,17 +575,11 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1,
       "position": [
-        -760,
-        720
+        -160,
+        272
       ],
-      "id": "cbbf9ac7-30d2-43e2-811b-7918770bb5ca",
-      "name": "Pinecone Vector Store",
-      "credentials": {
-        "pineconeApi": {
-          "id": "BKHUYU9beMFyqDKy",
-          "name": "sycpoc_Pinecone_campaigns"
-        }
-      }
+      "id": "6cb0ebb5-62b2-45fb-946c-db7af726aa66",
+      "name": "Pinecone Vector Store"
     },
     {
       "parameters": {
@@ -601,17 +588,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        -460,
-        720
+        144,
+        272
       ],
-      "id": "b55e8a9a-1156-480c-ab74-50808210097e",
-      "name": "OpenAI Chat Model1",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+      "id": "ed538171-cc57-4b0f-9709-2bd1390f38c6",
+      "name": "OpenAI Chat Model1"
     },
     {
       "parameters": {
@@ -620,17 +601,11 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.1,
       "position": [
-        -580,
-        880
+        32,
+        432
       ],
-      "id": "95d2d017-1643-4ba8-923f-aa63fe8de4b7",
-      "name": "Embeddings OpenAI",
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+      "id": "8c6d0bf9-d13c-4bb1-b54a-df7b83b13271",
+      "name": "Embeddings OpenAI"
     },
     {
       "parameters": {
@@ -694,17 +669,11 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.5,
       "position": [
-        -940,
-        640
+        -336,
+        192
       ],
-      "id": "a890762e-98cc-4b12-9551-d2c7b2ccf93c",
-      "name": "Google Sheets",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "psz4VI4aPHfgtBvc",
-          "name": "Google Sheets account 6"
-        }
-      }
+      "id": "651e19e4-b9a6-4389-9a7b-684435a73e33",
+      "name": "Google Sheets"
     },
     {
       "parameters": {
@@ -723,20 +692,14 @@
           "summary": "={{ $fromAI(\"eventTitle\") }}"
         }
       },
-      "id": "f592b66b-7138-43b4-bb2a-d01004a4c6fd",
+      "id": "db43e23b-ebb4-43f9-ab4f-1b34a4732746",
       "name": "Appointments",
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.2,
       "position": [
-        -1200,
-        640
-      ],
-      "credentials": {
-        "googleCalendarOAuth2Api": {
-          "id": "5wjHRyFErWBfPdfC",
-          "name": "Google Calendar account"
-        }
-      }
+        -592,
+        192
+      ]
     },
     {
       "parameters": {
@@ -753,20 +716,14 @@
           "timeMax": "={{ $fromAI(\"ondDayAfter\",\"one day after the date the user requested\") }}"
         }
       },
-      "id": "5bc1e216-ddf5-469a-9c5d-b82ddd65d030",
+      "id": "6da12feb-5612-4588-86cc-c2516b584de7",
       "name": "Availability",
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.2,
       "position": [
-        -1060,
-        640
-      ],
-      "credentials": {
-        "googleCalendarOAuth2Api": {
-          "id": "5wjHRyFErWBfPdfC",
-          "name": "Google Calendar account"
-        }
-      }
+        -448,
+        192
+      ]
     },
     {
       "parameters": {
@@ -775,17 +732,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.2,
       "position": [
-        -1460,
-        640
+        -848,
+        192
       ],
-      "id": "220d5e09-8690-4667-a031-40fa455d9b40",
-      "name": "Anthropic Chat Model",
-      "credentials": {
-        "anthropicApi": {
-          "id": "cOFFr7FB6SAc7Hl2",
-          "name": "Anthropic"
-        }
-      }
+      "id": "846a6477-4492-4568-b5c4-9b0722d6387b",
+      "name": "Anthropic Chat Model"
     },
     {
       "parameters": {
@@ -798,21 +749,21 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        -1140,
-        440
+        -528,
+        0
       ],
-      "id": "0cff464d-bc3e-42ca-ad08-a492492064fd",
+      "id": "a410a643-8e69-4d32-aba4-3e7c1313588f",
       "name": "AI Agent1"
     },
     {
       "parameters": {},
-      "id": "6448a144-7d2e-4781-a7a9-b1ae7f37af43",
+      "id": "4fd1a634-586b-4313-a9c9-f54cddc180fe",
       "name": "Execute Workflow Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        -1220,
-        2560
+        -608,
+        2112
       ]
     },
     {
@@ -833,18 +784,18 @@
         "jsonOutput": true,
         "options": {}
       },
-      "id": "4d213611-a0d0-485e-8275-a454235b8182",
+      "id": "07fdad84-8446-4232-8b9a-59ebe562ba94",
       "name": "OpenAI",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        -1000,
-        2560
+        -400,
+        2112
       ],
       "credentials": {
         "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
+          "id": "WYRQt22D3Ej2FW2r",
+          "name": "OpenAi Blue&"
         }
       }
     },
@@ -886,13 +837,13 @@
         },
         "options": {}
       },
-      "id": "b935a976-d889-4c74-822c-3cf912527379",
+      "id": "c7a66a15-62d5-4aa4-858b-f2d84940f732",
       "name": "Edit Fields1",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        480,
-        2140
+        1088,
+        1696
       ]
     },
     {
@@ -902,20 +853,14 @@
         "returnAll": true,
         "additionalFields": {}
       },
-      "id": "d4f21808-2b20-440e-aba4-dcfc449820b6",
+      "id": "025cd0bc-7f1d-41a0-807e-cf80e3c11ec4",
       "name": "Get All Tasks",
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1340,
-        2640
-      ],
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+        1952,
+        2192
+      ]
     },
     {
       "parameters": {
@@ -926,20 +871,14 @@
           "title": "={{ $('Switch').item.json.message.content[\"New Name\"] }}"
         }
       },
-      "id": "ede40931-dc7c-4e1a-a21f-2b94b0f00970",
+      "id": "bf8f4a1c-8558-47ec-925b-02d214afdcda",
       "name": "Update Task",
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1940,
-        2940
-      ],
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+        2560,
+        2496
+      ]
     },
     {
       "parameters": {
@@ -1108,13 +1047,13 @@
         },
         "options": {}
       },
-      "id": "62020ebe-6788-4997-a014-dcd2c13310b6",
+      "id": "89f4d1ea-8255-4dbd-8363-8d3228571eda",
       "name": "Switch",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -280,
-        2480
+        320,
+        2032
       ],
       "notesInFlow": true,
       "notes": "0 New 1 Del 2 Get 3 Many"
@@ -1129,17 +1068,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        640,
-        3220
+        1248,
+        2784
       ],
-      "id": "a6833d56-2e32-4204-8acc-a410a7be27fa",
-      "name": "Get Lists",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "8f46f0fe-e06c-400a-9212-4ec19c2144f7",
+      "name": "Get Lists"
     },
     {
       "parameters": {
@@ -1147,20 +1080,14 @@
         "task": "={{ $('If List Matches').item.json.id }}",
         "taskId": "={{ $json.id }}"
       },
-      "id": "e0e7b28b-8026-4155-9ba6-f5807793c2b5",
+      "id": "18c747b9-b820-4f6d-b88e-961a9a408e56",
       "name": "Delete Task",
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1920,
-        2100
-      ],
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+        2528,
+        1664
+      ]
     },
     {
       "parameters": {
@@ -1176,17 +1103,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        640,
-        3540
+        1248,
+        3104
       ],
-      "id": "7df83166-eb87-4ebf-a14f-9347b820f1c6",
-      "name": "Create New List",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "437a04d9-1c3d-4f6f-8919-69a4d05a681b",
+      "name": "Create New List"
     },
     {
       "parameters": {
@@ -1198,17 +1119,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        400,
-        1840
+        1008,
+        1392
       ],
-      "id": "2ec40850-bbf1-4f4d-9e61-3c6b1cf2b8b0",
-      "name": "Get List IDs",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "0efe481d-a4b3-467a-8b2e-4f4156bfe268",
+      "name": "Get List IDs"
     },
     {
       "parameters": {
@@ -1241,10 +1156,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        980,
-        1840
+        1600,
+        1392
       ],
-      "id": "65d9e918-901d-482d-9fd0-4e262b9d0377",
+      "id": "c6116b6d-4d5a-4056-a71a-913756437fff",
       "name": "If"
     },
     {
@@ -1254,10 +1169,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        720,
-        1840
+        1328,
+        1392
       ],
-      "id": "6277e87a-af3d-470f-8572-7a81f3975438",
+      "id": "cf97580d-e9f3-42ff-9c26-98870348eb34",
       "name": "Code1"
     },
     {
@@ -1270,17 +1185,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        760,
-        2140
+        1376,
+        1696
       ],
-      "id": "6b8b2325-ce45-410f-bcc1-ec521c22e469",
-      "name": "Get List IDs1",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "8a1bd909-d0d1-43f3-a027-ed4a6f362c3b",
+      "name": "Get List IDs1"
     },
     {
       "parameters": {
@@ -1292,17 +1201,11 @@
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1480,
-        2120
+        2096,
+        1680
       ],
-      "id": "a31b8e9d-1c00-41b5-a1c1-eaaf80c2a107",
-      "name": "Google Tasks1",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "8b95edb8-d5b4-4f55-bf42-4d4f6e3f931c",
+      "name": "Google Tasks1"
     },
     {
       "parameters": {
@@ -1311,10 +1214,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1000,
-        2140
+        1616,
+        1696
       ],
-      "id": "0755a721-7abf-4dbc-af27-23f9dd3f7503",
+      "id": "8fb6027c-31f4-4c7c-a175-331057c757c7",
       "name": "Code2"
     },
     {
@@ -1326,20 +1229,14 @@
           "notes": "={{ $('Switch').item.json.message.content.Notes }}"
         }
       },
-      "id": "55847d5b-8454-4656-8f2d-65ee457e9a98",
+      "id": "e1451b15-15f0-4504-9c7e-2fdcab2fd526",
       "name": "Create Google Task",
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1280,
-        1820
-      ],
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+        1888,
+        1376
+      ]
     },
     {
       "parameters": {
@@ -1347,20 +1244,14 @@
         "task": "={{ $('IF equal to List Name1').item.json.id }}",
         "taskId": "={{ $json.id }}"
       },
-      "id": "c9e64117-5d9c-41f7-a21f-98534e25cfd7",
+      "id": "2efca279-c486-465f-ab95-3c7cda8b8026",
       "name": "Get a Task",
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1940,
-        2340
-      ],
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+        2560,
+        1904
+      ]
     },
     {
       "parameters": {
@@ -1369,20 +1260,14 @@
         "returnAll": true,
         "additionalFields": {}
       },
-      "id": "b51181b5-1569-4302-b499-d273c1a156af",
+      "id": "1fcf7a1e-ae7e-44b4-ba2a-a7017948b236",
       "name": "Get All Tasks1",
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1420,
-        2960
-      ],
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+        2032,
+        2512
+      ]
     },
     {
       "parameters": {
@@ -1391,10 +1276,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        940,
-        2980
+        1552,
+        2544
       ],
-      "id": "05b1670a-bce8-443f-9f3b-b7e24782d462",
+      "id": "a3dd20d0-8d1f-406e-ba7a-c984d5cfe354",
       "name": "Code4"
     },
     {
@@ -1404,10 +1289,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        840,
-        2660
+        1456,
+        2224
       ],
-      "id": "d48089d3-97d0-43f1-81ea-ffdd874ff6c9",
+      "id": "a9f295ca-4694-4756-9a4c-ae364c5dd13b",
       "name": "Code5"
     },
     {
@@ -1438,10 +1323,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1080,
-        2660
+        1696,
+        2224
       ],
-      "id": "dec521dc-c6b8-4e03-837c-bcd14641507f",
+      "id": "d088c1fe-0142-4411-9cc8-20d38ef0d8c6",
       "name": "IF equal to List Name"
     },
     {
@@ -1452,11 +1337,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        520,
-        2900
+        1136,
+        2464
       ],
       "typeVersion": 1,
-      "id": "432b307d-344b-4abf-8813-0e9628ca4933",
+      "id": "7e9067db-6c89-498e-bec5-ae41dd6ed506",
       "name": "Sticky Note"
     },
     {
@@ -1467,11 +1352,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        420,
-        2600
+        1040,
+        2160
       ],
       "typeVersion": 1,
-      "id": "cdf57c64-839c-41f0-abde-f975144cebaa",
+      "id": "e2148500-40f0-413a-9748-26c494e19044",
       "name": "Sticky Note1"
     },
     {
@@ -1484,17 +1369,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        620,
-        2660
+        1232,
+        2224
       ],
-      "id": "ac1e8b2b-ff79-40d5-8d61-bf507d3ee92f",
-      "name": "Get List IDs for All Tasks",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "ff1baf99-0c1c-4776-9c90-e4eba9b7412f",
+      "name": "Get List IDs for All Tasks"
     },
     {
       "parameters": {
@@ -1506,17 +1385,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        720,
-        2980
+        1328,
+        2544
       ],
-      "id": "0729cb1b-d372-4f43-9553-962f1073c7f7",
-      "name": "Get List IDs for Update Tasks",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "ac4b8659-4d35-45be-b246-6568ec789033",
+      "name": "Get List IDs for Update Tasks"
     },
     {
       "parameters": {
@@ -1528,17 +1401,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        540,
-        2380
+        1152,
+        1936
       ],
-      "id": "6f9fb501-b52a-4088-9f14-825d28532063",
-      "name": "Get List IDs for Single Task",
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+      "id": "089b9a1d-b8e6-4ea6-82c7-0fd48d26d91a",
+      "name": "Get List IDs for Single Task"
     },
     {
       "parameters": {
@@ -1547,10 +1414,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        760,
-        2380
+        1376,
+        1936
       ],
-      "id": "91a302f0-e69c-4081-bbb3-b8b09be1659f",
+      "id": "02617513-6546-46df-bf8a-f7a843011472",
       "name": "Code6"
     },
     {
@@ -1581,10 +1448,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        980,
-        2380
+        1600,
+        1936
       ],
-      "id": "464fedab-7c20-4406-99d5-575d8cef73d9",
+      "id": "39a0de93-5c50-4945-a414-da0740f31c81",
       "name": "IF equal to List Name1"
     },
     {
@@ -1594,20 +1461,14 @@
         "returnAll": true,
         "additionalFields": {}
       },
-      "id": "e511ff59-749d-4333-b1cf-8ab2f5754b62",
+      "id": "ede3e2f4-b28f-4290-b277-7f0399fb22f2",
       "name": "Get All Tasks2",
       "type": "n8n-nodes-base.googleTasks",
       "typeVersion": 1,
       "position": [
-        1240,
-        2360
-      ],
-      "credentials": {
-        "googleTasksOAuth2Api": {
-          "id": "qG9eNog1uW8gfLDr",
-          "name": "Sergio"
-        }
-      }
+        1856,
+        1920
+      ]
     },
     {
       "parameters": {
@@ -1637,10 +1498,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1680,
-        2360
+        2288,
+        1920
       ],
-      "id": "84c7fdfe-5990-4f76-8b75-c5ded13823ef",
+      "id": "b9bfb8d1-4fa2-4933-8d9a-fe31d1f8f963",
       "name": "If equal task name"
     },
     {
@@ -1661,10 +1522,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1460,
-        2360
+        2080,
+        1920
       ],
-      "id": "3dea0b93-2c7a-479c-8051-de95e36c2868",
+      "id": "1142d0c7-b54e-4086-9496-6877998ee396",
       "name": "Edit Fields2"
     },
     {
@@ -1695,10 +1556,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1160,
-        2980
+        1776,
+        2544
       ],
-      "id": "cdf1bc42-ecbf-4b68-8083-ce6d510e55d3",
+      "id": "cca6b557-7377-47e3-b179-9922a0759dd1",
       "name": "IF List ID Matches"
     },
     {
@@ -1709,11 +1570,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        300,
-        2320
+        912,
+        1872
       ],
       "typeVersion": 1,
-      "id": "e030951a-082c-4894-adc0-8653651b6637",
+      "id": "340473ae-0a39-4878-8247-66818df9249f",
       "name": "Sticky Note3"
     },
     {
@@ -1724,11 +1585,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        440,
-        3160
+        1056,
+        2720
       ],
       "typeVersion": 1,
-      "id": "e642f5ef-0a06-43ba-b444-6be939675bfb",
+      "id": "263935c3-5cf1-4e32-a36e-bb0a7b5d05d2",
       "name": "Sticky Note4"
     },
     {
@@ -1739,11 +1600,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        460,
-        3460
+        1072,
+        3024
       ],
       "typeVersion": 1,
-      "id": "74b1f817-d738-4ebf-8edb-659a00913dbb",
+      "id": "ff47f511-fffa-415f-9aa5-84c9649050d2",
       "name": "Sticky Note5"
     },
     {
@@ -1774,10 +1635,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1240,
-        2140
+        1856,
+        1696
       ],
-      "id": "d94e62f7-90ee-4c42-96dc-753d398024af",
+      "id": "a310f57e-c3d7-4a6e-bd14-0b7722c60bdb",
       "name": "If List Matches"
     },
     {
@@ -1807,10 +1668,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1680,
-        2120
+        2288,
+        1680
       ],
-      "id": "92ae0cb8-5829-4a7f-9708-9fe7d1a62541",
+      "id": "fd907c66-f610-4954-a3ab-9a0cca63fb7c",
       "name": "If Task Matches"
     },
     {
@@ -1821,11 +1682,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        360,
-        2040
+        976,
+        1600
       ],
       "typeVersion": 1,
-      "id": "476c53a2-32ad-41f9-b4af-091b5b76f64f",
+      "id": "9c600357-f6d0-4a26-9223-32cfc61b4f75",
       "name": "Sticky Note6"
     },
     {
@@ -1836,11 +1697,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        280,
-        1780
+        896,
+        1344
       ],
       "typeVersion": 1,
-      "id": "693685c8-25e0-44e8-a27f-899aec15e562",
+      "id": "77c45c60-f597-440c-8ca1-6051548e2dc2",
       "name": "Sticky Note7"
     },
     {
@@ -1871,10 +1732,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1640,
-        2960
+        2256,
+        2512
       ],
-      "id": "9eee79ee-3dd3-4f59-a878-d28828e8007d",
+      "id": "f7dd9868-5d1d-4ee9-9eba-de558c6ad9ec",
       "name": "If task"
     },
     {
@@ -1906,10 +1767,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1560,
-        2640
+        2176,
+        2192
       ],
-      "id": "788557fa-2f39-486b-83f3-34892c7db2e8",
+      "id": "20a669c8-8773-4363-9f52-c31090e4004b",
       "name": "Set Fields"
     },
     {
@@ -1919,10 +1780,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1800,
-        2640
+        2416,
+        2192
       ],
-      "id": "059648e0-f0d2-4026-a61e-d82710ad99d4",
+      "id": "8fc5d498-6067-49e3-b999-9580597110ae",
       "name": "Code3"
     }
   ],
@@ -1930,9 +1791,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T01:14:46.807Z",
+      "updatedAt": "2025-08-21T01:14:46.807Z",
+      "role": "workflow:owner",
+      "workflowId": "VYLjBsTqaszbYk4i",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:13:01.000Z",
-  "versionId": "e3bef3d8-7712-48d5-846d-f5aee96c0046"
+  "updatedAt": "2025-08-21T01:15:33.000Z",
+  "versionId": "949cd06e-125f-449b-975a-3e08f77a668b"
 }
