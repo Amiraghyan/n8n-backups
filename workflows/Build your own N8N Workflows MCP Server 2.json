@@ -2125,6 +2125,15 @@
   ],
   "pinData": {},
   "settings": {},
+  "shared": [
+    {
+      "createdAt": "2025-05-23T16:12:04.438Z",
+      "updatedAt": "2025-05-23T16:12:04.438Z",
+      "role": "workflow:owner",
+      "workflowId": "IL6SzZgLRelPLng8",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
