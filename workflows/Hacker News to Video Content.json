@@ -1,23 +1,68 @@
 {
   "active": false,
   "connections": {
-    "X": {
+    "When clicking ‘Test workflow’": {
       "main": [
         [
           {
-            "node": "LinkedIn",
+            "node": "Hacker News",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Limit": {
+    "Hacker News": {
       "main": [
         [
           {
-            "node": "Loop Over Items",
+            "node": "Limit",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Article Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Article Analysis",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Article Analysis",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Article Analysis",
+            "type": "ai_outputParser",
             "index": 0
           }
         ]
@@ -34,11 +79,44 @@
         ]
       ]
     },
-    "Wait1": {
+    "Leo - Improve Prompt": {
       "main": [
         [
           {
-            "node": "Leo - Get imageId",
+            "node": "Leo - Generate Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Get imageId": {
+      "main": [
+        [
+          {
+            "node": "Runway - Create Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Runway - Create Video": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Runway - Get Video": {
+      "main": [
+        [
+          {
+            "node": "Leo - Improve Prompt2",
             "type": "main",
             "index": 0
           }
@@ -56,11 +134,190 @@
         ]
       ]
     },
+    "If Topic": {
+      "main": [
+        [
+          {
+            "node": "Image Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Image": {
+      "main": [
+        [
+          {
+            "node": "Article Prep",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Settings1": {
+      "main": [
+        [
+          {
+            "node": "Leo - Improve Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Generate Image": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Leo - Get imageId",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Analysis": {
+      "main": [
+        [
+          {
+            "node": "Get Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Wait3": {
       "main": [
         [
           {
             "node": "Cre - Get Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Article Analysis": {
+      "main": [
+        [
+          {
+            "node": "If Topic",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dropbox": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Microsoft OneDrive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft OneDrive": {
+      "main": [
+        [
+          {
+            "node": "Upload to Minio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube": {
+      "main": [
+        [
+          {
+            "node": "X",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "X": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn": {
+      "main": [
+        [
+          {
+            "node": "Instagram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Improve Prompt2": {
+      "main": [
+        [
+          {
+            "node": "Leo - Generate Image2",
             "type": "main",
             "index": 0
           }
@@ -89,169 +346,11 @@
         ]
       ]
     },
-    "Dropbox": {
+    "Leo - Generate Image2": {
       "main": [
         [
           {
-            "node": "Google Drive",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "YouTube": {
-      "main": [
-        [
-          {
-            "node": "X",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If Topic": {
-      "main": [
-        [
-          {
-            "node": "Image Analysis",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "LinkedIn": {
-      "main": [
-        [
-          {
-            "node": "Instagram",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get Image": {
-      "main": [
-        [
-          {
-            "node": "Article Prep",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Hacker News": {
-      "main": [
-        [
-          {
-            "node": "Limit",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Article Prep": {
-      "main": [
-        [
-          {
-            "node": "News1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Drive": {
-      "main": [
-        [
-          {
-            "node": "Microsoft OneDrive",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request1": {
-      "ai_tool": [
-        [
-          {
-            "node": "Article Analysis",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Image Analysis": {
-      "main": [
-        [
-          {
-            "node": "Get Image",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Article Analysis",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Article Analysis": {
-      "main": [
-        [
-          {
-            "node": "If Topic",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Prompt Settings1": {
-      "main": [
-        [
-          {
-            "node": "Leo - Improve Prompt",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Get imageId": {
-      "main": [
-        [
-          {
-            "node": "Runway - Create Video",
+            "node": "Wait6",
             "type": "main",
             "index": 0
           }
@@ -269,33 +368,11 @@
         ]
       ]
     },
-    "Microsoft OneDrive": {
+    "Runway - Create Video2": {
       "main": [
         [
           {
-            "node": "Upload to Minio",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model3": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Article Analysis",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Runway - Get Video": {
-      "main": [
-        [
-          {
-            "node": "Leo - Improve Prompt2",
+            "node": "Wait4",
             "type": "main",
             "index": 0
           }
@@ -313,28 +390,6 @@
         ]
       ]
     },
-    "Leo - Generate Image": {
-      "main": [
-        [
-          {
-            "node": "Wait1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Improve Prompt": {
-      "main": [
-        [
-          {
-            "node": "Leo - Generate Image",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Cre - Generate Video1": {
       "main": [
         [
@@ -346,66 +401,11 @@
         ]
       ]
     },
-    "Leo - Generate Image2": {
+    "Article Prep": {
       "main": [
         [
           {
-            "node": "Wait6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Improve Prompt2": {
-      "main": [
-        [
-          {
-            "node": "Leo - Generate Image2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Runway - Create Video": {
-      "main": [
-        [
-          {
-            "node": "Wait2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Runway - Create Video2": {
-      "main": [
-        [
-          {
-            "node": "Wait4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Structured Output Parser": {
-      "ai_outputParser": [
-        [
-          {
-            "node": "Article Analysis",
-            "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "When clicking ‘Test workflow’": {
-      "main": [
-        [
-          {
-            "node": "Hacker News",
+            "node": "News1",
             "type": "main",
             "index": 0
           }
@@ -413,21 +413,20 @@
       ]
     }
   },
-  "createdAt": "2024-12-19T07:04:15.178Z",
-  "id": "l33u1ZLKVFUfWvQ2",
-  "meta": {
-    "templateId": "2557"
-  },
+  "createdAt": "2025-08-21T00:44:00.064Z",
+  "id": "HQsNesWsuAxZDl96",
+  "isArchived": false,
+  "meta": null,
   "name": "Hacker News to Video Content",
   "nodes": [
     {
       "parameters": {},
-      "id": "c777c41b-842d-4504-a1a0-ccbb034a0fdd",
+      "id": "e83f4760-efe6-4757-92a4-b3beb3847bee",
       "name": "When clicking ‘Test workflow’",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        680,
-        580
+        -544,
+        96
       ],
       "typeVersion": 1
     },
@@ -436,12 +435,12 @@
         "resource": "all",
         "additionalFields": {}
       },
-      "id": "74fafd7c-55a4-46ec-b4a8-33d46f2b5b54",
+      "id": "3fb20448-f0c3-4bee-a2d2-5fd548494a82",
       "name": "Hacker News",
       "type": "n8n-nodes-base.hackerNews",
       "position": [
-        980,
-        580
+        -240,
+        96
       ],
       "typeVersion": 1
     },
@@ -449,12 +448,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "9cd87fd2-6a38-463a-a22e-e0c34910818f",
+      "id": "094516f0-6c74-4d7a-8852-e5913890abcb",
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        1440,
-        580
+        208,
+        96
       ],
       "typeVersion": 3
     },
@@ -462,32 +461,26 @@
       "parameters": {
         "options": {}
       },
-      "id": "611b24cd-558b-4025-a0a8-ea355ba61988",
+      "id": "c391af09-7be9-424c-a910-4fc5cec853bd",
       "name": "OpenAI Chat Model3",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        1720,
-        860
+        496,
+        368
       ],
-      "typeVersion": 1,
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+      "typeVersion": 1
     },
     {
       "parameters": {
         "toolDescription": "grab the article for the ai agent to use",
         "url": "={{ $json.url }}"
       },
-      "id": "f814682c-cf6f-49a8-8ea0-48fbc64a3ebe",
+      "id": "1904a114-2730-4284-8fb0-4eef7a610033",
       "name": "HTTP Request1",
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "position": [
-        1900,
-        860
+        672,
+        368
       ],
       "typeVersion": 1.1
     },
@@ -496,12 +489,12 @@
         "schemaType": "manual",
         "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"summary\": {\n\t\t\t\"type\": \"string\"\n\t\t},\n\t\t\"related\": {\n\t\t\t\"type\": \"string\"\n\t\t},\n        \"image urls\": {\n\t\t\t\"type\": \"string\"\n        }\n\t}\n}"
       },
-      "id": "2a4bcf69-23f0-440d-a3b0-c8261e153c62",
+      "id": "af2f78fc-a9f3-4d62-9433-03036ae6420f",
       "name": "Structured Output Parser",
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "position": [
-        2080,
-        860
+        848,
+        368
       ],
       "typeVersion": 1.2
     },
@@ -514,12 +507,12 @@
           "parentFolderKey": "="
         }
       },
-      "id": "83c3b8f0-8d67-48a2-a5ce-b777ea1d7b32",
+      "id": "de927615-823e-476c-a7d5-98f1f6acdb34",
       "name": "Upload to Minio",
       "type": "n8n-nodes-base.s3",
       "position": [
-        5240,
-        1360
+        4016,
+        864
       ],
       "typeVersion": 1
     },
@@ -549,12 +542,12 @@
         },
         "options": {}
       },
-      "id": "05b972ff-ccab-415b-8787-aafabb3b7292",
+      "id": "174ef683-c397-45bf-ac41-25e095e45311",
       "name": "News1",
       "type": "n8n-nodes-base.set",
       "position": [
-        3180,
-        600
+        1952,
+        112
       ],
       "typeVersion": 3.4
     },
@@ -584,12 +577,12 @@
           }
         }
       },
-      "id": "d175d366-e672-4452-b78e-a06336ef242b",
+      "id": "6d73de03-fe03-40c5-9db9-2c3a2e07226d",
       "name": "Leo - Improve Prompt",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3720,
-        380
+        2496,
+        -112
       ],
       "typeVersion": 4.2
     },
@@ -615,12 +608,12 @@
           }
         }
       },
-      "id": "d8da7879-1a67-4da1-86db-f70e50b4e9da",
+      "id": "03bf216c-2dfb-4118-aeed-f9531252ab48",
       "name": "Leo - Get imageId",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        4320,
-        380
+        3088,
+        -112
       ],
       "typeVersion": 4.2
     },
@@ -658,12 +651,12 @@
         },
         "options": {}
       },
-      "id": "faf80246-3b1a-49c6-a277-0152428e46e1",
+      "id": "da748367-21da-4155-8256-faeea1681617",
       "name": "Runway - Create Video",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3520,
-        580
+        2288,
+        96
       ],
       "typeVersion": 4.2
     },
@@ -683,12 +676,12 @@
         },
         "options": {}
       },
-      "id": "e91c1f01-7870-4063-9557-24a6ba1d3db3",
+      "id": "96d21183-91e6-4265-85c5-9c6ae28c7f18",
       "name": "Runway - Get Video",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3920,
-        580
+        2688,
+        96
       ],
       "typeVersion": 4.2
     },
@@ -697,12 +690,12 @@
         "amount": 3,
         "unit": "minutes"
       },
-      "id": "41ee2665-e1aa-4d48-ade6-e37af568f211",
+      "id": "58fb81b2-06f0-4699-ae7a-e374e269f50e",
       "name": "Wait2",
       "type": "n8n-nodes-base.wait",
       "position": [
-        3720,
-        580
+        2496,
+        96
       ],
       "webhookId": "ddca5833-a40b-404a-9140-686cd4fa26cb",
       "typeVersion": 1.1
@@ -714,12 +707,12 @@
         "width": 341,
         "color": 5
       },
-      "id": "091e9e07-89ba-4fe3-9fc5-278fc333dbff",
+      "id": "2201d3c5-01a7-4883-8acd-45228847d880",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        840,
-        240
+        -384,
+        -256
       ],
       "typeVersion": 1
     },
@@ -748,12 +741,12 @@
         },
         "options": {}
       },
-      "id": "9660a593-9966-4ebe-bfd7-f884dc185d56",
+      "id": "63390a52-14dd-4326-a706-1bc2fd4a3b3c",
       "name": "If Topic",
       "type": "n8n-nodes-base.if",
       "position": [
-        2100,
-        600
+        880,
+        112
       ],
       "typeVersion": 2.2
     },
@@ -768,12 +761,12 @@
           }
         }
       },
-      "id": "e47140ac-20cc-417b-a6cd-30f780dc8289",
+      "id": "397dee38-ef5c-40ef-98b0-8734f8eaa739",
       "name": "Get Image",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        2500,
-        600
+        1280,
+        112
       ],
       "typeVersion": 4.2
     },
@@ -792,12 +785,12 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "26f80f71-2c3a-46fe-a960-21cdbc18ce34",
+      "id": "2a399a89-5091-4b94-9da6-8ad08263c6f4",
       "name": "Prompt Settings1",
       "type": "n8n-nodes-base.set",
       "position": [
-        3520,
-        380
+        2288,
+        -112
       ],
       "typeVersion": 3.4
     },
@@ -827,12 +820,12 @@
           }
         }
       },
-      "id": "ce697f6f-f8fc-4ba7-b776-17bbc2e870b7",
+      "id": "ed137fcb-88ee-413c-bfd9-88098ae67688",
       "name": "Leo - Generate Image",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3920,
-        380
+        2688,
+        -112
       ],
       "typeVersion": 4.2
     },
@@ -840,12 +833,12 @@
       "parameters": {
         "amount": 30
       },
-      "id": "e2067fe5-3fae-4f97-97c0-879967efd9b8",
+      "id": "54a30c26-aa16-414d-b955-95a3c4db5f11",
       "name": "Wait1",
       "type": "n8n-nodes-base.wait",
       "position": [
-        4120,
-        380
+        2896,
+        -112
       ],
       "webhookId": "256c3814-6a52-4eb1-969a-30f9f3b8e04e",
       "typeVersion": 1.1
@@ -855,12 +848,12 @@
         "maxItems": 50,
         "keep": "lastItems"
       },
-      "id": "f0ba57a5-1d27-4c75-a422-4bc0e2cead9d",
+      "id": "bf231060-de1d-4cab-bcb2-0762ae632300",
       "name": "Limit",
       "type": "n8n-nodes-base.limit",
       "position": [
-        1240,
-        580
+        16,
+        96
       ],
       "typeVersion": 1
     },
@@ -879,31 +872,25 @@
           "detail": "auto"
         }
       },
-      "id": "e01152aa-961b-4e33-a1e3-186d47d81c55",
+      "id": "7c5b3eef-305a-417a-90ac-32bd06d06a6a",
       "name": "Image Analysis",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "position": [
-        2300,
-        600
+        1072,
+        112
       ],
-      "typeVersion": 1.6,
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+      "typeVersion": 1.6
     },
     {
       "parameters": {
         "unit": "minutes"
       },
-      "id": "ab346129-c3d5-4f51-af5e-5d63cd154981",
+      "id": "4c248375-f4fc-4633-9445-732da3022893",
       "name": "Wait3",
       "type": "n8n-nodes-base.wait",
       "position": [
-        4080,
-        1300
+        2848,
+        816
       ],
       "webhookId": "6e4a0b8d-6c31-4a98-8ec3-2509aa2087e8",
       "typeVersion": 1.1,
@@ -918,24 +905,24 @@
           "systemMessage": "You are a helpful assistant in summarizing and identifying articles related to automation and ai. \nOutput the results as:\nsummary: \nrelated: yes or no\nimage urls: "
         }
       },
-      "id": "872c35a3-bdd5-4eec-9bac-0959f3ff78e7",
+      "id": "32b2fdc1-fe1c-4340-80a4-96aa7a5cf6ba",
       "name": "Article Analysis",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        1740,
-        580
+        512,
+        96
       ],
       "typeVersion": 1.7,
       "onError": "continueErrorOutput"
     },
     {
       "parameters": {},
-      "id": "31c3a90e-10ee-4217-9b08-ff57bf17ea10",
+      "id": "879dc07f-bbdc-4a50-ba50-0594eb453aff",
       "name": "Dropbox",
       "type": "n8n-nodes-base.dropbox",
       "position": [
-        4640,
-        1360
+        3408,
+        864
       ],
       "typeVersion": 1
     },
@@ -949,23 +936,23 @@
         },
         "options": {}
       },
-      "id": "22ccd0a0-f7f6-40ca-bd09-40ed4a7fcde1",
+      "id": "36d7c3b5-0400-4d53-b0f9-1d39d76245ea",
       "name": "Google Drive",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        4840,
-        1360
+        3616,
+        864
       ],
       "typeVersion": 3
     },
     {
       "parameters": {},
-      "id": "ea75931d-c1ee-4139-9bdc-7901056ba016",
+      "id": "490752a5-97db-4653-b45c-7367e2954ea8",
       "name": "Microsoft OneDrive",
       "type": "n8n-nodes-base.microsoftOneDrive",
       "position": [
-        5040,
-        1360
+        3808,
+        864
       ],
       "typeVersion": 1
     },
@@ -975,12 +962,12 @@
         "operation": "upload",
         "options": {}
       },
-      "id": "38888521-3087-4e0a-81d6-cf4b9a5dd3dd",
+      "id": "cd4a6fb6-eb8a-420e-8643-954af54bedf4",
       "name": "YouTube",
       "type": "n8n-nodes-base.youTube",
       "position": [
-        4640,
-        1780
+        3408,
+        1296
       ],
       "typeVersion": 1
     },
@@ -988,12 +975,12 @@
       "parameters": {
         "additionalFields": {}
       },
-      "id": "55f3decc-f952-4d2a-804d-2aec44fb2755",
+      "id": "a922fe2c-6c41-4381-876e-7af2794f5ae1",
       "name": "X",
       "type": "n8n-nodes-base.twitter",
       "position": [
-        4840,
-        1780
+        3616,
+        1296
       ],
       "typeVersion": 2
     },
@@ -1001,12 +988,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "54c8b762-444d-4790-97a9-a2f84518492f",
+      "id": "6b57ca1e-82ec-484b-9483-60307eedd5ce",
       "name": "Instagram",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        5240,
-        1780
+        4016,
+        1296
       ],
       "typeVersion": 4.2
     },
@@ -1014,12 +1001,12 @@
       "parameters": {
         "additionalFields": {}
       },
-      "id": "90040f15-95c0-4ebb-818f-dde508eb0689",
+      "id": "10787251-83bc-4255-a3e1-aacb90e0f440",
       "name": "LinkedIn",
       "type": "n8n-nodes-base.linkedIn",
       "position": [
-        5040,
-        1780
+        3808,
+        1296
       ],
       "typeVersion": 1
     },
@@ -1049,12 +1036,12 @@
           }
         }
       },
-      "id": "691eb779-5fae-4f65-89eb-b1b8e5488809",
+      "id": "12676d63-05e1-4f1e-aab6-b0820b78ffcc",
       "name": "Leo - Improve Prompt2",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3720,
-        780
+        2496,
+        288
       ],
       "typeVersion": 4.2
     },
@@ -1063,12 +1050,12 @@
         "amount": 3,
         "unit": "minutes"
       },
-      "id": "076a745a-055b-459c-8af9-fa7b6740dc6f",
+      "id": "a61487f5-40ab-4c3d-828b-ab6beb6dff85",
       "name": "Wait4",
       "type": "n8n-nodes-base.wait",
       "position": [
-        3720,
-        980
+        2496,
+        496
       ],
       "webhookId": "89b31515-b403-4644-a2c1-970e5e774008",
       "typeVersion": 1.1
@@ -1077,12 +1064,12 @@
       "parameters": {
         "amount": 30
       },
-      "id": "adc2c993-3f89-40df-96fc-eb3ff5eafb1c",
+      "id": "4cc0a0cb-5ec6-4722-8dbc-c3135afee384",
       "name": "Wait6",
       "type": "n8n-nodes-base.wait",
       "position": [
-        4120,
-        780
+        2896,
+        288
       ],
       "webhookId": "2efb873f-bcbd-41d9-99da-b2b57ef5ad93",
       "typeVersion": 1.1
@@ -1113,12 +1100,12 @@
           }
         }
       },
-      "id": "156f5735-bc20-46a9-871c-143b0772ca45",
+      "id": "828a4e81-2a02-43ad-b8ae-10f7ecadea7d",
       "name": "Leo - Generate Image2",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3920,
-        780
+        2688,
+        288
       ],
       "typeVersion": 4.2
     },
@@ -1144,12 +1131,12 @@
           }
         }
       },
-      "id": "4f270fa8-4da2-44f0-927f-3509fd9f8f7d",
+      "id": "28ae8014-b485-44bf-bf5e-31d0a1a333b3",
       "name": "Leo - Get imageId2",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        4320,
-        780
+        3088,
+        288
       ],
       "typeVersion": 4.2
     },
@@ -1187,12 +1174,12 @@
         },
         "options": {}
       },
-      "id": "49c0e7ba-bf9c-4819-b479-61aa099ab9ab",
+      "id": "eda50c3b-47d2-4d94-b5cd-c5e5ac7ea8f2",
       "name": "Runway - Create Video2",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3520,
-        980
+        2288,
+        496
       ],
       "typeVersion": 4.2
     },
@@ -1212,12 +1199,12 @@
         },
         "options": {}
       },
-      "id": "d03eb190-5fc0-4b7e-ad65-88ece3ab833d",
+      "id": "a05de20d-17e8-4caf-bb9e-e0b16c5c4fe5",
       "name": "Runway - Get Video2",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3920,
-        980
+        2688,
+        496
       ],
       "typeVersion": 4.2
     },
@@ -1228,12 +1215,12 @@
         "width": 882,
         "color": 6
       },
-      "id": "0072563d-b87d-47c5-80fd-ed3c051b3287",
+      "id": "6ad13e30-710e-4239-bcea-edd8a9ec5126",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        4580,
-        1220
+        3360,
+        736
       ],
       "typeVersion": 1
     },
@@ -1244,12 +1231,12 @@
         "width": 882,
         "color": 6
       },
-      "id": "a0b2377e-57ea-47e9-83c9-3e58372610e5",
+      "id": "f43f098e-803d-4e6d-8ad2-14a6c70c8ede",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        4580,
-        1640
+        3360,
+        1152
       ],
       "typeVersion": 1
     },
@@ -1260,12 +1247,12 @@
         "width": 1114,
         "color": 4
       },
-      "id": "708fe6a0-4899-462b-9a08-fadea7c7e195",
+      "id": "a9c34b24-2f70-4392-b668-281a31c8fb64",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3420,
-        240
+        2192,
+        -256
       ],
       "typeVersion": 1
     },
@@ -1276,12 +1263,12 @@
         "width": 1114,
         "color": 5
       },
-      "id": "5bbb6552-ec3a-42ea-a911-993f67a6c8dc",
+      "id": "963723c0-2ecc-4b3b-80fc-74e0a274eada",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3420,
-        1220
+        2192,
+        736
       ],
       "typeVersion": 1
     },
@@ -1302,12 +1289,12 @@
           }
         }
       },
-      "id": "25f4cc09-fbff-4c10-b706-30df5840b794",
+      "id": "a6014184-b517-4523-a900-d2ae71407637",
       "name": "Cre - Generate Video1",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3880,
-        1300
+        2656,
+        816
       ],
       "typeVersion": 4.2
     },
@@ -1324,12 +1311,12 @@
           }
         }
       },
-      "id": "7093de7b-a4e3-4363-8038-1002f7b20fbc",
+      "id": "23d61788-8516-439d-868a-531cb0b0d269",
       "name": "Cre - Get Video",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        4280,
-        1300
+        3056,
+        816
       ],
       "typeVersion": 4.2
     },
@@ -1340,12 +1327,12 @@
         "width": 1033,
         "color": 3
       },
-      "id": "a57b719f-b299-431e-9c85-fa333e38b6a7",
+      "id": "ba1102f0-8d28-473f-85cd-35adcc548cad",
       "name": "Sticky Note6",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1660,
-        240
+        432,
+        -256
       ],
       "typeVersion": 1
     },
@@ -1356,12 +1343,12 @@
         "width": 630,
         "color": 3
       },
-      "id": "60b879a0-8b7f-40f1-ae70-ac94e4675b38",
+      "id": "9d552622-f1d5-4fa1-a4b1-896ca5c151fe",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2740,
-        240
+        1520,
+        -256
       ],
       "typeVersion": 1
     },
@@ -1387,20 +1374,14 @@
         "jsonOutput": true,
         "options": {}
       },
-      "id": "afaf8437-ee52-434b-a267-8dbaff0e1922",
+      "id": "e333a16b-4fa6-4ef5-bec1-6c3e80f9f90e",
       "name": "Article Prep",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "position": [
-        2820,
-        600
+        1600,
+        112
       ],
-      "typeVersion": 1.6,
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+      "typeVersion": 1.6
     },
     {
       "parameters": {
@@ -1409,12 +1390,12 @@
         "width": 252,
         "color": 6
       },
-      "id": "e7c95d56-86e1-4456-a6d3-9c8b9fc3a53c",
+      "id": "79462ba7-f550-4dbe-b4e3-b13cab98d216",
       "name": "Sticky Note5",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -848,
+        -256
       ],
       "typeVersion": 1
     },
@@ -1425,12 +1406,12 @@
         "width": 180,
         "color": 7
       },
-      "id": "32e2803e-bf7c-4da4-a4ae-c9b6fa5ae226",
+      "id": "55f85309-bb46-4d51-b106-fd6be4854895",
       "name": "Sticky Note8",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        4280,
-        1460
+        3056,
+        976
       ],
       "typeVersion": 1
     }
@@ -1439,9 +1420,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T00:44:00.068Z",
+      "updatedAt": "2025-08-21T00:44:00.068Z",
+      "role": "workflow:owner",
+      "workflowId": "HQsNesWsuAxZDl96",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-04T03:00:10.000Z",
-  "versionId": "d0205cb0-e437-4d9f-8b39-c5e133f8f8ae"
+  "updatedAt": "2025-08-21T00:44:06.000Z",
+  "versionId": "5f718d93-92ff-405d-a010-42cde2afa9cd"
 }
