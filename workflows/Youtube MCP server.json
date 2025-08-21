@@ -1,0 +1,312 @@
+{
+  "active": false,
+  "connections": {
+    "Youtube Transcripts": {
+      "ai_tool": [
+        [
+          {
+            "node": "Apify Youtube MCP Server",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Youtube Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "Apify Youtube MCP Server",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Usage Report": {
+      "ai_tool": [
+        [
+          {
+            "node": "Apify Youtube MCP Server",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-23T16:24:34.829Z",
+  "id": "6n3lGReOlW9r2Auf",
+  "isArchived": false,
+  "meta": {
+    "templateId": "3637"
+  },
+  "name": "Youtube MCP server",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### Always Authenticate Your Server!\nBefore going to production, it's always advised to enable authentication on your MCP server trigger.",
+        "height": 100,
+        "width": 380,
+        "color": 5
+      },
+      "id": "3473a800-6bdc-412d-82f2-aa5befd2dfe4",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        900,
+        480
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Try It Out!\n### This n8n demonstrates how to build a simple Youtube Search MCP server to look up videos on Youtube and download their transcripts for research purposes.\n\n### How it works\n* A MCP server trigger is used and connected to 3 custom workflow tools: Youtube Search, Youtube Transcripts and Usage Reports.\n* Both Youtube tools use an external scraping service called [APIFY.com](https://www.apify.com?fpr=414q6). This is my preference as it's a much simpler interface and there are no rate limits.  \n* The Youtube Search fetches 10 results based on the user's query.\n* The Youtube Transcripts downloads the subtitles from one or more given urls.\n* The usage reports pulls in your monthly [APIFY.com](https://www.apify.com?fpr=414q6) monthly spending and limits as a way to check your account.\n\n### How to use\n* This Apify Youtube MCP server allows any compatible MCP client to research youtube videos for any desired topic. An Apify account is required however to connect and use the service.\n* Connect your MCP client by following the n8n guidelines here - https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/#integrating-with-claude-desktop\n* Alternatively, connect any n8n AI agent with the MCP client tool.\n* Try the following queries in your MCP client:\n  * \"what is MCP?\"\n  * \"How can I use MCP in n8n?\"\n  * \"How can I use Apify's official MCP server?\"\n\n### Requirements\n* [APIFY.com](https://www.apify.com?fpr=414q6) for Youtube Scraping. This is a paid service but there is a $5 free tier which is ample for this template.\n* MCP Client or Agent for usage such as Claude Desktop - https://claude.ai/download\n\n### Customising this workflow\n* Add as many [APIFY.com](https://www.apify.com?fpr=414q6) actors as required for your use-case or users. Consider using Apify's official MCP server for 4000+ available tools.\n* Remember to set the MCP server to require credentials before going to production and sharing this MCP server with others!",
+        "height": 1020,
+        "width": 480
+      },
+      "id": "b427a01f-099d-43f8-8b8d-04186a5d330e",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        360,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 1. Set up an MCP Server Trigger\n[Read more about the MCP Server Trigger](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger)",
+        "height": 660,
+        "width": 680,
+        "color": 7
+      },
+      "id": "6c005b10-31f3-4f48-8e78-0c9a3e89c491",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        900,
+        620
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "name": "youtube_transcripts",
+        "description": "Fetch the transcript from a youtube video using the youtube video url.",
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $workflow.id }}"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "urls": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('urls', ``, 'string') }}",
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}",
+            "operation": "youtube_transcripts"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "operation",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "operation",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "query",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "query",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "urls",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "urls",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "id": "b2901b8e-95c1-43f0-a2d5-cbf04b4cd24e",
+      "name": "Youtube Transcripts",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "position": [
+        1340,
+        1000
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "name": "websearch_contents",
+        "description": "Performs a youtube search and retrieves relevant videos with metadata only.",
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $workflow.id }}"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "urls": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('urls', ``, 'string') }}",
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}",
+            "operation": "youtube_search"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "operation",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "operation",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "query",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "query",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "urls",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "urls",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "id": "83d98519-041d-4049-8da9-b829b2425dd8",
+      "name": "Youtube Search",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "position": [
+        1060,
+        1000
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "name": "Apfiy_Usage_Metrics",
+        "description": "Returns current month's usage metrics.",
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $workflow.id }}"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "urls": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('urls', ``, 'string') }}",
+            "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('query', ``, 'string') }}",
+            "operation": "=usage_report"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "operation",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "operation",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "query",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "query",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "urls",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "urls",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "id": "24aff5e9-264d-4bf7-a2e4-216825c554e0",
+      "name": "Usage Report",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "position": [
+        1200,
+        1120
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "path": "b975bb25-be7c-49fb-8cd2-8e135d91ed4e"
+      },
+      "id": "5890181c-6deb-432e-a123-0a0f08c338ac",
+      "name": "Apify Youtube MCP Server",
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "position": [
+        1040,
+        780
+      ],
+      "webhookId": "b975bb25-be7c-49fb-8cd2-8e135d91ed4e",
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-05-23T16:24:34.834Z",
+      "updatedAt": "2025-05-23T16:24:34.834Z",
+      "role": "workflow:owner",
+      "workflowId": "6n3lGReOlW9r2Auf",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-21T05:56:54.000Z",
+  "versionId": "6b700bd9-f85d-49fc-8489-ca7bf147277f"
+}
