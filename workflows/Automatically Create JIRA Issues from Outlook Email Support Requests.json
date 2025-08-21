@@ -324,6 +324,15 @@
   ],
   "pinData": {},
   "settings": {},
+  "shared": [
+    {
+      "createdAt": "2025-05-23T20:32:00.802Z",
+      "updatedAt": "2025-05-23T20:32:00.802Z",
+      "role": "workflow:owner",
+      "workflowId": "MXcgsS2GU1IUuWC3",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
