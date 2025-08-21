@@ -1,50 +1,22 @@
 {
   "active": false,
   "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Get rows to enrich",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Input": {
       "main": [
         [
           {
             "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge data": {
-      "main": [
-        [
-          {
-            "node": "Google Sheets - Update Row with data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items": {
-      "main": [
-        null,
-        [
-          {
-            "node": "AI company researcher",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Merge data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Schedule Trigger": {
-      "main": [
-        [
-          {
-            "node": "Get rows to enrich",
             "type": "main",
             "index": 0
           }
@@ -62,34 +34,12 @@
         ]
       ]
     },
-    "Get rows to enrich": {
-      "main": [
-        [
-          {
-            "node": "Input",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Get website content": {
       "ai_tool": [
         [
           {
             "node": "AI company researcher",
             "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "AI company researcher": {
-      "main": [
-        [
-          {
-            "node": "AI Researcher Output Data",
-            "type": "main",
             "index": 0
           }
         ]
@@ -117,6 +67,23 @@
         ]
       ]
     },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "AI company researcher",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "AI Researcher Output Data": {
       "main": [
         [
@@ -128,7 +95,40 @@
         ]
       ]
     },
-    "When clicking \"Test workflow\"": {
+    "Google Sheets - Update Row with data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge data": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Update Row with data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get rows to enrich": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
       "main": [
         [
           {
@@ -139,11 +139,11 @@
         ]
       ]
     },
-    "Google Sheets - Update Row with data": {
+    "AI company researcher": {
       "main": [
         [
           {
-            "node": "Loop Over Items",
+            "node": "AI Researcher Output Data",
             "type": "main",
             "index": 0
           }
@@ -173,21 +173,20 @@
       ]
     }
   },
-  "createdAt": "2024-12-18T07:14:46.253Z",
-  "id": "QnNUutIfIiubj6wP",
-  "meta": {
-    "templateId": "2324"
-  },
+  "createdAt": "2025-08-20T23:35:47.692Z",
+  "id": "8zp30Krsde9UxUHn",
+  "isArchived": false,
+  "meta": null,
   "name": "AI web researcher for sales",
   "nodes": [
     {
       "parameters": {},
-      "id": "71b06728-7f59-49e3-9365-3281189a6659",
+      "id": "9fd5208d-fce6-443b-b2c2-94f21c5520e4",
       "name": "When clicking \"Test workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        920,
-        340
+        -176,
+        368
       ],
       "typeVersion": 1
     },
@@ -211,12 +210,12 @@
         },
         "options": {}
       },
-      "id": "b37019e3-c7ab-4119-986d-c27d082a036e",
+      "id": "11d53162-8c2b-4c71-8f26-4bffd3ab1862",
       "name": "Input",
       "type": "n8n-nodes-base.set",
       "position": [
-        1340,
-        340
+        240,
+        368
       ],
       "typeVersion": 3.3
     },
@@ -227,20 +226,14 @@
           "temperature": 0.3
         }
       },
-      "id": "7d5d53ac-6d3c-4b24-97c7-deb6b76749e5",
+      "id": "2dc92a13-c563-4bc1-bbdf-9077a3427c4a",
       "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        2020,
-        660
+        928,
+        688
       ],
-      "typeVersion": 1,
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+      "typeVersion": 1
     },
     {
       "parameters": {
@@ -252,12 +245,12 @@
         "specifyInputSchema": true,
         "jsonSchemaExample": "{\n\t\"url\": \"https://www.mongodb.com/case-studies/openclass\"\n}"
       },
-      "id": "24e2f3b0-8b90-49a9-bde6-0fb0c2baf52a",
+      "id": "99e6619e-2aaf-4526-984c-79fd66113f72",
       "name": "Get website content",
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "position": [
-        2580,
-        680
+        1488,
+        704
       ],
       "typeVersion": 1.1
     },
@@ -265,32 +258,26 @@
       "parameters": {
         "options": {}
       },
-      "id": "ff7ab74c-dfc6-43ce-8c57-6edf935b4915",
+      "id": "7cb042de-9a13-437e-be65-6da8d97d6f3a",
       "name": "SerpAPI - Search Google",
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "position": [
-        2300,
-        660
+        1200,
+        688
       ],
-      "typeVersion": 1,
-      "credentials": {
-        "serpApi": {
-          "id": "1Tzl11P6LGX6jXlo",
-          "name": "SerpAPI account"
-        }
-      }
+      "typeVersion": 1
     },
     {
       "parameters": {
         "schemaType": "manual",
         "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"case_study_link\": {\n\t\t\t\"type\":[\"string\", \"null\"]\n\t\t},\n      \t\t\"domain\": {\n\t\t\t\"type\": [\"string\", \"null\"]\n\t\t},\n           \"linkedinUrl\": {\n\t\t\t\"type\": [\"string\", \"null\"]\n\t\t},\n     \t\"market\": {\n\t\t\t\"type\": [\"string\", \"null\"]\n\t\t},\n\t\t\"cheapest_plan\": {\n\t\t\t\"type\": [\"number\", \"null\"]\n\t\t},\n\t\"has_enterprise_plan\": {\n\t\t\t\"type\": [\"boolean\", \"null\"]\n\t\t},\n\t\"has_API\": {\n\t\t\t\"type\": [\"boolean\", \"null\"]\n\t\t},\n\t\"has_free_trial\": {\n\t\t\t\"type\": [\"boolean\", \"null\"]\n\t\t},\n\t\"integrations\": {\n\t\t\t\"type\": [\"array\",\"null\"],\n      \"items\": {\n\t\t\t\t\"type\": \"string\"\n\t\t\t}\n\t\t}\n\t}\n}"
       },
-      "id": "4fe311f2-4983-4380-b4ed-a827a406fce5",
+      "id": "e8464161-69e7-4fe6-ac5f-28a3a9eab368",
       "name": "Structured Output Parser",
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "position": [
-        2880,
-        660
+        1776,
+        688
       ],
       "typeVersion": 1.2
     },
@@ -298,12 +285,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "89ed0723-4dbe-428d-b1a9-ebdf515e42bb",
+      "id": "54414041-f4da-4794-805e-58f139603c33",
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        1600,
-        340
+        496,
+        368
       ],
       "typeVersion": 3
     },
@@ -369,12 +356,12 @@
         },
         "options": {}
       },
-      "id": "34ea3862-e8e5-4bf2-a9aa-2ad084376bb5",
+      "id": "c05e5eb6-4e0c-4ae4-ac08-45668029a9f3",
       "name": "AI Researcher Output Data",
       "type": "n8n-nodes-base.set",
       "position": [
-        2960,
-        340
+        1856,
+        368
       ],
       "typeVersion": 3.3
     },
@@ -519,20 +506,14 @@
         },
         "options": {}
       },
-      "id": "ff1cb26d-6138-4ee1-9f28-4ecc80c1c8ae",
+      "id": "86f3faa6-3549-4b9b-94ef-87fe0ad6c8ce",
       "name": "Google Sheets - Update Row with data",
       "type": "n8n-nodes-base.googleSheets",
       "position": [
-        3600,
-        700
+        2496,
+        720
       ],
-      "typeVersion": 4.3,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "rSTr7Ltjwpw9Xvz2",
-          "name": "Google Sheets account 5"
-        }
-      }
+      "typeVersion": 4.3
     },
     {
       "parameters": {
@@ -540,12 +521,12 @@
         "combinationMode": "mergeByPosition",
         "options": {}
       },
-      "id": "6611f852-b4d6-4a07-9428-db206ef57cc3",
+      "id": "1f093829-5f62-46ce-af9e-5b3c61ee3251",
       "name": "Merge data",
       "type": "n8n-nodes-base.merge",
       "position": [
-        3240,
-        180
+        2144,
+        208
       ],
       "typeVersion": 2.1
     },
@@ -555,12 +536,12 @@
         "height": 658.0614601225933,
         "width": 409.0131656322444
       },
-      "id": "2a19516b-33a1-4987-9b5f-242a084621e0",
+      "id": "0a876b3d-f0f5-4fbc-b3ce-e5639157243a",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -720,
+        256
       ],
       "typeVersion": 1
     },
@@ -582,20 +563,14 @@
         },
         "options": {}
       },
-      "id": "67d485c9-3289-4bb3-9523-cd24c0b1aa05",
+      "id": "7a60fc88-b764-4aa1-9d9a-0e7f3e484209",
       "name": "Get rows to enrich",
       "type": "n8n-nodes-base.googleSheets",
       "position": [
-        1140,
-        340
+        48,
+        368
       ],
-      "typeVersion": 4.3,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "5E2KbPnPPLNsGeAm",
-          "name": "Google Sheets account"
-        }
-      }
+      "typeVersion": 4.3
     },
     {
       "parameters": {
@@ -603,12 +578,12 @@
         "height": 279.8787004666023,
         "width": 300.49399096535876
       },
-      "id": "dc4f1550-1e3c-4175-a2b3-10153dc2fd77",
+      "id": "ca87af0a-cccf-475c-89ea-d3c221416c33",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2080,
-        -20
+        976,
+        0
       ],
       "typeVersion": 1
     },
@@ -623,12 +598,12 @@
           ]
         }
       },
-      "id": "0c1dafa9-28fe-4ef4-b80e-d4034e16f6c0",
+      "id": "7b205e1c-2c1a-44d2-9e9a-2558e0d14cba",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "position": [
-        920,
-        580
+        -176,
+        608
       ],
       "typeVersion": 1.2
     },
@@ -641,12 +616,12 @@
           "maxIterations": 10
         }
       },
-      "id": "d7db2452-ba3d-4adb-bd8b-d17a92d1bce5",
+      "id": "493370fd-2226-4fc1-bb15-17a98e197233",
       "name": "AI company researcher",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        2200,
-        340
+        1104,
+        368
       ],
       "typeVersion": 1.6
     },
@@ -659,12 +634,12 @@
         "specifyInputSchema": true,
         "jsonSchemaExample": "{\n\t\"google_search_query\": \"site:lemlist.com pricing\"\n}"
       },
-      "id": "f7896dbd-5c15-44e9-96ca-c695a66562cc",
+      "id": "dfa6c08b-0b8f-4c36-a948-aedb630ce09a",
       "name": "Search Google with ScrapingBee",
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "position": [
-        480,
-        1120
+        -624,
+        1136
       ],
       "typeVersion": 1.1
     },
@@ -673,12 +648,12 @@
         "content": "Instead of SERP API module, you can also use this custom module for ScrapingBee. It is more cost-efficient.\n\nGet your free API key here https://www.scrapingbee.com/",
         "height": 340.14969579315925
       },
-      "id": "7a89c803-8145-49c2-aafe-ec2aff0b2fbc",
+      "id": "0cba98df-15d6-4d3c-a6aa-7583dfae3be3",
       "name": "Sticky Note6",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        400,
-        940
+        -704,
+        960
       ],
       "typeVersion": 1
     },
@@ -688,24 +663,24 @@
         "height": 206,
         "width": 195
       },
-      "id": "79eff129-790b-46da-bef3-899eb6db3ced",
+      "id": "2bb1b55f-fee9-44ea-bcc2-ea8376e5755e",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1100,
-        -20
+        0,
+        0
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "33ee375e-eff1-4cc0-8b10-e9891d90e896",
+      "id": "07b56dc6-7be9-4f42-84e5-f091183c777d",
       "name": "Execute Workflow Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        2000,
-        1000
+        896,
+        1024
       ]
     },
     {
@@ -713,13 +688,13 @@
         "url": "={{ $json.query.url }}",
         "options": {}
       },
-      "id": "9ae80192-20e5-4805-9c2c-5f70e703921b",
+      "id": "1f2f13c2-9335-4df4-a21a-d877d4dbbb50",
       "name": "Visit Website",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2260,
-        1000
+        1168,
+        1024
       ]
     },
     {
@@ -738,21 +713,32 @@
           "cleanUpText": true
         }
       },
-      "id": "a7e71cee-3d84-47f1-8bfb-747d3450a60b",
+      "id": "c61b71e1-ca14-486f-ab23-c147c2e5fca1",
       "name": "HTML",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2540,
-        1000
+        1440,
+        1024
       ]
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-08-20T23:35:47.697Z",
+      "updatedAt": "2025-08-20T23:35:47.697Z",
+      "role": "workflow:owner",
+      "workflowId": "8zp30Krsde9UxUHn",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:18:27.000Z",
-  "versionId": "20774b40-05e3-4b26-aa58-16f612a52ac6"
+  "updatedAt": "2025-08-20T23:35:47.000Z",
+  "versionId": "016f3436-e1cb-4f1e-93b9-9e48c838cd88"
 }
