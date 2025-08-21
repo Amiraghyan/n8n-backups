@@ -93,18 +93,12 @@
           }
         ]
       ]
-    },
-    "TOS Email1": {
-      "main": [
-        []
-      ]
     }
   },
-  "createdAt": "2025-02-14T18:28:05.246Z",
-  "id": "66kALp0DaE8uIRBq",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2025-08-20T23:39:33.999Z",
+  "id": "L6h8BSUMhBZ44nXH",
+  "isArchived": false,
+  "meta": null,
   "name": "Welcome Mssg + ToS",
   "nodes": [
     {
@@ -112,20 +106,14 @@
         "model": "llama3-70b-8192",
         "options": {}
       },
-      "id": "a0839a90-038a-44ac-87b2-b23fa3fa8650",
+      "id": "0405ac2a-1ecb-4bf4-b925-82e15da3c7d7",
       "name": "Groq Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        -20,
-        40
-      ],
-      "credentials": {
-        "groqApi": {
-          "id": "0PSKHqXxusBfS3qe",
-          "name": "Groq n8n"
-        }
-      }
+        -928,
+        -208
+      ]
     },
     {
       "parameters": {
@@ -169,13 +157,13 @@
         },
         "options": {}
       },
-      "id": "e77b8d66-50a2-4825-a994-1367389ab387",
+      "id": "94c1832b-3122-4da3-9d14-97aeb8a2a579",
       "name": "Client Onboarding Form",
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.1,
       "position": [
-        -400,
-        180
+        -1312,
+        -64
       ],
       "webhookId": "78254c76-a01b-4a2c-857a-0df90d287a95"
     },
@@ -223,13 +211,13 @@
         },
         "options": {}
       },
-      "id": "d1355780-52ac-4b0b-aacc-d0b30ef36b9c",
+      "id": "55c11ffc-0129-4f68-a0d0-6e16395b73b8",
       "name": "Clean Data",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -160,
-        180
+        -1072,
+        -64
       ]
     },
     {
@@ -239,13 +227,13 @@
         "text": "=Write a personalized welcome email to {{ $json.Email }} from AI Workshop.\n\nThey are in the {{ $json[\"Industry\"] }} industry and need services for{{ $json['Services Required'] }} . The services will start on {{ $json['Start Date'] }}. The tone should be professional yet friendly. Include a mention that we are excited to work with them. \n\nAlso, let them know that they will be receiving a separate email with the terms of services agreement that they need to sign or simply respond to the email.\n\n",
         "options": {}
       },
-      "id": "eb73c0cc-c0b2-4d55-93dd-75b6c758d754",
+      "id": "fee6854e-3a4f-4b73-88e6-cce24402935c",
       "name": "AI Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.6,
       "position": [
-        140,
-        80
+        -768,
+        -176
       ]
     },
     {
@@ -270,39 +258,27 @@
         "jsonOutput": true,
         "options": {}
       },
-      "id": "8bc92db5-43c8-4ede-b8df-b2980b7b3d29",
+      "id": "64e2defe-3784-4420-b2e8-84f57dfef9e0",
       "name": "Welcome Client",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.5,
       "position": [
-        460,
-        80
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+        -448,
+        -176
+      ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "2f2db5db-dad4-4d5e-9f5e-abc0f8ae1b21",
+      "id": "0c45fc6b-e108-45f1-9bc6-759514644245",
       "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        20,
-        400
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+        -880,
+        144
+      ]
     },
     {
       "parameters": {
@@ -311,13 +287,13 @@
         "text": "=Please generate a Terms of Service and Contract document for {{ $json.Name }} from AI Workshop. The client operates in the {{ $json[\"Industry\"] }} industry and requires services such as {{ $json['Services Required'] }} starting from {{ $json['Start Date'] }}. The contract should include:\n\n1. An introduction outlining the purpose of the contract.\n2. The scope of services.\n3. Payment terms.\n4. Obligations of both parties.\n5. Terms and conditions, including liability clauses.\n6. A section for client signature.\n",
         "options": {}
       },
-      "id": "cfc30222-b1e5-41b3-8ecf-3e234b9c88b4",
+      "id": "8f1c4499-f6b3-41ab-97ac-745c0d3dd70c",
       "name": "AI Agent1",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.6,
       "position": [
-        140,
-        280
+        -768,
+        32
       ]
     },
     {
@@ -342,20 +318,14 @@
         "jsonOutput": true,
         "options": {}
       },
-      "id": "d901e6d8-28f6-4f48-a1d7-be4647a86670",
+      "id": "be584444-5dff-475f-9758-a449d9b4261a",
       "name": "TOS Contract",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.5,
       "position": [
-        460,
-        280
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      }
+        -448,
+        32
+      ]
     },
     {
       "parameters": {
@@ -369,21 +339,15 @@
         "text": "={{ $('TOS Contract').item.json.message.content.Body }}",
         "otherOptions": {}
       },
-      "id": "0cdd98a7-6f0c-44eb-a614-52ebba5b73a1",
+      "id": "fbc8a549-7c04-4fe6-8056-2eab782f25a1",
       "name": "Slack",
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.2,
       "position": [
-        1060,
-        220
+        160,
+        -32
       ],
-      "webhookId": "8313b9d2-c0a6-4b5b-8677-a8854fd467fc",
-      "credentials": {
-        "slackApi": {
-          "id": "OjRpDB3gj10WwGnG",
-          "name": "SYCn8n Bot Token"
-        }
-      }
+      "webhookId": "8313b9d2-c0a6-4b5b-8677-a8854fd467fc"
     },
     {
       "parameters": {
@@ -392,21 +356,15 @@
         "message": "={{ $json.message.content.Body }}",
         "options": {}
       },
-      "id": "70c09943-0cfe-4536-8b6d-75b9081e4ef8",
+      "id": "25c14cd1-1e46-4d4f-bb59-9dcbb275dadf",
       "name": "Welcome Client Email1",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        820,
-        80
+        -80,
+        -176
       ],
-      "webhookId": "07c84ffe-70c1-43ca-ba57-6761d3657a21",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "6K4gqOnfx5Bz59Tl",
-          "name": "Gmail_Sergio"
-        }
-      }
+      "webhookId": "07c84ffe-70c1-43ca-ba57-6761d3657a21"
     },
     {
       "parameters": {
@@ -415,30 +373,33 @@
         "message": "={{ $json.message.content.Body }}",
         "options": {}
       },
-      "id": "1c8bd9ae-4fb5-4660-8162-6693b0326cc7",
+      "id": "b5b445e2-4f3f-415c-b27a-b5651e62a7c8",
       "name": "TOS Email1",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        820,
-        280
+        -80,
+        32
       ],
-      "webhookId": "92d5d539-8656-4778-9595-46097a884941",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "6K4gqOnfx5Bz59Tl",
-          "name": "Gmail_Sergio"
-        }
-      }
+      "webhookId": "92d5d539-8656-4778-9595-46097a884941"
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-20T23:39:34.002Z",
+      "updatedAt": "2025-08-20T23:39:34.002Z",
+      "role": "workflow:owner",
+      "workflowId": "L6h8BSUMhBZ44nXH",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:17:12.000Z",
-  "versionId": "bff4bcbf-bad7-4d9e-9495-697dc4c60bf2"
+  "updatedAt": "2025-08-20T23:39:47.000Z",
+  "versionId": "9600b7dd-cb04-4445-b569-617e5090edd1"
 }
