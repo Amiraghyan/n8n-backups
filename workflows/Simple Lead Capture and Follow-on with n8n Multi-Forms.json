@@ -12,38 +12,11 @@
         ]
       ]
     },
-    "Sign Up Form": {
-      "main": [
-        [
-          {
-            "node": "About You",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Capture Email": {
-      "main": [
-        []
-      ]
-    },
     "Your Interests": {
       "main": [
         [
           {
             "node": "Join Beta Testers",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Capture More Info": {
-      "main": [
-        [
-          {
-            "node": "Show Completion Screen",
             "type": "main",
             "index": 0
           }
@@ -61,17 +34,33 @@
         ]
       ]
     },
-    "Notify New Signup!": {
+    "Sign Up Form": {
       "main": [
-        []
+        [
+          {
+            "node": "About You",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Capture More Info": {
+      "main": [
+        [
+          {
+            "node": "Show Completion Screen",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
-  "createdAt": "2025-01-09T23:40:34.103Z",
-  "id": "ffjOo9Wcc9coxg3G",
-  "meta": {
-    "templateId": "2581"
-  },
+  "createdAt": "2025-08-20T23:38:02.519Z",
+  "id": "9bVnVORyLXTGveT3",
+  "isArchived": false,
+  "meta": null,
   "name": "Simple Lead Capture and Follow-on with n8n Multi-Forms",
   "nodes": [
     {
@@ -166,12 +155,12 @@
           "buttonLabel": "Continue (1 of 3)"
         }
       },
-      "id": "7263f921-1622-47eb-903c-729a75965e20",
+      "id": "7f25cacf-348b-4afb-9aba-a9322ae407f0",
       "name": "About You",
       "type": "n8n-nodes-base.form",
       "position": [
-        1720,
-        740
+        1344,
+        512
       ],
       "webhookId": "14efc5e8-0984-4ccb-a118-ce3492f8ea02",
       "typeVersion": 1
@@ -212,12 +201,12 @@
           "buttonLabel": "Continue (2 of 3)"
         }
       },
-      "id": "590e8da4-e4b5-46de-af19-f07f82305c19",
+      "id": "33812705-03b2-482f-84ef-54918655b2c6",
       "name": "Your Interests",
       "type": "n8n-nodes-base.form",
       "position": [
-        1900,
-        740
+        1520,
+        512
       ],
       "webhookId": "14efc5e8-0984-4ccb-a118-ce3492f8ea02",
       "typeVersion": 1
@@ -252,12 +241,12 @@
           "buttonLabel": "Finish (3 of 3)"
         }
       },
-      "id": "c8f837be-4c09-4cf5-be33-913814d7b1c4",
+      "id": "66f68463-41e4-4083-86e8-4b218288d053",
       "name": "Join Beta Testers",
       "type": "n8n-nodes-base.form",
       "position": [
-        2080,
-        740
+        1696,
+        512
       ],
       "webhookId": "14efc5e8-0984-4ccb-a118-ce3492f8ea02",
       "typeVersion": 1
@@ -284,12 +273,12 @@
           "useWorkflowTimezone": true
         }
       },
-      "id": "9d8f8a98-7cf6-4dc9-bbed-b999dbdfc6d5",
+      "id": "2558df0e-0b9b-45dc-a728-d4cc47cd4b16",
       "name": "Sign Up Form",
       "type": "n8n-nodes-base.formTrigger",
       "position": [
-        1000,
-        700
+        624,
+        464
       ],
       "webhookId": "c9deb1b7-52c5-4046-bb8f-7dcfdd00fa4b",
       "typeVersion": 2.1
@@ -446,20 +435,14 @@
         },
         "options": {}
       },
-      "id": "e7143922-7de1-448d-9abb-72034437f79c",
+      "id": "657d3aa1-0778-4f7a-bc1a-c147a2eb8229",
       "name": "Capture More Info",
       "type": "n8n-nodes-base.googleSheets",
       "position": [
-        2260,
-        740
+        1888,
+        512
       ],
-      "typeVersion": 4.5,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "rSTr7Ltjwpw9Xvz2",
-          "name": "Google Sheets account 5"
-        }
-      }
+      "typeVersion": 4.5
     },
     {
       "parameters": {
@@ -598,20 +581,14 @@
         },
         "options": {}
       },
-      "id": "0cacb296-0d12-44e5-a749-65aa2e89a42d",
+      "id": "de28901c-8724-4261-aa4d-f2795d6a1d85",
       "name": "Capture Email",
       "type": "n8n-nodes-base.googleSheets",
       "position": [
-        1180,
-        700
+        800,
+        464
       ],
-      "typeVersion": 4.5,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "rSTr7Ltjwpw9Xvz2",
-          "name": "Google Sheets account 5"
-        }
-      }
+      "typeVersion": 4.5
     },
     {
       "parameters": {
@@ -622,12 +599,12 @@
           "formTitle": "NewsLetter Signup Short Survey Complete"
         }
       },
-      "id": "9befb4d6-7c50-4acb-9972-97e95981632f",
+      "id": "59c9b1ca-94d2-40ad-9a11-c87bb4384be7",
       "name": "Show Completion Screen",
       "type": "n8n-nodes-base.form",
       "position": [
-        2680,
-        680
+        2304,
+        448
       ],
       "webhookId": "c1e775ff-f9fd-44ee-b4c6-257fdf291227",
       "typeVersion": 1
@@ -639,12 +616,12 @@
         "width": 740,
         "color": 7
       },
-      "id": "01b7b455-a64f-42a1-9c5a-f04908eced41",
+      "id": "1900f206-255e-4289-b7e4-f66dc3773a6c",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        860,
-        420
+        480,
+        192
       ],
       "typeVersion": 1
     },
@@ -655,12 +632,12 @@
         "width": 840,
         "color": 7
       },
-      "id": "00b6bcac-2c39-4b5c-aef6-bd6e2731240b",
+      "id": "789ecb84-d245-4636-ae76-de102aba59fa",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1620,
-        480
+        1248,
+        240
       ],
       "typeVersion": 1
     },
@@ -671,12 +648,12 @@
         "width": 500,
         "color": 7
       },
-      "id": "e76311ce-ab8e-4563-9fe4-a58a7578b3d0",
+      "id": "400f3c56-1f6c-4f9a-b6e9-b67fabd91e1b",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2480,
-        480
+        2096,
+        240
       ],
       "typeVersion": 1
     },
@@ -686,12 +663,12 @@
         "height": 660,
         "width": 440
       },
-      "id": "56dc48c4-0232-4dce-bdb5-08e928389425",
+      "id": "62a1882a-413e-446e-9b9b-ffff26a7aa98",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        0,
+        0
       ],
       "typeVersion": 1
     },
@@ -708,12 +685,12 @@
         "text": "=A user signed up to the newsletter!",
         "otherOptions": {}
       },
-      "id": "8035269e-224f-4036-9e8a-9447cfa87252",
+      "id": "722bbd6e-d745-4900-9803-0ca387e876dc",
       "name": "Notify New Signup!",
       "type": "n8n-nodes-base.slack",
       "position": [
-        1400,
-        240
+        1024,
+        0
       ],
       "webhookId": "1a9cb618-a2fd-4ee8-b3cf-4140b65d55c1",
       "typeVersion": 2.2
@@ -723,9 +700,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-20T23:38:02.525Z",
+      "updatedAt": "2025-08-20T23:38:02.525Z",
+      "role": "workflow:owner",
+      "workflowId": "9bVnVORyLXTGveT3",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:18:19.000Z",
-  "versionId": "7ee5efe3-7891-40c1-9f07-fca4395db267"
+  "updatedAt": "2025-08-20T23:38:02.000Z",
+  "versionId": "69490d63-ec4e-4cd8-8340-6ea01fd7e22c"
 }
