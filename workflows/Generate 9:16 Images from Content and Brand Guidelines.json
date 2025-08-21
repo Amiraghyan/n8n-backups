@@ -1,23 +1,67 @@
 {
   "active": false,
   "connections": {
-    "Limit": {
+    "When clicking ‘Test workflow’": {
       "main": [
         [
           {
-            "node": "Script Prep",
+            "node": "Get Brand Guidelines",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Wikipedia": {
-      "ai_tool": [
+    "Set Guidelines": {
+      "main": [
         [
           {
-            "node": "Script Prep",
-            "type": "ai_tool",
+            "node": "Get SEO Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Brand Guidelines": {
+      "main": [
+        [
+          {
+            "node": "Set Guidelines",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get SEO Keywords": {
+      "main": [
+        [
+          {
+            "node": "Keyword Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Split Out Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Keyword Filter": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
             "index": 0
           }
         ]
@@ -28,6 +72,39 @@
         [
           {
             "node": "Split Out Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Content": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Keywords": {
+      "main": [
+        [
+          {
+            "node": "Get Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Script Prep",
             "type": "main",
             "index": 0
           }
@@ -50,33 +127,132 @@
         ]
       ]
     },
-    "Keyword Filter": {
-      "main": [
-        [
-          {
-            "node": "Remove Duplicates",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set Guidelines": {
-      "main": [
-        [
-          {
-            "node": "Get SEO Keywords",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Add Asset Info1": {
+    "Split Out Scenes": {
       "main": [
         [
           {
             "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out TN Prompt": {
+      "main": [
+        [
+          {
+            "node": "Prompt Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Improve Prompt1": {
+      "main": [
+        [
+          {
+            "node": "Leo - Generate Image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Get imageId1": {
+      "main": [
+        [
+          {
+            "node": "Add Asset Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Settings": {
+      "main": [
+        [
+          {
+            "node": "Leo - Improve Prompt1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Generate Image1": {
+      "main": [
+        [
+          {
+            "node": "Wait 30 Seconds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 30 Seconds": {
+      "main": [
+        [
+          {
+            "node": "Leo - Get imageId1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Improve Prompt": {
+      "main": [
+        [
+          {
+            "node": "Leo - Generate Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Get imageId": {
+      "main": [
+        [
+          {
+            "node": "Add Asset Info1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Settings1": {
+      "main": [
+        [
+          {
+            "node": "Leo - Improve Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leo - Generate Image": {
+      "main": [
+        [
+          {
+            "node": "Wait 30 Seconds1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 30 Seconds1": {
+      "main": [
+        [
+          {
+            "node": "Leo - Get imageId",
             "type": "main",
             "index": 0
           }
@@ -95,51 +271,7 @@
         ]
       ]
     },
-    "Prompt Settings": {
-      "main": [
-        [
-          {
-            "node": "Leo - Improve Prompt1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait 30 Seconds": {
-      "main": [
-        [
-          {
-            "node": "Leo - Get imageId1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get SEO Keywords": {
-      "main": [
-        [
-          {
-            "node": "Keyword Filter",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Prompt Settings1": {
-      "main": [
-        [
-          {
-            "node": "Leo - Improve Prompt",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out Scenes": {
+    "Add Asset Info1": {
       "main": [
         [
           {
@@ -150,165 +282,32 @@
         ]
       ]
     },
-    "Wait 30 Seconds1": {
-      "main": [
+    "Wikipedia": {
+      "ai_tool": [
         [
           {
-            "node": "Leo - Get imageId",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Get imageId": {
-      "main": [
-        [
-          {
-            "node": "Add Asset Info1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Remove Duplicates": {
-      "main": [
-        [
-          {
-            "node": "Split Out Keywords",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out Content": {
-      "main": [
-        [
-          {
-            "node": "Limit",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Get imageId1": {
-      "main": [
-        [
-          {
-            "node": "Add Asset Info",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out Keywords": {
-      "main": [
-        [
-          {
-            "node": "Get Content",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out TN Prompt": {
-      "main": [
-        [
-          {
-            "node": "Prompt Settings",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get Brand Guidelines": {
-      "main": [
-        [
-          {
-            "node": "Set Guidelines",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Generate Image": {
-      "main": [
-        [
-          {
-            "node": "Wait 30 Seconds1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Improve Prompt": {
-      "main": [
-        [
-          {
-            "node": "Leo - Generate Image",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Generate Image1": {
-      "main": [
-        [
-          {
-            "node": "Wait 30 Seconds",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Leo - Improve Prompt1": {
-      "main": [
-        [
-          {
-            "node": "Leo - Generate Image1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "When clicking ‘Test workflow’": {
-      "main": [
-        [
-          {
-            "node": "Get Brand Guidelines",
-            "type": "main",
+            "node": "Script Prep",
+            "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     }
   },
-  "createdAt": "2025-01-09T22:45:38.884Z",
-  "id": "pda5brlHB1DesDSx",
-  "meta": {
-    "templateId": "2662"
-  },
+  "createdAt": "2025-08-21T00:44:42.319Z",
+  "id": "KdYF3nAVDXFaQEHj",
+  "isArchived": false,
+  "meta": null,
   "name": "Generate 9:16 Images from Content and Brand Guidelines",
   "nodes": [
     {
       "parameters": {},
-      "id": "be5c3e43-cc86-4081-aa98-e7af3d22267d",
+      "id": "0ba283de-2d12-41f5-bc06-5d3e84a69d4b",
       "name": "When clicking ‘Test workflow’",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        760,
-        480
+        384,
+        240
       ],
       "typeVersion": 1
     },
@@ -319,12 +318,12 @@
         "width": 290,
         "color": 6
       },
-      "id": "28f70c3a-bc45-4f43-80a6-69b592c8ce2e",
+      "id": "b1aa3af4-663c-464f-aba5-b70827ff8c6b",
       "name": "Sticky Note20",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        0,
+        0
       ],
       "typeVersion": 1
     },
@@ -335,12 +334,12 @@
         "width": 247,
         "color": 7
       },
-      "id": "334044d8-e9a6-497e-9a11-63134233c8fa",
+      "id": "76db0d2f-b7e5-4c50-bd01-51dfa72697b8",
       "name": "Sticky Note9",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        700,
-        240
+        320,
+        0
       ],
       "typeVersion": 1
     },
@@ -351,12 +350,12 @@
         "width": 427,
         "color": 3
       },
-      "id": "fcdf5c1a-3ddd-44cf-9b6d-a9afdd1fc256",
+      "id": "fb91740b-8bfd-430c-8646-b8b321b86530",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        980,
-        240
+        608,
+        0
       ],
       "typeVersion": 1
     },
@@ -375,12 +374,12 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "a5a2bfcf-e2b7-4a9f-a766-7d08168c3d6f",
+      "id": "51b2157e-d539-4b99-8076-e52d6e842d7b",
       "name": "Set Guidelines",
       "type": "n8n-nodes-base.set",
       "position": [
-        1240,
-        480
+        864,
+        240
       ],
       "typeVersion": 3.4
     },
@@ -391,12 +390,12 @@
         "width": 667,
         "color": 4
       },
-      "id": "ab26d351-144d-477c-8dd3-a010c3fce0ca",
+      "id": "0bc7ab58-3fd1-46a9-90dc-34ce23cb0714",
       "name": "Sticky Note10",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1440,
-        240
+        1056,
+        0
       ],
       "typeVersion": 1
     },
@@ -419,12 +418,12 @@
         },
         "options": {}
       },
-      "id": "f8e46822-cf7e-4697-bee4-99221b6063a7",
+      "id": "89b914a3-1eed-4136-9ef4-d0ecef150c69",
       "name": "Get Brand Guidelines",
       "type": "n8n-nodes-base.airtable",
       "position": [
-        1040,
-        480
+        656,
+        240
       ],
       "typeVersion": 2.1
     },
@@ -452,12 +451,12 @@
           ]
         }
       },
-      "id": "c6609f11-d04d-4e83-8fc0-af3c0e2cc9bd",
+      "id": "5c5c72a3-c851-41e5-bbb4-1bd4feaa2fc0",
       "name": "Get SEO Keywords",
       "type": "n8n-nodes-base.airtable",
       "position": [
-        1500,
-        480
+        1120,
+        240
       ],
       "executeOnce": false,
       "typeVersion": 2.1
@@ -468,12 +467,12 @@
         "fieldsToCompare": "id",
         "options": {}
       },
-      "id": "d9201fa0-05d9-492b-896d-2cdc26e84f2e",
+      "id": "58b6394f-1c96-4293-b503-4ac7334f771a",
       "name": "Remove Duplicates",
       "type": "n8n-nodes-base.removeDuplicates",
       "position": [
-        1900,
-        480
+        1520,
+        240
       ],
       "typeVersion": 2
     },
@@ -484,12 +483,12 @@
         "width": 220,
         "color": 3
       },
-      "id": "68f2a29b-0e29-4a64-986b-9c1204c1d1ef",
+      "id": "0330f8b6-cd1c-4dbf-984c-569488dd3df2",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1640,
-        400
+        1264,
+        160
       ],
       "typeVersion": 1
     },
@@ -519,12 +518,12 @@
           "ignoreCase": true
         }
       },
-      "id": "530dfb77-0aee-445d-8a1f-d8f2cbcd1640",
+      "id": "92dab3f1-31fe-4e11-a7e5-a46c94e84ffa",
       "name": "Keyword Filter",
       "type": "n8n-nodes-base.filter",
       "position": [
-        1700,
-        480
+        1328,
+        240
       ],
       "typeVersion": 2.2
     },
@@ -547,12 +546,12 @@
         "id": "={{ $json.RelatedContent }}",
         "options": {}
       },
-      "id": "75da86d6-22d4-42d6-8451-ea75db76ae57",
+      "id": "885739d7-89c3-4611-94eb-6455fff7b6fa",
       "name": "Get Content",
       "type": "n8n-nodes-base.airtable",
       "position": [
-        1700,
-        700
+        1328,
+        464
       ],
       "typeVersion": 2.1
     },
@@ -562,12 +561,12 @@
         "include": "allOtherFields",
         "options": {}
       },
-      "id": "7524c5d8-78bb-4a4e-9c56-af97b851b767",
+      "id": "dee28bfa-2a5f-4d26-af46-883506f09c97",
       "name": "Split Out Content",
       "type": "n8n-nodes-base.splitOut",
       "position": [
-        1900,
-        700
+        1520,
+        464
       ],
       "typeVersion": 1
     },
@@ -577,23 +576,23 @@
         "include": "allOtherFields",
         "options": {}
       },
-      "id": "45d55ea1-ad01-4771-a2b2-67bb0cd1f983",
+      "id": "3211b5e6-4165-4fdb-aef6-005d319ebd80",
       "name": "Split Out Keywords",
       "type": "n8n-nodes-base.splitOut",
       "position": [
-        1500,
-        700
+        1120,
+        464
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "349c64c2-2085-4b61-b9d2-dc1f0d7f46f6",
+      "id": "74351efd-9923-4a45-b861-e69def78a76d",
       "name": "Limit",
       "type": "n8n-nodes-base.limit",
       "position": [
-        1900,
-        920
+        1520,
+        688
       ],
       "typeVersion": 1
     },
@@ -604,12 +603,12 @@
         "width": 727,
         "color": 5
       },
-      "id": "3b689583-6f40-4a6b-9afc-af128b2d4fca",
+      "id": "3533b901-b1cd-4797-865c-280781f55ee5",
       "name": "Sticky Note11",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2140,
-        240
+        1760,
+        0
       ],
       "typeVersion": 1
     },
@@ -635,12 +634,12 @@
         "jsonOutput": true,
         "options": {}
       },
-      "id": "bcdf8e9e-463c-43d4-a29e-7f90076815a1",
+      "id": "355866b7-1a0f-468b-9101-3bcea08d7173",
       "name": "Script Prep",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "position": [
-        2200,
-        480
+        1824,
+        240
       ],
       "typeVersion": 1.6,
       "onError": "continueErrorOutput"
@@ -650,12 +649,12 @@
         "fieldToSplitOut": "message.content.scenes",
         "options": {}
       },
-      "id": "be07f6e3-1e2d-4d4f-a8e0-1d642ca4b789",
+      "id": "8bfe369e-58dd-4675-8266-bc5662f7e08e",
       "name": "Split Out Scenes",
       "type": "n8n-nodes-base.splitOut",
       "position": [
-        2620,
-        920
+        2240,
+        688
       ],
       "typeVersion": 1
     },
@@ -664,12 +663,12 @@
         "fieldToSplitOut": "message.content.thumbnail_prompt",
         "options": {}
       },
-      "id": "83b3213d-70db-46d4-8dcc-5f399a64467d",
+      "id": "6c82c4c5-7608-454a-b26a-f835405671f0",
       "name": "Split Out TN Prompt",
       "type": "n8n-nodes-base.splitOut",
       "position": [
-        2620,
-        420
+        2240,
+        192
       ],
       "typeVersion": 1
     },
@@ -699,12 +698,12 @@
           }
         }
       },
-      "id": "d4f30eff-220a-4682-9072-f1bbbce3655c",
+      "id": "48d44ab0-213c-473c-8481-d6a015112f36",
       "name": "Leo - Improve Prompt1",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3160,
-        420
+        2784,
+        192
       ],
       "typeVersion": 4.2
     },
@@ -730,12 +729,12 @@
           }
         }
       },
-      "id": "a1d32bae-67a0-487d-9583-0b53ab25d184",
+      "id": "d9b0569a-fced-4f91-b4fc-cdefd60c4494",
       "name": "Leo - Get imageId1",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3760,
-        420
+        3376,
+        192
       ],
       "typeVersion": 4.2
     },
@@ -760,12 +759,12 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "89436c9d-1898-4f32-abf4-1f4fef7473a8",
+      "id": "856f7a02-0e9f-41e2-96e0-b83532ff4a56",
       "name": "Prompt Settings",
       "type": "n8n-nodes-base.set",
       "position": [
-        2960,
-        420
+        2576,
+        192
       ],
       "typeVersion": 3.4
     },
@@ -795,12 +794,12 @@
           }
         }
       },
-      "id": "9791db0e-c9a5-4fd8-b3fc-fd92b65c6362",
+      "id": "866d3821-961e-414b-9226-7a67c471c6cf",
       "name": "Leo - Generate Image1",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3360,
-        420
+        2976,
+        192
       ],
       "typeVersion": 4.2
     },
@@ -811,12 +810,12 @@
         "width": 1447,
         "color": 6
       },
-      "id": "8b77e0b5-5ed5-401b-964f-e2a651b774ee",
+      "id": "9b2d0c87-c31e-4fd9-8cb7-31005f9bf0d6",
       "name": "Sticky Note12",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2900,
-        240
+        2528,
+        0
       ],
       "typeVersion": 1
     },
@@ -824,12 +823,12 @@
       "parameters": {
         "amount": 30
       },
-      "id": "64c5d0f0-07ce-493d-b974-69051ed41e0d",
+      "id": "138a7808-9f32-4aab-9150-1748443c787b",
       "name": "Wait 30 Seconds",
       "type": "n8n-nodes-base.wait",
       "position": [
-        3560,
-        420
+        3184,
+        192
       ],
       "webhookId": "08a6381f-bd3d-4cc1-8420-62c886406000",
       "typeVersion": 1.1
@@ -841,12 +840,12 @@
         "width": 220,
         "color": 3
       },
-      "id": "94e8f4a6-c22e-4938-bfc6-b5a040e3aa5e",
+      "id": "60dc49ee-5139-44f6-aefe-1cb7bbe3c060",
       "name": "Sticky Note13",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3300,
-        340
+        2928,
+        112
       ],
       "typeVersion": 1
     },
@@ -876,12 +875,12 @@
           }
         }
       },
-      "id": "d418088f-cebd-483a-b413-09f62faac1b7",
+      "id": "60464207-c8b9-4371-8ecb-65b75a52ff71",
       "name": "Leo - Improve Prompt",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3360,
-        1020
+        2976,
+        784
       ],
       "typeVersion": 4.2
     },
@@ -907,12 +906,12 @@
           }
         }
       },
-      "id": "c77d1f84-8db8-4ca5-9bcf-854a4bda9cf5",
+      "id": "6358e7f9-36cc-471d-8846-ee3f6514cb62",
       "name": "Leo - Get imageId",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3960,
-        1020
+        3584,
+        784
       ],
       "typeVersion": 4.2
     },
@@ -937,12 +936,12 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "3f8fef1e-c7ff-43d2-9385-4ab8a6dce553",
+      "id": "98c102b9-4d61-4311-9bde-bed6053d9661",
       "name": "Prompt Settings1",
       "type": "n8n-nodes-base.set",
       "position": [
-        3160,
-        1020
+        2784,
+        784
       ],
       "typeVersion": 3.4
     },
@@ -972,12 +971,12 @@
           }
         }
       },
-      "id": "b6c43a16-29e8-4074-9dda-5661dfd3da5d",
+      "id": "4bd7ec93-e181-4d5d-a301-afb4b23891b8",
       "name": "Leo - Generate Image",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        3560,
-        1020
+        3184,
+        784
       ],
       "typeVersion": 4.2
     },
@@ -985,12 +984,12 @@
       "parameters": {
         "amount": 30
       },
-      "id": "c3910b17-9a27-4419-ab01-409cc7090c68",
+      "id": "d7a73d97-1b44-4b44-bd3e-b5345543923d",
       "name": "Wait 30 Seconds1",
       "type": "n8n-nodes-base.wait",
       "position": [
-        3760,
-        1020
+        3376,
+        784
       ],
       "webhookId": "08a6381f-bd3d-4cc1-8420-62c886406000",
       "typeVersion": 1.1
@@ -1001,12 +1000,12 @@
           "reset": false
         }
       },
-      "id": "85a320a3-7a06-41f9-a34a-de3fd1ce2950",
+      "id": "0faee6c2-2ee4-4795-8441-6d9bcb0e3196",
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        2960,
-        920
+        2576,
+        688
       ],
       "typeVersion": 3
     },
@@ -1017,12 +1016,12 @@
         "width": 1447,
         "color": 6
       },
-      "id": "8b3158d1-6be6-4446-8083-f3a9fa18e074",
+      "id": "11bbe769-1a6f-4f6c-8373-f5c7f2b6f088",
       "name": "Sticky Note14",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2900,
-        800
+        2528,
+        560
       ],
       "typeVersion": 1
     },
@@ -1226,12 +1225,12 @@
         },
         "options": {}
       },
-      "id": "3ee7e646-8690-4a7c-9820-ce2985b02e7a",
+      "id": "1801906f-a87e-4b7a-b958-1410edb88628",
       "name": "Add Asset Info",
       "type": "n8n-nodes-base.airtable",
       "position": [
-        3960,
-        420
+        3584,
+        192
       ],
       "typeVersion": 2.1
     },
@@ -1435,12 +1434,12 @@
         },
         "options": {}
       },
-      "id": "88cd8514-9a54-47bf-b822-8c01ef05c08e",
+      "id": "757a514c-d1df-42e0-b411-90f990ee29dc",
       "name": "Add Asset Info1",
       "type": "n8n-nodes-base.airtable",
       "position": [
-        4160,
-        1020
+        3776,
+        784
       ],
       "typeVersion": 2.1
     },
@@ -1451,23 +1450,23 @@
         "width": 220,
         "color": 3
       },
-      "id": "67cd2444-506d-4754-a75d-e725239d6f7c",
+      "id": "25bf0533-875c-4c0a-b055-5d40f368b2e3",
       "name": "Sticky Note15",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3300,
-        940
+        2928,
+        704
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "1acc2d91-c4ba-4a26-bb74-a848875e9fac",
+      "id": "b307f4b2-38ae-45d2-8d19-84701a3ca63d",
       "name": "Wikipedia",
       "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
       "position": [
-        2200,
-        700
+        1824,
+        464
       ],
       "typeVersion": 1
     },
@@ -1478,12 +1477,12 @@
         "width": 400,
         "color": 7
       },
-      "id": "1c5b5602-bf95-4534-8c73-69b8157765ee",
+      "id": "3e980314-96da-4988-b6ed-ba45e3b69bb4",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3500,
-        600
+        3120,
+        368
       ],
       "typeVersion": 1
     },
@@ -1494,12 +1493,12 @@
         "width": 400,
         "color": 7
       },
-      "id": "79552e45-5dbc-4ddb-8543-039ca76dfe56",
+      "id": "86721a04-af61-4f6f-8e4b-21ca3ba97430",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3500,
-        880
+        3120,
+        640
       ],
       "typeVersion": 1
     }
@@ -1508,9 +1507,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T00:44:42.322Z",
+      "updatedAt": "2025-08-21T00:44:42.322Z",
+      "role": "workflow:owner",
+      "workflowId": "KdYF3nAVDXFaQEHj",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-29T18:17:52.000Z",
-  "versionId": "fcc50ae4-9f32-464b-93e7-8646c2ace91a"
+  "updatedAt": "2025-08-21T00:44:42.000Z",
+  "versionId": "9a656194-6d9f-4ce6-960a-9570bd0a90cf"
 }
