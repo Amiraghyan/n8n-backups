@@ -1,33 +1,11 @@
 {
   "active": false,
   "connections": {
-    "Split out items": {
+    "When clicking \"Execute Workflow\"": {
       "main": [
         [
           {
-            "node": "Remove empty values",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Remove empty values": {
-      "main": [
-        [
-          {
-            "node": "Transform data in the right format",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Remove duplicate items": {
-      "main": [
-        [
-          {
-            "node": "Add rows in Google Sheets",
+            "node": "Google Sheets - Get searches  to scrap",
             "type": "main",
             "index": 0
           }
@@ -45,11 +23,22 @@
         ]
       ]
     },
-    "Run workflow every hours": {
+    "Merge all values from SERPAPI": {
       "main": [
         [
           {
-            "node": "Google Sheets - Get searches  to scrap",
+            "node": "Split out items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transform data in the right format": {
+      "main": [
+        [
+          {
+            "node": "Remove duplicate items",
             "type": "main",
             "index": 0
           }
@@ -61,35 +50,6 @@
         [
           {
             "node": "Update Status to Success",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Continue IF Loop is complete": {
-      "main": [
-        [
-          {
-            "node": "SERPAPI - Scrape Google Maps URL",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Merge all values from SERPAPI",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge all values from SERPAPI": {
-      "main": [
-        [
-          {
-            "node": "Split out items",
             "type": "main",
             "index": 0
           }
@@ -114,22 +74,44 @@
         ]
       ]
     },
-    "When clicking \"Execute Workflow\"": {
+    "Remove duplicate items": {
       "main": [
         [
           {
-            "node": "Google Sheets - Get searches  to scrap",
+            "node": "Add rows in Google Sheets",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Transform data in the right format": {
+    "Split out items": {
       "main": [
         [
           {
-            "node": "Remove duplicate items",
+            "node": "Remove empty values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove empty values": {
+      "main": [
+        [
+          {
+            "node": "Transform data in the right format",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Get searches  to scrap": {
+      "main": [
+        [
+          {
+            "node": "Extract keyword and location from URL",
             "type": "main",
             "index": 0
           }
@@ -147,11 +129,29 @@
         ]
       ]
     },
-    "Google Sheets - Get searches  to scrap": {
+    "Run workflow every hours": {
       "main": [
         [
           {
-            "node": "Extract keyword and location from URL",
+            "node": "Google Sheets - Get searches  to scrap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Continue IF Loop is complete": {
+      "main": [
+        [
+          {
+            "node": "SERPAPI - Scrape Google Maps URL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge all values from SERPAPI",
             "type": "main",
             "index": 0
           }
@@ -159,73 +159,78 @@
       ]
     }
   },
-  "createdAt": "2024-09-12T23:36:18.768Z",
-  "id": "HkhAXa611TwJ40dn",
-  "meta": {
-    "templateId": "2063"
-  },
+  "createdAt": "2025-08-21T00:54:33.126Z",
+  "id": "A5aoapooQT2F6n4R",
+  "isArchived": false,
+  "meta": null,
   "name": "Google Maps Scraper",
   "nodes": [
     {
-      "id": "edef59f6-0197-408e-a819-141c1ca8dedd",
+      "parameters": {},
+      "id": "89d42903-b4bc-4e88-b298-b18f1c362906",
       "name": "When clicking \"Execute Workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        900,
-        820
+        -1696,
+        400
       ],
-      "parameters": {},
       "typeVersion": 1
     },
     {
-      "id": "d56deaf5-1ad8-45a2-bbf0-3b71560f8036",
-      "name": "Extract next start value",
-      "type": "n8n-nodes-base.code",
-      "position": [
-        2080,
-        520
-      ],
       "parameters": {
         "mode": "runOnceForEachItem",
         "jsCode": "let nextUrl\n\nif ($json && $json[\"serpapi_pagination\"] && $json[\"serpapi_pagination\"][\"next\"]) {\n    nextUrl = $json[\"serpapi_pagination\"][\"next\"];\n\n$input.item.json.start = nextUrl.split('&').find(param => param.startsWith('start=')).split('=')[1];\n}\n\n\nreturn $input.item;"
       },
+      "id": "042e17e1-0d17-4df7-aac8-469a2c60c67d",
+      "name": "Extract next start value",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        -528,
+        96
+      ],
       "typeVersion": 2
     },
     {
-      "id": "6562c236-c957-437b-91a9-15e98af09858",
-      "name": "Merge all values from SERPAPI",
-      "type": "n8n-nodes-base.code",
-      "position": [
-        2580,
-        720
-      ],
       "parameters": {
         "jsCode": "const allData = []\n\nlet counter = 0;\ndo {\n  try {\n    const items = $items(\"SERPAPI - Scrape Google Maps URL\", 0, counter).map(item => item.json.local_results);\n    allData.push.apply(allData, items);\n  } catch (error) {\n    return [{json: {allData}}];  \n  }\n\n  counter++;\n} while(true);\nreturn $input.all();"
       },
+      "id": "67176fe8-063a-40a3-b08c-c0082b24ef4e",
+      "name": "Merge all values from SERPAPI",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        -16,
+        288
+      ],
       "typeVersion": 2
     },
     {
-      "id": "357e8a57-dbb5-4241-b9c2-863b3ae3fd96",
-      "name": "Transform data in the right format",
-      "type": "n8n-nodes-base.code",
-      "position": [
-        3100,
-        720
-      ],
       "parameters": {
         "jsCode": "console.log($input.all())\n\n\nconst data = $input.all()\n\nconsole.log(\"error\",data)\n\nfunction mergeData(data) {\n    let merged = [];\n    data.forEach(entry => {\n        for (const key in entry.json) {\n            merged.push(entry.json[key]);\n        }\n    });\n    return merged;\n}\n\nconst mergedData = mergeData(data);\nconsole.log(mergedData);\n\n\nreturn mergedData.filter(item => item !== null);"
       },
+      "id": "d809c415-dbb8-4b55-b779-db1d4009f9f5",
+      "name": "Transform data in the right format",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        496,
+        288
+      ],
       "typeVersion": 2
     },
     {
-      "id": "4e8e9ae9-f5e3-4bfd-b0d4-9403a1c38d39",
-      "name": "Add rows in Google Sheets",
-      "type": "n8n-nodes-base.googleSheets",
-      "position": [
-        3480,
-        720
-      ],
       "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=2023033319"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": 2023033319,
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=2023033319",
+          "cachedResultName": "Results"
+        },
         "columns": {
           "value": {},
           "schema": [
@@ -481,43 +486,23 @@
         },
         "options": {
           "cellFormat": "RAW"
-        },
-        "operation": "appendOrUpdate",
-        "sheetName": {
-          "__rl": true,
-          "mode": "list",
-          "value": 2023033319,
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=2023033319",
-          "cachedResultName": "Results"
-        },
-        "documentId": {
-          "__rl": true,
-          "mode": "url",
-          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=2023033319"
         }
       },
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "5E2KbPnPPLNsGeAm",
-          "name": "Google Sheets account"
-        }
-      },
+      "id": "db28f6f4-8427-42f5-9249-4442dd5a896c",
+      "name": "Add rows in Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        880,
+        288
+      ],
       "typeVersion": 4.2
     },
     {
-      "id": "90194aa3-5960-47bd-9e0e-efee827004c4",
-      "name": "SERPAPI - Scrape Google Maps URL",
-      "type": "n8n-nodes-base.httpRequest",
-      "onError": "continueErrorOutput",
-      "position": [
-        1800,
-        540
-      ],
       "parameters": {
         "url": "https://serpapi.com/search.json",
-        "options": {},
-        "sendQuery": true,
         "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "serpApi",
+        "sendQuery": true,
         "queryParameters": {
           "parameters": [
             {
@@ -542,48 +527,49 @@
             }
           ]
         },
-        "nodeCredentialType": "serpApi"
+        "options": {}
       },
-      "typeVersion": 4.1
+      "id": "43d9d380-e8d7-4a00-9774-3b3c2a83c0ad",
+      "name": "SERPAPI - Scrape Google Maps URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -800,
+        112
+      ],
+      "typeVersion": 4.1,
+      "onError": "continueErrorOutput"
     },
     {
-      "id": "9cfd1e76-2d7c-4618-86d6-e1f3c7729044",
+      "parameters": {
+        "operation": "removeDuplicates",
+        "compare": "selectedFields",
+        "fieldsToCompare": "place_id",
+        "options": {}
+      },
+      "id": "1bc4f84e-b381-4da8-bd2f-102410292b6f",
       "name": "Remove duplicate items",
       "type": "n8n-nodes-base.itemLists",
       "position": [
-        3300,
-        720
+        704,
+        288
       ],
-      "parameters": {
-        "compare": "selectedFields",
-        "options": {},
-        "operation": "removeDuplicates",
-        "fieldsToCompare": "place_id"
-      },
       "typeVersion": 3.1
     },
     {
-      "id": "e47dfa17-fc84-4694-950d-165302a9075f",
+      "parameters": {
+        "fieldToSplitOut": "allData",
+        "options": {}
+      },
+      "id": "8698892e-5b4f-4743-8f1b-9182f2b98266",
       "name": "Split out items",
       "type": "n8n-nodes-base.itemLists",
       "position": [
-        2760,
-        720
+        160,
+        288
       ],
-      "parameters": {
-        "options": {},
-        "fieldToSplitOut": "allData"
-      },
       "typeVersion": 3.1
     },
     {
-      "id": "decc89ee-f836-4ec2-9a1a-0371a8889ef5",
-      "name": "Remove empty values",
-      "type": "n8n-nodes-base.filter",
-      "position": [
-        2920,
-        720
-      ],
       "parameters": {
         "conditions": {
           "string": [
@@ -594,24 +580,21 @@
           ]
         }
       },
+      "id": "7317c180-0174-460d-aef2-3a32e83ee205",
+      "name": "Remove empty values",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        320,
+        288
+      ],
       "typeVersion": 1
     },
     {
-      "id": "bd7ca3a5-2697-4653-abf6-372088d925e6",
-      "name": "Google Sheets - Get searches  to scrap",
-      "type": "n8n-nodes-base.googleSheets",
-      "position": [
-        1340,
-        540
-      ],
       "parameters": {
-        "options": {},
-        "filtersUI": {
-          "values": [
-            {
-              "lookupColumn": "Status"
-            }
-          ]
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0"
         },
         "sheetName": {
           "__rl": true,
@@ -620,28 +603,25 @@
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0",
           "cachedResultName": "Add your search here"
         },
-        "documentId": {
-          "__rl": true,
-          "mode": "url",
-          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0"
-        }
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status"
+            }
+          ]
+        },
+        "options": {}
       },
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "5E2KbPnPPLNsGeAm",
-          "name": "Google Sheets account"
-        }
-      },
+      "id": "7c1eebf3-7fe8-4e39-8665-399397089ddb",
+      "name": "Google Sheets - Get searches  to scrap",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        -1264,
+        112
+      ],
       "typeVersion": 4.2
     },
     {
-      "id": "6d0be482-b1ad-4fa0-8d2e-bef9a4414924",
-      "name": "Extract keyword and location from URL",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        1560,
-        540
-      ],
       "parameters": {
         "fields": {
           "values": [
@@ -657,31 +637,31 @@
         },
         "options": {}
       },
+      "id": "ec89b1e6-b699-4f96-b7cf-547b8729b476",
+      "name": "Extract keyword and location from URL",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1040,
+        112
+      ],
       "typeVersion": 3.2
     },
     {
-      "id": "f6fb8db2-8444-4605-af9d-22ca71c7937d",
+      "parameters": {
+        "content": "## Adjust frequency to your own needs",
+        "height": 266.8807730722022,
+        "width": 312.2965981499806
+      },
+      "id": "afdc13ae-b44c-4078-b41d-525587de210e",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        800,
-        240
+        -1808,
+        -192
       ],
-      "parameters": {
-        "width": 312.2965981499806,
-        "height": 266.8807730722022,
-        "content": "## Adjust frequency to your own needs"
-      },
       "typeVersion": 1
     },
     {
-      "id": "234b5d18-75d7-495b-960f-06192d9e7c61",
-      "name": "Run workflow every hours",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "position": [
-        920,
-        340
-      ],
       "parameters": {
         "rule": {
           "interval": [
@@ -691,45 +671,58 @@
           ]
         }
       },
+      "id": "288edef1-6086-4941-a059-658d2bb4d3ff",
+      "name": "Run workflow every hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        -1680,
+        -80
+      ],
       "typeVersion": 1.1
     },
     {
-      "id": "ea2e9b89-e52c-4e25-803a-ce33c41c20fc",
+      "parameters": {
+        "content": "## Copy my template and connect it to n8n\n\nTemplate link: \n https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit?usp=sharing",
+        "height": 511.2196121145973
+      },
+      "id": "30bd0b87-7edf-4365-8128-a850db0859e6",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1260,
-        240
+        -1344,
+        -192
       ],
-      "parameters": {
-        "height": 511.2196121145973,
-        "content": "## Copy my template and connect it to n8n\n\nTemplate link: \n https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit?usp=sharing"
-      },
       "typeVersion": 1
     },
     {
-      "id": "de515d8d-641d-4b91-9472-608ad3878e32",
+      "parameters": {
+        "content": "## Add your SERPAPI API Key\n\nStart a free trial at serpapi.com and get your API key in \"Your account\" section",
+        "height": 535.9388810024284
+      },
+      "id": "1d8359cf-8a78-43d0-9f56-856ed5376d65",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1740,
-        209.3107006491615
+        -864,
+        -208
       ],
-      "parameters": {
-        "height": 535.9388810024284,
-        "content": "## Add your SERPAPI API Key\n\nStart a free trial at serpapi.com and get your API key in \"Your account\" section"
-      },
       "typeVersion": 1
     },
     {
-      "id": "a5a63861-7ff3-4072-a669-acce938939d8",
-      "name": "Update Status to Success",
-      "type": "n8n-nodes-base.googleSheets",
-      "position": [
-        3660,
-        720
-      ],
       "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gid=0",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0",
+          "cachedResultName": "Add your search url here"
+        },
         "columns": {
           "value": {
             "URL": "={{ $('Google Sheets - Get searches  to scrap').first().json.URL }}",
@@ -772,8 +765,26 @@
             "URL"
           ]
         },
-        "options": {},
+        "options": {}
+      },
+      "id": "f8aba2b6-cd39-4832-8b3e-d4d211d29a6a",
+      "name": "Update Status to Success",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1056,
+        288
+      ],
+      "executeOnce": true,
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
         "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0"
+        },
         "sheetName": {
           "__rl": true,
           "mode": "list",
@@ -781,30 +792,6 @@
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0",
           "cachedResultName": "Add your search url here"
         },
-        "documentId": {
-          "__rl": true,
-          "mode": "url",
-          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0"
-        }
-      },
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "5E2KbPnPPLNsGeAm",
-          "name": "Google Sheets account"
-        }
-      },
-      "executeOnce": true,
-      "typeVersion": 4.2
-    },
-    {
-      "id": "2bdc5b63-e3bb-453e-a236-9c83cd12cc03",
-      "name": "Update Status to Error",
-      "type": "n8n-nodes-base.googleSheets",
-      "position": [
-        2080,
-        660
-      ],
-      "parameters": {
         "columns": {
           "value": {
             "URL": "={{ $('Google Sheets - Get searches  to scrap').first().json.URL }}",
@@ -847,53 +834,34 @@
             "URL"
           ]
         },
-        "options": {},
-        "operation": "update",
-        "sheetName": {
-          "__rl": true,
-          "mode": "list",
-          "value": "gid=0",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0",
-          "cachedResultName": "Add your search url here"
-        },
-        "documentId": {
-          "__rl": true,
-          "mode": "url",
-          "value": "https://docs.google.com/spreadsheets/d/170osqaLBql9M-4RAH3_lBKR7ZMaQqyLUkAD-88xGuEQ/edit#gid=0"
-        }
+        "options": {}
       },
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "5E2KbPnPPLNsGeAm",
-          "name": "Google Sheets account"
-        }
-      },
+      "id": "7711408c-15b9-4230-b562-b841fc3583f0",
+      "name": "Update Status to Error",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        -528,
+        240
+      ],
       "executeOnce": true,
       "typeVersion": 4.2
     },
     {
-      "id": "f413f4ef-fd6d-4967-8df7-a4fee4361246",
+      "parameters": {
+        "content": "## Click on Execute Workflow to run the workflow manually",
+        "height": 310.4703136043695,
+        "width": 312.2965981499806
+      },
+      "id": "16fabb40-a776-4025-90fc-3a193942902a",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        800,
-        680
+        -1808,
+        256
       ],
-      "parameters": {
-        "width": 312.2965981499806,
-        "height": 310.4703136043695,
-        "content": "## Click on Execute Workflow to run the workflow manually"
-      },
       "typeVersion": 1
     },
     {
-      "id": "cbc53e43-f141-434c-a655-feb1f7d3c65b",
-      "name": "Continue IF Loop is complete",
-      "type": "n8n-nodes-base.if",
-      "position": [
-        2340,
-        660
-      ],
       "parameters": {
         "conditions": {
           "number": [
@@ -910,29 +878,47 @@
           ]
         }
       },
+      "id": "6dfa06d6-120e-4b9a-b4f5-8e88892d4417",
+      "name": "Continue IF Loop is complete",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        -256,
+        240
+      ],
       "typeVersion": 1
     },
     {
-      "id": "229f9652-b703-490e-aa3c-c28b0fe1f2e8",
+      "parameters": {
+        "content": "## Read Me\n\nThis workflow allows to scrape Google Maps data in an efficient way using SerpAPI. \n\nYou'll get all data from Gmaps at a cheaper cost than Google Maps API.\n\nAdd as input, your Google Maps search URL and you'll get a list of places with many data points such as:\n- phone number\n- website\n- rating\n- reviews\n- address\n\nAnd much more.\n\n\n**Full guide to implement the workflow is here**: \n\nhttps://lempire.notion.site/Scrape-Google-Maps-places-with-n8n-b7f1785c3d474e858b7ee61ad4c21136?pvs=4",
+        "height": 532.3420004517685,
+        "width": 357.33341618921213
+      },
+      "id": "a986fe77-3d4d-4f17-8bf8-e1df473c3dd8",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -2224,
+        -192
       ],
-      "parameters": {
-        "width": 357.33341618921213,
-        "height": 532.3420004517685,
-        "content": "## Read Me\n\nThis workflow allows to scrape Google Maps data in an efficient way using SerpAPI. \n\nYou'll get all data from Gmaps at a cheaper cost than Google Maps API.\n\nAdd as input, your Google Maps search URL and you'll get a list of places with many data points such as:\n- phone number\n- website\n- rating\n- reviews\n- address\n\nAnd much more.\n\n\n**Full guide to implement the workflow is here**: \n\nhttps://lempire.notion.site/Scrape-Google-Maps-places-with-n8n-b7f1785c3d474e858b7ee61ad4c21136?pvs=4"
-      },
       "typeVersion": 1
     }
   ],
-  "pinData": null,
-  "settings": null,
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T00:54:33.131Z",
+      "updatedAt": "2025-08-21T00:54:33.131Z",
+      "role": "workflow:owner",
+      "workflowId": "A5aoapooQT2F6n4R",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:01:37.000Z",
-  "versionId": "464a9d3a-f4ba-4452-b116-17882c4475da"
+  "updatedAt": "2025-08-21T00:56:48.000Z",
+  "versionId": "fced927d-3a46-4e48-afe3-070f0b9da0c4"
 }
