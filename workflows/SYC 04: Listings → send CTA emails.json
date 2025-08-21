@@ -12,11 +12,33 @@
         ]
       ]
     },
+    "send CTA": {
+      "main": [
+        [
+          {
+            "node": "mark SENT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Schedule Trigger": {
       "main": [
         [
           {
             "node": "readHTMLemail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -67,11 +89,11 @@
         ]
       ]
     },
-    "Switch": {
+    "mark SENT": {
       "main": [
         [
           {
-            "node": "Loop Over Items",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -101,17 +123,6 @@
         ]
       ]
     },
-    "send CTA": {
-      "main": [
-        [
-          {
-            "node": "mark SENT",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Wait": {
       "main": [
         [
@@ -122,24 +133,12 @@
           }
         ]
       ]
-    },
-    "mark SENT": {
-      "main": [
-        [
-          {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
-  "createdAt": "2024-10-11T19:51:19.679Z",
-  "id": "nvaB1Zybdrpe5pzz",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2025-08-20T23:25:13.566Z",
+  "id": "MpBnZu8I8O9SB0cI",
+  "isArchived": false,
+  "meta": null,
   "name": "SYC 04: Listings → send CTA emails",
   "nodes": [
     {
@@ -149,13 +148,13 @@
         "destinationKey": "=htmlMessage",
         "options": {}
       },
-      "id": "31155d7c-abae-4178-b73b-8479f43d4274",
+      "id": "8038b4d8-d4c5-4460-b44a-dc126b7dc23b",
       "name": "Markdown",
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        5000,
-        320
+        -1296,
+        -144
       ]
     },
     {
@@ -167,21 +166,15 @@
           "appendAttribution": false
         }
       },
-      "id": "d1aa0b65-2a51-4343-a8da-20275d9cd416",
+      "id": "9f9b20cc-0e1e-4dd3-9d8a-a5e029644682",
       "name": "send CTA",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        6480,
-        320
+        176,
+        -144
       ],
-      "webhookId": "82f1f781-a6dd-4a24-b7d7-62a568e158fe",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "71hNvUn8HywLoGyx",
-          "name": "Bella's account"
-        }
-      }
+      "webhookId": "82f1f781-a6dd-4a24-b7d7-62a568e158fe"
     },
     {
       "parameters": {
@@ -194,13 +187,13 @@
           ]
         }
       },
-      "id": "8e0ce4a3-002b-452e-a325-90d2d233fc6b",
+      "id": "001fa6c4-de45-4fab-b038-a58710cb1f2d",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        4600,
-        320
+        -1696,
+        -144
       ]
     },
     {
@@ -234,13 +227,13 @@
         },
         "options": {}
       },
-      "id": "2ff89338-c7f4-4c3e-ba7e-7ade9eb6ee85",
+      "id": "7b351621-046f-471c-804b-516b68568684",
       "name": "Switch",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        5840,
-        300
+        -464,
+        -160
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -301,13 +294,13 @@
         },
         "options": {}
       },
-      "id": "4b3621bc-4a57-4b2d-9564-0f833e965476",
+      "id": "c651ccf6-c4f3-4e8b-aa61-231db1497abc",
       "name": "storeEmailValues",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5200,
-        320
+        -1104,
+        -144
       ]
     },
     {
@@ -336,22 +329,16 @@
           "returnFirstMatch": true
         }
       },
-      "id": "483099c3-4483-4e73-9575-cb89236e99c0",
+      "id": "d4419963-78cc-4e34-bab7-6ae4b600992c",
       "name": "readHTMLemail",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4800,
-        320
+        -1504,
+        -144
       ],
       "executeOnce": false,
       "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "xCok8w0s2phO0cKJ",
-          "name": "GSheets S@SYC"
-        }
-      },
       "onError": "continueRegularOutput"
     },
     {
@@ -386,21 +373,15 @@
           }
         }
       },
-      "id": "dba51a53-3808-426f-9296-d331619a377d",
+      "id": "23c4f44e-e6aa-4d8b-ad91-80aca2817296",
       "name": "Google Sheets",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5420,
-        320
+        -880,
+        -144
       ],
       "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "xCok8w0s2phO0cKJ",
-          "name": "GSheets S@SYC"
-        }
-      },
       "onError": "continueRegularOutput"
     },
     {
@@ -441,13 +422,13 @@
           "ignoreCase": true
         }
       },
-      "id": "12054404-58d4-43c6-bb46-329adb7c1c5b",
+      "id": "4aaf14ef-d7a4-4f40-94e8-aff7bca0be9a",
       "name": "send?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        5620,
-        320
+        -672,
+        -144
       ]
     },
     {
@@ -740,20 +721,14 @@
         },
         "options": {}
       },
-      "id": "643e9cb6-60a2-44e1-a94b-3e9b57d7a170",
+      "id": "c70880d4-b2c0-4c93-b75f-c86df92287f4",
       "name": "mark SENT",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        6280,
-        520
-      ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "xCok8w0s2phO0cKJ",
-          "name": "GSheets S@SYC"
-        }
-      }
+        -16,
+        64
+      ]
     },
     {
       "parameters": {
@@ -769,26 +744,26 @@
         },
         "options": {}
       },
-      "id": "8d2ff5fc-8179-4ba6-bb29-e522939fb90d",
+      "id": "1bbe503b-3e6b-4f6e-a92f-5de6a3d19032",
       "name": "Edit Fields",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6280,
-        320
+        -16,
+        -144
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "06efa277-7ce1-41d8-817f-7dc3de13f727",
+      "id": "42a817ed-bc37-42c8-b22c-1fd26bdb64e1",
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        6060,
-        300
+        -240,
+        -160
       ]
     },
     {
@@ -796,48 +771,33 @@
         "amount": 1,
         "unit": "minutes"
       },
-      "id": "86c0085d-4995-459b-990c-ca7d72f1a249",
+      "id": "a5931b25-005c-4dbe-ac32-f367ba14ceed",
       "name": "Wait",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        6480,
-        520
+        176,
+        64
       ],
       "webhookId": "9fa7f27c-8b84-4a39-99bd-d962faf8997b"
     }
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1",
-    "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner",
-    "errorWorkflow": "rbozDLMgZawoZrGa"
+    "executionOrder": "v1"
   },
-  "staticData": {
-    "node:Gmail Trigger": {
-      "Gmail Trigger": {
-        "lastTimeChecked": 1726721048,
-        "possibleDuplicates": [
-          "19208984528946ed"
-        ]
-      }
-    },
-    "node:Schedule Trigger": {
-      "recurrenceRules": [
-        15
-      ]
-    }
-  },
-  "tags": [
+  "shared": [
     {
-      "createdAt": "2024-10-14T19:40:09.151Z",
-      "updatedAt": "2024-10-14T19:40:09.151Z",
-      "id": "FPNqYMyeniG73XRK",
-      "name": "SYC-tool"
+      "createdAt": "2025-08-20T23:25:13.570Z",
+      "updatedAt": "2025-08-20T23:25:13.570Z",
+      "role": "workflow:owner",
+      "workflowId": "MpBnZu8I8O9SB0cI",
+      "projectId": "yxFGV0GmdwTIiKaD"
     }
   ],
-  "triggerCount": 1,
-  "updatedAt": "2024-11-07T16:21:50.000Z",
-  "versionId": "4a4baf12-a155-4cd0-a3cb-b01cf682a521"
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-20T23:27:07.000Z",
+  "versionId": "180fe0e8-4be9-47df-8a4a-fa7c534bcfe9"
 }
