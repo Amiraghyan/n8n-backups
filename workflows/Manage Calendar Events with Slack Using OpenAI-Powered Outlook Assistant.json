@@ -1,12 +1,45 @@
 {
   "active": false,
   "connections": {
-    "Get Message": {
-      "main": [
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
         [
           {
             "node": "Outlook Calendar Assistant",
-            "type": "main",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search All Outlook Events": {
+      "ai_tool": [
+        [
+          {
+            "node": "Outlook Calendar Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Calendar Event": {
+      "ai_tool": [
+        [
+          {
+            "node": "Outlook Calendar Assistant",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Available Calendars": {
+      "ai_tool": [
+        [
+          {
+            "node": "Outlook Calendar Assistant",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -23,12 +56,12 @@
         ]
       ]
     },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
+    "Outlook Calendar Assistant": {
+      "main": [
         [
           {
-            "node": "Outlook Calendar Assistant",
-            "type": "ai_languageModel",
+            "node": "Send Reply",
+            "type": "main",
             "index": 0
           }
         ]
@@ -52,6 +85,17 @@
         ]
       ]
     },
+    "Get Message": {
+      "main": [
+        [
+          {
+            "node": "Outlook Calendar Assistant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "On BOT/APP Mention": {
       "main": [
         [
@@ -62,115 +106,51 @@
           }
         ]
       ]
-    },
-    "Get Available Calendars": {
-      "ai_tool": [
-        [
-          {
-            "node": "Outlook Calendar Assistant",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create New Calendar Event": {
-      "ai_tool": [
-        [
-          {
-            "node": "Outlook Calendar Assistant",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Search All Outlook Events": {
-      "ai_tool": [
-        [
-          {
-            "node": "Outlook Calendar Assistant",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Outlook Calendar Assistant": {
-      "main": [
-        [
-          {
-            "node": "Send Reply",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
-  "createdAt": "2025-04-17T03:02:59.582Z",
-  "id": "yEcABvM0SkuBUKKb",
-  "meta": {
-    "templateId": "3449"
-  },
+  "createdAt": "2025-08-21T01:22:01.639Z",
+  "id": "93j21gGK9mbejor7",
+  "isArchived": false,
+  "meta": null,
   "name": "Manage Calendar Events with Slack Using OpenAI-Powered Outlook Assistant",
   "nodes": [
     {
-      "id": "e37622d2-d9d4-4aff-8c0f-a2945e739ccd",
-      "name": "OpenAI Chat Model",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "position": [
-        1540,
-        1140
-      ],
       "parameters": {
         "options": {}
       },
-      "credentials": {
-        "openAiApi": {
-          "id": "dbsbEP9NpcetZP6N",
-          "name": "Research Assistant"
-        }
-      },
+      "id": "e77eabc0-42c5-4535-b757-a5538d9d0ff2",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        320,
+        768
+      ],
       "typeVersion": 1
     },
     {
-      "id": "702c21cf-6ca5-4b1b-8511-fd082152e50b",
-      "name": "Search All Outlook Events",
-      "type": "n8n-nodes-base.microsoftOutlookTool",
-      "position": [
-        1900,
-        1140
-      ],
-      "webhookId": "486fda30-984a-4af6-990f-d5f30865fc29",
       "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to consume Microsoft Outlook API and fetch all outlook calendar events across all available calendars for a given filter.",
+        "resource": "event",
         "limit": 20,
         "filters": {
           "custom": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Filter_Query', ``, 'string') }}"
-        },
-        "resource": "event",
-        "descriptionType": "manual",
-        "toolDescription": "Call this tool to consume Microsoft Outlook API and fetch all outlook calendar events across all available calendars for a given filter."
-      },
-      "credentials": {
-        "microsoftOutlookOAuth2Api": {
-          "id": "FI6q5BSQGEZYgJLZ",
-          "name": "Microsoft Outlook account"
         }
       },
+      "id": "6726dcf0-2e7b-45e8-beaf-fc658efb72e7",
+      "name": "Search All Outlook Events",
+      "type": "n8n-nodes-base.microsoftOutlookTool",
+      "position": [
+        672,
+        768
+      ],
+      "webhookId": "486fda30-984a-4af6-990f-d5f30865fc29",
       "typeVersion": 2
     },
     {
-      "id": "c4d7571d-0d96-42f5-a1dd-d2ee8e467731",
-      "name": "Create New Calendar Event",
-      "type": "n8n-nodes-base.microsoftOutlookTool",
-      "position": [
-        2040,
-        1140
-      ],
-      "webhookId": "c4f72f45-2c3f-49cf-ac16-6b8fe701cc41",
       "parameters": {
-        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to consume Microsoft Outlook API and create a new outlook calendar event. Ensure the calendar ID exists before proceeding.",
         "resource": "event",
         "operation": "create",
         "calendarId": {
@@ -178,151 +158,132 @@
           "mode": "id",
           "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Calendar', ``, 'string') }}"
         },
-        "endDateTime": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
         "startDateTime": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
-        "descriptionType": "manual",
-        "toolDescription": "Call this tool to consume Microsoft Outlook API and create a new outlook calendar event. Ensure the calendar ID exists before proceeding.",
+        "endDateTime": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
         "additionalFields": {
           "body": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}"
         }
       },
-      "credentials": {
-        "microsoftOutlookOAuth2Api": {
-          "id": "FI6q5BSQGEZYgJLZ",
-          "name": "Microsoft Outlook account"
-        }
-      },
+      "id": "70e5c175-5c8e-4b10-93db-d14a76be526e",
+      "name": "Create New Calendar Event",
+      "type": "n8n-nodes-base.microsoftOutlookTool",
+      "position": [
+        816,
+        768
+      ],
+      "webhookId": "c4f72f45-2c3f-49cf-ac16-6b8fe701cc41",
       "typeVersion": 2
     },
     {
-      "id": "db5e44ab-7ec8-4831-9e41-34c963cd2314",
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to consume Microsoft Outlook API and fetch a list of available calendars.",
+        "resource": "calendar",
+        "limit": 20,
+        "filters": {}
+      },
+      "id": "47c8b91a-5633-4b12-9ea6-5afa82ac6318",
       "name": "Get Available Calendars",
       "type": "n8n-nodes-base.microsoftOutlookTool",
       "position": [
-        2180,
-        1140
+        960,
+        768
       ],
       "webhookId": "605be4f6-e8c4-4350-9da9-55988b069c5d",
-      "parameters": {
-        "limit": 20,
-        "filters": {},
-        "resource": "calendar",
-        "descriptionType": "manual",
-        "toolDescription": "Call this tool to consume Microsoft Outlook API and fetch a list of available calendars."
-      },
-      "credentials": {
-        "microsoftOutlookOAuth2Api": {
-          "id": "FI6q5BSQGEZYgJLZ",
-          "name": "Microsoft Outlook account"
-        }
-      },
       "typeVersion": 2
     },
     {
-      "id": "8102e365-eec4-48c6-986b-4ab8aac9e72a",
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.ts }}_{{ $json.user }}"
+      },
+      "id": "003ecb6d-f2a1-4742-a791-82c4d45b0ffb",
       "name": "Simple Memory",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        1700,
-        1140
+        480,
+        768
       ],
-      "parameters": {
-        "sessionKey": "={{ $json.ts }}_{{ $json.user }}",
-        "sessionIdType": "customKey"
-      },
       "typeVersion": 1.3
     },
     {
-      "id": "ebd79d18-86b9-4e8b-9a27-f9878fd3d617",
-      "name": "Outlook Calendar Assistant",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "position": [
-        1660,
-        920
-      ],
       "parameters": {
+        "promptType": "define",
         "text": "={{ $json.message.substr($json.message.indexOf('>')+1, 9999).trim() }}",
         "options": {
           "systemMessage": "=You are a helpful calendar assistant who can help users with calendar and event enquiries.\n* Today's date and time is {{ $now.toISO() }}."
-        },
-        "promptType": "define"
+        }
       },
+      "id": "7fa2c754-5da0-45ec-bdac-0713fba5e13d",
+      "name": "Outlook Calendar Assistant",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        432,
+        544
+      ],
       "typeVersion": 1.7
     },
     {
-      "id": "f976cea5-be3e-4e14-89f5-b5d05d66f0c7",
+      "parameters": {
+        "content": "### This n8n template demonstrates how easy it is to build an Outlook Calendar Assistant powered by an AI agent equipped with Tools.\n\nn8n's AI agents makes it easy to build powerful assistants which can interact with your existing services and tools. With little effort, you can expose such an agent to team members and colleagues though something like Slack and enable a company-wide productivity booster.\n\n### How it works\n* A Slack Trigger node is configured to catch \"bot mentions\" events in a designated channel.\n* The message is parsed using the Edit fields node to extract only the required attributes of the event.\n* An AI Agent equipped with Outlook Calendar Tools enables question and answer capability for the organisation's shared calendars and events.\n* The AI agent's response is sent back to Slack as a reply to the user's query.\n\n### How to use\n* The workflow is triggered via @mention-ing the bot followed by the query. eg. \"@bot how many meetings does Paul have to attend to this week?\"\n* To start listening to real mentions, you must activate the workflow and set it to production mode. You must use the production webhook URL for the event subscription.\n\n\n### Need Help?\nJoin the [Discord](https://discord.com/invite/XPKeKXeB7d) or ask in the [Forum](https://community.n8n.io/)!",
+        "height": 720,
+        "width": 440
+      },
+      "id": "50ed0f98-aa07-4b51-8b3c-9164e845ed30",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -848,
+        -144
       ],
-      "parameters": {
-        "width": 440,
-        "height": 720,
-        "content": "### This n8n template demonstrates how easy it is to build an Outlook Calendar Assistant powered by an AI agent equipped with Tools.\n\nn8n's AI agents makes it easy to build powerful assistants which can interact with your existing services and tools. With little effort, you can expose such an agent to team members and colleagues though something like Slack and enable a company-wide productivity booster.\n\n### How it works\n* A Slack Trigger node is configured to catch \"bot mentions\" events in a designated channel.\n* The message is parsed using the Edit fields node to extract only the required attributes of the event.\n* An AI Agent equipped with Outlook Calendar Tools enables question and answer capability for the organisation's shared calendars and events.\n* The AI agent's response is sent back to Slack as a reply to the user's query.\n\n### How to use\n* The workflow is triggered via @mention-ing the bot followed by the query. eg. \"@bot how many meetings does Paul have to attend to this week?\"\n* To start listening to real mentions, you must activate the workflow and set it to production mode. You must use the production webhook URL for the event subscription.\n\n\n### Need Help?\nJoin the [Discord](https://discord.com/invite/XPKeKXeB7d) or ask in the [Forum](https://community.n8n.io/)!"
-      },
       "typeVersion": 1
     },
     {
-      "id": "03083765-b3bb-42f6-8f30-7087687bc6eb",
-      "name": "Send Reply",
-      "type": "n8n-nodes-base.slack",
-      "position": [
-        2340,
-        920
-      ],
-      "webhookId": "68154e10-0b98-4d18-816c-2af8ab954694",
       "parameters": {
-        "text": "={{ $json.output }}",
         "select": "channel",
         "channelId": {
           "__rl": true,
           "mode": "id",
           "value": "={{ $('Get Message').item.json.channel }}"
         },
+        "text": "={{ $json.output }}",
         "otherOptions": {
+          "includeLinkToWorkflow": false,
           "thread_ts": {
             "replyValues": {
               "thread_ts": "={{ $('Get Message').item.json.ts }}"
             }
-          },
-          "includeLinkToWorkflow": false
+          }
         }
       },
-      "credentials": {
-        "slackApi": {
-          "id": "R6k5imXuLRRxalQY",
-          "name": "SYCn8n-Slack"
-        }
-      },
+      "id": "1595c970-6eba-4d7c-8771-60f5f0d6602b",
+      "name": "Send Reply",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        1120,
+        544
+      ],
+      "webhookId": "68154e10-0b98-4d18-816c-2af8ab954694",
       "typeVersion": 2.3
     },
     {
-      "id": "19c8e68b-2bf1-403a-a43d-cdc465233436",
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.body.challenge }}",
+        "options": {}
+      },
+      "id": "c14aa25a-0bb7-4f19-8a90-e04d0aefa459",
       "name": "Respond to Challenge",
       "type": "n8n-nodes-base.respondToWebhook",
       "position": [
-        1480,
-        660
+        256,
+        288
       ],
-      "parameters": {
-        "options": {},
-        "respondWith": "text",
-        "responseBody": "={{ $json.body.challenge }}"
-      },
       "typeVersion": 1.1
     },
     {
-      "id": "2b9f7d68-8e76-440b-9a8b-b9eb4fc7061c",
-      "name": "Is Auth Challenge?",
-      "type": "n8n-nodes-base.if",
-      "position": [
-        1200,
-        800
-      ],
       "parameters": {
-        "options": {},
         "conditions": {
           "options": {
             "version": 2,
@@ -343,20 +304,20 @@
               "rightValue": ""
             }
           ]
-        }
+        },
+        "options": {}
       },
+      "id": "ab544680-e769-4a29-b18a-1e863e215983",
+      "name": "Is Auth Challenge?",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        -32,
+        416
+      ],
       "typeVersion": 2.2
     },
     {
-      "id": "c91350ef-5701-4188-8b1f-de12a0076a56",
-      "name": "Get Message",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        1480,
-        920
-      ],
       "parameters": {
-        "options": {},
         "assignments": {
           "assignments": [
             {
@@ -390,97 +351,116 @@
               "value": "={{ $json.body.event.channel }}"
             }
           ]
-        }
+        },
+        "options": {}
       },
+      "id": "b171bf9b-3951-4cb3-b258-28ad6dcc9b46",
+      "name": "Get Message",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        256,
+        544
+      ],
       "typeVersion": 3.4
     },
     {
-      "id": "0681782d-21f3-4130-809c-188d83ebb7a9",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c63b08ce-360d-4185-aae1-294afef5cf2b",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "74df8f06-a26f-4e0c-9744-050dd80a60ff",
       "name": "On BOT/APP Mention",
       "type": "n8n-nodes-base.webhook",
       "position": [
-        920,
-        800
+        -304,
+        416
       ],
       "webhookId": "c63b08ce-360d-4185-aae1-294afef5cf2b",
-      "parameters": {
-        "path": "c63b08ce-360d-4185-aae1-294afef5cf2b",
-        "options": {},
-        "httpMethod": "POST",
-        "responseMode": "responseNode"
-      },
       "typeVersion": 2
     },
     {
-      "id": "d0b12a70-e3e8-4149-98ba-dc2cf01f9953",
+      "parameters": {
+        "content": "## 1. Listen for Bot Mentions\n[Read more about Webhook Trigger](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook)\n\n**Example**:\n`@bot how many meetings does Paul have to attend to this week?` ",
+        "height": 180,
+        "width": 380,
+        "color": 7
+      },
+      "id": "6a5b59b0-9e83-4e0e-8c2e-fe62195d316d",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        920,
-        580
+        -304,
+        208
       ],
-      "parameters": {
-        "color": 7,
-        "width": 380,
-        "height": 180,
-        "content": "## 1. Listen for Bot Mentions\n[Read more about Webhook Trigger](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook)\n\n**Example**:\n`@bot how many meetings does Paul have to attend to this week?` "
-      },
       "typeVersion": 1
     },
     {
-      "id": "095fd13e-a660-46a8-95c6-b960083681f7",
+      "parameters": {
+        "content": "## 2. AI Agent with Outlook Calendar Tools\n[Learn more about the AI Agent node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent)\n\nThis agent has 3 Outlook tools to search, browse and even create calendar events for the user. Agents are great in that we don't have to tell the agent what and when to use the tools - it'll make that decision on its own!",
+        "height": 220,
+        "width": 540,
+        "color": 7
+      },
+      "id": "e9372530-5ec3-466e-a4e9-b74d9b9bb8da",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1720,
-        660
+        496,
+        288
       ],
-      "parameters": {
-        "color": 7,
-        "width": 540,
-        "height": 220,
-        "content": "## 2. AI Agent with Outlook Calendar Tools\n[Learn more about the AI Agent node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent)\n\nThis agent has 3 Outlook tools to search, browse and even create calendar events for the user. Agents are great in that we don't have to tell the agent what and when to use the tools - it'll make that decision on its own!"
-      },
       "typeVersion": 1
     },
     {
-      "id": "3b2662a2-9a79-4848-89db-a5699942f39c",
+      "parameters": {
+        "content": "## 3. Reply to User\n[Learn more about the Slack node](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack)\n\nSimple sends a reply back to the user answering their query. Of course, this is the simplest case and it'll be up to you to handle multi-turn conversation as needed.",
+        "height": 200,
+        "width": 400,
+        "color": 7
+      },
+      "id": "cc04bfd7-8091-4776-a36c-c5860f107454",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2340,
-        1100
+        1120,
+        720
       ],
-      "parameters": {
-        "color": 7,
-        "width": 400,
-        "height": 200,
-        "content": "## 3. Reply to User\n[Learn more about the Slack node](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack)\n\nSimple sends a reply back to the user answering their query. Of course, this is the simplest case and it'll be up to you to handle multi-turn conversation as needed."
-      },
       "typeVersion": 1
     },
     {
-      "id": "f00e8727-12f2-4dad-8736-98bd0996f19a",
+      "parameters": {
+        "content": "### Setting Up Slack App Event Subscriptions\n1. Go to https://api.slack.com/apps\n2. Create or Select your App\n3. Under Features, click into \"Event Subscriptions\"\n4. On this page, toggle on the \"Enable Events\" option\n5. Enter the production URL of this template - your workflow but be active and publicly accessible for this to work.\n6. Slack will issue a \"challenge\" request to this workflow which will respond and verify the subscription.\n7. If successful, under \"subscribe to bot events\", find and select the \"app_mention\" option.\n8. Hit \"save changes\" at the bottom of the page.\n9. This workflow should now trigger when your bot is \"@mention\" in the channel.  ",
+        "height": 340,
+        "width": 440,
+        "color": 5
+      },
+      "id": "5369bd62-a447-4347-9b62-5d2a8e9d9ff9",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        980
+        -848,
+        608
       ],
-      "parameters": {
-        "color": 5,
-        "width": 440,
-        "height": 340,
-        "content": "### Setting Up Slack App Event Subscriptions\n1. Go to https://api.slack.com/apps\n2. Create or Select your App\n3. Under Features, click into \"Event Subscriptions\"\n4. On this page, toggle on the \"Enable Events\" option\n5. Enter the production URL of this template - your workflow but be active and publicly accessible for this to work.\n6. Slack will issue a \"challenge\" request to this workflow which will respond and verify the subscription.\n7. If successful, under \"subscribe to bot events\", find and select the \"app_mention\" option.\n8. Hit \"save changes\" at the bottom of the page.\n9. This workflow should now trigger when your bot is \"@mention\" in the channel.  "
-      },
       "typeVersion": 1
     }
   ],
-  "pinData": null,
-  "settings": null,
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T01:22:01.643Z",
+      "updatedAt": "2025-08-21T01:22:01.643Z",
+      "role": "workflow:owner",
+      "workflowId": "93j21gGK9mbejor7",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-19T22:15:36.000Z",
-  "versionId": "7ee0e7d2-350e-43e5-aec9-3a68712955b0"
+  "updatedAt": "2025-08-21T01:22:10.000Z",
+  "versionId": "e6944b5d-c681-4e98-9dfe-d3d77bf76bdf"
 }
