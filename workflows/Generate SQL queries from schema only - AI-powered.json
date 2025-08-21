@@ -1,67 +1,12 @@
 {
   "active": false,
   "connections": {
-    "AI Agent": {
-      "main": [
-        [
-          {
-            "node": "Extract SQL query",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Chat Trigger": {
-      "main": [
-        [
-          {
-            "node": "Load the schema from the local file",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Run SQL query": {
-      "main": [
-        [
-          {
-            "node": "Format query results",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Extract SQL query": {
-      "main": [
-        [
-          {
-            "node": "Check if query exists",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI Chat Model": {
       "ai_languageModel": [
         [
           {
             "node": "AI Agent",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Format query results": {
-      "main": [
-        [
-          {
-            "node": "Combine query result and chat answer",
-            "type": "main",
             "index": 0
           }
         ]
@@ -78,45 +23,11 @@
         ]
       ]
     },
-    "Check if query exists": {
+    "List all tables in a database": {
       "main": [
         [
           {
-            "node": "Run SQL query",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Combine query result and chat answer",
-            "type": "main",
-            "index": 1
-          }
-        ],
-        [
-          {
-            "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Convert data to binary": {
-      "main": [
-        [
-          {
-            "node": "Save file locally",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Extract data from file": {
-      "main": [
-        [
-          {
-            "node": "Combine schema data and chat input",
+            "node": "Extract database schema",
             "type": "main",
             "index": 0
           }
@@ -145,11 +56,44 @@
         ]
       ]
     },
-    "List all tables in a database": {
+    "Convert data to binary": {
       "main": [
         [
           {
-            "node": "Extract database schema",
+            "node": "Save file locally",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract data from file": {
+      "main": [
+        [
+          {
+            "node": "Combine schema data and chat input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load the schema from the local file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Extract SQL query",
             "type": "main",
             "index": 0
           }
@@ -189,6 +133,62 @@
         ]
       ]
     },
+    "Extract SQL query": {
+      "main": [
+        [
+          {
+            "node": "Check if query exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check if query exists": {
+      "main": [
+        [
+          {
+            "node": "Run SQL query",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Combine query result and chat answer",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format query results": {
+      "main": [
+        [
+          {
+            "node": "Combine query result and chat answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run SQL query": {
+      "main": [
+        [
+          {
+            "node": "Format query results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Combine query result and chat answer": {
       "main": [
         [
@@ -201,11 +201,10 @@
       ]
     }
   },
-  "createdAt": "2025-02-11T17:30:31.293Z",
-  "id": "8xXgWhqngEyGt6i5",
-  "meta": {
-    "templateId": "2508"
-  },
+  "createdAt": "2025-08-21T00:25:58.640Z",
+  "id": "SJ973QHv2SWRbofA",
+  "isArchived": false,
+  "meta": null,
   "name": "Generate SQL queries from schema only - AI-powered",
   "nodes": [
     {
@@ -215,12 +214,12 @@
           "temperature": 0.2
         }
       },
-      "id": "b7c3ca47-11b3-4378-81fa-68b2f56b295e",
+      "id": "5e35a666-224d-40c9-a549-8a6732489176",
       "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "position": [
-        1520,
-        960
+        560,
+        544
       ],
       "typeVersion": 1
     },
@@ -228,23 +227,23 @@
       "parameters": {
         "contextWindowLength": 10
       },
-      "id": "977c3a82-440b-4d44-9042-47a673bcb52c",
+      "id": "89647935-6bb5-46ba-a849-58978af18e78",
       "name": "Window Buffer Memory",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "position": [
-        1700,
-        960
+        752,
+        544
       ],
       "typeVersion": 1.2
     },
     {
       "parameters": {},
-      "id": "c6e9c0e2-d238-4f0b-a4c8-2271f2c8b31b",
+      "id": "bb00a028-895a-4901-99b9-847db81a6b35",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        2400,
-        1040
+        1440,
+        624
       ],
       "typeVersion": 1
     },
@@ -254,12 +253,12 @@
         "query": "SHOW TABLES;",
         "options": {}
       },
-      "id": "4c141ae8-d2d1-45c7-bb5d-f33841d3cee6",
+      "id": "d8ee61f2-001c-49c2-8525-d44496439e8c",
       "name": "List all tables in a database",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        580,
-        500
+        -368,
+        96
       ],
       "typeVersion": 2.4
     },
@@ -269,12 +268,12 @@
         "query": "DESCRIBE {{ $json.Tables_in_tttytdb2023 }};",
         "options": {}
       },
-      "id": "54fb3362-041b-4e4f-bfea-f0bc788d8dfd",
+      "id": "36956950-8448-421d-9f36-988717ac23b4",
       "name": "Extract database schema",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        760,
-        500
+        -192,
+        96
       ],
       "typeVersion": 2.4
     },
@@ -293,12 +292,12 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "d55e841d-11ed-4ce2-8c8e-840bd807ff2c",
+      "id": "6d9ecad2-76b8-4212-a844-5a1fa49b0d58",
       "name": "Add table name to output",
       "type": "n8n-nodes-base.set",
       "position": [
-        940,
-        500
+        -16,
+        96
       ],
       "typeVersion": 3.4
     },
@@ -307,12 +306,12 @@
         "operation": "toJson",
         "options": {}
       },
-      "id": "ca8d30d6-c1f1-4e89-8cd5-ea3648dc3b0c",
+      "id": "260a6eab-41a5-498b-b5c2-6983234dcd30",
       "name": "Convert data to binary",
       "type": "n8n-nodes-base.convertToFile",
       "position": [
-        1120,
-        500
+        160,
+        96
       ],
       "typeVersion": 1.1
     },
@@ -322,12 +321,12 @@
         "fileName": "./chinook_mysql.json",
         "options": {}
       },
-      "id": "2d89f901-d4e7-4fea-bd69-20b518280bbc",
+      "id": "106e5310-61eb-44da-b848-fbafea8f03db",
       "name": "Save file locally",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        1280,
-        500
+        320,
+        96
       ],
       "typeVersion": 1
     },
@@ -336,12 +335,12 @@
         "operation": "fromJson",
         "options": {}
       },
-      "id": "04511c4f-44fa-4c23-87af-54d959e6cb2c",
+      "id": "32824609-88ee-4d47-89e5-3455897a2106",
       "name": "Extract data from file",
       "type": "n8n-nodes-base.extractFromFile",
       "position": [
-        980,
-        940
+        32,
+        528
       ],
       "typeVersion": 1
     },
@@ -349,12 +348,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "96f129c0-d1d4-4cbf-a24d-0b0cea18a229",
+      "id": "d229b567-366f-4774-be2e-528428d9f188",
       "name": "Chat Trigger",
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "position": [
-        500,
-        940
+        -448,
+        528
       ],
       "webhookId": "c308dec7-655c-4b79-832e-991bd8ea891f",
       "typeVersion": 1.1
@@ -369,12 +368,12 @@
           "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.\n\nHelp user to work with the MySQL database.\n\nPlease wrap any sql commands into triple quotes. You don't have a tool to run SQL, so the user will do that instead of you."
         }
       },
-      "id": "4d993ed9-3bbe-4bc3-9e5b-c3d738b0e714",
+      "id": "86903ea6-df91-4183-8f12-8bd8b51f39c8",
       "name": "AI Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        1540,
-        820
+        592,
+        416
       ],
       "typeVersion": 1.6
     },
@@ -385,12 +384,12 @@
         "width": 1065.0949045120822,
         "color": 3
       },
-      "id": "f5749b31-b28a-4341-b57f-94ee422d2873",
+      "id": "68de21cc-774b-4c5d-9987-55f50716465c",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -576,
+        -176
       ],
       "typeVersion": 1
     },
@@ -401,23 +400,23 @@
         "width": 312.47220527158765,
         "color": 6
       },
-      "id": "6606abc9-1dcb-4dba-b7ef-e221f892eed8",
+      "id": "dc79ea76-8957-4564-a8c1-01374d9a9f28",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1100,
-        280
+        144,
+        -128
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "c8ac730a-04ee-499d-b845-1149967d6aa2",
+      "id": "c0538068-4631-4c21-a27e-09305d802a77",
       "name": "When clicking \"Test workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        420,
-        500
+        -528,
+        96
       ],
       "typeVersion": 1
     },
@@ -428,12 +427,12 @@
         "width": 1062.678698911262,
         "color": 6
       },
-      "id": "6f0b167c-e012-43e1-9892-ded05be47cf8",
+      "id": "90700e7e-14bd-47b6-a848-403f45b239e0",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        400,
-        740
+        -560,
+        336
       ],
       "typeVersion": 1
     },
@@ -444,12 +443,12 @@
         "width": 445.66588600071304,
         "color": 6
       },
-      "id": "3a79350c-aec1-4ad4-a2e0-679957fa420b",
+      "id": "128592ad-08cc-4af4-b6e8-2e1ff69eee9d",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1460,
-        520
+        512,
+        112
       ],
       "typeVersion": 1
     },
@@ -485,12 +484,12 @@
         },
         "options": {}
       },
-      "id": "0cd425db-2a8e-4f48-b749-9a082e948395",
+      "id": "081febd3-9f00-4980-8e47-50a6dd32a791",
       "name": "Combine schema data and chat input",
       "type": "n8n-nodes-base.set",
       "position": [
-        1200,
-        940
+        240,
+        528
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -500,12 +499,12 @@
         "fileSelector": "./chinook_mysql.json",
         "options": {}
       },
-      "id": "e4045e33-bb87-488d-8ccf-b4a94339a841",
+      "id": "190a8149-e99e-419b-8153-91591a5daa8b",
       "name": "Load the schema from the local file",
       "type": "n8n-nodes-base.readWriteFile",
       "position": [
-        740,
-        940
+        -208,
+        528
       ],
       "typeVersion": 1
     },
@@ -524,12 +523,12 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "367ebe95-0b87-44f6-8392-33fe65446c24",
+      "id": "5e55f481-dbb4-4630-871a-45d9701f7f1c",
       "name": "Extract SQL query",
       "type": "n8n-nodes-base.set",
       "position": [
-        1960,
-        860
+        1008,
+        448
       ],
       "typeVersion": 3.4
     },
@@ -558,12 +557,12 @@
         },
         "options": {}
       },
-      "id": "b856fe78-2435-4075-97f8-ecbeecf3e780",
+      "id": "f9277f64-5411-415e-9ffd-5cb9bd1f1aa3",
       "name": "Check if query exists",
       "type": "n8n-nodes-base.if",
       "position": [
-        2120,
-        960
+        1168,
+        544
       ],
       "typeVersion": 2.2
     },
@@ -574,12 +573,12 @@
         "width": 317.8901548206743,
         "color": 3
       },
-      "id": "87162d31-2f6c-4f4a-af28-c65cbadd8ed5",
+      "id": "84ddc56b-76a6-4ad0-93c4-2c13cc8ed4f5",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1940,
-        760
+        992,
+        352
       ],
       "typeVersion": 1
     },
@@ -590,12 +589,12 @@
         "width": 882.7611828369563,
         "color": 6
       },
-      "id": "b3e77333-eaa9-4d23-a78c-8a19ae074739",
+      "id": "7e9fd1e9-0d2d-4b47-ab39-f1c205a81666",
       "name": "Sticky Note5",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1920,
-        520
+        960,
+        112
       ],
       "typeVersion": 1
     },
@@ -606,12 +605,12 @@
         "width": 257.46308756569573,
         "color": 3
       },
-      "id": "269ea79d-5f17-4764-aebb-bba31b43d8bb",
+      "id": "59546af6-8931-43d8-a626-eed5d6675202",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1640,
-        1100
+        688,
+        688
       ],
       "typeVersion": 1
     },
@@ -622,12 +621,12 @@
         "width": 308.8514666587585,
         "color": 3
       },
-      "id": "2fd1175c-4110-48be-b6bf-2251c678bc04",
+      "id": "baec9fda-d25b-4706-b27d-14eee97276c3",
       "name": "Sticky Note6",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2480,
-        520
+        1520,
+        112
       ],
       "typeVersion": 1
     },
@@ -638,12 +637,12 @@
         "width": 250.40895053328057,
         "color": 3
       },
-      "id": "61ae7f7c-1424-4ecb-8a12-78cd98e94d45",
+      "id": "3168a7ab-c47a-439c-b6bb-a99dce91dd09",
       "name": "Sticky Note8",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2540,
-        1120
+        1584,
+        704
       ],
       "typeVersion": 1
     },
@@ -661,12 +660,12 @@
         },
         "options": {}
       },
-      "id": "cbb6d1e1-0a75-4b3a-89cd-6bd545b8d414",
+      "id": "a0cc51b4-1b96-43ea-9086-bf97a4d90408",
       "name": "Format query results",
       "type": "n8n-nodes-base.set",
       "position": [
-        2480,
-        660
+        1520,
+        256
       ],
       "executeOnce": true,
       "typeVersion": 3.4
@@ -677,12 +676,12 @@
         "query": "{{ $json.query }}",
         "options": {}
       },
-      "id": "d958de24-84ef-4928-a7f3-32cada09a0eb",
+      "id": "a11f578a-9945-4571-8745-c806432842ea",
       "name": "Run SQL query",
       "type": "n8n-nodes-base.mySql",
       "position": [
-        2320,
-        660
+        1360,
+        256
       ],
       "typeVersion": 2.4
     },
@@ -700,12 +699,12 @@
         },
         "options": {}
       },
-      "id": "99a6dc03-1035-4866-81e4-11dc66bf98ec",
+      "id": "6e079bec-3195-49cc-847b-cc5629c93893",
       "name": "Prepare final output",
       "type": "n8n-nodes-base.set",
       "position": [
-        2620,
-        940
+        1664,
+        528
       ],
       "typeVersion": 3.4
     },
@@ -715,12 +714,12 @@
         "combineBy": "combineByPosition",
         "options": {}
       },
-      "id": "9380c2f6-15d9-43e4-80a2-3019bcf5ae04",
+      "id": "40d9de7f-08b7-49a9-9f51-28e347c2e96d",
       "name": "Combine query result and chat answer",
       "type": "n8n-nodes-base.merge",
       "position": [
-        2400,
-        860
+        1440,
+        448
       ],
       "typeVersion": 3
     }
@@ -729,9 +728,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+  "shared": [
+    {
+      "createdAt": "2025-08-21T00:25:58.643Z",
+      "updatedAt": "2025-08-21T00:25:58.643Z",
+      "role": "workflow:owner",
+      "workflowId": "SJ973QHv2SWRbofA",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-04-20T06:00:01.000Z",
-  "versionId": "f978d1e8-d727-4c49-a179-fd87a26da99a"
+  "updatedAt": "2025-08-21T00:26:05.000Z",
+  "versionId": "2b0d4950-9907-4d19-9a2b-64d59fc070ba"
 }
