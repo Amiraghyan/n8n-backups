@@ -1,0 +1,324 @@
+{
+  "active": false,
+  "connections": {
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Recover Snapshot Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Dataset": {
+      "ai_tool": [
+        [
+          {
+            "node": "Real Estate AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Real Estate AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Real Estate AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Snapshot is ready?": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Snapshot Content": {
+      "ai_tool": [
+        [
+          {
+            "node": "Real Estate AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recover Snapshot Content": {
+      "main": [
+        [
+          {
+            "node": "Snapshot is ready?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Real Estate AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Recover Snapshot Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-26T17:01:44.695Z",
+  "id": "92bv7oP9DokUZ21W",
+  "isArchived": false,
+  "meta": {
+    "templateId": "4872"
+  },
+  "name": "🏠 Find your Home with Real Estate Agent and Bright Data",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hi there! 👋\n\nMy name is Miquel and I am your personal Real Estate agent. I help you to find your new home.\n\nWhat are you looking for?",
+        "options": {
+          "showWelcomeScreen": true
+        }
+      },
+      "id": "d9e07286-a8be-4c28-8519-acf7cd35ad86",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        432,
+        800
+      ],
+      "webhookId": "57251efe-e57c-43e2-ac58-bf27f1ec639d",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 30
+      },
+      "id": "7ca48714-3c65-4f32-9491-7b7b621aaa00",
+      "name": "Simple Memory1",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        912,
+        992
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "id": "79bea812-5a33-40a1-aa74-fe202d39dded",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        752,
+        992
+      ],
+      "typeVersion": 1.2,
+      "credentials": {
+        "openAiApi": {
+          "id": "PXmFo7dA7Eis6hfm",
+          "name": "AAA OpenAI"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "30ef3cfc-56db-4092-af0d-304afdad94f0",
+      "name": "Filter Dataset",
+      "type": "n8n-nodes-brightdata.brightDataTool",
+      "position": [
+        1072,
+        992
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "6c4c4338-e4d2-40ee-89c0-89e1dd1dc330",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        672,
+        512
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "or",
+          "conditions": [
+            {
+              "id": "3e99082f-412a-4e33-ab77-c99ddd4d7ff5",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.items[0].abbreviatedAddress }}",
+              "rightValue": "NodeApiError"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9db2680e-8bad-4b91-9cd6-8240f53081a0",
+      "name": "Snapshot is ready?",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1216,
+        512
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {},
+      "id": "75f66a3a-7738-4a1c-af8a-29385ad41749",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "position": [
+        1440,
+        592
+      ],
+      "webhookId": "7d5607bb-7cbd-439e-a95e-dfe326486b74",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "=You are an expert AI Real Estate Agent.\n\nFollow the next guidelines always:\n\n1) If you have no memory, recover the metadata from the next databases:\n- Zillow properties listing information gd_lfqkr8wm13ixtbd8f5\nWe have the next filters:\n- city: City name where entity is located. Contains valid US city names as text strings.\n- bedrooms: Column stores the number of bedrooms in properties. Values are positive integers ranging from 1 to 7, with most properties having 2-4 bedrooms and no null values.\n- bathrooms: Number of bathrooms in residential properties. Values are positive integers ranging from 1 to 7, with most properties having 2-3 bathrooms and no null values.\n- price: Property price in US dollars. Format sample: 180,000\n\nInform user that only 3 houses will be reported.\nOnly call filterDataset if user completes city, bedrooms, bathrooms and price filters.\n\n2) Use filterDataset to generate a snapshot of the requested houses by mapping filter of the user.\nOnly allow one call to tool \"Filter Dataset\", \n\n3) After calling \"filter Dataset\" tool, use tool \"Get Snapshot Content\". Pass snapshot_id parameter.\n\n4) Use output from tool \"Get Snapshot Content\" to convert json to a list of properties with ul > li\nuse returned images to present home briefing",
+          "maxIterations": 10
+        }
+      },
+      "id": "19beba9e-6089-443f-a384-4be3ec821423",
+      "name": "Real Estate AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        880,
+        800
+      ],
+      "typeVersion": 1.9
+    },
+    {
+      "parameters": {
+        "content": "# Real Estate AI Agent with Bright Data\n\n## TODO\n- After pasting this workflow, update node \"Get Snapshot Content\" tool and add current Workflow ID (for instance, if your workflow in n8n has the next url https://n8n-ai.cr.vps2.clients.killia.com/workflow/fjEIEQ1L6n2IKqlx your workflow Id is fjEIEQ1L6n2IKqlx).\n- Add your Bright Data api key to \"Filter Dataset\" tool and \"Recover Snapshot Content\" node.",
+        "height": 880,
+        "width": 1260
+      },
+      "id": "679e5b92-7b52-4230-a395-f3840d167756",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "118c60c3-3a46-4ca2-be84-997218949bde",
+      "name": "Recover Snapshot Content",
+      "type": "n8n-nodes-brightdata.brightData",
+      "position": [
+        992,
+        512
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "92bv7oP9DokUZ21W",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "id": "5cc00806-6995-4d82-a832-f3159a66e31a",
+      "name": "Get Snapshot Content",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "position": [
+        1232,
+        992
+      ],
+      "typeVersion": 2.2
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "shared": [
+    {
+      "createdAt": "2025-08-26T17:01:44.714Z",
+      "updatedAt": "2025-08-26T17:01:44.714Z",
+      "role": "workflow:owner",
+      "workflowId": "92bv7oP9DokUZ21W",
+      "projectId": "yxFGV0GmdwTIiKaD"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-26T17:04:07.000Z",
+  "versionId": "ac9554f5-c5bc-499e-af58-e6f807ec030e"
+}
