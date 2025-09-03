@@ -492,8 +492,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3248,
-        1888
+        2720,
+        1408
       ],
       "id": "d9d9b382-5066-4340-a0eb-da0b0e0c5e1e",
       "name": "Download file",
@@ -518,8 +518,8 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
       "typeVersion": 1.3,
       "position": [
-        3456,
-        1888
+        2928,
+        1408
       ],
       "id": "5d99c139-2e7b-4420-81bd-afbe32ec6e4d",
       "name": "Supabase Vector Store1",
@@ -537,8 +537,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        3360,
-        2080
+        2832,
+        1600
       ],
       "id": "6284b365-f354-48d7-ad59-d4856bf38224",
       "name": "Embeddings OpenAI2",
@@ -558,8 +558,8 @@
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1.1,
       "position": [
-        3600,
-        2016
+        3072,
+        1536
       ],
       "id": "e4c5429d-5db9-4229-bb41-6979b1315f8b",
       "name": "Default Data Loader1"
@@ -571,8 +571,8 @@
       "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
       "typeVersion": 1,
       "position": [
-        3488,
-        2080
+        2960,
+        1600
       ],
       "id": "2c264913-964c-4913-af2f-86d299031ccf",
       "name": "Recursive Character Text Splitter1"
@@ -643,6 +643,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-27T08:04:10.000Z",
-  "versionId": "05b49dfa-7f13-4cdb-b659-cc005a2e7f4e"
+  "updatedAt": "2025-09-03T16:07:13.000Z",
+  "versionId": "36956a9c-226d-4f62-8020-9490360173d3"
 }
