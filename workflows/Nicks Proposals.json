@@ -228,7 +228,13 @@
         112
       ],
       "id": "7088592f-04d8-46fe-b4a5-99af27110f3e",
-      "name": "OpenAI"
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "WYRQt22D3Ej2FW2r",
+          "name": "OpenAi Blue&"
+        }
+      }
     },
     {
       "parameters": {
@@ -391,7 +397,13 @@
         560
       ],
       "id": "ef6ea975-df2c-43e7-8895-161fc3dfb425",
-      "name": "OpenAI1"
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "WYRQt22D3Ej2FW2r",
+          "name": "OpenAi Blue&"
+        }
+      }
     },
     {
       "parameters": {
@@ -560,6 +572,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-21T10:00:46.000Z",
-  "versionId": "666fb0b9-ed1b-4ab8-9eaa-567174f75e93"
+  "updatedAt": "2025-09-04T19:08:07.000Z",
+  "versionId": "3de256eb-bcd4-4dd2-9392-b166e832954b"
 }
